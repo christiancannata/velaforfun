@@ -1,12 +1,36 @@
 security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
     providers:
-        in_memory:
-            memory: ~
-
+        fos_userbundle:
+            id: fos_user.user_provider.username
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt|error)|css|images|js)/
-            security: false
+        secure_area:
+            remember_me:
+                key:      "%secret%"
+                lifetime: 31536000 # 365 giorni in secondi
+                path:     /
+                domain:   ~ # Defaults to the current domain from $_SERVER
+            pattern: ^/
 
-        default:
-            anonymous: ~
+            oauth:
+                failure_path: /secure_area/connect
+                login_path: /secure_area/connect
+                check_path: /secure_area/connect
+                provider: fos_userbundle
+                resource_owners:
+                    facebook:           "/secure_area/login/check-facebook"
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.fosub_bridge
+
+            anonymous:    true
+            logout:
+                path:           /secure_area/logout
+                target:         /secure_area/connect #where to go after logout
+
+
+    access_control:
+        - { path: ^/secure_area/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/secure_area/connect, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/secure_area, roles: ROLE_USER }
+
