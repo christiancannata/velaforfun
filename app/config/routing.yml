@@ -61,5 +61,5 @@ CCDNForumForumBundle:
     resource: "@CCDNForumForumBundle/Resources/config/routing.yml"
 
 ccdn_homepage:
-    pattern: /
-    defaults: { _controller: CCDNForumForumBundle:UserCategory:index, _locale: it, forumName: default }
+    pattern: /forum
+    defaults: { _controller: CCDNForumForumBundle:UserCategory:index,  forumName: default }
