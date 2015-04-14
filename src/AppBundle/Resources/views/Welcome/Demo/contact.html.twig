@@ -1,0 +1,67 @@
+{% extends "AcmeDemoBundle:Demo:layout.html.twig" %}
+
+    {% block body %}
+        <section>
+
+            <div class="m-12 bg-dark-blue">
+                <div class="module-content">
+
+                    <div class="m-06 bg-orange">
+                        <div class="module-content">
+                            <div class="title-default">
+                                <h2>Contact form</h2>
+                            </div>
+                            <form id="ajax-contact" action="{{ path('_demo_contact') }}" method="POST" >
+                                {{ form_errors(form) }}
+
+                                {{ form_row(form.email) }}
+                                {{ form_row(form.message) }}
+
+                                {{ form_rest(form) }}
+                                <button type="submit">Send</button>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="m-06">
+                        <div class="module-content">
+                            <div class="title-default">
+                                <h2>Contact info</h2>
+                            </div>
+                            <ul class="contact-info">
+                                <li><i class="fa fa-map-marker"></i> 12345 North Main Street, New York, NY 555555 </li>
+                                <li><i class="fa fa-phone"></i> 1.222.333.3333 </li>
+                                <li><i class="fa fa-print"></i> 1.222.555.3333 </li>
+                                <li><i class="fa fa-envelope"></i> support@sportnews.com </li>
+                                <li><i class="fa fa-desktop"></i> SportNews.com </li>
+                            </ul>
+                        </div>
+
+                        <div class="module-content">
+                            <div class="title-default">
+                                <h2>More</h2>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quis, asperiores, mollitia, sint alias repellendus neque in id eveniet tempora harum fugiat odit nobis facere adipisci vitae debitis aliquam accusantium.</p>
+                        </div>
+                    </div>
+
+                    <div class="m-12">
+                        <div class="share">
+                            <ul>
+                                <li class="share-title">Get Social:</li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+    {% endblock %}

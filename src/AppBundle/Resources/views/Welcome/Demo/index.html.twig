@@ -1,0 +1,149 @@
+{% extends "AcmeDemoBundle:Demo:layout.html.twig" %}
+
+    {% block header %}
+
+
+        {% if app.user %}
+            <div class="clearfix header-content ">
+                <h2>Ciao {{ app.user.getNome() }},</h2>
+
+                <p>Accedi alla tua area riservata per gestire i tuoi campionati</p>
+                <a href="#" class="button yellow-bg">Entra nell'area riservata</a>
+
+            </div>
+        {% elseif not app.user %}
+            <div class="clearfix header-content ">
+                <h1>World sport Template</h1>
+
+                <br>
+                <a class="button green-bg"
+                   href="secure_area/connect/facebook">facebook</a>
+
+                <h3>Oppure</h3>
+
+                <div class="main-login-area">
+                    <ul>
+                        <li><a class="cd-signin" href="#0">Accedi</a></li>
+                        <li><a class="cd-signup" href="#0">Nuovo utente</a></li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+        {% endif %}
+
+
+
+
+
+
+
+
+        <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+            <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+                <ul class="cd-switcher">
+                    <li><a href="#0">Accedi</a></li>
+                    <li><a href="#0">Registrati</a></li>
+                </ul>
+
+                <div id="cd-login"> <!-- log in form -->
+
+                    <form class="cd-form" action="{{ path("fos_user_security_check") }}" method="post">
+                        <p class="fieldset">
+                            <label class="image-replace cd-email" for="signin-email">E-mail</label>
+                            <input id="signin-email" type="text" name="_username" required="required"
+                                   placeholder="E-mail" class="full-width has-padding has-border"/>
+                            <span class="cd-error-message">Error message here!</span>
+                        </p>
+
+                        <p class="fieldset">
+                            <label class="image-replace cd-password" for="signin-password">Password</label>
+                            <input id="signin-password" class="full-width has-padding has-border" type="password"
+                                   placeholder="Password" name="_password" required="required"/>
+                            <a href="#0" class="hide-password">Hide</a>
+                            <span class="cd-error-message">Error message here!</span>
+                        </p>
+
+                        <p class="fieldset">
+                            <input type="checkbox" id="remember-me" name="_remember_me" checked>
+                            <label for="remember-me">Ricordami</label>
+                        </p>
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}"/>
+
+                        <p class="fieldset">
+                            <input class="full-width" type="submit" value="Login">
+                        </p>
+                    </form>
+
+                    <p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
+                    <!-- <a href="#0" class="cd-close-form">Close</a> -->
+                </div>
+                <!-- cd-login -->
+
+                <div id="cd-signup"> <!-- sign up form -->
+                    <form class="cd-form">
+                        <p class="fieldset">
+                            <label class="image-replace cd-username" for="signup-username">Username</label>
+                            <input class="full-width has-padding has-border" id="signup-username" type="text"
+                                   placeholder="Username">
+                            <span class="cd-error-message">Error message here!</span>
+                        </p>
+
+                        <p class="fieldset">
+                            <label class="image-replace cd-email" for="signup-email">E-mail</label>
+                            <input class="full-width has-padding has-border" id="signup-email" type="email"
+                                   placeholder="E-mail">
+                            <span class="cd-error-message">Error message here!</span>
+                        </p>
+
+                        <p class="fieldset">
+                            <label class="image-replace cd-password" for="signup-password">Password</label>
+                            <input class="full-width has-padding has-border" id="signup-password" type="text"
+                                   placeholder="Password">
+                            <a href="#0" class="hide-password">Hide</a>
+                            <span class="cd-error-message">Error message here!</span>
+                        </p>
+
+                        <p class="fieldset">
+                            <input type="checkbox" id="accept-terms">
+                            <label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+                        </p>
+
+                        <p class="fieldset">
+                            <input class="full-width has-padding" type="submit" value="Create account">
+                        </p>
+                    </form>
+
+                    <!-- <a href="#0" class="cd-close-form">Close</a> -->
+                </div>
+                <!-- cd-signup -->
+
+                <div id="cd-reset-password"> <!-- reset password form -->
+                    <p class="cd-form-message">Lost your password? Please enter your email address. You will receive a
+                        link to create a new password.</p>
+
+                    <form class="cd-form">
+                        <p class="fieldset">
+                            <label class="image-replace cd-email" for="reset-email">E-mail</label>
+                            <input class="full-width has-padding has-border" id="reset-email" type="email"
+                                   placeholder="E-mail">
+                            <span class="cd-error-message">Error message here!</span>
+                        </p>
+
+                        <p class="fieldset">
+                            <input class="full-width has-padding" type="submit" value="Reset password">
+                        </p>
+                    </form>
+
+                    <p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+                </div>
+                <!-- cd-reset-password -->
+                <a href="#0" class="cd-close-form">Close</a>
+            </div>
+            <!-- cd-user-modal-container -->
+        </div> <!-- cd-user-modal -->
+    {% endblock %}
+
+

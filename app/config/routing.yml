@@ -1,3 +1,65 @@
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    prefix: /secure_area
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /secure_area/profile
+
+fos_user_registration_register:
+    defaults: { _controller: AppBundle:Registration:register }
+    pattern:   /secure_area/register
+
+fos_user_registration_check_email:
+    defaults: { _controller: AppBundle:Registration:checkEmail }
+    pattern:   /secure_area/register/check-email
+
+fos_user_registration_confirm:
+    defaults: { _controller: AppBundle:Registration:checkEmail }
+    pattern:   /secure_area/register/confirm/{token}
+
+fos_user_registration_confirmed:
+    defaults: { _controller: AppBundle:Registration:confirmed }
+    pattern:   /secure_area/register/confirmed
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /secure_area/resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /secure_area/profile
+
+
 app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+    resource: "@AppBundle/Resources/config/routing.yml"
+
+
+
+
+hwi_oauth_service_redirect:
+    defaults: { _controller: AppBundle:Secured:redirectToService }
+    pattern:   /secure_area/connect/{service}
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /secure_area/connect
+
+hwi_oauth_connect_service:
+    defaults: { _controller: AppBundle:Secured:connectService }
+    pattern:   /secure_area/connect/service/{service}
+
+hwi_oauth_connect_registration:
+    defaults: { _controller: AppBundle:Secured:registration }
+    pattern:   /secure_area/connect/registration/{key}
+
+facebook_login:
+    pattern: /secure_area/login/check-facebook
+
+CCDNForumForumBundle:
+    resource: "@CCDNForumForumBundle/Resources/config/routing.yml"
+
+ccdn_homepage:
+    pattern: /
+    defaults: { _controller: CCDNForumForumBundle:UserCategory:index, _locale: it, forumName: default }

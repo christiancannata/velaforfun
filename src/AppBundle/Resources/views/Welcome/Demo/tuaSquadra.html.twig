@@ -1,0 +1,120 @@
+{% extends "AcmeDemoBundle:Demo:layout.html.twig" %}
+
+    {% block body %}
+
+        {% include 'AcmeDemoBundle:Demo:menu_admin.html.twig' with {'foo': 'bar'} %}
+
+
+        <div class="m-12 bg-dark-blue">
+            <div class="big-heading bg-dark-blue">
+                <h1>La Tua Squadra</h1>
+            </div>
+        </div>
+
+
+        <section class="bg-dark-blue">
+
+            <div class="m-09">
+                <div class="module-content">
+
+                    <div class="title-default">
+                    <h2>FantaSquadra</h2>
+                    </div>
+                    <!-- Module Title -->
+
+                    <table class="table-scores">
+                        <tr class="t-header">
+                            <td colspan="4" class="score-date">Allenatore</td>
+                        </tr>
+
+                        <tr>
+                        <tr>
+                            <td>Paolo Montero</td>
+                            <td>Juventus</td>
+                            <td>30Ml</td>
+                            <td>
+                                <a href="#">Dettagli</a> / <a href="#">Vendi</a>
+                            </td>
+                        </tr>
+                        </tr>
+                        <tr class="t-header">
+                            <td colspan="4" class="score-date">Ruolo 1</td>
+                        </tr>
+                        <tr>
+                            <td>Paolo Montero</td>
+                            <td>Juventus</td>
+                            <td>30Ml</td>
+                            <td>
+                                <a href="#">Dettagli</a> / <a href="#">Vendi</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Paolo Montero</td>
+                            <td>Juventus</td>
+                            <td>30Ml</td>
+                            <td>
+                                <a href="#">Dettagli</a> / <a href="#">Vendi</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Paolo Montero</td>
+                            <td>Juventus</td>
+                            <td>30Ml</td>
+                            <td>
+                                <a href="#">Dettagli</a> / <a href="#">Vendi</a>
+                            </td>
+                        </tr>
+                        <tr class="t-header">
+                            <td colspan="4" class="score-date">Ruolo 2</td>
+                        </tr>
+                        <tr>
+                            <td>Paolo Montero</td>
+                            <td>Juventus</td>
+                            <td>30Ml</td>
+                            <td>
+                                <a href="#">Dettagli</a> / <a href="#">Vendi</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Paolo Montero</td>
+                            <td>Juventus</td>
+                            <td>30Ml</td>
+                            <td>
+                                <a href="#">Dettagli</a> / <a href="#">Vendi</a>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <!-- Table Scores -->
+
+
+                    <table class="table-scores">
+                        <tr class="t-header">
+                            <td colspan="3" class="score-date">Crediti Residui</td>
+                            <td colspan="1">20/2000</td>
+                        </tr>
+
+                    </table>
+                    <!-- Table Scores -->
+
+                </div>
+                <!-- Module Content -->
+            </div>
+            <!-- Module -->
+
+
+            <div class="m-03">
+                <div class="module-content">
+
+
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+    {% endblock %}
+
+

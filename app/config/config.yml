@@ -64,11 +64,29 @@ doctrine:
         #   2. Uncomment database_path in parameters.yml.dist
         #   3. Uncomment next line:
         #     path:     "%database
-
-
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
+        default_entity_manager: default
+        resolve_target_entities:
+            Symfony\Component\Security\Core\User\UserInterface: AppBundle\Entity\User
+        entity_managers:
+            default:
+                mappings:
+                    AppBundle:
+                        mapping:              true
+                        type:                 annotation
+                        alias:                ~
+                        prefix:               AppBundle\Entity
+                        is_bundle:            true
+                    FOSUserBundle: ~
+                    CCDNForumForumBundle:
+                        mapping:              true
+                        type:                 yml
+                        dir:                  "Resources/config/doctrine"
+                        alias:                ~
+                        prefix:               CCDNForum\ForumBundle\Entity
+                        is_bundle:            true
+
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -86,7 +104,7 @@ fos_user:
         confirmation:
             enabled:    false # change to true for required email confirmation
         form:
-            type: acme_user_registration
+            type: app_user_registration
 
 hwi_oauth:
     # name of the firewall in which this bundle is active, this setting MUST be set
@@ -117,3 +135,4 @@ stof_doctrine_extensions:
     orm:
         default:
             timestampable: true
+

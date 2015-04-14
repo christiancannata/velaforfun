@@ -39,6 +39,7 @@ class RegistrationController extends \FOS\UserBundle\Controller\RegistrationCont
 		/** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
 		$dispatcher = $this->get('event_dispatcher');
 
+
 		$user = $userManager->createUser();
 		$user->setEnabled(true);
 
@@ -69,7 +70,6 @@ class RegistrationController extends \FOS\UserBundle\Controller\RegistrationCont
 
 			return $response;
 		}
-
 		return $this->render('FOSUserBundle:Registration:register.html.twig', array(
 			'form' => $form->createView(),
 		));

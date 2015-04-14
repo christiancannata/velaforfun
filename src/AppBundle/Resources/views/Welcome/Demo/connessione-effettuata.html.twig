@@ -1,0 +1,27 @@
+{% extends "AcmeDemoBundle:Demo:layout.html.twig" %}
+
+    {% block body %}
+
+        <div class="m-12 bg-dark-blue">
+            <div class="big-heading bg-dark-blue">
+                <h1>Connessione effettuata</h1>
+            </div>
+        </div>
+
+
+        <section class="bg-dark-blue">
+
+            <div class="m-06">
+                <div class="module-content">
+                    <h3>{{ 'header.success' | trans({'%name%': userInformation.realName}, 'HWIOAuthBundle') }}</h3>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+    {% endblock %}
+
+

@@ -1,0 +1,138 @@
+{% extends "AcmeDemoBundle:Demo:layout.html.twig" %}
+
+    {% block body %}
+
+        {% include 'AcmeDemoBundle:Demo:menu_user.html.twig' with {'foo': 'bar'} %}
+
+        <div class="m-12 bg-dark-blue">
+            <div class="big-heading bg-dark-blue">
+                <h1>Inserisci la tua formazione</h1>
+            </div>
+        </div>
+
+
+        <section class="bg-dark-blue">
+
+            <div class="m-06">
+                <div class="module-content">
+
+                    <div class="title-default">
+                        <p>Scegli il modulo di gioco:</p>
+                        <select name="modulo">
+                            <option value="421">4-2-1</option>
+                        </select>
+
+                    </div>
+                    <!-- Module Title -->
+
+                    <div>
+                        CAMPO BASKET
+                    </div>
+
+                </div>
+                <!-- Module Content -->
+            </div>
+            <!-- Module -->
+
+
+            <div class="m-06">
+                <div class="module-content">
+                    <div class="title-default">
+                        <input type="text" name="search" placeholder="Inserisci il nome del giocatore">
+                        <a href="#"><i class="fa fa-search"></i></a>
+                    </div>
+                    <table class="table-scores">
+                        <tr class="t-header">
+                            <td colspan="4" class="score-date">Allenatore</td>
+                        </tr>
+
+                        <tr>
+                        <tr>
+                            <td>Paolo Montero</td>
+                            <td>Juventus</td>
+                            <td>30Ml</td>
+                            <td>
+                                <a href="#"><i class="fa fa-times-circle"></i></a>
+                            </td>
+                        </tr>
+                        </tr>
+                        <tr class="t-header">
+                            <td colspan="4" class="score-date">Ruolo 1</td>
+                        </tr>
+                        <tr>
+                            <td>Paolo Montero</td>
+                            <td>Juventus</td>
+                            <td>30Ml</td>
+                            <td>
+                                <a href="#"><i class="fa fa-times-circle"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Paolo Montero</td>
+                            <td>Juventus</td>
+                            <td>30Ml</td>
+                            <td>
+                                <a href="#"><i class="fa fa-times-circle"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Paolo Montero</td>
+                            <td>Juventus</td>
+                            <td>30Ml</td>
+                            <td>
+                                <a href="#"><i class="fa fa-times-circle"></i></a>
+                            </td>
+                        </tr>
+                        <tr class="t-header">
+                            <td colspan="4" class="score-date">Ruolo 2</td>
+                        </tr>
+                        <tr>
+                            <td>Paolo Montero</td>
+                            <td>Juventus</td>
+                            <td>30Ml</td>
+                            <td>
+                                <a href="#"><i class="fa fa-times-circle"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Paolo Montero</td>
+                            <td>Juventus</td>
+                            <td>30Ml</td>
+                            <td>
+                                <a href="#"><i class="fa fa-times-circle"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="m-08">
+                <div class="module-content">
+                </div>
+            </div>
+            <div class="m-04">
+                <div class="module-content">
+                    <a class="button green-bg" href="#">CONFERMA FORMAZIONE</a>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+    {% endblock %}
+
+

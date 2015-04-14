@@ -1,0 +1,90 @@
+{% extends "AcmeDemoBundle:Demo:layout.html.twig" %}
+
+    {% block body %}
+
+    {% include 'AcmeDemoBundle:Demo:menu_admin.html.twig' with {'foo': 'bar'} %}
+
+
+
+<section class="bg-dark-blue">
+
+    <div class="m-03 bg-orange">
+        <div class="module-content">
+
+            <div class="vertical-menu bg-dark-blue">
+                <ul>
+                    <li><a href="modules.html">Campionato Generale</a></li>
+                    <li><a href="accordion.html">Torneo 1</a></li>
+                    <li><a href="blockquote.html">Torneo 2</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="m-09">
+
+        <section>
+            <div class="m-12 bg-dark-blue">
+                <div class="module-content">
+
+                    <div class="title-default">
+                        <h2>Prossima Giornata</h2>
+                    </div>
+
+
+                    <section>
+                        <div class="m-12 bg-05">
+                            <div class="module-content">
+
+                                <div class="title-default">
+                                    <h2>Campionato sottocanestro</h2>
+                                </div>
+                                <table class="table-scores">
+                                    <tbody>
+                                    <tr>
+                                        <td>Squadra 1</td>
+                                        <td>Vs.</td>
+                                        <td>Squadra 2</td>
+                                        <td>
+                                            <a class="button yellow-bg" href="#">Modifica formazione</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="title-default">
+                                    <h2>Torneo 2</h2>
+                                </div>
+                                <table class="table-scores">
+                                    <tbody>
+                                    <tr>
+                                        <td>Squadra 1</td>
+                                        <td>Vs.</td>
+                                        <td>Squadra 2</td>
+                                        <td>
+                                            <a class="button green-bg" href="#">Inserisci Formazione</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                        </div>
+
+                    </section>
+
+
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+        {% endblock %}
+
+
