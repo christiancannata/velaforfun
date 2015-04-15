@@ -24,6 +24,9 @@ class AppKernel extends Kernel
             new CCDNForum\ForumBundle\CCDNForumForumBundle(),
             new AppBundle\AppBundle(),
             new BlogBundle\BlogBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new JMS\TranslationBundle\JMSTranslationBundle(),
+            new Comur\ImageBundle\ComurImageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

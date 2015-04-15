@@ -67,3 +67,10 @@ CCDNForumForumBundle:
 ccdn_homepage:
     pattern: /forum
     defaults: { _controller: CCDNForumForumBundle:UserCategory:index,  forumName: default }
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+comur_image:
+    resource: "@ComurImageBundle/Resources/config/routing.yml"
+    prefix:   /

@@ -194,13 +194,6 @@ class User extends BaseUser
         return $this->expiresAt;
     }
 
-    /**
-     * @param \DateTime $expiresAt
-     */
-    public function setExpiresAt($expiresAt)
-    {
-        $this->expiresAt = $expiresAt;
-    }
 
     /**
      * @return \DateTime
@@ -210,13 +203,6 @@ class User extends BaseUser
         return $this->credentialsExpireAt;
     }
 
-    /**
-     * @param \DateTime $credentialsExpireAt
-     */
-    public function setCredentialsExpireAt($credentialsExpireAt)
-    {
-        $this->credentialsExpireAt = $credentialsExpireAt;
-    }
 
     /**
      * @return string

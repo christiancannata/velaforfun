@@ -7,9 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="foto")
+ * @ORM\Table(name="gallery")
  */
-class Foto
+class Gallery
 {
     /**
      * @ORM\Id
@@ -31,10 +31,10 @@ class Foto
 
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="array", nullable=true)
      */
-    protected $image;
-    
+    protected $gallery;
+
     /**
      * @return mixed
      */
@@ -82,25 +82,6 @@ class Foto
     {
         $this->timestamp = $timestamp;
     }
-    public function getUploadRootDir()
-    {
-        // absolute path to your directory where images must be saved
-        return __DIR__.'/../../../../../web/'.$this->getUploadDir();
-    }
 
-    public function getUploadDir()
-    {
-        return 'uploads/myentity';
-    }
-
-    public function getAbsolutePath()
-    {
-        return null === $this->image ? null : $this->getUploadRootDir().'/'.$this->image;
-    }
-
-    public function getWebPath()
-    {
-        return null === $this->image ? null : '/'.$this->getUploadDir().'/'.$this->image;
-    }
 
 }
