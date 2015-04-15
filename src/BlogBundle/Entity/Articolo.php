@@ -23,7 +23,7 @@ class Articolo
     /**
      * @ORM\Column(type="string")
      */
-    protected $title;
+    protected $titolo;
 
 
     /**
@@ -41,12 +41,12 @@ class Articolo
     /**
      * @ORM\Column(type="text")
      */
-    protected $blog;
+    protected $testo;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=200)
      */
-    protected $image;
+    protected $immagine;
 
     /**
      * @ORM\Column(type="text")
@@ -57,17 +57,134 @@ class Articolo
     /**
      * @ORM\Column(type="datetime")
      */
-    protected $created;
+    protected $timestamp;
 
-
-
-    public function addComment(Comment $comment)
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
-        $this->comments[] = $comment;
+        return $this->id;
     }
 
-    public function getComments()
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
     {
-        return $this->comments;
+        $this->id = $id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTitolo()
+    {
+        return $this->titolo;
+    }
+
+    /**
+     * @param mixed $titolo
+     */
+    public function setTitolo($titolo)
+    {
+        $this->titolo = $titolo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAutore()
+    {
+        return $this->autore;
+    }
+
+    /**
+     * @param mixed $autore
+     */
+    public function setAutore($autore)
+    {
+        $this->autore = $autore;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategoria()
+    {
+        return $this->categoria;
+    }
+
+    /**
+     * @param mixed $categoria
+     */
+    public function setCategoria($categoria)
+    {
+        $this->categoria = $categoria;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTesto()
+    {
+        return $this->testo;
+    }
+
+    /**
+     * @param mixed $testo
+     */
+    public function setTesto($testo)
+    {
+        $this->testo = $testo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImmagine()
+    {
+        return $this->immagine;
+    }
+
+    /**
+     * @param mixed $immagine
+     */
+    public function setImmagine($immagine)
+    {
+        $this->immagine = $immagine;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param mixed $tags
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * @param mixed $timestamp
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+    }
+
 }
