@@ -162,5 +162,85 @@ class User extends BaseUser
 		$this->profilo = $profilo;
 	}
 
+    /**
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * @param string $avatar
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getExpiresAt()
+    {
+        return $this->expiresAt;
+    }
+
+    /**
+     * @param \DateTime $expiresAt
+     */
+    public function setExpiresAt($expiresAt)
+    {
+        $this->expiresAt = $expiresAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCredentialsExpireAt()
+    {
+        return $this->credentialsExpireAt;
+    }
+
+    /**
+     * @param \DateTime $credentialsExpireAt
+     */
+    public function setCredentialsExpireAt($credentialsExpireAt)
+    {
+        $this->credentialsExpireAt = $credentialsExpireAt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirma()
+    {
+        return $this->firma;
+    }
+
+    /**
+     * @param string $firma
+     */
+    public function setFirma($firma)
+    {
+        $this->firma = $firma;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrivacy()
+    {
+        return $this->privacy;
+    }
+
+    /**
+     * @param string $privacy
+     */
+    public function setPrivacy($privacy)
+    {
+        $this->privacy = $privacy;
+    }
+
 
 }
