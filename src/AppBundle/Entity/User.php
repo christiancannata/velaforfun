@@ -41,6 +41,28 @@ class User extends BaseUser
 	private $cognome;
 
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firma", type="string", nullable=true)
+     */
+    private $firma;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="avatar", type="string", nullable=true)
+     */
+    private $avatar;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="privacy", type="string", nullable=true)
+     */
+    private $privacy;
+
+
 	public function __construct()
 	{
 		parent::__construct();
