@@ -1,0 +1,10 @@
+blog_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BlogBundle:Default:index }
+
+BloggerBlogBundle_blog_show:
+    pattern:  /{id}
+    defaults: { _controller: BlogBundle:Blog:show }
+    requirements:
+        _method:  GET
+        id: \d+

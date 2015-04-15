@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new CCDNForum\ForumBundle\CCDNForumForumBundle(),
             new AppBundle\AppBundle(),
+            new BlogBundle\BlogBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

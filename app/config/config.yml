@@ -72,12 +72,8 @@ doctrine:
         entity_managers:
             default:
                 mappings:
-                    AppBundle:
-                        mapping:              true
-                        type:                 annotation
-                        alias:                ~
-                        prefix:               AppBundle\Entity
-                        is_bundle:            true
+                    AppBundle: ~
+                    BlogBundle: ~
                     FOSUserBundle: ~
                     CCDNForumForumBundle:
                         mapping:              true
