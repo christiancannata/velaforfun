@@ -7,11 +7,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\OneToMany;
+use Eko\FeedBundle\Item\Reader\ItemInterface;
 /**
  * @ORM\Entity
  * @ORM\Table(name="articolo")
  */
-class Articolo
+class Articolo implements ItemInterface
 {
     /**
      * @ORM\Id
@@ -187,4 +188,47 @@ class Articolo
         $this->timestamp = $timestamp;
     }
 
+    /**
+     * This method sets feed item title
+     *
+     * @param string $title
+     *
+     */
+    public function setFeedItemTitle($title)
+    {
+        // TODO: Implement setFeedItemTitle() method.
+    }
+
+    /**
+     * This method sets feed item description (or content)
+     *
+     * @param string $description
+     *
+     */
+    public function setFeedItemDescription($description)
+    {
+        // TODO: Implement setFeedItemDescription() method.
+    }
+
+    /**
+     * This method sets feed item URL link
+     *
+     * @param string $link
+     *
+     */
+    public function setFeedItemLink($link)
+    {
+        // TODO: Implement setFeedItemLink() method.
+    }
+
+    /**
+     * This method sets item publication date
+     *
+     * @param \DateTime $date
+     *
+     */
+    public function setFeedItemPubDate(\DateTime $date)
+    {
+        // TODO: Implement setFeedItemPubDate() method.
+    }
 }

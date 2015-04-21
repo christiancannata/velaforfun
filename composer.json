@@ -28,7 +28,8 @@
     "stof/doctrine-extensions-bundle": "~1.1@dev",
     "hwi/oauth-bundle": "0.4.*@dev",
     "codeconsortium/ccdn-forum-bundle": "dev-master",
-    "egeloen/google-map": "dev-master"
+    "egeloen/google-map": "dev-master",
+    "eko/feedbundle": "dev-master"
   },
   "require-dev": {
     "sensio/generator-bundle": "~2.3"
