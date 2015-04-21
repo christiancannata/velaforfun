@@ -137,38 +137,8 @@ class User extends BaseUser
         $this->nome = $nome;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCompetizioni()
-    {
-        return $this->competizioni;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSquadre()
-    {
-        return $this->squadre;
-    }
 
 
-    /**
-     * @return string
-     */
-    public function getProfilo()
-    {
-        return $this->profilo;
-    }
-
-    /**
-     * @param string $profilo
-     */
-    public function setProfilo($profilo)
-    {
-        $this->profilo = $profilo;
-    }
 
     /**
      * @return string
@@ -186,37 +156,6 @@ class User extends BaseUser
         $this->avatar = $avatar;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getExpiresAt()
-    {
-        return $this->expiresAt;
-    }
-
-    /**
-     * @param \DateTime $expiresAt
-     */
-    public function setExpiresAt($expiresAt)
-    {
-        $this->expiresAt = $expiresAt;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCredentialsExpireAt()
-    {
-        return $this->credentialsExpireAt;
-    }
-
-    /**
-     * @param \DateTime $credentialsExpireAt
-     */
-    public function setCredentialsExpireAt($credentialsExpireAt)
-    {
-        $this->credentialsExpireAt = $credentialsExpireAt;
-    }
 
     /**
      * @return string
