@@ -31,7 +31,8 @@
     "egeloen/google-map": "dev-master",
     "eko/feedbundle": "dev-master",
     "adesigns/calendar-bundle": "~1.1",
-    "friendsofsymfony/jsrouting-bundle": "~1.5"
+    "friendsofsymfony/jsrouting-bundle": "~1.5",
+    "stfalcon/tinymce-bundle": "dev-master"
   },
   "require-dev": {
     "sensio/generator-bundle": "~2.3"

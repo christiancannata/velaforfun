@@ -66,7 +66,7 @@ CCDNForumForumBundle:
 
 ccdn_homepage:
     pattern: /forum
-    defaults: { _controller: CCDNForumForumBundle:UserCategory:index,  forumName: default }
+    defaults: { _controller: CCDNForumForumBundle:UserCategory:index,  forumName: VelaForFun }
 
 adesigns_calendar:
   resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"
