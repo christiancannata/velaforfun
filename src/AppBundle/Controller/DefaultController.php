@@ -23,6 +23,10 @@ class DefaultController extends Controller
         $articoli=$repository->findAll();
 
 
+        $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:Segnale');
+
+        $segnali=$repository->findAll();
 
 
         $map = new Map();
@@ -48,6 +52,6 @@ class DefaultController extends Controller
 
         $mapHelper = new MapHelper();
 
-        return $this->render('default/index.html.twig',array("articoli"=>$articoli,"mapHelper"=>$mapHelper,"map"=>$map));
+        return $this->render('default/index.html.twig',array("articoli"=>$articoli,"mapHelper"=>$mapHelper,"map"=>$map,"segnali"=>$segnali));
     }
 }
