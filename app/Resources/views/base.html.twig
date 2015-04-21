@@ -8,6 +8,10 @@
     </head>
     <body>
         {% block body %}{% endblock %}
+
+        <script language="javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

@@ -67,3 +67,9 @@ CCDNForumForumBundle:
 ccdn_homepage:
     pattern: /forum
     defaults: { _controller: CCDNForumForumBundle:UserCategory:index,  forumName: default }
+
+adesigns_calendar:
+  resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
