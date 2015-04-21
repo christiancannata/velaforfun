@@ -38,8 +38,6 @@ class DefaultController extends Controller
             $marker->setPrefixJavascriptVariable('marker_');
             $marker->setPosition($porto->getLatitudine(), $porto->getLongitudine(), true);
             $marker->setAnimation(Animation::DROP);
-            $marker->setOption('clickable', false);
-            $marker->setOption('flat', true);
             $marker->setOptions(array(
                 'clickable' => false,
                 'flat'      => true,
@@ -47,8 +45,6 @@ class DefaultController extends Controller
             $map->addMarker($marker);
 
         }
-
-
 
         $mapHelper = new MapHelper();
 
