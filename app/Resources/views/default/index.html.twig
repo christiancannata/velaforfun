@@ -7,5 +7,5 @@
 
     {{ articolo.titolo }} - {{ articolo.categoria.nome }} - {{ articolo.autore.username }} <br>
     {% endfor %}
-
+    {{ mapHelper.render(map) | raw }}
 {% endblock %}
