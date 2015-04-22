@@ -1,17 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+{% block body %}{% endblock %}
 
-        <script language="javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-        <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-        {% block javascripts %}{% endblock %}
-    </body>
+<script language="javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="{{ asset('bundles/app/js/form.js') }}"></script>
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+
+{% if form is defined %}
+    <script language="javascript">
+        $(document).ready(function () {
+
+            var forms = [
+                '[ name="{{ form.vars.full_name }}"]'
+            ];
+
+            $(forms.join(',')).submit(function (e) {
+                e.preventDefault();
+
+                postForm($(this), function (response) {
+                });
+
+                return false;
+            });
+
+        });
+    </script>
+
+{% endif %}
+
+
+
+{% block javascripts %}{% endblock %}
+</body>
 </html>

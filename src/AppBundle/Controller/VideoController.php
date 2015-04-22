@@ -4,45 +4,19 @@ namespace AppBundle\Controller;
 
 use AppBundle\Form\VideoType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class VideoController extends Controller
+class VideoController extends BaseController
 {
     /**
-     * @Route( "/post/new", name="create_post" )
+     * @Route( "crea", name="create_post" )
      * @Template()
      */
     public function createAction(Request $request)
     {
-        $postform = $this->createForm(new VideoType());
-
-        if ($request->isMethod('POST')) {
-
-            $postform->handleRequest($request);
-
-            if ($postform->isValid()) {
-
-                /*
-                 * $data['title']
-                 * $data['body']
-                 */
-                $data = $postform->getData();
-
-                $response['success'] = true;
-
-            } else {
-
-                $response['success'] = false;
-                $response['cause'] = 'whatever';
-
-            }
-
-            return new JsonResponse($response);
-        }
-
-        return array(
-            'postform' => $postform->createView()
-        );
+        return $this->postForm($request,new VideoType() );
     }
 }

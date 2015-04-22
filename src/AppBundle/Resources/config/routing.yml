@@ -2,3 +2,8 @@ app:
     resource: "@AppBundle/Controller/DefaultController.php"
     type:     annotation
     prefix:   /
+
+video:
+    resource: "@AppBundle/Controller/VideoController.php"
+    type:     annotation
+    prefix:   /video

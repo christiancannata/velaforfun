@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity
@@ -18,14 +20,14 @@ class Video {
 
 	/**
 	 * @var string
-	 *
+     * @Assert\NotBlank()
 	 * @ORM\Column(name="link", type="string", nullable=true)
 	 */
 	private $link;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="nome", type="string", nullable=true)
      */
     private $nome;
@@ -46,7 +48,6 @@ class Video {
 
 
 	public function __construct() {
-		parent::__construct();
 		// your own logic
 	}
 

@@ -21,20 +21,3 @@ function postForm( $form, callback ){
     });
 
 }
-
-$(document).ready(function(){
-
-    var forms = [
-        '[ name="{{ postform.vars.full_name }}"]'
-    ];
-
-    $( forms.join(',') ).submit( function( e ){
-        e.preventDefault();
-
-        postForm( $(this), function( response ){
-        });
-
-        return false;
-    });
-
-});

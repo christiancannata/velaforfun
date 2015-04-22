@@ -18,7 +18,7 @@ class VideoType extends AbstractType
             ->add('link')
             ->add('nome')
             ->add('inEvidenza')
-            ->add('timestamp')
+            ->add('save', 'submit', array('label' => 'Crea video'))
         ;
     }
     
