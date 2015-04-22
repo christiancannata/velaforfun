@@ -67,8 +67,7 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        $this->squadre = new ArrayCollection();
-        $this->competizioni = new ArrayCollection();
+        $this->roles = array('ROLE_USER');
     }
 
     /**
