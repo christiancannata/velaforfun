@@ -2,52 +2,47 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\VideoType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class VideoController extends Controller
 {
     /**
-     * @Route("/videos/create", name="videos")
+     * @Route( "/post/new", name="create_post" )
+     * @Template()
      */
-    public function indexAction()
+    public function createAction(Request $request)
     {
+        $postform = $this->createForm(new VideoType());
 
-        $repository = $this->getDoctrine()
-            ->getRepository('BlogBundle:Articolo');
+        if ($request->isMethod('POST')) {
 
-        $articoli=$repository->findAll();
+            $postform->handleRequest($request);
 
+            if ($postform->isValid()) {
 
-        $repository = $this->getDoctrine()
-            ->getRepository('AppBundle:Segnale');
+                /*
+                 * $data['title']
+                 * $data['body']
+                 */
+                $data = $postform->getData();
 
-        $segnali=$repository->findAll();
+                $response['success'] = true;
 
+            } else {
 
-        $map = new Map();
-        $map->setAsync(true);
-        $map->setLanguage("ita");
-        $porti = $this->getDoctrine()
-            ->getRepository('AppBundle:Porto')->findAll();
+                $response['success'] = false;
+                $response['cause'] = 'whatever';
 
-        foreach($porti as $porto){
-            $marker = new Marker();
+            }
 
-// Configure your marker options
-            $marker->setPrefixJavascriptVariable('marker_');
-            $marker->setPosition($porto->getLatitudine(), $porto->getLongitudine(), true);
-            $marker->setAnimation(Animation::DROP);
-            $marker->setOptions(array(
-                'clickable' => false,
-                'flat'      => true,
-            ));
-            $map->addMarker($marker);
-
+            return new JsonResponse($response);
         }
 
-        $mapHelper = new MapHelper();
-
-        return $this->render('default/index.html.twig',array("articoli"=>$articoli,"mapHelper"=>$mapHelper,"map"=>$map,"segnali"=>$segnali));
+        return array(
+            'postform' => $postform->createView()
+        );
     }
 }
