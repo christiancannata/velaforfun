@@ -8,6 +8,11 @@ use AppBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Ivory\GoogleMap\Map;
+use Ivory\GoogleMap\Overlays\Animation;
+use Ivory\GoogleMap\Overlays\Marker;
+use Ivory\GoogleMap\Helper\MapHelper;
+
 
 class PortoController extends BaseController
 {
@@ -17,6 +22,79 @@ class PortoController extends BaseController
      */
     public function createAction(Request $request)
     {
-        return $this->postForm($request,new PortoType() );
+        return $this->postForm($request, new PortoType());
+    }
+
+
+    /**
+     * @Route("/italia", name="porti_italia")
+     */
+    public function portiItaliaAction()
+    {
+
+        $map = new Map();
+        $map->setAsync(true);
+        $map->setLanguage("ita");
+        $porti = $this->getDoctrine()
+            ->getRepository('AppBundle:Porto')->findAll();
+
+        foreach ($porti as $porto) {
+            $marker = new Marker();
+
+// Configure your marker options
+            $marker->setPrefixJavascriptVariable('marker_');
+            $marker->setPosition($porto->getLatitudine(), $porto->getLongitudine(), true);
+            $marker->setAnimation(Animation::DROP);
+            $marker->setOptions(
+                array(
+                    'clickable' => false,
+                    'flat' => true,
+                )
+            );
+            $map->addMarker($marker);
+
+        }
+
+        $mapHelper = new MapHelper();
+
+        return $this->render('AppBundle:Porto:porti.html.twig', array("mapHelper" => $mapHelper, "map" => $map));
+    }
+
+
+    /**
+     * @Route("/{permalink}", name="dettaglio_porto")
+     */
+    public function dettagliPortoAction($permalink)
+    {
+
+        $map = new Map();
+        $map->setAsync(true);
+        $map->setLanguage("ita");
+        $porto = $this->getDoctrine()
+            ->getRepository('AppBundle:Porto')->findOneByPermalink($permalink);
+        if(!$porto){
+
+
+            throw $this->createNotFoundException('Unable to find Articolo.');
+        }
+
+        $marker = new Marker();
+
+// Configure your marker options
+        $marker->setPrefixJavascriptVariable('marker_');
+        $marker->setPosition($porto->getLatitudine(), $porto->getLongitudine(), true);
+        $marker->setAnimation(Animation::DROP);
+        $marker->setOptions(
+            array(
+                'clickable' => false,
+                'flat' => true,
+            )
+        );
+        $map->addMarker($marker);
+
+
+        $mapHelper = new MapHelper();
+
+        return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("mapHelper" => $mapHelper, "map" => $map));
     }
 }

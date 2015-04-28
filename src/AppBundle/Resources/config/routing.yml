@@ -7,3 +7,8 @@ video:
     resource: "@AppBundle/Controller/VideoController.php"
     type:     annotation
     prefix:   /video
+
+porti:
+    resource: "@AppBundle/Controller/PortoController.php"
+    type:     annotation
+    prefix:   /porti

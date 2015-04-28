@@ -7,18 +7,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ArticoloController extends Controller
 {
 
-    public function showAction($id)
+    public function showAction($categoria,$permalink)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $blog = $em->getRepository('BlogBundle:Blog')->find($id);
 
-        if (!$blog) {
-            throw $this->createNotFoundException('Unable to find Blog post.');
+        $articolo = $em->getRepository('BlogBundle:Articolo')->findOneByPermalink($permalink);
+        if (!$articolo) {
+            throw $this->createNotFoundException('Unable to find Articolo.');
         }
 
-        return $this->render('BlogBundle:Blog:show.html.twig', array(
-            'blog'      => $blog,
+        return $this->render('BlogBundle:Articolo:articolo.html.twig', array(
+            'articolo'      => $articolo,
         ));
     }
 }

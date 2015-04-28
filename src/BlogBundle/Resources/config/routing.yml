@@ -2,9 +2,14 @@ blog_homepage:
     path:     /hello/{name}
     defaults: { _controller: BlogBundle:Default:index }
 
-BloggerBlogBundle_blog_show:
-    pattern:  /{id}
-    defaults: { _controller: BlogBundle:Blog:show }
+BloggerBlogBundle_blog_show_categoria:
+    pattern:  /{permalink}
+    defaults: { _controller: BlogBundle:Categoria:show }
     requirements:
         _method:  GET
-        id: \d+
+
+BloggerBlogBundle_blog_show_articolo:
+    pattern:  /{categoria}/{permalink}
+    defaults: { _controller: BlogBundle:Articolo:show }
+    requirements:
+        _method:  GET

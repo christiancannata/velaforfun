@@ -24,6 +24,12 @@ class Porto
      */
     private $nome;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="permalink", type="string", nullable=true)
+     */
+    private $permalink;
 
     /**
      * @var string
@@ -216,6 +222,22 @@ class Porto
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPermalink()
+    {
+        return $this->permalink;
+    }
+
+    /**
+     * @param string $permalink
+     */
+    public function setPermalink($permalink)
+    {
+        $this->permalink = $permalink;
     }
 
 

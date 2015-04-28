@@ -71,6 +71,24 @@ doctrine:
             Symfony\Component\Security\Core\User\UserInterface: AppBundle\Entity\User
         entity_managers:
             default:
+                result_cache_driver:
+                    type: memcached
+                    host: localhost
+                    port: 11211
+                    class: Doctrine\Common\Cache\MemcachedCache
+                    instance_class: Memcached
+                query_cache_driver:
+                    type: memcached
+                    host: localhost
+                    port: 11211
+                    class: Doctrine\Common\Cache\MemcachedCache
+                    instance_class: Memcached
+                query_cache_driver:
+                    type: memcached
+                    host: localhost
+                    port: 11211
+                    class: Doctrine\Common\Cache\MemcachedCache
+                    instance_class: Memcached
                 mappings:
                     AppBundle: ~
                     BlogBundle: ~

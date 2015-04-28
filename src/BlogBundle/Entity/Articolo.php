@@ -26,6 +26,10 @@ class Articolo implements ItemInterface
      */
     protected $titolo;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $permalink;
 
     /**
      * @ManyToOne(targetEntity="AppBundle\Entity\User")
@@ -231,4 +235,21 @@ class Articolo implements ItemInterface
     {
         // TODO: Implement setFeedItemPubDate() method.
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPermalink()
+    {
+        return $this->permalink;
+    }
+
+    /**
+     * @param mixed $permalink
+     */
+    public function setPermalink($permalink)
+    {
+        $this->permalink = $permalink;
+    }
+
 }
