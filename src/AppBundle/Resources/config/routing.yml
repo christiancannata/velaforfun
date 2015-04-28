@@ -12,3 +12,8 @@ porti:
     resource: "@AppBundle/Controller/PortoController.php"
     type:     annotation
     prefix:   /porti
+
+nodi:
+    resource: "@AppBundle/Controller/NodoController.php"
+    type:     annotation
+    prefix:   /nodi

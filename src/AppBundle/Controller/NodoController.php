@@ -14,7 +14,7 @@ use Ivory\GoogleMap\Overlays\Marker;
 use Ivory\GoogleMap\Helper\MapHelper;
 
 
-class PortoController extends BaseController
+class NodoController extends BaseController
 {
     /**
      * @Route( "crea", name="create_post" )
@@ -27,51 +27,33 @@ class PortoController extends BaseController
 
 
     /**
-     * @Route("/", name="porti_italia")
+     * @Route("/", name="nodi")
      */
-    public function portiItaliaAction()
+    public function nodiAction()
     {
 
         $map = new Map();
         $map->setAsync(true);
         $map->setLanguage("ita");
-        $porti = $this->getDoctrine()
-            ->getRepository('AppBundle:Porto')->findAll();
+        $nodi = $this->getDoctrine()
+            ->getRepository('AppBundle:Nodo')->findAll();
 
-        foreach ($porti as $porto) {
-            $marker = new Marker();
 
-// Configure your marker options
-            $marker->setPrefixJavascriptVariable('marker_');
-            $marker->setPosition($porto->getLatitudine(), $porto->getLongitudine(), true);
-            $marker->setAnimation(Animation::DROP);
-            $marker->setOptions(
-                array(
-                    'clickable' => false,
-                    'flat' => true,
-                )
-            );
-            $map->addMarker($marker);
-
-        }
-
-        $mapHelper = new MapHelper();
-
-        return $this->render('AppBundle:Porto:porti.html.twig', array("mapHelper" => $mapHelper, "map" => $map));
+        return $this->render('AppBundle:Nodo:nodi.html.twig', array("nodi" => $nodi));
     }
 
 
     /**
-     * @Route("/{permalink}", name="dettaglio_porto")
+     * @Route("/{permalink}", name="dettaglio_nodo")
      */
-    public function dettagliPortoAction($permalink)
+    public function dettagliNodoAction($permalink)
     {
 
         $map = new Map();
         $map->setAsync(true);
         $map->setLanguage("ita");
         $porto = $this->getDoctrine()
-            ->getRepository('AppBundle:Porto')->findOneByPermalink($permalink);
+            ->getRepository('AppBundle:Nodo')->findOneByPermalink($permalink);
         if(!$porto){
 
 
