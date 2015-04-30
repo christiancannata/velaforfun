@@ -67,6 +67,9 @@ class PortoController extends BaseController
     public function dettagliPortoAction($permalink)
     {
 
+        $client=$this->container->get('weather.client');
+
+
         $map = new Map();
         $map->setAsync(true);
         $map->setLanguage("ita");
@@ -94,6 +97,12 @@ class PortoController extends BaseController
 
 
         $mapHelper = new MapHelper();
+
+        $request = $client->get('/data/2.5/weather?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine().'&APPID=8704a88837e9eabcf7b50de51728a0c0');
+        $response = $client->send($request);
+        $weather=json_decode($response->getBody(true));
+
+        var_dump($weather);
 
         return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("mapHelper" => $mapHelper, "map" => $map));
     }

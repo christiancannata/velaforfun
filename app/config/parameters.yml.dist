@@ -12,3 +12,4 @@ parameters:
     mailer_password: null
     locale: it
     secret: ThisTokenIsNotSoSecretChangeIt
+    webservice_weather_url: http://api.openweathermap.org
