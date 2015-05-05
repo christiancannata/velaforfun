@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Form\PortoType;
+use AppBundle\Form\NodoType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -22,7 +22,7 @@ class NodoController extends BaseController
      */
     public function createAction(Request $request)
     {
-        return $this->postForm($request, new PortoType());
+        return $this->postForm($request, new NodoType());
     }
 
 

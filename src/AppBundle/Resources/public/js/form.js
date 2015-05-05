@@ -21,3 +21,15 @@ function postForm( $form, callback ){
     });
 
 }
+
+
+function showalert(obj,message,alerttype) {
+
+    obj.append('<div role="alert" id="alertdiv" class="alert alert-' +  alerttype + '"><span>'+message+'</span></div>')
+
+    setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
+
+        obj.fadeOut();
+
+    }, 6000);
+}

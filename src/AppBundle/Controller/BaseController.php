@@ -12,6 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class BaseController extends Controller
 {
+
     public function postForm(Request $request,AbstractType $type)
     {
         $postform = $this->createForm($type);
@@ -40,15 +41,12 @@ class BaseController extends Controller
             } else {
 
                 $response['success'] = false;
-                $response['cause'] = 'whatever';
+                $response['cause'] = $postform->getErrors();
 
             }
 
             return new JsonResponse($response);
         }
-
-        return array(
-            'form' => $postform->createView()
-        );
+        return $this->render('AppBundle:Crud:create.html.twig', array('form' => $postform->createView()));
     }
 }

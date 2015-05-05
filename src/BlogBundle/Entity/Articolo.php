@@ -8,6 +8,9 @@ use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\OneToMany;
 use Eko\FeedBundle\Item\Reader\ItemInterface;
+use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\Serializer\Annotation as Serializer;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="articolo")
@@ -60,9 +63,22 @@ class Articolo implements ItemInterface
 
 
     /**
-     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     *
+     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
+     * @Gedmo\Timestampable(on="create")
+     * @Serializer\Type("DateTime")
      */
     protected $timestamp;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_update_timestamp", type="datetime", nullable=false)
+     * @Gedmo\Timestampable(on="update")
+     * @Serializer\Type("DateTime")
+     */
+    protected $lastUpdateTimestamp;
 
     /**
      * @return mixed

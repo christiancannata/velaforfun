@@ -86,11 +86,6 @@ class NodoMenu {
     protected $lastUpdateTimestamp;
 
 
-    public function __construct() {
-        parent::__construct();
-        // your own logic
-    }
-
     /**
      * @return mixed
      */

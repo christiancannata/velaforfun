@@ -23,6 +23,8 @@ class PortoType extends AbstractType
             ->add('postiTotale')
             ->add('postiTransito')
             ->add('email')
+            ->add('save', 'submit', array('label' => 'Crea'))
+
         ;
     }
     

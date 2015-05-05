@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity
@@ -38,17 +40,24 @@ class Foto {
 	private $inEvidenza;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="timestamp", type="datetime", nullable=true)
+     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
+     * @Gedmo\Timestampable(on="create")
+     * @Serializer\Type("DateTime")
      */
-    private $timestamp;
+    protected $timestamp;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_update_timestamp", type="datetime", nullable=false)
+     * @Gedmo\Timestampable(on="update")
+     * @Serializer\Type("DateTime")
+     */
+    protected $lastUpdateTimestamp;
 
 
-	public function __construct() {
-		parent::__construct();
-		// your own logic
-	}
 
     /**
      * @return mixed

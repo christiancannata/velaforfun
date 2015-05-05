@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity
@@ -44,6 +46,25 @@ class Segnale {
 	 * @ORM\Column(name="valore", type="string", nullable=true)
 	 */
 	private $valore;
+
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
+     * @Gedmo\Timestampable(on="create")
+     * @Serializer\Type("DateTime")
+     */
+    protected $timestamp;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_update_timestamp", type="datetime", nullable=false)
+     * @Gedmo\Timestampable(on="update")
+     * @Serializer\Type("DateTime")
+     */
+    protected $lastUpdateTimestamp;
 
 	public function __construct() {
 		parent::__construct();

@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity
@@ -20,14 +22,14 @@ class Nodo
     /**
      * @var string
      *
-     * @ORM\Column(name="nome", type="string", nullable=true)
+     * @ORM\Column(name="nome", type="string", nullable=false)
      */
     private $nome;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="permalink", type="string", nullable=true)
+     * @ORM\Column(name="permalink", type="string", nullable=false)
      */
     private $permalink;
 
@@ -36,7 +38,7 @@ class Nodo
     /**
      * @var string
      *
-     * @ORM\Column(name="video", type="float", nullable=true)
+     * @ORM\Column(name="video", type="string", nullable=false)
      */
     private $video;
 
@@ -47,13 +49,24 @@ class Nodo
      */
     private $descrizione;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
+     * @Gedmo\Timestampable(on="create")
+     * @Serializer\Type("DateTime")
+     */
+    protected $timestamp;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_update_timestamp", type="datetime", nullable=false)
+     * @Gedmo\Timestampable(on="update")
+     * @Serializer\Type("DateTime")
+     */
+    protected $lastUpdateTimestamp;
 
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
 
     /**
      * @return mixed

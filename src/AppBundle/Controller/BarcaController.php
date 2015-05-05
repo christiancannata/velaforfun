@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class PortoController extends BaseController
+class BarcaController extends BaseController
 {
     /**
      * @Route( "crea", name="create_post" )
