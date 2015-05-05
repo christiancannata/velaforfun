@@ -1,1 +1,19 @@
- {{ mapHelper.render(map) | raw }}
+{% extends 'base.html.twig' %}
+
+
+
+
+
+{% block body %}
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            {{ mapHelper.render(map) | raw }}
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+
