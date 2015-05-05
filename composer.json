@@ -34,8 +34,8 @@
     "friendsofsymfony/jsrouting-bundle": "~1.5",
     "stfalcon/tinymce-bundle": "dev-master",
     "php-imap/php-imap": "2.*",
-    "misd/guzzle-bundle": "~1.0",
-    "knplabs/knp-menu-bundle": "~2"
+    "misd/guzzle-bundle": "~1.0"
+
   },
   "require-dev": {
     "sensio/generator-bundle": "~2.3"

@@ -33,7 +33,7 @@ class Foto {
 	/**
 	 * @var string
 	 *
-	 * @ORM\Column(name="in_evidenza", type="integer", nullable=true)
+	 * @ORM\Column(name="in_evidenza", type="boolean", nullable=true)
 	 */
 	private $inEvidenza;
 
