@@ -16,8 +16,11 @@ use Ivory\GoogleMap\Helper\MapHelper;
 
 class NodoController extends BaseController
 {
+
+    protected $entity="Nodo";
+
     /**
-     * @Route( "crea", name="create_post" )
+     * @Route( "crea", name="create_nodo" )
      * @Template()
      */
     public function createAction(Request $request)
@@ -25,6 +28,14 @@ class NodoController extends BaseController
         return $this->postForm($request, new NodoType());
     }
 
+    /**
+     * @Route( "modifica/{id}", name="modifica_nodo" )
+     * @Template()
+     */
+    public function patchAction(Request $request,$id)
+    {
+        return $this->patchForm($request,new NodoType(),$id);
+    }
 
     /**
      * @Route("/", name="nodi")

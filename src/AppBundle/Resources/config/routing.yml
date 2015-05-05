@@ -17,3 +17,8 @@ nodi:
     resource: "@AppBundle/Controller/NodoController.php"
     type:     annotation
     prefix:   /nodi
+
+barche:
+    resource: "@AppBundle/Controller/BarcaController.php"
+    type:     annotation
+    prefix:   /barche

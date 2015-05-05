@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Form\VideoType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\AbstractType;
@@ -13,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class BaseController extends Controller
 {
 
-    public function postForm(Request $request,AbstractType $type)
+    public function postForm(Request $request, AbstractType $type)
     {
         $postform = $this->createForm($type);
 
@@ -22,7 +21,6 @@ class BaseController extends Controller
             $postform->handleRequest($request);
 
             if ($postform->isValid()) {
-
 
 
                 /*
@@ -47,6 +45,59 @@ class BaseController extends Controller
 
             return new JsonResponse($response);
         }
+
         return $this->render('AppBundle:Crud:create.html.twig', array('form' => $postform->createView()));
+    }
+
+    public function patchForm(Request $request, AbstractType $type, $id)
+    {
+
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository("AppBundle:".$this->entity)->find($id);
+
+        $postform = $this->createForm($type, $entity);
+
+        if ($request->isMethod('POST')) {
+
+            $postform->handleRequest($request);
+
+            if ($postform->isValid()) {
+
+
+                /*
+                 * $data['title']
+                 * $data['body']
+                 */
+                $em = $this->getDoctrine()->getManager();
+
+                $em->flush();
+
+
+                $response['success'] = true;
+
+            } else {
+
+                $response['success'] = false;
+                $response['cause'] = $postform->getErrors();
+
+            }
+
+            return new JsonResponse($response);
+        }
+
+        return $this->render('AppBundle:Crud:create.html.twig', array('form' => $postform->createView()));
+    }
+
+
+    public function cGet()
+    {
+
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entities = $em->getRepository("AppBundle:".$this->entity)->findAll();
+
+
+        return $this->render('AppBundle:Crud:list.html.twig', array('entities' => $entities));
     }
 }

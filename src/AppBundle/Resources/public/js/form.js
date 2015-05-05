@@ -29,7 +29,7 @@ function showalert(obj,message,alerttype) {
 
     setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
 
-        obj.fadeOut();
+        $("#alertdiv").fadeOut();
 
     }, 6000);
 }
