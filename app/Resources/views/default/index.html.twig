@@ -18,21 +18,45 @@
 
 {% block body %}
 
-    {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
-
-    {% for articolo in articoli %}
-
-        {{ articolo.titolo }} - {{ articolo.categoria.nome }} - {{ articolo.autore.username }} <br>
-    {% endfor %}
-
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+            {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
+        </div>
+        <div class="col-md-4 column">
 
 
+            {% for articolo in articoli %}
 
-    {% for segnale in segnali %}
-
-        {{ segnale.lettera }} - {{ segnale.valore }} - {{ segnale.morse }} <br>
-    {% endfor %}
-
+                {{ articolo.titolo }} - {{ articolo.categoria.nome }} - {{ articolo.autore.username }} <br>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+            <h3>
+                Immagine 1
+            </h3>
+            <h3>
+                Immagine 2
+            </h3>
+        </div>
+        <div class="col-md-4 column">
+            <h3>
+                Immagine 3
+            </h3>
+            <h3>
+                Immagine 4
+            </h3>
+        </div>
+        <div class="col-md-4 column">
+            <h3>
+                Immagine 5
+            </h3>
+            <h3>
+                Immagine 6
+            </h3>
+        </div>
+    </div>
 
 
 {% endblock %}

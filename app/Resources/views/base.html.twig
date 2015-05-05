@@ -3,13 +3,73 @@
 <head>
     <meta charset="UTF-8"/>
     <title>{% block title %}Welcome!{% endblock %}</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
-{% block body %}{% endblock %}
+
+
+<div class="container">
+
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+        </div>
+        <div class="col-md-4 column">
+            <h3>
+                Logo
+            </h3>
+        </div>
+        <div class="col-md-4 column">
+            <h3>
+                Menu accanto logo
+            </h3>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h3 class="text-center">
+                h3. Lorem ipsum dolor sit amet.
+            </h3>
+        </div>
+    </div>
+
+
+    {% block body %}{% endblock %}
+
+
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+            <h3>
+                h3. Lorem ipsum dolor sit amet.
+            </h3>
+        </div>
+        <div class="col-md-4 column">
+            <h3>
+                h3. Lorem ipsum dolor sit amet.
+            </h3>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h3 class="text-center">
+                h3. Lorem ipsum dolor sit amet.
+            </h3>
+        </div>
+    </div>
+</div>
+
 
 <script language="javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="{{ asset('bundles/app/js/form.js') }}"></script>
 <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
 <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
