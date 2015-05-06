@@ -27,9 +27,9 @@ class AppKernel extends Kernel
             new Eko\FeedBundle\EkoFeedBundle(),
             new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new Misd\GuzzleBundle\MisdGuzzleBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+            new Ibrows\Bundle\NewsletterBundle\IbrowsNewsletterBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
