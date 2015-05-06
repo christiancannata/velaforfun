@@ -1,5 +1,43 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-    dsad
+    {% set base_path = path(app.request.attributes.get('_route'))|split('/') %}
+    {% set base_path =  '/'~base_path[1] %}
+
+
+    <table class="table table-striped">
+
+        <thead>
+
+        <tr>
+            <th>ID</th>
+
+            <th>NOME</th>
+
+            <th>TIMESTAMP</th>
+
+            <th></th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.nome }} </td>
+                <td>{{ entity.timestamp|date('Y-m-d') }}</td>
+                <td>
+                    <button type="button" onclick="location.href='{{ base_path }}/modifica'" class="btn btn-success">Modifica</button>
+                    <button type="button" onclick="location.href='{{ base_path }}/delete'" class="btn btn-danger">Elimina</button>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+
+
+
 {% endblock %}

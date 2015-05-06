@@ -140,6 +140,38 @@ class Barca {
         $this->web = $web;
     }
 
+    /**
+     * @return \DateTime
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * @param \DateTime $timestamp
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getLastUpdateTimestamp()
+    {
+        return $this->lastUpdateTimestamp;
+    }
+
+    /**
+     * @param \DateTime $lastUpdateTimestamp
+     */
+    public function setLastUpdateTimestamp($lastUpdateTimestamp)
+    {
+        $this->lastUpdateTimestamp = $lastUpdateTimestamp;
+    }
+
 
 
 }
