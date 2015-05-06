@@ -18,3 +18,10 @@ services:
         - { name: guzzle.client }
       arguments:
         - "%webservice_weather_url%"
+
+  app.twig.menu_extension:
+      class: AppBundle\Twig\Extension\MenuVelaExtension
+      tags:
+        - { name: twig.extension }
+      calls:
+        - [ setContainer,[ @service_container ] ]

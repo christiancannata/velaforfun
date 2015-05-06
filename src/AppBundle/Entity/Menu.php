@@ -12,11 +12,13 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation as Serializer;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="menu")
  */
-class Menu {
+class Menu
+{
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -51,11 +53,12 @@ class Menu {
 
 
     /**
-     * @ORM\OneToMany(targetEntity="Nodo", mappedBy="menu")
+     * @ORM\OneToMany(targetEntity="NodoMenu", mappedBy="menu")
      **/
     private $nodi;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->nodi = new ArrayCollection();
     }  // your own logic
 
@@ -140,11 +143,19 @@ class Menu {
     }
 
 
+    public function addNodo(NodoMenu $nodo)
+    {
+        $this->nodi->addElement($nodo);
+    }
 
+    public function removeNodo(NodoMenu $nodo)
+    {
+        $this->nodi->removeElement($nodo);
+    }
 
-
-
-
+    public function __toString(){
+        return $this->id."-".$this->nome;
+    }
 
 
 }

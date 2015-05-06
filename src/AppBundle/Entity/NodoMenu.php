@@ -62,7 +62,7 @@ class NodoMenu {
 
     /**
      * @ORM\ManyToOne(targetEntity="Menu", inversedBy="nodi")
-     * @ORM\JoinColumn(name="id_menu", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id_menu", referencedColumnName="id", nullable=true)
      **/
     private $menu;
 
@@ -230,7 +230,9 @@ class NodoMenu {
         $this->permalink = $permalink;
     }
 
-
+    public function __toString(){
+        return $this->id."-".$this->nome;
+    }
 
 
 

@@ -22,3 +22,14 @@ barche:
     resource: "@AppBundle/Controller/BarcaController.php"
     type:     annotation
     prefix:   /barche
+
+
+menu:
+    resource: "@AppBundle/Controller/MenuController.php"
+    type:     annotation
+    prefix:   /menu
+
+nodomenu:
+    resource: "@AppBundle/Controller/NodoMenuController.php"
+    type:     annotation
+    prefix:   /nodomenu
