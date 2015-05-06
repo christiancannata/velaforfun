@@ -33,3 +33,8 @@ nodomenu:
     resource: "@AppBundle/Controller/NodoMenuController.php"
     type:     annotation
     prefix:   /nodomenu
+
+partner:
+    resource: "@AppBundle/Controller/PartnerController.php"
+    type:     annotation
+    prefix:   /partner
