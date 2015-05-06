@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Porto;
 use AppBundle\Form\PortoType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Controller\BaseController;
@@ -16,13 +17,46 @@ use Ivory\GoogleMap\Helper\MapHelper;
 
 class PortoController extends BaseController
 {
+
+    protected $entity="Porto";
+
     /**
-     * @Route( "crea", name="create_post" )
+     * @Route( "crea", name="create_porto" )
      * @Template()
      */
     public function createAction(Request $request)
     {
         return $this->postForm($request, new PortoType());
+    }
+
+    /**
+     * @Route( "modifica/{id}", name="modifica_porto" )
+     * @Template()
+     */
+    public function patchAction(Request $request,$id)
+    {
+        return $this->patchForm($request,new PortoType(),$id,"Porto");
+    }
+
+
+    /**
+     * @Route( "list", name="list_porto" )
+     * @Template()
+     */
+    public function listAction(Request $request)
+    {
+        return $this->cGet();
+    }
+
+
+
+    /**
+     * @Route( "elimina/{id}", name="delete_porto" )
+     * @Template()
+     */
+    public function eliminaAction(Request $request,$id)
+    {
+        return $this->delete($id);
     }
 
 

@@ -41,4 +41,15 @@ class BarcaController extends BaseController
     {
         return $this->cGet();
     }
+
+
+
+    /**
+     * @Route( "elimina/{id}", name="delete_barca" )
+     * @Template()
+     */
+    public function eliminaAction(Request $request,$id)
+    {
+        return $this->delete($id);
+    }
 }

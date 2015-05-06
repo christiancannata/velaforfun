@@ -100,4 +100,23 @@ class BaseController extends Controller
 
         return $this->render('AppBundle:Crud:list.html.twig', array('entities' => $entities));
     }
+
+    public function delete($id)
+    {
+
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository("AppBundle:".$this->entity)->find($id);
+        if(!$entity){
+            $response['success'] = false;
+            $response['cause'] = "oggetto da eliminare non trovato!";
+        }else{
+            $em->remove($entity);
+            $em->flush();
+            $response['success'] = true;
+        }
+
+
+        return new JsonResponse($response);
+    }
 }

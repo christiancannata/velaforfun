@@ -93,5 +93,21 @@ class Parola {
         $this->definizione = $definizione;
     }
 
+    /**
+     * @return \DateTime
+     */
+    public function getLastUpdateTimestamp()
+    {
+        return $this->lastUpdateTimestamp;
+    }
+
+    /**
+     * @param \DateTime $lastUpdateTimestamp
+     */
+    public function setLastUpdateTimestamp($lastUpdateTimestamp)
+    {
+        $this->lastUpdateTimestamp = $lastUpdateTimestamp;
+    }
+
 
 }

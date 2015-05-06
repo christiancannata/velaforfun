@@ -34,7 +34,28 @@ class NodoController extends BaseController
      */
     public function patchAction(Request $request,$id)
     {
-        return $this->patchForm($request,new NodoType(),$id);
+        return $this->patchForm($request,new NodoType(),$id,"Nodo");
+    }
+
+
+    /**
+     * @Route( "list", name="list_nodo" )
+     * @Template()
+     */
+    public function listAction(Request $request)
+    {
+        return $this->cGet();
+    }
+
+
+
+    /**
+     * @Route( "elimina/{id}", name="delete_nodo" )
+     * @Template()
+     */
+    public function eliminaAction(Request $request,$id)
+    {
+        return $this->delete($id);
     }
 
     /**
