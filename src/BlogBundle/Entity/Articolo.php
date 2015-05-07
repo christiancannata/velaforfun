@@ -52,12 +52,12 @@ class Articolo implements ItemInterface
     protected $testo;
 
     /**
-     * @ORM\Column(type="string", length=200)
+     * @ORM\Column(type="string", length=200, nullable=true)
      */
     protected $immagine;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $tags;
 
@@ -79,6 +79,11 @@ class Articolo implements ItemInterface
      * @Serializer\Type("DateTime")
      */
     protected $lastUpdateTimestamp;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $idComunicato;
 
     /**
      * @return mixed
@@ -268,4 +273,41 @@ class Articolo implements ItemInterface
         $this->permalink = $permalink;
     }
 
+    /**
+     * @return \DateTime
+     */
+    public function getLastUpdateTimestamp()
+    {
+        return $this->lastUpdateTimestamp;
+    }
+
+    /**
+     * @param \DateTime $lastUpdateTimestamp
+     */
+    public function setLastUpdateTimestamp($lastUpdateTimestamp)
+    {
+        $this->lastUpdateTimestamp = $lastUpdateTimestamp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdComunicato()
+    {
+        return $this->idComunicato;
+    }
+
+    /**
+     * @param mixed $idComunicato
+     */
+    public function setIdComunicato($idComunicato)
+    {
+        $this->idComunicato = $idComunicato;
+    }
+
+
+    public function generatePermalink($string){
+        $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
+        $this->permalink=$slug;
+    }
 }

@@ -4,10 +4,13 @@ namespace AppBundle\Command;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\DBAL\Connection;
+use BlogBundle\Entity\Articolo;
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use PhpImap\Mailbox as MailBox;
 
 class CheckEmailCommand extends ContainerAwareCommand
 {
@@ -32,35 +35,37 @@ class CheckEmailCommand extends ContainerAwareCommand
             '{imap.gmail.com:993/imap/ssl}INBOX',
             'comunicati@velaforfun.com ',
             'comunicati01 ',
-            __DIR__
+            '/var/www/web/allegati'
         );
         $mails = array();
 
         $mailsIds = $mailbox->searchMailBox('ALL');
-        $repositoryArticolo = $this->getDoctrine()
+        $repositoryArticolo = $this->getContainer()->get('doctrine')
             ->getRepository('BlogBundle:Articolo');
         if (!$mailsIds) {
             die('Mailbox is empty');
         } else {
+            $mailsIds=$mailbox->sortMails();
+            $mailsIds = array_slice($mailsIds, 0,4);
 
-            $mailsIds = $mailbox->sortMails();
-            $mailsIds = array_slice($mailsIds, 4);
             foreach ($mailsIds as $mailId) {
+                $output->writeln('<info>Leggo email ID:'.$mailId.'</info>');
                 $mail = $mailbox->getMail($mailId);
                 $emailComunicato = $repositoryArticolo->findOneBy(array("idComunicato" => $mail->id));
                 if (!$emailComunicato) {
 
                     $articolo = new Articolo();
+                    $output->writeln('<comment>'.$mail->subject.' from '.$mail->fromAddress.' </comment>');
                     $articolo->setIdComunicato($mail->id);
                     $articolo->setTitolo($mail->subject);
-                    $articolo->setTesto($mail->textHtml);
+                    $articolo->setTesto(addslashes($mail->textHtml));
                     $articolo->generatePermalink($mail->subject);
                     $articolo->setCategoria(
-                        $this->getDoctrine()
+                        $this->getContainer()->get('doctrine')
                             ->getRepository('BlogBundle:Categoria')->find(2)
                     );
                     $this->em->persist($articolo);
-                    $repository = $this->getDoctrine()
+                    $repository = $this->getContainer()->get('doctrine')
                         ->getRepository('AppBundle:User');
                     $user = $repository->findOneBy(array("email" => $mail->fromAddress));
                     if (!$user) {
@@ -77,6 +82,7 @@ class CheckEmailCommand extends ContainerAwareCommand
                     }
                     $articolo->setAutore($user);
                     $this->em->persist($articolo);
+                    $output->writeln('<info>Email ID:'.$mailId.' importata!</info>');
 
                 }
             }
