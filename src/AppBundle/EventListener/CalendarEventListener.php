@@ -7,7 +7,7 @@
  */
 // src/Acme/DemoBundle/EventListener/CalendarEventListener.php
 
-namespace Acme\DemoBundle\EventListener;
+namespace AppBundle\EventListener;
 
 use ADesigns\CalendarBundle\Event\CalendarEvent;
 use ADesigns\CalendarBundle\Entity\EventEntity;
@@ -36,12 +36,10 @@ class CalendarEventListener
 
         // load events using your custom logic here,
         // for instance, retrieving events from a repository
-
-        $companyEvents = $this->entityManager->getRepository('AppBundle:Event')
+        $companyEvents = $this->entityManager->getRepository('AppBundle:Evento')
             ->createQueryBuilder('company_events')
-            ->where('company_events.event_datetime BETWEEN :startDate and :endDate')
+            ->where('company_events.dataFine >= :startDate')
             ->setParameter('startDate', $startDate->format('Y-m-d H:i:s'))
-            ->setParameter('endDate', $endDate->format('Y-m-d H:i:s'))
             ->getQuery()->getResult();
 
         // $companyEvents and $companyEvent in this example
@@ -51,17 +49,17 @@ class CalendarEventListener
         // Create EventEntity instances and populate it's properties with data
         // from your own entities/database values.
 
-        foreach($companyEvents as $companyEvent) {
+        foreach ($companyEvents as $companyEvent) {
 
             // create an event with a start/end time, or an all day event
-            if ($companyEvent->getAllDayEvent() === false) {
-                $eventEntity = new EventEntity($companyEvent->getTitle(), $companyEvent->getStartDatetime(), $companyEvent->getEndDatetime());
-            } else {
-                $eventEntity = new EventEntity($companyEvent->getTitle(), $companyEvent->getStartDatetime(), null, true);
-            }
+            $eventEntity = new EventEntity(
+                $companyEvent->getNome(),
+                $companyEvent->getDataInizio(),
+                $companyEvent->getDataFine()
+            );
 
             //optional calendar event settings
-            $eventEntity->setAllDay(true); // default is false, set to true if this is an all day event
+            $eventEntity->setAllDay(false); // default is false, set to true if this is an all day event
             $eventEntity->setBgColor('#FF0000'); //set the background color of the event's label
             $eventEntity->setFgColor('#FFFFFF'); //set the foreground color of the event's label
             $eventEntity->setUrl('http://www.google.com'); // url to send user to when event label is clicked
