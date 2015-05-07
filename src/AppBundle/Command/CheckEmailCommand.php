@@ -19,59 +19,71 @@ class CheckEmailCommand extends ContainerAwareCommand
     {
         $this
             ->setName('app:check-email')
-            ->setDescription('Controlla email comunicati')
-        ;
+            ->setDescription('Controlla email comunicati');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $max = 1000;
-        $offset = 0;
 
         $this->output = $output;
         $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
-        $this->connection = $this->em->getConnection();
-        $this->connection->exec('SET session wait_timeout = 5000');
 
-        $compagnia = $this->em->getReference('FacileWsBunnyBundle:Compagnia', $input->getOption('compagnia'));
-        $taskTypes = $input->getOption('task-type');
-        $repository = $this->em->getRepository('FacileWsBunnyBundle:Task');
+        $mailbox = new Mailbox(
+            '{imap.gmail.com:993/imap/ssl}INBOX',
+            'comunicati@velaforfun.com ',
+            'comunicati01 ',
+            __DIR__
+        );
+        $mails = array();
 
-        $backofficeManager = $this->getContainer()->get('bunny.backoffice.manager');
+        $mailsIds = $mailbox->searchMailBox('ALL');
+        $repositoryArticolo = $this->getDoctrine()
+            ->getRepository('BlogBundle:Articolo');
+        if (!$mailsIds) {
+            die('Mailbox is empty');
+        } else {
 
-        do {
-            /** @var QueryBuilder $query */
-            $queryBuilder = $this->connection->createQueryBuilder();
-            $query = $queryBuilder
-                ->select('t.id')
-                ->from('task', 't')
-                ->innerJoin('t', 'contratto', 'c', 't.id_contratto = c.id')
-                ->innerJoin('c', 'offerta', 'o', 'c.id_offerta = o.id')
-                ->where('t.id_user IS NULL')
-                ->andWhere('o.id_compagnia = :compagnia')->setParameter('compagnia', $compagnia->getId());
-            if (!empty($taskTypes)) {
-                $query->andWhere("t.type IN (:types)")->setParameter('types', $taskTypes, Connection::PARAM_STR_ARRAY);
-            }
+            $mailsIds = $mailbox->sortMails();
+            $mailsIds = array_slice($mailsIds, 4);
+            foreach ($mailsIds as $mailId) {
+                $mail = $mailbox->getMail($mailId);
+                $emailComunicato = $repositoryArticolo->findOneBy(array("idComunicato" => $mail->id));
+                if (!$emailComunicato) {
 
-            $query->setMaxResults($max)
-                ->setFirstResult($offset);
-            $result = $query->execute()->fetchAll();
+                    $articolo = new Articolo();
+                    $articolo->setIdComunicato($mail->id);
+                    $articolo->setTitolo($mail->subject);
+                    $articolo->setTesto($mail->textHtml);
+                    $articolo->generatePermalink($mail->subject);
+                    $articolo->setCategoria(
+                        $this->getDoctrine()
+                            ->getRepository('BlogBundle:Categoria')->find(2)
+                    );
+                    $this->em->persist($articolo);
+                    $repository = $this->getDoctrine()
+                        ->getRepository('AppBundle:User');
+                    $user = $repository->findOneBy(array("email" => $mail->fromAddress));
+                    if (!$user) {
+                        $userManager = $this->getContainer()->get('fos_user.user_manager');
+                        $user = $userManager->createUser();
+                        $user->setEmail($mail->fromAddress);
+                        $user->setNome($mail->fromName);
+                        $username = strtolower(str_replace(" ", "", $mail->fromName));
+                        $user->setUsername($username);
+                        $user->setPlainPassword($username."1");
 
-            if ($result) {
-                foreach ($result as $record) {
-                    $this->output->writeln('Assigning task: ' . $record->getId());
-                    $backofficeManager->assignTask($record);
+                        $this->em->persist($user);
+
+                    }
+                    $articolo->setAutore($user);
+                    $this->em->persist($articolo);
+
                 }
-            } else {
-                $output->writeln("<error>No more tasks found...</error>");
-                return;
             }
-
-            $output->writeln("<comment>About to flush them...</comment>");
-
             $this->em->flush();
 
-            $offset += 1000;
-        } while (!empty($result));
+
+        }
+
     }
 }
