@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PartnerType extends AbstractType
+class EventoType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,12 +15,11 @@ class PartnerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nome')
             ->add('link')
-            ->add('logo')
-            ->add('telefono')
-            ->add('descrizione')
-            ->add('promozione')
+            ->add('nome')
+            ->add('inEvidenza')
+            ->add('dataInizio')
+            ->add('dataFine')
             ->add('save', 'submit', array('label' => 'Crea'))
         ;
     }
@@ -31,7 +30,7 @@ class PartnerType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Partner'
+            'data_class' => 'AppBundle\Entity\Evento'
         ));
     }
 
@@ -40,6 +39,6 @@ class PartnerType extends AbstractType
      */
     public function getName()
     {
-        return 'appbundle_partner';
+        return 'appbundle_evento';
     }
 }

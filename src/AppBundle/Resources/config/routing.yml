@@ -38,3 +38,8 @@ partner:
     resource: "@AppBundle/Controller/PartnerController.php"
     type:     annotation
     prefix:   /partner
+
+eventi:
+    resource: "@AppBundle/Controller/EventoController.php"
+    type:     annotation
+    prefix:   /evento
