@@ -26,7 +26,7 @@ class DefaultController extends Controller
         $segnali=$repository->findAll();
 
 
-        $mailbox = new Mailbox('{imap.gmail.com:993/imap/ssl}INBOX', 'christian.cannata@facile.it', 'zipzap91', __DIR__);
+        $mailbox = new Mailbox('{imap.gmail.com:993/imap/ssl}INBOX', 'comunicati@velaforfun.com ', 'comunicati01 ', __DIR__);
         $mails = array();
 
         $mailsIds = $mailbox->searchMailBox('ALL');
