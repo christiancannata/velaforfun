@@ -6,11 +6,12 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
+use Ibrows\Bundle\NewsletterBundle\Model\User\MandantUserInterface;
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
  */
-class User extends BaseUser
+class User extends BaseUser implements MandantUserInterface
 {
     /**
      * @ORM\Id
@@ -62,6 +63,13 @@ class User extends BaseUser
      * @ORM\Column(name="privacy", type="string", nullable=true)
      */
     private $privacy;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $mandant;
+
+
 
 
     public function __construct()
@@ -188,5 +196,11 @@ class User extends BaseUser
         $this->privacy = $privacy;
     }
 
-
+    /**
+     * @return string
+     */
+    public function getMandant()
+    {
+        return $this->mandant;
+    }
 }

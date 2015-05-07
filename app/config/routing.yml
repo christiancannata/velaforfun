@@ -123,3 +123,9 @@ adesigns_calendar:
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+# IbrowsNewsletter
+ibrows_newsletter:
+    resource: "@IbrowsNewsletterBundle/Controller/"
+    type:     annotation
+    prefix:   /newsletter
