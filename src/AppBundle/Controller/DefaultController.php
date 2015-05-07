@@ -4,7 +4,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use PhpImap\Mailbox as MailBox;
 
 class DefaultController extends Controller
 {
@@ -25,6 +25,19 @@ class DefaultController extends Controller
 
         $segnali=$repository->findAll();
 
+
+        $mailbox = new Mailbox('{imap.gmail.com:993/imap/ssl}INBOX', 'christian.cannata@facile.it', 'zipzap91', __DIR__);
+        $mails = array();
+
+        $mailsIds = $mailbox->searchMailBox('ALL');
+        if(!$mailsIds) {
+            die('Mailbox is empty');
+        }else{
+            var_dump(count($mailsIds));
+        }
+
+       // $mailId = reset($mailsIds);
+       // $mail = $mailbox->getMail($mailId);
 
 
 
