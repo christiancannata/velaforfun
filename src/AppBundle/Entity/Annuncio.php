@@ -5,7 +5,6 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation as Serializer;
-
 /**
  * @ORM\Entity
  * @ORM\Table(name="annuncio")
@@ -21,8 +20,8 @@ class Annuncio
 
 
     /**
-     * @ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @JoinColumn(name="id_utente", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(name="id_utente", referencedColumnName="id")
      **/
     protected $utente;
 

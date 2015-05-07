@@ -21,8 +21,8 @@ class AnnuncioImbarco
 
 
     /**
-     * @ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @JoinColumn(name="id_utente", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(name="id_utente", referencedColumnName="id")
      **/
     protected $utente;
 
