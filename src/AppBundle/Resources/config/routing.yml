@@ -43,3 +43,8 @@ eventi:
     resource: "@AppBundle/Controller/EventoController.php"
     type:     annotation
     prefix:   /evento
+
+annuncio_imbarco:
+    resource: "@AppBundle/Controller/AnnuncioImbarcoController.php"
+    type:     annotation
+    prefix:   /annuncio-imbarco

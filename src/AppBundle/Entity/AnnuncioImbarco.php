@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation as Serializer;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -36,14 +37,16 @@ class AnnuncioImbarco
     /**
      * @var string
      *
-     * @ORM\Column(name="luogo", type="text", nullable=true)
+     * @Assert\NotBlank()
+     * @ORM\Column(name="luogo", type="string", columnDefinition="ENUM('NORD_ITALIA','SUD_ITALIA','CENTRO','ESTERO')", nullable=false)
      */
     private $luogo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="tipo", type="float", nullable=true)
+     * @Assert\NotBlank()
+     * @ORM\Column(name="tipo", type="string", columnDefinition="ENUM('CABINATO','DERIVA','ALTRO')", nullable=false)
      */
     private $tipo;
 
@@ -64,14 +67,16 @@ class AnnuncioImbarco
     /**
      * @var string
      *
-     * @ORM\Column(name="ruolo_richiesto", type="string", nullable=true)
+     * @Assert\NotBlank()
+     * @ORM\Column(name="ruolo_richiesto", type="string", columnDefinition="ENUM('PRODIERE','UOMO_ALBERO','PITMAN','GRINDER','TAILER','TATTICO','RANDISTA','TIMONIERE','CUOCO','MOZZO_GENERICO','COMANDANTE','SECONDO','MOTORISTA','STEWARD','HOSTESS')", nullable=false)
      */
     private $ruoloRichiesto;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="costo", type="string", nullable=true)
+     * @Assert\NotBlank()
+     * @ORM\Column(name="costo", type="string", columnDefinition="ENUM('GRATIS','A_PAGAMENTO','PAGATO')", nullable=false)
      */
     private $costo;
 
