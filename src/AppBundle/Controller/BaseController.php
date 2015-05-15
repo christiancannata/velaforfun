@@ -90,6 +90,17 @@ class BaseController extends Controller
     }
 
 
+    public function cJsonGet()
+    {
+
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entities = $em->getRepository("AppBundle:".$this->entity)->findAll();
+
+
+        return $entities;
+    }
+
     public function cGet()
     {
 

@@ -12,14 +12,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class SegnalazionePortolanoController extends BaseController
 {
-    protected $entity="SegnalazionePortolano";
+    protected $entity = "SegnalazionePortolano";
+
     /**
      * @Route( "crea", name="create_segnalazione_portolano" )
      * @Template()
      */
     public function createAction(Request $request)
     {
-        return $this->postForm($request,new SegnalazionePortolanoType());
+        return $this->postForm($request, new SegnalazionePortolanoType());
     }
 
 
@@ -27,9 +28,9 @@ class SegnalazionePortolanoController extends BaseController
      * @Route( "modifica/{id}", name="modifica_segnalazione_portolano" )
      * @Template()
      */
-    public function patchAction(Request $request,$id)
+    public function patchAction(Request $request, $id)
     {
-        return $this->patchForm($request,new SegnalazionePortolanoType(),$id,"SegnalazionePortolano");
+        return $this->patchForm($request, new SegnalazionePortolanoType(), $id, "SegnalazionePortolano");
     }
 
 
@@ -43,12 +44,59 @@ class SegnalazionePortolanoController extends BaseController
     }
 
 
+    /*
+     * {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -77.03238901390978,
+        38.913188059745586
+      ]
+    },
+    "properties": {
+      "title": "Mapbox DC",
+      "description": "1714 14th St NW, Washington DC",
+      "marker-color": "#fc4353",
+      "marker-size": "large",
+      "marker-symbol": "monument",
+      "id": 1
+    }
+  }
+     */
+    /**
+     * @Route( "geojson_list", name="geojson_list_segnalazione_portolano" )
+     * @Template()
+     */
+    public function geoJsonlistAction(Request $request)
+    {
+
+        $json = array();
+        $res = $this->cJsonGet();
+        foreach ($res as $result) {
+            $point = new \GeoJson\Geometry\Point([$result->getLongitudine(), $result->getLatitudine()]);
+            $attributes = [
+                "title" => "Segnalazione scritta da ".$result->getUtente()->getUsername(),
+                "description" => $result->getDescrizione(),
+                "marker-color" => "#fc4353",
+                "marker-size" => "large",
+                "marker-symbol" => "monument",
+                "id" => 1
+            ];
+            $feature = new \GeoJson\Feature\Feature($point, $attributes, null);
+            $json[] = $feature;
+
+        }
+
+        return new JsonResponse($json);
+    }
+
 
     /**
      * @Route( "elimina/{id}", name="delete_segnalazione_portolano" )
      * @Template()
      */
-    public function eliminaAction(Request $request,$id)
+    public function eliminaAction(Request $request, $id)
     {
         return $this->delete($id);
     }

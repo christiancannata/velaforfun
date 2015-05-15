@@ -36,7 +36,8 @@
     "php-imap/php-imap": "2.*",
     "misd/guzzle-bundle": "~1.0",
     "ibrows/newsletter-bundle": "*",
-    "php-imap/php-imap": "2.*"
+    "php-imap/php-imap": "2.*",
+    "jmikola/geojson": "~1.0"
 
   },
   "require-dev": {
