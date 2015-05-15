@@ -63,7 +63,8 @@ class AnnuncioImbarcoType extends AbstractType
                 'choice',
                 array('choices' => array('GRATIS' => 'Gratis', 'A_PAGAMENTO' => 'A pagamento', 'PAGATO' => 'Pagato'))
             )
-            ->add('descrizione');
+            ->add('descrizione')
+            ->add('save', 'submit', array('label' => 'Inserisci'));
     }
 
     /**

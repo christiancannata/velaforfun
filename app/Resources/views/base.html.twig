@@ -12,16 +12,17 @@
 
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
-<style>
-    body { padding-top: 125px; }
-</style>
+    <style>
+        body {
+            padding-top: 125px;
+        }
+    </style>
 </head>
 
-<body >
+<body>
 
 
 <div class="container-fluid">
-
 
 
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -39,7 +40,8 @@
             </div>
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -51,7 +53,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+                            <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             {% for nodo in menu('dropdown_menu') %}
                                 <li><a href="{{ nodo.link }}">{{ nodo.nome }}</a></li>
@@ -70,8 +73,10 @@
                         <li><a href="{{ nodo.link }}">{{ nodo.nome }}</a></li>
                     {% endfor %}
                 </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
     </nav>
 
     {% block body %}{% endblock %}
@@ -107,7 +112,12 @@
 <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
 <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
 <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
-<script>tinymce.init({selector:'textarea',plugins: "textcolor",toolbar: "undo redo | styleselect | bold italic | link image | forecolor backcolor"});</script>
+<script>tinymce.init({
+        language_url: '/bundles/app/js/languages/it.js',
+        selector: 'textarea',
+        plugins: "textcolor",
+        toolbar: "undo redo | styleselect | bold italic | link image | forecolor backcolor"
+    });</script>
 {% if form is defined %}
     <script language="javascript">
         $(document).ready(function () {
@@ -119,12 +129,12 @@
             $(forms.join(',')).submit(function (e) {
                 e.preventDefault();
                 var form = $(this)
-                form.find('input[type="submit"],button').attr('disabled','disabled');
+                form.find('input[type="submit"],button').attr('disabled', 'disabled');
                 postForm($(this), function (response) {
-                    if(response.success==true){
-                        showalert(form,"Creato con successo!","success")
-                    }else{
-                        showalert(form,"Errore nella creazione","error")
+                    if (response.success == true) {
+                        showalert(form, "Creato con successo!", "success")
+                    } else {
+                        showalert(form, "Errore nella creazione", "error")
                     }
                     form.find('input[type="submit"],button').removeAttr('disabled');
                 });

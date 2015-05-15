@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class AnnuncioScambioPostoType extends AbstractType
+class AnnuncioType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -16,11 +16,8 @@ class AnnuncioScambioPostoType extends AbstractType
     {
         $builder
             ->add('telefono')
-            ->add('luogoAttuale')
-            ->add('luogoRicercato')
             ->add('tipo')
-            ->add('tempo')
-            ->add('lunghezza')
+            ->add('prezzo')
             ->add('descrizione')
             ->add('save', 'submit', array('label' => 'Inserisci'));
     }
@@ -32,7 +29,7 @@ class AnnuncioScambioPostoType extends AbstractType
     {
         $resolver->setDefaults(
             array(
-                'data_class' => 'AppBundle\Entity\AnnuncioScambioPosto'
+                'data_class' => 'AppBundle\Entity\Annuncio'
             )
         );
     }
@@ -42,6 +39,6 @@ class AnnuncioScambioPostoType extends AbstractType
      */
     public function getName()
     {
-        return 'appbundle_annuncioscambioposto';
+        return 'appbundle_annuncio';
     }
 }

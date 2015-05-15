@@ -2,7 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Form\AnnuncioImbarcoType;
+use AppBundle\Form\AnnuncioType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Controller\BaseController;
 use Symfony\Bundle\FrameworkBundle\Tests\Functional\Bundle\TestBundle\Controller\Bar;
@@ -10,31 +10,31 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class AnnuncioImbarcoController extends BaseController
+class AnnuncioController extends BaseController
 {
-    protected $entity="AnnuncioImbarco";
+    protected $entity="Annuncio";
     /**
-     * @Route( "crea", name="create_annuncio_imbarco" )
+     * @Route( "crea", name="create_annuncio" )
      * @Template()
      */
     public function createAction(Request $request)
     {
-        return $this->postForm($request,new AnnuncioImbarcoType());
+        return $this->postForm($request,new AnnuncioType());
     }
 
 
     /**
-     * @Route( "modifica/{id}", name="modifica_annuncio_imbarco" )
+     * @Route( "modifica/{id}", name="modifica_annuncio" )
      * @Template()
      */
     public function patchAction(Request $request,$id)
     {
-        return $this->patchForm($request,new AnnuncioImbarcoType(),$id,"AnnuncioImbarco");
+        return $this->patchForm($request,new AnnuncioType(),$id,"Annuncio");
     }
 
 
     /**
-     * @Route( "list", name="list_annuncio_imbarco" )
+     * @Route( "list", name="list_annuncio" )
      * @Template()
      */
     public function listAction(Request $request)
@@ -45,7 +45,7 @@ class AnnuncioImbarcoController extends BaseController
 
 
     /**
-     * @Route( "elimina/{id}", name="delete_annuncio_imbarco" )
+     * @Route( "elimina/{id}", name="delete_annuncio" )
      * @Template()
      */
     public function eliminaAction(Request $request,$id)

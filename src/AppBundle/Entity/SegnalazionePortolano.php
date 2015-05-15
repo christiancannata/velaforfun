@@ -5,13 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation as Serializer;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="annuncio")
+ * @ORM\Table(name="segnalazione_portolano")
  */
-class Annuncio
+class SegnalazionePortolano
 {
     /**
      * @ORM\Id
@@ -22,34 +21,18 @@ class Annuncio
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumn(name="id_utente", referencedColumnName="id")
-     **/
-    protected $utente;
+     * @var string
+     *
+     * @ORM\Column(name="latitudine", type="float", nullable=true)
+     */
+    private $latitudine;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="telefono", type="string", nullable=true)
+     * @ORM\Column(name="longitudine", type="float", nullable=true)
      */
-    private $telefono;
-
-
-
-    /**
-     * @var string
-     *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="luogo", type="string", columnDefinition="ENUM('COMPRO','VENDO')", nullable=false)
-     */
-    private $tipo;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prezzo", type="float", nullable=true)
-     */
-    private $prezzo;
+    private $longitudine;
 
     /**
      * @var string
@@ -58,6 +41,12 @@ class Annuncio
      */
     private $descrizione;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(name="id_utente", referencedColumnName="id")
+     **/
+    protected $utente;
 
     /**
      * @var \DateTime
@@ -77,8 +66,12 @@ class Annuncio
      */
     protected $lastUpdateTimestamp;
 
+
+
     /**
-     * @return mixed
+     * Get id
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -86,59 +79,35 @@ class Annuncio
     }
 
     /**
-     * @param mixed $id
+     * @return string
      */
-    public function setId($id)
+    public function getLatitudine()
     {
-        $this->id = $id;
+        return $this->latitudine;
     }
 
     /**
-     * @return mixed
+     * @param string $latitudine
      */
-    public function getUtente()
+    public function setLatitudine($latitudine)
     {
-        return $this->utente;
-    }
-
-    /**
-     * @param mixed $utente
-     */
-    public function setUtente($utente)
-    {
-        $this->utente = $utente;
+        $this->latitudine = $latitudine;
     }
 
     /**
      * @return string
      */
-    public function getTelefono()
+    public function getLongitudine()
     {
-        return $this->telefono;
+        return $this->longitudine;
     }
 
     /**
-     * @param string $telefono
+     * @param string $longitudine
      */
-    public function setTelefono($telefono)
+    public function setLongitudine($longitudine)
     {
-        $this->telefono = $telefono;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTipo()
-    {
-        return $this->tipo;
-    }
-
-    /**
-     * @param string $tipo
-     */
-    public function setTipo($tipo)
-    {
-        $this->tipo = $tipo;
+        $this->longitudine = $longitudine;
     }
 
     /**
@@ -155,6 +124,22 @@ class Annuncio
     public function setDescrizione($descrizione)
     {
         $this->descrizione = $descrizione;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUtente()
+    {
+        return $this->utente;
+    }
+
+    /**
+     * @param mixed $utente
+     */
+    public function setUtente($utente)
+    {
+        $this->utente = $utente;
     }
 
     /**
@@ -188,24 +173,6 @@ class Annuncio
     {
         $this->lastUpdateTimestamp = $lastUpdateTimestamp;
     }
-
-    /**
-     * @return string
-     */
-    public function getPrezzo()
-    {
-        return $this->prezzo;
-    }
-
-    /**
-     * @param string $prezzo
-     */
-    public function setPrezzo($prezzo)
-    {
-        $this->prezzo = $prezzo;
-    }
-
-
 
 
 

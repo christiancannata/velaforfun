@@ -29,7 +29,7 @@ class AnnuncioImbarcoController extends BaseController
      */
     public function patchAction(Request $request,$id)
     {
-        return $this->patchForm($request,new BarcaType(),$id,"AnnuncioScambioPosto");
+        return $this->patchForm($request,new AnnuncioScambioPostoType(),$id,"AnnuncioScambioPosto");
     }
 
 

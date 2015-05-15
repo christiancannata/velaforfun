@@ -48,3 +48,18 @@ annuncio_imbarco:
     resource: "@AppBundle/Controller/AnnuncioImbarcoController.php"
     type:     annotation
     prefix:   /annuncio-imbarco
+
+annuncio:
+    resource: "@AppBundle/Controller/AnnuncioController.php"
+    type:     annotation
+    prefix:   /annuncio
+
+annuncio_scambio_posto:
+    resource: "@AppBundle/Controller/AnnuncioScambioPostoController.php"
+    type:     annotation
+    prefix:   /annuncio-scambio-posto
+
+segnalazione_portolano:
+    resource: "@AppBundle/Controller/SegnalazionePortolanoController.php"
+    type:     annotation
+    prefix:   /segnalazione-portolano
