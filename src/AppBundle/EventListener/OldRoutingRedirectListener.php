@@ -2,11 +2,13 @@
 namespace AppBundle\EventListener;
 
 use Psr\Log\LoggerInterface;
+use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\HttpKernel;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
-class OldRoutingRedirectListener
+class OldRoutingRedirectListener extends ContainerAware
 {
     /**
      * @var LoggerInterface
@@ -36,10 +38,55 @@ class OldRoutingRedirectListener
         }
 
         $request = $event->getRequest();
-        $path=$request->getPathInfo();
+        $path = $request->getPathInfo();
+        $redirect=false;
+        $route="homepage";
 
-        if(strstr($path,"comprovendo")){
+        if (strstr($path, "comprovendo.asp")) {
             die("jjj");
         }
+
+        if (strstr($path, "portolano/index.asp")) {
+            die("jjj");
+        }
+
+        if (strstr($path, "porti/index.asp")) {
+            $redirect=true;
+        }
+
+        if (strstr($path, "nodi.asp")) {
+            die("jjj");
+        }
+
+        if (strstr($path, "imbarco_i.asp")) {
+            die("jjj");
+        }
+
+        if (strstr($path, "public/forum/visual.asp")) {
+            die("jjj");
+        }
+        if (strstr($path, "scambio_posto.asp")) {
+            die("jjj");
+        }
+
+        if (strstr($path, "comunicati/index.asp")) {
+            die("jjj");
+        }
+
+        if (strstr($path, "comunicati/comunicato_leggi.asp")) {
+            die("jjj");
+        }
+
+        if (strstr($path, "porti/dettaglio.asp")) {
+            die("jjj");
+
+        }
+
+        if($redirect){
+            $url = $this->container->get('router')->generate($route);
+            $response = new RedirectResponse($url);
+            $event->setResponse($response);
+        }
+
     }
 }
