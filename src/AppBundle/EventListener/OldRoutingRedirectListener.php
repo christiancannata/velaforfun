@@ -39,26 +39,32 @@ class OldRoutingRedirectListener extends ContainerAware
 
         $request = $event->getRequest();
         $path = $request->getPathInfo();
-        $redirect=false;
-        $route="homepage";
+        $redirect = false;
+        $route = "homepage";
+        $params = array();
 
         if (strstr($path, "comprovendo.asp")) {
             die("jjj");
         }
 
         if (strstr($path, "portolano/index.asp")) {
-            $redirect=true;
-            $route="list_segnalazione_portolano";
+            $redirect = true;
+            $route = "list_segnalazione_portolano";
         }
 
         if (strstr($path, "porti/index.asp")) {
-            $redirect=true;
-            $route="porti_italia";
+            $redirect = true;
+            $route = "porti_italia";
+        }
+
+        if (strstr($path, "calendario/index.asp")) {
+            $redirect = true;
+            $route = "calendario";
         }
 
         if (strstr($path, "nodi.asp")) {
-            $redirect=true;
-            $route="nodi";
+            $redirect = true;
+            $route = "nodi";
         }
 
         if (strstr($path, "imbarco_i.asp")) {
@@ -73,7 +79,9 @@ class OldRoutingRedirectListener extends ContainerAware
         }
 
         if (strstr($path, "comunicati/index.asp")) {
-            die("jjj");
+            $redirect = true;
+            $route = "BloggerBlogBundle_blog_show_categoria";
+            $paras["permalink"] = "comunicati";
         }
 
         if (strstr($path, "comunicati/comunicato_leggi.asp")) {
@@ -85,8 +93,8 @@ class OldRoutingRedirectListener extends ContainerAware
 
         }
 
-        if($redirect){
-            $url = $this->container->get('router')->generate($route);
+        if ($redirect) {
+            $url = $this->container->get('router')->generate($route, $params);
             $response = new RedirectResponse($url);
             $event->setResponse($response);
         }
