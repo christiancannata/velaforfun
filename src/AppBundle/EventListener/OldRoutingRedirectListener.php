@@ -47,15 +47,18 @@ class OldRoutingRedirectListener extends ContainerAware
         }
 
         if (strstr($path, "portolano/index.asp")) {
-            die("jjj");
+            $redirect=true;
+            $route="list_segnalazione_portolano";
         }
 
         if (strstr($path, "porti/index.asp")) {
             $redirect=true;
+            $route="porti_italia";
         }
 
         if (strstr($path, "nodi.asp")) {
-            die("jjj");
+            $redirect=true;
+            $route="nodi";
         }
 
         if (strstr($path, "imbarco_i.asp")) {
