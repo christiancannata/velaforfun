@@ -20,6 +20,54 @@ class PortoController extends BaseController
 
     protected $entity="Porto";
 
+
+
+    /**
+     * @Route( "geojson_list", name="geojson_list_porto" )
+     * @Template()
+     */
+    public function geoJsonlistAction(Request $request)
+    {
+
+        $json = array();
+        $res = $this->cJsonGet();
+        foreach ($res as $result) {
+            $point = new \GeoJson\Geometry\Point([$result->getLongitudine(), $result->getLatitudine()]);
+            $attributes = [
+                "title" => "Porto di ".$result->getNome(),
+                "description" => "Posti Totali: ".$result->getPostiTotale()."<br><br>Posti Transito: ".$result->getPostiTransito(),
+                "marker-color" => "#fc4353",
+                "marker-size" => "large",
+                "marker-symbol" => "monument",
+            ];
+            $feature = new \GeoJson\Feature\Feature($point, $attributes, $result->getId());
+            $json[] = $feature;
+
+        }
+
+        return new JsonResponse($json);
+    }
+
+    /**
+     * @Route( "json_list", name="json_list_porto" )
+     * @Template()
+     */
+    public function jsonlistAction(Request $request)
+    {
+
+        $json = array();
+        $res = $this->cJsonGet();
+        foreach ($res as $result) {
+            $json[] = [
+                "permalink"=>$result->getPermalink(),
+                "name"=>$result->getNome()
+            ];
+
+        }
+
+        return new JsonResponse($json);
+    }
+
     /**
      * @Route( "crea", name="create_porto" )
      * @Template()
@@ -140,4 +188,7 @@ class PortoController extends BaseController
 
         return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("mapHelper" => $mapHelper, "map" => $map));
     }
+
+
+
 }

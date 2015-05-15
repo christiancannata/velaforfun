@@ -32,3 +32,11 @@ services:
         - { name: kernel.event_listener, event: calendar.load_events, method: loadEvents }
       arguments:
         - "@doctrine.orm.entity_manager"
+
+  old_routing.kernel.request.router_listener:
+          class: AppBundle\EventListener\OldRoutingRedirectListener
+          arguments:
+              - "@logger"
+          tags:
+              - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 32 }
+              - { name: monolog.logger, channel: request }

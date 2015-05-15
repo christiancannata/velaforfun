@@ -44,26 +44,7 @@ class SegnalazionePortolanoController extends BaseController
     }
 
 
-    /*
-     * {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -77.03238901390978,
-        38.913188059745586
-      ]
-    },
-    "properties": {
-      "title": "Mapbox DC",
-      "description": "1714 14th St NW, Washington DC",
-      "marker-color": "#fc4353",
-      "marker-size": "large",
-      "marker-symbol": "monument",
-      "id": 1
-    }
-  }
-     */
+
     /**
      * @Route( "geojson_list", name="geojson_list_segnalazione_portolano" )
      * @Template()
@@ -81,9 +62,9 @@ class SegnalazionePortolanoController extends BaseController
                 "marker-color" => "#fc4353",
                 "marker-size" => "large",
                 "marker-symbol" => "monument",
-                "id" => 1
+
             ];
-            $feature = new \GeoJson\Feature\Feature($point, $attributes, null);
+            $feature = new \GeoJson\Feature\Feature($point, $attributes,$result->getId());
             $json[] = $feature;
 
         }
