@@ -78,11 +78,25 @@ jQuery(document).ready(function ($) {
 
 
 
-    $.get('/json/portiItaliani.json', function (data) {
+    $.get('/bundles/app/json/portiItaliani.json', function (data) {
         $("#selectPorto").typeahead({source: data});
     }, 'json');
 
 
+    $("form").submit(function (e) {
+        alert("Jjj");
+        e.preventDefault();
+        var form = $(this);
+        var url = form.attr("action");
+        if (url.indexOf("{permalink}") >= 0) {
+            url = url.replace('{permalink}', $("#selectPorto").typeahead("getActive").permalink);
+        }
+        alert(url);
+        if (form.attr("method") == "GET") {
+            location.href = url;
+        }
+
+    });
 
     $('.scroll-pane').jScrollPane();
 });

@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <title>{% block title %}Welcome!{% endblock %}</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/normalize.css')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}">
@@ -15,7 +15,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'/>
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     <link rel="stylesheet" href="{{ asset('bundles/app/css/colori.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/scrollPane.css') }}">
 
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
@@ -251,6 +251,11 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="{{ asset('bundles/app/js/bootstrap3-typeahead.min.js') }}"></script>
 
+<script src="http://jscrollpane.kelvinluck.com/script/jquery.mousewheel.js"></script>
+<script src="http://jscrollpane.kelvinluck.com/script/mwheelIntent.js"></script>
+<script src="http://jscrollpane.kelvinluck.com/script/jquery.jscrollpane.min.js"></script>
+
+
 <script src="{{ asset('bundles/app/js/form.js') }}"></script>
 <script src="{{ asset('bundles/app/js/main.js') }}"></script>
 <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
@@ -288,19 +293,6 @@
             });
 
 
-            $("form").submit(function (e) {
-                e.preventDefault();
-                var form = $(this);
-                var url = form.attr("action");
-                if (url.indexOf("{permalink}") >= 0) {
-                    url = url.replace('{permalink}', $("#selectPorto").typeahead("getActive").permalink);
-                }
-                alert(url);
-                if (form.attr("method") == "GET") {
-                    location.href = url;
-                }
-
-            });
 
         });
     </script>
