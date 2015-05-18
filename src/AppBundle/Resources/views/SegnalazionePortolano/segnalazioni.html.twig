@@ -7,143 +7,136 @@
 
 
 {% block javascripts %}
-    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
-    <script language="javascript">
+    {% spaceless %}
+        <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+        <script language="javascript">
 
-        $(document).ready(function () {
-
-
-            // Provide your access token
-            L.mapbox.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFuMTQ4OCIsImEiOiJZaldjZlM0In0.hXiRMyyCDLdQZUrqXF2eNw';
-            // Create a map in the div #map
-            var map = L.mapbox.map('map', 'mapbox.streets');
-            var myLayer = null;
-            // Build a marker from a simple GeoJSON object:
-            var arrayPorti = new Array();
-
-            {% for segnalazione in segnalazioni %}
-            var arrayPorto = {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        {{ segnalazione.getLongitudine() }},
-                        {{ segnalazione.getLatitudine() }}
-                    ]
-                },
-                "properties": {
-                    "title": "Segnalato da ",
-                    "description": {{ segnalazione.getDescrizione()|nl2br }},
-                    "marker-color": "#fc4353",
-                    "marker-size": "large",
-                    "marker-symbol": "monument"
-                },
-                "id": 2
-            };
-
-            arrayPorti.push(arrayPorto);
-
-            {% endfor %}
-
-            myLayer = L.mapbox.featureLayer(arrayPorti).addTo(map);
+            $(document).ready(function () {
 
 
-            myLayer.on('click', function (e) {
-                var marker = e.layer;
-                feature = marker.feature;
-                var id = feature.id;
+                // Provide your access token
+                L.mapbox.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFuMTQ4OCIsImEiOiJZaldjZlM0In0.hXiRMyyCDLdQZUrqXF2eNw';
+                // Create a map in the div #map
+                var map = L.mapbox.map('map', 'mapbox.streets');
+                var myLayer = null;
+                // Build a marker from a simple GeoJSON object:
 
-                $.ajax({
-                    url: "/porti/" + id + ".json",
-                    dataType: "json",
-                    success: function (response) {
-                        $("#loading-porto").show();
-                        $(".porto-title").css("opacity", "0.5");
-                        $(".porto-content").css("opacity", "0.5");
 
-                        //SET CONTENUTO DEL PORTO
+                myLayer = L.mapbox.featureLayer().loadURL('/segnalazione-portolano/geojson_list').addTo(map);
 
-                        $.ajax({
-                            url: "porti/" + id + "/meteo.json",
-                            dataType: "json",
-                            success: function (response) {
 
-                                console.log(response);
+                myLayer.on('click', function (e) {
+                    var marker = e.layer;
+                    feature = marker.feature;
+                    var id = feature.id;
 
-                                $.ajax({
-                                    url: "http://api.openweathermap.org/data/2.5/weather?units=metric&lat=" + e.latlng.lat + "&lon=" + e.latlng.lng,
-                                    dataType: "json",
-                                    success: function (location) {
+                    $.ajax({
+                        url: "/porti/" + id + ".json",
+                        dataType: "json",
+                        success: function (response) {
+                            $("#loading-porto").show();
+                            $(".porto-title").css("opacity", "0.5");
+                            $(".porto-content").css("opacity", "0.5");
 
-                                        $("#porto-nome").html(location.name);
+                            //SET CONTENUTO DEL PORTO
 
-                                        $("#porto-temperatura").html(parseInt(location.main.temp) + "°");
-                                        console.log(location);
-                                        $("#loading-porto").hide();
-                                        $(".porto-title").css("opacity", "1");
-                                        $(".porto-content").css("opacity", "1");
-                                    }
-                                });
-                            }
-                        });
+                            $.ajax({
+                                url: "porti/" + id + "/meteo.json",
+                                dataType: "json",
+                                success: function (response) {
 
-                    }
+                                    console.log(response);
+
+                                    $.ajax({
+                                        url: "http://api.openweathermap.org/data/2.5/weather?units=metric&lat=" + e.latlng.lat + "&lon=" + e.latlng.lng,
+                                        dataType: "json",
+                                        success: function (location) {
+
+                                            $("#porto-nome").html(location.name);
+
+                                            $("#porto-temperatura").html(parseInt(location.main.temp) + "°");
+                                            console.log(location);
+                                            $("#loading-porto").hide();
+                                            $(".porto-title").css("opacity", "1");
+                                            $(".porto-content").css("opacity", "1");
+                                        }
+                                    });
+                                }
+                            });
+
+                        }
+                    });
+
                 });
 
-            });
 
 
-            myLayer.on('ready', function (e) {
-                map.fitBounds(myLayer.getBounds());
+                map.on('click', function (e) {
+                    var marker = L.marker([e.latlng.lat, e.latlng.lng]);
+                    $("#latitudine").val(e.latlng.lat);
+                    $("#longitudine").val(e.latlng.lng);
+                    marker.addTo(map);
+                    $("#modalPortolano").modal().on('hidden.bs.modal', function () {
+                        map.removeLayer(marker);
+                    });
+                });
 
-            });
+
+                myLayer.on('ready', function (e) {
+                    map.fitBounds(myLayer.getBounds());
+
+                });
 
 // This uses the HTML5 geolocation API, which is available on
 // most mobile browsers and modern browsers, but not in Internet Explorer
 //
 // See this chart of compatibility for details:
 // http://caniuse.com/#feat=geolocation
-            if (!navigator.geolocation) {
-                geolocate.innerHTML = 'Geolocation is not available';
-            } else {
-                geolocate.onclick = function (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    map.locate();
-                };
-            }
+                if (!navigator.geolocation) {
+                    geolocate.innerHTML = 'Geolocation is not available';
+                } else {
+                    geolocate.onclick = function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        map.locate();
+                    };
+                }
 
 // Once we've got a position, zoom and center the map
 // on it, and add a single marker.
-            map.on('locationfound', function (e) {
-                map.fitBounds(e.bounds);
+                map.on('locationfound', function (e) {
+                    map.fitBounds(e.bounds);
 
-                myLayer.setGeoJSON({
-                    type: 'Feature',
-                    geometry: {
-                        type: 'Point',
-                        coordinates: [e.latlng.lng, e.latlng.lat]
-                    },
-                    properties: {
-                        'title': 'Here I am!',
-                        'marker-color': '#ff8888',
-                        'marker-symbol': 'star'
-                    }
+                    $("#latitudine").val(e.latlng.lat);
+                    $("#longitudine").val(e.latlng.lng);
+
+                    myLayer.setGeoJSON({
+                        type: 'Feature',
+                        geometry: {
+                            type: 'Point',
+                            coordinates: [e.latlng.lng, e.latlng.lat]
+                        },
+                        properties: {
+                            'title': 'Mi trovo qui!',
+                            'marker-color': '#ff8888',
+                            'marker-symbol': 'star'
+                        }
+                    });
+
+                    // And hide the geolocation button
+                    geolocate.parentNode.removeChild(geolocate);
                 });
-
-                // And hide the geolocation button
-                geolocate.parentNode.removeChild(geolocate);
-            });
 
 // If the user chooses not to allow their location
 // to be shared, display an error message.
-            map.on('locationerror', function () {
-                geolocate.innerHTML = 'Position could not be found';
+                map.on('locationerror', function () {
+                    geolocate.innerHTML = 'Position could not be found';
+                });
+
+
             });
-
-
-        });
-    </script>
+        </script>
+    {% endspaceless %}
 {% endblock %}
 
 {% block body %}
@@ -175,6 +168,58 @@
 
 </div>
 
+
+
+
+<div class="modal fade" id="modalPortolano">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Nuova segnalazione del Portolano</h4>
+            </div>
+            <form method="POST">
+                <div class="modal-body">
+                <a href='#' id='geolocate' class='ui-button'>Find me</a>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Titolo:</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1"
+                               placeholder="Inserisci il titolo della segnalazione">
+                    </div>
+                    <div class="form-group">
+                        <label for="descrizione">Descrizione:</label>
+                        <textarea id="descrizione" name="descrizione" class="form-control"
+                                  placeholder="Descrizione della segnalazione"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="descrizione">Coordinate della segnalazione:</label>
+
+                        <div class="input-group">
+                            <span class="input-group-addon" id="coordinate-x">Lat.</span>
+                            <input type="text" class="form-control" placeholder="Inserisci la coordinata"
+                                   id="latitudine" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="coordinate-y">Long.</span>
+                            <input type="text" class="form-control" placeholder="Inserisci la coordinata"
+                                   id="longitudine" aria-describedby="basic-addon1">
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+                    <button type="button" class="btn btn-primary">Inserisci</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 {% endblock %}
 
 

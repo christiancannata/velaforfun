@@ -80,10 +80,8 @@ class SegnalazionePortolanoController extends BaseController
     public function tutteSegnalazioniAction()
     {
 
-        $segnalazioni = $this->getDoctrine()
-            ->getRepository('AppBundle:SegnalazionePortolano')->findAll();
 
-        return $this->render('AppBundle:SegnalazionePortolano:segnalazioni.html.twig', array("segnalazioni" => $segnalazioni));
+        return $this->render('AppBundle:SegnalazionePortolano:segnalazioni.html.twig');
 
     }
 
