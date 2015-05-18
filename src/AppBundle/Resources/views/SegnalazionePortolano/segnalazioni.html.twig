@@ -1,0 +1,181 @@
+{% extends 'base.html.twig' %}
+
+ {% block stylesheets %}
+     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet'/>
+ {% endblock %}
+
+
+
+{% block javascripts %}
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+    <script language="javascript">
+
+        $(document).ready(function () {
+
+
+            // Provide your access token
+            L.mapbox.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFuMTQ4OCIsImEiOiJZaldjZlM0In0.hXiRMyyCDLdQZUrqXF2eNw';
+            // Create a map in the div #map
+            var map = L.mapbox.map('map', 'mapbox.streets');
+            var myLayer = null;
+            // Build a marker from a simple GeoJSON object:
+            var arrayPorti = new Array();
+
+            {% for segnalazione in segnalazioni %}
+            var arrayPorto = {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        {{ segnalazione.getLongitudine() }},
+                        {{ segnalazione.getLatitudine() }}
+                    ]
+                },
+                "properties": {
+                    "title": "Segnalato da ",
+                    "description": {{ segnalazione.getDescrizione()|nl2br }},
+                    "marker-color": "#fc4353",
+                    "marker-size": "large",
+                    "marker-symbol": "monument"
+                },
+                "id": 2
+            };
+
+            arrayPorti.push(arrayPorto);
+
+            {% endfor %}
+
+            myLayer = L.mapbox.featureLayer(arrayPorti).addTo(map);
+
+
+            myLayer.on('click', function (e) {
+                var marker = e.layer;
+                feature = marker.feature;
+                var id = feature.id;
+
+                $.ajax({
+                    url: "/porti/" + id + ".json",
+                    dataType: "json",
+                    success: function (response) {
+                        $("#loading-porto").show();
+                        $(".porto-title").css("opacity", "0.5");
+                        $(".porto-content").css("opacity", "0.5");
+
+                        //SET CONTENUTO DEL PORTO
+
+                        $.ajax({
+                            url: "porti/" + id + "/meteo.json",
+                            dataType: "json",
+                            success: function (response) {
+
+                                console.log(response);
+
+                                $.ajax({
+                                    url: "http://api.openweathermap.org/data/2.5/weather?units=metric&lat=" + e.latlng.lat + "&lon=" + e.latlng.lng,
+                                    dataType: "json",
+                                    success: function (location) {
+
+                                        $("#porto-nome").html(location.name);
+
+                                        $("#porto-temperatura").html(parseInt(location.main.temp) + "°");
+                                        console.log(location);
+                                        $("#loading-porto").hide();
+                                        $(".porto-title").css("opacity", "1");
+                                        $(".porto-content").css("opacity", "1");
+                                    }
+                                });
+                            }
+                        });
+
+                    }
+                });
+
+            });
+
+
+            myLayer.on('ready', function (e) {
+                map.fitBounds(myLayer.getBounds());
+
+            });
+
+// This uses the HTML5 geolocation API, which is available on
+// most mobile browsers and modern browsers, but not in Internet Explorer
+//
+// See this chart of compatibility for details:
+// http://caniuse.com/#feat=geolocation
+            if (!navigator.geolocation) {
+                geolocate.innerHTML = 'Geolocation is not available';
+            } else {
+                geolocate.onclick = function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    map.locate();
+                };
+            }
+
+// Once we've got a position, zoom and center the map
+// on it, and add a single marker.
+            map.on('locationfound', function (e) {
+                map.fitBounds(e.bounds);
+
+                myLayer.setGeoJSON({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [e.latlng.lng, e.latlng.lat]
+                    },
+                    properties: {
+                        'title': 'Here I am!',
+                        'marker-color': '#ff8888',
+                        'marker-symbol': 'star'
+                    }
+                });
+
+                // And hide the geolocation button
+                geolocate.parentNode.removeChild(geolocate);
+            });
+
+// If the user chooses not to allow their location
+// to be shared, display an error message.
+            map.on('locationerror', function () {
+                geolocate.innerHTML = 'Position could not be found';
+            });
+
+
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+
+
+   <div class="row clearfix">
+        <div class="col-md-8 column">
+
+            <h1>Portolano Online</h1>
+
+            <div id='map'></div>
+
+
+        </div>
+        <div class="col-md-4 column">
+            <div class="content">
+            <p>
+                Portolano Online è un servizio innovativo che raccoglie le segnalazioni degli utenti per i mari che bagnano la penisola italiana. Qui sono raccolte tutte quelle indicazioni e particolarità che ognuno ha sperimentato e trovato navigando e che non sono segnalate sulle carte o alle quali non è dato sufficiente peso.
+                Troverai quindi accortezze nell'evitare secche, individuare fari, zone senza ridossi, allineamenti di ingresso e quant'altro ogni utente abbia ritenuto di segnalare a chi naviga in un particolare specchio d'acqua.
+                Ogni segnalazione può essere stampata con un'apposita pagina di formato ridotto che riporta la descrizione e le coordinate del pericolo/avviso così da poterla portare assieme al portolano quando si naviga, un sistema per aggiornare e arricchire il proprio portolano/libro di bordo.
+                Ricorda di aggiungere la tua segnalazione. Ti segnaliamo anche il servizio di commento per i porti italiani dove puoi trovare i commenti degli utenti.
+            </p>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- fine contenuto -->
+
+</div>
+
+{% endblock %}
+
+
+

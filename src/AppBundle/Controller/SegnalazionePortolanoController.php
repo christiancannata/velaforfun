@@ -73,6 +73,21 @@ class SegnalazionePortolanoController extends BaseController
     }
 
 
+
+    /**
+     * @Route("/", name="portolano_homepage")
+     */
+    public function tutteSegnalazioniAction()
+    {
+
+        $segnalazioni = $this->getDoctrine()
+            ->getRepository('AppBundle:SegnalazionePortolano')->findAll();
+
+        return $this->render('AppBundle:SegnalazionePortolano:segnalazioni.html.twig', array("segnalazioni" => $segnalazioni));
+
+    }
+
+
     /**
      * @Route( "elimina/{id}", name="delete_segnalazione_portolano" )
      * @Template()
