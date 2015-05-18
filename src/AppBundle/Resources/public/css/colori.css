@@ -1,0 +1,61 @@
+
+
+.background-celeste {
+    background: rgb(66, 156, 188) !important;
+}
+
+.background-rosso {
+    background: rgb(242, 20, 35) !important;
+}
+
+.background-celeste-chiaro {
+    background: rgb(196, 233, 233) !important;
+}
+
+.background-verde {
+    background: rgb(7, 169, 157) !important;
+}
+
+.background-blu {
+    background: rgb(42, 66, 125) !important;
+}
+.background-white {
+    background: white !important;
+}
+.background-arancione {
+    background: rgb(247, 147, 29) !important;
+}
+
+.background-grigio {
+    background: rgb(153, 153, 153) !important;
+}
+
+
+
+.foreground-celeste {
+    color: rgb(66, 156, 188) !important;
+}
+
+.foreground-rosso {
+    color: rgb(242, 20, 35) !important;
+}
+
+.foreground-celeste-chiaro {
+    color: rgb(196, 233, 233) !important;
+}
+
+.foreground-verde {
+    color: rgb(7, 169, 157) !important;
+}
+
+.foreground-blu {
+    color: rgb(42, 66, 125) !important;
+}
+
+.foreground-arancione {
+    color: rgb(247, 147, 29) !important;
+}
+
+.foreground-grigio {
+    color: rgb(153, 153, 153) !important;
+}

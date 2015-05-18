@@ -4,109 +4,253 @@
     <meta charset="UTF-8"/>
     <title>{% block title %}Welcome!{% endblock %}</title>
     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/hover-min.css') }}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href=" //cdnjs.cloudflare.com/ajax/libs/weather-icons/1.3.2/css/weather-icons.min.css">
+
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/colori.css') }}">
 
 
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
-    <style>
-        body {
-            padding-top: 125px;
-        }
-    </style>
+
 </head>
 
 <body>
 
 
-<div class="container-fluid">
+<div class="container">
 
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="row clearfix">
-
-                <div class="col-md-4 column col-md-offset-4">
-                    <h3>
-                        Logo
-                    </h3>
-                </div>
-                <div class="col-md-4 column">
-
-                </div>
-            </div>
-            <!-- Brand and toggle get grouped for better mobile display -->
+    <nav class="navbar navbar-default navbar-fixed-top hidden-md hidden-lg">
+        <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
+                <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse"
+                        class="navbar-toggle collapsed" type="button">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a href="#" class="navbar-brand" style="padding:0"> <img src="/bundles/app/images/logo.png" width="60"></a>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+                        <a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown
                             <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            {% for nodo in menu('dropdown_menu') %}
-                                <li><a href="{{ nodo.link }}">{{ nodo.nome }}</a></li>
-                            {% endfor %}
+                        <ul role="menu" class="dropdown-menu">
                             <li><a href="#">Action</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something else here</a></li>
                             <li class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
                             <li><a href="#">Separated link</a></li>
-                            <li class="divider"></li>
                             <li><a href="#">One more separated link</a></li>
                         </ul>
                     </li>
-
-                    {% for nodo in menu('main_menu') %}
-                        <li><a href="{{ nodo.link }}">{{ nodo.nome }}</a></li>
-                    {% endfor %}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../navbar/">Default</a></li>
+                    <li><a href="../navbar-static-top/">Static top</a></li>
+                    <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+
+    <nav class="navbar navbar-default navbar-fixed-top visible-md visible-lg" id="nav-top">
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-md-3 column">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false"> <i class="fa fa-bars fa-lg"></i> Tutte le sezioni</a>
+                            <ul class="dropdown-menu" role="menu">
+
+                                <li><a class="bordered blue" href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li class="form">
+                                    <form method="GET">
+                                        <div class="right-inner-addon">
+                                            <a href="#"><i class="fa fa-search"></i></a>
+                                            <input type="search"
+                                                   class="form-control"
+                                                   placeholder="cerca un termine..."/>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                                <li class="divider"></li>
+                                <li>
+                                    <div class="social-menu">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+
+                                        <p>© 2015 Velaforfun</p>
+                                    </div>
+
+
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 column">
+
+                    <div class="row clearfix">
+                        <div class="col-md-12 column">
+                            <div id="logo">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            VELAFORFUN
+                                        </div>
+                                        <div class="back">
+                                            <ul class="list-inline">
+                                                <li><a href="#">Porti Italiani</a></li>
+                                                <li><a href="#">Portolano Online</a></li>
+                                                <li><a href="#">Forum</a></li>
+                                                <li><a href="/"><img src="/bundles/app/images/logo.png" width="50"></a></li>
+                                                <li><a href="#">I Nodi</a></li>
+                                                <li><a href="#">Chi Siamo</a></li>
+                                                <li><a href="#">Contatti</a></li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 column ">
+                    <ul class="list-inline" id="menu-login">
+                        <li><span>Sei già iscritto?</span></li>
+                        <li class="dropdown" id="menuLogin">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"
+                               style="border:none">ACCEDI</a>
+
+                            <div class="dropdown-menu" style="padding:17px;">
+                                <form method="GET">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Username</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1"
+                                               placeholder="Nome utente">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Password</label>
+                                        <input type="password" class="form-control" id="exampleInputEmail1"
+                                               placeholder="Password">
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Accedi</button>
+                                </form>
+                            </div>
+                        </li>
+                        <li><a href="#">REGISTRATI</a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+
         </div>
         <!-- /.container-fluid -->
     </nav>
 
+
     {% block body %}{% endblock %}
+</div>
+
+<div class="container-fluid" style="background:white;padding-top:20px">
+    <div class="container">
 
 
-    <div class="row clearfix">
-        <div class="col-md-8 column">
-            <h3>
-                h3. Lorem ipsum dolor sit amet.
-            </h3>
+        <div class="row clearfix">
+            <div class="col-md-6 column">
+                <div class="box-grande">
+
+                </div>
+            </div>
+            <div class="col-md-6 column box-footer">
+                <div class="row clearfix ">
+                    <div class="col-md-12 column">
+                        <h2>Quae ab illo inventore veritatis et quasi architecto beatae vitae dicta.</h2>
+                        rem aperiam, eaque ipsa
+                        qe veritatis et quasi architecto.
+                        QUAE AB ILLO INVENTORE VERITATIS ET QUASI ARCHITECTO BEATAE VITAE DICTA.
+                        <div class="divisore-big"></div>
+                    </div>
+                </div>
+
+                <div class="row clearfix social">
+                    <div class="col-md-6 column">
+                        <a href="#" class="hvr-glow"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="hvr-glow"><i class="fa fa-twitter"></i></a>
+                    </div>
+                    <div class="col-md-6 column">
+                        <a href="#" class="hvr-glow"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" class="hvr-glow"><i class="fa fa-envelope-o"></i></a>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="col-md-4 column">
-            <h3>
-                h3. Lorem ipsum dolor sit amet.
-            </h3>
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="divisore"></div>
+            </div>
         </div>
+
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="text-center">
+                    <div class="logo">
+                        VELAFORFUN
+                    </div>
+                    <p>Velaforfun, IDI CHE-247.845.224, Via Livio 14 - 6830 Venezia (ITALIA), Tel. 0041 091 690 19
+                        19 -
+                        ©
+                        2015 Velaforfun</p>
+
+                    <p>Sicurezza dei dati e Privacy | Team editoriale | Linea editoriale | Come contattarci</p>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <h3 class="text-center">
-                h3. Lorem ipsum dolor sit amet.
-            </h3>
-        </div>
-    </div>
+
+
 </div>
 
 
 <script language="javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script language="javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="{{ asset('bundles/app/js/bootstrap3-typeahead.min.js') }}"></script>
+
 <script src="{{ asset('bundles/app/js/form.js') }}"></script>
 <script src="{{ asset('bundles/app/js/main.js') }}"></script>
 <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
@@ -126,6 +270,7 @@
                 '[ name="{{ form.vars.full_name }}"]'
             ];
 
+
             $(forms.join(',')).submit(function (e) {
                 e.preventDefault();
                 var form = $(this)
@@ -140,6 +285,21 @@
                 });
 
                 return false;
+            });
+
+
+            $("form").submit(function (e) {
+                e.preventDefault();
+                var form = $(this);
+                var url = form.attr("action");
+                if (url.indexOf("{permalink}") >= 0) {
+                    url = url.replace('{permalink}', $("#selectPorto").typeahead("getActive").permalink);
+                }
+                alert(url);
+                if (form.attr("method") == "GET") {
+                    location.href = url;
+                }
+
             });
 
         });
