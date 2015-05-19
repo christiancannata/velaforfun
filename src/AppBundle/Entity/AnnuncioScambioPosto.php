@@ -108,6 +108,15 @@ class AnnuncioScambioPosto
      */
     private $permalink;
 
+    /**
+     * @ORM\OneToMany(targetEntity="RispostaAnnuncioScambioPosto", mappedBy="annuncio")
+     **/
+    private $risposte;
+
+
+    public function __construct() {
+        $this->risposte = new ArrayCollection();
+    }
 
 
     /**
@@ -300,6 +309,22 @@ class AnnuncioScambioPosto
     public function setPermalink($permalink)
     {
         $this->permalink = $permalink;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRisposte()
+    {
+        return $this->risposte;
+    }
+
+    /**
+     * @param mixed $risposte
+     */
+    public function setRisposte($risposte)
+    {
+        $this->risposte = $risposte;
     }
 
 

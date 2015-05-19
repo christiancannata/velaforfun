@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class AnnuncioImbarcoController extends BaseController
+class AnnuncioScambioPostoController extends BaseController
 {
     protected $entity="AnnuncioScambioPosto";
     /**
@@ -51,5 +51,27 @@ class AnnuncioImbarcoController extends BaseController
     public function eliminaAction(Request $request,$id)
     {
         return $this->delete($id);
+    }
+
+
+    /**
+     * @Route("/{permalink}", name="dettaglio_annuncio_imbarco")
+     */
+    public function dettagliAnnuncioImbarcoAction($permalink)
+    {
+
+
+        $annuncio = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioScambioPosto')->findOneByPermalink($permalink);
+        if(!$annuncio){
+
+
+            throw $this->createNotFoundException('Unable to find Articolo.');
+        }
+
+
+        $titolo=$annuncio->getTitolo();
+
+        return $this->render('AppBundle:AnnuncioScambioPosto:dettagliAnnuncio.html.twig', array("annuncio" => $annuncio,"titolo"=>$titolo));
     }
 }
