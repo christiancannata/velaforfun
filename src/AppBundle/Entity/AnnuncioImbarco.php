@@ -129,6 +129,16 @@ class AnnuncioImbarco
     private $risposte;
 
 
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="permalink", type="string", nullable=true)
+     */
+    private $permalink;
+
+
     public function __construct() {
         $this->risposte = new ArrayCollection();
     }
@@ -373,6 +383,22 @@ class AnnuncioImbarco
     public function setRisposte($risposte)
     {
         $this->risposte = $risposte;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPermalink()
+    {
+        return $this->permalink;
+    }
+
+    /**
+     * @param string $permalink
+     */
+    public function setPermalink($permalink)
+    {
+        $this->permalink = $permalink;
     }
 
 

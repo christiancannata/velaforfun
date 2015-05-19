@@ -68,4 +68,34 @@ class AnnuncioImbarcoController extends BaseController
     {
         return $this->delete($id);
     }
+
+
+
+    /**
+     * @Route("/{permalink}", name="dettaglio_annuncio_imbarco")
+     */
+    public function dettagliAnnuncioImbarcoAction($permalink)
+    {
+
+
+        $annuncio = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioImbarco')->findOneByPermalink($permalink);
+        if(!$annuncio){
+
+
+            throw $this->createNotFoundException('Unable to find Articolo.');
+        }
+
+
+
+        /*  $request = $client->get('/data/2.5/weather?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine().'&APPID=8704a88837e9eabcf7b50de51728a0c0');
+          $response = $client->send($request);
+          $weather=json_decode($response->getBody(true));
+
+          var_dump($weather);
+  */
+        $titolo=$annuncio->getTitolo();
+
+        return $this->render('AppBundle:AnnuncioImbarco:dettagliAnnuncio.html.twig', array("annuncio" => $annuncio,"titolo"=>$titolo));
+    }
 }

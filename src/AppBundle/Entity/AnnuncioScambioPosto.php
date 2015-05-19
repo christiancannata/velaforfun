@@ -99,6 +99,17 @@ class AnnuncioScambioPosto
      */
     protected $lastUpdateTimestamp;
 
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="permalink", type="string", nullable=true)
+     */
+    private $permalink;
+
+
+
     /**
      * @return mixed
      */
@@ -273,6 +284,22 @@ class AnnuncioScambioPosto
     public function setLastUpdateTimestamp($lastUpdateTimestamp)
     {
         $this->lastUpdateTimestamp = $lastUpdateTimestamp;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPermalink()
+    {
+        return $this->permalink;
+    }
+
+    /**
+     * @param string $permalink
+     */
+    public function setPermalink($permalink)
+    {
+        $this->permalink = $permalink;
     }
 
 
