@@ -52,6 +52,18 @@ class AnnuncioScambioPostoController extends BaseController
     {
         return $this->delete($id);
     }
+    /**
+     * @Route("/", name="annunci_cambio_posto")
+     */
+    public function annunciScambioPostoAction()
+    {
+
+        $annunci = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioScambioPosto')->findAll();
+        $titolo="Annunci Imbarco";
+        return $this->render('AppBundle:AnnuncioImbarco:lista.html.twig', array("annunci" => $annunci,"titolo"=>$titolo));
+
+    }
 
 
     /**

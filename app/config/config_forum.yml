@@ -3,26 +3,20 @@ ccdn_forum_forum:
         admin:
             create:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
             delete:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
             edit:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
             list:
                 layout_template:      base.html.twig
     category:
         admin:
             create:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
             delete:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
             edit:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
             list:
                 layout_template:      base.html.twig
         user:
@@ -35,13 +29,10 @@ ccdn_forum_forum:
         admin:
             create:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
             delete:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
             edit:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
             list:
                 layout_template:      base.html.twig
         user:
@@ -55,10 +46,8 @@ ccdn_forum_forum:
         moderator:
             change_board:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
             delete:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
         user:
             flood_control:
                 post_limit:           4
@@ -70,24 +59,19 @@ ccdn_forum_forum:
                 deleted_datetime_format:  d-m-Y - H:i
             create:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
             reply:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
     post:
         moderator:
             unlock:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
         user:
             show:
                 layout_template:      base.html.twig
             edit:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
             delete:
                 layout_template:      base.html.twig
-                form_theme:           CCDNForumForumBundle:Common:Form/fields.html.twig
             lock:
                 enable:               true
                 after_days:           7

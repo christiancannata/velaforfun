@@ -516,6 +516,7 @@ a:hover, #menu-login a:hover, #menu-login a:active {
     opacity: 0;
     float: left;
     width: 100%;
+    height: 143px;
 }
 
 .box-home:hover .over-box {
@@ -853,4 +854,9 @@ input:-moz-placeholder { color:white; }
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+}
+
+.back .list-inline > li {
+    font-size: 14px;
+    width: 115px;
 }

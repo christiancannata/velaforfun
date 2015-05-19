@@ -98,6 +98,5 @@ class OldRoutingRedirectListener extends ContainerAware
             $response = new RedirectResponse($url);
             $event->setResponse($response);
         }
-
     }
 }
