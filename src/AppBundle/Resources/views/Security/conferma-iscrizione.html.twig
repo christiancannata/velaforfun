@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+    {% block body %}
+
+
+
+
+    <!-- contenuto -->
+
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+
+
+<h1>{{ 'header.connecting' | trans({}, 'HWIOAuthBundle') }}</h1>
+
+   <div class="span6">
+                            <p>{{ 'connect.confirm.text' | trans({'%service%': service | trans({}, 'HWIOAuthBundle'), '%name%': userInformation.realName}, 'HWIOAuthBundle') }}</p>
+
+                            <p>
+
+                            <form action="{{ path('hwi_oauth_connect_service', {'service': service, 'key': key}) }}" {{ form_enctype(form) }}
+                                  method="POST" class="fos_user_registration_register">
+                                {{ form_widget(form) }}
+                                <div>
+                                    <button type="submit"
+                                            class="btn btn-primary">{{ 'connect.confirm.submit' | trans({}, 'HWIOAuthBundle') }}</button>
+                                    <a href="{{ path('hwi_oauth_connect') }}"
+                                       class="btn">{{ 'connect.confirm.cancel' | trans({}, 'HWIOAuthBundle') }}</a>
+                                </div>
+                            </form>
+                            </p>
+                        </div>
+                        <div class="span6">
+                            {% if userInformation.profilePicture is defined and userInformation.profilePicture is not empty %}
+        <img src="{{ userInformation.profilePicture }}"/>
+    {% endif %}
+                        </div>
+
+
+        </div>
+        <div class="col-md-4 column">
+
+
+
+        </div>
+    </div>
+    <!-- fine contenuto -->
+
+</div>
+
+
+
+
+
+    {% endblock %}
+
+

@@ -116,8 +116,8 @@ class PortoController extends BaseController
 
         $porti = $this->getDoctrine()
             ->getRepository('AppBundle:Porto')->findAll();
-
-        return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("porti" => $porti));
+        $titolo="Porti d'Italia";
+        return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("porti" => $porti,"titolo"=>$titolo));
 
     }
 
@@ -148,7 +148,8 @@ class PortoController extends BaseController
 
         var_dump($weather);
 */
-        return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("porti" => $porto));
+        $titolo="Porto di ". $porto[0]->getNome();
+        return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("porti" => $porto,"titolo"=>$titolo));
     }
 
 

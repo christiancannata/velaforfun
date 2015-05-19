@@ -1,17 +1,5 @@
 jQuery(document).ready(function ($) {
 
-    WebFontConfig = {
-        google: {families: ['Chivo:400,400italic,900:latin']}
-    };
-    (function () {
-        var wf = document.createElement('script');
-        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-        wf.type = 'text/javascript';
-        wf.async = 'true';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(wf, s);
-    })();
 
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
@@ -77,26 +65,39 @@ jQuery(document).ready(function ($) {
     }
 
 
-
     $.get('/bundles/app/json/portiItaliani.json', function (data) {
         $("#selectPorto").typeahead({source: data});
     }, 'json');
 
 
     $("form").submit(function (e) {
-        alert("Jjj");
-        e.preventDefault();
+
         var form = $(this);
         var url = form.attr("action");
-        if (url.indexOf("{permalink}") >= 0) {
+        if (url.indexOf("{permalink}") >= 0 && form.attr("method") == "GET") {
+            e.preventDefault();
             url = url.replace('{permalink}', $("#selectPorto").typeahead("getActive").permalink);
-        }
-        alert(url);
-        if (form.attr("method") == "GET") {
             location.href = url;
         }
 
     });
 
     $('.scroll-pane').jScrollPane();
+
+
+   /* $("#loginFacebook").click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "GET",
+            url: "/secure_area/connect/service/facebook",
+            success: function (response) {
+                $("#loginFacebookModal .modal-body").html(response);
+                $('#loginFacebookModal').modal();
+            }
+        });
+
+
+    });
+*/
+
 });

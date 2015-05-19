@@ -18,8 +18,6 @@ class SegnalazionePortolanoType extends AbstractType
             ->add('latitudine')
             ->add('longitudine')
             ->add('descrizione')
-            ->add('timestamp')
-            ->add('lastUpdateTimestamp')
             ->add('utente')
         ;
     }
@@ -30,7 +28,8 @@ class SegnalazionePortolanoType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\SegnalazionePortolano'
+            'data_class' => 'AppBundle\Entity\SegnalazionePortolano',
+            'csrf_protection' => false
         ));
     }
 

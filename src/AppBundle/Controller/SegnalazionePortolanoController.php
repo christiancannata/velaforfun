@@ -44,7 +44,6 @@ class SegnalazionePortolanoController extends BaseController
     }
 
 
-
     /**
      * @Route( "geojson_list", name="geojson_list_segnalazione_portolano" )
      * @Template()
@@ -64,7 +63,7 @@ class SegnalazionePortolanoController extends BaseController
                 "marker-symbol" => "monument",
 
             ];
-            $feature = new \GeoJson\Feature\Feature($point, $attributes,$result->getId());
+            $feature = new \GeoJson\Feature\Feature($point, $attributes, $result->getId());
             $json[] = $feature;
 
         }
@@ -73,15 +72,20 @@ class SegnalazionePortolanoController extends BaseController
     }
 
 
-
     /**
      * @Route("/", name="portolano_homepage")
      */
-    public function tutteSegnalazioniAction()
+    public function tutteSegnalazioniAction(Request $request)
     {
 
-
-        return $this->render('AppBundle:SegnalazionePortolano:segnalazioni.html.twig');
+        if ($request->isMethod('POST')) {
+            return $this->postForm($request,new SegnalazionePortolanoType());
+        }
+        $form = $this->createForm(new SegnalazionePortolanoType());
+        return $this->render(
+            'AppBundle:SegnalazionePortolano:segnalazioni.html.twig',
+            array('form' => $form->createView())
+        );
 
     }
 

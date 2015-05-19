@@ -70,7 +70,6 @@
                 });
 
 
-
                 map.on('click', function (e) {
                     var marker = L.marker([e.latlng.lat, e.latlng.lng]);
                     $("#latitudine").val(e.latlng.lat);
@@ -159,6 +158,11 @@
                 Ogni segnalazione può essere stampata con un'apposita pagina di formato ridotto che riporta la descrizione e le coordinate del pericolo/avviso così da poterla portare assieme al portolano quando si naviga, un sistema per aggiornare e arricchire il proprio portolano/libro di bordo.
                 Ricorda di aggiungere la tua segnalazione. Ti segnaliamo anche il servizio di commento per i porti italiani dove puoi trovare i commenti degli utenti.
             </p>
+            {% if app.user %}
+    <h4>Fai click su un punto della mappa per inserire una nuova segnalazione nel Portolano online</h4>
+{% else %}
+    <h4>Per inserire una nuova segnalazione devi effettuare il login</h4>
+{% endif %}
 
             </div>
 
@@ -178,18 +182,15 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h4 class="modal-title">Nuova segnalazione del Portolano</h4>
             </div>
-            <form method="POST">
+             {{ form_start(form) }}
                 <div class="modal-body">
                 <a href='#' id='geolocate' class='ui-button'>Find me</a>
 
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Titolo:</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1"
-                               placeholder="Inserisci il titolo della segnalazione">
-                    </div>
+
+
                     <div class="form-group">
                         <label for="descrizione">Descrizione:</label>
-                        <textarea id="descrizione" name="descrizione" class="form-control"
+                        <textarea id="descrizione" name="appbundle_segnalazioneportolano[descrizione]" class="form-control"
                                   placeholder="Descrizione della segnalazione"></textarea>
                     </div>
                     <div class="form-group">
@@ -197,21 +198,24 @@
 
                         <div class="input-group">
                             <span class="input-group-addon" id="coordinate-x">Lat.</span>
-                            <input type="text" class="form-control" placeholder="Inserisci la coordinata"
+                            <input type="text" class="form-control" name="appbundle_segnalazioneportolano[latitudine]" placeholder="Inserisci la coordinata"
                                    id="latitudine" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="coordinate-y">Long.</span>
-                            <input type="text" class="form-control" placeholder="Inserisci la coordinata"
+                            <input type="text" class="form-control" name="appbundle_segnalazioneportolano[longitudine]" placeholder="Inserisci la coordinata"
                                    id="longitudine" aria-describedby="basic-addon1">
                         </div>
+                        <input type="hidden" name="appbundle_segnalazioneportolano[utente]" value='{{ app.user.id }}'>
+
+
 
                     </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
-                    <button type="button" class="btn btn-primary">Inserisci</button>
+                    <button type="submit" class="btn btn-primary">Inserisci</button>
                 </div>
             </form>
         </div>

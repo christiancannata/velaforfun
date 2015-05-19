@@ -4,11 +4,12 @@
     <meta charset="UTF-8"/>
     <title>{% block title %}Welcome!{% endblock %}</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="{{ asset('bundles/app/css/normalize.css')}}">
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/normalize.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/app/css/hover-min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/social.css') }}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href=" //cdnjs.cloudflare.com/ajax/libs/weather-icons/1.3.2/css/weather-icons.min.css">
 
@@ -122,15 +123,14 @@
                                 <div class="flip-container">
                                     <div class="flipper">
                                         <div class="front">
-                                            VELAFORFUN
+                                            <a href="/"> <img src="/bundles/app/images/logotipo-01.png" width="250"></a>
                                         </div>
                                         <div class="back">
                                             <ul class="list-inline">
                                                 <li><a href="#">Porti Italiani</a></li>
                                                 <li><a href="#">Portolano Online</a></li>
-                                                <li><a href="#">Forum</a></li>
-                                                <li><a href="/"><img src="/bundles/app/images/logo.png" width="50"></a></li>
-                                                <li><a href="#">I Nodi</a></li>
+                                                <li><a href="/"><img src="/bundles/app/images/logo.png" width="50"></a>
+                                                </li>
                                                 <li><a href="#">Chi Siamo</a></li>
                                                 <li><a href="#">Contatti</a></li>
                                             </ul>
@@ -144,30 +144,69 @@
                     </div>
                 </div>
                 <div class="col-md-3 column ">
-                    <ul class="list-inline" id="menu-login">
-                        <li><span>Sei già iscritto?</span></li>
-                        <li class="dropdown" id="menuLogin">
-                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"
-                               style="border:none">ACCEDI</a>
 
-                            <div class="dropdown-menu" style="padding:17px;">
-                                <form method="GET">
+                    {% if is_granted('ROLE_USER') %}
+
+
+                        Bentornato
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                    data-toggle="dropdown" aria-expanded="true">
+                                {{ app.user.username }}
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a>
+                                </li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else
+                                        here</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="/secure_area/logout">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    {% else %}
+                        <ul class="list-inline" id="menu-login">
+                            <li><span>Sei già iscritto?</span></li>
+                            <li class="dropdown" id="menuLogin">
+                                <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"
+                                   style="border:none">ACCEDI</a>
+
+                                <div class="dropdown-menu" style="">
+                                    <form method="post" action="/login_check">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Username</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Nome utente">
+                                        <label for="username">Username:</label>
+                                        <input type="text" required="required" value="" name="_username" id="username">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Password">
+                                        <label for="password">Password:</label>
+                                        <input type="password" required="required" name="_password" id="password">
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input type="checkbox" value="on" name="_remember_me" id="remember_me">
+                                        <label for="remember_me">Ricordami</label>
                                     </div>
                                     <button type="submit" class="btn btn-default">Accedi</button>
-                                </form>
-                            </div>
-                        </li>
-                        <li><a href="#">REGISTRATI</a></li>
-                    </ul>
+                                    </form>
+
+                                    <div class="divisore"></div>
+                                    <p class="text-center">oppure</p>
+                                    <a href="/secure_area/connect/service/facebook"
+                                       class="btn btn-block btn-social btn-sm btn-facebook hvr-glow "
+                                       id="loginFacebook">
+                                        <i class="fa fa-facebook"></i>
+                                        Accedi con Facebook
+                                    </a>
+                                </div>
+                            </li>
+                            <li><a href="#">REGISTRATI</a></li>
+                        </ul>
+
+
+
+                    {% endif %}
+
 
                 </div>
             </div>
@@ -245,6 +284,24 @@
 </div>
 
 
+<!-- Modal -->
+<div class="modal fade" id="loginFacebookModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Accedi con Facebook</h4>
+
+            </div>
+            <div class="modal-body"></div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
 <script language="javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script language="javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
@@ -291,7 +348,6 @@
 
                 return false;
             });
-
 
 
         });

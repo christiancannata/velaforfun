@@ -10,7 +10,7 @@ security:
                 provider:               fos_userbundle
                 login_path:             fos_user_security_login
                 check_path:             fos_user_security_check
-                csrf_provider:          form.csrf_provider
+              #  csrf_provider:          form.csrf_provider
             remember_me:
                 key:      "%secret%"
                 lifetime: 31536000 # 365 giorni in secondi
@@ -30,8 +30,8 @@ security:
 
             anonymous:    true
             logout:
-                path:           /secure_area/logout
-                target:         /secure_area/connect #where to go after logout
+                path:           /logout
+                target:         / #where to go after logout
 
 
     access_control:

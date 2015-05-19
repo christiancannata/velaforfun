@@ -203,4 +203,9 @@ class User extends BaseUser implements MandantUserInterface
     {
         return $this->mandant;
     }
+
+    public function isGranted($role)
+    {
+        return in_array($role, $this->getRoles());
+    }
 }

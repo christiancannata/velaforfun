@@ -1,5 +1,14 @@
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('../font/ProximaNova-Regular.otf'); /* IE9 Compat Modes */
+    src: url('../font/ProximaNova-Regular.otf') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/ProximaNova-Regular.otf'); format('woff2'), /* Super Modern Browsers */
+url('../font/ProximaNova-Regular.otf'); format('woff'), /* Pretty Modern Browsers */
+url('../font/ProximaNova-Regular.otf');  format('truetype'), /* Safari, Android, iOS */
+}
+
 body {
-    font-family: Chivo;
+    font-family: ProximaNova;
     padding-top: 70px;
     background: rgb(242, 242, 242);
     color: rgb(153, 153, 153);
@@ -736,9 +745,64 @@ input:-moz-placeholder { color:white; }
     font-size: 24px;
     margin-right:10px;
 }
-.social-menu p{
-    color:rgba(66, 156, 188, 1);
+
+.social-menu p {
+    color: rgba(66, 156, 188, 1);
 }
-.padded{
-    padding:10px;
+
+.padded {
+    padding: 10px;
+}
+
+#menu-login .dropdown-menu {
+    left: -50px;
+    padding: 17px;
+    color: rgb(66, 156, 188);
+}
+
+#menu-login .dropdown-menu label {
+    color: rgb(66, 156, 188);
+}
+
+.open > .dropdown-menu {
+    animation-name: slidenavAnimation;
+    animation-duration: .2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-name: slidenavAnimation;
+    -webkit-animation-duration: .2s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: forwards;
+
+    -moz-animation-name: slidenavAnimation;
+    -moz-animation-duration: .2s;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: ease;
+    -moz-animation-fill-mode: forwards;
+}
+
+@keyframes slidenavAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes slidenavAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.btn-facebook{
+    color:white !important;
+    padding-left:38px !important;
 }

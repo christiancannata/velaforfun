@@ -5,35 +5,35 @@ blog:
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-    prefix: /secure_area
+    prefix: /
 
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /secure_area/profile
+    prefix: /profile
 
 fos_user_registration_register:
     defaults: { _controller: AppBundle:Registration:register }
-    pattern:   /secure_area/register
+    pattern:   /register
 
 fos_user_registration_check_email:
     defaults: { _controller: AppBundle:Registration:checkEmail }
-    pattern:   /secure_area/register/check-email
+    pattern:   /register/check-email
 
 fos_user_registration_confirm:
     defaults: { _controller: AppBundle:Registration:checkEmail }
-    pattern:   /secure_area/register/confirm/{token}
+    pattern:   /register/confirm/{token}
 
 fos_user_registration_confirmed:
     defaults: { _controller: AppBundle:Registration:confirmed }
-    pattern:   /secure_area/register/confirmed
+    pattern:   /register/confirmed
 
 fos_user_resetting:
     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /secure_area/resetting
+    prefix: /resetting
 
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /secure_area/profile
+    prefix: /profile
 
 
 app:

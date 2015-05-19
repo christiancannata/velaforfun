@@ -37,7 +37,6 @@ class BaseController extends Controller
                 $response['success'] = true;
 
             } else {
-
                 $response['success'] = false;
                 $response['cause'] = $postform->getErrors();
 
