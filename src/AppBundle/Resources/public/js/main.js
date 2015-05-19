@@ -65,14 +65,18 @@ jQuery(document).ready(function ($) {
     }
 
 
-    $.get('/bundles/app/json/portiItaliani.json', function (data) {
+    $.get('/porti/jsondata', function (data) {
         $("#selectPorto").typeahead({source: data});
     }, 'json');
 
+    $.get('/nodi/jsondata', function (data) {
+        $("#selectNodo").typeahead({source: data, valueKey: 'permalink'});
+    }, 'json');
 
-    $("form").submit(function (e) {
+
+    $("#formCercaPorto").submit(function (e) {
         e.preventDefault();
-        if($("#selectPorto").val()!=""){
+        if ($("#selectPorto").val() != "") {
             var form = $(this);
             var url = form.attr("action");
             if (url.indexOf("{permalink}") >= 0 && form.attr("method") == "GET") {
@@ -85,22 +89,39 @@ jQuery(document).ready(function ($) {
 
     });
 
-    $('.scroll-pane').jScrollPane();
 
-
-   /* $("#loginFacebook").click(function (e) {
+    $("#formCercaNodo").submit(function (e) {
         e.preventDefault();
-        $.ajax({
-            type: "GET",
-            url: "/secure_area/connect/service/facebook",
-            success: function (response) {
-                $("#loginFacebookModal .modal-body").html(response);
-                $('#loginFacebookModal').modal();
+        if ($("#selectNodo").val() != "") {
+            var form = $(this);
+            var url = form.attr("action");
+            if (url.indexOf("{permalink}") >= 0 && form.attr("method") == "GET") {
+                e.preventDefault();
+                url = url.replace('{permalink}', $("#selectNodo").typeahead("getActive").permalink);
+                location.href = url;
             }
-        });
+        }
 
 
     });
-*/
+
+
+    $('.scroll-pane').jScrollPane();
+
+
+    /* $("#loginFacebook").click(function (e) {
+     e.preventDefault();
+     $.ajax({
+     type: "GET",
+     url: "/secure_area/connect/service/facebook",
+     success: function (response) {
+     $("#loginFacebookModal .modal-body").html(response);
+     $('#loginFacebookModal').modal();
+     }
+     });
+
+
+     });
+     */
 
 });

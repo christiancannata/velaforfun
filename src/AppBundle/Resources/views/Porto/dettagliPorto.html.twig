@@ -15,7 +15,7 @@
             // Provide your access token
             L.mapbox.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFuMTQ4OCIsImEiOiJZaldjZlM0In0.hXiRMyyCDLdQZUrqXF2eNw';
             // Create a map in the div #map
-            var map = L.mapbox.map('map', 'mapbox.streets');
+            var map = L.mapbox.map('map', 'christian1488.m5b7ic2b');
             var myLayer = null;
             // Build a marker from a simple GeoJSON object:
             var arrayPorti = new Array();
@@ -34,11 +34,11 @@
                 "properties": {
                     "title": "{{ porto.getNome() }}",
                     "description": "",
-                    "marker-color": "#fc4353",
-                    "marker-size": "large",
-                    "marker-symbol": "monument"
+                    "marker-color": "#429CBC",
+                    "marker-size": "medium",
+                    "marker-symbol": "harbor"
                 },
-                "id": 2
+                "id": {{ porto.getId() }}
             };
 
             arrayPorti.push(arrayPorto);
@@ -54,7 +54,7 @@
                 var id = feature.id;
 
                 $.ajax({
-                    url: "/porti/" + id + ".json",
+                    url: "/porti/" + id + "/jsondata",
                     dataType: "json",
                     success: function (response) {
                         $("#loading-porto").show();
@@ -63,29 +63,10 @@
 
                         //SET CONTENUTO DEL PORTO
 
-                        $.ajax({
-                            url: "porti/" + id + "/meteo.json",
-                            dataType: "json",
-                            success: function (response) {
-
-                                console.log(response);
-
-                                $.ajax({
-                                    url: "http://api.openweathermap.org/data/2.5/weather?units=metric&lat=" + e.latlng.lat + "&lon=" + e.latlng.lng,
-                                    dataType: "json",
-                                    success: function (location) {
-
-                                        $("#porto-nome").html(location.name);
-
-                                        $("#porto-temperatura").html(parseInt(location.main.temp) + "°");
-                                        console.log(location);
-                                        $("#loading-porto").hide();
-                                        $(".porto-title").css("opacity", "1");
-                                        $(".porto-content").css("opacity", "1");
-                                    }
-                                });
-                            }
-                        });
+                        $("#porto-temperatura").html(parseInt(response.meteo.main.temp) + "°");
+                        $("#loading-porto").hide();
+                        $(".porto-title").css("opacity", "1");
+                        $(".porto-content").css("opacity", "1");
 
                     }
                 });

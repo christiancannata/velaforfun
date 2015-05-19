@@ -18,8 +18,7 @@ use Ivory\GoogleMap\Helper\MapHelper;
 class PortoController extends BaseController
 {
 
-    protected $entity="Porto";
-
+    protected $entity = "Porto";
 
 
     /**
@@ -35,7 +34,8 @@ class PortoController extends BaseController
             $point = new \GeoJson\Geometry\Point([$result->getLongitudine(), $result->getLatitudine()]);
             $attributes = [
                 "title" => "Porto di ".$result->getNome(),
-                "description" => "Posti Totali: ".$result->getPostiTotale()."<br><br>Posti Transito: ".$result->getPostiTransito(),
+                "description" => "Posti Totali: ".$result->getPostiTotale(
+                    )."<br><br>Posti Transito: ".$result->getPostiTransito(),
                 "marker-color" => "#fc4353",
                 "marker-size" => "large",
                 "marker-symbol" => "monument",
@@ -59,8 +59,8 @@ class PortoController extends BaseController
         $res = $this->cJsonGet();
         foreach ($res as $result) {
             $json[] = [
-                "permalink"=>$result->getPermalink(),
-                "name"=>$result->getNome()
+                "permalink" => $result->getPermalink(),
+                "name" => $result->getNome()
             ];
 
         }
@@ -81,9 +81,9 @@ class PortoController extends BaseController
      * @Route( "modifica/{id}", name="modifica_porto" )
      * @Template()
      */
-    public function patchAction(Request $request,$id)
+    public function patchAction(Request $request, $id)
     {
-        return $this->patchForm($request,new PortoType(),$id,"Porto");
+        return $this->patchForm($request, new PortoType(), $id, "Porto");
     }
 
 
@@ -97,12 +97,11 @@ class PortoController extends BaseController
     }
 
 
-
     /**
      * @Route( "elimina/{id}", name="delete_porto" )
      * @Template()
      */
-    public function eliminaAction(Request $request,$id)
+    public function eliminaAction(Request $request, $id)
     {
         return $this->delete($id);
     }
@@ -116,9 +115,26 @@ class PortoController extends BaseController
 
         $porti = $this->getDoctrine()
             ->getRepository('AppBundle:Porto')->findAll();
-        $titolo="Porti d'Italia";
-        return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("porti" => $porti,"titolo"=>$titolo));
+        $titolo = "Porti d'Italia";
 
+        return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("porti" => $porti, "titolo" => $titolo));
+
+    }
+
+    /**
+     * @Route("/jsondata", name="porti_italia_json")
+     */
+    public function portiItaliaJsonAction()
+    {
+
+        $porti = $this->getDoctrine()
+            ->getRepository('AppBundle:Porto')->findAll();
+
+        $arrayJson=[];
+        foreach($porti as $porto){
+            $arrayJson[]=array("permalink"=>$porto->getPermalink(),"name"=>$porto->getNome());
+        }
+        return new JsonResponse($arrayJson);
     }
 
 
@@ -128,31 +144,56 @@ class PortoController extends BaseController
     public function dettagliPortoAction($permalink)
     {
 
-     //   $client=$this->container->get('weather.client');
-
+        //   $client=$this->container->get('weather.client');
 
 
         $porto = $this->getDoctrine()
             ->getRepository('AppBundle:Porto')->findByPermalink($permalink);
-        if(!$porto){
+        if (!$porto) {
 
 
             throw $this->createNotFoundException('Unable to find Articolo.');
         }
 
 
+        /*  $request = $client->get('/data/2.5/weather?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine().'&APPID=8704a88837e9eabcf7b50de51728a0c0');
+          $response = $client->send($request);
+          $weather=json_decode($response->getBody(true));
 
-      /*  $request = $client->get('/data/2.5/weather?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine().'&APPID=8704a88837e9eabcf7b50de51728a0c0');
-        $response = $client->send($request);
-        $weather=json_decode($response->getBody(true));
+          var_dump($weather);
+  */
+        $titolo = "Porto di ".$porto[0]->getNome();
 
-        var_dump($weather);
-*/
-        $titolo="Porto di ". $porto[0]->getNome();
-
-        return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("porti" => $porto,"titolo"=>$titolo));
+        return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("porti" => $porto, "titolo" => $titolo));
     }
 
+    /**
+     * @Route("/{id}/jsondata", name="jsondata_porto")
+     */
+    public function meteoPortoAction($id)
+    {
 
+        $client = $this->container->get('weather.client');
+        $serializer = $this->container->get('jms_serializer');
+
+        $porto = $this->getDoctrine()
+            ->getRepository('AppBundle:Porto')->find($id);
+        if (!$porto) {
+
+
+            return new JsonResponse([]);
+        }
+
+        $request = $client->get(
+            '/data/2.5/weather?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine(
+            ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&units=metric'
+        );
+        $response = $client->send($request);
+        $weather = json_decode($response->getBody(true));
+        $serializedPorto = $serializer->serialize($porto, "json");
+        $data = array("porto" => json_decode($serializedPorto), "meteo" => $weather);
+
+        return new JsonResponse($data);
+    }
 
 }

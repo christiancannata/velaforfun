@@ -73,6 +73,21 @@ class NodoController extends BaseController
 
 
     /**
+     * @Route("/jsondata", name="nodi_json")
+     */
+    public function nodiJsonAction()
+    {
+        $porti = $this->getDoctrine()
+            ->getRepository('AppBundle:Nodo')->findAll();
+
+        $arrayJson=[];
+        foreach($porti as $porto){
+            $arrayJson[]=array("permalink"=>$porto->getPermalink(),"name"=>$porto->getNome());
+        }
+        return new JsonResponse($arrayJson);
+    }
+
+    /**
      * @Route("/{permalink}", name="dettaglio_nodo")
      */
     public function dettagliNodoAction($permalink)
@@ -89,4 +104,7 @@ class NodoController extends BaseController
 
         return $this->render('AppBundle:Nodo:nodi.html.twig', array("nodi" => $nodi));
     }
+
+
+
 }
