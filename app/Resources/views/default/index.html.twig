@@ -32,14 +32,21 @@
                         </h2>
 
                         <div class="over-box">
-                            <form method="GET" action="/porti/{permalink}" name="cerca_porti">
+                        Cerca il tuo porto fra i centinaia selezionati da Velaforfun
+                            <form method="GET" action="/porti/{permalink}" id="formCercaPorto" name="cerca_porti">
                                 <div class="form-group">
-                                    <label for="selectPorto">Cerca il tuo porto</label>
-                                    <input autocomplete="off" type="text" class="form-control" id="selectPorto"
-                                           placeholder="Inserisci il nome del porto...">
+                                    <div class="inner-addon left-addon">
+    <a href="#" onclick="$('#formCercaPorto').submit();"><i class="fa fa-search"></i></a>
+   <input autocomplete="off" id="selectPorto" type="search"
+                                                   class="form-control"
+                                                   placeholder="cerca un termine..."/>
+</div>
+
+
+
                                 </div>
 
-                                <button type="submit" class="btn btn-default">cerca</button>
+
                             </form>
                         </div>
 

@@ -356,6 +356,7 @@ a:hover, #menu-login a:hover, #menu-login a:active {
 .over-box {
     color: white;
     padding: 10px;
+    text-align:center;
 }
 
 .contenuto-articolo h1 {
@@ -810,4 +811,46 @@ input:-moz-placeholder { color:white; }
 
 .form-group label{
     color: rgb(66, 156, 188);
+}
+.over-box .form-group{
+    background: white none repeat scroll 0 0;
+    border-color: rgba(66, 156, 188, 1);
+    padding: 5px;
+    position: relative;
+}
+.over-box .right-inner-addon{
+    float:left;
+}
+.over-box .right-inner-addon input {
+    background: white none repeat scroll 0 0;
+    border:none;
+    padding:0;
+    color: rgb(66, 156, 188);
+    float:left;
+    width:140px;
+}
+.over-box .right-inner-addon .fa{
+    color: rgb(66, 156, 188);
+}
+.inner-addon.left-addon > a{
+    font-size: 20px;
+    position: absolute;
+    top:0;
+    right:0;
+    padding-right:10px;
+    top:9px;
+    border-left:solid 1px rgb(66, 156, 188);
+    padding-left: 10px;
+}
+.form-control {
+    border:none;
+    border-radius: 0px;
+    box-shadow: none;
+    transition: none;
+}
+.over-box  .form-control:focus{
+    border-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }

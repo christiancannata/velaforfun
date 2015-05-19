@@ -71,14 +71,17 @@ jQuery(document).ready(function ($) {
 
 
     $("form").submit(function (e) {
-
-        var form = $(this);
-        var url = form.attr("action");
-        if (url.indexOf("{permalink}") >= 0 && form.attr("method") == "GET") {
-            e.preventDefault();
-            url = url.replace('{permalink}', $("#selectPorto").typeahead("getActive").permalink);
-            location.href = url;
+        e.preventDefault();
+        if($("#selectPorto").val()!=""){
+            var form = $(this);
+            var url = form.attr("action");
+            if (url.indexOf("{permalink}") >= 0 && form.attr("method") == "GET") {
+                e.preventDefault();
+                url = url.replace('{permalink}', $("#selectPorto").typeahead("getActive").permalink);
+                location.href = url;
+            }
         }
+
 
     });
 
