@@ -807,3 +807,7 @@ input:-moz-placeholder { color:white; }
     padding-left:38px !important;
     padding-top:10px;
 }
+
+.form-group label{
+    color: rgb(66, 156, 188);
+}

@@ -15,6 +15,12 @@ class AnnuncioImbarcoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add(
+                'tipoAnnuncio',
+                'choice',
+                array('choices' => array('CERCO' => 'Cerco', 'OFFRO' => 'Offro'))
+            )
+            ->add('titolo')
             ->add('telefono')
             ->add(
                 'luogo',

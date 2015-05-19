@@ -1,8 +1,31 @@
 {% extends 'base.html.twig' %}
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+
 {% block body %}
+
+
+    <!-- contenuto -->
+
+    <div class="row clearfix">
+        <div class="col-md-6 column">
+
+            <h1></h1>
+
+
 
     {{ form_start(form) }}
     {{ form_widget(form) }}
     {{ form_end(form) }}
+
+        </div>
+        <div class="col-md-6 column">
+
+
+        </div>
+    </div>
+    <!-- fine contenuto -->
+
+</div>
+
 {% endblock %}

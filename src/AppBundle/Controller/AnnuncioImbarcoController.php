@@ -33,6 +33,22 @@ class AnnuncioImbarcoController extends BaseController
     }
 
 
+
+    /**
+     * @Route("/", name="annunci_imbarco")
+     */
+    public function annunciImbarcoAction()
+    {
+
+        $annunci = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioImbarco')->findAll();
+        $titolo="Annunci Imbarco";
+        return $this->render('AppBundle:AnnuncioImbarco:lista.html.twig', array("annunci" => $annunci,"titolo"=>$titolo));
+
+    }
+
+
+
     /**
      * @Route( "list", name="list_annuncio_imbarco" )
      * @Template()

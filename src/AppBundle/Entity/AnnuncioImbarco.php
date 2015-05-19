@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -26,6 +27,21 @@ class AnnuncioImbarco
      * @ORM\JoinColumn(name="id_utente", referencedColumnName="id")
      **/
     protected $utente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titolo", type="string", nullable=true)
+     */
+    private $titolo;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank()
+     * @ORM\Column(name="tipo_annuncio", type="string", columnDefinition="ENUM('CERCO','OFFRO')", nullable=false)
+     */
+    private $tipoAnnuncio;
 
     /**
      * @var string
@@ -106,6 +122,17 @@ class AnnuncioImbarco
      */
     protected $lastUpdateTimestamp;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="RispostaAnnuncioImbarco", mappedBy="annuncio")
+     **/
+    private $risposte;
+
+
+    public function __construct() {
+        $this->risposte = new ArrayCollection();
+    }
+
     /**
      * @return mixed
      */
@@ -113,6 +140,8 @@ class AnnuncioImbarco
     {
         return $this->id;
     }
+
+
 
     /**
      * @param mixed $id
@@ -296,6 +325,54 @@ class AnnuncioImbarco
     public function setLastUpdateTimestamp($lastUpdateTimestamp)
     {
         $this->lastUpdateTimestamp = $lastUpdateTimestamp;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitolo()
+    {
+        return $this->titolo;
+    }
+
+    /**
+     * @param string $titolo
+     */
+    public function setTitolo($titolo)
+    {
+        $this->titolo = $titolo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTipoAnnuncio()
+    {
+        return $this->tipoAnnuncio;
+    }
+
+    /**
+     * @param string $tipoAnnuncio
+     */
+    public function setTipoAnnuncio($tipoAnnuncio)
+    {
+        $this->tipoAnnuncio = $tipoAnnuncio;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRisposte()
+    {
+        return $this->risposte;
+    }
+
+    /**
+     * @param mixed $risposte
+     */
+    public function setRisposte($risposte)
+    {
+        $this->risposte = $risposte;
     }
 
 

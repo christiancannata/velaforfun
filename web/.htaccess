@@ -81,3 +81,5 @@ DirectoryIndex app.php
     AddOutputFilterByType DEFLATE image/x-icon
     AddOutputFilterByType DEFLATE application/json
 </IfModule>
+
+ErrorDocument 404 /
