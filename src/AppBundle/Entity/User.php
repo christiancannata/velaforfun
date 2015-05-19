@@ -72,10 +72,14 @@ class User extends BaseUser implements MandantUserInterface
 
 
 
+
+
+
     public function __construct()
     {
         parent::__construct();
         $this->roles = array('ROLE_USER');
+        $this->porti = new ArrayCollection();
     }
 
     /**

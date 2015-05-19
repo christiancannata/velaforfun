@@ -149,6 +149,7 @@ class PortoController extends BaseController
         var_dump($weather);
 */
         $titolo="Porto di ". $porto[0]->getNome();
+
         return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("porti" => $porto,"titolo"=>$titolo));
     }
 

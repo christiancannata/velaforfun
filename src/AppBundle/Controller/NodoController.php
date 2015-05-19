@@ -64,9 +64,6 @@ class NodoController extends BaseController
     public function nodiAction()
     {
 
-        $map = new Map();
-        $map->setAsync(true);
-        $map->setLanguage("ita");
         $nodi = $this->getDoctrine()
             ->getRepository('AppBundle:Nodo')->findAll();
 
@@ -81,9 +78,6 @@ class NodoController extends BaseController
     public function dettagliNodoAction($permalink)
     {
 
-        $map = new Map();
-        $map->setAsync(true);
-        $map->setLanguage("ita");
         $porto = $this->getDoctrine()
             ->getRepository('AppBundle:Nodo')->findOneByPermalink($permalink);
         if(!$porto){
@@ -92,23 +86,7 @@ class NodoController extends BaseController
             throw $this->createNotFoundException('Unable to find Articolo.');
         }
 
-        $marker = new Marker();
 
-// Configure your marker options
-        $marker->setPrefixJavascriptVariable('marker_');
-        $marker->setPosition($porto->getLatitudine(), $porto->getLongitudine(), true);
-        $marker->setAnimation(Animation::DROP);
-        $marker->setOptions(
-            array(
-                'clickable' => false,
-                'flat' => true,
-            )
-        );
-        $map->addMarker($marker);
-
-
-        $mapHelper = new MapHelper();
-
-        return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("mapHelper" => $mapHelper, "map" => $map));
+        return $this->render('AppBundle:Nodo:nodi.html.twig', array("nodi" => $nodi));
     }
 }

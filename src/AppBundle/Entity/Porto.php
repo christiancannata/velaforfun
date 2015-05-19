@@ -84,6 +84,21 @@ class Porto
 
 
     /**
+     * @ORM\ManyToMany(targetEntity="User")
+     * @ORM\JoinTable(name="utenti_porti",
+     *      joinColumns={@ORM\JoinColumn(name="id_porto", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="id_user", referencedColumnName="id", unique=true)}
+     *      )
+     **/
+    private $utenti;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="CommentoPorto", mappedBy="porto")
+     **/
+    private $commenti;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="timestamp", type="datetime", nullable=false)
@@ -102,6 +117,13 @@ class Porto
     protected $lastUpdateTimestamp;
 
 
+
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->utenti = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -271,6 +293,54 @@ class Porto
     public function setLastUpdateTimestamp($lastUpdateTimestamp)
     {
         $this->lastUpdateTimestamp = $lastUpdateTimestamp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCommenti()
+    {
+        return $this->commenti;
+    }
+
+    /**
+     * @param mixed $commenti
+     */
+    public function setCommenti($commenti)
+    {
+        $this->commenti = $commenti;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * @param \DateTime $timestamp
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUtenti()
+    {
+        return $this->utenti;
+    }
+
+    /**
+     * @param mixed $utenti
+     */
+    public function setUtenti($utenti)
+    {
+        $this->utenti = $utenti;
     }
 
 

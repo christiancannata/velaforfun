@@ -19,12 +19,8 @@ class DefaultController extends Controller
         $articoli=$repository->findAll();
 
 
-        $repository = $this->getDoctrine()
-            ->getRepository('AppBundle:Segnale');
-
-        $segnali=$repository->findAll();
 
 
-        return $this->render('default/index.html.twig',array("articoli"=>$articoli,"segnali"=>$segnali));
+        return $this->render('default/index.html.twig',array("articoli"=>$articoli));
     }
 }
