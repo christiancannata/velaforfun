@@ -1,15 +1,7 @@
-{% extends 'base.html.twig' %}
-    {% block body %}
+{% extends 'HWIOAuthBundle::layout.html.twig' %}
 
-
-
-
-    <!-- contenuto -->
-
-    <div class="row clearfix">
-        <div class="col-md-8 column">
-
- <h3>{{ 'header.register' | trans({'%name%': userInformation.realName}, 'HWIOAuthBundle') }}</h3>
+{% block hwi_oauth_content %}
+    <h3>{{ 'header.register' | trans({'%name%': userInformation.realName}, 'HWIOAuthBundle') }}</h3>
     <div class="row">
         <div class="span6">
             <form action="{{ path('hwi_oauth_connect_registration', {'key': key}) }}" {{ form_enctype(form) }} method="POST" class="hwi_oauth_registration_register">
@@ -22,27 +14,9 @@
         </div>
         <div class="span6">
             {% if userInformation.profilePicture is not empty %}
-        <img src="{{ userInformation.profilePicture }}"/>
-    {% endif %}
+                <img src="{{ userInformation.profilePicture }}" />
+            {% endif %}
         </div>
     </div>
 
-
-        </div>
-        <div class="col-md-4 column">
-
-
-
-        </div>
-    </div>
-    <!-- fine contenuto -->
-
-</div>
-
-
-
-
-
-    {% endblock %}
-
-
+{% endblock hwi_oauth_content %}

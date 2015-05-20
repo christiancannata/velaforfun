@@ -1,10 +1,15 @@
 <?php
 
-namespace AppBundle\Controller;
+/*
+ * This file is part of the HWIOAuthBundle package.
+ *
+ * (c) Hardware.Info <opensource@hardware.info>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\SecurityContext;
-use HWI\Bundle\OAuthBundle\Controller\ConnectController;
+namespace HWI\Bundle\OAuthBundle\Controller;
 
 use HWI\Bundle\OAuthBundle\OAuth\ResourceOwnerInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\Authentication\Token\OAuthToken;
@@ -12,16 +17,22 @@ use HWI\Bundle\OAuthBundle\Security\Core\Exception\AccountNotLinkedException;
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\Exception\AccountStatusException;
+use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\Security\Http\SecurityEvents;
 
-
-class SecuredController extends ConnectController
+/**
+ * ConnectController
+ *
+ * @author Alexander <iam.asm89@gmail.com>
+ */
+class ConnectController extends ContainerAware
 {
     /**
      * Action that handles the login 'form'. If connecting is enabled the
@@ -55,12 +66,9 @@ class SecuredController extends ConnectController
             $error = $error->getMessage();
         }
 
-        return $this->container->get('templating')->renderResponse(
-            'HWIOAuthBundle:Connect:login.html.'.$this->getTemplatingEngine(),
-            array(
-                'error' => $error,
-            )
-        );
+        return $this->container->get('templating')->renderResponse('HWIOAuthBundle:Connect:login.html.' . $this->getTemplatingEngine(), array(
+            'error'   => $error,
+        ));
     }
 
     /**
@@ -116,7 +124,7 @@ class SecuredController extends ConnectController
             // Authenticate the user
             $this->authenticateUser($request, $form->getData(), $error->getResourceOwnerName(), $error->getRawToken());
 
-            return $this->container->get('templating')->renderResponse('AppBundle:Security:connessione-effettuata.html.' . $this->getTemplatingEngine(), array(
+            return $this->container->get('templating')->renderResponse('HWIOAuthBundle:Connect:registration_success.html.' . $this->getTemplatingEngine(), array(
                 'userInformation' => $userInformation,
             ));
         }
@@ -205,13 +213,13 @@ class SecuredController extends ConnectController
                     $this->authenticateUser($request, $currentUser, $service, $currentToken->getRawToken(), false);
                 }
 
-                return $this->container->get('templating')->renderResponse('AppBundle:Security:connessione-effettuata.html.' . $this->getTemplatingEngine(), array(
+                return $this->container->get('templating')->renderResponse('HWIOAuthBundle:Connect:connect_success.html.' . $this->getTemplatingEngine(), array(
                     'userInformation' => $userInformation,
                 ));
             }
         }
 
-        return $this->container->get('templating')->renderResponse('AppBundle:Security:conferma-iscrizione.html.' . $this->getTemplatingEngine(), array(
+        return $this->container->get('templating')->renderResponse('HWIOAuthBundle:Connect:connect_confirm.html.' . $this->getTemplatingEngine(), array(
             'key'             => $key,
             'service'         => $service,
             'form'            => $form->createView(),
@@ -249,5 +257,105 @@ class SecuredController extends ConnectController
         }
 
         return new RedirectResponse($authorizationUrl);
+    }
+
+    /**
+     * Get the security error for a given request.
+     *
+     * @param Request $request
+     *
+     * @return string|\Exception
+     */
+    protected function getErrorForRequest(Request $request)
+    {
+        $session = $request->getSession();
+        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+        } elseif (null !== $session && $session->has(SecurityContext::AUTHENTICATION_ERROR)) {
+            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
+        } else {
+            $error = '';
+        }
+
+        return $error;
+    }
+
+    /**
+     * Get a resource owner by name.
+     *
+     * @param string $name
+     *
+     * @return ResourceOwnerInterface
+     *
+     * @throws \RuntimeException if there is no resource owner with the given name.
+     */
+    protected function getResourceOwnerByName($name)
+    {
+        $ownerMap = $this->container->get('hwi_oauth.resource_ownermap.'.$this->container->getParameter('hwi_oauth.firewall_name'));
+
+        if (null === $resourceOwner = $ownerMap->getResourceOwnerByName($name)) {
+            throw new \RuntimeException(sprintf("No resource owner with name '%s'.", $name));
+        }
+
+        return $resourceOwner;
+    }
+
+    /**
+     * Generates a route.
+     *
+     * @param string  $route    Route name
+     * @param array   $params   Route parameters
+     * @param boolean $absolute Absolute url or note.
+     *
+     * @return string
+     */
+    protected function generate($route, $params = array(), $absolute = false)
+    {
+        return $this->container->get('router')->generate($route, $params, $absolute);
+    }
+
+    /**
+     * Authenticate a user with Symfony Security
+     *
+     * @param Request       $request
+     * @param UserInterface $user
+     * @param string        $resourceOwnerName
+     * @param string        $accessToken
+     * @param boolean       $fakeLogin
+     */
+    protected function authenticateUser(Request $request, UserInterface $user, $resourceOwnerName, $accessToken, $fakeLogin = true)
+    {
+        try {
+            $this->container->get('hwi_oauth.user_checker')->checkPostAuth($user);
+        } catch (AccountStatusException $e) {
+            // Don't authenticate locked, disabled or expired users
+            return;
+        }
+
+        $token = new OAuthToken($accessToken, $user->getRoles());
+        $token->setResourceOwnerName($resourceOwnerName);
+        $token->setUser($user);
+        $token->setAuthenticated(true);
+
+        $this->container->get('security.context')->setToken($token);
+
+        if ($fakeLogin) {
+            // Since we're "faking" normal login, we need to throw our INTERACTIVE_LOGIN event manually
+            $this->container->get('event_dispatcher')->dispatch(
+                SecurityEvents::INTERACTIVE_LOGIN,
+                new InteractiveLoginEvent($request, $token)
+            );
+        }
+    }
+
+    /**
+     * Returns templating engine name.
+     *
+     * @return string
+     */
+    protected function getTemplatingEngine()
+    {
+        return $this->container->getParameter('hwi_oauth.templating.engine');
     }
 }
