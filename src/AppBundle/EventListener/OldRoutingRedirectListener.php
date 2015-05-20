@@ -67,6 +67,12 @@ class OldRoutingRedirectListener extends ContainerAware
             $route = "nodi";
         }
 
+        if (strstr($path, "bandiere.asp")) {
+            $redirect = true;
+            $route = "codice-internazionale";
+        }
+
+
         if (strstr($path, "imbarco_i.asp")) {
             die("jjj");
         }

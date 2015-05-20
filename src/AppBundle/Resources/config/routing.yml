@@ -21,7 +21,7 @@ nodi:
 segnali:
     resource: "@AppBundle/Controller/SegnaleController.php"
     type:     annotation
-    prefix:   /segnali
+    prefix:   /codice-internazionale
 
 barche:
     resource: "@AppBundle/Controller/BarcaController.php"

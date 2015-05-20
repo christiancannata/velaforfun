@@ -68,7 +68,7 @@ class SegnaleController extends BaseController
             ->getRepository('AppBundle:Segnale')->findAll();
 
 
-        return $this->render('AppBundle:Segnale:segnali.html.twig', array("nodi" => $nodi));
+        return $this->render('AppBundle:Segnale:segnali.html.twig', array("segnali" => $nodi));
     }
 
 

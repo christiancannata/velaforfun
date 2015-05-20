@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <!-- contenuto -->
+
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+
+            <h1>Codice Internazionale</h1>
+{% for segnale in segnali %}
+    {{ segnale.parola }} <img src="/images/bandiere/{{ segnale.lettera|lower }}.gif"> <br>
+{% endfor %}
+
+
+        </div>
+        <div class="col-md-4 column">
+
+
+        </div>
+    </div>
+    <!-- fine contenuto -->
+
+</div>
+
+{% endblock %}
+
+
+
