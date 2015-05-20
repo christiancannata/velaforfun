@@ -14,32 +14,32 @@ use Ivory\GoogleMap\Overlays\Marker;
 use Ivory\GoogleMap\Helper\MapHelper;
 
 
-class NodoController extends BaseController
+class SegnaleController extends BaseController
 {
 
-    protected $entity="Nodo";
+    protected $entity="Segnale";
 
     /**
-     * @Route( "crea", name="create_nodo" )
+     * @Route( "crea", name="create_segnale" )
      * @Template()
      */
     public function createAction(Request $request)
     {
-        return $this->postForm($request, new NodoType());
+        return $this->postForm($request, new SegnaleType());
     }
 
     /**
-     * @Route( "modifica/{id}", name="modifica_nodo" )
+     * @Route( "modifica/{id}", name="modifica_segnale" )
      * @Template()
      */
     public function patchAction(Request $request,$id)
     {
-        return $this->patchForm($request,new NodoType(),$id,"Nodo");
+        return $this->patchForm($request,new SegnaleType(),$id,"Segnale");
     }
 
 
     /**
-     * @Route( "list", name="list_nodo" )
+     * @Route( "list", name="list_segnale" )
      * @Template()
      */
     public function listAction(Request $request)
@@ -50,7 +50,7 @@ class NodoController extends BaseController
 
 
     /**
-     * @Route( "elimina/{id}", name="delete_nodo" )
+     * @Route( "elimina/{id}", name="delete_segnale" )
      * @Template()
      */
     public function eliminaAction(Request $request,$id)
@@ -59,26 +59,26 @@ class NodoController extends BaseController
     }
 
     /**
-     * @Route("/", name="nodi")
+     * @Route("/", name="segnali")
      */
-    public function nodiAction()
+    public function segnaliAction()
     {
 
         $nodi = $this->getDoctrine()
-            ->getRepository('AppBundle:Nodo')->findAll();
+            ->getRepository('AppBundle:Segnale')->findAll();
 
 
-        return $this->render('AppBundle:Nodo:nodi.html.twig', array("nodi" => $nodi));
+        return $this->render('AppBundle:Segnale:segnali.html.twig', array("nodi" => $nodi));
     }
 
 
     /**
-     * @Route("/jsondata", name="nodi_json")
+     * @Route("/jsondata", name="segnali_json")
      */
     public function nodiJsonAction()
     {
         $porti = $this->getDoctrine()
-            ->getRepository('AppBundle:Nodo')->findAll();
+            ->getRepository('AppBundle:Segnale')->findAll();
 
         $arrayJson=[];
         foreach($porti as $porto){
@@ -88,21 +88,21 @@ class NodoController extends BaseController
     }
 
     /**
-     * @Route("/{permalink}", name="dettaglio_nodo")
+     * @Route("/{permalink}", name="dettaglio_segnale")
      */
     public function dettagliNodoAction($permalink)
     {
 
-        $nodi = $this->getDoctrine()
-            ->getRepository('AppBundle:Nodo')->findOneByPermalink($permalink);
-        if(!$nodi){
+        $porto = $this->getDoctrine()
+            ->getRepository('AppBundle:Segnale')->findOneByPermalink($permalink);
+        if(!$porto){
 
 
             throw $this->createNotFoundException('Unable to find Articolo.');
         }
 
 
-        return $this->render('AppBundle:Nodo:nodi.html.twig', array("nodi" => $nodi));
+        return $this->render('AppBundle:Segnale:segnali.html.twig', array("nodi" => $porto));
     }
 
 

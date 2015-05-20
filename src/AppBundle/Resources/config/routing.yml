@@ -18,6 +18,11 @@ nodi:
     type:     annotation
     prefix:   /nodi
 
+segnali:
+    resource: "@AppBundle/Controller/SegnaleController.php"
+    type:     annotation
+    prefix:   /segnali
+
 barche:
     resource: "@AppBundle/Controller/BarcaController.php"
     type:     annotation
