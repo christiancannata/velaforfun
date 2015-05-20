@@ -5,8 +5,11 @@ namespace AppBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\Serializer\Annotation as Serializer;
 
 use Ibrows\Bundle\NewsletterBundle\Model\User\MandantUserInterface;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
@@ -46,7 +49,7 @@ class User extends BaseUser implements MandantUserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="firma", type="string", nullable=true)
+     * @ORM\Column(name="firma", type="text", nullable=true)
      */
     private $firma;
 
@@ -60,7 +63,7 @@ class User extends BaseUser implements MandantUserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="privacy", type="string", nullable=true)
+     * @ORM\Column(name="privacy", type="text", nullable=true)
      */
     private $privacy;
 
@@ -71,7 +74,23 @@ class User extends BaseUser implements MandantUserInterface
 
 
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="timestamp", type="datetime", nullable=false)
+     * @Gedmo\Timestampable(on="create")
+     * @Serializer\Type("DateTime")
+     */
+    protected $timestamp;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_update_timestamp", type="datetime", nullable=false)
+     * @Gedmo\Timestampable(on="update")
+     * @Serializer\Type("DateTime")
+     */
+    protected $lastUpdateTimestamp;
 
 
 
@@ -149,8 +168,6 @@ class User extends BaseUser implements MandantUserInterface
     }
 
 
-
-
     /**
      * @return string
      */
@@ -212,4 +229,43 @@ class User extends BaseUser implements MandantUserInterface
     {
         return in_array($role, $this->getRoles());
     }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * @param \DateTime $timestamp
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getLastUpdateTimestamp()
+    {
+        return $this->lastUpdateTimestamp;
+    }
+
+    /**
+     * @param \DateTime $lastUpdateTimestamp
+     */
+    public function setLastUpdateTimestamp($lastUpdateTimestamp)
+    {
+        $this->lastUpdateTimestamp = $lastUpdateTimestamp;
+    }
+
+
 }

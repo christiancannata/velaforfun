@@ -14,6 +14,7 @@ use JMS\Serializer\Annotation as Serializer;
 /**
  * @ORM\Entity
  * @ORM\Table(name="articolo")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Articolo implements ItemInterface
 {
@@ -81,7 +82,7 @@ class Articolo implements ItemInterface
     protected $lastUpdateTimestamp;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $idComunicato;
 
@@ -305,9 +306,14 @@ class Articolo implements ItemInterface
         $this->idComunicato = $idComunicato;
     }
 
-
-    public function generatePermalink($string){
-        $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
-        $this->permalink=$slug;
+    /**
+     * @ORM\PrePersist
+     */
+    public function generatePermalink()
+    {
+        $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $this->titolo."-".rand(1, 99));
+        $this->permalink = strtolower($slug);
     }
+
+
 }

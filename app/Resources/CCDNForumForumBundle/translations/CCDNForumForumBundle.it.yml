@@ -15,17 +15,17 @@ layout:
 
 title:
     admin:
-        index:                         "Admin Index"
+        index:                         "Amministrazione"
         manage-forums:
-            index:                     "Manage Forums"
-            create:                    "Create New Forum"
-            edit:                      "Edit Forum %forum_name%"
-            delete:                    "Delete Forum %forum_name%"
+            index:                     "Gestisci Forum"
+            create:                    "Crea nuovo forum"
+            edit:                      "Modifica forum %forum_name%"
+            delete:                    "Elimina Forum %forum_name%"
         manage-categories:
-            index:                     "Manage Categories"
-            create:                    "Create New Category"
-            edit:                      "Edit Category %category_name%"
-            delete:                    "Delete Category %category_name%"
+            index:                     "Gestisci Categorie"
+            create:                    "Crea nuova categoria"
+            edit:                      "Modifica categoria %category_name%"
+            delete:                    "Elimina Categoria %category_name%"
         manage-boards:
             index:                     "Manage Boards"
             create:                    "Create New Board"
@@ -33,22 +33,22 @@ title:
             delete:                    "Delete Board %board_name%"
     category:
         index:                         "Index"
-        show:                          "%category_name% Category"
+        show:                          "%category_name%"
     board:
         show:                          "%board_name% Board"
     topic:
         show:                          "Topic: %topic_title%"
-        create:                        "Create Topic"
-        reply:                         "Reply to Topic"
-        edit:                          "Edit Topic"
-        delete:                        "Delete Topic"
-        change_board:                  "Change Board For Topic"
+        create:                        "Crea Topic"
+        reply:                         "Rispondi al Topic"
+        edit:                          "Modifica Topic"
+        delete:                        "Elimina Topic"
+        change_board:                  "Cambia Board al Topic"
     post:
         show:                          "Post #%post_id%"
-        edit:                          "Edit Post #%post_id%"
-        delete:                        "Delete Post #%post_id%"
+        edit:                          "Modifica Post #%post_id%"
+        delete:                        "Elimina Post #%post_id%"
     subscription:
-        index:                         "Subscriptions"
+        index:                         "Sottoscrizioni"
 
 crumbs:
     admin:
