@@ -61,7 +61,7 @@
           $(this).after(audio);
         }
 
-        $(this).bind('morse.emit', Morse.emit).bind('click', function(){ $(this).trigger("morse.emit")});
+        $(this).bind('morse.emit', Morse.emit).bind('click', function(){ })//$(this).trigger("morse.emit")});
       });
     },
 

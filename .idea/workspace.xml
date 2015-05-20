@@ -6,7 +6,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Command/ImportUtentiCommand.php" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/create.html.twig" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/dettagliSegnale.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/segnali.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BlogBundle/Entity/Articolo.php" afterPath="$PROJECT_DIR$/src/BlogBundle/Entity/Articolo.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/CCDNForumForumBundle/translations/CCDNForumForumBundle.it.yml" afterPath="$PROJECT_DIR$/app/Resources/CCDNForumForumBundle/translations/CCDNForumForumBundle.it.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php" />
@@ -14,7 +13,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/SegnaleController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/SegnaleController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/js/jquery.morse.js" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/js/jquery.morse.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/segnali.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/segnali.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="velaforfun.iws" />
@@ -40,24 +41,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MenuVelaExtension.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Twig/Extension/MenuVelaExtension.php">
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.375" vertical-offset="150" max-vertical-offset="765">
-              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state vertical-scroll-proportion="-3.1176472" vertical-offset="4596" max-vertical-offset="5505">
+              <caret line="317" column="4" selection-start-line="317" selection-start-column="4" selection-end-line="317" selection-end-column="4" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.375" vertical-offset="645" max-vertical-offset="4155">
-              <caret line="58" column="46" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="46" />
-              <folding>
-                <element signature="e#36#78#0#PHP" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -84,11 +73,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="segnali.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="segnali.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/segnali.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35573122" vertical-offset="0" max-vertical-offset="540">
-              <caret line="12" column="83" selection-start-line="12" selection-start-column="83" selection-end-line="12" selection-end-column="83" />
+            <state vertical-scroll-proportion="-3.125" vertical-offset="165" max-vertical-offset="990">
+              <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.morse.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/jquery.morse.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5469388" vertical-offset="467" max-vertical-offset="2880">
+              <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dettagliPorto.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="4140">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -126,16 +137,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Porto.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Porto.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="5295">
-              <caret line="6" column="29" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="OldRoutingRedirectListener.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -154,7 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/conferma-iscrizione.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Security/conferma-iscrizione.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Security/connessione-effettuata.html.twig" />
         <option value="$PROJECT_DIR$/app/logs/dev.log" />
@@ -193,7 +193,6 @@
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/CCDNForumForumBundle/translations/CCDNForumForumBundle.it.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Command/ImportUtentiCommand.php" />
@@ -204,6 +203,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/SegnaleController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/jquery.morse.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/segnali.html.twig" />
       </list>
     </option>
@@ -261,24 +262,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="web">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="velaforfun">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="web">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="images">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -454,6 +437,70 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Porto">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="velaforfun">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="AppBundle">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Resources">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="velaforfun">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="AppBundle">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Resources">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="js">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
@@ -557,6 +604,46 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="velaforfun">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Resources">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="velaforfun">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Resources">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -762,20 +849,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36792454" vertical-offset="0" max-vertical-offset="810">
-          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05928854" vertical-offset="0" max-vertical-offset="506">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Segnale.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.71146244" vertical-offset="360" max-vertical-offset="2550">
@@ -895,13 +968,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1666666" vertical-offset="628" max-vertical-offset="4140">
-          <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.583333" vertical-offset="2149" max-vertical-offset="6075">
@@ -1008,14 +1074,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.375" vertical-offset="405" max-vertical-offset="5490">
-          <caret line="50" column="48" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/CCDNForumForumBundle/translations/CCDNForumForumBundle.it.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3340" max-vertical-offset="3870">
@@ -1094,16 +1152,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportUtentiCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.916666" vertical-offset="77" max-vertical-offset="1020">
-          <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
-          <folding>
-            <marker date="1432114682000" expanded="true" signature="1011:1031" placeholder="select * fro..utenti..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.1320755" vertical-offset="1660" max-vertical-offset="2190">
@@ -1138,6 +1186,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/dettagliSegnale.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="530">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="4140">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportUtentiCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.916666" vertical-offset="77" max-vertical-offset="1020">
+          <caret line="46" column="40" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+          <folding>
+            <marker date="1432114682000" expanded="true" signature="1011:1031" placeholder="select * fro..utenti..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/SegnaleController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.708334" vertical-offset="514" max-vertical-offset="1605">
@@ -1146,11 +1220,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.1176472" vertical-offset="4596" max-vertical-offset="5505">
+          <caret line="317" column="4" selection-start-line="317" selection-start-column="4" selection-end-line="317" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/segnali.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35573122" vertical-offset="0" max-vertical-offset="540">
-          <caret line="12" column="83" selection-start-line="12" selection-start-column="83" selection-end-line="12" selection-end-column="83" />
+        <state vertical-scroll-proportion="-3.125" vertical-offset="165" max-vertical-offset="990">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/jquery.morse.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5469388" vertical-offset="467" max-vertical-offset="2880">
+          <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,5 +1,26 @@
 {% extends 'base.html.twig' %}
 
+
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/app/js/jquery.morse.js') }}"></script>
+    <script language="JavaScript">
+        $(document).ready(function () {
+            var morse = null;
+            $(".traduci").click(function () {
+                $(".codice-morse").html($("#testo").val());
+                var morse = $(".codice-morse").morseCode({bpm: 12});
+                //  morse.emit;
+            });
+
+            $(".ascolta").click(function () {
+                $(".codice-morse").trigger("morse.emit");
+            });
+        });
+    </script>
+{% endblock %}
+
+
 {% block body %}
 
 
@@ -9,20 +30,29 @@
         <div class="col-md-8 column">
 
             <h1>Codice Internazionale</h1>
-{% for segnale in segnali %}
-    {{ segnale.parola }} <img src="/images/bandiere/{{ segnale.lettera|lower }}.gif"> <br>
-{% endfor %}
+            {% for segnale in segnali %}
+                {{ segnale.parola }} <img src="/images/bandiere/{{ segnale.lettera|lower }}.gif"> <br>
+            {% endfor %}
 
 
         </div>
         <div class="col-md-4 column">
 
-
+            <div class="form-group">
+                <label for="testo">Inserisci il testo</label>
+    <textarea class="form-control" id="testo">
+    </textarea>
+            </div>
+            <button type="submit" class="btn btn-default traduci">Traduci</button>
+            <blockquote>
+                <p class="codice-morse"></p>
+            </blockquote>
+        <button class="ascolta">Ascolta</button>
         </div>
-    </div>
-    <!-- fine contenuto -->
 
-</div>
+        <!-- fine contenuto -->
+
+    </div>
 
 {% endblock %}
 
