@@ -52,7 +52,7 @@
                 var marker = e.layer;
                 feature = marker.feature;
                 var id = feature.id;
-
+                $(".porto-meteo").css("opacity",0.4);
                 $.ajax({
                     url: "/porti/" + id + "/jsondata",
                     dataType: "json",
@@ -62,11 +62,13 @@
                         $(".porto-content").css("opacity", "0.5");
 
                         //SET CONTENUTO DEL PORTO
-
+                        $("#porto-nome").html(response.porto.nome);
                         $("#porto-temperatura").html(parseInt(response.meteo.main.temp) + "°");
                         $("#loading-porto").hide();
                         $(".porto-title").css("opacity", "1");
                         $(".porto-content").css("opacity", "1");
+                        $(".porto-meteo").css("opacity",1);
+
 
                     }
                 });
@@ -136,131 +138,230 @@
 {% endblock %}
 
 {% block body %}
-
-
+<div class="row clearfix">
+    <div class="col-md-12 column">
+     <h1>{{ titolo }}</h1>
+</div>
+    </div>
     <!-- contenuto -->
 
     <div class="row clearfix">
         <div class="col-md-8 column">
 
-            <h1>{{ titolo }}</h1>
-
-            <div id='map' style="margin-top:0px"></div>
-            <input autocomplete="off" type="text" class="form-control search-ui" id="selectPorto"
-                   placeholder="Inserisci il nome del porto...">
-
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+            <div class="container-mappa">
+                <button class="localizzami" id='geolocate'><i style="" class="fa fa-crosshairs"></i>Localizzami</button>
+                 <div id='map' style="margin-top:0px"></div>
+                </div>
         </div>
-        <div class="col-md-4 column">
-            <div id="loading-porto" style="display:none"><i class="fa fa-spinner fa-pulse"></i></div>
-            <div class="porto-title">
-                <h1 id="porto-nome"></h1>
+                </div>
+
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div class="field-nuovo-commento">
+                        <div class="row clearfix">
+                            <div class="col-md-12 column">
+                                <p><strong>Scrivi un commento su questo porto</strong></p>
+                            </div>
+                            </div>
+                        <div class="row clearfix">
+                            <div class="col-md-11 column">
+                                <input type="text" class="form-control" placeholder="Scrivi un commento...">
+                            </div>
+                            <div class="col-md-1 column">
+                                <a href="#">
+                                    <i class="fa fa-sign-in"></i>
+                                </a>
+                            </div>
+                            </div>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-4 column" id="colonnaPorto">
+
+
+            <div class="row clearfix">
+
+                <div class="col-md-12 column">
+
+
+                    <form method="GET" action="/porti/{permalink}" id="formCercaPorto" name="cerca_porti">
+             <div id="cercaPortoBig" class="right-inner-addon">
+                                            <a href="#" onclick="$('#formCercaPorto').submit()"><i class="fa fa-search"></i></a>
+                                            <input autocomplete="off" id="selectPorto" type="search"
+                                                   class="form-control"
+                                                   placeholder="Inserisci il nome di un porto..."/>
+                                        </div>
+                    </form>
 
 
             </div>
-            <div class="porto-content">
+            </div>
 
-                <a href='#' id='geolocate' class='ui-button'>Find me</a>
-                <ul id='marker-list'></ul>
-                <div class="box meteo">
-                    <h3>Meteo</h3>
-                    <dl class="dl-horizontal">
-                        <dt>Ultima rilevazione:</dt>
-                        <dd>  <div id="porto-rilevazione">2 Maggio 2015</div></dd>
-                        <dt>Temperatura:</dt>
-                        <dd><div id="porto-temperatura"></div></dd>
-                        <dt>Vento</dt>
-                        <dd> <div id="porto-vento"></div></dd>
-                    </dl>
 
-                </div>
 
-                <div class="box attracco">
-                    <h3>Persone attraccate a questo porto</h3>
+            <div class="row clearfix">
+
+                <div class="col-md-12 column porto-meteo">
+
+                <div class="row clearfix">
+
+                    <div class="col-md-12 column">
+                <h1 id="porto-nome">Porto Ercole</h1>
+                        </div>
+            </div>
+
+                <div class="row clearfix">
+
+                    <div class="col-md-4 column">
+                        <i class="wi wi-day-snow-thunderstorm"></i>
+                        </div>
+
+                        <div class="col-md-8 column">
+                            <div class="row clearfix">
+                            <div class="col-md-6 column">
+<h4 id="porto-temperatura">25°</h4><p>MAX</p><p>MIN</p>
+                        </div>
+ <div class="col-md-6column">
+<p>VENTI <div id="porto-vento"></div></p>
+<p>UMIDITA</p>
+                        </div>
+                            </div>
+
+
+<div class="row clearfix">
+                            <div class="col-md-12 column">
+Ponte a Ema (FI)
+                        </div>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+</div>
+
+</div>
+
+
+
+
+            <div class="row clearfix">
+<div class="row clearfix">
+                <div class="col-md-12 column box attracco">
+                    <h3>Chi ha attraccato qui</h3>
+                    </div>
+                    </div>
+                <div class="row clearfix">
+
+                    <div class="col-md-12 column box attracco">
 
 
                     {% if porti[0].getUtenti() is empty %}
-                    Non ci sono utenti attraccati in questo porto
+    Non ci sono utenti attraccati in questo porto
 
 
-                    {% else %}
+{% else %}
 
-                        <div class="scroll-pane">
-                            <ul class="media-list">
+    <div class="scroll-pane">
+        <ul class="media-list">
 
-                                {% for commento in porti[0].getUtenti() %}
+            {% for commento in porti[0].getUtenti() %}
 
-                                <li class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img width="50" class="media-object"
-                                                 src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDAI83UZB0PDXebgMxyIn6gWTjiH8o0IYCl3qrJQlDgeQh8BRTMw"
-                                                 alt="...">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">Pippo Pluto</h4>
-                                        Il giorno 10 Aprile 2015 - 10:30
-                                    </div>
-                                </li>
-                                {% endfor %}
+                <li class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img width="50" class="media-object"
+                                 src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDAI83UZB0PDXebgMxyIn6gWTjiH8o0IYCl3qrJQlDgeQh8BRTMw"
+                                 alt="...">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Pippo Pluto</h4>
+                        <p>Il giorno 10 Aprile 2015 - 10:30</p>
+                    </div>
+                </li>
+            {% endfor %}
 
-                            </ul>
+        </ul>
+    </div>
+
+{% endif %}
+
                         </div>
 
-                    {% endif %}
+
+                        </div>
+                    </div>
 
 
 
-                </div>
+            <div class="row clearfix">
 
-                <div class="box commenti">
-                    <h3>Commenti su questo porto</h3>
+<div class="row clearfix">
+                    <div class="col-md-12 column box attracco">
+                        <h3>Commenti sul porto</h3>
+
 
         {% if porti[0].getCommenti is empty %}
-            Non ci sono commenti per questo porto
-            {% else %}
-                <div class="scroll-pane">
-                    <ul class="media-list">
+    Non ci sono commenti per questo porto
+{% else %}
+    <div class="scroll-pane">
+        <ul class="media-list">
 
-                {% for commento in porti[0].getCommenti() %}
+            {% for commento in porti[0].getCommenti() %}
 
-                    <li class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img width="50" class="media-object"
-                                     src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDAI83UZB0PDXebgMxyIn6gWTjiH8o0IYCl3qrJQlDgeQh8BRTMw"
-                                     alt="...">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Media heading</h4>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                            sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra
-                            turpis.
-                        </div>
-                    </li>
-
-
-                {% endfor %}
-
-                </ul>
-                </div>
-
-            {% endif %}
+                <li class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img width="50" class="media-object"
+                                 src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDAI83UZB0PDXebgMxyIn6gWTjiH8o0IYCl3qrJQlDgeQh8BRTMw"
+                                 alt="...">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Media heading</h4>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                        sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra
+                        turpis.
+                    </div>
+                </li>
 
 
+            {% endfor %}
+
+        </ul>
+    </div>
+
+{% endif %}
 
 
-
-
+  </div>
                 </div>
 
 
-            </div>
 
         </div>
-    </div>
     <!-- fine contenuto -->
+</div>
+
+
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="divisore-big"></div>
+            </div>
+        </div>
+
 
 </div>
 

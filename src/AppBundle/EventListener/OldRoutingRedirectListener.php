@@ -62,6 +62,18 @@ class OldRoutingRedirectListener extends ContainerAware
             $route = "calendario";
         }
 
+        if (strstr($path, "contattaci.asp")) {
+            $redirect = true;
+            $route = "contatti";
+        }
+
+
+        if (strstr($path, "chisiamo.asp")) {
+            $redirect = true;
+            $route = "chi_siamo";
+        }
+
+
         if (strstr($path, "nodi.asp")) {
             $redirect = true;
             $route = "nodi";
