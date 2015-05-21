@@ -1,6 +1,4 @@
-blog:
-    resource: "@BlogBundle/Resources/config/routing.yml"
-    prefix:   /blog
+
 
 
 fos_user_security:
@@ -39,7 +37,9 @@ fos_user_change_password:
 app:
     resource: "@AppBundle/Resources/config/routing.yml"
 
-
+archivio:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /archivio
 
 
 hwi_oauth_service_redirect:

@@ -9,6 +9,7 @@ use JMS\Serializer\Annotation as Serializer;
 /**
  * @ORM\Entity
  * @ORM\Table(name="categoria")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Categoria
 {
@@ -24,6 +25,12 @@ class Categoria
      */
     protected $nome;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="permalink", type="string", nullable=true)
+     */
+    private $permalink;
 
     /**
      * @var \DateTime
@@ -91,5 +98,45 @@ class Categoria
         $this->timestamp = $timestamp;
     }
 
+    /**
+     * @return string
+     */
+    public function getPermalink()
+    {
+        return $this->permalink;
+    }
+
+    /**
+     * @param string $permalink
+     */
+    public function setPermalink($permalink)
+    {
+        $this->permalink = $permalink;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getLastUpdateTimestamp()
+    {
+        return $this->lastUpdateTimestamp;
+    }
+
+    /**
+     * @param \DateTime $lastUpdateTimestamp
+     */
+    public function setLastUpdateTimestamp($lastUpdateTimestamp)
+    {
+        $this->lastUpdateTimestamp = $lastUpdateTimestamp;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function generatePermalink()
+    {
+        $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $this->titolo."-".rand(1, 99));
+        $this->permalink = strtolower($slug);
+    }
 
 }

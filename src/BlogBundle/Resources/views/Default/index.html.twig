@@ -1,1 +1,35 @@
-Hello {{ name }}!
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+    <!-- contenuto -->
+
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+
+            <h1>Archivio</h1>
+
+            {% for categoria in categorie %}
+            <a href="/archivio/{{ categoria.permalink }}">  {{ categoria.nome }}</a> <br>
+            {% endfor %}
+
+
+            {% for articolo in ultimiArticoli %}
+                <a href="/archivio/{{ articolo.getCategoria().permalink }}/{{ articolo.permalink }}">{{ articolo.titolo }}</a><br>
+            {% endfor %}
+
+        </div>
+        <div class="col-md-4 column">
+
+        </div>
+
+        <!-- fine contenuto -->
+
+    </div>
+
+{% endblock %}
+
+
+

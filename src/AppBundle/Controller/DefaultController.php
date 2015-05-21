@@ -23,4 +23,24 @@ class DefaultController extends Controller
 
         return $this->render('default/index.html.twig',array("articoli"=>$articoli));
     }
+
+
+
+    /**
+     * @Route("/chi-siamo", name="chi_siamo")
+     */
+    public function chiSiamoAction()
+    {
+
+        return $this->render('default/chi-siamo.html.twig', array());
+    }
+
+    /**
+     * @Route("/contatti", name="contatti")
+     */
+    public function contattiAction()
+    {
+
+        return $this->render('default/contatti.html.twig', array());
+    }
 }

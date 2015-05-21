@@ -3,42 +3,24 @@
 namespace BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Ivory\GoogleMap\Map;
-use Ivory\GoogleMap\Overlays\Animation;
-use Ivory\GoogleMap\Overlays\Marker;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use AppBundle\Controller\BaseController;
 
-class DefaultController extends Controller
+class DefaultController extends BaseController
 {
-    public function indexAction($name)
+
+
+    /**
+     * @Route("/", name="homepage_archivio")
+     */
+    public function indexAction()
     {
-        $repository = $this->getDoctrine()
-            ->getRepository('BlogBundle:Articolo');
+        $categorie = $this->getDoctrine()
+            ->getRepository('BlogBundle:Categoria')->findAll();
 
-        $map = new Map();
+        $ultimiArticoli = $this->getDoctrine()
+            ->getRepository('BlogBundle:Articolo')->findAll(array("id"=>"desc"), 5);
 
-        $porti = $this->getDoctrine()
-            ->getRepository('AppBundle:Porto')->findAll();
-
-        foreach($porti as $porto){
-            $marker = new Marker();
-
-// Configure your marker options
-            $marker->setPrefixJavascriptVariable('marker_');
-            $marker->setPosition($porto->getLatitudine(), $porto->getLongitudine(), true);
-            $marker->setAnimation(Animation::DROP);
-
-            $marker->setOption('clickable', false);
-            $marker->setOption('flat', true);
-            $marker->setOptions(array(
-                'clickable' => false,
-                'flat'      => true,
-            ));
-            $map->addMarker($marker);
-
-        }
-
-
-
-        return $this->render('BlogBundle:Default:index.html.twig', array('name' => $name,''));
+        return $this->render('BlogBundle:Default:index.html.twig', array('categorie' => $categorie,'ultimiArticoli'=>$ultimiArticoli));
     }
 }

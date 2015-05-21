@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ articolo.titolo }}{% endblock %}
+
+{% block description %}{{ articolo.testo }}{% endblock %}
+
+{% block body %}
+
+
+    <!-- contenuto -->
+
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+
+            <h1>{{ articolo.titolo }}</h1>
+
+            {{ articolo.testo }}
+
+        </div>
+        <div class="col-md-4 column">
+
+        </div>
+
+        <!-- fine contenuto -->
+
+    </div>
+
+{% endblock %}
+
+
+

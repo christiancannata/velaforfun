@@ -9,7 +9,7 @@ url('../font/ProximaNova-Regular.otf');  format('truetype'), /* Safari, Android,
 
 body {
     font-family: ProximaNova;
-    padding-top: 70px;
+    padding-top: 115px;
     background: rgb(242, 242, 242);
     color: rgb(153, 153, 153);
 }
@@ -29,7 +29,7 @@ form label {
 .navbar-default {
     background-color: white;
     border-color: #e7e7e7;
-
+    height:100px;
 }
 
 .box-home {
@@ -83,6 +83,7 @@ form label {
 
 .category a {
     text-decoration: none;
+    font-size:20px;
 }
 
 .divisore {
@@ -281,12 +282,12 @@ a {
 }
 
 #menu-login a {
-    -webkit-transition: color 0.2s ease-in-out;
+    /*-webkit-transition: color 0.2s ease-in-out;
     -moz-transition: color 0.2s ease-in-out;
     -ms-transition: color 0.2s ease-in-out;
     -o-transition: color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out;
-    font-size: 1vw;
+    font-size: 1vw; */
 }
 #menu-login span{
     font-size: 1.2vw;
@@ -298,8 +299,7 @@ a:hover, #menu-login a:hover, #menu-login a:active {
 
 #logo {
     text-align: center;
-    height: 100%;
-    font-size: 40px;
+    height: 100px;
     -webkit-transition-duration: 0.8s;
 
     -moz-transition-duration: 0.8s;
@@ -537,7 +537,7 @@ a:hover, #menu-login a:hover, #menu-login a:active {
 }
 
 .flip-container, .front, .back {
-    height: 50px;
+    height: 100px;
     width: 100%;
 }
 
@@ -563,14 +563,13 @@ a:hover, #menu-login a:hover, #menu-login a:active {
     z-index: 2;
     /* for firefox 31 */
     transform: rotateY(0deg);
-    height: 50px;
+    padding-top: 23px;
 }
 
 /* back, initially hidden pane */
 .back {
     transform: rotateY(180deg);
     font-size: 16px;
-    height: 50px;
 }
 
 #map {
@@ -608,8 +607,8 @@ a:hover, #menu-login a:hover, #menu-login a:active {
 }
 
 #menu-login a {
-    border-left: solid 1px rgb(153, 153, 153);
-    padding-left: 10px;
+  /*  border-left: solid 1px rgb(153, 153, 153);
+    padding-left: 10px; */
     color: rgb(153, 153, 153);
 
 }
@@ -858,5 +857,71 @@ input:-moz-placeholder { color:white; }
 
 .back .list-inline > li {
     font-size: 14px;
-    width: 115px;
+}
+
+.navbar-nav{
+    padding-top:20px;
+}
+#menu-login{
+    padding-top:40px;
+}
+
+.back .list-inline > li {
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size:16px;
+}
+
+.back .list-inline > li:hover a{
+    color: #333;
+}
+
+/* Rounded avatars */
+.avatar-small {
+    float: left;
+    margin-top: 1em;
+    margin-right: 1em;
+    position: relative;
+
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+    box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+}
+
+#profileMenu a.dropdown-toggle{
+    padding-top:10px;
+    cursor:pointer;
+    float:left;
+    width:225px;
+}
+#profileMenu .dropdown{
+    width:100%;
+}
+.dropdown-menu{
+    border:none;
+    border-radius: 0px;
+}
+#profileMenu .dropdown-menu{
+margin-top:100px;
+
+}
+/*
+#profileMenu.open .dropdown-toggle{
+    background:rgb(195,210,222)
+}
+*/
+
+.btn.btn-default.login {
+    background: #429cbc none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 0;
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    width: 100%;
 }

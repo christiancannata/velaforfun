@@ -1,15 +1,12 @@
-blog_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: BlogBundle:Default:index }
 
-BloggerBlogBundle_blog_show_categoria:
-    pattern:  /{permalink}
-    defaults: { _controller: BlogBundle:Categoria:show }
-    requirements:
-        _method:  GET
+default:
+    resource: "@BlogBundle/Controller/DefaultController.php"
+    type:     annotation
 
-BloggerBlogBundle_blog_show_articolo:
-    pattern:  /{categoria}/{permalink}
-    defaults: { _controller: BlogBundle:Articolo:show }
-    requirements:
-        _method:  GET
+categoria:
+    resource: "@BlogBundle/Controller/CategoriaController.php"
+    type:     annotation
+
+articolo:
+    resource: "@BlogBundle/Controller/ArticoloController.php"
+    type:     annotation

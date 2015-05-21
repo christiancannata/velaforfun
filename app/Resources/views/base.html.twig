@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}{% endblock %} | VelaForFun</title>
+    <meta name="description" content="{% block description %}{% endblock %}" />
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{{ asset('bundles/app/css/normalize.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -124,13 +125,12 @@
                                             <a href="/"> <img src="/bundles/app/images/logotipo-01.png" width="250"></a>
                                         </div>
                                         <div class="back">
+                                            <a href="/"> <img src="/bundles/app/images/logo.png" width="50"></a>
                                             <ul class="list-inline">
-                                                <li><a href="#">Porti Italiani</a></li>
-                                                <li><a href="#">Portolano Online</a></li>
-                                                <li><a href="/"><img src="/bundles/app/images/logo.png" width="50"></a>
-                                                </li>
-                                                <li><a href="#">Chi Siamo</a></li>
-                                                <li><a href="#">Contatti</a></li>
+                                                <li><a href="/porti" >Porti Italiani</a></li>
+                                                <li><a href="/portolano-online">Portolano Online</a></li>
+                                                <li><a href="/chi-siamo">Chi Siamo</a></li>
+                                                <li><a href="/contatti">Contatti</a></li>
                                             </ul>
 
                                         </div>
@@ -146,20 +146,27 @@
                     {% if is_granted('ROLE_USER') %}
 
 
-                        Bentornato
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                        <div class="dropdown" id="profileMenu">
+                            <a class="dropdown-toggle"  id="dropdownMenu1"
                                     data-toggle="dropdown" aria-expanded="true">
-                                {{ app.user.username }}
+                                <img class="avatar-small" src="http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650" alt="avatar" />
+                            <div style="padding-top:30px">
+                                <span> {{ app.user.username }}</span>
                                 <span class="caret"></span>
-                            </button>
+                            </div>
+
+                            </a>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="/tuo-profilo">
+                                        <i class="fa fa-user"></i>
+                                        Il tuo profilo</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="/tuoi-annunci">
+                                        <i class="fa fa-pencil"></i>
+                                        I tuoi annunci</a>
                                 </li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else
-                                        here</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">Logout</a>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">
+                                        <i class="fa fa-sign-out"></i>
+                                        Esci</a>
                                 </li>
                             </ul>
                         </div>
@@ -185,13 +192,13 @@
                                         <input type="checkbox" value="on" name="_remember_me" id="remember_me">
                                         <label for="remember_me">Ricordami</label>
                                     </div>
-                                    <button type="submit" class="btn btn-default">Accedi</button>
+                                    <button type="submit" class="btn btn-default login hvr-glow">Accedi</button>
                                     </form>
 
                                     <div class="divisore"></div>
                                     <p class="text-center">oppure</p>
                                     <a href="http://local.velaforfun.dev/secure_area/connect/facebook"
-                                       class="btn btn-block btn-social btn-sm btn-facebook hvr-glow "
+                                       class="btn btn-block btn-social btn-sm btn-facebook"
                                        id="loginFacebook">
                                         <i class="fa fa-facebook"></i>
                                         Accedi con Facebook

@@ -2,11 +2,15 @@
 
 namespace BlogBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use AppBundle\Controller\BaseController;
 
-class CategoriaController extends Controller
+class CategoriaController extends BaseController
 {
 
+    /**
+     * @Route("/{permalink}", name="categoria")
+     */
     public function showAction($permalink)
     {
         $em = $this->getDoctrine()->getEntityManager();
@@ -16,10 +20,14 @@ class CategoriaController extends Controller
             throw $this->createNotFoundException('Unable to find Categoria.');
         }
 
-        $articoli=$em->getRepository('BlogBundle:Articolo')->findByCategoria($categoria);
+        $articoli = $em->getRepository('BlogBundle:Articolo')->findByCategoria($categoria);
 
-        return $this->render('BlogBundle:Categoria:show.html.twig', array(
-            'articoli'      => $articoli,
-        ));
+        return $this->render(
+            'BlogBundle:Categoria:categoria.html.twig',
+            array(
+                'articoli' => $articoli,
+                'categoria' => $categoria
+            )
+        );
     }
 }

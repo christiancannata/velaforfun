@@ -1,0 +1,133 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ categoria.nome }}{% endblock %}
+
+{% block body %}
+
+  <div class="row clearfix">
+        <div class="col-md-8 column">
+            <div class="title">
+                {{ categoria.nome }} - Ultime News
+            </div>
+            <div class="article main-article">
+
+                <div class="content"
+                     style="background-image: url(/images/{{ articoli[0].immagine }})">
+                    <div class="category">
+                        <a href="/archivio/{{ categoria.permalink }}"><span class="background-celeste">{{ categoria.nome|capitalize }}</span> <span
+                                class="background-celeste">+</span></a>
+                    </div>
+                    <div class="content-title">
+                        <a href="/archivio/{{ categoria.permalink }}/{{ articoli[0].permalink }}"><h3>{{ articoli[0].titolo }}</h3></a>
+
+                        <div class="divisore"></div>
+                        <div class="subtitle">
+                            {{ articoli[0].testo|slice(0, 100) }}...
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4 column">
+            <div class="content">
+                <div class="latest-news">
+                    <div class="content">
+                        <h4>Titolo 1</h4>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur ad- ipiscing elit, sed do eiusmod tempor incidi- dunt
+                            ut labore et dolore ...</p>
+                    </div>
+                    <div class="arrow">
+                    </div>
+                </div>
+                <div class="latest-news">
+                    <div class="content">
+                        <h4>Titolo 1</h4>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur ad- ipiscing elit, sed do eiusmod tempor incidi- dunt
+                            ut labore et dolore ...</p>
+                    </div>
+                    <div class="arrow">
+                    </div>
+                </div>
+                <div class="latest-news">
+                    <div class="content">
+                        <h4>Titolo 1</h4>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur ad- ipiscing elit, sed do eiusmod tempor incidi- dunt
+                            ut labore et dolore ...</p>
+                    </div>
+                    <div class="arrow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="divisore"></div>
+        </div>
+    </div>
+
+
+    <div class="row clearfix">
+        <div class="col-md-4 column">
+            <div class="box-sub hvr-glow">
+                <div class="foto">
+                    <img style="width:100%"
+                         src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_23.jpg">
+
+                    <div class="category">
+                        <a href="#"><span class="background-arancione">CATEGORY</span> <span
+                                class="background-arancione">+</span></a>
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adip- iscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+            </div>
+
+        </div>
+        <div class="col-md-4 column">
+            <div class="box-sub hvr-glow">
+                <div class="foto">
+                    <img style="width:100%"
+                         src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_23.jpg">
+
+                    <div class="category">
+                        <a href="#"><span class="background-rosso ">CATEGORY</span> <span
+                                class="background-rosso">+</span></a>
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adip- iscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+            </div>
+
+        </div>
+        <div class="col-md-4 column">
+            <div class="box-sub hvr-glow">
+                <div class="foto">
+                    <img style="width:100%"
+                         src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_23.jpg">
+
+                    <div class="category">
+                        <a href="#"><span class="background-celeste-chiaro foreground-grigio">CATEGORY</span> <span
+                                class="background-celeste-chiaro foreground-grigio">+</span></a>
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adip- iscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+            </div>
+
+        </div>
+    </div>
+        <!-- fine contenuto -->
+
+    </div>
+
+{% endblock %}
+
+
+

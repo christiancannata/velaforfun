@@ -12,6 +12,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class BaseController extends Controller
 {
 
+    private function getNameSpace(){
+        $matches    = array();
+        $controller = $this->getRequest()->attributes->get('_controller');
+        preg_match('/(.*)\\\Bundle\\\(.*)\\\Controller\\\(.*)Controller::(.*)Action/', $controller, $matches);
+
+        $request = $this->getRequest();
+        $request->attributes->set('namespace',  $matches[1]);
+        $request->attributes->set('bundle',     $matches[2]);
+        $request->attributes->set('controller', $matches[3]);
+        $request->attributes->set('action',     $matches[4]);
+    }
     public function postForm(Request $request, AbstractType $type)
     {
         $postform = $this->createForm($type);
