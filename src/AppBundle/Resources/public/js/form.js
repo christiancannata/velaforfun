@@ -24,8 +24,11 @@ function postForm( $form, callback ){
 
 
 function showalert(obj,message,alerttype) {
-
-    obj.append('<div role="alert" id="alertdiv" class="alert alert-' +  alerttype + '"><span>'+message+'</span></div>')
+    if($(".response-form").length>0){
+        $(".response-form").html('<div role="alert" id="alertdiv" class="alert alert-' +  alerttype + '"><span>'+message+'</span></div>')
+    }else{
+        obj.append('<div role="alert" id="alertdiv" class="alert alert-' +  alerttype + '"><span>'+message+'</span></div>')
+    }
 
     setTimeout(function() { // this will automatically close the alert and remove this if the users doesnt close it in 5 secs
 
