@@ -9,6 +9,7 @@ use JMS\Serializer\Annotation as Serializer;
 /**
  * @ORM\Entity
  * @ORM\Table(name="porto")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Porto
 {
@@ -346,5 +347,16 @@ class Porto
     public function __toString(){
         return $this->id."-".$this->nome;
     }
+
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function generatePermalink()
+    {
+        $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', str_replace(" ","-",$this->nome));
+        $this->permalink = strtolower($slug."-".rand(1, 99));
+    }
+
 
 }
