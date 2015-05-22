@@ -12,6 +12,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config_dev.yml" afterPath="$PROJECT_DIR$/app/config/config_dev.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/segnali.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/segnali.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -66,36 +67,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config_dev.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
-              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Porto.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Porto.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.958334" vertical-offset="4759" max-vertical-offset="5310">
-              <caret line="348" column="0" selection-start-line="348" selection-start-column="0" selection-end-line="348" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PortoController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/PortoController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.916667" vertical-offset="2087" max-vertical-offset="3030">
-              <caret line="174" column="140" selection-start-line="174" selection-start-column="136" selection-end-line="174" selection-end-column="140" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CommentoPortoType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/CommentoPortoType.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -109,8 +80,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/bundles/app/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.444445" vertical-offset="0" max-vertical-offset="16170">
-              <caret line="17" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="1072" selection-end-column="1" />
+            <state vertical-scroll-proportion="-8.62963" vertical-offset="15892" max-vertical-offset="16395">
+              <caret line="1075" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="1087" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -119,83 +90,45 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9433962" vertical-offset="15580" max-vertical-offset="16170">
-              <caret line="1072" column="1" selection-start-line="1072" selection-start-column="1" selection-end-line="1072" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.9433962" vertical-offset="15805" max-vertical-offset="16395">
+              <caret line="1087" column="1" selection-start-line="1087" selection-start-column="1" selection-end-line="1087" selection-end-column="1" />
               <folding>
-                <marker date="1432301979000" expanded="true" signature="6494:6588" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="6656:6679" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="6745:6768" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="6813:6826" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="6866:6986" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="7046:7048" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="7138:7248" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="7325:7402" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="7475:7539" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="7833:7990" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="8111:8178" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="8275:8313" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="8378:8448" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="8510:8528" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="8657:8853" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="8937:9206" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="9295:9493" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="9550:9587" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="9664:9736" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="10063:10117" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="10215:10255" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="10322:12792" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="12927:13058" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="13088:13133" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="13201:13261" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="13335:13457" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="13531:13535" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="13646:13667" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="13716:13859" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="13950:13998" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="14057:14249" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="14337:14482" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="14520:14556" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="14566:14642" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="14684:14748" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="14831:14976" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="15118:15171" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="15193:15240" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="15280:15301" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="15325:15357" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="15399:15476" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="15493:15511" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="15543:15579" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="15602:15644" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="15710:15725" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="15770:15789" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="15835:15904" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="15993:16051" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="16166:16239" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="16422:16488" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="16528:16563" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="16622:16640" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="16772:17040" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="17109:17140" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="17144:17178" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="17263:17284" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="17354:17399" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="17469:17530" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="17612:17734" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="17762:17780" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="17816:17912" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="17961:17985" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="18013:18163" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="18200:18243" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="18308:18364" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="18412:18428" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="18470:18515" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="18526:18540" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="18599:18664" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="18790:19002" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="19088:19129" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="19196:19220" placeholder="{...}" />
-                <marker date="1432301979000" expanded="true" signature="19455:19658" placeholder="{...}" />
+                <marker date="1432303756000" expanded="true" signature="10736:10894" placeholder="{...}" />
+                <marker date="1432303756000" expanded="true" signature="11469:11519" placeholder="{...}" />
+                <marker date="1432303756000" expanded="true" signature="16994:17037" placeholder="{...}" />
+                <marker date="1432303756000" expanded="true" signature="19709:19814" placeholder="{...}" />
+                <marker date="1432303756000" expanded="true" signature="19882:19947" placeholder="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SegnaleController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/SegnaleController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.0" vertical-offset="555" max-vertical-offset="1605">
+              <caret line="70" column="55" selection-start-line="70" selection-start-column="48" selection-end-line="70" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="segnali.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/segnali.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.375" vertical-offset="480" max-vertical-offset="1530">
+              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1200">
+              <caret line="21" column="54" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -241,9 +174,7 @@
         <option value="$PROJECT_DIR$/src/BlogBundle/Entity/Articolo.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Command/ImportArticoliCommand.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/SegnaleController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/jquery.morse.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/segnali.html.twig" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Security/registrati.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ConnectController.php" />
@@ -276,8 +207,10 @@
         <option value="$PROJECT_DIR$/app/config/config_dev.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/CommentoPorto.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/CommentoPortoType.php" />
-        <option value="$PROJECT_DIR$/web/bundles/app/css/style.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/SegnaleController.php" />
+        <option value="$PROJECT_DIR$/web/bundles/app/css/style.css" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/segnali.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
       </list>
     </option>
@@ -458,68 +391,6 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="BlogBundle">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="velaforfun">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="BlogBundle">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Entity">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="velaforfun">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="BlogBundle">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Controller">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="velaforfun">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="AppBundle">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
@@ -576,7 +447,7 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Porto">
+            <PATH_ELEMENT USER_OBJECT="Segnale">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -970,7 +841,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26895565" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26895565" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1010,20 +881,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/segnali.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44466403" vertical-offset="15" max-vertical-offset="990">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/SegnaleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="514" max-vertical-offset="1605">
-          <caret line="70" column="82" selection-start-line="70" selection-start-column="82" selection-end-line="70" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Security/registrati.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="810">
@@ -1242,7 +1099,7 @@
         <state vertical-scroll-proportion="5.5882354" vertical-offset="285" max-vertical-offset="3885">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#40#85#0#PHP" expanded="true" />
+            <element signature="e#40#85#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1292,17 +1149,6 @@
         <state vertical-scroll-proportion="-11.458333" vertical-offset="3100" max-vertical-offset="3630">
           <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="670" max-vertical-offset="1200">
-          <caret line="74" column="29" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="29" />
-          <folding>
-            <marker date="1432300450000" expanded="true" signature="-1:-1" placeholder="segnalazione_portolano:" />
-            <marker date="1432300450000" expanded="true" signature="-1:-1" placeholder="commenti_porto:" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1372,14 +1218,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/CommentoPortoType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.125" vertical-offset="0" max-vertical-offset="690">
-          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.2745098" vertical-offset="2500" max-vertical-offset="6645">
@@ -1390,92 +1228,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1200">
+          <caret line="21" column="54" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/SegnaleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.0" vertical-offset="555" max-vertical-offset="1605">
+          <caret line="70" column="55" selection-start-line="70" selection-start-column="48" selection-end-line="70" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/CommentoPortoType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.125" vertical-offset="0" max-vertical-offset="690">
+          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Segnale/segnali.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.375" vertical-offset="480" max-vertical-offset="1530">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/bundles/app/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.444445" vertical-offset="0" max-vertical-offset="16170">
-          <caret line="17" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="1072" selection-end-column="1" />
+        <state vertical-scroll-proportion="-8.62963" vertical-offset="15892" max-vertical-offset="16395">
+          <caret line="1075" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="1087" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9433962" vertical-offset="15580" max-vertical-offset="16170">
-          <caret line="1072" column="1" selection-start-line="1072" selection-start-column="1" selection-end-line="1072" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.9433962" vertical-offset="15805" max-vertical-offset="16395">
+          <caret line="1087" column="1" selection-start-line="1087" selection-start-column="1" selection-end-line="1087" selection-end-column="1" />
           <folding>
-            <marker date="1432301979000" expanded="true" signature="6494:6588" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="6656:6679" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="6745:6768" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="6813:6826" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="6866:6986" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="7046:7048" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="7138:7248" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="7325:7402" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="7475:7539" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="7833:7990" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="8111:8178" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="8275:8313" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="8378:8448" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="8510:8528" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="8657:8853" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="8937:9206" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="9295:9493" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="9550:9587" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="9664:9736" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="10063:10117" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="10215:10255" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="10322:12792" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="12927:13058" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="13088:13133" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="13201:13261" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="13335:13457" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="13531:13535" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="13646:13667" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="13716:13859" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="13950:13998" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="14057:14249" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="14337:14482" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="14520:14556" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="14566:14642" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="14684:14748" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="14831:14976" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="15118:15171" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="15193:15240" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="15280:15301" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="15325:15357" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="15399:15476" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="15493:15511" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="15543:15579" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="15602:15644" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="15710:15725" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="15770:15789" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="15835:15904" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="15993:16051" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="16166:16239" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="16422:16488" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="16528:16563" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="16622:16640" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="16772:17040" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="17109:17140" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="17144:17178" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="17263:17284" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="17354:17399" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="17469:17530" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="17612:17734" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="17762:17780" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="17816:17912" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="17961:17985" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="18013:18163" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="18200:18243" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="18308:18364" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="18412:18428" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="18470:18515" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="18526:18540" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="18599:18664" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="18790:19002" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="19088:19129" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="19196:19220" placeholder="{...}" />
-            <marker date="1432301979000" expanded="true" signature="19455:19658" placeholder="{...}" />
+            <marker date="1432303756000" expanded="true" signature="10736:10894" placeholder="{...}" />
+            <marker date="1432303756000" expanded="true" signature="11469:11519" placeholder="{...}" />
+            <marker date="1432303756000" expanded="true" signature="16994:17037" placeholder="{...}" />
+            <marker date="1432303756000" expanded="true" signature="19709:19814" placeholder="{...}" />
+            <marker date="1432303756000" expanded="true" signature="19882:19947" placeholder="{...}" />
           </folding>
         </state>
       </provider>

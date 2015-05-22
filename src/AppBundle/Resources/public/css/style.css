@@ -1071,3 +1071,18 @@ h1{
     margin: 10px 0;
     text-align: center;
 }
+td .content-table h4{
+    display: inline;
+}
+td .content-table{
+    text-align: center;
+    height: 60px;
+    border-right:1px solid rgb(66, 156, 188);
+}
+td .content-table .codice-morse{
+    font-size:30px;
+}
+
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+    background-color: white;
+}

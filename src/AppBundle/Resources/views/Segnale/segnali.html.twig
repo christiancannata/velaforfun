@@ -28,11 +28,47 @@
 
     <div class="row clearfix">
         <div class="col-md-8 column">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <h1>Codice Internazionale</h1>
+                </div>
+            </div>
 
-            <h1>Codice Internazionale</h1>
-            {% for segnale in segnali %}
-                {{ segnale.parola }} <img src="/images/bandiere/{{ segnale.lettera|lower }}.gif"> <br>
-            {% endfor %}
+
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <table class="table table-striped">
+                        <thead>
+                        <td>Bandiera</td>
+                        <td>Linguaggio morse</td>
+                        <td>Significato</td>
+                        </thead>
+                        <tbody>
+                        {% for segnale in segnali %}
+                            <tr>
+                                <td>
+                                    <div class="content-table">
+                                        <img src="/images/bandiere/{{ segnale.lettera|lower }}.gif">
+                                        <h4>{{ segnale.parola }}</h4>
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div class="content-table">
+                                       <p class="codice-morse">{{ segnale.morse }}</p>
+                                    </div>
+                                </td>
+                                <td>
+
+                                        <p> {{ segnale.valore }}</p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
 
 
         </div>
@@ -47,7 +83,7 @@
             <blockquote>
                 <p class="codice-morse"></p>
             </blockquote>
-        <button class="ascolta">Ascolta</button>
+            <button class="ascolta">Ascolta</button>
         </div>
 
         <!-- fine contenuto -->
