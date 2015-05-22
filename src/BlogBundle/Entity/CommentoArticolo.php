@@ -11,9 +11,9 @@ use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="commento")
+ * @ORM\Table(name="commento_articolo")
  */
-class Commento
+class CommentoArticolo
 {
     /**
      * @ORM\Id

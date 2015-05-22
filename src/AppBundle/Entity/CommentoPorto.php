@@ -28,7 +28,7 @@ class CommentoPorto {
     /**
      * @var string
      *
-     * @ORM\Column(name="testo", type="string", nullable=true)
+     * @ORM\Column(name="testo", type="string", nullable=false)
      */
     private $testo;
 

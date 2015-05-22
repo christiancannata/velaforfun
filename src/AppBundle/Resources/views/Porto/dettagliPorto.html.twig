@@ -20,7 +20,6 @@
             // Build a marker from a simple GeoJSON object:
             var arrayPorti = new Array();
 
-            {% for porto in porti %}
 
             var arrayPorto = {
                 "type": "Feature",
@@ -43,7 +42,6 @@
 
             arrayPorti.push(arrayPorto);
 
-            {% endfor %}
 
             myLayer = L.mapbox.featureLayer(arrayPorti).addTo(map);
 
@@ -52,7 +50,7 @@
                 var marker = e.layer;
                 feature = marker.feature;
                 var id = feature.id;
-                $(".porto-meteo").css("opacity",0.4);
+                $(".porto-meteo").css("opacity", 0.4);
                 $.ajax({
                     url: "/porti/" + id + "/jsondata",
                     dataType: "json",
@@ -67,7 +65,7 @@
                         $("#loading-porto").hide();
                         $(".porto-title").css("opacity", "1");
                         $(".porto-content").css("opacity", "1");
-                        $(".porto-meteo").css("opacity",1);
+                        $(".porto-meteo").css("opacity", 1);
 
 
                     }
@@ -138,10 +136,10 @@
 {% endblock %}
 
 {% block body %}
-<div class="row clearfix">
-    <div class="col-md-12 column">
-     <h1>{{ titolo }}</h1>
-</div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h1>I Porti d'Italia</h1>
+        </div>
     </div>
     <!-- contenuto -->
 
@@ -150,12 +148,13 @@
 
             <div class="row clearfix">
                 <div class="col-md-12 column">
-            <div class="container-mappa">
-                <button class="localizzami" id='geolocate'><i style="" class="fa fa-crosshairs"></i>Localizzami</button>
-                 <div id='map' style="margin-top:0px"></div>
+                    <div class="container-mappa">
+                        <button class="localizzami" id='geolocate'><i style="" class="fa fa-crosshairs"></i>Localizzami
+                        </button>
+                        <div id='map' style="margin-top:0px"></div>
+                    </div>
                 </div>
-        </div>
-                </div>
+            </div>
 
             <div class="row clearfix">
                 <div class="col-md-12 column">
@@ -164,24 +163,73 @@
                             <div class="col-md-12 column">
                                 <p><strong>Scrivi un commento su questo porto</strong></p>
                             </div>
-                            </div>
+                        </div>
                         <div class="row clearfix">
-                            <div class="col-md-11 column">
-                                <input type="text" class="form-control" placeholder="Scrivi un commento...">
-                            </div>
-                            <div class="col-md-1 column">
-                                <a href="#">
-                                    <i class="fa fa-sign-in"></i>
-                                </a>
-                            </div>
-                            </div>
+                            {% if app.user %}
+                                <form action="/commento-porto/crea" method="post" name="appbundle_commentoporto">
+                                    <div class="col-md-11 column">
+                                        <input type="hidden" id="appbundle_commentoporto_utente" name="appbundle_commentoporto[utente]" value="{{ app.user.id }}" />
+                                        <input type="hidden" id="appbundle_commentoporto_porto" name="appbundle_commentoporto[porto]" value="{{ porto.id }}" />
+                                        <input type="text" name="appbundle_commentoporto[testo]" class="form-control" required="required" placeholder="Scrivi un commento...">
+                                    </div>
+                                    <div class="col-md-1 column">
+                                        <a href="#" onclick="event.preventDefault();$('form[name=appbundle_commentoporto]').submit()">
+                                            <i class="fa fa-sign-in"></i>
+                                        </a>
+                                    </div>
+                                </form>
+
+                            {% else %}
+                                <div class="col-md-12 column">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12 column">
+                                            <p>Devi effettuare l'accesso per scrivere un nuovo commento:</p>
+
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-md-8 column">
+
+
+                                            <form action="/login_check" method="post">
+                                                <div class="input-group">
+                                                    <span><i class="glyphicon glyphicon-user"></i></span>
+                                                    <input id="username" name="_username" type="text" value=""
+                                                           placeholder="Nome utente">
+                                                    <span><i class="glyphicon glyphicon-lock"></i></span>
+                                                    <input type="password" id="password" name="_password" value=""
+                                                           placeholder="Password">
+                                                    <button class="btn btn-default login hvr-glow small" type="submit">
+                                                        Accedi
+                                                    </button>
+
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        <div class="col-md-4 column">
+
+
+                                            <a class="btn btn-block btn-social btn-sm btn-facebook loginFacebook"
+                                               href="http://local.velaforfun.dev/secure_area/connect/facebook">
+                                                <i class="fa fa-facebook"></i>
+                                                Accedi con Facebook
+                                            </a>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            {% endif %}
+
 
                         </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-
-
 
 
         <div class="col-md-4 column" id="colonnaPorto">
@@ -193,167 +241,167 @@
 
 
                     <form method="GET" action="/porti/{permalink}" id="formCercaPorto" name="cerca_porti">
-             <div id="cercaPortoBig" class="right-inner-addon">
-                                            <a href="#" onclick="$('#formCercaPorto').submit()"><i class="fa fa-search"></i></a>
-                                            <input autocomplete="off" id="selectPorto" type="search"
-                                                   class="form-control"
-                                                   placeholder="Inserisci il nome di un porto..."/>
-                                        </div>
+                        <div id="cercaPortoBig" class="right-inner-addon">
+                            <a href="#" onclick="$('#formCercaPorto').submit()"><i class="fa fa-search"></i></a>
+                            <input autocomplete="off" id="selectPorto" type="search"
+                                   class="form-control"
+                                   placeholder="Inserisci il nome di un porto..."/>
+                        </div>
                     </form>
 
 
+                </div>
             </div>
-            </div>
-
 
 
             <div class="row clearfix">
 
                 <div class="col-md-12 column porto-meteo">
 
-                <div class="row clearfix">
+                    <div class="row clearfix">
 
-                    <div class="col-md-12 column">
-                <h1 id="porto-nome">Porto Ercole</h1>
+                        <div class="col-md-12 column">
+                            <h1 id="porto-nome">{{ porto.nome }}</h1>
                         </div>
-            </div>
+                    </div>
 
-                <div class="row clearfix">
+                    <div class="row clearfix">
 
-                    <div class="col-md-4 column">
-                        <i class="wi wi-day-snow-thunderstorm"></i>
+                        <div class="col-md-4 column">
+                            <i class="wi wi-day-snow-thunderstorm"></i>
                         </div>
 
                         <div class="col-md-8 column">
                             <div class="row clearfix">
-                            <div class="col-md-6 column">
-<h4 id="porto-temperatura">25°</h4><p>MAX</p><p>MIN</p>
-                        </div>
- <div class="col-md-6column">
-<p>VENTI <div id="porto-vento"></div></p>
-<p>UMIDITA</p>
-                        </div>
+                                <div class="col-md-6 column">
+                                    <h4 id="porto-temperatura">{{ meteo.main.temp|number_format }}°</h4>
+
+                                    <p>MAX</p>
+
+                                    <p>MIN</p>
+                                </div>
+                                <div class="col-md-6column">
+                                    <p>VENTI
+
+                                    <div id="porto-vento"></div>
+                                    </p>
+                                    <p>UMIDITA</p>
+                                </div>
                             </div>
 
 
-<div class="row clearfix">
-                            <div class="col-md-12 column">
-Ponte a Ema (FI)
-                        </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12 column">
+                                    Ponte a Ema (FI)
+                                </div>
 
                             </div>
-
 
 
                         </div>
 
                     </div>
-</div>
+                </div>
 
-</div>
-
-
+            </div>
 
 
             <div class="row clearfix">
-<div class="row clearfix">
-                <div class="col-md-12 column box attracco">
-                    <h3>Chi ha attraccato qui</h3>
+                <div class="row clearfix">
+                    <div class="col-md-12 column box attracco">
+                        <h3>Chi ha attraccato qui</h3>
                     </div>
-                    </div>
+                </div>
                 <div class="row clearfix">
 
                     <div class="col-md-12 column box attracco">
 
 
-                    {% if porti[0].getUtenti() is empty %}
-    Non ci sono utenti attraccati in questo porto
+                        {% if porto.getUtenti() is empty %}
+                            Non ci sono utenti attraccati in questo porto
 
 
-{% else %}
+                        {% else %}
 
-    <div class="scroll-pane">
-        <ul class="media-list">
+                            <div class="scroll-pane">
+                                <ul class="media-list">
 
-            {% for commento in porti[0].getUtenti() %}
+                                    {% for commento in porto.getUtenti() %}
 
-                <li class="media">
-                    <div class="media-left">
-                        <a href="#">
-                            <img width="50" class="media-object"
-                                 src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDAI83UZB0PDXebgMxyIn6gWTjiH8o0IYCl3qrJQlDgeQh8BRTMw"
-                                 alt="...">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Pippo Pluto</h4>
-                        <p>Il giorno 10 Aprile 2015 - 10:30</p>
-                    </div>
-                </li>
-            {% endfor %}
+                                        <li class="media">
+                                            <div class="media-left">
+                                                <a href="#">
+                                                    <img width="50" class="media-object"
+                                                         src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDAI83UZB0PDXebgMxyIn6gWTjiH8o0IYCl3qrJQlDgeQh8BRTMw"
+                                                         alt="...">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Pippo Pluto</h4>
 
-        </ul>
-    </div>
+                                                <p>Il giorno 10 Aprile 2015 - 10:30</p>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
 
-{% endif %}
+                                </ul>
+                            </div>
 
-                        </div>
+                        {% endif %}
 
-
-                        </div>
                     </div>
 
+
+                </div>
+            </div>
 
 
             <div class="row clearfix">
 
-<div class="row clearfix">
+                <div class="row clearfix">
                     <div class="col-md-12 column box attracco">
                         <h3>Commenti sul porto</h3>
 
 
-        {% if porti[0].getCommenti is empty %}
-    Non ci sono commenti per questo porto
-{% else %}
-    <div class="scroll-pane">
-        <ul class="media-list">
+                        {% if porto.getCommenti is empty %}
+                            Non ci sono commenti per questo porto
+                        {% else %}
+                            <div class="scroll-pane">
+                                <ul class="media-list">
 
-            {% for commento in porti[0].getCommenti() %}
+                                    {% for commento in porto.getCommenti() %}
 
-                <li class="media">
-                    <div class="media-left">
-                        <a href="#">
-                            <img width="50" class="media-object"
-                                 src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDAI83UZB0PDXebgMxyIn6gWTjiH8o0IYCl3qrJQlDgeQh8BRTMw"
-                                 alt="...">
-                        </a>
+                                        <li class="media">
+                                            <div class="media-left">
+                                                <a href="#">
+                                                    <img width="50" class="media-object"
+                                                         src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDAI83UZB0PDXebgMxyIn6gWTjiH8o0IYCl3qrJQlDgeQh8BRTMw"
+                                                         alt="...">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">{{ commento.utente.username }}</h4>
+                                               {{ commento.testo }}
+                                                {{ commento.timestamp|date("d/m/Y H:i") }}
+                                            </div>
+                                        </li>
+
+
+                                    {% endfor %}
+
+                                </ul>
+                            </div>
+
+                        {% endif %}
+
+
                     </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Media heading</h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                        sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra
-                        turpis.
-                    </div>
-                </li>
-
-
-            {% endfor %}
-
-        </ul>
-    </div>
-
-{% endif %}
-
-
-  </div>
                 </div>
 
 
-
+            </div>
+            <!-- fine contenuto -->
         </div>
-    <!-- fine contenuto -->
-</div>
-
 
 
         <div class="row clearfix">
@@ -363,7 +411,7 @@ Ponte a Ema (FI)
         </div>
 
 
-</div>
+    </div>
 
 {% endblock %}
 

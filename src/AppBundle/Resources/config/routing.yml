@@ -68,3 +68,8 @@ segnalazione_portolano:
     resource: "@AppBundle/Controller/SegnalazionePortolanoController.php"
     type:     annotation
     prefix:   /segnalazione-portolano
+
+commenti_porto:
+    resource: "@AppBundle/Controller/CommentoPortoController.php"
+    type:     annotation
+    prefix:   /commento-porto

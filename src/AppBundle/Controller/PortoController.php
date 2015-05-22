@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Porto;
+use AppBundle\Form\CommentoPortoType;
 use AppBundle\Form\PortoType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Controller\BaseController;
@@ -117,7 +118,7 @@ class PortoController extends BaseController
             ->getRepository('AppBundle:Porto')->findAll();
         $titolo = "Porti d'Italia";
 
-        return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("porti" => $porti, "titolo" => $titolo));
+        return $this->render('AppBundle:Porto:porti.html.twig', array("porti" => $porti, "titolo" => $titolo));
 
     }
 
@@ -130,10 +131,11 @@ class PortoController extends BaseController
         $porti = $this->getDoctrine()
             ->getRepository('AppBundle:Porto')->findAll();
 
-        $arrayJson=[];
-        foreach($porti as $porto){
-            $arrayJson[]=array("permalink"=>$porto->getPermalink(),"name"=>$porto->getNome());
+        $arrayJson = [];
+        foreach ($porti as $porto) {
+            $arrayJson[] = array("permalink" => $porto->getPermalink(), "name" => $porto->getNome());
         }
+
         return new JsonResponse($arrayJson);
     }
 
@@ -144,11 +146,11 @@ class PortoController extends BaseController
     public function dettagliPortoAction($permalink)
     {
 
-        //   $client=$this->container->get('weather.client');
+        $client = $this->container->get('weather.client');
 
 
         $porto = $this->getDoctrine()
-            ->getRepository('AppBundle:Porto')->findByPermalink($permalink);
+            ->getRepository('AppBundle:Porto')->findOneByPermalink($permalink);
         if (!$porto) {
 
 
@@ -156,15 +158,21 @@ class PortoController extends BaseController
         }
 
 
-        /*  $request = $client->get('/data/2.5/weather?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine().'&APPID=8704a88837e9eabcf7b50de51728a0c0');
-          $response = $client->send($request);
-          $weather=json_decode($response->getBody(true));
+        $request = $client->get(
+            '/data/2.5/weather?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine(
+            ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&units=metric'
+        );
+        $response = $client->send($request);
+        $weather = json_decode($response->getBody(true));
 
-          var_dump($weather);
-  */
-        $titolo = "Porto di ".$porto[0]->getNome();
 
-        return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("porti" => $porto, "titolo" => $titolo));
+        $titolo = "Porto di ".$porto->getNome();
+
+
+        $postform = $this->createForm(new CommentoPortoType());
+
+
+        return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("porto" => $porto, "titolo" => $titolo,"meteo"=>$weather,"form"=>$postform->createView()));
     }
 
     /**

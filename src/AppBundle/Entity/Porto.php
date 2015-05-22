@@ -343,5 +343,8 @@ class Porto
         $this->utenti = $utenti;
     }
 
+    public function __toString(){
+        return $this->id."-".$this->nome;
+    }
 
 }

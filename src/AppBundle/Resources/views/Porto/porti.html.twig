@@ -1,0 +1,371 @@
+{% extends 'base.html.twig' %}
+
+ {% block stylesheets %}
+     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet'/>
+ {% endblock %}
+
+
+
+{% block javascripts %}
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+    <script language="javascript">
+        $(document).ready(function () {
+
+
+            // Provide your access token
+            L.mapbox.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFuMTQ4OCIsImEiOiJZaldjZlM0In0.hXiRMyyCDLdQZUrqXF2eNw';
+            // Create a map in the div #map
+            var map = L.mapbox.map('map', 'christian1488.m5b7ic2b');
+            var myLayer = null;
+            // Build a marker from a simple GeoJSON object:
+            var arrayPorti = new Array();
+
+            {% for porto in porti %}
+
+            var arrayPorto = {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        {{ porto.getLongitudine() }},
+                        {{ porto.getLatitudine() }}
+                    ]
+                },
+                "properties": {
+                    "title": "{{ porto.getNome() }}",
+                    "description": "",
+                    "marker-color": "#429CBC",
+                    "marker-size": "medium",
+                    "marker-symbol": "harbor"
+                },
+                "id": {{ porto.getId() }}
+            };
+
+            arrayPorti.push(arrayPorto);
+
+            {% endfor %}
+
+            myLayer = L.mapbox.featureLayer(arrayPorti).addTo(map);
+
+
+            myLayer.on('click', function (e) {
+                var marker = e.layer;
+                feature = marker.feature;
+                var id = feature.id;
+                $(".porto-meteo").css("opacity",0.4);
+                $.ajax({
+                    url: "/porti/" + id + "/jsondata",
+                    dataType: "json",
+                    success: function (response) {
+                        $("#loading-porto").show();
+                        $(".porto-title").css("opacity", "0.5");
+                        $(".porto-content").css("opacity", "0.5");
+
+                        //SET CONTENUTO DEL PORTO
+                        $("#porto-nome").html(response.porto.nome);
+                        $("#porto-temperatura").html(parseInt(response.meteo.main.temp) + "°");
+                        $("#loading-porto").hide();
+                        $(".porto-title").css("opacity", "1");
+                        $(".porto-content").css("opacity", "1");
+                        $(".porto-meteo").css("opacity",1);
+
+
+                    }
+                });
+
+            });
+
+
+            myLayer.on('ready', function (e) {
+                map.fitBounds(myLayer.getBounds());
+
+                myLayer.eachLayer(function (layer) {
+                    var item = markerList.appendChild(document.createElement('li'));
+                    item.innerHTML = layer.toGeoJSON().properties.title;
+                    item.onclick = function () {
+                        L.mapbox.setView(layer.getLatLng(), 14);
+                        layer.openPopup();
+                    };
+                });
+            });
+
+// This uses the HTML5 geolocation API, which is available on
+// most mobile browsers and modern browsers, but not in Internet Explorer
+//
+// See this chart of compatibility for details:
+// http://caniuse.com/#feat=geolocation
+            if (!navigator.geolocation) {
+                geolocate.innerHTML = 'Geolocation is not available';
+            } else {
+                geolocate.onclick = function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    map.locate();
+                };
+            }
+
+// Once we've got a position, zoom and center the map
+// on it, and add a single marker.
+            map.on('locationfound', function (e) {
+                map.fitBounds(e.bounds);
+
+                myLayer.setGeoJSON({
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [e.latlng.lng, e.latlng.lat]
+                    },
+                    properties: {
+                        'title': 'Here I am!',
+                        'marker-color': '#ff8888',
+                        'marker-symbol': 'star'
+                    }
+                });
+
+                // And hide the geolocation button
+                geolocate.parentNode.removeChild(geolocate);
+            });
+
+// If the user chooses not to allow their location
+// to be shared, display an error message.
+            map.on('locationerror', function () {
+                geolocate.innerHTML = 'Position could not be found';
+            });
+
+
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+<div class="row clearfix">
+    <div class="col-md-12 column">
+     <h1>I Porti d'Italia</h1>
+</div>
+    </div>
+    <!-- contenuto -->
+
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+            <div class="container-mappa">
+                <button class="localizzami" id='geolocate'><i style="" class="fa fa-crosshairs"></i>Localizzami</button>
+                 <div id='map' style="margin-top:0px"></div>
+                </div>
+        </div>
+                </div>
+
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div class="field-nuovo-commento">
+                        <div class="row clearfix">
+                            <div class="col-md-12 column">
+                                <p><strong>Scrivi un commento su questo porto</strong></p>
+                            </div>
+                            </div>
+                        <div class="row clearfix">
+                            <div class="col-md-11 column">
+                                <input type="text" class="form-control" placeholder="Scrivi un commento...">
+                            </div>
+                            <div class="col-md-1 column">
+                                <a href="#">
+                                    <i class="fa fa-sign-in"></i>
+                                </a>
+                            </div>
+                            </div>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-4 column" id="colonnaPorto">
+
+
+            <div class="row clearfix">
+
+                <div class="col-md-12 column">
+
+
+                    <form method="GET" action="/porti/{permalink}" id="formCercaPorto" name="cerca_porti">
+             <div id="cercaPortoBig" class="right-inner-addon">
+                                            <a href="#" onclick="$('#formCercaPorto').submit()"><i class="fa fa-search"></i></a>
+                                            <input autocomplete="off" id="selectPorto" type="search"
+                                                   class="form-control"
+                                                   placeholder="Inserisci il nome di un porto..."/>
+                                        </div>
+                    </form>
+
+
+            </div>
+            </div>
+
+
+
+            <div class="row clearfix">
+
+                <div class="col-md-12 column porto-meteo">
+
+                <div class="row clearfix">
+
+                    <div class="col-md-12 column">
+                <h1 id="porto-nome">{{ porti[0].nome }}</h1>
+                        </div>
+            </div>
+
+                <div class="row clearfix">
+
+                    <div class="col-md-4 column">
+                        <i class="wi wi-day-snow-thunderstorm"></i>
+                        </div>
+
+                        <div class="col-md-8 column">
+                            <div class="row clearfix">
+                            <div class="col-md-6 column">
+<h4 id="porto-temperatura">25°</h4><p>MAX</p><p>MIN</p>
+                        </div>
+ <div class="col-md-6column">
+<p>VENTI <div id="porto-vento"></div></p>
+<p>UMIDITA</p>
+                        </div>
+                            </div>
+
+
+<div class="row clearfix">
+                            <div class="col-md-12 column">
+Ponte a Ema (FI)
+                        </div>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+</div>
+
+</div>
+
+
+
+
+            <div class="row clearfix">
+<div class="row clearfix">
+                <div class="col-md-12 column box attracco">
+                    <h3>Chi ha attraccato qui</h3>
+                    </div>
+                    </div>
+                <div class="row clearfix">
+
+                    <div class="col-md-12 column box attracco">
+
+
+                    {% if porti[0].getUtenti() is empty %}
+    Non ci sono utenti attraccati in questo porto
+
+
+{% else %}
+
+    <div class="scroll-pane">
+        <ul class="media-list">
+
+            {% for commento in porti[0].getUtenti() %}
+
+                <li class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img width="50" class="media-object"
+                                 src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDAI83UZB0PDXebgMxyIn6gWTjiH8o0IYCl3qrJQlDgeQh8BRTMw"
+                                 alt="...">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Pippo Pluto</h4>
+                        <p>Il giorno 10 Aprile 2015 - 10:30</p>
+                    </div>
+                </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+
+{% endif %}
+
+                        </div>
+
+
+                        </div>
+                    </div>
+
+
+
+            <div class="row clearfix">
+
+<div class="row clearfix">
+                    <div class="col-md-12 column box attracco">
+                        <h3>Commenti sul porto</h3>
+
+
+        {% if porti[0].getCommenti is empty %}
+    Non ci sono commenti per questo porto
+{% else %}
+    <div class="scroll-pane">
+        <ul class="media-list">
+
+            {% for commento in porti[0].getCommenti() %}
+
+                <li class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img width="50" class="media-object"
+                                 src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDAI83UZB0PDXebgMxyIn6gWTjiH8o0IYCl3qrJQlDgeQh8BRTMw"
+                                 alt="...">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Media heading</h4>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                        sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra
+                        turpis.
+                    </div>
+                </li>
+
+
+            {% endfor %}
+
+        </ul>
+    </div>
+
+{% endif %}
+
+
+  </div>
+                </div>
+
+
+
+        </div>
+    <!-- fine contenuto -->
+</div>
+
+
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="divisore-big"></div>
+            </div>
+        </div>
+
+
+</div>
+
+{% endblock %}
+
+
+
