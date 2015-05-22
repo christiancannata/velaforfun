@@ -1086,7 +1086,6 @@ td .content-table .codice-morse{
 .table-striped > tbody > tr:nth-of-type(2n+1) {
     background-color: white;
 }
-
 .table-striped thead td {
     text-align: center !important;
     vertical-align: bottom !important;
@@ -1098,3 +1097,10 @@ textarea#testo{
     background: rgb(172,208,220);
 }
 
+.morse-code rb{
+    display: none;
+}
+
+.codice-morse-result{
+    font-size:40px;
+}

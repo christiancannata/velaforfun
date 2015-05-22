@@ -16,6 +16,10 @@
             $(".ascolta").click(function () {
                 $(".codice-morse-result").trigger("morse.emit");
             });
+
+            $(".stop").click(function () {
+                $("#morse-code-output").remove();
+            });
         });
     </script>
 {% endblock %}
@@ -24,75 +28,95 @@
 {% block body %}
 
 
-    <!-- contenuto -->
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <h1>Codice Internazionale</h1>
+<!-- contenuto -->
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <h1>Codice Internazionale</h1>
+    </div>
+</div>
+
+<div class="row clearfix">
+    <div class="col-md-8 column">
+
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <table class="table table-striped">
+                    <thead>
+                    <td>Bandiera</td>
+                    <td style="width: 150px;">Linguaggio morse</td>
+                    <td>Significato</td>
+                    </thead>
+                    <tbody>
+                    {% for segnale in segnali %}
+                        <tr>
+                            <td>
+                                <div class="content-table">
+                                    <img src="/images/bandiere/{{ segnale.lettera|lower }}.gif">
+                                    <h4>{{ segnale.parola }}</h4>
+                                </div>
+
+                            </td>
+                            <td>
+                                <div class="content-table">
+                                    <p class="codice-morse">{{ segnale.morse }}</p>
+                                </div>
+                            </td>
+                            <td>
+
+                                <p> {{ segnale.valore }}</p>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
         </div>
+
+
     </div>
 
-    <div class="row clearfix">
-        <div class="col-md-8 column">
-
-
-
+    <div class="col-md-4 column">
+        <div class="row clearfix">
             <div class="row clearfix">
                 <div class="col-md-12 column">
-                    <table class="table table-striped">
-                        <thead>
-                        <td>Bandiera</td>
-                        <td style="width: 150px;">Linguaggio morse</td>
-                        <td>Significato</td>
-                        </thead>
-                        <tbody>
-                        {% for segnale in segnali %}
-                            <tr>
-                                <td>
-                                    <div class="content-table">
-                                        <img src="/images/bandiere/{{ segnale.lettera|lower }}.gif">
-                                        <h4>{{ segnale.parola }}</h4>
-                                    </div>
+                    <h2>Cos’è il Dizionario velico</h2>
 
-                                </td>
-                                <td>
-                                    <div class="content-table">
-                                       <p class="codice-morse">{{ segnale.morse }}</p>
-                                    </div>
-                                </td>
-                                <td>
+                    <p> Inserisci la frase da codificare nel codice internazionale dei seg- nali e nel codice morse,
+                        basta un'attimo per avere il risultato!
+                    </p>
 
-                                        <p> {{ segnale.valore }}</p>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                    <div class="form-group">
+    <textarea class="form-control" id="testo">
+    </textarea>
+                    </div>
+                </div>
+            </div>
 
+            <div class="row clearfix">
+                <div class="col-md-6 column">
+                    <button class="localizzami hvr-glow left traduci background-celeste" id='geolocate'><i style=""
+                                                                                                           class="fa fa-refresh"></i>Traduci
+                    </button>
+
+                </div>
+
+                <div class="col-md-6 column">
+                    <p class="codice-morse-result"></p>
+                    <i class="fa fa-play ascolta"></i>
+                    <i class="fa fa-stop stop"></i>
                 </div>
             </div>
 
 
-        </div>
-        <div class="col-md-4 column">
-            <h2>Cos’è il Dizionario velico</h2>
-            <p>  Inserisci la frase da codificare nel codice internazionale dei seg- nali e nel codice morse, basta un'attimo per avere il risultato!
-            </p>
-            <div class="form-group">
-    <textarea class="form-control" id="testo">
-    </textarea>
-            </div>
-            <button type="submit" class="btn btn-default traduci">Traduci</button>
-            <blockquote>
-                <p class="codice-morse-result"></p>
-            </blockquote>
-            <button class="ascolta">Ascolta</button>
         </div>
 
         <!-- fine contenuto -->
 
     </div>
 
-{% endblock %}
+    {% endblock %}
 
 
 
