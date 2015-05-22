@@ -8,13 +8,13 @@
         $(document).ready(function () {
             var morse = null;
             $(".traduci").click(function () {
-                $(".codice-morse").html($("#testo").val());
-                var morse = $(".codice-morse").morseCode({bpm: 12});
+                $(".codice-morse-result").html($("#testo").val());
+                var morse = $(".codice-morse-result").morseCode({bpm: 12});
                 //  morse.emit;
             });
 
             $(".ascolta").click(function () {
-                $(".codice-morse").trigger("morse.emit");
+                $(".codice-morse-result").trigger("morse.emit");
             });
         });
     </script>
@@ -25,14 +25,15 @@
 
 
     <!-- contenuto -->
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h1>Codice Internazionale</h1>
+        </div>
+    </div>
 
     <div class="row clearfix">
         <div class="col-md-8 column">
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <h1>Codice Internazionale</h1>
-                </div>
-            </div>
+
 
 
             <div class="row clearfix">
@@ -73,15 +74,16 @@
 
         </div>
         <div class="col-md-4 column">
-
+            <h2>Cos’è il Dizionario velico</h2>
+            <p>  Inserisci la frase da codificare nel codice internazionale dei seg- nali e nel codice morse, basta un'attimo per avere il risultato!
+            </p>
             <div class="form-group">
-                <label for="testo">Inserisci il testo</label>
     <textarea class="form-control" id="testo">
     </textarea>
             </div>
             <button type="submit" class="btn btn-default traduci">Traduci</button>
             <blockquote>
-                <p class="codice-morse"></p>
+                <p class="codice-morse-result"></p>
             </blockquote>
             <button class="ascolta">Ascolta</button>
         </div>

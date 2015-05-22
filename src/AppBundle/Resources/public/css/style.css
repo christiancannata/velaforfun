@@ -1091,3 +1091,10 @@ td .content-table .codice-morse{
     text-align: center !important;
     vertical-align: bottom !important;
 }
+
+textarea#testo{
+    color:white;
+    font-size:40px;
+    background: rgb(172,208,220);
+}
+
