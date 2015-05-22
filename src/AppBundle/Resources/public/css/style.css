@@ -360,7 +360,8 @@ a:hover, #menu-login a:hover, #menu-login a:active {
 }
 
 .contenuto-articolo h1 {
-    font-size: 30px;
+    font-size: 20px;
+
     color: rgb(66, 156, 188);
     padding-bottom: 10px;
     padding-top: 20px;
@@ -577,7 +578,8 @@ a:hover, #menu-login a:hover, #menu-login a:active {
     top: 0;
     bottom: 0;
     width: 100%;
-    height: 400px
+    height: 400px;
+    margin-top: 15px !important;
 }
 .dropdown-menu{
     padding-top:15px;
@@ -607,8 +609,8 @@ a:hover, #menu-login a:hover, #menu-login a:active {
 }
 
 #menu-login a {
-  /*  border-left: solid 1px rgb(153, 153, 153);
-    padding-left: 10px; */
+    /*  border-left: solid 1px rgb(153, 153, 153);
+      padding-left: 10px; */
     color: rgb(153, 153, 153);
 
 }
@@ -681,8 +683,9 @@ a:hover, #menu-login a:hover, #menu-login a:active {
 }
 
 .box ul li{
-    border-top:1px solid rgb(153, 153, 153);
+    border-bottom:1px solid rgb(153, 153, 153);
     padding-top:10px;
+    background:white;
 }
 .box h3{
     margin-top:10px;
@@ -907,7 +910,7 @@ input:-moz-placeholder { color:white; }
     border-radius: 0px;
 }
 #profileMenu .dropdown-menu{
-margin-top:100px;
+    margin-top:100px;
 
 }
 /*
@@ -924,4 +927,147 @@ margin-top:100px;
     font-size: 20px;
     text-transform: uppercase;
     width: 100%;
+}
+
+h1{
+    border:solid 1px rgb(66, 156, 188);
+    padding:7px;
+    float:left;
+    font-size:20px
+}
+.container-mappa{
+    padding:10px;
+    width:100%;
+    background-color: white;
+    float:left;
+    margin-top:20px
+}
+.localizzami,.checkin{
+    background: rgb(7, 169, 157) none repeat scroll 0 0 !important;
+    border: medium none;
+    border-radius: 0;
+    color: white;
+    font-size: 20px;
+    line-height: 51px;
+    padding: 10px;
+}
+.localizzami .fa,.checkin .fa{
+    font-size: 50px;
+    padding-right: 20px;
+}
+
+
+.leaflet-popup-content-wrapper {
+    padding-top: 20px !important;
+    padding-bottom:20px !important;
+    padding-left:10px !important;
+    padding-right: 10px !important;
+}
+
+.marker-title{
+    color:#429CBC !important;
+}
+
+#cercaPortoBig{
+    background: white !important;
+    color:#429CBC !important;
+    border:1px solid #429CBC;
+    padding:8px;
+}
+#cercaPortoBig i{
+    font-size:24px;
+    border-left:1px solid #429CBC;
+}
+
+#cercaPortoBig i,#cercaPortoBig input{
+    background: white !important;
+    color:#429CBC !important;
+}
+#cercaPortoBig input{
+    height: 43px;
+}
+#cercaPortoBig input:focus{
+    border-radius: 0px;
+    box-shadow: none;
+    border:none;
+}
+
+.porto-meteo{
+    background: #429CBC !important;
+    margin-top:20px;
+    color:white !important;
+}
+.porto-meteo h1{
+    color:white;
+    font-weight: bold;
+}
+#colonnaPorto{
+    text-align: center;
+    color:#429CBC !important;
+}
+#colonnaPorto h3,h4{
+    font-weight: bold !important;
+
+    text-align: left;
+}
+#colonnaPorto h4{
+    color:white ;
+    font-size:34px;
+}
+.media-list h4{
+    color:grey !important;
+    font-weight: bold;
+    font-size: 24px !important;
+}
+.media-list p{
+    text-align: left;
+}
+#colonnaPorto .wi{
+    font-size: 60px;
+    margin-top:10px;
+}
+.field-nuovo-commento{
+    border:1px solid #429CBC;
+    background:white;
+    padding:10px;
+    margin-top:20px;
+}
+.field-nuovo-commento p{
+    color:#429CBC;
+}
+
+.field-nuovo-commento .fa.fa-sign-in {
+    border-left: 1px solid #429CBC;
+    font-size: 28px;
+    line-height: 32px;
+    padding-left: 7px;
+}
+
+#cercaPortoBig > a {
+    border-left: 1px solid rgb(66, 156, 188);
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    right: 0;
+    top: 9px;
+}
+
+.loginFacebook{
+
+}
+
+.btn.btn-default.login.small{
+    display: inline;
+    font-size: 14px;
+    height: 27px;
+    line-height: 16px;
+    margin: -1px 0 0;
+    width: 100px;
+}
+
+.menu-separator {
+    background: rgba(0, 0, 0, 0) url("http://www.blablacar.it/vi-1/images/login/login-line.png") repeat-x scroll 0 50%;
+    margin: 10px 0;
+    text-align: center;
 }
