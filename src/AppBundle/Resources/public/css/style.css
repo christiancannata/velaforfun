@@ -1086,3 +1086,8 @@ td .content-table .codice-morse{
 .table-striped > tbody > tr:nth-of-type(2n+1) {
     background-color: white;
 }
+
+.table-striped thead td {
+    text-align: center !important;
+    vertical-align: bottom !important;
+}
