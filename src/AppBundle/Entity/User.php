@@ -73,6 +73,12 @@ class User extends BaseUser implements MandantUserInterface
     protected $mandant;
 
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Porto", inversedBy="commenti")
+     * @ORM\JoinColumn(name="id_porto", referencedColumnName="id", nullable=true)
+     **/
+    private $porto;
+
 
     /**
      * @var \DateTime
@@ -265,6 +271,22 @@ class User extends BaseUser implements MandantUserInterface
     public function setLastUpdateTimestamp($lastUpdateTimestamp)
     {
         $this->lastUpdateTimestamp = $lastUpdateTimestamp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPorto()
+    {
+        return $this->porto;
+    }
+
+    /**
+     * @param mixed $porto
+     */
+    public function setPorto($porto)
+    {
+        $this->porto = $porto;
     }
 
 

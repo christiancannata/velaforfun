@@ -49,6 +49,21 @@ class Partner
      */
     private $telefono;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="riferimento", type="string", nullable=true)
+     */
+    private $riferimento;
+
     /**
      * @var string
      *
@@ -226,6 +241,38 @@ class Partner
     public function setPromozione($promozione)
     {
         $this->promozione = $promozione;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRiferimento()
+    {
+        return $this->riferimento;
+    }
+
+    /**
+     * @param string $riferimento
+     */
+    public function setRiferimento($riferimento)
+    {
+        $this->riferimento = $riferimento;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
     }
 
 

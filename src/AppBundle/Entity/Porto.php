@@ -99,6 +99,12 @@ class Porto
      **/
     private $commenti;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="User", mappedBy="porto")
+     **/
+    private $utentiAttraccati;
+
     /**
      * @var \DateTime
      *

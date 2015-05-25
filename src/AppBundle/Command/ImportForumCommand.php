@@ -63,6 +63,11 @@ class ImportForumCommand extends ContainerAwareCommand
                 $this->getContainer()->get('doctrine')
                     ->getRepository('AppBundle:User')->findOneByUsername($data['autore'])
             );
+            $data['testo']=str_replace("[B]","<strong>",$data['testo']);
+            $data['testo']=str_replace("[/B]","</strong>",$data['testo']);
+            $data['testo']=str_replace("[I]","<i>",$data['testo']);
+            $data['testo']=str_replace("[/I]","</i>",$data['testo']);
+
             $post->setBody($data['testo']);
 
             $this->em->persist($post);
@@ -89,6 +94,11 @@ class ImportForumCommand extends ContainerAwareCommand
                     $this->getContainer()->get('doctrine')
                         ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore'])
                 );
+                $risposta['testo']=str_replace("[B]","<strong>",$risposta['testo']);
+                $risposta['testo']=str_replace("[/B]","</strong>",$risposta['testo']);
+                $risposta['testo']=str_replace("[I]","<i>",$risposta['testo']);
+                $risposta['testo']=str_replace("[/I]","</i>",$risposta['testo']);
+
                 $post->setBody($risposta['testo']);
 
                 $this->em->persist($post);
@@ -127,4 +137,14 @@ class ImportForumCommand extends ContainerAwareCommand
 
 
     }
+
+    private function get_string_between($string, $start, $end){
+        $string = " ".$string;
+        $ini = strpos($string,$start);
+        if ($ini == 0) return "";
+        $ini += strlen($start);
+        $len = strpos($string,$end,$ini) - $ini;
+        return substr($string,$ini,$len);
+    }
+
 }

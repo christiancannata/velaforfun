@@ -6,6 +6,7 @@
     <script src="{{ asset('bundles/app/js/jquery.morse.js') }}"></script>
     <script language="JavaScript">
         $(document).ready(function () {
+
             var morse = null;
             $(".traduci").click(function () {
                 $(".codice-morse-result").html($("#testo").val());
@@ -20,6 +21,10 @@
             $(".stop").click(function () {
                 $("#morse-code-output").remove();
             });
+            {% if k is defined and k!="" %}
+            $(".codice-morse-result").html($("#testo").val());
+            var morse = $(".codice-morse-result").morseCode({bpm: 12});
+            {% endif %}
         });
     </script>
 {% endblock %}
@@ -89,20 +94,21 @@
 
                     <div class="form-group">
     <textarea class="form-control" id="testo">
+        {{ k }}
     </textarea>
                     </div>
                 </div>
             </div>
 
             <div class="row clearfix">
-                <div class="col-md-6 column">
+                <div class="col-md-6 col-xs-6 column">
                     <button class="localizzami hvr-glow left traduci background-celeste" id='geolocate'><i style=""
                                                                                                            class="fa fa-refresh"></i>Traduci
                     </button>
 
                 </div>
 
-                <div class="col-md-6 column">
+                <div class="col-md-6 col-xs-6 column">
                     <p class="codice-morse-result"></p>
                     <i class="fa fa-play ascolta"></i>
                     <i class="fa fa-stop stop"></i>

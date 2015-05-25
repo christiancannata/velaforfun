@@ -17,7 +17,7 @@ use Ivory\GoogleMap\Helper\MapHelper;
 class SegnaleController extends BaseController
 {
 
-    protected $entity="Segnale";
+    protected $entity = "Segnale";
 
     /**
      * @Route( "crea", name="create_segnale" )
@@ -32,9 +32,9 @@ class SegnaleController extends BaseController
      * @Route( "modifica/{id}", name="modifica_segnale" )
      * @Template()
      */
-    public function patchAction(Request $request,$id)
+    public function patchAction(Request $request, $id)
     {
-        return $this->patchForm($request,new SegnaleType(),$id,"Segnale");
+        return $this->patchForm($request, new SegnaleType(), $id, "Segnale");
     }
 
 
@@ -48,12 +48,11 @@ class SegnaleController extends BaseController
     }
 
 
-
     /**
      * @Route( "elimina/{id}", name="delete_segnale" )
      * @Template()
      */
-    public function eliminaAction(Request $request,$id)
+    public function eliminaAction(Request $request, $id)
     {
         return $this->delete($id);
     }
@@ -61,14 +60,18 @@ class SegnaleController extends BaseController
     /**
      * @Route("/", name="segnali")
      */
-    public function segnaliAction()
+    public function segnaliAction(Request $r)
     {
 
         $nodi = $this->getDoctrine()
             ->getRepository('AppBundle:Segnale')->findAll();
 
+        $k = null;
+        if ($r->get('key')) {
+            $k = $r->get('key');
+        }
 
-        return $this->render('AppBundle:Segnale:segnali.html.twig', array("segnali" => $nodi));
+        return $this->render('AppBundle:Segnale:segnali.html.twig', array("segnali" => $nodi, "k" => $k));
     }
 
 
@@ -80,10 +83,11 @@ class SegnaleController extends BaseController
         $porti = $this->getDoctrine()
             ->getRepository('AppBundle:Segnale')->findAll();
 
-        $arrayJson=[];
-        foreach($porti as $porto){
-            $arrayJson[]=array("permalink"=>$porto->getPermalink(),"name"=>$porto->getNome());
+        $arrayJson = [];
+        foreach ($porti as $porto) {
+            $arrayJson[] = array("permalink" => $porto->getPermalink(), "name" => $porto->getNome());
         }
+
         return new JsonResponse($arrayJson);
     }
 
@@ -95,7 +99,7 @@ class SegnaleController extends BaseController
 
         $porto = $this->getDoctrine()
             ->getRepository('AppBundle:Segnale')->findOneByPermalink($permalink);
-        if(!$porto){
+        if (!$porto) {
 
 
             throw $this->createNotFoundException('Unable to find Articolo.');
@@ -104,7 +108,6 @@ class SegnaleController extends BaseController
 
         return $this->render('AppBundle:Segnale:segnali.html.twig', array("nodi" => $porto));
     }
-
 
 
 }

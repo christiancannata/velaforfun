@@ -67,6 +67,15 @@ class CommentoPorto {
 
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="tipo_commento", type="string", columnDefinition="ENUM('POSITIVO','NEUTRO','NEGATIVO')", nullable=false)
+     */
+    private $tipoCommento;
+
+
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -162,11 +171,21 @@ class CommentoPorto {
         $this->lastUpdateTimestamp = $lastUpdateTimestamp;
     }
 
+    /**
+     * @return string
+     */
+    public function getTipoCommento()
+    {
+        return $this->tipoCommento;
+    }
 
-
-
-
-
+    /**
+     * @param string $tipoCommento
+     */
+    public function setTipoCommento($tipoCommento)
+    {
+        $this->tipoCommento = $tipoCommento;
+    }
 
 
 }

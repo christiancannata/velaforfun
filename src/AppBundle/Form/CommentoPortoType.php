@@ -18,6 +18,7 @@ class CommentoPortoType extends AbstractType
             ->add('testo')
             ->add('utente')
             ->add('porto')
+            ->add('tipoCommento')
         ;
     }
     
