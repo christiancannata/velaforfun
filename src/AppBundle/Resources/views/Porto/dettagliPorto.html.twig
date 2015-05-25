@@ -8,7 +8,7 @@
 
 {% block javascripts %}
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
-    <script language="javascript">
+    <script language="javascript"><!--
         $(document).ready(function () {
 
 
@@ -32,7 +32,6 @@
                 },
                 "properties": {
                     "title": "{{ porto.getNome() }}",
-                    "description": "",
                     "marker-color": "#429CBC",
                     "marker-size": "medium",
                     "marker-symbol": "harbor"
@@ -44,7 +43,6 @@
 
 
             myLayer = L.mapbox.featureLayer(arrayPorti).addTo(map);
-
 
             myLayer.on('click', function (e) {
                 var marker = e.layer;
@@ -132,7 +130,7 @@
 
 
         });
-    </script>
+        //--></script>
 {% endblock %}
 
 {% block body %}
@@ -274,15 +272,19 @@
 
                 <div class="col-md-12 column">
 
+                    <div class="over-box">
+                        <form name="cerca_porti" id="formCercaPorto" action="/porti/{permalink}" method="GET">
+                            <div class="form-group">
+                                <div class="inner-addon left-addon">
+                                    <a onclick="$('#formCercaPorto').submit();" href="#"><i class="fa fa-search"></i></a>
+                                    <input type="search" placeholder="cerca un termine..." class="form-control" id="selectPorto" autocomplete="off">
+                                </div>
 
-                    <form method="GET" action="/porti/{permalink}" id="formCercaPorto" name="cerca_porti">
-                        <div id="cercaPortoBig" class="right-inner-addon">
-                            <a href="#" onclick="$('#formCercaPorto').submit()"><i class="fa fa-search"></i></a>
-                            <input autocomplete="off" id="selectPorto" type="search"
-                                   class="form-control"
-                                   placeholder="Inserisci il nome di un porto..."/>
-                        </div>
-                    </form>
+                            </div>
+
+
+                        </form>
+                    </div>
 
 
                 </div>

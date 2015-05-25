@@ -168,7 +168,6 @@ class PortoController extends BaseController
 
         $titolo = "Porto di ".$porto->getNome();
 
-
         $postform = $this->createForm(new CommentoPortoType());
 
 
