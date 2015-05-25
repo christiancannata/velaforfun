@@ -58,17 +58,17 @@ class SegnaleController extends BaseController
     }
 
     /**
-     * @Route("/", name="segnali")
+     * @Route("/{frase}", name="segnali")
      */
-    public function segnaliAction(Request $r)
+    public function segnaliAction(Request $r, $frase = null)
     {
 
         $nodi = $this->getDoctrine()
             ->getRepository('AppBundle:Segnale')->findAll();
 
         $k = null;
-        if ($r->get('key')) {
-            $k = $r->get('key');
+        if ($frase) {
+            $k = $frase;
         }
 
         return $this->render('AppBundle:Segnale:segnali.html.twig', array("segnali" => $nodi, "k" => $k));

@@ -34,6 +34,15 @@ class Video {
      */
     private $nome;
 
+
+    /**
+     * @var string
+     * @Assert\NotBlank()
+     * @ORM\Column(name="descrizione", type="text", nullable=true)
+     */
+    private $descrizione;
+
+
 	/**
 	 * @var string
 	 *
@@ -58,6 +67,21 @@ class Video {
      * @Serializer\Type("DateTime")
      */
     protected $lastUpdateTimestamp;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CategoriaVideo")
+     * @ORM\JoinColumn(name="id_categoria", referencedColumnName="id")
+     **/
+    protected $categoria;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="permalink", type="string", nullable=true)
+     */
+    private $permalink;
 
 
 	public function __construct() {
@@ -162,10 +186,52 @@ class Video {
         $this->lastUpdateTimestamp = $lastUpdateTimestamp;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCategoria()
+    {
+        return $this->categoria;
+    }
 
+    /**
+     * @param mixed $categoria
+     */
+    public function setCategoria($categoria)
+    {
+        $this->categoria = $categoria;
+    }
 
+    /**
+     * @return string
+     */
+    public function getPermalink()
+    {
+        return $this->permalink;
+    }
 
+    /**
+     * @param string $permalink
+     */
+    public function setPermalink($permalink)
+    {
+        $this->permalink = $permalink;
+    }
 
+    /**
+     * @return string
+     */
+    public function getDescrizione()
+    {
+        return $this->descrizione;
+    }
 
+    /**
+     * @param string $descrizione
+     */
+    public function setDescrizione($descrizione)
+    {
+        $this->descrizione = $descrizione;
+    }
 
 }
