@@ -373,17 +373,25 @@
 <script src="{{ asset('bundles/app/js/main.js') }}"></script>
 <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
 <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-<!--
-<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
-<script>tinymce.init({
-        language_url: '/bundles/app/js/languages/it.js',
-        selector: 'textarea',
-        plugins: "textcolor",
-        toolbar: "undo redo | styleselect | bold italic | link image | forecolor backcolor"
-    });</script> -->
+
+
+
+
 {% if form is defined %}
+    <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+    <script></script>
+
     <script language="javascript">
         $(document).ready(function () {
+
+            if($("#blogbundle_articolo_testo").length>0){
+                tinymce.init({
+                    language_url: '/bundles/app/js/languages/it.js',
+                    selector: '#blogbundle_articolo_testo',
+                    plugins: "textcolor",
+                    toolbar: "undo redo | styleselect | bold italic | link image | forecolor backcolor"
+                });
+            }
 
             var forms = [
                 '[ name="{{ form.vars.full_name }}"]'

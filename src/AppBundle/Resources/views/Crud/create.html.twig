@@ -1,25 +1,38 @@
 {% extends 'base.html.twig' %}
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
 
-
+{% block title %}
+    {{ titolo }}
+{% endblock %}
 {% block body %}
 
 
     <!-- contenuto -->
+<div class="row clearfix">
+
+    <div class="col-md-12 column">
+    <h1>{%   if titolo is defined %} {{ titolo }} {% endif %}</h1>
+        </div>
+
+    </div>
 
     <div class="row clearfix">
-        <div class="col-md-6 column">
 
-            <h1></h1>
+        <div class="col-md-8 column">
+
+
 
 
 
     {{ form_start(form) }}
     {{ form_widget(form) }}
-    {{ form_end(form) }}
+       <div>
+        <input type="submit" class="btn btn-default login hvr-glow"  value="Crea" />
+    </div>
+        </form>
 
         </div>
-        <div class="col-md-6 column">
+        <div class="col-md-4 column">
 
 
         </div>

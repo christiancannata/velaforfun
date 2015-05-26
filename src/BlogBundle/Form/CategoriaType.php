@@ -16,9 +16,6 @@ class CategoriaType extends AbstractType
     {
         $builder
             ->add('nome')
-            ->add('permalink')
-            ->add('timestamp')
-            ->add('lastUpdateTimestamp')
         ;
     }
     

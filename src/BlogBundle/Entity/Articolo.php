@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping\OneToMany;
 use Eko\FeedBundle\Item\Reader\ItemInterface;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation as Serializer;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  * @ORM\Table(name="articolo")
@@ -31,7 +31,7 @@ class Articolo implements ItemInterface
     protected $titolo;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $permalink;
 
@@ -53,7 +53,15 @@ class Articolo implements ItemInterface
     protected $testo;
 
     /**
-     * @ORM\Column(type="string", length=200, nullable=true)
+     * @Assert\Image(mimeTypesMessage="Please upload a valid image.")
+     */
+    protected $profilePictureFile;
+
+    // for temporary storage
+    private $tempimmagine;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $immagine;
 
@@ -68,7 +76,7 @@ class Articolo implements ItemInterface
      *
      * @ORM\Column(name="stato", type="string", columnDefinition="ENUM('ATTIVO','BOZZA','DISATTIVO')", nullable=false)
      */
-    private $stato = "ATTIVO";
+    private $stato;
 
 
     /**
@@ -338,6 +346,159 @@ class Articolo implements ItemInterface
     {
         $this->stato = $stato;
     }
+
+
+
+    /**
+     * Sets the file used for profile picture uploads
+     *
+     * @param UploadedFile $file
+     * @return object
+     */
+    public function setProfilePictureFile(\Symfony\Component\HttpFoundation\File\UploadedFile $file = null) {
+        // set the value of the holder
+
+        $this->profilePictureFile       =   $file;
+        // check if we have an old image path
+        if (isset($this->immagine)) {
+            // store the old name to delete after the update
+            $this->tempimmagine = $this->immagine;
+            $this->immagine = null;
+        } else {
+            $this->immagine = 'initial';
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get the file used for profile picture uploads
+     *
+     * @return UploadedFile
+     */
+    public function getProfilePictureFile() {
+
+        return $this->profilePictureFile;
+    }
+
+
+
+    /**
+     * Get the absolute path of the immagine
+     */
+    public function getProfilePictureAbsolutePath() {
+        return null === $this->immagine
+            ? null
+            : $this->getUploadRootDir().'/'.$this->immagine;
+    }
+
+    /**
+     * Get root directory for file uploads
+     *
+     * @return string
+     */
+    protected function getUploadRootDir($type='profilePicture') {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__.'/../../../web/'.$this->getUploadDir($type);
+    }
+
+    /**
+     * Specifies where in the /web directory profile pic uploads are stored
+     *
+     * @return string
+     */
+    protected function getUploadDir($type='profilePicture') {
+        // the type param is to change these methods at a later date for more file uploads
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'images/articoli';
+    }
+
+    /**
+     * Get the web path for the user
+     *
+     * @return string
+     */
+    public function getWebimmagine() {
+
+        return '/'.$this->getUploadDir().'/'.$this->getimmagine();
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUploadProfilePicture() {
+        if (null !== $this->getProfilePictureFile()) {
+            // a file was uploaded
+            // generate a unique filename
+            $oggi=new \DateTime();
+            $filename=str_replace(" ","-",$this->getTitolo())."-".$oggi->format("U");
+            $this->setimmagine($filename.'.'.$this->getProfilePictureFile()->guessExtension());
+        }
+    }
+
+    /**
+     * Generates a 32 char long random filename
+     *
+     * @return string
+     */
+    public function generateRandomProfilePictureFilename() {
+        $count                  =   0;
+        do {
+            $oggi=new \DateTime();
+            $randomString = bin2hex($oggi->format("U"));
+            $count++;
+        }
+        while(file_exists($this->getUploadRootDir().'/'.$randomString.'.'.$this->getProfilePictureFile()->guessExtension()) && $count < 50);
+
+        return $randomString;
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     *
+     * Upload the profile picture
+     *
+     * @return mixed
+     */
+    public function uploadProfilePicture() {
+        // check there is a profile pic to upload
+        if ($this->getProfilePictureFile() === null) {
+            return;
+        }
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->getProfilePictureFile()->move($this->getUploadRootDir(), $this->getimmagine());
+
+        // check if we have an old image
+        if (isset($this->tempimmagine) && file_exists($this->getUploadRootDir().'/'.$this->tempimmagine)) {
+            // delete the old image
+            unlink($this->getUploadRootDir().'/'.$this->tempimmagine);
+            // clear the temp image path
+            $this->tempimmagine = null;
+        }
+        $this->profilePictureFile = null;
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeProfilePictureFile()
+    {
+        if ($file = $this->getProfilePictureAbsolutePath() && file_exists($this->getProfilePictureAbsolutePath())) {
+            unlink($file);
+        }
+    }
+
+
+    public function __toString(){
+        return $this->titolo;
+    }
+
 
 
 }

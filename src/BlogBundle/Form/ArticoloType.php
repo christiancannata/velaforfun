@@ -16,15 +16,14 @@ class ArticoloType extends AbstractType
     {
         $builder
             ->add('titolo')
-            ->add('permalink')
+            ->add('stato','choice',array('choices'=>array('ATTIVO'=>'ATTIVO','BOZZA'=>'BOZZA','DISATTIVO'=>'DISATTIVO')))
             ->add('testo')
-            ->add('immagine')
+            ->add('profilePictureFile')
             ->add('tags')
-            ->add('timestamp')
-            ->add('lastUpdateTimestamp')
             ->add('idComunicato')
             ->add('autore')
             ->add('categoria')
+
         ;
     }
     

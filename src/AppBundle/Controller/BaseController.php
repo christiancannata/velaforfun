@@ -12,17 +12,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class BaseController extends Controller
 {
 
-    private function getNameSpace(){
-        $matches    = array();
+    private function getNameSpace()
+    {
+        $matches = array();
         $controller = $this->getRequest()->attributes->get('_controller');
-        preg_match('/(.*)\\\Bundle\\\(.*)\\\Controller\\\(.*)Controller::(.*)Action/', $controller, $matches);
-
-        $request = $this->getRequest();
-        $request->attributes->set('namespace',  $matches[1]);
-        $request->attributes->set('bundle',     $matches[2]);
-        $request->attributes->set('controller', $matches[3]);
-        $request->attributes->set('action',     $matches[4]);
+        $namespace=explode("\\",$controller);
+        return $namespace[0];
     }
+
     public function postForm(Request $request, AbstractType $type)
     {
         $postform = $this->createForm($type);
@@ -56,7 +53,10 @@ class BaseController extends Controller
             return new JsonResponse($response);
         }
 
-        return $this->render('AppBundle:Crud:create.html.twig', array('form' => $postform->createView()));
+        return $this->render(
+            'AppBundle:Crud:create.html.twig',
+            array('form' => $postform->createView(), "titolo" => "Crea ". $this->entity)
+        );
     }
 
     public function patchForm(Request $request, AbstractType $type, $id)
@@ -64,7 +64,7 @@ class BaseController extends Controller
 
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository("AppBundle:".$this->entity)->find($id);
+        $entity = $em->getRepository($this->getNameSpace().":".$this->entity)->find($id);
 
         $postform = $this->createForm($type, $entity);
 
@@ -96,7 +96,7 @@ class BaseController extends Controller
             return new JsonResponse($response);
         }
 
-        return $this->render('AppBundle:Crud:create.html.twig', array('form' => $postform->createView()));
+        return $this->render('AppBundle:Crud:create.html.twig', array('form' => $postform->createView(), "titolo" => "Modifica ". $this->entity. " - ".$id));
     }
 
 
@@ -105,7 +105,7 @@ class BaseController extends Controller
 
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository("AppBundle:".$this->entity)->findAll();
+        $entities = $em->getRepository($this->getNameSpace().":".$this->entity)->findAll();
 
 
         return $entities;
@@ -116,7 +116,7 @@ class BaseController extends Controller
 
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository("AppBundle:".$this->entity)->findAll();
+        $entities = $em->getRepository($this->getNameSpace().":".$this->entity)->findAll();
 
 
         return $this->render('AppBundle:Crud:list.html.twig', array('entities' => $entities));
@@ -127,11 +127,11 @@ class BaseController extends Controller
 
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository("AppBundle:".$this->entity)->find($id);
-        if(!$entity){
+        $entity = $em->getRepository($this->getNameSpace().":".$this->entity)->find($id);
+        if (!$entity) {
             $response['success'] = false;
             $response['cause'] = "oggetto da eliminare non trovato!";
-        }else{
+        } else {
             $em->remove($entity);
             $em->flush();
             $response['success'] = true;

@@ -8,13 +8,19 @@ function postForm( $form, callback ){
         values[field.name] = field.value;
     });
 
+
+    var formData = new FormData($form[0]);
     /*
      * Throw the form values to the server!
      */
     $.ajax({
         type        : $form.attr( 'method' ),
         url         : $form.attr( 'action' ),
-        data        : values,
+        data        : formData,
+        async: false,
+        cache: false,
+        contentType: false,
+        processData: false,
         success     : function(data) {
             callback( data );
         }
