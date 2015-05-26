@@ -64,6 +64,14 @@ class Articolo implements ItemInterface
 
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="stato", type="string", columnDefinition="ENUM('ATTIVO','BOZZA','DISATTIVO')", nullable=false)
+     */
+    private $stato = "ATTIVO";
+
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="timestamp", type="datetime", nullable=false)
@@ -313,6 +321,22 @@ class Articolo implements ItemInterface
     {
         $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $this->titolo."-".rand(1, 99));
         $this->permalink = strtolower($slug);
+    }
+
+    /**
+     * @return string
+     */
+    public function getStato()
+    {
+        return $this->stato;
+    }
+
+    /**
+     * @param string $stato
+     */
+    public function setStato($stato)
+    {
+        $this->stato = $stato;
     }
 
 

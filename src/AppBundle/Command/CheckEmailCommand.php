@@ -58,6 +58,7 @@ class CheckEmailCommand extends ContainerAwareCommand
                     $output->writeln('<comment>'.$mail->subject.' from '.$mail->fromAddress.' </comment>');
                     $articolo->setIdComunicato($mail->id);
                     $articolo->setTitolo($mail->subject);
+                    $articolo->setStato("BOZZA");
                     $articolo->setTesto(addslashes($mail->textHtml));
                     $articolo->generatePermalink($mail->subject);
                     $articolo->setCategoria(

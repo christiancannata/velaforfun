@@ -37,7 +37,8 @@
     "misd/guzzle-bundle": "~1.0",
     "ibrows/newsletter-bundle": "*",
     "php-imap/php-imap": "2.*",
-    "jmikola/geojson": "~1.0"
+    "jmikola/geojson": "~1.0",
+    "sonata-project/seo-bundle": "~2.0"
 
   },
   "require-dev": {

@@ -6,18 +6,59 @@
     <!-- contenuto -->
 
     <div class="row clearfix">
-        <div class="col-md-8 column">
+        <div class="col-md-12 column">
 
             <h1>I Nodi Marinari</h1>
-
-
         </div>
-        <div class="col-md-4 column">
 
-
-
-        </div>
     </div>
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+<br>
+            <p> Saper fare (e disfare) correttamente un nodo è forse una delle basi per poter navigare in sicurezza. Ogni nodo è unico e possiede delle qualità che lo rendono, quasi sempre, l'unica possibilità in alcuni casi, ma allo stesso tempo la peggiore per altre. Ogni nodo ha quindi un suo modo e tempo di impiego e nessun nodo è onnivalente, neppure la gassa d'amante.</p>
+        <div class="divisore-big"></div>
+        </div>
+
+    </div>
+
+<div class="row nodi">
+    {% for nodo in nodi %}
+    <div class="col-md-4 column">
+
+
+        <div class="box-home">
+            <div style="background-image: url(http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_11.jpg);"
+                 class="divBackgroundImage">
+            </div>
+            <div class="content">
+
+                <div class="box-action">
+                    <h2>Nodo "{{ nodo.nome }}"
+                    </h2>
+
+                    <div class="over-box">
+                        {{ nodo.descrizione[:150] }}...
+
+                        <button class="btn btn-default dettagli-nodo hvr-glow" type="submit" onclick="location.href='/nodi/{{ nodo.permalink }}'">DETTAGLI</button>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+    {% if loop.index is divisibleby(3) %}
+</div>
+
+<div class="row nodi">
+    {% endif %}
+
+    {% endfor %}
     <!-- fine contenuto -->
 
 </div>

@@ -58,7 +58,7 @@ class ImportUtentiCommand extends ContainerAwareCommand
                 $utente->setUsername($data['username']);
                 $utente->setPlainPassword($data['password']);
                 $utente->setPrivacy($data['privacy']);
-                $utente->setAvatar($data['avart']);
+                $utente->setProfilePicturePath($data['avart']);
                 $utente->setEnabled(1);
 
                 $this->em->persist($utente);

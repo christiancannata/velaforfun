@@ -12,7 +12,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use PhpImap\Mailbox as MailBox;
 
-class ImportUtentiCommand extends ContainerAwareCommand
+class ImportVideoCommand extends ContainerAwareCommand
 {
     protected $output;
     protected $em;

@@ -368,9 +368,26 @@
                                         <li class="media">
                                             <div class="media-left">
                                                 <a href="#">
-                                                    <img width="50" class="media-object"
-                                                         src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDAI83UZB0PDXebgMxyIn6gWTjiH8o0IYCl3qrJQlDgeQh8BRTMw"
-                                                         alt="...">
+
+                                                    {% if utente.profilePicturePath == "" and utente.getFacebookId() !="" %}
+                                                        <img width="50" class="media-object"
+                                                             src="http://graph.facebook.com/{{ utente.getFacebookId() }}/picture?type=square"
+                                                             alt="avatar"/>
+
+                                                    {% else %}
+
+                                                        {% if utente.profilePicturePath != "" %}
+                                                            <img width="50" class="media-object"
+                                                                 src="/uploads/utenti/profilo/{{ utente.profilePicturePath }}"
+                                                                 alt="avatar"/>
+                                                        {% else %}
+                                                            <img width="50" class="media-object"
+                                                                 src="/uploads/utenti/profilo/default_avatar.jpg"
+                                                                 alt="avatar"/>
+                                                        {% endif %}
+                                                    {% endif %}
+
+
                                                 </a>
                                             </div>
                                             <div class="media-body">
@@ -413,9 +430,24 @@
                                         <li class="media">
                                             <div class="media-left">
                                                 <a href="#">
-                                                    <img width="50" class="media-object"
-                                                         src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDAI83UZB0PDXebgMxyIn6gWTjiH8o0IYCl3qrJQlDgeQh8BRTMw"
-                                                         alt="...">
+                                                    {% if commento.utente.profilePicturePath == "" and commento.utente.getFacebookId() !="" %}
+                                                        <img width="50" class="media-object"
+                                                             src="http://graph.facebook.com/{{ commento.utente.getFacebookId() }}/picture?type=square"
+                                                             alt="avatar"/>
+
+                                                    {% else %}
+
+                                                        {% if commento.utente.profilePicturePath != "" %}
+                                                            <img width="50" class="media-object"
+                                                                 src="/uploads/utenti/profilo/{{ commento.utente.profilePicturePath }}"
+                                                                 alt="avatar"/>
+                                                        {% else %}
+                                                            <img width="50" class="media-object"
+                                                                 src="/uploads/utenti/profilo/default_avatar.jpg"
+                                                                 alt="avatar"/>
+                                                        {% endif %}
+                                                    {% endif %}
+
                                                 </a>
                                             </div>
                                             <div class="media-body">

@@ -42,3 +42,8 @@ services:
               - { name: monolog.logger, channel: request }
           calls:
               - [ setContainer,[ @service_container ] ]
+
+  forum.listener:
+          class: AppBundle\EventListener\VelaForumListener
+          tags:
+              - { name: kernel.event_subscriber }

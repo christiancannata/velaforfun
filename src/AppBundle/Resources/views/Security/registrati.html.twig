@@ -1,48 +1,105 @@
 {% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{% block javascripts %}
+<script language="javascript">
+    $(document).ready(function(){
+    if($("#profilePicture").length>0){
+        $("#fos_user_registration_form_profilePictureFile").replaceWith($("#profilePictureDiv"));
+    }
+    });
+</script>
+{% endblock %}
     {% block body %}
 
 
 
-
+  <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h1>{{ 'header.register' | trans({'%name%': userInformation.realName}, 'HWIOAuthBundle') }}</h1>
+        </div>
+    </div>
     <!-- contenuto -->
 
     <div class="row clearfix">
         <div class="col-md-8 column">
-
- <h3>{{ 'header.register' | trans({'%name%': userInformation.realName}, 'HWIOAuthBundle') }}</h3>
-    <div class="row">
-        <div class="span6">
+ <div class="span6">
             <form action="{{ path('hwi_oauth_connect_registration', {'key': key}) }}" {{ form_enctype(form) }} method="POST" class="hwi_oauth_registration_register">
                 {{ form_widget(form) }}
                 <div>
-                    <button type="submit" class="btn btn-primary">{{ 'connect.registration.submit'|trans({}, 'HWIOAuthBundle') }}</button>
+
+                  <input type="submit" class="btn btn-default login hvr-glow"  value="Registrati" />
                     <a href="{{ path('hwi_oauth_connect') }}" class="btn">{{ 'connect.registration.cancel' | trans({}, 'HWIOAuthBundle') }}</a>
                 </div>
+             {% if userInformation.profilePicture is not empty %}
+        <div class="span6" id="profilePictureDiv">
+        <img src="{{ userInformation.profilePicture }}"/>
+        <input type="hidden" value="{{ userInformation.profilePicture }}" name="picture" id="profilePicture"/>
+        </div>
+    {% else %}
+
+    {% endif %}
+
             </form>
         </div>
+
         <div class="span6">
-            {% if userInformation.profilePicture is not empty %}
-        <img src="{{ userInformation.profilePicture }}"/>
-    {% endif %}
+
         </div>
+
+
+        </div>
+
+
+        <div class="col-md-4 column" id="colonnaPorto">
+
+
+            <div class="row clearfix">
+
+                <div class="col-md-12 column">
+
+
+
+
+                </div>
+            </div>
+
+    <div class="row clearfix">
+
+         <div class="col-md-12 column">
+
+           <div class="content">
+
+
+                     </div>
+
+                     </div>
+        </div>
+
+
+            </div>
+            <!-- fine contenuto -->
+        </div>
+
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="divisore-big"></div>
+            </div>
+        </div>
+
+
     </div>
-
-
-        </div>
-        <div class="col-md-4 column">
-
-
-
-        </div>
-    </div>
-    <!-- fine contenuto -->
-
-</div>
 
 
 
 
 
     {% endblock %}
+
+
+
+
+
 
 

@@ -1,1 +1,78 @@
- {{ mapHelper.render(map) | raw }}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h1>Nodo "{{ nodo.nome }}"</h1>
+        </div>
+    </div>
+    <!-- contenuto -->
+
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+          <p> {{ nodo.descrizione }}</p>
+
+
+<div class="embed-responsive embed-responsive-4by3">
+    <iframe class="embed-responsive-item" src="{{ nodo.video }}"></iframe>
+</div>
+
+        </div>
+
+
+        <div class="col-md-4 column" id="colonnaPorto">
+
+
+            <div class="row clearfix">
+
+                <div class="col-md-12 column">
+
+                  <h3>Vedi altri nodi</h3>
+
+
+
+
+                </div>
+            </div>
+
+    <div class="row clearfix">
+
+         <div class="col-md-12 column">
+
+           <div class="content">
+            {% for nodo in nodi %}
+                         <div class="latest-news" onclick="location.href='/nodi/{{ nodo.permalink }}'">
+                             <div class="content">
+                                 <h4>{{ nodo.nome }}</h4>
+                                 <p style="text-align: left">{{ nodo.descrizione[:50] }}...</p>
+                             </div>
+                             <div class="arrow">
+                                 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                             </div>
+                         </div>
+{% endfor %}
+
+                     </div>
+
+                     </div>
+        </div>
+
+
+            </div>
+            <!-- fine contenuto -->
+        </div>
+
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="divisore-big"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}
+
+
+

@@ -32,36 +32,48 @@
         </div>
         <div class="col-md-4 column">
             <div class="content">
-                <div class="latest-news">
-                    <div class="content">
-                        <h4>Titolo 1</h4>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur ad- ipiscing elit, sed do eiusmod tempor incidi- dunt
-                            ut labore et dolore ...</p>
-                    </div>
-                    <div class="arrow">
-                    </div>
-                </div>
-                <div class="latest-news">
-                    <div class="content">
-                        <h4>Titolo 1</h4>
+                {% if articoli[1] is defined %}
+    <a href="/archivio/{{ categoria.permalink }}/{{ articoli[1].permalink }}">
+        <div class="latest-news">
+            <div class="content">
+                <h4>{{ articoli[1].titolo }}</h4>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur ad- ipiscing elit, sed do eiusmod tempor incidi- dunt
-                            ut labore et dolore ...</p>
-                    </div>
-                    <div class="arrow">
-                    </div>
-                </div>
-                <div class="latest-news">
-                    <div class="content">
-                        <h4>Titolo 1</h4>
+                <p>{{ articoli[1].testo|slice(0, 100) }}...</p>
+            </div>
+            <div class="arrow">
+            </div>
+        </div>
+    </a>
+{% endif %}
+                {% if articoli[2] is defined %}
+    <a href="/archivio/{{ categoria.permalink }}/{{ articoli[2].permalink }}">
+        <div class="latest-news">
+            <div class="content">
+                <h4>{{ articoli[2].titolo }}</h4>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur ad- ipiscing elit, sed do eiusmod tempor incidi- dunt
-                            ut labore et dolore ...</p>
-                    </div>
-                    <div class="arrow">
-                    </div>
-                </div>
+                <p>{{ articoli[2].testo|slice(0, 100) }}...</p>
+            </div>
+            <div class="arrow">
+            </div>
+        </div>
+    </a>
+{% endif %}
+                {% if articoli[3] is defined %}
+    <a href="/archivio/{{ categoria.permalink }}/{{ articoli[3].permalink }}">
+        <div class="latest-news">
+            <div class="content">
+                <h4>{{ articoli[3].titolo }}</h4>
+
+                <p>{{ articoli[3].testo|slice(0, 100) }}...</p>
+            </div>
+            <div class="arrow">
+            </div>
+        </div>
+    </a>
+{% endif %}
+
+
             </div>
         </div>
     </div>
@@ -73,7 +85,12 @@
     </div>
 
 
+
+
+
     <div class="row clearfix">
+
+        {% for articolo in articoli|slice(4) %}
         <div class="col-md-4 column">
             <div class="box-sub hvr-glow">
                 <div class="foto">
@@ -81,47 +98,25 @@
                          src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_23.jpg">
 
                     <div class="category">
-                        <a href="#"><span class="background-arancione">CATEGORY</span> <span
+                        <a href="/archivio/{{ categoria.permalink }}"><span class="background-arancione">{{ categoria.nome|capitalize }}</span> <span
                                 class="background-arancione">+</span></a>
                     </div>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adip- iscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
+                <p>{{ articolo.testo|slice(0, 100) }}...</p>
             </div>
 
         </div>
-        <div class="col-md-4 column">
-            <div class="box-sub hvr-glow">
-                <div class="foto">
-                    <img style="width:100%"
-                         src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_23.jpg">
 
-                    <div class="category">
-                        <a href="#"><span class="background-rosso ">CATEGORY</span> <span
-                                class="background-rosso">+</span></a>
-                    </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adip- iscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-            </div>
 
-        </div>
-        <div class="col-md-4 column">
-            <div class="box-sub hvr-glow">
-                <div class="foto">
-                    <img style="width:100%"
-                         src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_23.jpg">
+        {% if loop.index is divisibleby(3) %}
+    </div>
 
-                    <div class="category">
-                        <a href="#"><span class="background-celeste-chiaro foreground-grigio">CATEGORY</span> <span
-                                class="background-celeste-chiaro foreground-grigio">+</span></a>
-                    </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adip- iscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-            </div>
+    <div class="row clearfix">
+        {% endif %}
 
-        </div>
+        {% endfor %}
+
+
     </div>
         <!-- fine contenuto -->
 

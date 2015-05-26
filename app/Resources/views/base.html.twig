@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>{% block title %}{% endblock %} | VelaForFun</title>
-    <meta name="description" content="{% block description %}{% endblock %}" />
+    <meta name="description" content="{% block description %}{% endblock %}"/>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="{{ asset('bundles/app/css/normalize.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -78,7 +78,7 @@
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false"> <i class="fa fa-bars fa-lg"></i> Tutte le sezioni</a>
+                               aria-expanded="false"> <i class="fa fa-bars fa-lg"></i> <strong>Tutte le sezioni</strong></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a class="bordered blue" href="#">Action</a></li>
                                 <li><a href="#">Another action</a></li>
@@ -127,7 +127,7 @@
                                         <div class="back">
                                             <a href="/"> <img src="/bundles/app/images/logo.png" width="50"></a>
                                             <ul class="list-inline">
-                                                <li><a href="/porti" >Porti Italiani</a></li>
+                                                <li><a href="/porti">Porti Italiani</a></li>
                                                 <li><a href="/portolano-online">Portolano Online</a></li>
                                                 <li><a href="/chi-siamo">Chi Siamo</a></li>
                                                 <li><a href="/contatti">Contatti</a></li>
@@ -147,15 +147,36 @@
 
 
                         <div class="dropdown" id="profileMenu">
-                            <a class="dropdown-toggle"  id="dropdownMenu1"
-                                    data-toggle="dropdown" aria-expanded="true">
-                                <img class="avatar-small" src="http://autokadabra.ru/system/uploads/users/20/20303/small.png?1319912650" alt="avatar" />
-                            <div style="padding-top:30px">
-                                <span> {{ app.user.username }}</span>
-                                <span class="caret"></span>
-                            </div>
+                            <a class="dropdown-toggle" id="dropdownMenu1"
+                               data-toggle="dropdown" aria-expanded="true">
+                                {% if app.user.profilePicturePath == "" and app.user.getFacebookId() !="" %}
+                                    <img class="avatar-small"
+                                         src="http://graph.facebook.com/{{ app.user.getFacebookId() }}/picture?type=square"
+                                         alt="avatar"/>
+
+                                {% else %}
+
+                                    {% if app.user.profilePicturePath != "" %}
+                                        <img class="avatar-small"
+                                             src="/uploads/utenti/profilo/{{ app.user.profilePicturePath }}"
+                                             alt="avatar"/>
+                                    {% else %}
+                                        <img class="avatar-small"
+                                             src="/uploads/utenti/profilo/default_avatar.jpg"
+                                             alt="avatar"/>
+                                    {% endif %}
+                                {% endif %}
+
+
+                                <div style="padding-top:30px">
+                                    <span> {{ app.user.username }}</span>
+                                    <span class="caret"></span>
+                                </div>
 
                             </a>
+
+                            {% if not is_granted('ROLE_SUPER_ADMIN') %}
+
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="/tuo-profilo">
                                         <i class="fa fa-user"></i>
@@ -169,30 +190,58 @@
                                         Esci</a>
                                 </li>
                             </ul>
+                            {% else %}
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+
+
+                                    <li class="dropdown-header">Gestione Articoli</li>
+                                    <li><a href="/archivio/articolo/crea">Crea nuovo</a></li>
+                                    <li><a href="/archivio/articolo/list">Lista</a></li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Gestione Porti</li>
+                                    <li><a href="/porti/crea">Crea nuovo</a></li>
+                                    <li><a href="/porti/list">Lista</a></li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Gestione Nodi</li>
+                                    <li><a href="/nodi/crea">Crea nuovo</a></li>
+                                    <li><a href="/nodi/list">Lista</a></li>
+
+                                    <li class="divider"></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">
+                                            <i class="fa fa-sign-out"></i>
+                                            Esci</a>
+                                    </li>
+                                </ul>
+
+                            {% endif %}
+
+
+
                         </div>
                     {% else %}
                         <ul class="list-inline" id="menu-login">
-                            <li><span>Sei già iscritto?</span></li>
-                            <li class="dropdown" id="menuLogin">
+                            <li style="padding-left:0px"><span>Sei già iscritto?</span></li>
+                            <li class="dropdown bordered" id="menuLogin">
                                 <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"
                                    style="border:none">ACCEDI</a>
 
                                 <div class="dropdown-menu" style="">
                                     <form method="post" action="/login_check">
-                                    <div class="form-group">
-                                        <label for="username">Username:</label>
-                                        <input type="text" required="required" value="" name="_username" id="username">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password">Password:</label>
-                                        <input type="password" required="required" name="_password" id="password">
-                                    </div>
-                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label for="username">Username:</label>
+                                            <input type="text" required="required" value="" name="_username"
+                                                   id="username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">Password:</label>
+                                            <input type="password" required="required" name="_password" id="password">
+                                        </div>
+                                        <div class="form-group">
 
-                                        <input type="checkbox" value="on" name="_remember_me" id="remember_me">
-                                        <label for="remember_me">Ricordami</label>
-                                    </div>
-                                    <button type="submit" class="btn btn-default login hvr-glow">Accedi</button>
+                                            <input type="checkbox" value="on" name="_remember_me" id="remember_me">
+                                            <label for="remember_me">Ricordami</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-default login hvr-glow">Accedi</button>
                                     </form>
 
                                     <div class="divisore"></div>
@@ -205,7 +254,7 @@
                                     </a>
                                 </div>
                             </li>
-                            <li><a href="/register">REGISTRATI</a></li>
+                            <li class="bordered"><a href="/register">REGISTRATI</a></li>
                         </ul>
 
 
@@ -279,7 +328,8 @@
                         ©
                         2015 Velaforfun</p>
 
-                    <p><a href="#">Sicurezza dei dati e Privacy</a> | <a href="#">Team editoriale</a> | <a href="#">Linea editoriale</a> | <a href="#">Come contattarci</a></p>
+                    <p><a href="#">Sicurezza dei dati e Privacy</a> | <a href="#">Team editoriale</a> | <a href="#">Linea
+                            editoriale</a> | <a href="#">Come contattarci</a></p>
                 </div>
             </div>
         </div>

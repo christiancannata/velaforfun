@@ -1,27 +1,24 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}{{ articolo.titolo }}{% endblock %}
-
-{% block description %}{{ articolo.testo }}{% endblock %}
+{% trans_default_domain 'FOSUserBundle' %}
 
 
+    {% block body %}
 
-
-
-{% block body %}
-    <div class="row clearfix">
+  <div class="row clearfix">
         <div class="col-md-12 column">
-            <h1>{{ articolo.titolo }}</h1>
+            <h1>Il tuo profilo</h1>
         </div>
     </div>
     <!-- contenuto -->
 
     <div class="row clearfix">
         <div class="col-md-8 column">
-          <p>{{ articolo.testo }}</p>
-{% include 'SonataSeoBundle:Block:_facebook_sdk.html.twig' %}
 
-{% include 'SonataSeoBundle:Block:_twitter_sdk.html.twig' %}
+
+<div class="fos_user_user_show">
+    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+</div>
 
         </div>
 
@@ -33,8 +30,6 @@
 
                 <div class="col-md-12 column">
 
-                Colonna
-
 
 
 
@@ -45,7 +40,10 @@
 
          <div class="col-md-12 column">
 
+           <div class="content">
 
+
+                     </div>
 
                      </div>
         </div>
@@ -65,5 +63,16 @@
 
     </div>
 
-{% endblock %}
+
+
+
+
+
+
+
+
+
+    {% endblock %}
+
+
 

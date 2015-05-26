@@ -102,7 +102,17 @@ class SecuredController extends ConnectController
             ->getUserInformation($error->getRawToken())
         ;
 
-        // enable compatibility with FOSUserBundle 1.3.x and 2.x
+        if(count($userInformation->getResponse())>0){
+
+            $response=$userInformation->getResponse();
+            $paths=$userInformation->getPaths();
+            $response['profilepicture']="http://graph.facebook.com/".$response['id']."/picture?type=large";
+            $paths['profilepicture']="profilepicture";
+            $userInformation->setResponse($response);
+            $userInformation->setPaths($paths);
+        }
+
+            // enable compatibility with FOSUserBundle 1.3.x and 2.x
         if (interface_exists('FOS\UserBundle\Form\Factory\FactoryInterface')) {
             $form = $this->container->get('hwi_oauth.registration.form.factory')->createForm();
         } else {

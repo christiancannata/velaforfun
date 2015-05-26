@@ -93,16 +93,17 @@ class NodoController extends BaseController
     public function dettagliNodoAction($permalink)
     {
 
-        $nodi = $this->getDoctrine()
+        $nodo = $this->getDoctrine()
             ->getRepository('AppBundle:Nodo')->findOneByPermalink($permalink);
-        if(!$nodi){
+        if(!$nodo){
 
 
             throw $this->createNotFoundException('Unable to find Articolo.');
         }
 
 
-        return $this->render('AppBundle:Nodo:nodi.html.twig', array("nodi" => $nodi));
+        return $this->render('AppBundle:Nodo:dettagliNodo.html.twig', array("nodo" => $nodo,"nodi"=>$this->getDoctrine()
+            ->getRepository('AppBundle:Nodo')->findAll()));
     }
 
 

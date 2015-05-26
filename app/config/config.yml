@@ -14,7 +14,7 @@ framework:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: ~
     form:            ~
-    csrf_protection: ~
+    csrf_protection: false
     validation:      { enable_annotations: true }
     templating:
         engines: ['twig']
@@ -33,7 +33,6 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     globals:
-        fos_csrf_provider: "@form.csrf_provider"
 
 # Assetic Configuration
 assetic:
@@ -138,6 +137,7 @@ hwi_oauth:
             type:                facebook
             client_id:           575810985813680
             client_secret:       05917e0ff22500a2670f8a1629d8cec3
+            scope: "public_profile"
             options:
                 display: popup #dialog is optimized for popup window
     fosub:
@@ -164,3 +164,35 @@ eko_feed:
             author:      'Vincent Composieux' # Only required for Atom feeds
 
 
+# app/config/config.yml
+sonata_seo:
+    encoding:         UTF-8
+    page:
+        title:            Sonata Project
+        metas:
+            name:
+                keywords:             foo bar
+                description:          The description
+                robots:               index, follow
+
+            property:
+                # Facebook application settings
+                'fb:app_id':          575810985813680
+                #'fb:admins':          admin1, admin2
+
+                # Open Graph information
+                # see http://developers.facebook.com/docs/opengraphprotocol/#types or http://ogp.me/
+                'og:site_name':       VelaForFun
+                'og:description':     A demo of the some rich bundles for your Symfony2 projects
+
+            http-equiv:
+                'Content-Type':         text/html; charset=utf-8
+                #'X-Ua-Compatible':      IE=EmulateIE7
+
+            charset:
+                UTF-8:    ''
+
+        head:
+            'xmlns':              http://www.w3.org/1999/xhtml
+            'xmlns:og':           http://opengraphprotocol.org/schema/
+            #'xmlns:fb':           "http://www.facebook.com/2008/fbml"

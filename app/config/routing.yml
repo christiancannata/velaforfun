@@ -7,7 +7,7 @@ fos_user_security:
 
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /profile
+    prefix: /tuo-profilo
 
 fos_user_registration_register:
     defaults: { _controller: AppBundle:Registration:register }

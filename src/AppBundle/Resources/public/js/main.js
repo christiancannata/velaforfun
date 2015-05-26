@@ -90,6 +90,22 @@ jQuery(document).ready(function ($) {
     });
 
 
+    $("#formTraduci").submit(function (e) {
+        e.preventDefault();
+        if ($("#traduci").val() != "") {
+            var form = $(this);
+            var url = form.attr("action");
+            if (url.indexOf("{permalink}") >= 0 && form.attr("method") == "GET") {
+                e.preventDefault();
+                url = url.replace('{permalink}', $("#traduci").val());
+                location.href = url;
+            }
+        }
+
+
+    });
+
+
     $("#formCercaNodo").submit(function (e) {
         e.preventDefault();
         if ($("#selectNodo").val() != "") {

@@ -16,7 +16,7 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()
             ->getRepository('BlogBundle:Articolo');
 
-        $articoli=$repository->findAll();
+        $articoli=$repository->findByStato("ATTIVO",array('id' => 'desc'));
 
 
 
