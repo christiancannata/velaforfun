@@ -51,4 +51,34 @@ class PartnerController extends BaseController
     {
         return $this->delete($id);
     }
+
+
+    /**
+     * @Route("/", name="partner")
+     */
+    public function partnerAction()
+    {
+
+        $porti = $this->getDoctrine()
+            ->getRepository('AppBundle:Partner')->findAll();
+        $titolo = "Partner";
+
+        return $this->render('AppBundle:Partner:tutti.html.twig', array("partner" => $porti, "titolo" => $titolo));
+
+    }
+
+
+    /**
+     * @Route("/{permalink}", name="partner_singolo")
+     */
+    public function dettagliPartnerAction($permalink)
+    {
+
+        $porti = $this->getDoctrine()
+            ->getRepository('AppBundle:Partner')->findByPermalink($permalink);
+        $titolo = "Partner";
+
+        return $this->render('AppBundle:Partner:dettagliPartner.html.twig', array("partner" => $porti, "titolo" => $titolo));
+
+    }
 }

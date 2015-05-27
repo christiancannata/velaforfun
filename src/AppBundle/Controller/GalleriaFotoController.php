@@ -55,4 +55,28 @@ class GalleriaFotoController extends BaseController
 
 
 
+    /**
+     * @Route("/{permalink}", name="galleria_foto")
+     */
+    public function showAction($permalink)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $categoria = $em->getRepository('AppBundle:GalleriaFoto')->findOneByPermalink($permalink);
+        if (!$categoria) {
+            throw $this->createNotFoundException('Unable to find Categoria.');
+        }
+
+        $articoli = $em->getRepository('AppBundle:Articolo')->findBy(array('galleria' => $categoria, 'stato' => "ATTIVO"),array('id' => 'desc'));
+
+        return $this->render(
+            'AppBundle:GalleriaFoto:galleria.html.twig',
+            array(
+                'foto' => $articoli,
+                'galleria' => $categoria
+            )
+        );
+    }
+
+
 }
