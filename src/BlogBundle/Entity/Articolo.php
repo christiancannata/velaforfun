@@ -72,6 +72,13 @@ class Articolo implements ItemInterface
 
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $sottotitolo;
+
+
+
+    /**
      * @var string
      *
      * @ORM\Column(name="stato", type="string", columnDefinition="ENUM('ATTIVO','BOZZA','DISATTIVO')", nullable=false)
@@ -497,6 +504,22 @@ class Articolo implements ItemInterface
 
     public function __toString(){
         return $this->titolo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSottotitolo()
+    {
+        return $this->sottotitolo;
+    }
+
+    /**
+     * @param mixed $sottotitolo
+     */
+    public function setSottotitolo($sottotitolo)
+    {
+        $this->sottotitolo = $sottotitolo;
     }
 
 

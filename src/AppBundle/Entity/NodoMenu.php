@@ -28,21 +28,21 @@ class NodoMenu {
     /**
      * @var string
      *
-     * @ORM\Column(name="nome", type="string", nullable=true)
+     * @ORM\Column(name="nome", type="string")
      */
     private $nome;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="permalink", type="string", nullable=true)
+     * @ORM\Column(name="action", type="string",  columnDefinition="ENUM('_BLANK','TOP')")
      */
-    private $permalink;
+    private $action;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="link", type="string", nullable=true)
+     * @ORM\Column(name="link", type="string")
      */
     private $link;
 
@@ -214,24 +214,25 @@ class NodoMenu {
         $this->menu = $menu;
     }
 
-    /**
-     * @return string
-     */
-    public function getPermalink()
-    {
-        return $this->permalink;
-    }
-
-    /**
-     * @param string $permalink
-     */
-    public function setPermalink($permalink)
-    {
-        $this->permalink = $permalink;
-    }
 
     public function __toString(){
         return $this->id."-".$this->nome;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->action;
+    }
+
+    /**
+     * @param string $action
+     */
+    public function setAction($action)
+    {
+        $this->action = $action;
     }
 
 

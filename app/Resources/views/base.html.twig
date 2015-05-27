@@ -80,9 +80,13 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false"> <i class="fa fa-bars fa-lg"></i> <strong>Tutte le sezioni</strong></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a class="bordered blue" href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <li><a class="bordered blue" href="#">News di Vela</a></li>
+                                <li><a href="#">Portolano Online</a></li>
+                                <li><a href="#">I porti d'Italia</a></li>
+                                <li><a href="#">Dizionario Velico</a></li>
+                                <li><a href="#">Forum</a></li>
+                                <li><a href="#">I nodi Marinari</a></li>
+                                <li><a href="#">Codice internazionale</a></li>
                                 <li class="divider"></li>
                                 <li class="form">
                                     <form method="GET">
@@ -388,7 +392,23 @@
                 tinymce.init({
                     language_url: '/bundles/app/js/languages/it.js',
                     selector: '#blogbundle_articolo_testo',
-                    plugins: "textcolor",
+                    plugins: ["textcolor","image"],
+                    file_picker_callback: function(callback, value, meta) {
+                        // Provide file and text for the link dialog
+                        if (meta.filetype == 'file') {
+                            callback('mypage.html', {text: 'My text'});
+                        }
+
+                        // Provide image and alt text for the image dialog
+                        if (meta.filetype == 'image') {
+                            callback('myimage.jpg', {alt: 'My alt text'});
+                        }
+
+                        // Provide alternative source and posted for the media dialog
+                        if (meta.filetype == 'media') {
+                            callback('movie.mp4', {source2: 'alt.ogg', poster: 'image.jpg'});
+                        }
+                    },
                     toolbar: "undo redo | styleselect | bold italic | link image | forecolor backcolor"
                 });
             }

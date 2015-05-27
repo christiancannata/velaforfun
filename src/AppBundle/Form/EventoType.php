@@ -20,7 +20,6 @@ class EventoType extends AbstractType
             ->add('inEvidenza')
             ->add('dataInizio')
             ->add('dataFine')
-            ->add('save', 'submit', array('label' => 'Crea'))
         ;
     }
     

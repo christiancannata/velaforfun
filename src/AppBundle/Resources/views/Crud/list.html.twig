@@ -1,4 +1,21 @@
 {% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+
+{% endblock %}
+
+
+{% block javascripts %}
+    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script language="javascript">
+        $(document).ready(function(){
+            $('.crud table').dataTable();
+        });
+    </script>
+{% endblock %}
+
+
 {% block body %}
 
     {% set base_path = path(app.request.attributes.get('_route'))|split('/') %}
@@ -20,7 +37,7 @@
 
 
     <div class="row clearfix">
-        <div class="col-md-12 column">
+        <div class="col-md-12 column crud">
 
             <div id="response-div"></div>
             <table class="table table-striped">
@@ -44,7 +61,7 @@
                     <tr data-id="{{ entity.id }}">
                         <td>{{ entity.id }}</td>
                         <td>{{ entity.__toString() }} </td>
-                        <td>{{ entity.timestamp|date('Y-m-d') }}</td>
+                        <td>{{ entity.timestamp|date('d-m-Y H:i') }}</td>
                         <td>
                             <button type="button" onclick="location.href='{{ base_path }}/modifica/{{ entity.id }}'"
                                     class="btn btn-success">Modifica

@@ -21,7 +21,6 @@ class PartnerType extends AbstractType
             ->add('telefono')
             ->add('descrizione')
             ->add('promozione')
-            ->add('save', 'submit', array('label' => 'Crea'))
         ;
     }
     

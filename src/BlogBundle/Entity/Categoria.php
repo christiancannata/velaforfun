@@ -50,6 +50,16 @@ class Categoria
      */
     protected $lastUpdateTimestamp;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="colore", type="string", nullable=true)
+     */
+    private $colore;
+
+
+
     /**
      * @return mixed
      */
@@ -143,4 +153,22 @@ class Categoria
     public function __toString(){
         return $this->id." - ".$this->nome;
     }
+
+    /**
+     * @return string
+     */
+    public function getColore()
+    {
+        return $this->colore;
+    }
+
+    /**
+     * @param string $colore
+     */
+    public function setColore($colore)
+    {
+        $this->colore = $colore;
+    }
+
+
 }

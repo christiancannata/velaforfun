@@ -21,8 +21,7 @@ class AnnuncioScambioPostoType extends AbstractType
             ->add('tipo')
             ->add('tempo')
             ->add('lunghezza')
-            ->add('descrizione')
-            ->add('save', 'submit', array('label' => 'Inserisci'));
+            ->add('descrizione');
     }
 
     /**

@@ -19,7 +19,6 @@ class SegnaleType extends AbstractType
             ->add('morse')
             ->add('parola')
             ->add('valore')
-            ->add('save', 'submit', array('label' => 'Crea'))
         ;
     }
     

@@ -29,8 +29,7 @@ class MenuType extends AbstractType
                     'multiple' => true,
                     'expanded' => true
                 )
-            )
-            ->add('save', 'submit', array('label' => 'Crea'));
+            );
     }
 
     /**

@@ -16,12 +16,15 @@ class NodoMenuType extends AbstractType
     {
         $builder
             ->add('nome')
-            ->add('permalink')
+            ->add(
+                'action',
+                'choice',
+                array('choices' => array('TOP' => 'TOP', '_BLANK' => '_BLANK'))
+            )
             ->add('link')
             ->add('isActive')
             ->add('ordering')
             ->add('menu')
-            ->add('save', 'submit', array('label' => 'Crea'))
         ;
     }
     

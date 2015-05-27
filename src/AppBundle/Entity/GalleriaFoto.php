@@ -1,6 +1,13 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: christiancannata
+ * Date: 05/05/15
+ * Time: 14:35
+ */
 
 namespace AppBundle\Entity;
+
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -8,22 +15,16 @@ use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="foto")
+ * @ORM\Table(name="galleria_foto")
  */
-class Foto {
-	/**
-	 * @ORM\Id
-	 * @ORM\Column(type="integer")
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 */
-	protected $id;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="path", type="string", nullable=true)
-	 */
-	private $path;
+class GalleriaFoto
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
 
     /**
      * @var string
@@ -31,13 +32,6 @@ class Foto {
      * @ORM\Column(name="nome", type="string", nullable=true)
      */
     private $nome;
-
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="in_evidenza", type="boolean", nullable=true)
-	 */
-	private $inEvidenza;
 
     /**
      * @var \DateTime
@@ -59,12 +53,23 @@ class Foto {
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="GalleriaFoto", inversedBy="foto")
-     * @ORM\JoinColumn(name="id_galleria", referencedColumnName="id", nullable=true)
+     * @ORM\OneToMany(targetEntity="Foto", mappedBy="galleria")
      **/
-    private $galleria;
+    private $foto;
 
 
+
+
+    /**
+     * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Articolo")
+     * @ORM\JoinColumn(name="id_articolo", referencedColumnName="id", nullable=true)
+     **/
+    private $articolo;
+
+    public function __construct()
+    {
+        $this->foto = new ArrayCollection();
+    }  // your own logic
 
     /**
      * @return mixed
@@ -85,54 +90,6 @@ class Foto {
     /**
      * @return string
      */
-    public function getLink()
-    {
-        return $this->link;
-    }
-
-    /**
-     * @param string $link
-     */
-    public function setLink($link)
-    {
-        $this->link = $link;
-    }
-
-    /**
-     * @return string
-     */
-    public function getInEvidenza()
-    {
-        return $this->inEvidenza;
-    }
-
-    /**
-     * @param string $inEvidenza
-     */
-    public function setInEvidenza($inEvidenza)
-    {
-        $this->inEvidenza = $inEvidenza;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * @param string $timestamp
-     */
-    public function setTimestamp($timestamp)
-    {
-        $this->timestamp = $timestamp;
-    }
-
-    /**
-     * @return string
-     */
     public function getNome()
     {
         return $this->nome;
@@ -146,7 +103,21 @@ class Foto {
         $this->nome = $nome;
     }
 
+    /**
+     * @return \DateTime
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
 
+    /**
+     * @param \DateTime $timestamp
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+    }
 
     /**
      * @return \DateTime
@@ -165,39 +136,51 @@ class Foto {
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getPath()
+    public function getFoto()
     {
-        return $this->path;
+        return $this->nodi;
     }
 
     /**
-     * @param string $path
+     * @param mixed $nodi
      */
-    public function setPath($path)
+    public function setFoto($nodi)
     {
-        $this->path = $path;
+        $this->foto = $nodi;
+    }
+
+
+    public function addFoto(Foto $nodo)
+    {
+        $this->foto->addElement($nodo);
+    }
+
+    public function removeFoto(Foto $nodo)
+    {
+        $this->foto->removeElement($nodo);
+    }
+
+    public function __toString(){
+        return $this->id."-".$this->nome;
     }
 
     /**
      * @return mixed
      */
-    public function getGalleria()
+    public function getArticolo()
     {
-        return $this->galleria;
+        return $this->articolo;
     }
 
     /**
-     * @param mixed $galleria
+     * @param mixed $articolo
      */
-    public function setGalleria($galleria)
+    public function setArticolo($articolo)
     {
-        $this->galleria = $galleria;
+        $this->articolo = $articolo;
     }
-
-
-
 
 
 }

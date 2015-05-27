@@ -19,7 +19,6 @@ class NodoType extends AbstractType
             ->add('permalink')
             ->add('video')
             ->add('descrizione')
-            ->add('save', 'submit', array('label' => 'Crea'))
 
         ;
     }

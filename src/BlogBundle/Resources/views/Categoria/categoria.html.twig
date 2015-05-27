@@ -12,11 +12,11 @@
             <div class="article main-article">
 
                 <div class="content"
-                     style="background-image: url(/images/{{ articoli[0].immagine }})">
+                     style="background-image: url(/images/articoli/{{ articoli[0].immagine }})">
                     <div class="category">
-                        <a href="/archivio/{{ categoria.permalink }}"><span class="background-celeste">{{ categoria.nome|capitalize }}</span> <span
-                                class="background-celeste">+</span></a>
-                    </div>
+                            <a href="/archivio/{{ articoli[0].categoria.permalink }}"><span style="background:{{ articoli[0].categoria.getColore() }}" >{{ articoli[0].categoria.nome|capitalize }}</span> <span
+                                        style="background:{{ articoli[0].categoria.getColore() }}"       >+</span></a>
+                        </div>
                     <div class="content-title">
                         <a href="/archivio/{{ categoria.permalink }}/{{ articoli[0].permalink }}"><h3>{{ articoli[0].titolo }}</h3></a>
 
@@ -42,6 +42,7 @@
                 <p>{{ articoli[1].testo|slice(0, 100) }}...</p>
             </div>
             <div class="arrow">
+                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
             </div>
         </div>
     </a>
@@ -55,6 +56,7 @@
                 <p>{{ articoli[2].testo|slice(0, 100) }}...</p>
             </div>
             <div class="arrow">
+                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
             </div>
         </div>
     </a>
@@ -68,6 +70,7 @@
                 <p>{{ articoli[3].testo|slice(0, 100) }}...</p>
             </div>
             <div class="arrow">
+                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
             </div>
         </div>
     </a>

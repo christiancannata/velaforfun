@@ -19,7 +19,6 @@ class BarcaType extends AbstractType
             ->add('cantiere')
             ->add('testo')
             ->add('web')
-            ->add('save', 'submit', array('label' => 'Crea'))
 
         ;
     }

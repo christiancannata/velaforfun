@@ -18,8 +18,7 @@ class AnnuncioType extends AbstractType
             ->add('telefono')
             ->add('tipo')
             ->add('prezzo')
-            ->add('descrizione')
-            ->add('save', 'submit', array('label' => 'Inserisci'));
+            ->add('descrizione');
     }
 
     /**
