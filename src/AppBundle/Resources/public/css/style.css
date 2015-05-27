@@ -1273,6 +1273,6 @@ input[type="radio"]:checked .fa-stack-1x{
     margin-top:10px;
 }
 
-.crud form input{
+.crud form input,#Forum_BoardCreate_topicCreateAuthorisedRoles input{
     display:block !important;
 }

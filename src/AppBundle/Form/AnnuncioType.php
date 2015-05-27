@@ -15,10 +15,15 @@ class AnnuncioType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('telefono')
-            ->add('tipo')
-            ->add('prezzo')
-            ->add('descrizione');
+            ->add('referente')
+            ->add('titolo')
+            ->add('email')
+            ->add(
+                'tipo',
+                'choice',
+                array('choices' => array('COMPRO' => 'COMPRO', 'VENDO' => 'VENDO'))
+            )
+            ->add('descrizione','textarea');
     }
 
     /**

@@ -30,10 +30,24 @@ class Annuncio
     /**
      * @var string
      *
-     * @ORM\Column(name="telefono", type="string", nullable=true)
+     * @ORM\Column(name="referente", type="string", nullable=true)
      */
-    private $telefono;
+    private $referente;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titolo", type="string", nullable=true)
+     */
+    private $titolo;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", nullable=true)
+     */
+    private $email;
 
 
     /**
@@ -109,21 +123,6 @@ class Annuncio
         $this->utente = $utente;
     }
 
-    /**
-     * @return string
-     */
-    public function getTelefono()
-    {
-        return $this->telefono;
-    }
-
-    /**
-     * @param string $telefono
-     */
-    public function setTelefono($telefono)
-    {
-        $this->telefono = $telefono;
-    }
 
     /**
      * @return string
@@ -205,8 +204,53 @@ class Annuncio
         $this->prezzo = $prezzo;
     }
 
+    /**
+     * @return string
+     */
+    public function getReferente()
+    {
+        return $this->referente;
+    }
 
+    /**
+     * @param string $referente
+     */
+    public function setReferente($referente)
+    {
+        $this->referente = $referente;
+    }
 
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitolo()
+    {
+        return $this->titolo;
+    }
+
+    /**
+     * @param string $titolo
+     */
+    public function setTitolo($titolo)
+    {
+        $this->titolo = $titolo;
+    }
 
 
 
