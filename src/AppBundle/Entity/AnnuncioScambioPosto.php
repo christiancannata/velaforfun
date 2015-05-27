@@ -113,6 +113,12 @@ class AnnuncioScambioPosto
      **/
     private $risposte;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="CCDNForum\ForumBundle\Entity\Topic")
+     * @ORM\JoinColumn(name="id_topic", referencedColumnName="id", nullable=true)
+     **/
+    private $topic;
+
 
     public function __construct() {
         $this->risposte = new ArrayCollection();
@@ -325,6 +331,22 @@ class AnnuncioScambioPosto
     public function setRisposte($risposte)
     {
         $this->risposte = $risposte;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTopic()
+    {
+        return $this->topic;
+    }
+
+    /**
+     * @param mixed $topic
+     */
+    public function setTopic($topic)
+    {
+        $this->topic = $topic;
     }
 
 

@@ -129,7 +129,11 @@ class AnnuncioImbarco
     private $risposte;
 
 
-
+    /**
+     * @ORM\ManyToOne(targetEntity="CCDNForum\ForumBundle\Entity\Topic")
+     * @ORM\JoinColumn(name="id_topic", referencedColumnName="id", nullable=true)
+     **/
+    private $topic;
 
     /**
      * @var string
@@ -399,6 +403,22 @@ class AnnuncioImbarco
     public function setPermalink($permalink)
     {
         $this->permalink = $permalink;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTopic()
+    {
+        return $this->topic;
+    }
+
+    /**
+     * @param mixed $topic
+     */
+    public function setTopic($topic)
+    {
+        $this->topic = $topic;
     }
 
 

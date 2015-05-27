@@ -11,10 +11,6 @@ use AppBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Ivory\GoogleMap\Map;
-use Ivory\GoogleMap\Overlays\Animation;
-use Ivory\GoogleMap\Overlays\Marker;
-use Ivory\GoogleMap\Helper\MapHelper;
 
 
 class PortoController extends BaseController
