@@ -35,7 +35,7 @@ class NodoMenu {
     /**
      * @var string
      *
-     * @ORM\Column(name="action", type="string",  columnDefinition="ENUM('_BLANK','TOP')")
+     * @ORM\Column(name="action", type="string",  columnDefinition="ENUM('_BLANK','_SELF')")
      */
     private $action;
 

@@ -130,11 +130,14 @@
                                         </div>
                                         <div class="back">
                                             <a href="/"> <img src="/bundles/app/images/logo.png" width="50"></a>
+
+                                            {% set subMenu= menu("sub_menu") %}
+
                                             <ul class="list-inline">
-                                                <li><a href="/porti">Porti Italiani</a></li>
-                                                <li><a href="/portolano-online">Portolano Online</a></li>
-                                                <li><a href="/chi-siamo">Chi Siamo</a></li>
-                                                <li><a href="/contatti">Contatti</a></li>
+                                                {% for nodo in subMenu %}
+                                                    <li><a href="{{ nodo.link }}" target="{{ nodo.action }}">{{ nodo.nome }}</a></li>
+
+                                                {% endfor %}
                                             </ul>
 
                                         </div>

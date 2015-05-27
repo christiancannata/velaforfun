@@ -13,6 +13,7 @@ class RegistrationFormType extends AbstractType
 		$builder->add('nome');
 		$builder->add('cognome');
         $builder->add('profilePictureFile',null, array('label' => 'Avatar'));
+        $builder->add('firma',null, array('label' => 'La tua firma'));
 	}
 
 	public function getParent()
