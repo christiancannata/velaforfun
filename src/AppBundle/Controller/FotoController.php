@@ -57,7 +57,7 @@ class FotoController extends BaseController
     /**
      * @Route("/", name="foto")
      */
-    public function nodiAction()
+    public function fotoAction()
     {
 
         $nodi = $this->getDoctrine()

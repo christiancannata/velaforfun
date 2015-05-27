@@ -46,7 +46,9 @@ class BaseController extends Controller
 
             } else {
                 $response['success'] = false;
-                $response['cause'] = $postform->getErrors();
+
+
+                $response['cause'] = $this->getErrorsAsArray($postform);
 
             }
 
@@ -139,5 +141,22 @@ class BaseController extends Controller
 
 
         return new JsonResponse($response);
+    }
+
+
+    public function getErrorsAsArray($form)
+    {
+        $errors = array();
+        foreach ($form->getErrors() as $error) {
+            $errors[] = $error->getMessage();
+        }
+
+        foreach ($form->all() as $key => $child) {
+            if ($err = $this->getErrorsAsArray($child)) {
+                $errors[$key] = $err;
+            }
+        }
+
+        return $errors;
     }
 }
