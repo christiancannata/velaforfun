@@ -43,4 +43,14 @@ class DefaultController extends Controller
 
         return $this->render('default/contatti.html.twig', array());
     }
+
+
+    /**
+     * @Route("/faq", name="contatti")
+     */
+    public function faqAction()
+    {
+
+        return $this->render('default/faq.html.twig', array());
+    }
 }

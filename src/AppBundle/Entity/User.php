@@ -91,6 +91,12 @@ class User extends BaseUser implements MandantUserInterface
 
 
     /**
+     * @ORM\OneToMany(targetEntity="Attracco", mappedBy="utente")
+     **/
+    private $attracchi;
+
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="timestamp", type="datetime", nullable=false)
@@ -446,6 +452,22 @@ class User extends BaseUser implements MandantUserInterface
         if ($file = $this->getProfilePictureAbsolutePath() && file_exists($this->getProfilePictureAbsolutePath())) {
             unlink($file);
         }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAttracchi()
+    {
+        return $this->attracchi;
+    }
+
+    /**
+     * @param mixed $attracchi
+     */
+    public function setAttracchi($attracchi)
+    {
+        $this->attracchi = $attracchi;
     }
 
 }

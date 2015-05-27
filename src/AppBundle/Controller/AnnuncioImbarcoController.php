@@ -98,4 +98,54 @@ class AnnuncioImbarcoController extends BaseController
 
         return $this->render('AppBundle:AnnuncioImbarco:dettagliAnnuncio.html.twig', array("annuncio" => $annuncio,"titolo"=>$titolo));
     }
+
+
+    /**
+     * @Route( "nuovo-annuncio", name="crea_nuovo_annuncio_imbarco" )
+     * @Template()
+     */
+    public function nuovoAnnuncioAction(Request $request)
+    {
+        $postform = $this->createForm(new AnnuncioImbarcoType());
+        if ($request->isMethod('POST')) {
+
+            $postform->handleRequest($request);
+
+            if ($postform->isValid()) {
+
+
+                /*
+                 * $data['title']
+                 * $data['body']
+                 */
+                $data = $postform->getData();
+
+
+
+
+
+
+
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($data);
+                $em->flush();
+
+
+                $response['success'] = true;
+                $response['response'] = $data->getId();
+
+
+            } else {
+                $response['success'] = false;
+
+
+                $response['reponse'] = $this->getErrorsAsArray($postform);
+
+            }
+
+            return new JsonResponse($response);
+        }
+        return $this->render('AppBundle:AnnuncioImbarco:crea.html.twig', array("form" => $postform->createView()));
+    }
 }

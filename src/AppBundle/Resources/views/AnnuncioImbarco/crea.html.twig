@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+
+
+
+
+{% block body %}
+
+
+    <!-- contenuto -->
+<div class="row clearfix">
+
+    <div class="col-md-12 column">
+    <h1>Nuovo annuncio</h1>
+        </div>
+
+    </div>
+
+    <div class="row clearfix">
+
+        <div class="col-md-8 column crud" >
+
+
+
+
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+       <div>
+        <input type="submit" class="btn btn-default login hvr-glow"  value="Crea" />
+    </div>
+        </form>
+
+        </div>
+        <div class="col-md-4 column">
+
+
+        </div>
+    </div>
+    <!-- fine contenuto -->
+
+</div>
+
+{% endblock %}

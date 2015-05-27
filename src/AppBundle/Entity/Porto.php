@@ -84,14 +84,12 @@ class Porto
     private $email;
 
 
+
     /**
-     * @ORM\ManyToMany(targetEntity="User")
-     * @ORM\JoinTable(name="utenti_porti",
-     *      joinColumns={@ORM\JoinColumn(name="id_porto", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="id_user", referencedColumnName="id", unique=true)}
-     *      )
+     * @ORM\OneToMany(targetEntity="Attracco", mappedBy="porto")
      **/
-    private $utenti;
+    private $attracchi;
+
 
 
     /**
@@ -370,6 +368,22 @@ class Porto
     public function getUtentiAttraccati()
     {
         return $this->utentiAttraccati;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAttracchi()
+    {
+        return $this->attracchi;
+    }
+
+    /**
+     * @param mixed $attracchi
+     */
+    public function setAttracchi($attracchi)
+    {
+        $this->attracchi = $attracchi;
     }
 
 
