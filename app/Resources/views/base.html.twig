@@ -392,10 +392,10 @@
 
         $(document).ready(function () {
 
-            if($("#blogbundle_articolo_testo").length>0){
+            if($('[ name="{{ form.vars.full_name }}"]').length>0){
                 tinymce.init({
                     language_url: '/bundles/app/js/languages/it.js',
-                    selector: '#blogbundle_articolo_testo',
+                    selector: 'textarea',
                     plugins: ["textcolor","image"],
                     file_picker_callback: function(callback, value, meta) {
                         // Provide file and text for the link dialog

@@ -30,14 +30,14 @@ class Annuncio
     /**
      * @var string
      *
-     * @ORM\Column(name="referente", type="string", nullable=true)
+     * @ORM\Column(name="referente", type="string", nullable=false)
      */
     private $referente;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="titolo", type="string", nullable=true)
+     * @ORM\Column(name="titolo", type="string", nullable=false)
      */
     private $titolo;
 
@@ -45,7 +45,7 @@ class Annuncio
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", nullable=true)
+     * @ORM\Column(name="email", type="string", nullable=false)
      */
     private $email;
 
@@ -68,7 +68,7 @@ class Annuncio
     /**
      * @var string
      *
-     * @ORM\Column(name="descrizione", type="text", nullable=true)
+     * @ORM\Column(name="descrizione", type="text", nullable=false)
      */
     private $descrizione;
 
