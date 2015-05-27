@@ -433,7 +433,7 @@
 
                     if(form.find(".callback").length>0){
                         var callbackFunction=form.find(".callback").val();
-                        window[callbackFunction]();
+                        window[callbackFunction](response);
                     }
 
                 });

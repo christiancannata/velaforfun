@@ -55,5 +55,24 @@ class CommentoPortoController extends BaseController
     }
 
 
+    /**
+     * @Route("/{permalink}", name="dettaglio_commento_porto")
+     */
+    public function dettagliPortoAction($permalink)
+    {
 
+        $client = $this->container->get('weather.client');
+
+        if (is_numeric($permalink)) {
+            $porto = $this->getDoctrine()
+                ->getRepository('AppBundle:CommentoPorto')->find($permalink);
+
+
+            $serializer = $this->container->get('jms_serializer');
+            $serializedPorto = $serializer->serialize($porto, "json");
+
+            return new JsonResponse(json_decode($serializedPorto));
+        }
+
+    }
 }

@@ -36,7 +36,7 @@
                 <div class="article main-article">
 
                     <div class="content"
-                         style="background-image: url(/images/{{ articoli[0].immagine }})">
+                         style="background-image: url(/images/articoli/{{ articoli[0].immagine }})">
                         <div class="category">
                             <a href="/archivio/{{ articoli[0].categoria.permalink }}"><span style="background:{{ articoli[0].categoria.getColore() }}" >{{ articoli[0].categoria.nome|capitalize }}</span> <span
                                         style="background:{{ articoli[0].categoria.getColore() }}"       >+</span></a>
@@ -46,7 +46,7 @@
 
                             <div class="divisore"></div>
                             <div class="subtitle">
-                                {{ articoli[0].testo|slice(0, 100) }}...
+                                {{ articoli[0].sottotitolo|slice(0, 100) }}...
                             </div>
                         </div>
 
@@ -67,7 +67,7 @@
                                 <div class="content">
                                     <h4>{{ articoli[1].titolo }}</h4>
 
-                                    <p>{{ articoli[1].testo|slice(0, 100) }}...</p>
+                                    <p>{{ articoli[1].sottotitolo|slice(0, 100) }}...</p>
                                 </div>
                                 <div class="arrow">
                                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -81,7 +81,7 @@
                                 <div class="content">
                                     <h4>{{ articoli[2].titolo }}</h4>
 
-                                    <p>{{ articoli[2].testo|slice(0, 100) }}...</p>
+                                    <p>{{ articoli[2].sottotitolo|slice(0, 100) }}...</p>
                                 </div>
                                 <div class="arrow">
                                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -95,7 +95,7 @@
                                 <div class="content">
                                     <h4>{{ articoli[3].titolo }}</h4>
 
-                                    <p>{{ articoli[3].testo|slice(0, 100) }}...</p>
+                                    <p>{{ articoli[3].sottotitolo|slice(0, 100) }}...</p>
                                 </div>
                                 <div class="arrow">
                                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>

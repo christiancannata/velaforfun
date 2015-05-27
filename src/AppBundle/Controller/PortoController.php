@@ -148,6 +148,16 @@ class PortoController extends BaseController
 
         $client = $this->container->get('weather.client');
 
+        if (is_numeric($permalink)) {
+            $porto = $this->getDoctrine()
+                ->getRepository('AppBundle:Porto')->find($permalink);
+
+
+            $serializer = $this->container->get('jms_serializer');
+            $serializedPorto = $serializer->serialize($porto, "json");
+
+            return new JsonResponse(json_decode($serializedPorto));
+        }
 
         $porto = $this->getDoctrine()
             ->getRepository('AppBundle:Porto')->findOneByPermalink($permalink);
@@ -171,7 +181,10 @@ class PortoController extends BaseController
         $postform = $this->createForm(new CommentoPortoType());
 
 
-        return $this->render('AppBundle:Porto:dettagliPorto.html.twig', array("porto" => $porto, "titolo" => $titolo,"meteo"=>$weather,"form"=>$postform->createView()));
+        return $this->render(
+            'AppBundle:Porto:dettagliPorto.html.twig',
+            array("porto" => $porto, "titolo" => $titolo, "meteo" => $weather, "form" => $postform->createView())
+        );
     }
 
     /**

@@ -17,6 +17,7 @@ class ArticoloType extends AbstractType
         $builder
             ->add('titolo')
             ->add('stato','choice',array('choices'=>array('ATTIVO'=>'ATTIVO','BOZZA'=>'BOZZA','DISATTIVO'=>'DISATTIVO')))
+            ->add('sottotitolo')
             ->add('testo')
             ->add('profilePictureFile')
             ->add('tags')

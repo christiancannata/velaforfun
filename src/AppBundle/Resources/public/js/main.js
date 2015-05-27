@@ -143,7 +143,50 @@ jQuery(document).ready(function ($) {
 });
 
 
+function setNuovoCommentoPorto(response) {
+    $.get("/commento-porto/" + response.response, function (commento) {
 
-function setNuovoCommentoPorto(){
+
+        if ($("#commentiPorto").length > 0) {
+            var nuovoCommento = ' <li class="media"> <div class="media-left"> <a href="#">';
+
+            if (commento.utente.facebook_i_d != "") {
+                nuovoCommento += '<img width="50" alt="avatar" src="http://graph.facebook.com/' + commento.utente.facebook_i_d + '/picture?type=square" class="media-object">';
+
+            } else {
+                if (typeof commento.utente.profilePicturePath != "udenfined") {
+                    nuovoCommento += '<img width="50" alt="avatar" src="/uploads/utenti/profilo/' + commento.utente.profilePicturePath + '" class="media-object">';
+
+                } else {
+
+                }
+            }
+
+
+            nuovoCommento += '</a> </div> <div class="media-body"> <h4 class="media-heading">' + commento.utente.username + '</h4> <p>' + commento.testo + '</p> <p>' + commento.timestamp + '</p> <p>';
+            if (commento.tipo_commento == "POSITIVO") {
+                nuovoCommento += '<i class="fa fa-thumbs-up foreground-verde"></i>';
+
+            } else {
+                nuovoCommento += '<i class="fa fa-thumbs-down foreground-rosso"></i>';
+
+            }
+
+            nuovoCommento += '</p> </div> </li>';
+
+
+        } else {
+
+            var box = '<div class="scroll-pane"><ul class="media-list" id="commentiPorto"></ul></div>';
+
+            $(".no-commento").remove();
+            $(".commento").append(box);
+
+
+        }
+        $('#commentiPorto li:eq(0)').before(nuovoCommento);
+
+    });
+
 
 };

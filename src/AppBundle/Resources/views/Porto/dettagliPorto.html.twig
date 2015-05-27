@@ -371,7 +371,7 @@
                         {% else %}
 
                             <div class="scroll-pane">
-                                <ul class="media-list">
+                                <ul class="media-list" >
 
                                     {% for utente in porto.getUtenti() %}
 
@@ -425,15 +425,15 @@
             <div class="row clearfix">
 
                 <div class="row clearfix">
-                    <div class="col-md-12 column box attracco">
+                    <div class="col-md-12 column box commento">
                         <h3>Commenti sul porto</h3>
 
 
                         {% if porto.getCommenti is empty %}
-                            Non ci sono commenti per questo porto
+                            <div class="no-commento">Non ci sono commenti per questo porto</div>
                         {% else %}
                             <div class="scroll-pane">
-                                <ul class="media-list">
+                                <ul class="media-list" id="commentiPorto">
 
                                     {% for commento in porto.getCommenti() %}
 

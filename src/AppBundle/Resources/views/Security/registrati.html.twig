@@ -7,12 +7,12 @@
     if($("#profilePicture").length>0){
         $("#fos_user_registration_form_profilePictureFile").replaceWith($("#profilePictureDiv"));
     }
+        $("#fos_user_registration_form_cognome").val("{{ userInformation.response['last_name'] }}");
+        $("#fos_user_registration_form_nome").val("{{ userInformation.response['first_name'] }}");
     });
 </script>
 {% endblock %}
     {% block body %}
-
-
 
   <div class="row clearfix">
         <div class="col-md-12 column">

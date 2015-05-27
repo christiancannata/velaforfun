@@ -16,7 +16,8 @@ class BaseController extends Controller
     {
         $matches = array();
         $controller = $this->getRequest()->attributes->get('_controller');
-        $namespace=explode("\\",$controller);
+        $namespace = explode("\\", $controller);
+
         return $namespace[0];
     }
 
@@ -43,12 +44,14 @@ class BaseController extends Controller
 
 
                 $response['success'] = true;
+                $response['response'] = $data->getId();
+
 
             } else {
                 $response['success'] = false;
 
 
-                $response['cause'] = $this->getErrorsAsArray($postform);
+                $response['reponse'] = $this->getErrorsAsArray($postform);
 
             }
 
@@ -57,7 +60,7 @@ class BaseController extends Controller
 
         return $this->render(
             'AppBundle:Crud:create.html.twig',
-            array('form' => $postform->createView(), "titolo" => "Crea ". $this->entity)
+            array('form' => $postform->createView(), "titolo" => "Crea ".$this->entity)
         );
     }
 
@@ -98,7 +101,10 @@ class BaseController extends Controller
             return new JsonResponse($response);
         }
 
-        return $this->render('AppBundle:Crud:create.html.twig', array('form' => $postform->createView(), "titolo" => "Modifica ". $this->entity. " - ".$id));
+        return $this->render(
+            'AppBundle:Crud:create.html.twig',
+            array('form' => $postform->createView(), "titolo" => "Modifica ".$this->entity." - ".$id)
+        );
     }
 
 

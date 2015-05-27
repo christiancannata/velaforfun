@@ -108,6 +108,8 @@ class SecuredController extends ConnectController
             $paths=$userInformation->getPaths();
             $response['profilepicture']="http://graph.facebook.com/".$response['id']."/picture?type=large";
             $paths['profilepicture']="profilepicture";
+            $paths['nome']="first_name";
+            $paths['cognome']="last_name";
             $userInformation->setResponse($response);
             $userInformation->setPaths($paths);
         }

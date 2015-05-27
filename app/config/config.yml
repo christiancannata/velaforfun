@@ -138,8 +138,6 @@ hwi_oauth:
             client_id:           575810985813680
             client_secret:       05917e0ff22500a2670f8a1629d8cec3
             scope: "public_profile"
-            options:
-                display: popup #dialog is optimized for popup window
     fosub:
         # try 30 times to check if a username is available (foo, foo1, foo2 etc)
         username_iterations: 30

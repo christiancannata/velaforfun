@@ -12,8 +12,7 @@ class RegistrationFormType extends AbstractType
 		// add your custom field
 		$builder->add('nome');
 		$builder->add('cognome');
-        $builder->add('profilePictureFile');
-        $builder->add('porto');
+        $builder->add('profilePictureFile',null, array('label' => 'Avatar'));
 	}
 
 	public function getParent()

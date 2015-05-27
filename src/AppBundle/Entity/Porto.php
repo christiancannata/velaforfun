@@ -364,5 +364,13 @@ class Porto
         $this->permalink = strtolower($slug."-".rand(1, 99));
     }
 
+    /**
+     * @return mixed
+     */
+    public function getUtentiAttraccati()
+    {
+        return $this->utentiAttraccati;
+    }
+
 
 }
