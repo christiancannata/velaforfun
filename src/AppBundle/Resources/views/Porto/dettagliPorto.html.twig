@@ -149,12 +149,12 @@
                     <div class="container-mappa">
 
                         <div class="row clearfix">
-                            <div class="col-md-6 column">
+                            <div class="col-md-6 col-xs-6 column">
                                 <button class="localizzami hvr-glow left" id='geolocate'><i style=""
                                                                                             class="fa fa-crosshairs"></i>Localizzami
                                 </button>
                             </div>
-                            <div class="col-md-6 column">
+                            <div class="col-md-6 col-xs-6 column">
                                 <button class="checkin  hvr-glow right" id='checkin'><i style=""
                                                                                         class="fa fa-crosshairs"></i>Attracca
                                     qui
@@ -180,6 +180,7 @@
                             </div>
                         </div>
                         <div class="row clearfix">
+                            <div class="col-md-12 column">
                             {% if app.user %}
                                 <form action="/commento-porto/crea" method="post" name="appbundle_commentoporto">
                                     <div class="col-md-11 column">
@@ -210,6 +211,7 @@
                                             <i class="fa fa-sign-in"></i>
                                         </a>
                                     </div>
+                                    <input type="hidden" class="callback" value="setNuovoCommentoPorto">
                                 </form>
 
                             {% else %}
@@ -256,7 +258,15 @@
 
                             {% endif %}
 
+</div>
+                        </div>
 
+                        <div class="row clearfix">
+                            <div class="col-md-12 column">
+                                <div class="response-form">
+
+                                </div>
+                                </div>
                         </div>
 
                     </div>

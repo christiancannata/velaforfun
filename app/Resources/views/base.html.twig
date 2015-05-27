@@ -386,6 +386,7 @@
     <script></script>
 
     <script language="javascript">
+
         $(document).ready(function () {
 
             if($("#blogbundle_articolo_testo").length>0){
@@ -429,6 +430,12 @@
                         showalert(form, "Errore nella creazione", "error")
                     }
                     form.find('input[type="submit"],button').removeAttr('disabled');
+
+                    if(form.find(".callback").length>0){
+                        var callbackFunction=form.find(".callback").val();
+                        window[callbackFunction]();
+                    }
+
                 });
 
                 return false;
