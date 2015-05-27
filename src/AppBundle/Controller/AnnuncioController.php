@@ -32,14 +32,8 @@ class AnnuncioController extends BaseController
 
             if ($postform->isValid()) {
 
-
-                /*
-                 * $data['title']
-                 * $data['body']
-                 */
                 $annuncio = $postform->getData();
                 $em = $this->container->get('doctrine')->getManager();
-
 
                 $repository = $this->container->get('doctrine')
                     ->getRepository('AppBundle:User');
@@ -52,7 +46,7 @@ class AnnuncioController extends BaseController
                     $username = strtolower(str_replace(" ", "", $annuncio->getReferente()));
                     $user->setUsername($username);
                     $user->setPlainPassword($username."1");
-
+                    $user->setEnable(true);
                     $em->persist($user);
                     $em->flush();
                 }
@@ -94,7 +88,7 @@ class AnnuncioController extends BaseController
 
 
                 $response['success'] = true;
-                $response['response'] = $firstTopic->getId();
+                $response['response'] = $post->getId();
 
 
             } else {

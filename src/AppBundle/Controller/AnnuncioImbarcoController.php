@@ -107,33 +107,70 @@ class AnnuncioImbarcoController extends BaseController
     public function nuovoAnnuncioAction(Request $request)
     {
         $postform = $this->createForm(new AnnuncioImbarcoType());
+
         if ($request->isMethod('POST')) {
 
             $postform->handleRequest($request);
 
             if ($postform->isValid()) {
 
+                $annuncio = $postform->getData();
+                $em = $this->container->get('doctrine')->getManager();
 
-                /*
-                 * $data['title']
-                 * $data['body']
-                 */
-                $data = $postform->getData();
+                $repository = $this->container->get('doctrine')
+                    ->getRepository('AppBundle:User');
+                $user = $repository->findOneBy(array("email" => $annuncio->getEmail()));
+                if (!$user) {
+                    $userManager = $this->container->get('fos_user.user_manager');
+                    $user = $userManager->createUser();
+                    $user->setEmail($annuncio->getEmail());
+                    $user->setNome($annuncio->getReferente());
+                    $username = strtolower(str_replace(" ", "", $annuncio->getReferente()));
+                    $user->setUsername($username);
+                    $user->setPlainPassword($username."1");
+                    $user->setEnable(true);
+                    $em->persist($user);
+                    $em->flush();
+                }
 
 
+                $firstTopic = new Topic();
+                $firstTopic->setTitle($annuncio->getTitolo());
+                $firstTopic->setCachedViewCount(1);
+
+                if ($annuncio->getTipoAnnuncio() == "CERCO") {
+                    $firstTopic->setBoard(
+                        $this->container->get('doctrine')
+                            ->getRepository('CCDNForumForumBundle:Board')->find(19)
+                    );
+                } else {
+                    $firstTopic->setBoard(
+                        $this->container->get('doctrine')
+                            ->getRepository('CCDNForumForumBundle:Board')->find(20)
+                    );
+                }
 
 
+                $em->persist($firstTopic);
+                $em->flush();
 
 
+                $post = new Post();
+                $post->setTopic($firstTopic);
+                $post->setCreatedDate(new \DateTime());
+                $post->setCreatedBy(
+                    $user
+                );
 
 
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($data);
+                $post->setBody($annuncio->getDescrizione());
+
+                $em->persist($post);
                 $em->flush();
 
 
                 $response['success'] = true;
-                $response['response'] = $data->getId();
+                $response['response'] = $post->getId();
 
 
             } else {
