@@ -28,7 +28,7 @@ class NodoMenu {
     /**
      * @var string
      *
-     * @ORM\Column(name="nome", type="string")
+     * @ORM\Column(name="nome", type="string", nullable=false)
      */
     private $nome;
 

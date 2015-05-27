@@ -18,6 +18,12 @@ nodi:
     type:     annotation
     prefix:   /nodi
 
+foto:
+    resource: "@AppBundle/Controller/FotoController.php"
+    type:     annotation
+    prefix:   /foto
+
+
 segnali:
     resource: "@AppBundle/Controller/SegnaleController.php"
     type:     annotation
@@ -33,6 +39,12 @@ menu:
     resource: "@AppBundle/Controller/MenuController.php"
     type:     annotation
     prefix:   /menu
+
+
+galleria_foto:
+    resource: "@AppBundle/Controller/GalleriaFotoController.php"
+    type:     annotation
+    prefix:   /galleria-foto
 
 nodomenu:
     resource: "@AppBundle/Controller/NodoMenuController.php"

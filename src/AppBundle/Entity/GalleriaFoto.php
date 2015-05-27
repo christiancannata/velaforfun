@@ -12,10 +12,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation as Serializer;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="galleria_foto")
+ * @ORM\HasLifecycleCallbacks()
  */
 class GalleriaFoto
 {
@@ -51,6 +53,11 @@ class GalleriaFoto
      */
     protected $lastUpdateTimestamp;
 
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $permalink;
 
     /**
      * @ORM\OneToMany(targetEntity="Foto", mappedBy="galleria")
@@ -182,5 +189,29 @@ class GalleriaFoto
         $this->articolo = $articolo;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPermalink()
+    {
+        return $this->permalink;
+    }
 
+    /**
+     * @param mixed $permalink
+     */
+    public function setPermalink($permalink)
+    {
+        $this->permalink = $permalink;
+    }
+
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function generatePermalink()
+    {
+        $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $this->titolo."-".rand(1, 99));
+        $this->permalink = strtolower($slug);
+    }
 }
