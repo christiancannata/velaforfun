@@ -63,7 +63,7 @@ class PartnerController extends BaseController
             ->getRepository('AppBundle:Partner')->findAll();
         $titolo = "Partner";
 
-        return $this->render('AppBundle:Partner:tutti.html.twig', array("partner" => $porti, "titolo" => $titolo));
+        return $this->render('AppBundle:Partner:partner.html.twig', array("partner" => $porti, "titolo" => $titolo));
 
     }
 
