@@ -123,6 +123,10 @@ class Porto
 
 
 
+    /**
+     * @ORM\OneToMany(targetEntity="AnnuncioScambioPosto", mappedBy="luogoAttuale")
+     **/
+    protected $annunciScambioPosto;
 
     public function __construct()
     {
@@ -384,6 +388,22 @@ class Porto
     public function setAttracchi($attracchi)
     {
         $this->attracchi = $attracchi;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAnnunciScambioPosto()
+    {
+        return $this->annunciScambioPosto;
+    }
+
+    /**
+     * @param mixed $annunciScambioPosto
+     */
+    public function setAnnunciScambioPosto($annunciScambioPosto)
+    {
+        $this->annunciScambioPosto = $annunciScambioPosto;
     }
 
 

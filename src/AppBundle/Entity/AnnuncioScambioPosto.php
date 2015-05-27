@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
-
 /**
  * @ORM\Entity
  * @ORM\Table(name="annuncio_scambio_posto")
@@ -35,11 +34,9 @@ class AnnuncioScambioPosto
     private $telefono;
 
     /**
-     * @var string
-     *
-     * @Assert\NotBlank()
-     * @ORM\Column(name="luogo_attuale", type="string", nullable=false)
-     */
+     * @ORM\ManyToOne(targetEntity="Porto", inversedBy="annunciScambioPosto")
+     * @ORM\JoinColumn(name="id_porto_attuale", referencedColumnName="id", nullable=true)
+     **/
     private $luogoAttuale;
 
     /**
@@ -118,11 +115,6 @@ class AnnuncioScambioPosto
      * @ORM\JoinColumn(name="id_topic", referencedColumnName="id", nullable=true)
      **/
     private $topic;
-
-
-    public function __construct() {
-        $this->risposte = new ArrayCollection();
-    }
 
 
     /**
