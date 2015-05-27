@@ -308,6 +308,10 @@ a:hover, #menu-login a:hover, #menu-login a:active {
     text-decoration: none;
     color: rgb(66, 156, 188);
 }
+a:hover, #menu-login2 a:hover, #menu-login2 a:active {
+    text-decoration: none;
+    color: rgb(66, 156, 188);
+}
 
 #logo {
     text-align: center;
@@ -799,13 +803,16 @@ input:-moz-placeholder {
     padding: 10px;
 }
 
-#menu-login .dropdown-menu {
+#menu-login .dropdown-menu{
     left: -50px;
     padding: 17px;
     color: rgb(66, 156, 188);
 }
-
-#menu-login .dropdown-menu label {
+#menu-login2 .dropdown-menu {
+    padding: 17px;
+    color: rgb(66, 156, 188);
+}
+#menu-login .dropdown-menu label,#menu-login2 .dropdown-menu label {
     color: rgb(66, 156, 188);
 }
 

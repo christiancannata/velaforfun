@@ -149,12 +149,12 @@
                     <div class="container-mappa">
 
                         <div class="row clearfix">
-                            <div class="col-md-6 col-xs-6 column">
+                            <div class="col-md-6 col-xs-6 column text-left">
                                 <button class="localizzami hvr-glow left" id='geolocate'><i style=""
                                                                                             class="fa fa-crosshairs"></i>Localizzami
                                 </button>
                             </div>
-                            <div class="col-md-6 col-xs-6 column">
+                            <div class="col-md-6 col-xs-6 column text-right">
                                 <button class="checkin  hvr-glow right" id='checkin'><i style=""
                                                                                         class="fa fa-crosshairs"></i>Attracca
                                     qui
@@ -364,7 +364,7 @@
                     <div class="col-md-12 column box attracco">
 
 
-                        {% if porto.getUtenti() is empty %}
+                        {% if porto.getAttracchi() is empty %}
                             Non ci sono utenti attraccati in questo porto
 
 
@@ -373,7 +373,7 @@
                             <div class="scroll-pane">
                                 <ul class="media-list" >
 
-                                    {% for utente in porto.getUtenti() %}
+                                    {% for utente in porto.getAttracchi() %}
 
                                         <li class="media">
                                             <div class="media-left">

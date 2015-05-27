@@ -150,35 +150,26 @@
 
             <div class="row clearfix">
                 <div class="col-md-12 column">
-            <div class="container-mappa">
-                <button class="localizzami" id='geolocate'><i style="" class="fa fa-crosshairs"></i>Localizzami</button>
-                 <div id='map' style="margin-top:0px"></div>
-                </div>
-        </div>
-                </div>
+                    <div class="container-mappa">
 
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <div class="field-nuovo-commento">
                         <div class="row clearfix">
-                            <div class="col-md-12 column">
-                                <p><strong>Scrivi un commento su questo porto</strong></p>
-                            </div>
-                            </div>
-                        <div class="row clearfix">
-                            <div class="col-md-11 column">
-                                <input type="text" class="form-control" placeholder="Scrivi un commento...">
-                            </div>
-                            <div class="col-md-1 column">
-                                <a href="#">
-                                    <i class="fa fa-sign-in"></i>
-                                </a>
-                            </div>
+                            <div class="col-md-6 col-xs-6 column text-left">
+                                <button class="localizzami hvr-glow left" id='geolocate'><i style=""
+                                                                                            class="fa fa-crosshairs"></i>Localizzami
+                                </button>
                             </div>
 
                         </div>
+                        <div class="row clearfix">
+                            <div class="col-md-12 column">
+                                <div id='map' style="margin-top:0px"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
         </div>
 
 
@@ -196,7 +187,7 @@
                             <div class="form-group">
                                 <div class="inner-addon left-addon">
                                     <a onclick="$('#formCercaPorto').submit();" href="#"><i class="fa fa-search"></i></a>
-                                    <input type="search" placeholder="cerca un termine..." class="form-control" id="selectPorto" autocomplete="off">
+                                    <input type="search" placeholder="cerca un porto..." class="form-control" id="selectPorto" autocomplete="off">
                                 </div>
 
                             </div>
@@ -270,7 +261,7 @@ Ponte a Ema (FI)
                     <div class="col-md-12 column box attracco">
 
 
-                    {% if porti[0].getUtenti() is empty %}
+                    {% if porti[0].getAttracchi() is empty %}
     Non ci sono utenti attraccati in questo porto
 
 
@@ -279,7 +270,7 @@ Ponte a Ema (FI)
     <div class="scroll-pane">
         <ul class="media-list">
 
-            {% for commento in porti[0].getUtenti() %}
+            {% for commento in porti[0].getAttracchi() %}
 
                 <li class="media">
                     <div class="media-left">

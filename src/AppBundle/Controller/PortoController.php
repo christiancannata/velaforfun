@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Meteo;
 use AppBundle\Entity\Porto;
 use AppBundle\Form\CommentoPortoType;
 use AppBundle\Form\PortoType;
@@ -168,13 +169,47 @@ class PortoController extends BaseController
         }
 
 
-        $request = $client->get(
-            '/data/2.5/weather?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine(
-            ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&units=metric'
-        );
-        $response = $client->send($request);
-        $weather = json_decode($response->getBody(true));
 
+
+        $dal = new \DateTime();
+        $al = new \DateTime();
+        $dal->sub(new \DateInterval("P120M"));
+
+
+
+
+        $qb = $this->getDoctrine()->getManager()->createQueryBuilder();
+        $qb->select('m')
+            ->from('AppBundle:Meteo', 'm')
+            ->where('m.porto = :porto')
+            ->andWhere('m.timestamp between :dal and :al')
+            ->setParameters(array('porto' => $porto, 'dal' => $dal, 'al' => $al));
+
+        $meteo = $qb->getQuery()->getArrayResult();
+
+
+        if (empty($meteo)) {
+
+
+            $request = $client->get(
+                '/data/2.5/weather?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine(
+                ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&units=metric'
+            );
+            $response = $client->send($request);
+
+            $entityMeteo = new Meteo();
+            $entityMeteo->setData($response->getBody(true));
+            $entityMeteo->setPorto($porto);
+
+
+            $this->getDoctrine()->getManager()->persist($entityMeteo);
+            $this->getDoctrine()->getManager()->flush();
+
+            $weather = json_decode($response->getBody(true));
+        } else {
+            $meteo=$meteo[0]['data'];
+            $weather = json_decode($meteo);
+        }
 
         $titolo = "Porto di ".$porto->getNome();
 
@@ -204,14 +239,50 @@ class PortoController extends BaseController
             return new JsonResponse([]);
         }
 
-        $request = $client->get(
-            '/data/2.5/weather?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine(
-            ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&units=metric'
-        );
-        $response = $client->send($request);
-        $weather = json_decode($response->getBody(true));
+
+        $dal = new \DateTime();
+        $al = new \DateTime();
+        $dal->sub(new \DateInterval("P120M"));
+
+
+
+
+        $qb = $this->getDoctrine()->getManager()->createQueryBuilder();
+        $qb->select('m')
+            ->from('AppBundle:Meteo', 'm')
+            ->where('m.porto = :porto')
+            ->andWhere('m.timestamp between :dal and :al')
+            ->setParameters(array('porto' => $porto, 'dal' => $dal, 'al' => $al));
+
+        $meteo = $qb->getQuery()->getArrayResult();
+
+
+        if (empty($meteo)) {
+
+
+            $request = $client->get(
+                '/data/2.5/weather?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine(
+                ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&units=metric'
+            );
+            $response = $client->send($request);
+
+            $entityMeteo = new Meteo();
+            $entityMeteo->setData($response->getBody(true));
+            $entityMeteo->setPorto($porto);
+
+
+            $this->getDoctrine()->getManager()->persist($entityMeteo);
+            $this->getDoctrine()->getManager()->flush();
+
+            $meteo = json_decode($response->getBody(true));
+        } else {
+            $meteo=$meteo[0];
+            $meteo = $meteo['data'];
+            $meteo = json_decode($meteo);
+        }
+
         $serializedPorto = $serializer->serialize($porto, "json");
-        $data = array("porto" => json_decode($serializedPorto), "meteo" => $weather);
+        $data = array("porto" => json_decode($serializedPorto), "meteo" => $meteo);
 
         return new JsonResponse($data);
     }

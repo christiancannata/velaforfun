@@ -39,31 +39,124 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="#" class="navbar-brand" style="padding:0"> <img src="/bundles/app/images/logo.png" width="60"></a>
+                <a href="/" class="navbar-brand" style="padding:0"> <img src="/bundles/app/images/logo.png" width="60"></a>
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
                     <li class="dropdown">
-                        <a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown
+                        <a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Forum
                             <span class="caret"></span></a>
                         <ul role="menu" class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
+                            <li class="dropdown-header">Annunci di imbarco</li>
+                            <li><a href="#">Cerco</a></li>
+                            <li><a href="#">Offro</a></li>
+                            <li class="dropdown-header">Annunci di usato</li>
+                            <li><a href="#">Vendo</a></li>
+                            <li><a href="#">Compro</a></li>
                             <li class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
+                            <li><a href="/forum/velaforfun">Vedi tutte le sezioni</a></li>
                         </ul>
                     </li>
+                    <li ><a href="/porti">Porti d'Italia</a></li>
+                    <li ><a href="/segnalazioni-portolano">Portolano Online</a></li>
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../navbar/">Default</a></li>
-                    <li><a href="../navbar-static-top/">Static top</a></li>
-                    <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+                    {% if is_granted('ROLE_USER') %}
+
+
+                        <div class="dropdown" >
+                            <a class="dropdown-toggle" id="dropdownMenu1Tablet"
+                               data-toggle="dropdown" aria-expanded="true">
+
+                                <div >
+                                    <span> {{ app.user.username }}</span>
+                                    <span class="caret"></span>
+                                </div>
+
+                            </a>
+
+                            {% if not is_granted('ROLE_SUPER_ADMIN') %}
+
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1Tablet">
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/tuo-profilo">
+                                            <i class="fa fa-user"></i>
+                                            Il tuo profilo</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/tuoi-annunci">
+                                            <i class="fa fa-pencil"></i>
+                                            I tuoi annunci</a>
+                                    </li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">
+                                            <i class="fa fa-sign-out"></i>
+                                            Esci</a>
+                                    </li>
+                                </ul>
+                            {% else %}
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1Tablet">
+
+
+                                    <li class="dropdown-header">Gestione Articoli</li>
+                                    <li><a href="/archivio/articolo/crea">Crea nuovo</a></li>
+                                    <li><a href="/archivio/articolo/list">Lista</a></li>
+                                    <li class="dropdown-header">Gestione Porti</li>
+                                    <li><a href="/porti/crea">Crea nuovo</a></li>
+                                    <li><a href="/porti/list">Lista</a></li>
+                                    <li class="dropdown-header">Gestione Nodi</li>
+                                    <li><a href="/nodi/crea">Crea nuovo</a></li>
+                                    <li><a href="/nodi/list">Lista</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">
+                                            <i class="fa fa-sign-out"></i>
+                                            Esci</a>
+                                    </li>
+                                </ul>
+
+                            {% endif %}
+
+
+
+                        </div>
+                    {% else %}
+                        <ul class="list-inline" id="menu-login2">
+                            <li class="dropdown bordered" id="menuLogin2">
+                                <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin2"
+                                   style="border:none">ACCEDI</a>
+
+                                <div class="dropdown-menu" style="">
+                                    <form method="post" action="/login_check">
+                                        <div class="form-group">
+                                            <label for="username">Username:</label>
+                                            <input type="text" required="required" value="" name="_username"
+                                                   id="username">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">Password:</label>
+                                            <input type="password" required="required" name="_password" id="password">
+                                        </div>
+                                        <div class="form-group">
+
+                                            <input type="checkbox" value="on" name="_remember_me" id="remember_me">
+                                            <label for="remember_me">Ricordami</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-default login hvr-glow">Accedi</button>
+                                    </form>
+
+                                    <div class="divisore"></div>
+                                    <p class="menu-separator"><span>oppure</span></p>
+                                    <a href="http://local.velaforfun.dev/secure_area/connect/facebook"
+                                       class="btn btn-block btn-social btn-sm btn-facebook"
+                                       id="loginFacebook">
+                                        <i class="fa fa-facebook"></i>
+                                        Accedi con Facebook
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="bordered"><a href="/register">REGISTRATI</a></li>
+                        </ul>
+
+
+
+                    {% endif %}
+
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -335,8 +428,14 @@
                         ©
                         2015 Velaforfun</p>
 
-                    <p><a href="#">Sicurezza dei dati e Privacy</a> | <a href="#">Team editoriale</a> | <a href="#">Linea
-                            editoriale</a> | <a href="#">Come contattarci</a></p>
+                    <p>
+                        {% set menu= menu("footer_menu") %}
+
+                        {% for nodo in menu %}
+                        <a href="{{ nodo.link }}" target="{{ nodo.action }}">{{ nodo.nome }}</a>
+                       {% if not loop.last %} | {% endif %}
+                        {% endfor %}
+                    </p>
                 </div>
             </div>
         </div>

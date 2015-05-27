@@ -21,7 +21,7 @@ class Meteo {
 	/**
 	 * @var string
 	 *
-	 * @ORM\Column(name="data", type="string", nullable=true)
+	 * @ORM\Column(name="data", type="text", nullable=false)
 	 */
 	private $data;
 
