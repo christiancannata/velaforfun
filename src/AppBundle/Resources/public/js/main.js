@@ -141,6 +141,22 @@ jQuery(document).ready(function ($) {
      */
 
 });
+function redirectScambioPosto(response) {
+    location.href = '/forum/velaforfun/topic/' + response.response;
+}
+function redirectImbarco(response) {
+    location.href = '/forum/velaforfun/topic/' + response.response;
+}
+
+function setRisultatiAnnunciImbarco(response) {
+    var risultati = "";
+    for (var i=0;i<response.length;i++) {
+        var risultato=response[i];
+        risultati += '<tr> <td>' + risultato.topic.title + '</td> <td>' + risultato.timestamp + '</td> <td>0</td> <td> <button onclick="location.href=\'/forum/velaforfun/topic/' + risultato.topic.id + '\'" class="btn btn-primary" type="button"><i class="fa fa-reply"></i> Leggi Annuncio </button> </td> </tr>';
+
+    }
+    $("table tbody").html(risultati);
+}
 
 
 function setNuovoCommentoPorto(response) {

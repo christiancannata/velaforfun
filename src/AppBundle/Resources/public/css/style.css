@@ -8,10 +8,13 @@ url('../font/ProximaNova-Regular.otf');  format('truetype'), /* Safari, Android,
 
 body {
     font-family: ProximaNova;
-    padding-top: 115px;
     background: rgb(242, 242, 242);
     color: rgb(153, 153, 153);
 }
+
+
+
+
 
 h1, h2, h3, h4 {
     margin: 0;
@@ -30,12 +33,28 @@ form label {
     border-color: #e7e7e7;
 
 }
-@media (min-width: @screen-lg-min) {
 
-    .navbar-default{
-        height: 100px;
+@media (min-width: 767px) {
+
+    body {
+        padding-top: 115px;
+    }
+
+}
+@media (max-width: 767px) {
+
+
+    body {
+        padding-top: 65px;
+    }
+    .navbar-default {
+        height: 57px;
+    }
+    #navbar{
+        background:white !important;
     }
 }
+
 .box-home {
     height: 204px;
     cursor: pointer;
@@ -186,7 +205,7 @@ ul.content {
     float: left;
     width: 10%;
     text-align: center;
-    font-size:30px;
+    font-size: 30px;
     line-height: 3em;
     color: rgb(66, 156, 188);
 }
@@ -209,7 +228,7 @@ ul.content {
     cursor: pointer;
     margin-bottom: 20px;
     padding: 5px;
-    background:white;
+    background: white;
 }
 
 .box-sub p {
@@ -301,13 +320,14 @@ a {
 }
 
 #menu-login span {
-    font-size: 1.2vw;
+    font-size: 1vw;
 }
 
 a:hover, #menu-login a:hover, #menu-login a:active {
     text-decoration: none;
     color: rgb(66, 156, 188);
 }
+
 a:hover, #menu-login2 a:hover, #menu-login2 a:active {
     text-decoration: none;
     color: rgb(66, 156, 188);
@@ -417,9 +437,9 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
     color: white;
 }
 
-.arrow_box:after, .arrow_box:before {
+.arrow_box .content:after, .arrow_box .content:before {
     right: 100%;
-    top: 50%;
+    top: 75%;
     border: solid transparent;
     content: " ";
     height: 0;
@@ -428,14 +448,14 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
     pointer-events: none;
 }
 
-.arrow_box:after {
+.arrow_box .content:after {
     border-color: rgba(136, 183, 213, 0);
     border-right-color: rgb(66, 156, 188);
     border-width: 20px;
     margin-top: -20px;
 }
 
-.arrow_box:before {
+.arrow_box .content:before {
     border-color: rgba(0, 0, 0, 0);
     border-right-color: #none;
     border-width: 36px;
@@ -608,7 +628,7 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
 }
 
 .dropdown-menu li.form {
-    background: rgb(66, 156, 188) none repeat scroll 0 0;
+    background: rgb(61, 144, 173) none repeat scroll 0 0;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -755,13 +775,31 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
 
 .right-inner-addon input {
     padding-right: 30px;
-    background: rgba(66, 156, 188, 1);
+    background: rgb(61, 144, 173) none repeat scroll 0 0;
     border: none;
     color: white;
-    border-color: rgba(66, 156, 188, 1);
+    background: rgb(61, 144, 173) none repeat scroll 0 0;
     cursor: pointer;
 }
 
+.right-inner-addon input::-webkit-input-placeholder {
+    color: white;
+}
+.right-inner-addon input::-moz-placeholder {
+    color: white;
+}
+.right-inner-addon input:-moz-placeholder {   /* Older versions of Firefox */
+    color: white;
+}
+.right-inner-addon  input:-ms-input-placeholder {
+    color: white;
+}
+
+
+.right-inner-addon input:focus{
+    border-radius: 0;
+    box-shadow: none;
+}
 .right-inner-addon i {
     position: absolute;
     right: 0px;
@@ -803,16 +841,18 @@ input:-moz-placeholder {
     padding: 10px;
 }
 
-#menu-login .dropdown-menu{
+#menu-login .dropdown-menu {
     left: -50px;
     padding: 17px;
     color: rgb(66, 156, 188);
 }
+
 #menu-login2 .dropdown-menu {
     padding: 17px;
     color: rgb(66, 156, 188);
 }
-#menu-login .dropdown-menu label,#menu-login2 .dropdown-menu label {
+
+#menu-login .dropdown-menu label, #menu-login2 .dropdown-menu label {
     color: rgb(66, 156, 188);
 }
 
@@ -942,7 +982,7 @@ input:-moz-placeholder {
     margin-top: 1em;
     margin-right: 1em;
     position: relative;
-    width:50px;
+    width: 50px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -1036,9 +1076,11 @@ h1 {
     border: 1px solid #429CBC;
     padding: 8px;
 }
-#colonnaPorto .over-box .form-group{
+
+#colonnaPorto .over-box .form-group {
     margin-bottom: 0px;
 }
+
 #cercaPortoBig i {
     font-size: 24px;
     border-left: 1px solid #429CBC;
@@ -1149,12 +1191,12 @@ h1 {
 }
 
 td .content-table h4 {
-    display: inline;
+    text-align:center
 }
 
 td .content-table {
     text-align: center;
-    height: 60px;
+    height: 80px;
     border-right: 1px solid rgb(66, 156, 188);
 }
 
@@ -1192,54 +1234,59 @@ textarea#testo {
 .ascolta:hover, .stop:hover {
     color: rgb(66, 156, 188);
 }
+
 /* Hidding the radiobuttons & checkboxes */
 input[type="radio"], input[type="checkbox"] {
     display: none;
 }
-.fa-stack{
+
+.fa-stack {
     color: rgb(66, 156, 188) !important;
-    font-size:24px;
+    font-size: 24px;
     opacity: 0.4;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-
 /* Styling the "check" status */
-input[type="radio"]:checked + label .fa-stack{
-    cursor:pointer;
+input[type="radio"]:checked + label .fa-stack {
+    cursor: pointer;
     opacity: 1 !important;
 
 }
+
 /* Styling checkboxes */
 /* Styling radiobuttons */
 
-input[type="radio"]:checked .fa-stack-1x{
-    opacity:1;
+input[type="radio"]:checked .fa-stack-1x {
+    opacity: 1;
 }
-.fa-stack:hover{
-    opacity:1;
+
+.fa-stack:hover {
+    opacity: 1;
 }
 
 .media {
     margin-top: 0px;
 }
 
-#menu-login li.bordered{
-    border-left:1px solid rgb(153, 153, 153);
-    padding-left:15px;
+#menu-login li.bordered {
+    border-left: 1px solid rgb(153, 153, 153);
+    padding-left: 15px;
 }
-.nodo{
+
+.nodo {
     float: left;
     height: 100%;
     margin-top: 30px;
     width: 100%;
 }
-.nodo .video{
+
+.nodo .video {
     height: 350px;
-    background:lightgreen;
+    background: lightgreen;
 }
 
-.nodo .content{
+.nodo .content {
     background: rgb(153, 153, 153) none repeat scroll 0 0;
     bottom: 0;
     float: left;
@@ -1248,25 +1295,26 @@ input[type="radio"]:checked .fa-stack-1x{
     width: 92%;
 }
 
-.nodo .content h2{
-    color:white;
+.nodo .content h2 {
+    color: white;
     font-weight: bold;
-    font-size:24px;
+    font-size: 24px;
 }
 
-.nodo:hover .content h2{
-    color:rgb(66, 156, 188);
+.nodo:hover .content h2 {
+    color: rgb(66, 156, 188);
 }
 
-.nodo:hover .content{
-    background: rgba(255,255,255,1);
+.nodo:hover .content {
+    background: rgba(255, 255, 255, 1);
 }
 
-.nodi .column{
-    margin-top:20px;
+.nodi .column {
+    margin-top: 20px;
 }
-.nodi .divBackgroundImage{
-    width:97%
+
+.nodi .divBackgroundImage {
+    width: 97%
 }
 
 .btn.btn-default.dettagli-nodo {
@@ -1277,9 +1325,113 @@ input[type="radio"]:checked .fa-stack-1x{
     font-size: 20px;
     text-transform: uppercase;
     width: 100%;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
-.crud form input,#Forum_BoardCreate_topicCreateAuthorisedRoles input{
-    display:block !important;
+.crud form input, #Forum_BoardCreate_topicCreateAuthorisedRoles input {
+    display: block !important;
+}
+
+#content-articolo h1 {
+    border: none;
+    font-size: 30px;
+    padding: 0;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#content-articolo #body-content {
+    padding: 10px;
+    background: white;
+    color: rgb(77, 77, 77);
+    font-size: 14px !important;
+}
+
+ul.share-buttons {
+    list-style: none;
+    padding: 0;
+}
+
+ul.share-buttons li {
+    display: inline;
+}
+
+#content-articolo .category a {
+    float: left;
+}
+
+#content-articolo .glyphicon.glyphicon-menu-left.background-celeste {
+    line-height: 22px;
+}
+
+#content-articolo a span:hover {
+    opacity: 1 !important;
+}
+
+#content-articolo .category:hover span {
+    opacity: 1 !important;
+
+}
+
+#back-link:hover, #category-link:hover {
+    opacity: 0.8;
+}
+
+#content-articolo .sottotitolo p {
+    line-height: 25px;
+}
+
+.arrow_box h4 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.arrow_box img {
+    width: 100%;
+}
+
+#content-articolo .title {
+    background: white;
+    margin-bottom: 0px;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 34px;
+    margin-top: 0px;
+}
+
+#content-articolo .latest-news h4 {
+    font-size: 20px !important;
+}
+
+#content-articolo .latest-news p {
+    color: rgb(153,153,153);
+    font-size:12px;
+}
+
+.dropdown-header {
+    color: #3d90ad !important;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.colonna-destra{
+    background: white none repeat scroll 0 0;
+    border-right: medium none;
+    border-top: 1px solid rgb(153, 153, 153);
+    cursor: pointer;
+    float: left;
+    list-style: outside none none;
+    padding: 15px;
+    transition: background 0.2s ease-in-out 0s;
+    width: 100%;
+}
+
+.colonna-destra select.form-control{
+    border:1px solid #3d90ad !important;
+}
+
+.colonna-destra form input,label{
+    display:block;
+    color: rgb(66, 156, 188) !important;
 }
