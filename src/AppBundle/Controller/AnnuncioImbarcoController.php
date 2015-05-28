@@ -107,8 +107,8 @@ class AnnuncioImbarcoController extends BaseController
                     $em->flush();
                 }
                 $annuncio->setUtente($user);
-                $titolo=str_replace("cerco","",$annuncio->getTitolo());
-                $titolo=str_replace("offro","",$annuncio->getTitolo());
+                $titolo = str_replace("cerco", "", $annuncio->getTitolo());
+                $titolo = str_replace("offro", "", $annuncio->getTitolo());
 
                 $firstTopic = new Topic();
                 $firstTopic->setTitle($annuncio->getTipoAnnuncio()." ".$titolo);
@@ -142,8 +142,6 @@ class AnnuncioImbarcoController extends BaseController
 
                 $em->persist($post);
                 $em->flush();
-
-
 
 
                 $annuncio->setTopic($firstTopic);
@@ -180,7 +178,6 @@ class AnnuncioImbarcoController extends BaseController
     }
 
 
-
     /**
      * @Route( "cerca-annuncio", name="crea_nuovo_annuncio_imbarco" )
      * @Template()
@@ -195,37 +192,28 @@ class AnnuncioImbarcoController extends BaseController
         $postform = $this->createForm(new AnnuncioImbarcoType());
 
         if ($request->isMethod('POST')) {
-            $params=$request->request->all();
-            if(isset($params['appbundle_annuncioimbarco']['notifica']) &&  $params['appbundle_annuncioimbarco']['notifica'] == 1){
-
+            $params = $request->request->all();
+            if (isset($params['appbundle_annuncioimbarco']['notifica']) && $params['appbundle_annuncioimbarco']['notifica'] == 1) {
+                unset($params['appbundle_annuncioimbarco']['notifica']);
+                $request->request->set('appbundle_annuncioimbarco', $params['appbundle_annuncioimbarco']);
                 $postform->handleRequest($request);
-
                 if ($postform->isValid()) {
-
                     $annuncio = $postform->getData();
                     $em = $this->container->get('doctrine')->getManager();
 
                     $repository = $this->container->get('doctrine')
                         ->getRepository('AppBundle:User');
-                    $user = $repository->findOneBy(array("email" => $annuncio->getEmail()));
-                    if (!$user) {
-                        $userManager = $this->container->get('fos_user.user_manager');
-                        $user = $userManager->createUser();
-                        $user->setEmail($annuncio->getEmail());
-                        $user->setNome($annuncio->getReferente());
-                        $username = strtolower(str_replace(" ", "", $annuncio->getReferente()));
-                        $user->setUsername($username);
-                        $user->setPlainPassword($username."1");
-                        $user->setEnabled(true);
-                        $em->persist($user);
-                        $em->flush();
-                    }
+
+
+                    $user=$this->getUser();
+                    $annuncio->setEmail($user->getEmail());
+                    $annuncio->setReferente($user->getNome()." ".$user->getCognome()." ".$user->getUsername());
                     $annuncio->setUtente($user);
-                    $titolo=str_replace("cerco","",$annuncio->getTitolo());
-                    $titolo=str_replace("offro","",$annuncio->getTitolo());
+                    $titolo = str_replace("cerco", "", $annuncio->getTitolo());
+                    $titolo = str_replace("offro", "", $annuncio->getTitolo());
 
                     $firstTopic = new Topic();
-                    $firstTopic->setTitle($annuncio->getTipoAnnuncio()." ".$titolo);
+                    $firstTopic->setTitle($annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo()." a ".$annuncio->getLuogo());
                     $firstTopic->setCachedViewCount(1);
                     $board = null;
                     if ($annuncio->getTipoAnnuncio() == "CERCO") {
@@ -250,12 +238,18 @@ class AnnuncioImbarcoController extends BaseController
                     );
 
 
+
+
+
+                    $annuncio->setDescrizione(
+                        "Cerco ".$annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo()." a ".$annuncio->getLuogo()
+                    );
+
+
                     $post->setBody($annuncio->getDescrizione());
 
                     $em->persist($post);
                     $em->flush();
-
-
 
 
                     $annuncio->setTopic($firstTopic);
@@ -273,12 +267,23 @@ class AnnuncioImbarcoController extends BaseController
                     $em->flush();
 
 
+                } else {
+                    die(var_dump($this->getErrorsAsArray($postform)));
+
                 }
 
             }
 
             $annunci = $this->getDoctrine()
-                ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array("tipoAnnuncio"=>"OFFRO", "luogo"=>$params['appbundle_annuncioimbarco']['luogo'],"ruoloRichiesto"=>$params['appbundle_annuncioimbarco']['ruoloRichiesto'],"costo"=>$params['appbundle_annuncioimbarco']['costo']),array('id'=>'desc'));
+                ->getRepository('AppBundle:AnnuncioImbarco')->findBy(
+                    array(
+                        "tipoAnnuncio" => "OFFRO",
+                        "luogo" => $params['appbundle_annuncioimbarco']['luogo'],
+                        "ruoloRichiesto" => $params['appbundle_annuncioimbarco']['ruoloRichiesto'],
+                        "costo" => $params['appbundle_annuncioimbarco']['costo']
+                    ),
+                    array('id' => 'desc')
+                );
 
 
             $serializer = $this->container->get('jms_serializer');
@@ -287,7 +292,10 @@ class AnnuncioImbarcoController extends BaseController
             return new JsonResponse(json_decode($serialized));
         }
 
-        return $this->render('AppBundle:AnnuncioImbarco:cerca.html.twig', array("annunci" => $annunci,"form"=>$postform->createView()));
+        return $this->render(
+            'AppBundle:AnnuncioImbarco:cerca.html.twig',
+            array("annunci" => $annunci, "form" => $postform->createView())
+        );
     }
 
     private function allertaAnnunci($annuncio)
