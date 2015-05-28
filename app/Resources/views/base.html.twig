@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html {{ sonata_seo_html_attributes() }}>
+<head {{ sonata_seo_head_attributes() }}>
     <meta charset="UTF-8"/>
     <title>{% block title %}{% endblock %} | VelaForFun</title>
     <meta name="description" content="{% block description %}{% endblock %}"/>
@@ -21,7 +21,10 @@
 
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
-
+    {{ sonata_seo_title() }}
+    {{ sonata_seo_metadatas() }}
+    {{ sonata_seo_link_canonical() }}
+    {{ sonata_seo_lang_alternates() }}
 </head>
 
 <body>
@@ -117,9 +120,9 @@
                         </div>
                     {% else %}
                         <ul class="list-inline" id="menu-login2">
-                            <li class="dropdown bordered" id="menuLogin2">
+                            <li class="dropdown bordered" style="" id="menuLogin2">
                                 <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin2"
-                                   style="border:none">ACCEDI</a>
+                                   style="border:none;">ACCEDI</a>
 
                                 <div class="dropdown-menu" style="">
                                     <form method="post" action="/login_check">
@@ -185,14 +188,17 @@
                                     <form method="GET">
                                         <div class="right-inner-addon">
                                             <a href="#"><i class="fa fa-search"></i></a>
-                                            <input type="search"
+                                            <input placeholder="cerca un termine..." type="search"
                                                    class="form-control"
-                                                   placeholder="cerca un termine..."/>
+                                                    onclick="$(this).val('')"/>
                                         </div>
                                     </form>
                                 </li>
                                 <li class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
+                                <li class="dropdown-header">ANNUNCI</li>
+                                <li><a href="/annuncio-imbarco">Cerco/Offro imbarco</a></li>
+                                <li><a href="#">Mercatino dell'usato</a></li>
+                                <li><a href="/annuncio-scambio-posto">Scambio posto barca</a></li>
                                 <li class="divider"></li>
                                 <li>
                                     <div class="social-menu">
@@ -321,7 +327,7 @@
                     {% else %}
                         <ul class="list-inline" id="menu-login">
                             <li style="padding-left:0px"><span>Sei già iscritto?</span></li>
-                            <li class="dropdown bordered" id="menuLogin">
+                            <li class="dropdown bordered" style="padding-right: 11px;" id="menuLogin">
                                 <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"
                                    style="border:none">ACCEDI</a>
 
@@ -485,8 +491,6 @@
 
 {% if form is defined %}
     <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
-    <script></script>
-
     <script language="javascript">
 
         $(document).ready(function () {
@@ -495,24 +499,9 @@
                 tinymce.init({
                     language_url: '/bundles/app/js/languages/it.js',
                     selector: 'textarea',
-                    plugins: ["textcolor","image"],
-                    file_picker_callback: function(callback, value, meta) {
-                        // Provide file and text for the link dialog
-                        if (meta.filetype == 'file') {
-                            callback('mypage.html', {text: 'My text'});
-                        }
-
-                        // Provide image and alt text for the image dialog
-                        if (meta.filetype == 'image') {
-                            callback('myimage.jpg', {alt: 'My alt text'});
-                        }
-
-                        // Provide alternative source and posted for the media dialog
-                        if (meta.filetype == 'media') {
-                            callback('movie.mp4', {source2: 'alt.ogg', poster: 'image.jpg'});
-                        }
-                    },
-                    toolbar: "undo redo | styleselect | bold italic | link image | forecolor backcolor"
+                    plugins: ["textcolor","image","media"],
+                    valid_elements:"iframe[src|title|width|height|allowfullscreen|frameborder|class|id],object[classid|width|height|codebase|*],param[name|value|_value|*],embed[type|width|height|src|*]",
+                    toolbar: "undo redo | styleselect | bold italic | link image | forecolor backcolor "
                 });
             }
 

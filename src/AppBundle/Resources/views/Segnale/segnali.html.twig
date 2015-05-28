@@ -57,19 +57,38 @@
                         <tr>
                             <td>
                                 <div class="content-table">
-                                    <img src="/images/bandiere/{{ segnale.lettera|lower }}.gif">
-                                    <h4>{{ segnale.parola }}</h4>
+                                    <div class="row clearfix">
+                                        <div class="col-md-12 col-xs-12 column">
+                                            <img src="/images/bandiere/{{ segnale.lettera|lower }}.gif">
+
+                                        </div>
+
+                                        <div class="col-md-12 col-xs-12 column">
+                                        <h4>{{ segnale.parola }}</h4>
+                                        </div>
+
+                                        </div>
+
+
+
                                 </div>
 
                             </td>
                             <td>
                                 <div class="content-table">
+                                    <div class="row clearfix">
+                                        <div class="col-md-12 col-xs-12 column">
                                     <p class="codice-morse">{{ segnale.morse }}</p>
+                                            </div>
+                                        </div>
                                 </div>
                             </td>
                             <td>
-
+                                <div class="row clearfix">
+                                    <div class="col-md-12 col-xs-12 column">
                                 <p> {{ segnale.valore }}</p>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     {% endfor %}

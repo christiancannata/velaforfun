@@ -10,8 +10,7 @@ use BlogBundle\Form\ArticoloType;
 class ArticoloController extends BaseController
 {
 
-    protected $entity="Articolo";
-
+    protected $entity = "Articolo";
 
 
     /**
@@ -19,16 +18,16 @@ class ArticoloController extends BaseController
      */
     public function createAction(Request $request)
     {
-        return $this->postForm($request,new ArticoloType());
+        return $this->postForm($request, new ArticoloType());
     }
 
 
     /**
      * @Route( "articoli/modifica/{id}", name="modifica_articolo" )
      */
-    public function patchAction(Request $request,$id)
+    public function patchAction(Request $request, $id)
     {
-        return $this->patchForm($request,new ArticoloType(),$id,"Articolo");
+        return $this->patchForm($request, new ArticoloType(), $id, "Articolo");
     }
 
 
@@ -43,7 +42,7 @@ class ArticoloController extends BaseController
     /**
      * @Route( "articoli/elimina/{id}", name="delete_articolo" )
      */
-    public function eliminaAction(Request $request,$id)
+    public function eliminaAction(Request $request, $id)
     {
         return $this->delete($id);
     }
@@ -51,24 +50,47 @@ class ArticoloController extends BaseController
     /**
      * @Route("/{categoria}/{permalink}", name="articolo")
      */
-    public function showAction($categoria,$permalink)
+    public function showAction($categoria, $permalink)
     {
         $em = $this->getDoctrine()->getEntityManager();
-
+        $request = $this->container->get('request');
+        $routeName = $request->getUri();
 
         $articolo = $em->getRepository('BlogBundle:Articolo')->findOneByPermalink($permalink);
         if (!$articolo) {
             throw $this->createNotFoundException('Unable to find Articolo.');
         }
 
-        return $this->render('BlogBundle:Articolo:articolo.html.twig', array(
-            'articolo'      => $articolo,
-        ));
+
+        $seoPage = $this->container->get('sonata.seo.page');
+
+        $seoPage
+            ->setTitle($articolo->getTitolo())
+            ->addMeta('name', 'description', $articolo->getSottotitolo())
+            ->addMeta('property', 'og:title', $articolo->getTitolo())
+            ->addMeta('property', 'og:type', 'blog')
+            ->addMeta('property', 'og:url', $routeName)
+            ->addMeta(
+                'property',
+                'og:image',
+                "http://local.velaforfun.dev/images/articoli/".$articolo->getProfilePictureFile()
+            )
+            ->addMeta('property', 'og:description', $articolo->getSottotitolo());
+
+        $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(
+            array('categoria' => $articolo->getCategoria(), 'stato' => "ATTIVO"),
+            array('id' => 'desc')
+        );
+
+
+        return $this->render(
+            'BlogBundle:Articolo:articolo.html.twig',
+            array(
+                'articolo' => $articolo,
+                'articoli' => $articoli
+            )
+        );
     }
-
-
-
-
 
 
 }

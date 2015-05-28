@@ -441,7 +441,7 @@ class Articolo implements ItemInterface
             // a file was uploaded
             // generate a unique filename
             $oggi=new \DateTime();
-            $filename=str_replace(" ","-",$this->getTitolo())."-".$oggi->format("U");
+            $filename=str_replace('"','',str_replace("''","",str_replace(" ","-",$this->getTitolo())."-".$oggi->format("U")));
             $this->setimmagine($filename.'.'.$this->getProfilePictureFile()->guessExtension());
         }
     }

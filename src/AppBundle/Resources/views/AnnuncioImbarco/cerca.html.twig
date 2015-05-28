@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <!-- contenuto -->
+
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+
+            <h1>Cerca Annunci di Imbarco</h1>
+
+            <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Titolo</th>
+          <th>Data inserimento</th>
+          <th>Risposte</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for annuncio in annunci %}
+    <tr>
+        <td>{{ annuncio.topic.title }}</td>
+        <td>{{ annuncio.timestamp|date("d/m/Y H:i") }}</td>
+        <td>{{ annuncio.topic.getCachedReplyCount() }}</td>
+        <td>
+            <button type="button" class="btn btn-primary"
+                    onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'"><i
+                        class="fa fa-reply"></i>
+                Leggi Annuncio
+            </button>
+        </td>
+    </tr>
+{% endfor %}
+
+
+      </tbody>
+    </table>
+
+
+        </div>
+        <div class="col-md-4 column">
+            <div class="content">
+            <div class="colonna-destra" style="margin-bottom: 20px">
+                           <h2>Cerca tra gli annunci</h2>
+                             <p>compila il form per trovare annunci compatibili con le tue richieste</p>
+                      <form action="" method="post" name="appbundle_annuncioimbarco">
+<div id="appbundle_annuncioimbarco">
+   <input type="hidden" name="appbundle_annuncioimbarco[tipoAnnuncio]"  value="CERCO">
+   <div class="form-group"> <input type="hidden" class="form-control" name="appbundle_annuncioimbarco[titolo]" id="appbundle_annuncioimbarco_titolo"></div>
+   <div class="form-group">  <input type="hidden" class="form-control" required="required" name="appbundle_annuncioimbarco[referente]" id="appbundle_annuncioimbarco_referente"></div>
+   <div class="form-group"> <input type="hidden" class="form-control" name="appbundle_annuncioimbarco[telefono]" id="appbundle_annuncioimbarco_telefono"></div>
+   <div class="form-group">
+      <label for="appbundle_annuncioimbarco_luogo" class="control-label required">Dove vuoi andare?</label>
+      <select class="form-control" name="appbundle_annuncioimbarco[luogo]" id="appbundle_annuncioimbarco_luogo">
+         <option value="NORD_ITALIA">Nord Italia</option>
+         <option value="SUD_ITALIA">Sud Italia</option>
+         <option value="CENTRO">Centro</option>
+         <option value="ESTERO">Estero</option>
+      </select>
+   </div>
+   <div class="form-group">
+      <label for="appbundle_annuncioimbarco_tipo" class="control-label required">Tipo di imbarcazione</label>
+      <select class="form-control" name="appbundle_annuncioimbarco[tipo]" id="appbundle_annuncioimbarco_tipo">
+         <option value="CABINATO">Cabinato</option>
+         <option value="DERIVA">Deriva</option>
+         <option value="ALTRO">Altro</option>
+      </select>
+   </div>
+  <div class="form-group">
+      <label for="appbundle_annuncioimbarco_ruoloRichiesto" class="control-label required">Ruolo da ricoprire</label>
+      <select class="form-control" name="appbundle_annuncioimbarco[ruoloRichiesto]" id="appbundle_annuncioimbarco_ruoloRichiesto">
+         <option value="PRODIERE">Prodiere</option>
+         <option value="UOMO_ALBERO">Uomo Albero</option>
+         <option value="PITMAN">Pitman</option>
+         <option value="GRINDER">Grinder</option>
+         <option value="TAILER">Tailer</option>
+         <option value="TATTICO">Tattico</option>
+         <option value="RANDISTA">Randista</option>
+         <option value="TIMONIERE">Timoniere</option>
+         <option value="CUOCO">Cuoco</option>
+         <option value="MOZZO_GENERICO">Mozzo Generico</option>
+         <option value="COMANDANTE">Comandante</option>
+         <option value="SECONDO">Secondo</option>
+         <option value="MOTORISTA">Motorista</option>
+         <option value="STEWARD">Steward</option>
+         <option value="HOSTESS">Hostess</option>
+      </select>
+   </div>
+   <div class="form-group">
+      <label for="appbundle_annuncioimbarco_costo" class="control-label required">Retribuzione</label>
+      <select class="form-control" name="appbundle_annuncioimbarco[costo]" id="appbundle_annuncioimbarco_costo">
+         <option value="GRATIS">Gratis</option>
+         <option value="A_PAGAMENTO">A pagamento</option>
+         <option value="PAGATO">Pagato</option>
+      </select>
+   </div>
+   <div class="form-group">
+      <input name="appbundle_annuncioimbarco[descrizione]" id="appbundle_annuncioimbarco_descrizione" type="hidden">
+   </div>
+   <label for="BoostCakeCheckbox"><input type="checkbox" id="BoostCakeCheckbox" value="1" name="appbundle_annuncioimbarco[notifica]">Voglio ricevere notifiche quando viene inserito un annuncio che combacia con le mie preferenze</label>
+</div>
+
+                                        <button type="submit" onclick='$("table tbody").html("<i style=\"font-size:50px;text-align:center\" class=\"fa fa-spinner fa-pulse\"></i>");' class="btn btn-default login hvr-glow">Cerca</button>
+                                        <input type="hidden" class="callback" value="setRisultatiAnnunciImbarco">
+                                    </form>
+
+<div class="response-form" style="display: none"></div>
+        </div>
+
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+    <!-- fine contenuto -->
+
+</div>
+
+{% endblock %}
+
+
+

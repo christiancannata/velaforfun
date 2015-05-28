@@ -24,7 +24,7 @@ class ArticoloType extends AbstractType
             ->add('idComunicato')
             ->add('autore')
             ->add('categoria')
-
+            ->add('permalink')
         ;
     }
     

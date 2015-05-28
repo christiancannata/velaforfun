@@ -31,6 +31,21 @@ class AnnuncioImbarco
     /**
      * @var string
      *
+     * @ORM\Column(name="referente", type="string", nullable=false)
+     */
+    private $referente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", nullable=false)
+     */
+    private $email;
+
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="titolo", type="string", nullable=true)
      */
     private $titolo;
@@ -419,6 +434,38 @@ class AnnuncioImbarco
     public function setTopic($topic)
     {
         $this->topic = $topic;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReferente()
+    {
+        return $this->referente;
+    }
+
+    /**
+     * @param string $referente
+     */
+    public function setReferente($referente)
+    {
+        $this->referente = $referente;
     }
 
 

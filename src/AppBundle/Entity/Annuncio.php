@@ -58,12 +58,6 @@ class Annuncio
      */
     private $tipo;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prezzo", type="float", nullable=true)
-     */
-    private $prezzo;
 
     /**
      * @var string
@@ -195,23 +189,6 @@ class Annuncio
     {
         $this->lastUpdateTimestamp = $lastUpdateTimestamp;
     }
-
-    /**
-     * @return string
-     */
-    public function getPrezzo()
-    {
-        return $this->prezzo;
-    }
-
-    /**
-     * @param string $prezzo
-     */
-    public function setPrezzo($prezzo)
-    {
-        $this->prezzo = $prezzo;
-    }
-
     /**
      * @return string
      */

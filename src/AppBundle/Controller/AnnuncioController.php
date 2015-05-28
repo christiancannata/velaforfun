@@ -87,8 +87,13 @@ class AnnuncioController extends BaseController
                 $em->flush();
 
 
+                $annuncio->setTopic($firstTopic);
+                $em->persist($annuncio);
+                $em->flush();
+
+
                 $response['success'] = true;
-                $response['response'] = $post->getId();
+                $response['response'] = $annuncio->getId();
 
 
             } else {

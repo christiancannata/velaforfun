@@ -16,15 +16,6 @@ class AnnuncioScambioPostoController extends BaseController
 {
     protected $entity = "AnnuncioScambioPosto";
 
-    /**
-     * @Route( "crea", name="create_annuncio_scambio_posto" )
-     * @Template()
-     */
-    public function createAction(Request $request)
-    {
-        return $this->postForm($request, new AnnuncioScambioPostoType());
-    }
-
 
     /**
      * @Route( "nuovo-annuncio", name="crea_nuovo_annuncio_scambio_posto" )
@@ -47,14 +38,15 @@ class AnnuncioScambioPostoController extends BaseController
                     ->getRepository('AppBundle:User');
 
 
+                $board=$this->container->get('doctrine')
+                    ->getRepository('CCDNForumForumBundle:Board')->find(11);
 
                 $firstTopic = new Topic();
                 $firstTopic->setTitle("Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$annuncio->getLuogoRicercato());
                 $firstTopic->setCachedViewCount(1);
 
                 $firstTopic->setBoard(
-                    $this->container->get('doctrine')
-                        ->getRepository('CCDNForumForumBundle:Board')->find(11)
+                    $board
                 );
 
                 $em->persist($firstTopic);
@@ -77,8 +69,14 @@ class AnnuncioScambioPostoController extends BaseController
                 $annuncio->setTopic($firstTopic);
                 $em->persist($annuncio);
                 $em->flush();
+
+                $board->setLastPost($post);
+                $em->persist($board);
+                $em->flush();
+
+
                 $response['success'] = true;
-                $response['response'] = $annuncio->getId();
+                $response['response'] = $firstTopic->getId();
 
 
             } else {
@@ -92,7 +90,7 @@ class AnnuncioScambioPostoController extends BaseController
             return new JsonResponse($response);
         }
 
-        return $this->render('AppBundle:AnnuncioImbarco:crea.html.twig', array("form" => $postform->createView()));
+        return $this->render('AppBundle:AnnuncioScambioPosto:crea.html.twig', array("form" => $postform->createView()));
     }
 
 
@@ -136,7 +134,7 @@ class AnnuncioScambioPostoController extends BaseController
         $titolo = "Annunci Imbarco";
 
         return $this->render(
-            'AppBundle:AnnuncioImbarco:lista.html.twig',
+            'AppBundle:AnnuncioScambioPosto:lista.html.twig',
             array("annunci" => $annunci, "titolo" => $titolo)
         );
 

@@ -9,17 +9,21 @@ use Symfony\Bundle\FrameworkBundle\Tests\Functional\Bundle\TestBundle\Controller
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use CCDNForum\ForumBundle\Entity\Topic;
+use CCDNForum\ForumBundle\Entity\Post;
+
 
 class AnnuncioImbarcoController extends BaseController
 {
-    protected $entity="AnnuncioImbarco";
+    protected $entity = "AnnuncioImbarco";
+
     /**
      * @Route( "crea", name="create_annuncio_imbarco" )
      * @Template()
      */
     public function createAction(Request $request)
     {
-        return $this->postForm($request,new AnnuncioImbarcoType());
+        return $this->postForm($request, new AnnuncioImbarcoType());
     }
 
 
@@ -27,11 +31,10 @@ class AnnuncioImbarcoController extends BaseController
      * @Route( "modifica/{id}", name="modifica_annuncio_imbarco" )
      * @Template()
      */
-    public function patchAction(Request $request,$id)
+    public function patchAction(Request $request, $id)
     {
-        return $this->patchForm($request,new AnnuncioImbarcoType(),$id,"AnnuncioImbarco");
+        return $this->patchForm($request, new AnnuncioImbarcoType(), $id, "AnnuncioImbarco");
     }
-
 
 
     /**
@@ -42,11 +45,14 @@ class AnnuncioImbarcoController extends BaseController
 
         $annunci = $this->getDoctrine()
             ->getRepository('AppBundle:AnnuncioImbarco')->findAll();
-        $titolo="Annunci Imbarco";
-        return $this->render('AppBundle:AnnuncioImbarco:lista.html.twig', array("annunci" => $annunci,"titolo"=>$titolo));
+        $titolo = "Annunci Imbarco";
+
+        return $this->render(
+            'AppBundle:AnnuncioImbarco:lista.html.twig',
+            array("annunci" => $annunci, "titolo" => $titolo)
+        );
 
     }
-
 
 
     /**
@@ -59,46 +65,14 @@ class AnnuncioImbarcoController extends BaseController
     }
 
 
-
     /**
      * @Route( "elimina/{id}", name="delete_annuncio_imbarco" )
      * @Template()
      */
-    public function eliminaAction(Request $request,$id)
+    public function eliminaAction(Request $request, $id)
     {
         return $this->delete($id);
     }
-
-
-
-    /**
-     * @Route("/{permalink}", name="dettaglio_annuncio_imbarco")
-     */
-    public function dettagliAnnuncioImbarcoAction($permalink)
-    {
-
-
-        $annuncio = $this->getDoctrine()
-            ->getRepository('AppBundle:AnnuncioImbarco')->findOneByPermalink($permalink);
-        if(!$annuncio){
-
-
-            throw $this->createNotFoundException('Unable to find Articolo.');
-        }
-
-
-
-        /*  $request = $client->get('/data/2.5/weather?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine().'&APPID=8704a88837e9eabcf7b50de51728a0c0');
-          $response = $client->send($request);
-          $weather=json_decode($response->getBody(true));
-
-          var_dump($weather);
-  */
-        $titolo=$annuncio->getTitolo();
-
-        return $this->render('AppBundle:AnnuncioImbarco:dettagliAnnuncio.html.twig', array("annuncio" => $annuncio,"titolo"=>$titolo));
-    }
-
 
     /**
      * @Route( "nuovo-annuncio", name="crea_nuovo_annuncio_imbarco" )
@@ -128,28 +102,29 @@ class AnnuncioImbarcoController extends BaseController
                     $username = strtolower(str_replace(" ", "", $annuncio->getReferente()));
                     $user->setUsername($username);
                     $user->setPlainPassword($username."1");
-                    $user->setEnable(true);
+                    $user->setEnabled(true);
                     $em->persist($user);
                     $em->flush();
                 }
-
+                $annuncio->setUtente($user);
+                $titolo=str_replace("cerco","",$annuncio->getTitolo());
+                $titolo=str_replace("offro","",$annuncio->getTitolo());
 
                 $firstTopic = new Topic();
-                $firstTopic->setTitle($annuncio->getTitolo());
+                $firstTopic->setTitle($annuncio->getTipoAnnuncio()." ".$titolo);
                 $firstTopic->setCachedViewCount(1);
-
+                $board = null;
                 if ($annuncio->getTipoAnnuncio() == "CERCO") {
-                    $firstTopic->setBoard(
-                        $this->container->get('doctrine')
-                            ->getRepository('CCDNForumForumBundle:Board')->find(19)
-                    );
-                } else {
-                    $firstTopic->setBoard(
-                        $this->container->get('doctrine')
-                            ->getRepository('CCDNForumForumBundle:Board')->find(20)
-                    );
-                }
+                    $board = $this->container->get('doctrine')
+                        ->getRepository('CCDNForumForumBundle:Board')->find(19);
 
+                } else {
+                    $board = $this->container->get('doctrine')
+                        ->getRepository('CCDNForumForumBundle:Board')->find(20);
+                }
+                $firstTopic->setBoard(
+                    $board
+                );
 
                 $em->persist($firstTopic);
                 $em->flush();
@@ -169,8 +144,25 @@ class AnnuncioImbarcoController extends BaseController
                 $em->flush();
 
 
+
+
+                $annuncio->setTopic($firstTopic);
+                $em->persist($annuncio);
+                $em->flush();
+
+
+                $this->allertaAnnunci($annuncio);
+
+                $firstTopic->setFirstPost($post);
+                $firstTopic->setLastPost($post);
+                $em->merge($firstTopic);
+                $board->setLastPost($post);
+                $em->persist($board);
+                $em->flush();
+
+
                 $response['success'] = true;
-                $response['response'] = $post->getId();
+                $response['response'] = $firstTopic->getId();
 
 
             } else {
@@ -183,6 +175,123 @@ class AnnuncioImbarcoController extends BaseController
 
             return new JsonResponse($response);
         }
+
         return $this->render('AppBundle:AnnuncioImbarco:crea.html.twig', array("form" => $postform->createView()));
+    }
+
+
+
+    /**
+     * @Route( "cerca-annuncio", name="crea_nuovo_annuncio_imbarco" )
+     * @Template()
+     */
+    public function cercaAnnuncioAction(Request $request)
+    {
+
+
+        $annunci = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioImbarco')->findAll();
+
+        $postform = $this->createForm(new AnnuncioImbarcoType());
+
+        if ($request->isMethod('POST')) {
+            $params=$request->request->all();
+            if(isset($params['appbundle_annuncioimbarco']['notifica']) &&  $params['appbundle_annuncioimbarco']['notifica'] == 1){
+
+                $postform->handleRequest($request);
+
+                if ($postform->isValid()) {
+
+                    $annuncio = $postform->getData();
+                    $em = $this->container->get('doctrine')->getManager();
+
+                    $repository = $this->container->get('doctrine')
+                        ->getRepository('AppBundle:User');
+                    $user = $repository->findOneBy(array("email" => $annuncio->getEmail()));
+                    if (!$user) {
+                        $userManager = $this->container->get('fos_user.user_manager');
+                        $user = $userManager->createUser();
+                        $user->setEmail($annuncio->getEmail());
+                        $user->setNome($annuncio->getReferente());
+                        $username = strtolower(str_replace(" ", "", $annuncio->getReferente()));
+                        $user->setUsername($username);
+                        $user->setPlainPassword($username."1");
+                        $user->setEnabled(true);
+                        $em->persist($user);
+                        $em->flush();
+                    }
+                    $annuncio->setUtente($user);
+                    $titolo=str_replace("cerco","",$annuncio->getTitolo());
+                    $titolo=str_replace("offro","",$annuncio->getTitolo());
+
+                    $firstTopic = new Topic();
+                    $firstTopic->setTitle($annuncio->getTipoAnnuncio()." ".$titolo);
+                    $firstTopic->setCachedViewCount(1);
+                    $board = null;
+                    if ($annuncio->getTipoAnnuncio() == "CERCO") {
+                        $board = $this->container->get('doctrine')
+                            ->getRepository('CCDNForumForumBundle:Board')->find(19);
+
+                    }
+
+                    $firstTopic->setBoard(
+                        $board
+                    );
+
+                    $em->persist($firstTopic);
+                    $em->flush();
+
+
+                    $post = new Post();
+                    $post->setTopic($firstTopic);
+                    $post->setCreatedDate(new \DateTime());
+                    $post->setCreatedBy(
+                        $user
+                    );
+
+
+                    $post->setBody($annuncio->getDescrizione());
+
+                    $em->persist($post);
+                    $em->flush();
+
+
+
+
+                    $annuncio->setTopic($firstTopic);
+                    $em->persist($annuncio);
+                    $em->flush();
+
+
+                    $this->allertaAnnunci($annuncio);
+
+                    $firstTopic->setFirstPost($post);
+                    $firstTopic->setLastPost($post);
+                    $em->merge($firstTopic);
+                    $board->setLastPost($post);
+                    $em->persist($board);
+                    $em->flush();
+
+
+                }
+
+            }
+
+            $annunci = $this->getDoctrine()
+                ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array("tipoAnnuncio"=>"OFFRO", "luogo"=>$params['appbundle_annuncioimbarco']['luogo'],"ruoloRichiesto"=>$params['appbundle_annuncioimbarco']['ruoloRichiesto'],"costo"=>$params['appbundle_annuncioimbarco']['costo']),array('id'=>'desc'));
+
+
+            $serializer = $this->container->get('jms_serializer');
+            $serialized = $serializer->serialize($annunci, "json");
+
+            return new JsonResponse(json_decode($serialized));
+        }
+
+        return $this->render('AppBundle:AnnuncioImbarco:cerca.html.twig', array("annunci" => $annunci,"form"=>$postform->createView()));
+    }
+
+    private function allertaAnnunci($annuncio)
+    {
+
     }
 }

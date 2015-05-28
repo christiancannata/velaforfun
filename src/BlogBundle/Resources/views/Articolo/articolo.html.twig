@@ -6,53 +6,168 @@
 
 
 
-
-
 {% block body %}
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <h1>{{ articolo.titolo }}</h1>
-            <p>{{ articolo.sottotitolo }}</p>
-        </div>
-    </div>
+
     <!-- contenuto -->
 
-    <div class="row clearfix">
+    <div class="row clearfix" id="content-articolo">
         <div class="col-md-8 column">
-          <p>{{ articolo.testo }}</p>
-{% include 'SonataSeoBundle:Block:_facebook_sdk.html.twig' %}
 
-{% include 'SonataSeoBundle:Block:_twitter_sdk.html.twig' %}
+
+
+
+ <div class="row clearfix">
+        <div class="col-md-6 col-xs-6 column">
+             <div class="category">
+             <a href="#" id="back-link"> <span class="glyphicon glyphicon-menu-left background-celeste" style="color:white;" aria-hidden="true"></span>  </a>            <a id="category-link" href="/archivio/{{ articolo.categoria.permalink }}" style="margin-top:5px;margin-left: 12px;"><span style="background:{{ articolo.categoria.getColore() }};" >{{ articolo.categoria.nome|capitalize }}</span> </a>
+              </div>
+
+        </div>
+
+        <div class="col-md-6 col-xs-6 column text-right">
+          <ul class="share-buttons">
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.google.it&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+  <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.google.it&text=:%20http%3A%2F%2Fwww.google.it" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+  <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.google.it" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-google-plus-square fa-2x"></i></a></li>
+  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.google.it&title=&summary=&source=http%3A%2F%2Fwww.google.it" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+  <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fwww.google.it" target="_blank" title="Email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-2x"></i></a></li>
+</ul>
+
+        </div>
+         </div>
+
+
+
+
+
+
+
+
+         <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h1>{{ articolo.titolo }}</h1>
+
+        </div>
+         </div>
+
+
+ <div class="row clearfix">
+        <div class="col-md-12 column sottotitolo">
+            {{ articolo.sottotitolo|raw }}
+        <div class="divisore-big"></div>
+        </div>
+         </div>
+
+
+
+
+ <div class="row clearfix">
+        <div class="col-md-12 column" >
+        <div id="body-content">
+           {{ articolo.testo|raw }}
+ <div class="row clearfix">
+        <div class="col-md-6 column">
+        </div>
+
+        <div class="col-md-6 column text-right">
+          <ul class="share-buttons">
+  <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.google.it&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+  <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.google.it&text=:%20http%3A%2F%2Fwww.google.it" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+  <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.google.it" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-google-plus-square fa-2x"></i></a></li>
+  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.google.it&title=&summary=&source=http%3A%2F%2Fwww.google.it" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+  <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fwww.google.it" target="_blank" title="Email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-2x"></i></a></li>
+</ul>
+
+        </div>
+         </div>
+
+        </div>
+</div>
 
         </div>
 
 
-        <div class="col-md-4 column" id="colonnaPorto">
-
-
-            <div class="row clearfix">
-
-                <div class="col-md-12 column">
-
-                Colonna
 
 
 
+
+
+
+
+        </div>
+
+
+           <div class="col-md-4 column">
+           <div class="title">
+                    Altri articoli
+                </div>
+            <div class="content">
+
+
+
+                    {% if articoli[1] is defined %}
+    <a href="/archivio/{{ articoli[1].categoria.permalink }}/{{ articoli[1].permalink }}">
+        <div class="latest-news">
+            <div class="content">
+                <h4>{{ articoli[1].titolo }}</h4>
+
+                {{ articoli[1].sottotitolo|raw }}
+            </div>
+            <div class="arrow">
+                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+            </div>
+        </div>
+    </a>
+{% endif %}
+                    {% if articoli[2] is defined %}
+    <a href="/archivio/{{ articoli[2].categoria.permalink }}/{{ articoli[2].permalink }}">
+        <div class="latest-news">
+            <div class="content">
+                <h4>{{ articoli[2].titolo }}</h4>
+
+                {{ articoli[2].sottotitolo|raw }}
+            </div>
+            <div class="arrow">
+                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+            </div>
+        </div>
+    </a>
+{% endif %}
+                    {% if articoli[3] is defined %}
+    <a href="/archivio/{{ articoli[3].categoria.permalink }}/{{ articoli[3].permalink }}">
+        <div class="latest-news">
+            <div class="content">
+                <h4>{{ articoli[3].titolo }}</h4>
+
+                {{ articoli[3].sottotitolo|raw }}
+            </div>
+            <div class="arrow">
+                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+            </div>
+        </div>
+    </a>
+{% endif %}
+
+
+
+
+
+
+            </div>
+            <div class="arrow_box">
+                    <img src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_9.jpg">
+
+                    <div class="content">
+                        <h4>LEGGI ANCHE</h4>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing ealit, sed do eiusmod tempor incididunt ut
+                            labore et dolore. Dolor sit amet, consectetur adipiscing ealit, sed do eiusmod tempor
+                            incididunt
+                            ut labore et dolore. This is the end...</p>
+                    </div>
 
                 </div>
-            </div>
-
-    <div class="row clearfix">
-
-         <div class="col-md-12 column">
-
-
-
-                     </div>
         </div>
-
-
-            </div>
             <!-- fine contenuto -->
         </div>
 
