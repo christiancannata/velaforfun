@@ -12,12 +12,12 @@
         <script language="javascript">
 
             $(document).ready(function () {
-
+                var marker="";
 
                 // Provide your access token
                 L.mapbox.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFuMTQ4OCIsImEiOiJZaldjZlM0In0.hXiRMyyCDLdQZUrqXF2eNw';
                 // Create a map in the div #map
-                var map = L.mapbox.map('map', 'mapbox.streets');
+                var map = L.mapbox.map('map', 'christian1488.m5b7ic2b');
                 var myLayer = null;
                 // Build a marker from a simple GeoJSON object:
 
@@ -25,53 +25,18 @@
                 myLayer = L.mapbox.featureLayer().loadURL('/segnalazione-portolano/geojson_list').addTo(map);
 
 
-                myLayer.on('click', function (e) {
-                    var marker = e.layer;
-                    feature = marker.feature;
-                    var id = feature.id;
-
-                    $.ajax({
-                        url: "/porti/" + id + ".json",
-                        dataType: "json",
-                        success: function (response) {
-                            $("#loading-porto").show();
-                            $(".porto-title").css("opacity", "0.5");
-                            $(".porto-content").css("opacity", "0.5");
-
-                            //SET CONTENUTO DEL PORTO
-
-                            $.ajax({
-                                url: "porti/" + id + "/meteo.json",
-                                dataType: "json",
-                                success: function (response) {
-
-                                    console.log(response);
-
-                                    $.ajax({
-                                        url: "http://api.openweathermap.org/data/2.5/weather?units=metric&lat=" + e.latlng.lat + "&lon=" + e.latlng.lng,
-                                        dataType: "json",
-                                        success: function (location) {
-
-                                            $("#porto-nome").html(location.name);
-
-                                            $("#porto-temperatura").html(parseInt(location.main.temp) + "°");
-                                            console.log(location);
-                                            $("#loading-porto").hide();
-                                            $(".porto-title").css("opacity", "1");
-                                            $(".porto-content").css("opacity", "1");
-                                        }
-                                    });
-                                }
-                            });
-
-                        }
-                    });
-
-                });
-
-
                 map.on('click', function (e) {
-                    var marker = L.marker([e.latlng.lat, e.latlng.lng]);
+                    if(marker!=""){
+                        map.removeLayer(marker);
+                    }
+
+
+                   marker = L.marker([e.latlng.lat, e.latlng.lng]);
+                    marker.setIcon(L.mapbox.marker.icon({
+                        "marker-color": "#fc4353",
+                        'marker-symbol': 'cross',
+                        'marker-size': 'medium'
+                    }));
                     $("#latitudine").val(e.latlng.lat);
                     $("#longitudine").val(e.latlng.lng);
                     marker.addTo(map);
@@ -116,9 +81,8 @@
                             coordinates: [e.latlng.lng, e.latlng.lat]
                         },
                         properties: {
-                            'title': 'Mi trovo qui!',
-                            'marker-color': '#ff8888',
-                            'marker-symbol': 'star'
+                            "marker-color": "#fc4353",
+                            'marker-symbol': 'cross'
                         }
                     });
 
@@ -152,6 +116,7 @@
         </div>
         <div class="col-md-4 column">
             <div class="content">
+                <div class="colonna-destra" style="margin-bottom: 20px">
             <p>
                 Portolano Online è un servizio innovativo che raccoglie le segnalazioni degli utenti per i mari che bagnano la penisola italiana. Qui sono raccolte tutte quelle indicazioni e particolarità che ognuno ha sperimentato e trovato navigando e che non sono segnalate sulle carte o alle quali non è dato sufficiente peso.
                 Troverai quindi accortezze nell'evitare secche, individuare fari, zone senza ridossi, allineamenti di ingresso e quant'altro ogni utente abbia ritenuto di segnalare a chi naviga in un particolare specchio d'acqua.
@@ -159,26 +124,20 @@
                 Ricorda di aggiungere la tua segnalazione. Ti segnaliamo anche il servizio di commento per i porti italiani dove puoi trovare i commenti degli utenti.
             </p>
             {% if app.user %}
-    <h4>Fai click su un punto della mappa per inserire una nuova segnalazione nel Portolano online</h4>
 
 
+                           <h2>Inserisci una segnalazione</h2>
+                             <p>compila il form per inserire una nuova segnalazione nel portolano online</p>
 
-    <div class="modal fade" id="modalPortolano">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">Nuova segnalazione del Portolano</h4>
-                </div>
-                {{ form_start(form) }}
+    {{ form_start(form) }}
                 <div class="modal-body">
                     <a href='#' id='geolocate' class='ui-button'>Find me</a>
 
 
-
                     <div class="form-group">
                         <label for="descrizione">Descrizione:</label>
-                        <textarea id="descrizione" name="appbundle_segnalazioneportolano[descrizione]" class="form-control"
+                        <textarea id="descrizione" name="appbundle_segnalazioneportolano[descrizione]"
+                                  class="form-control"
                                   placeholder="Descrizione della segnalazione"></textarea>
                     </div>
                     <div class="form-group">
@@ -186,32 +145,25 @@
 
                         <div class="input-group">
                             <span class="input-group-addon" id="coordinate-x">Lat.</span>
-                            <input type="text" class="form-control" name="appbundle_segnalazioneportolano[latitudine]" placeholder="Inserisci la coordinata"
+                            <input type="text" class="form-control" name="appbundle_segnalazioneportolano[latitudine]"
+                                   placeholder="Inserisci la coordinata"
                                    id="latitudine" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="coordinate-y">Long.</span>
-                            <input type="text" class="form-control" name="appbundle_segnalazioneportolano[longitudine]" placeholder="Inserisci la coordinata"
+                            <input type="text" class="form-control" name="appbundle_segnalazioneportolano[longitudine]"
+                                   placeholder="Inserisci la coordinata"
                                    id="longitudine" aria-describedby="basic-addon1">
                         </div>
                         <input type="hidden" name="appbundle_segnalazioneportolano[utente]" value='{{ app.user.id }}'>
 
 
-
                     </div>
 
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
-                    <button type="submit" class="btn btn-primary">Inserisci</button>
-                </div>
+                    <button type="submit" class="btn btn-default login hvr-glow">Inserisci</button>
                 </form>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <!-- /.modal -->
+
 
 
 {% else %}

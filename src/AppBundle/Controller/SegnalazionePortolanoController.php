@@ -59,8 +59,8 @@ class SegnalazionePortolanoController extends BaseController
                 "title" => "Segnalazione scritta da ".$result->getUtente()->getUsername(),
                 "description" => $result->getDescrizione(),
                 "marker-color" => "#fc4353",
-                "marker-size" => "large",
-                "marker-symbol" => "monument",
+                "marker-size" => "medium",
+                "marker-symbol" => "cross",
 
             ];
             $feature = new \GeoJson\Feature\Feature($point, $attributes, $result->getId());
