@@ -197,7 +197,7 @@
                                 <li class="divider"></li>
                                 <li class="dropdown-header">ANNUNCI</li>
                                 <li><a href="/annuncio-imbarco">Cerco/Offro imbarco</a></li>
-                                <li><a href="#">Mercatino dell'usato</a></li>
+                                <li><a href="/forum/velaforfun/board/6">Mercatino dell'usato</a></li>
                                 <li><a href="/annuncio-scambio-posto">Scambio posto barca</a></li>
                                 <li class="divider"></li>
                                 <li>
@@ -489,19 +489,22 @@
 
 
 
+<!-- Redactor is here -->
+<link rel="stylesheet" href="/redactor/redactor.css" />
+
+
+
 {% if form is defined %}
-    <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+    <script src="/redactor/redactor.min.js"></script>
     <script language="javascript">
 
         $(document).ready(function () {
 
             if($('[ name="{{ form.vars.full_name }}"]').length>0){
-                tinymce.init({
-                    language_url: '/bundles/app/js/languages/it.js',
-                    selector: 'textarea',
-                    plugins: ["textcolor","image","media"],
-                    valid_elements:"iframe[src|title|width|height|allowfullscreen|frameborder|class|id],object[classid|width|height|codebase|*],param[name|value|_value|*],embed[type|width|height|src|*]",
-                    toolbar: "undo redo | styleselect | bold italic | link image | forecolor backcolor "
+                $('textarea').redactor({
+                    imageUpload: '/redactor/image_upload.php',
+                    fileUpload: '/redactor/file_upload.php',
+                    imageGetJson: '/redactor/json/data.json'
                 });
             }
 
@@ -521,7 +524,6 @@
                         showalert(form, "Errore nella creazione", "error")
                     }
                     form.find('input[type="submit"],button').removeAttr('disabled');
-
                     if(form.find(".callback").length>0){
                         var callbackFunction=form.find(".callback").val();
                         window[callbackFunction](response);

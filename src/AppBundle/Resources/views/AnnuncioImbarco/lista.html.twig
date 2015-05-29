@@ -4,31 +4,44 @@
 
 
     <!-- contenuto -->
+<div class="row clearfix">
+    <div class="col-md-12 column">
+         <h1>{{ titolo }}</h1>
+        </div>
+    </div>
 
     <div class="row clearfix">
         <div class="col-md-8 column">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    </div>
+                </div>
 
-            <h1>{{ titolo }}</h1>
 
+            <div class="row clearfix">
+                <div class="col-md-12 column">
             <table class="table table-striped">
       <thead>
         <tr>
+        <th></th>
           <th>Titolo</th>
-          <th>Data inserimento</th>
-          <th>Risposte</th>
+          <th>Inserito il</th>
+          <th><i class="fa fa-reply"></i></th>
+          <th><i class="fa fa-eye"></i></th>
           <th></th>
         </tr>
       </thead>
       <tbody>
       {% for annuncio in annunci %}
     <tr>
+        <td>{{ annuncio.tipoAnnuncio }}</td>
         <td>{{ annuncio.topic.title }}</td>
         <td>{{ annuncio.timestamp|date("d/m/Y H:i") }}</td>
         <td>{{ annuncio.topic.getCachedReplyCount() }}</td>
+        <td>{{ annuncio.topic.getCachedViewCount() }}</td>
         <td>
-            <button type="button" class="btn btn-primary"
-                    onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'"><i
-                        class="fa fa-reply"></i>
+            <button type="button" class="btn btn-primary hvr-glow "
+                    onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'">
                 Leggi Annuncio
             </button>
         </td>
@@ -38,7 +51,8 @@
 
       </tbody>
     </table>
-
+</div>
+                </div>
 
         </div>
         <div class="col-md-4 column">
@@ -51,9 +65,9 @@
         </div>
 
 <div class="colonna-destra" style="margin-bottom: 20px">
-                           <h2>Sei alla ricerca di un imbarco?</h2>
+                           <h2 class="foreground-verde">Sei alla ricerca di un imbarco?</h2>
                              <p>Se sei alla ricerca di un posto in un equipaggio pagato, gratis o a pagamento</p>
-           <button type="submit" class="btn btn-default login hvr-glow" onclick="location.href='cerca-annuncio'">CERCA TRA I POSTI DISPONIBILI</button>
+           <button type="submit" class="btn btn-default login hvr-glow background-verde" onclick="location.href='cerca-annuncio'">CERCA TRA I POSTI DISPONIBILI</button>
 
 
         </div>

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Attracco;
 use AppBundle\Entity\Meteo;
 use AppBundle\Entity\Porto;
 use AppBundle\Form\CommentoPortoType;
@@ -211,7 +212,6 @@ class PortoController extends BaseController
 
         $postform = $this->createForm(new CommentoPortoType());
 
-
         return $this->render(
             'AppBundle:Porto:dettagliPorto.html.twig',
             array("porto" => $porto, "titolo" => $titolo, "meteo" => $weather, "form" => $postform->createView())
@@ -282,5 +282,33 @@ class PortoController extends BaseController
 
         return new JsonResponse($data);
     }
+
+
+    /**
+     * @Route("/{id}/attracca", name="attracca_porto")
+     */
+    public function attraccaPortoAction($id)
+    {
+
+        $porto = $this->getDoctrine()
+            ->getRepository('AppBundle:Porto')->find($id);
+        if (!$porto) {
+
+
+            return new JsonResponse(array("response"=>false));
+        }
+
+
+        $attracca=new Attracco();
+        $attracca->setPorto($porto);
+        $attracca->setUtente($this->getUser());
+
+        $this->getDoctrine()->getManager()->persist($attracca);
+        $this->getDoctrine()->getManager()->flush();
+
+        return new JsonResponse(array("response"=>true));
+    }
+
+
 
 }

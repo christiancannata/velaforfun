@@ -6,16 +6,21 @@
     <!-- contenuto -->
 
     <div class="row clearfix">
-        <div class="col-md-8 column">
+      <div class="col-md-12 column">
+         <h1>Annunci Imbarco</h1>
+        </div>
+    </div>
 
-            <h1>{{ titolo }}</h1>
+    <div class="row clearfix">
+        <div class="col-md-8 column">
 
             <table class="table table-striped">
       <thead>
         <tr>
           <th>Titolo</th>
-          <th>Data inserimento</th>
-          <th>Risposte</th>
+          <th>Inserito il</th>
+          <th><i class="fa fa-reply"></i></th>
+          <th><i class="fa fa-eye"></i></th>
           <th></th>
         </tr>
       </thead>
@@ -25,7 +30,8 @@
         <td>{{ annuncio.topic.title }}</td>
         <td>{{ annuncio.timestamp|date("d/m/Y H:i") }}</td>
         <td>{{ annuncio.topic.getCachedReplyCount() }}</td>
-        <td><button type="button" class="btn btn-primary" onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'"><i class="fa fa-reply"></i>
+        <td>{{ annuncio.topic.getCachedViewCount() }}</td>
+        <td><button type="button" class="btn btn-primary hvr-glow" onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'">
                  Leggi Annuncio</button></td>
     </tr>
       {% endfor %}
@@ -44,6 +50,17 @@
                         <button type="submit" class="btn btn-default login hvr-glow" onclick="location.href='nuovo-annuncio'">CREA ORA IL TUO ANNUNCIO</button>
 
         </div>
+
+
+
+<div class="colonna-destra" style="margin-bottom: 20px">
+                           <h2 class="foreground-verde">Vuoi cercare chi scambierebbe il suo posto barca?</h2>
+                             <p>Cerca tra gli annunci di chi vuole scambiare il suo posto barca e scegli in base alle tue preferenze</p>
+           <button type="submit" class="btn btn-default login hvr-glow background-verde" onclick="location.href='cerca-annuncio'">CERCA TRA GLI ANNUNCI</button>
+
+
+        </div>
+
 
             </div>
 

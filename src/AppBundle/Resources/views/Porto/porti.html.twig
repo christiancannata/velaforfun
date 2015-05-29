@@ -9,6 +9,29 @@
 {% block javascripts %}
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
     <script language="javascript">
+        var meteoIcon = [];
+        meteoIcon["01d"] = "wi-day-sunny";
+
+        meteoIcon["02d"] = "wi-day-cloudy";
+        meteoIcon["03d"] = "wi-cloud";
+        meteoIcon["04d"] = "wi-cloudy";
+        meteoIcon["09d"] = "wi-showers";
+        meteoIcon["10d"] = "wi-day-showers";
+        meteoIcon["11d"] = "wi-thunderstorm";
+        meteoIcon["13d"] = "wi-snow";
+        meteoIcon["50d"] = "wi-fog";
+        meteoIcon["01n"] = "wi-night-sunny";
+        meteoIcon["02n"] = "wi-night-cloudy";
+        meteoIcon["03n"] = "wi-cloud";
+        meteoIcon["04n"] = "wi-cloudy";
+        meteoIcon["09n"] = "wi-showers";
+        meteoIcon["10n"] = "wi-night-showers";
+        meteoIcon["11n"] = "wi-thunderstorm";
+        meteoIcon["13n"] = "wi-snow";
+        meteoIcon["50n"] = "wi-fog";
+
+
+
         $(document).ready(function () {
 
 
@@ -64,10 +87,14 @@
                         //SET CONTENUTO DEL PORTO
                         $("#porto-nome").html(response.porto.nome);
                         $("#porto-temperatura").html(parseInt(response.meteo.main.temp) + "°");
+                        $("#porto-umidita").html(parseInt(response.meteo.main.humidity) + "%");
+                        $("#porto-vento").html(parseInt(response.meteo.wind.speed) + "km/h");
                         $("#loading-porto").hide();
+                        $("#meteo-icon").attr("class", "wi "+meteoIcon[response.meteo.weather[0].icon]);
                         $(".porto-title").css("opacity", "1");
                         $(".porto-content").css("opacity", "1");
-                        $(".porto-meteo").css("opacity",1);
+                        $(".porto-meteo").css("opacity", 1);
+
 
 
                     }
@@ -209,35 +236,39 @@
                 <div class="row clearfix">
 
                     <div class="col-md-12 column">
-                <h1 id="porto-nome">{{ porti[0].nome }}</h1>
+                <h1 id="porto-nome">Seleziona un porto per vederne il meteo</h1>
                         </div>
             </div>
 
-                <div class="row clearfix">
+                    <div class="row clearfix">
 
-                    <div class="col-md-4 column">
-                        <i class="wi wi-day-snow-thunderstorm"></i>
+                        <div class="col-md-4 column">
+                            <i class="" id="meteo-icon"> </i>
                         </div>
 
                         <div class="col-md-8 column">
                             <div class="row clearfix">
-                            <div class="col-md-6 column">
-<h4 id="porto-temperatura">25°</h4><p>MAX</p><p>MIN</p>
-                        </div>
- <div class="col-md-6column">
-<p>VENTI <div id="porto-vento"></div></p>
-<p>UMIDITA</p>
-                        </div>
+                                <div class="col-md-6 column">
+                                    <h4 id="porto-temperatura"></h4>
+
+                                    <p>MAX</p>
+
+                                    <p>MIN</p>
+                                </div>
+                                <div class="col-md-6column">
+                                    <p style="margin:0">VENTI</p>
+                                    <div id="porto-vento" style="margin-bottom: 10px;"></div>
+                                    <p style="margin:0">UMIDITA</p>
+                                    <div id="porto-umidita" style="margin-bottom: 10px;"></div>
+                                </div>
                             </div>
 
 
-<div class="row clearfix">
-                            <div class="col-md-12 column">
-Ponte a Ema (FI)
-                        </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12 column">
+                                </div>
 
                             </div>
-
 
 
                         </div>

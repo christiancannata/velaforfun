@@ -38,7 +38,8 @@
     "ibrows/newsletter-bundle": "*",
     "php-imap/php-imap": "2.*",
     "jmikola/geojson": "~1.0",
-    "sonata-project/seo-bundle": "~2.0"
+    "sonata-project/seo-bundle": "~2.0",
+    "sonata-project/intl-bundle": "~2.2"
 
   },
   "require-dev": {

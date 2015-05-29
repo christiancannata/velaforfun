@@ -179,7 +179,7 @@ class AnnuncioImbarcoController extends BaseController
 
 
     /**
-     * @Route( "cerca-annuncio", name="crea_nuovo_annuncio_imbarco" )
+     * @Route( "cerca-annuncio", name="cerca_annuncio_imbarco" )
      * @Template()
      */
     public function cercaAnnuncioAction(Request $request)

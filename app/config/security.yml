@@ -36,7 +36,9 @@ security:
 
     access_control:
      - { path: ^/secure_area/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-    # - { path: /crea, roles: ROLE_ADMIN }
+     - { path: /annuncio-imbarco/cerca-annuncio, roles: ROLE_USER }
+     - { path: /annuncio-scambio-posto/cerca-annuncio, roles: ROLE_USER }
+
     # - { path: /modifica/, roles: ROLE_ADMIN }
     # - { path: /elimina/, roles: ROLE_ADMIN }
     # - { path: /list, roles: ROLE_ADMIN }

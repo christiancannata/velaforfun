@@ -38,11 +38,16 @@ class AnnuncioScambioPostoController extends BaseController
                     ->getRepository('AppBundle:User');
 
 
-                $board=$this->container->get('doctrine')
+                $board = $this->container->get('doctrine')
                     ->getRepository('CCDNForumForumBundle:Board')->find(11);
 
                 $firstTopic = new Topic();
-                $firstTopic->setTitle("Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$annuncio->getLuogoRicercato());
+                $luogoCercato=ucwords(str_replace("_"," ",strtolower($annuncio->getLuogoRicercato())));
+
+
+                $firstTopic->setTitle(
+                    "Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$luogoCercato
+                );
                 $firstTopic->setCachedViewCount(1);
 
                 $firstTopic->setBoard(
@@ -66,14 +71,20 @@ class AnnuncioScambioPostoController extends BaseController
                 $em->persist($post);
                 $em->flush();
 
+
                 $annuncio->setTopic($firstTopic);
                 $em->persist($annuncio);
                 $em->flush();
 
+
+                $this->allertaAnnunci($annuncio);
+
+                $firstTopic->setFirstPost($post);
+                $firstTopic->setLastPost($post);
+                $em->merge($firstTopic);
                 $board->setLastPost($post);
                 $em->persist($board);
                 $em->flush();
-
 
                 $response['success'] = true;
                 $response['response'] = $firstTopic->getId();
@@ -142,28 +153,117 @@ class AnnuncioScambioPostoController extends BaseController
 
 
     /**
-     * @Route("/{permalink}", name="dettaglio_annuncio_imbarco")
+     * @Route( "cerca-annuncio", name="cerca_annuncio_scambio_posto" )
+     * @Template()
      */
-    public function dettagliAnnuncioImbarcoAction($permalink)
+    public function cercaAnnuncioAction(Request $request)
     {
 
 
-        $annuncio = $this->getDoctrine()
-            ->getRepository('AppBundle:AnnuncioScambioPosto')->findOneByPermalink($permalink);
-        if (!$annuncio) {
+        $annunci = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioScambioPosto')->findAll();
+
+        $postform = $this->createForm(new AnnuncioScambioPostoType());
+
+        if ($request->isMethod('POST')) {
+            $params = $request->request->all();
+            if (isset($params['appbundle_annuncioscambioposto']['notifica']) && $params['appbundle_annuncioscambioposto']['notifica'] == 1) {
+                unset($params['appbundle_annuncioscambioposto']['notifica']);
+                $request->request->set('appbundle_annuncioscambioposto', $params['appbundle_annuncioscambioposto']);
+                $postform->handleRequest($request);
+                if ($postform->isValid()) {
+                    $annuncio = $postform->getData();
+                    $em = $this->container->get('doctrine')->getManager();
+
+                    $repository = $this->container->get('doctrine')
+                        ->getRepository('AppBundle:User');
 
 
-            throw $this->createNotFoundException('Unable to find Articolo.');
+                    $user = $this->getUser();
+
+                    $luogoCercato=ucwords(str_replace("_"," ",strtolower($annuncio->getLuogoRicercato())));
+
+                    $annuncio->setUtente($user);
+                    $annuncio->setDescrizione("Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$luogoCercato);
+                    $firstTopic = new Topic();
+                    $firstTopic->setTitle(
+                        "Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$luogoCercato
+                    );
+                    $firstTopic->setCachedViewCount(1);
+                    $board = null;
+
+
+                    $board = $this->container->get('doctrine')
+                        ->getRepository('CCDNForumForumBundle:Board')->find(11);
+
+
+                    $firstTopic->setBoard(
+                        $board
+                    );
+
+                    $em->persist($firstTopic);
+                    $em->flush();
+
+
+                    $post = new Post();
+                    $post->setTopic($firstTopic);
+                    $post->setCreatedDate(new \DateTime());
+                    $post->setCreatedBy(
+                        $user
+                    );
+
+
+                    $post->setBody($annuncio->getDescrizione());
+
+                    $em->persist($post);
+                    $em->flush();
+
+
+                    $annuncio->setTopic($firstTopic);
+                    $em->persist($annuncio);
+                    $em->flush();
+
+
+                    $this->allertaAnnunci($annuncio);
+
+                    $firstTopic->setFirstPost($post);
+                    $firstTopic->setLastPost($post);
+                    $em->merge($firstTopic);
+                    $board->setLastPost($post);
+                    $em->persist($board);
+                    $em->flush();
+
+
+                } else {
+                    die(var_dump($this->getErrorsAsArray($postform)));
+
+                }
+
+            }
+
+            $annunci = $this->getDoctrine()
+                ->getRepository('AppBundle:AnnuncioScambioPosto')->findBy(
+                    array(
+                        "luogoAttuale" => $params['appbundle_annuncioscambioposto']['luogoRicercato']
+                    ),
+                    array('id' => 'desc')
+                );
+
+
+            $serializer = $this->container->get('jms_serializer');
+            $serialized = $serializer->serialize($annunci, "json");
+
+            return new JsonResponse(json_decode($serialized));
         }
 
-
-        $titolo = $annuncio->getTitolo();
-
         return $this->render(
-            'AppBundle:AnnuncioScambioPosto:dettagliAnnuncio.html.twig',
-            array("annuncio" => $annuncio, "titolo" => $titolo)
+            'AppBundle:AnnuncioScambioPosto:cerca.html.twig',
+            array("annunci" => $annunci, "form" => $postform->createView())
         );
     }
 
+    private function allertaAnnunci($annuncio)
+    {
 
+    }
 }

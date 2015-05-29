@@ -9,6 +9,28 @@
 {% block javascripts %}
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
     <script language="javascript"><!--
+        var meteoIcon = [];
+        meteoIcon["01d"] = "wi-day-sunny";
+
+        meteoIcon["02d"] = "wi-day-cloudy";
+        meteoIcon["03d"] = "wi-cloud";
+        meteoIcon["04d"] = "wi-cloudy";
+        meteoIcon["09d"] = "wi-showers";
+        meteoIcon["10d"] = "wi-day-showers";
+        meteoIcon["11d"] = "wi-thunderstorm";
+        meteoIcon["13d"] = "wi-snow";
+        meteoIcon["50d"] = "wi-fog";
+        meteoIcon["01n"] = "wi-night-sunny";
+        meteoIcon["02n"] = "wi-night-cloudy";
+        meteoIcon["03n"] = "wi-cloud";
+        meteoIcon["04n"] = "wi-cloudy";
+        meteoIcon["09n"] = "wi-showers";
+        meteoIcon["10n"] = "wi-night-showers";
+        meteoIcon["11n"] = "wi-thunderstorm";
+        meteoIcon["13n"] = "wi-snow";
+        meteoIcon["50n"] = "wi-fog";
+
+
         $(document).ready(function () {
 
 
@@ -60,7 +82,10 @@
                         //SET CONTENUTO DEL PORTO
                         $("#porto-nome").html(response.porto.nome);
                         $("#porto-temperatura").html(parseInt(response.meteo.main.temp) + "°");
+                        $("#porto-umidita").html(parseInt(response.meteo.main.humidity) + "%");
+                        $("#porto-vento").html(parseInt(response.meteo.wind.speed) + "km/h");
                         $("#loading-porto").hide();
+                        $("#meteo-icon").attr("class", "wi "+meteoIcon[response.meteo.weather[0].icon]);
                         $(".porto-title").css("opacity", "1");
                         $(".porto-content").css("opacity", "1");
                         $(".porto-meteo").css("opacity", 1);
@@ -129,6 +154,41 @@
             });
 
 
+            $("#attracca").click(function () {
+                var button = $(this);
+                $("button").attr("disabled", "disabled");
+
+
+                {% if app.user is not defined %}
+
+                $("#login-dialog").modal();
+
+                {% else %}
+
+                $.ajax({
+                    type: "POST",
+                    url: $(this).attr('data-route'),
+                    success: function (response) {
+                        if (response.response == true) {
+
+                            $("#attracco-dialog").modal();
+
+                        } else {
+
+
+                        }
+                        $("button").removeAttr("disabled");
+
+                    }
+                });
+
+
+                {% endif %}
+
+
+            });
+
+            $("button").removeAttr("disabled");
         });
         //--></script>
 {% endblock %}
@@ -136,7 +196,7 @@
 {% block body %}
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <h1>I Porti d'Italia</h1>
+            <h1>Porto di {{ porto.nome }}</h1>
         </div>
     </div>
     <!-- contenuto -->
@@ -155,8 +215,9 @@
                                 </button>
                             </div>
                             <div class="col-md-6 col-xs-6 column text-right">
-                                <button class="checkin  hvr-glow right" id='checkin'><i style=""
-                                                                                        class="fa fa-crosshairs"></i>Attracca
+                                <button class="checkin  hvr-glow right" id='attracca'
+                                        data-route="/porti/{{ porto.id }}/attracca"><i class="fa fa-anchor"></i>
+                                    Attracca
                                     qui
                                 </button>
                             </div>
@@ -181,84 +242,101 @@
                         </div>
                         <div class="row clearfix">
                             <div class="col-md-12 column">
-                            {% if app.user %}
-                                <form action="/commento-porto/crea" method="post" name="appbundle_commentoporto">
-                                    <div class="col-md-11 column">
-                                        <input type="hidden" id="appbundle_commentoporto_utente"
-                                               name="appbundle_commentoporto[utente]" value="{{ app.user.id }}"/>
-                                        <input type="hidden" id="appbundle_commentoporto_porto"
-                                               name="appbundle_commentoporto[porto]" value="{{ porto.id }}"/>
-                                        <input type="text" name="appbundle_commentoporto[testo]" class="form-control"
-                                               required="required" placeholder="Scrivi un commento...">
+                                {% if app.user %}
+                                    <form action="/commento-porto/crea" method="post" name="appbundle_commentoporto">
+                                        <div class="col-md-11 column" style="padding:0">
+                                            <input type="hidden" id="appbundle_commentoporto_utente"
+                                                   name="appbundle_commentoporto[utente]" value="{{ app.user.id }}"/>
+                                            <input type="hidden" id="appbundle_commentoporto_porto"
+                                                   name="appbundle_commentoporto[porto]" value="{{ porto.id }}"/>
+                                            <input type="text" name="appbundle_commentoporto[testo]"
+                                                   class="form-control"
+                                                   required="required" placeholder="Scrivi un commento...">
 
-                                        <input type="radio" value="POSITIVO" name="appbundle_commentoporto[tipoCommento]" id="radio1" checked/>
-                                        <label for="radio1">
+                                            <p style="margin-top:5px;margin-bottom: 0px">Esprimi un giudizio su questo
+                                                porto:</p>
+                                            <input type="radio" value="POSITIVO"
+                                                   name="appbundle_commentoporto[tipoCommento]" id="radio1" checked/>
+                                            <label for="radio1" style="display: inline;width:auto">
             <span class="fa-stack">
                 <i class="fa fa-thumbs-up fa-stack-1x foreground-verde"></i>
 
             </span>
-                                        </label>
-                                        <input type="radio"  value="NEGATIVO" name="appbundle_commentoporto[tipoCommento]" id="radio2" />
-                                        <label for="radio2">
+                                            </label>
+
+                                            <input type="radio" value="NEUTRO"
+                                                   name="appbundle_commentoporto[tipoCommento]" id="radio3" checked/>
+                                            <label for="radio3" style="display: inline;width:auto">
+            <span class="fa-stack">
+                <i class="fa fa-pause fa-rotate-90 fa-stack-1x foreground-grigio"></i>
+
+            </span>
+                                            </label>
+
+
+                                            <input type="radio" value="NEGATIVO"
+                                                   name="appbundle_commentoporto[tipoCommento]" id="radio2"/>
+                                            <label for="radio2" style="display: inline;width:auto">
             <span class="fa-stack">
                 <i class="fa fa-thumbs-down fa-stack-1x foreground-rosso"></i>
             </span>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-1 column">
-                                        <a href="#"
-                                           onclick="event.preventDefault();$('form[name=appbundle_commentoporto]').submit()">
-                                            <i class="fa fa-sign-in"></i>
-                                        </a>
-                                    </div>
-                                    <input type="hidden" class="callback" value="setNuovoCommentoPorto">
-                                </form>
-
-                            {% else %}
-                                <div class="col-md-12 column">
-                                    <div class="row clearfix">
-                                        <div class="col-md-12 column">
-                                            <p>Devi effettuare l'accesso per scrivere un nuovo commento:</p>
-
+                                            </label>
                                         </div>
-                                    </div>
-                                    <div class="row clearfix">
-                                        <div class="col-md-8 column">
-
-
-                                            <form action="/login_check" method="post">
-                                                <div class="input-group">
-                                                    <span><i class="glyphicon glyphicon-user"></i></span>
-                                                    <input id="username" name="_username" type="text" value=""
-                                                           placeholder="Nome utente">
-                                                    <span><i class="glyphicon glyphicon-lock"></i></span>
-                                                    <input type="password" id="password" name="_password" value=""
-                                                           placeholder="Password">
-                                                    <button class="btn btn-default login hvr-glow small" type="submit">
-                                                        Accedi
-                                                    </button>
-
-                                                </div>
-                                            </form>
-                                        </div>
-
-                                        <div class="col-md-4 column">
-
-
-                                            <a class="btn btn-block btn-social btn-sm btn-facebook loginFacebook"
-                                               href="http://local.velaforfun.dev/secure_area/connect/facebook">
-                                                <i class="fa fa-facebook"></i>
-                                                Accedi con Facebook
+                                        <div class="col-md-1 column" style="padding:0">
+                                            <a href="#"
+                                               onclick="event.preventDefault();$('form[name=appbundle_commentoporto]').submit()">
+                                                <i class="fa fa-sign-in"></i>
                                             </a>
                                         </div>
+                                        <input type="hidden" class="callback" value="setNuovoCommentoPorto">
+                                    </form>
+
+                                {% else %}
+                                    <div class="col-md-12 column">
+                                        <div class="row clearfix">
+                                            <div class="col-md-12 column">
+                                                <p>Devi effettuare l'accesso per scrivere un nuovo commento:</p>
+
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-8 column">
+
+
+                                                <form action="/login_check" method="post">
+                                                    <div class="input-group">
+                                                        <span><i class="glyphicon glyphicon-user"></i></span>
+                                                        <input id="username" name="_username" type="text" value=""
+                                                               placeholder="Nome utente">
+                                                        <span><i class="glyphicon glyphicon-lock"></i></span>
+                                                        <input type="password" id="password" name="_password" value=""
+                                                               placeholder="Password">
+                                                        <button class="btn btn-default login hvr-glow small"
+                                                                type="submit">
+                                                            Accedi
+                                                        </button>
+
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                            <div class="col-md-4 column">
+
+
+                                                <a class="btn btn-block btn-social btn-sm btn-facebook loginFacebook"
+                                                   href="http://local.velaforfun.dev/secure_area/connect/facebook">
+                                                    <i class="fa fa-facebook"></i>
+                                                    Accedi con Facebook
+                                                </a>
+                                            </div>
+                                        </div>
+
+
                                     </div>
 
+                                {% endif %}
 
-                                </div>
-
-                            {% endif %}
-
-</div>
+                            </div>
                         </div>
 
                         <div class="row clearfix">
@@ -266,7 +344,7 @@
                                 <div class="response-form">
 
                                 </div>
-                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -286,8 +364,10 @@
                         <form name="cerca_porti" id="formCercaPorto" action="/porti/{permalink}" method="GET">
                             <div class="form-group">
                                 <div class="inner-addon left-addon">
-                                    <a onclick="$('#formCercaPorto').submit();" href="#"><i class="fa fa-search"></i></a>
-                                    <input type="search" placeholder="cerca un termine..." class="form-control" id="selectPorto" autocomplete="off">
+                                    <a onclick="$('#formCercaPorto').submit();" href="#"><i
+                                                class="fa fa-search"></i></a>
+                                    <input type="search" placeholder="cerca un porto..." class="form-control"
+                                           id="selectPorto" autocomplete="off">
                                 </div>
 
                             </div>
@@ -315,7 +395,7 @@
                     <div class="row clearfix">
 
                         <div class="col-md-4 column">
-                            <i class="wi wi-day-snow-thunderstorm"></i>
+                            <i class="wi {{ meteo(meteo.weather[0].icon) }}" id="meteo-icon"> </i>
                         </div>
 
                         <div class="col-md-8 column">
@@ -328,18 +408,16 @@
                                     <p>MIN</p>
                                 </div>
                                 <div class="col-md-6column">
-                                    <p>VENTI
-
-                                    <div id="porto-vento"></div>
-                                    </p>
-                                    <p>UMIDITA</p>
+                                    <p style="margin:0">VENTI</p>
+                                    <div id="porto-vento" style="margin-bottom: 10px;">{{ meteo.wind.speed }}km/h</div>
+                                    <p style="margin:0">UMIDITA</p>
+                                    <div id="porto-umidita" style="margin-bottom: 10px;">{{ meteo.main.humidity  }}%</div>
                                 </div>
                             </div>
 
 
                             <div class="row clearfix">
                                 <div class="col-md-12 column">
-                                    Ponte a Ema (FI)
                                 </div>
 
                             </div>
@@ -356,64 +434,90 @@
             <div class="row clearfix">
                 <div class="row clearfix">
                     <div class="col-md-12 column box attracco">
-                        <h3>Chi ha attraccato qui</h3>
+                        <div class="colonna-destra" style="margin-bottom: 20px;margin-top: 20px">
+                            {% if porto.getAnnunciScambioPosto() is empty %}
+                                <h2>Vuoi cercare chi scambierebbe il tuo posto barca?</h2>
+                                <p>Cerca tra gli annunci di chi vuole scambiare il suo posto barca e scegli in base alle
+                                    tue preferenze</p>
+                                <button type="submit" class="btn btn-default login hvr-glow"
+                                        onclick="location.href='cerca-annuncio'">CERCA TRA GLI ANNUNCI
+                                </button>
+                            {% else %}
+                                <h2>{{ porto.getAnnunciScambioPosto()|length }} persone scambiano qui il suo posto
+                                    barca</h2>
+                                <button type="submit" class="btn btn-default login hvr-glow"
+                                        onclick="location.href='cerca-annuncio'">VISUALIZZA GLI ANNUNCI
+                                </button>
+
+                            {% endif %}
+
+                        </div>
+
+
                     </div>
                 </div>
                 <div class="row clearfix">
 
                     <div class="col-md-12 column box attracco">
+                        <h3>Chi ha attraccato qui</h3>
+
+                        <div style="margin-bottom: 20px;">
+
+                            <button class="btn btn-default login hvr-glow" type="submit"><i class="fa fa-anchor"></i>
+                                ATTRACCA NEL PORTO
+                            </button>
+                            {% if porto.getAttracchi() is empty %}
+                                Non ci sono utenti attraccati in questo porto
 
 
-                        {% if porto.getAttracchi() is empty %}
-                            Non ci sono utenti attraccati in questo porto
+                            {% else %}
 
+                                <div class="scroll-pane" style="margin-top:15px">
+                                    <ul class="media-list" id="attracchiPorto">
 
-                        {% else %}
+                                        {% for attracco in porto.getAttracchi() %}
 
-                            <div class="scroll-pane">
-                                <ul class="media-list" >
+                                            <li class="media">
+                                                <div class="media-left">
+                                                    <a href="#">
 
-                                    {% for utente in porto.getAttracchi() %}
-
-                                        <li class="media">
-                                            <div class="media-left">
-                                                <a href="#">
-
-                                                    {% if utente.profilePicturePath == "" and utente.getFacebookId() !="" %}
-                                                        <img width="50" class="media-object"
-                                                             src="http://graph.facebook.com/{{ utente.getFacebookId() }}/picture?type=square"
-                                                             alt="avatar"/>
-
-                                                    {% else %}
-
-                                                        {% if utente.profilePicturePath != "" %}
+                                                        {% if attracco.utente.profilePicturePath == "" and attracco.utente.getFacebookId() !="" %}
                                                             <img width="50" class="media-object"
-                                                                 src="/uploads/utenti/profilo/{{ utente.profilePicturePath }}"
+                                                                 src="http://graph.facebook.com/{{ attracco.utente.getFacebookId() }}/picture?type=square"
                                                                  alt="avatar"/>
+
                                                         {% else %}
-                                                            <img width="50" class="media-object"
-                                                                 src="/uploads/utenti/profilo/default_avatar.jpg"
-                                                                 alt="avatar"/>
+
+                                                            {% if attracco.utente.profilePicturePath != "" %}
+                                                                <img width="50" class="media-object"
+                                                                     src="/uploads/utenti/profilo/{{ attracco.utente.profilePicturePath }}"
+                                                                     alt="avatar"/>
+                                                            {% else %}
+                                                                <img width="50" class="media-object"
+                                                                     src="/uploads/utenti/profilo/default_avatar.png"
+                                                                     alt="avatar"/>
+                                                            {% endif %}
                                                         {% endif %}
-                                                    {% endif %}
 
 
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading">{{ utente.username }}</h4>
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">{{ attracco.utente.username }}</h4>
 
-                                                <p>Il giorno {{ utente.lastUpdateTimestamp|date("d/M/Y") }}</p>
+                                                    <p>Il giorno {{ attracco.timestamp|date("d/m/Y") }}</p>
 
 
-                                            </div>
-                                        </li>
-                                    {% endfor %}
+                                                </div>
+                                            </li>
+                                        {% endfor %}
 
-                                </ul>
-                            </div>
+                                    </ul>
+                                </div>
 
-                        {% endif %}
+                            {% endif %}
+
+                        </div>
 
                     </div>
 
@@ -444,7 +548,6 @@
                                                         <img width="50" class="media-object"
                                                              src="http://graph.facebook.com/{{ commento.utente.getFacebookId() }}/picture?type=square"
                                                              alt="avatar"/>
-
                                                     {% else %}
 
                                                         {% if commento.utente.profilePicturePath != "" %}
@@ -453,17 +556,25 @@
                                                                  alt="avatar"/>
                                                         {% else %}
                                                             <img width="50" class="media-object"
-                                                                 src="/uploads/utenti/profilo/default_avatar.jpg"
+                                                                 src="/uploads/utenti/profilo/default_avatar.png"
                                                                  alt="avatar"/>
                                                         {% endif %}
+
+
+
+
                                                     {% endif %}
 
                                                 </a>
                                             </div>
                                             <div class="media-body">
                                                 <h4 class="media-heading">{{ commento.utente.username }}</h4>
-                                              <p> {{ commento.testo }}</p>
-                                                <p>{{ commento.timestamp|date("d/m/Y H:i") }}</p>
+
+                                                <p> {{ commento.testo }}</p>
+
+                                                <p style="font-size: 12px">Inserito
+                                                    il {{ commento.timestamp|date("d/m/Y H:i") }}</p>
+
                                                 <p>  {% if commento.tipoCommento == "POSITIVO" %}
                                                         <i class="fa fa-thumbs-up foreground-verde"></i>
                                                     {% endif %}
@@ -473,8 +584,9 @@
                                                     {% endif %}
 
                                                     {% if commento.tipoCommento == "NEUTRO" %}
-
-                                                    {% endif %}</p>
+                                                        <i class="fa fa-pause fa-rotate-90 foreground-grigio"></i>
+                                                    {% endif %}
+                                                </p>
                                             </div>
                                         </li>
 
@@ -505,6 +617,51 @@
 
     </div>
 
+
+
+
+    <div class="modal fade" id="attracco-dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Attracco nel porto di {{ porto.nome }}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Il tuo attracco nel porto di {{ porto.nome }} è stato registrato con successo!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
+    <div class="modal fade" id="login-dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 {% endblock %}
 
 

@@ -5,17 +5,24 @@
 
     <!-- contenuto -->
 
+<div class="row clearfix">
+    <div class="col-md-12 column">
+         <h1>Cerca Annunci di Imbarco</h1>
+        </div>
+    </div>
+
     <div class="row clearfix">
         <div class="col-md-8 column">
 
-            <h1>Cerca Annunci di Imbarco</h1>
+
 
             <table class="table table-striped">
       <thead>
         <tr>
           <th>Titolo</th>
           <th>Data inserimento</th>
-          <th>Risposte</th>
+          <th><i class="fa fa-reply"></i></th>
+          <th><i class="fa fa-eye"></i></th>
           <th></th>
         </tr>
       </thead>
@@ -25,10 +32,10 @@
         <td>{{ annuncio.topic.title }}</td>
         <td>{{ annuncio.timestamp|date("d/m/Y H:i") }}</td>
         <td>{{ annuncio.topic.getCachedReplyCount() }}</td>
+        <td>{{ annuncio.topic.getCachedViewCount() }}</td>
         <td>
-            <button type="button" class="btn btn-primary"
-                    onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'"><i
-                        class="fa fa-reply"></i>
+            <button type="button" class="btn btn-primary hvr-glow"
+                    onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'">
                 Leggi Annuncio
             </button>
         </td>

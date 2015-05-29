@@ -727,8 +727,7 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
 }
 
 .box ul li {
-    border-bottom: 1px solid rgb(153, 153, 153);
-    padding-top: 10px;
+
     background: white;
 }
 
@@ -1328,7 +1327,7 @@ input[type="radio"]:checked .fa-stack-1x {
     margin-top: 10px;
 }
 
-.crud form input, #Forum_BoardCreate_topicCreateAuthorisedRoles input {
+.crud form input, #Forum_BoardCreate_topicCreateAuthorisedRoles input,.dropdown-menu form input {
     display: block !important;
 }
 
@@ -1345,6 +1344,7 @@ input[type="radio"]:checked .fa-stack-1x {
     padding: 10px;
     background: white;
     color: rgb(77, 77, 77);
+    min-height: 407px;
     font-size: 14px !important;
 }
 
@@ -1419,7 +1419,6 @@ ul.share-buttons li {
     background: white none repeat scroll 0 0;
     border-right: medium none;
     border-top: 1px solid rgb(153, 153, 153);
-    cursor: pointer;
     float: left;
     list-style: outside none none;
     padding: 15px;
@@ -1434,4 +1433,48 @@ ul.share-buttons li {
 .colonna-destra form input,label{
     display:block;
     color: rgb(66, 156, 188) !important;
+}
+.colonna-destra form input{
+    border:1px solid rgb(66, 156, 188);
+}
+
+.btn-primary {
+    background: #429cbc none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 0;
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.btn-primary:hover{
+    background: #429cbc none repeat scroll 0 0 !important;
+
+}
+
+#commentiPorto li{
+    padding:10px;
+}
+
+#commentiPorto .media-left,#commentiPorto .media-body{
+    border-bottom: 1px solid rgb(153, 153, 153);
+}
+
+#commentiPorto .media-body p{
+    color: rgb(153,153,153);
+    font-size:16px;
+}
+
+
+
+#attracchiPorto li{
+    padding:10px;
+}
+
+#attracchiPorto .media-left,#attracchiPorto .media-body{
+    border-bottom: 1px solid rgb(153, 153, 153);
+}
+
+#attracchiPorto .media-body p{
+    color: rgb(153,153,153);
+    font-size:16px;
 }

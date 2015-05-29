@@ -155,10 +155,26 @@ function setRisultatiAnnunciImbarco(response) {
         risultati += '<tr> <td>' + risultato.topic.title + '</td> <td>' + risultato.timestamp + '</td> <td>0</td> <td> <button onclick="location.href=\'/forum/velaforfun/topic/' + risultato.topic.id + '\'" class="btn btn-primary" type="button"><i class="fa fa-reply"></i> Leggi Annuncio </button> </td> </tr>';
 
     }
-    $("#spinner").remove();
+    if(response.length==0){
+        risultati="<tr><td colspan=4 >La ricerca non ha prodotto risultati</td></tr>";
+    }
+
     $("table tbody").html(risultati);
 }
 
+function setRisultatiScambioPosto(response) {
+    var risultati = "";
+    for (var i=0;i<response.length;i++) {
+        var risultato=response[i];
+        risultati += '<tr> <td>' + risultato.topic.title + '</td> <td>' + risultato.timestamp + '</td> <td>0</td> <td> <button onclick="location.href=\'/forum/velaforfun/topic/' + risultato.topic.id + '\'" class="btn btn-primary" type="button"><i class="fa fa-reply"></i> Leggi Annuncio </button> </td> </tr>';
+
+    }
+    if(response.length==0){
+        risultati="<tr><td colspan=4 >La ricerca non ha prodotto risultati</td></tr>";
+    }
+
+    $("table tbody").html(risultati);
+}
 
 function setNuovoCommentoPorto(response) {
     $.get("/commento-porto/" + response.response, function (commento) {
