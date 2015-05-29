@@ -4,7 +4,7 @@
 
 
 {% block stylesheets %}
-<!--
+    <!--
     <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}"/>
 -->
 {% endblock %}
@@ -24,12 +24,12 @@
 
     <div class="row clearfix">
         <div class="row clearfix">
-        <div class="col-md-12 column">
-            <div class="title">
-                Ultime News
+            <div class="col-md-12 column">
+                <div class="title">
+                    Ultime News
+                </div>
             </div>
         </div>
-            </div>
         <div class="row clearfix">
             <div class="col-md-8 column">
 
@@ -39,11 +39,13 @@
                     <div class="content"
                          style="background-image: url(/images/articoli/{{ articoli[0].immagine }})">
                         <div class="category">
-                            <a href="/archivio/{{ articoli[0].categoria.permalink }}"><span style="background:{{ articoli[0].categoria.getColore() }}" >{{ articoli[0].categoria.nome|capitalize }}</span> <span
-                                        style="background:{{ articoli[0].categoria.getColore() }}"       >+</span></a>
+                            <a href="/archivio/{{ articoli[0].categoria.permalink }}"><span
+                                        style="background:{{ articoli[0].categoria.getColore() }}">{{ articoli[0].categoria.nome|capitalize }}</span> <span
+                                        style="background:{{ articoli[0].categoria.getColore() }}">+</span></a>
                         </div>
                         <div class="content-title">
-                            <a href="/archivio/{{ articoli[0].categoria.permalink }}/{{ articoli[0].permalink }}"><h3>{{ articoli[0].titolo }}</h3></a>
+                            <a href="/archivio/{{ articoli[0].categoria.permalink }}/{{ articoli[0].permalink }}">
+                                <h3>{{ articoli[0].titolo }}</h3></a>
 
                             <div class="divisore"></div>
                             <div class="subtitle">
@@ -59,7 +61,6 @@
             <div class="col-md-4 column">
 
                 <div class="content">
-
 
 
                     {% if articoli[1] is defined %}
@@ -106,278 +107,278 @@
                     {% endif %}
 
 
-
-
                 </div>
             </div>
         </div>
 
 
-    <div class="row clearfix" style="margin-top:20px">
-        <div class="col-md-4 column">
+        <div class="row clearfix" style="margin-top:20px">
+            <div class="col-md-4 column">
 
-            <div class="box-home">
-                <div style="background-image: url(http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_11.jpg);"
-                     class="divBackgroundImage">
-                </div>
-                <div class="content">
+                <div class="box-home">
+                    <div style="background-image: url(http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_11.jpg);"
+                         class="divBackgroundImage">
+                    </div>
+                    <div class="content">
 
-                    <div class="box-action">
-                        <h2>I PORTI ITALIANI
-                        </h2>
+                        <div class="box-action">
+                            <h2>I PORTI ITALIANI
+                            </h2>
 
-                        <div class="over-box">
-                        Cerca il tuo porto fra i centinaia selezionati da Velaforfun
-                            <form method="GET" action="/porti/{permalink}" id="formCercaPorto" name="cerca_porti">
-                                <div class="form-group">
-                                    <div class="inner-addon left-addon">
-    <a href="#" onclick="$('#formCercaPorto').submit();"><i class="fa fa-search"></i></a>
-   <input autocomplete="off" id="selectPorto" type="search"
+                            <div class="over-box">
+                                Cerca il tuo porto fra i centinaia selezionati da Velaforfun
+                                <form method="GET" action="/porti/{permalink}" id="formCercaPorto" name="cerca_porti">
+                                    <div class="form-group">
+                                        <div class="inner-addon left-addon">
+                                            <a href="#" onclick="$('#formCercaPorto').submit();"><i
+                                                        class="fa fa-search"></i></a>
+                                            <input autocomplete="off" id="selectPorto" type="search"
                                                    class="form-control"
                                                    placeholder="cerca un termine..."/>
-</div>
+                                        </div>
 
 
+                                    </div>
 
-                                </div>
 
+                                </form>
+                            </div>
 
-                            </form>
                         </div>
 
-                    </div>
 
+                    </div>
 
                 </div>
 
             </div>
+            <div class="col-md-4 column">
+                <a href="/forum/velaforfun">
+                    <div class="box-home">
+                        <div style="background-image: url(http://www.scubasail.it/scubasail/wp-content/uploads/2013/10/background_71.jpg);"
+                             class="divBackgroundImage">
+                        </div>
+                        <div class="content">
 
-        </div>
-        <div class="col-md-4 column">
-
-            <div class="box-home">
-                <div style="background-image: url(http://www.scubasail.it/scubasail/wp-content/uploads/2013/10/background_71.jpg);"
-                     class="divBackgroundImage">
-                </div>
-                <div class="content">
-
-                    <div class="box-no-action">
-                        <h2>FORUM
-                        </h2>
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </div>
-        <div class="col-md-4 column">
-<a href="/segnalazione-portolano">
-
-
-
-            <div class="box-home">
-                <div style="background-image: url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR3jJKqG3TQoZRw_xN8tIjYeNaFycs9p7rTK8k5E4npG3YTeL66);"
-                     class="divBackgroundImage">
-                </div>
-                <div class="content">
-
-                    <div class="box-no-action">
-                        <h2>PORTOLANO ONLINE
-                        </h2>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-</a>
-        </div>
-    </div>
-
-
-    <div class="row clearfix">
-        <div class="col-md-4 column">
-
-            <div class="box-home">
-                <div style="background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ3_xuziS8-fYCRqEVqhOFxhVRasPAloEocUz5q5hvFZWhpBQ4ebA);"
-                     class="divBackgroundImage">
-                </div>
-                <div class="content">
-
-                    <div class="box-action">
-                        <h2>ANNUNCI CERCO/OFFRO
-                        </h2>
-
-                        <div class="over-box">
-                          <!--  <table class="table table-hover" style="margin:0;">
-                                <thead> <th>Titolo</th><th>Autore</th><th>Pubblicato il</th></thead>
-                                <tbody>
-
-                                <tr><td>Titolo 1</td><td>pincopallino</td><td>02/05/2015</td></tr>
-                                <tr><td>Titolo 1</td><td>pincopallino</td><td>02/05/2015</td></tr>
-                                <tr><td>Titolo 1</td><td>pincopallino</td><td>02/05/2015</td></tr>
-                                </tbody>
-
-                            </table> -->
+                            <div class="box-no-action">
+                                <h2>FORUM
+                                </h2>
+                            </div>
 
 
                         </div>
 
                     </div>
+                </a>
 
+            </div>
+            <div class="col-md-4 column">
+                <a href="/segnalazione-portolano">
+
+
+                    <div class="box-home">
+                        <div style="background-image: url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR3jJKqG3TQoZRw_xN8tIjYeNaFycs9p7rTK8k5E4npG3YTeL66);"
+                             class="divBackgroundImage">
+                        </div>
+                        <div class="content">
+
+                            <div class="box-no-action">
+                                <h2>PORTOLANO ONLINE
+                                </h2>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="row clearfix">
+            <div class="col-md-4 column">
+
+                <div class="box-home">
+                    <div style="background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ3_xuziS8-fYCRqEVqhOFxhVRasPAloEocUz5q5hvFZWhpBQ4ebA);"
+                         class="divBackgroundImage">
+                    </div>
+                    <div class="content">
+
+
+                        <div class="box-action">
+                            <h2>ANNUNCI CERCO/OFFRO
+                            </h2>
+
+                            <div class="over-box">
+                                <!--  <table class="table table-hover" style="margin:0;">
+                                      <thead> <th>Titolo</th><th>Autore</th><th>Pubblicato il</th></thead>
+                                      <tbody>
+
+                                      <tr><td>Titolo 1</td><td>pincopallino</td><td>02/05/2015</td></tr>
+                                      <tr><td>Titolo 1</td><td>pincopallino</td><td>02/05/2015</td></tr>
+                                      <tr><td>Titolo 1</td><td>pincopallino</td><td>02/05/2015</td></tr>
+                                      </tbody>
+
+                                  </table> -->
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
 
                 </div>
 
             </div>
+            <div class="col-md-4 column">
 
-        </div>
-        <div class="col-md-4 column">
-
-            <div class="box-home">
-                <div style="background-image: url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTbDPLF6xzZ5cDWJHZG9WOmfdbp0y_HSXr3-On541wZHDTABhnI);"
-                     class="divBackgroundImage">
-                </div>
-                <div class="content">
+                <div class="box-home">
+                    <div style="background-image: url(https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTbDPLF6xzZ5cDWJHZG9WOmfdbp0y_HSXr3-On541wZHDTABhnI);"
+                         class="divBackgroundImage">
+                    </div>
+                    <div class="content">
 
 
+                        <div class="box-action">
+                            <h2>I NODI VELICI
+                            </h2>
 
-                      <div class="box-action">
-                        <h2>I NODI VELICI
-                        </h2>
-
-                        <div class="over-box">
-                        Cerca il nodo velico per vedere i dettagli
-                            <form method="GET" action="/nodi/{permalink}" id="formCercaNodo" name="cerca_nodo">
-                                <div class="form-group">
-                                    <div class="inner-addon left-addon">
-    <a href="#" onclick="$('#formCercaNodo').submit();"><i class="fa fa-search"></i></a>
-   <input autocomplete="off" id="selectNodo" type="search"
+                            <div class="over-box">
+                                Cerca il nodo velico per vedere i dettagli
+                                <form method="GET" action="/nodi/{permalink}" id="formCercaNodo" name="cerca_nodo">
+                                    <div class="form-group">
+                                        <div class="inner-addon left-addon">
+                                            <a href="#" onclick="$('#formCercaNodo').submit();"><i
+                                                        class="fa fa-search"></i></a>
+                                            <input autocomplete="off" id="selectNodo" type="search"
                                                    class="form-control"
                                                    placeholder="cerca un nodo..."/>
-</div>
+                                        </div>
 
 
-
-                                </div>
-
-
-                            </form>
-
-                    </div>
+                                    </div>
 
 
+                                </form>
+
+                            </div>
 
 
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-        <div class="col-md-4 column">
-
-            <div class="box-home">
-                <div style="background-image: url(http://napoli-bedandbreakfast.it/wp-content/uploads/americas_cup_napoli_regate_getty.jpg);"
-                     class="divBackgroundImage">
-                </div>
-                <div class="content">
-
-                    <div class="box-action">
-                        <h2>CODICE INTERNAZIONALE
-                        </h2>
-
-                        <div class="over-box">
-                            <form method="GET" id="formTraduci" action="/codice-internazionale/{permalink}" name="cerca_porti">
-                                <div class="form-group">
-                                    <label for="selectPorto">Inserisci la frase da codificare in codice morse</label>
-                                    <input type="text" class="form-control"
-                                          id="traduci" placeholder="Inserisci la frase">
-                                </div>
-                                <button class="btn btn-default dettagli-nodo hvr-glow" type="submit" style="margin-top:0px">TRADUCI</button>
-                            </form>
                         </div>
 
                     </div>
 
+                </div>
+
+            </div>
+            <div class="col-md-4 column">
+
+                <div class="box-home">
+                    <div style="background-image: url(http://napoli-bedandbreakfast.it/wp-content/uploads/americas_cup_napoli_regate_getty.jpg);"
+                         class="divBackgroundImage">
+                    </div>
+                    <div class="content">
+
+                        <div class="box-action">
+                            <h2>CODICE INTERNAZIONALE
+                            </h2>
+
+                            <div class="over-box">
+                                <form method="GET" id="formTraduci" action="/codice-internazionale/{permalink}"
+                                      name="cerca_porti">
+                                    <div class="form-group">
+                                        <label for="selectPorto">Inserisci la frase da codificare in codice
+                                            morse</label>
+                                        <input type="text" class="form-control"
+                                               id="traduci" placeholder="Inserisci la frase">
+                                    </div>
+                                    <button class="btn btn-default dettagli-nodo hvr-glow" type="submit"
+                                            style="margin-top:0px">TRADUCI
+                                    </button>
+                                </form>
+                            </div>
+
+                        </div>
+
+
+                    </div>
 
                 </div>
 
             </div>
-
         </div>
+
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="divisore"></div>
+            </div>
+        </div>
+
+
+        <div class="row clearfix">
+            <div class="col-md-4 column">
+                <div class="box-sub hvr-shadow">
+                    <div class="foto">
+                        <img style="width:100%"
+                             src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_23.jpg">
+
+                        <div class="category">
+                            <a href="#"><span class="background-arancione">CATEGORY</span> <span
+                                        class="background-arancione">+</span></a>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adip- iscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua.</p>
+                </div>
+
+            </div>
+            <div class="col-md-4 column">
+                <div class="box-sub hvr-shadow">
+                    <div class="foto">
+                        <img style="width:100%"
+                             src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_23.jpg">
+
+                        <div class="category">
+                            <a href="#"><span class="background-rosso ">CATEGORY</span> <span
+                                        class="background-rosso">+</span></a>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adip- iscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua.</p>
+                </div>
+
+            </div>
+            <div class="col-md-4 column">
+                <div class="box-sub hvr-shadow">
+                    <div class="foto">
+                        <img style="width:100%"
+                             src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_23.jpg">
+
+                        <div class="category">
+                            <a href="#"><span class="background-celeste-chiaro foreground-grigio">CATEGORY</span> <span
+                                        class="background-celeste-chiaro foreground-grigio">+</span></a>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adip- iscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua.</p>
+                </div>
+
+            </div>
+        </div>
+
+
     </div>
 
 
-
-
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <div class="divisore"></div>
-        </div>
-    </div>
-
-
-    <div class="row clearfix">
-        <div class="col-md-4 column">
-            <div class="box-sub hvr-shadow">
-                <div class="foto">
-                    <img style="width:100%"
-                         src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_23.jpg">
-
-                    <div class="category">
-                        <a href="#"><span class="background-arancione">CATEGORY</span> <span
-                                class="background-arancione">+</span></a>
-                    </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adip- iscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-            </div>
-
-        </div>
-        <div class="col-md-4 column">
-            <div class="box-sub hvr-shadow">
-                <div class="foto">
-                    <img style="width:100%"
-                         src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_23.jpg">
-
-                    <div class="category">
-                        <a href="#"><span class="background-rosso ">CATEGORY</span> <span
-                                class="background-rosso">+</span></a>
-                    </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adip- iscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-            </div>
-
-        </div>
-        <div class="col-md-4 column">
-            <div class="box-sub hvr-shadow">
-                <div class="foto">
-                    <img style="width:100%"
-                         src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_23.jpg">
-
-                    <div class="category">
-                        <a href="#"><span class="background-celeste-chiaro foreground-grigio">CATEGORY</span> <span
-                                class="background-celeste-chiaro foreground-grigio">+</span></a>
-                    </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adip- iscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.</p>
-            </div>
-
-        </div>
-    </div>
-
-
-</div>
-
-
-<!--
+    <!--
     <div class="row clearfix">
         <div class="col-md-8 column">
             {% include 'ADesignsCalendarBundle::calendar.html.twig' %}

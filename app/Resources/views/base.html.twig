@@ -20,7 +20,9 @@
     <link rel="stylesheet" href="{{ asset('bundles/app/css/scrollPane.css') }}">
 
     {% block stylesheets %}{% endblock %}
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <link rel="icon"
+          type="image/png"
+          href="{{ asset('/bundles/app/images/logo.png') }}">
     {{ sonata_seo_title() }}
     {{ sonata_seo_metadatas() }}
     {{ sonata_seo_link_canonical() }}
@@ -268,7 +270,7 @@
                                              alt="avatar"/>
                                     {% else %}
                                         <img class="avatar-small"
-                                             src="/uploads/utenti/profilo/default_avatar.jpg"
+                                             src="/uploads/utenti/profilo/default_avatar.png"
                                              alt="avatar"/>
                                     {% endif %}
                                 {% endif %}

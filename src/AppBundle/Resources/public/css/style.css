@@ -1478,3 +1478,7 @@ ul.share-buttons li {
     color: rgb(153,153,153);
     font-size:16px;
 }
+.wi.wi-celsius{
+    font-size: 30px !important;
+    margin-top: 0px !important;
+}

@@ -86,7 +86,7 @@
 
                         //SET CONTENUTO DEL PORTO
                         $("#porto-nome").html(response.porto.nome);
-                        $("#porto-temperatura").html(parseInt(response.meteo.main.temp) + "°");
+                        $("#porto-temperatura").html(parseInt(response.meteo.main.temp) + "<i class=\"wi wi-celsius\" > </i>");
                         $("#porto-umidita").html(parseInt(response.meteo.main.humidity) + "%");
                         $("#porto-vento").html(parseInt(response.meteo.wind.speed) + "km/h");
                         $("#loading-porto").hide();

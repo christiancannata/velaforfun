@@ -4,7 +4,7 @@
      <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet'/>
  {% endblock %}
 
-
+{% block title %}Portolano Online{% endblock %}
 
 {% block javascripts %}
     {% spaceless %}
@@ -103,12 +103,18 @@
 {% endblock %}
 
 {% block body %}
+<div class="row clearfix">
+    <div class="col-md-12 column">
 
+        <h1>Portolano Online</h1>
+
+    </div>
+    </div>
+<div class="row clearfix">
+    <div class="col-md-12 column">
 
    <div class="row clearfix">
         <div class="col-md-8 column">
-
-            <h1>Portolano Online</h1>
 
             <div id='map'></div>
 
@@ -123,6 +129,8 @@
                 Ogni segnalazione può essere stampata con un'apposita pagina di formato ridotto che riporta la descrizione e le coordinate del pericolo/avviso così da poterla portare assieme al portolano quando si naviga, un sistema per aggiornare e arricchire il proprio portolano/libro di bordo.
                 Ricorda di aggiungere la tua segnalazione. Ti segnaliamo anche il servizio di commento per i porti italiani dove puoi trovare i commenti degli utenti.
             </p>
+</div>
+                    <div class="colonna-destra" style="margin-bottom: 20px">
             {% if app.user %}
 
 
@@ -141,20 +149,18 @@
                                   placeholder="Descrizione della segnalazione"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="descrizione">Coordinate della segnalazione:</label>
 
-                        <div class="input-group">
-                            <span class="input-group-addon" id="coordinate-x">Lat.</span>
+                         <label for="descrizione">Latitudine:</label>
+
                             <input type="text" class="form-control" name="appbundle_segnalazioneportolano[latitudine]"
                                    placeholder="Inserisci la coordinata"
                                    id="latitudine" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon" id="coordinate-y">Long.</span>
+                                   </div>
+                                   <div class="form-group">
+                           <label for="longitudine">Longitudine:</label>
                             <input type="text" class="form-control" name="appbundle_segnalazioneportolano[longitudine]"
                                    placeholder="Inserisci la coordinata"
                                    id="longitudine" aria-describedby="basic-addon1">
-                        </div>
                         <input type="hidden" name="appbundle_segnalazioneportolano[utente]" value='{{ app.user.id }}'>
 
 
@@ -175,7 +181,8 @@
         </div>
     </div>
     <!-- fine contenuto -->
-
+</div>
+        </div>
 </div>
 
 
