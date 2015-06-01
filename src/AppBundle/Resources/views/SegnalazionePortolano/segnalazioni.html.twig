@@ -173,7 +173,43 @@
 
 
 {% else %}
-    <h4>Per inserire una nuova segnalazione devi effettuare il login</h4>
+
+
+                <div class="col-md-12 column">
+                    <h4>Per inserire una nuova segnalazione devi effettuare il login</h4>
+                    <a href="http://local.velaforfun.dev/secure_area/connect/facebook"
+                       class="btn btn-block btn-social btn-sm btn-facebook"
+                       id="loginFacebook">
+                        <i class="fa fa-facebook"></i>
+                        Accedi con Facebook
+                    </a>
+
+                    <div class="divisore"></div>
+                    <p class="menu-separator"><span>oppure inserisci i tuoi dati di accesso</span></p>
+
+
+                    {% if error is defined %}
+                        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+
+
+                    <form method="post" action="/login_check">
+
+                        <div class="form-group">                <label for="fos_user_registration_form_username" class="control-label required">Username:</label><input type="text" class="form-control" pattern=".{2,}" maxlength="255" required="required" name="_username" id="username"></div>
+                        <div class="form-group">                <label for="fos_user_registration_form_plainPassword_first" class="control-label required">Password:</label><input type="password" class="form-control" required="required" name="_password" id="password"></div>
+
+                        <div class="form-group">
+
+                            <input type="checkbox" value="on" name="_remember_me" id="remember_me">
+                            <label for="remember_me">Ricordami</label>
+                        </div>
+                        <input type="hidden" name="_target_path" value="{{ app.request.get('_route') }}" />
+                        <input type="submit" value="Accedi" class="btn btn-default login hvr-glow" style="color:white !important">
+
+                    </form>
+                    <a href="/register">Non sei ancora registrato?</a>
+                </div>
 {% endif %}
 
             </div>
