@@ -39,11 +39,10 @@
     "php-imap/php-imap": "2.*",
     "jmikola/geojson": "~1.0",
     "sonata-project/seo-bundle": "~2.0",
-    "sonata-project/intl-bundle": "~2.2"
-
+    "sonata-project/intl-bundle": "~2.2",
+    "sensio/generator-bundle": "~2.3"
   },
   "require-dev": {
-    "sensio/generator-bundle": "~2.3"
   },
   "scripts": {
     "post-root-package-install": [

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0ab0b3ad664d155c49ebf9183fca0618",
+    "hash": "c08629f5fa64f83dc414f4039ff74f26",
     "packages": [
         {
             "name": "adesigns/calendar-bundle",
@@ -2069,16 +2069,16 @@
         },
         {
             "name": "kriswallsmith/buzz",
-            "version": "v0.13",
+            "version": "v0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/Buzz.git",
-                "reference": "487760b05d6269a4c2c374364325326cfa65b12c"
+                "reference": "f802a9b9d01b53496f50c9c5e09b5c779cbbd300"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/487760b05d6269a4c2c374364325326cfa65b12c",
-                "reference": "487760b05d6269a4c2c374364325326cfa65b12c",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/f802a9b9d01b53496f50c9c5e09b5c779cbbd300",
+                "reference": "f802a9b9d01b53496f50c9c5e09b5c779cbbd300",
                 "shasum": ""
             },
             "require": {
@@ -2113,7 +2113,7 @@
                 "curl",
                 "http client"
             ],
-            "time": "2014-09-15 12:42:36"
+            "time": "2015-06-02 16:48:29"
         },
         {
             "name": "misd/guzzle-bundle",
@@ -2556,17 +2556,65 @@
             "time": "2015-04-02 12:28:58"
         },
         {
-            "name": "sensiolabs/security-checker",
-            "version": "v2.0.2",
+            "name": "sensio/generator-bundle",
+            "version": "v2.5.3",
+            "target-dir": "Sensio/Bundle/GeneratorBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "cecb1397087dc9c733796eda6e9d121336039cdc"
+                "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
+                "reference": "e50108c2133ee5c9c484555faed50c17a61221d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/cecb1397087dc9c733796eda6e9d121336039cdc",
-                "reference": "cecb1397087dc9c733796eda6e9d121336039cdc",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/e50108c2133ee5c9c484555faed50c17a61221d3",
+                "reference": "e50108c2133ee5c9c484555faed50c17a61221d3",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/console": "~2.5",
+                "symfony/framework-bundle": "~2.2"
+            },
+            "require-dev": {
+                "doctrine/orm": "~2.2,>=2.2.3",
+                "symfony/doctrine-bridge": "~2.2",
+                "twig/twig": "~1.11"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Sensio\\Bundle\\GeneratorBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "This bundle generates code for you",
+            "time": "2015-03-17 06:36:52"
+        },
+        {
+            "name": "sensiolabs/security-checker",
+            "version": "v2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sensiolabs/security-checker.git",
+                "reference": "2c2a71f1c77d9765c12638c4724d9ca23658a810"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/2c2a71f1c77d9765c12638c4724d9ca23658a810",
+                "reference": "2c2a71f1c77d9765c12638c4724d9ca23658a810",
                 "shasum": ""
             },
             "require": {
@@ -2598,7 +2646,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2015-04-21 07:52:05"
+            "time": "2015-05-28 14:22:40"
         },
         {
             "name": "sonata-project/exporter",
@@ -3825,56 +3873,7 @@
             "time": "2015-05-07 14:55:31"
         }
     ],
-    "packages-dev": [
-        {
-            "name": "sensio/generator-bundle",
-            "version": "v2.5.3",
-            "target-dir": "Sensio/Bundle/GeneratorBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "e50108c2133ee5c9c484555faed50c17a61221d3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/e50108c2133ee5c9c484555faed50c17a61221d3",
-                "reference": "e50108c2133ee5c9c484555faed50c17a61221d3",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/console": "~2.5",
-                "symfony/framework-bundle": "~2.2"
-            },
-            "require-dev": {
-                "doctrine/orm": "~2.2,>=2.2.3",
-                "symfony/doctrine-bridge": "~2.2",
-                "twig/twig": "~1.11"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.5.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Sensio\\Bundle\\GeneratorBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "This bundle generates code for you",
-            "time": "2015-03-17 06:36:52"
-        }
-    ],
+    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
