@@ -286,10 +286,17 @@ class AnnuncioImbarcoController extends BaseController
                 );
 
 
-            $serializer = $this->container->get('jms_serializer');
-            $serialized = $serializer->serialize($annunci, "json");
 
-            return new JsonResponse(json_decode($serialized));
+            $responseJson=array();
+            foreach($annunci as $annuncio){
+                $responseJson[]=array(
+                    "topic"=>array("id"=>$annuncio->getTopic()->getId(),"title"=>$annuncio->getTopic()->getTitle()),
+                    "timestamp"=>$annuncio->getTimestamp()->format("d-m-Y H:i"),
+
+                );
+            }
+
+            return new JsonResponse($responseJson);
         }
 
         return $this->render(

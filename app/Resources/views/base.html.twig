@@ -101,8 +101,9 @@
 
 
                                     <li class="dropdown-header">Gestione Articoli</li>
-                                    <li><a href="/archivio/articolo/crea">Crea nuovo</a></li>
-                                    <li><a href="/archivio/articolo/list">Lista</a></li>
+                                    <li><a href="/archivio/articoli/crea">Crea nuovo</a></li>
+                                    <li><a href="/archivio/list/articoli">Lista</a></li>
+
                                     <li class="dropdown-header">Gestione Porti</li>
                                     <li><a href="/porti/crea">Crea nuovo</a></li>
                                     <li><a href="/porti/list">Lista</a></li>
@@ -143,7 +144,7 @@
                                             <label for="remember_me">Ricordami</label>
                                         </div>
                                         <button type="submit" class="btn btn-default login hvr-glow">Accedi</button>
-                                        <input type="hidden" name="_target_path" value="{{ app.request.get('_route') }}" />
+                                      <!--  <input type="hidden" name="_target_path" value="{{ app.request.get('_route') }}" /> -->
                                     </form>
 
                                     <div class="divisore"></div>
@@ -350,11 +351,13 @@
                                             <input type="checkbox" value="on" name="_remember_me" id="remember_me">
                                             <label for="remember_me">Ricordami</label>
                                         </div>
+                                      <!--  <input type="hidden" name="_target_path" value="{{ app.request.get('_route') }}" />
+-->
                                         <button type="submit" class="btn btn-default login hvr-glow">Accedi</button>
                                     </form>
 
                                     <div class="divisore"></div>
-                                    <p class="menu-separator"><span>oppure</span></p>
+                                    <span style="color:white;text-align:center;float:left;width:100%;margin-bottom:10px">oppure</span>
                                     <a href="http://local.velaforfun.dev/secure_area/connect/facebook"
                                        class="btn btn-block btn-social btn-sm btn-facebook"
                                        id="loginFacebook">

@@ -57,11 +57,11 @@
                     ]
                 },
                 "properties": {
-                    "title": "{{ porto.getNome() }}",
-                    "description": "",
+                    "title": "Porto di {{ porto.getNome() }}",
                     "marker-color": "#429CBC",
                     "marker-size": "medium",
-                    "marker-symbol": "harbor"
+                    "marker-symbol": "harbor",
+                    "description":"<a href='http://local.velaforfun.dev/porti/{{ porto.getPermalink() }}'><button  class='btn btn-default login hvr-glow'>ENTRA NEL PORTO </button></a> "
                 },
                 "id": {{ porto.getId() }}
             };
@@ -70,53 +70,12 @@
 
             {% endfor %}
 
+
+
+
+
             myLayer = L.mapbox.featureLayer(arrayPorti).addTo(map);
 
-
-            myLayer.on('click', function (e) {
-                var marker = e.layer;
-                feature = marker.feature;
-                var id = feature.id;
-                $(".porto-meteo").css("opacity",0.4);
-                $.ajax({
-                    url: "/porti/" + id + "/jsondata",
-                    dataType: "json",
-                    success: function (response) {
-                        $("#loading-porto").show();
-                        $(".porto-title").css("opacity", "0.5");
-                        $(".porto-content").css("opacity", "0.5");
-
-                        //SET CONTENUTO DEL PORTO
-                        $("#porto-nome").html(response.porto.nome);
-                        $("#porto-temperatura").html(parseInt(response.meteo.main.temp) + "<i class=\"wi wi-celsius\" > </i>");
-                        $("#porto-umidita").html(parseInt(response.meteo.main.humidity) + "%");
-                        $("#porto-vento").html(parseInt(response.meteo.wind.speed) + "km/h");
-                        $("#loading-porto").hide();
-                        $("#meteo-icon").attr("class", "wi "+meteoIcon[response.meteo.weather[0].icon]);
-                        $(".porto-title").css("opacity", "1");
-                        $(".porto-content").css("opacity", "1");
-                        $(".porto-meteo").css("opacity", 1);
-
-
-
-                    }
-                });
-
-            });
-
-
-            myLayer.on('ready', function (e) {
-                map.fitBounds(myLayer.getBounds());
-
-                myLayer.eachLayer(function (layer) {
-                    var item = markerList.appendChild(document.createElement('li'));
-                    item.innerHTML = layer.toGeoJSON().properties.title;
-                    item.onclick = function () {
-                        L.mapbox.setView(layer.getLatLng(), 14);
-                        layer.openPopup();
-                    };
-                });
-            });
 
 // This uses the HTML5 geolocation API, which is available on
 // most mobile browsers and modern browsers, but not in Internet Explorer

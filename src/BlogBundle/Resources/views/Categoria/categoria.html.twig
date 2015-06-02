@@ -4,11 +4,19 @@
 
 {% block body %}
 
-  <div class="row clearfix">
-        <div class="col-md-8 column">
-            <div class="title">
+
+<div class="row clearfix">
+    <div class="col-md-12 column">
+    <div class="title">
                 {{ categoria.nome }} - Ultime News
             </div>
+        </div>
+    </div>
+
+
+  <div class="row clearfix">
+        <div class="col-md-8 column">
+
             <div class="article main-article">
 
                 <div class="content"
@@ -87,40 +95,69 @@
         </div>
     </div>
 
-
-
-
-
     <div class="row clearfix">
 
         {% for articolo in articoli|slice(4) %}
-        <div class="col-md-4 column">
-            <div class="box-sub hvr-glow">
-                <div class="foto">
-                    <img style="width:100%"
-                         src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_23.jpg">
+    <div class="col-md-4 column">
+        <div class="box-sub hvr-glow">
+            <div class="foto">
+                <img style="width:100%"
+                     src="/images/articoli/{{ articoli[0].immagine }})">
 
-                    <div class="category">
-                        <a href="/archivio/{{ categoria.permalink }}"><span class="background-arancione">{{ categoria.nome|capitalize }}</span> <span
+                <div class="category">
+                    <a href="/archivio/{{ categoria.permalink }}"><span
+                                class="background-arancione">{{ categoria.nome|capitalize }}</span> <span
                                 class="background-arancione">+</span></a>
-                    </div>
                 </div>
-                <p>{{ articolo.testo|slice(0, 100) }}...</p>
             </div>
+            <h4>{{ articolo.titolo }}</h4>
+            <p>{{ articolo.testo|slice(0, 100) }}...</p>
+        </div>
 
+    </div>
+
+
+    {% if loop.index is divisibleby(3) %}
+        </div>
+
+        <div class="row clearfix">
+    {% endif %}
+
+{% endfor %}
+
+
+    </div>
+
+<div class="row clearfix">
+
+
+        {% for categoriaRel in categorie %}
+    <div class="col-md-3 column">
+
+        <div class="category" style="margin:15px">
+            <a href="/archivio/{{ categoriaRel.permalink }}"><span style="background:{{ categoriaRel.getColore() }}" >{{ categoriaRel.nome|capitalize }}</span> <span
+                        style="background:{{ categoriaRel.getColore() }}"       >+</span></a>
         </div>
 
 
-        {% if loop.index is divisibleby(3) %}
     </div>
 
-    <div class="row clearfix">
-        {% endif %}
 
-        {% endfor %}
+    {% if loop.index is divisibleby(4) %}
+
+        </div>
+
+        <div class="row clearfix">
+    {% endif %}
+
+{% endfor %}
 
 
+
+        </div>
     </div>
+
+
         <!-- fine contenuto -->
 
     </div>

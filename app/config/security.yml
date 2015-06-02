@@ -11,6 +11,7 @@ security:
                 login_path:             fos_user_security_login
                 check_path:             fos_user_security_check
               #  csrf_provider:          form.csrf_provider
+                success_handler: app.handler.login_success_handler
             remember_me:
                 key:      "%secret%"
                 lifetime: 31536000 # 365 giorni in secondi
@@ -31,8 +32,7 @@ security:
             anonymous:    true
             logout:
                 path:           /logout
-                target:         / #where to go after logout
-
+                success_handler: app.handler.logout_success_handler
 
     access_control:
      - { path: ^/secure_area/, roles: IS_AUTHENTICATED_ANONYMOUSLY }

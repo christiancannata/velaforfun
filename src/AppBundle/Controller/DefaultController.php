@@ -35,6 +35,23 @@ class DefaultController extends Controller
         return $this->render('default/chi-siamo.html.twig', array());
     }
 
+
+    /**
+     * @Route("/profilo/tuoi-annunci", name="tuoi_annunci")
+     */
+    public function tuoiAnnunciAction()
+    {
+
+        $annunciImbarco= $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioImbarco')->findByUtente($this->getUser());
+
+        $annunciScambio= $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioScambioPosto')->findByUtente($this->getUser());
+
+        return $this->render('default/tuoi-annunci.html.twig', array("annunciImbarco"=>$annunciImbarco,"annunciScambio"=>$annunciScambio));
+    }
+
+
     /**
      * @Route("/contatti", name="contatti")
      */

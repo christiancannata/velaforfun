@@ -66,11 +66,14 @@ class CategoriaController extends BaseController
 
         $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(array('categoria' => $categoria, 'stato' => "ATTIVO"),array('id' => 'desc'));
 
+        $categorie = $em->getRepository('BlogBundle:Categoria')->findAll();
+
         return $this->render(
             'BlogBundle:Categoria:categoria.html.twig',
             array(
                 'articoli' => $articoli,
-                'categoria' => $categoria
+                'categoria' => $categoria,
+                'categorie' => $categorie
             )
         );
     }

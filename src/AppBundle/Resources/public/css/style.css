@@ -1032,7 +1032,8 @@ h1 {
     border: solid 1px rgb(66, 156, 188);
     padding: 7px;
     float: left;
-    font-size: 20px
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
 .container-mappa {
@@ -1040,7 +1041,6 @@ h1 {
     width: 100%;
     background-color: white;
     float: left;
-    margin-top: 20px
 }
 
 .localizzami, .checkin {
@@ -1063,7 +1063,21 @@ h1 {
     padding-bottom: 20px !important;
     padding-left: 10px !important;
     padding-right: 10px !important;
+    min-width: 200px !important;
 }
+
+
+.leaflet-popup-content-wrapper .btn.btn-default.login {
+    background: #429cbc none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 0;
+    color: white;
+    font-size: 14px;
+    margin-top:10px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
 
 .marker-title {
     color: #429CBC !important;
@@ -1357,6 +1371,10 @@ ul.share-buttons li {
     display: inline;
 }
 
+.share-buttons li a:hover{
+color:rgb(35,82,124);
+}
+
 #content-articolo .category a {
     float: left;
 }
@@ -1481,4 +1499,23 @@ ul.share-buttons li {
 .wi.wi-celsius{
     font-size: 30px !important;
     margin-top: 0px !important;
+}
+
+.wi.wi-strong-wind {
+    font-size: 30px !important;
+}
+
+.morse-code{
+    float:left;
+}
+
+.fa.fa-play, .fa.fa-stop {
+    font-size: 42px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.dropdown-menu .fa.fa-facebook {
+    border-color: white !important;
+    font-size: 25px !important;
+    margin-top: 4px !important;
 }

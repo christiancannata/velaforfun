@@ -25,6 +25,10 @@ class ArticoloType extends AbstractType
             ->add('autore')
             ->add('categoria')
             ->add('permalink')
+            ->add('titoloCorrelato')
+            ->add('testoCorrelato')
+            ->add('linkCorrelato')
+            ->add('immagineCorrelata')
         ;
     }
     

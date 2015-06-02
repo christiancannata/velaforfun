@@ -1,0 +1,131 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <!-- contenuto -->
+<div class="row clearfix">
+    <div class="col-md-12 column">
+         <h1>I tuoi Annunci</h1>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                <h2>Annunci Cerco/Offro Imbarco</h2>
+
+
+
+
+            <table class="table table-striped">
+      <thead>
+        <tr>
+        <th></th>
+          <th>Titolo</th>
+          <th>Inserito il</th>
+          <th><i class="fa fa-reply"></i></th>
+          <th><i class="fa fa-eye"></i></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for annuncio in annunciImbarco %}
+    <tr>
+        <td>{{ annuncio.tipoAnnuncio }}</td>
+        <td>{{ annuncio.topic.title }}</td>
+        <td>{{ annuncio.timestamp|date("d/m/Y H:i") }}</td>
+        <td>{{ annuncio.topic.getCachedReplyCount() }}</td>
+        <td>{{ annuncio.topic.getCachedViewCount() }}</td>
+        <td>
+            <button type="button" class="btn btn-primary hvr-glow "
+                    onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'">
+                Leggi Annuncio
+            </button>
+        </td>
+    </tr>
+{% endfor %}
+
+
+      </tbody>
+    </table>
+    </div>
+</div>
+
+
+
+
+<div class="row clearfix">
+                <div class="col-md-12 column">
+                <h2>Annunci Scambio posto barca</h2>
+                    </div>
+                     <div class="col-md-12 column">
+            <table class="table table-striped">
+      <thead>
+        <tr>
+        <th></th>
+          <th>Titolo</th>
+          <th>Inserito il</th>
+          <th><i class="fa fa-reply"></i></th>
+          <th><i class="fa fa-eye"></i></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for annuncio in annunciScambio %}
+    <tr>
+        <td>{{ annuncio.tipoAnnuncio }}</td>
+        <td>{{ annuncio.topic.title }}</td>
+        <td>{{ annuncio.timestamp|date("d/m/Y H:i") }}</td>
+        <td>{{ annuncio.topic.getCachedReplyCount() }}</td>
+        <td>{{ annuncio.topic.getCachedViewCount() }}</td>
+        <td>
+            <button type="button" class="btn btn-primary hvr-glow "
+                    onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'">
+                Leggi Annuncio
+            </button>
+        </td>
+    </tr>
+{% endfor %}
+
+
+      </tbody>
+    </table>
+</div>
+                </div>
+
+                </div>
+
+        <div class="col-md-4 column">
+            <div class="content">
+            <div class="colonna-destra" style="margin-bottom: 20px">
+                           <h2>Hai una barca e sei carente di equipaggio?</h2>
+                             <p>Se possiedi una barca o sei in contatto per poter offrire un imbarco pagato o a pagamento</p>
+                        <button type="submit" class="btn btn-default login hvr-glow" onclick="location.href='nuovo-annuncio'">CREA ORA IL TUO ANNUNCIO</button>
+
+        </div>
+
+<div class="colonna-destra" style="margin-bottom: 20px">
+                           <h2 class="foreground-verde">Sei alla ricerca di un imbarco?</h2>
+                             <p>Se sei alla ricerca di un posto in un equipaggio pagato, gratis o a pagamento</p>
+           <button type="submit" class="btn btn-default login hvr-glow background-verde" onclick="location.href='cerca-annuncio'">CERCA TRA I POSTI DISPONIBILI</button>
+
+
+        </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+    <!-- fine contenuto -->
+
+</div>
+
+{% endblock %}
+
+
+

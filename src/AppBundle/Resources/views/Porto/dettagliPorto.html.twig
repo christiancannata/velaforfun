@@ -68,36 +68,6 @@
 
             myLayer = L.mapbox.featureLayer(arrayPorti).addTo(map);
 
-            myLayer.on('click', function (e) {
-                var marker = e.layer;
-                feature = marker.feature;
-                var id = feature.id;
-                $(".porto-meteo").css("opacity", 0.4);
-                $.ajax({
-                    url: "/porti/" + id + "/jsondata",
-                    dataType: "json",
-                    success: function (response) {
-                        $("#loading-porto").show();
-                        $(".porto-title").css("opacity", "0.5");
-                        $(".porto-content").css("opacity", "0.5");
-
-                        //SET CONTENUTO DEL PORTO
-                        $("#porto-nome").html(response.porto.nome);
-                        $("#porto-temperatura").html(parseInt(response.meteo.main.temp) + "<i class=\"wi wi-celsius\" > </i>");
-                        $("#porto-umidita").html(parseInt(response.meteo.main.humidity) + "%");
-                        $("#porto-vento").html(parseInt(response.meteo.wind.speed) + "km/h");
-                        $("#loading-porto").hide();
-                        $("#meteo-icon").attr("class", "wi "+meteoIcon[response.meteo.weather[0].icon]);
-                        $(".porto-title").css("opacity", "1");
-                        $(".porto-content").css("opacity", "1");
-                        $(".porto-meteo").css("opacity", 1);
-
-
-                    }
-                });
-
-            });
-
 
             myLayer.on('ready', function (e) {
                 map.fitBounds(myLayer.getBounds());
@@ -211,12 +181,12 @@
                     <div class="container-mappa">
 
                         <div class="row clearfix">
-                            <div class="col-md-6 col-xs-6 column text-left">
+                            <div class="col-md-6 col-xs-12 column text-left">
                                 <button class="localizzami hvr-glow left" id='geolocate'><i style=""
                                                                                             class="fa fa-crosshairs"></i>Localizzami
                                 </button>
                             </div>
-                            <div class="col-md-6 col-xs-6 column text-right">
+                            <div class="col-md-6 col-xs-12 column text-right">
                                 <button class="checkin  hvr-glow right" id='attracca'
                                         data-route="/porti/{{ porto.id }}/attracca"><i class="fa fa-anchor"></i>
                                     Attracca
@@ -358,10 +328,6 @@
         <div class="col-md-4 column" id="colonnaPorto">
 
 
-            <div class="row clearfix">
-
-                <div class="col-md-12 column">
-
                     <div class="over-box">
                         <form name="cerca_porti" id="formCercaPorto" action="/porti/{permalink}" method="GET">
                             <div class="form-group">
@@ -379,8 +345,6 @@
                     </div>
 
 
-                </div>
-            </div>
 
 
             <div class="row clearfix">
@@ -390,7 +354,7 @@
                     <div class="row clearfix">
 
                         <div class="col-md-12 column">
-                            <h1 id="porto-nome">{{ porto.nome }}</h1>
+                            <h1 id="porto-nome" style="padding-left:0px;">Porto di {{ porto.nome }}</h1>
                         </div>
                     </div>
 
@@ -410,7 +374,7 @@
                                     <p>MIN</p>
                                 </div>
                                 <div class="col-md-6column">
-                                    <p style="margin:0">VENTI</p>
+                                    <p style="margin:0"><i class="wi wi-strong-wind"></i></p>
                                     <div id="porto-vento" style="margin-bottom: 10px;">{{ meteo.wind.speed }}km/h</div>
                                     <p style="margin:0">UMIDITA'</p>
                                     <div id="porto-umidita" style="margin-bottom: 10px;">{{ meteo.main.humidity  }}%</div>
@@ -418,13 +382,16 @@
                             </div>
 
 
-                            <div class="row clearfix">
-                                <div class="col-md-12 column">
-                                </div>
-
-                            </div>
 
 
+
+                        </div>
+
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-md-12 column" style="text-align: left">
+                            <strong >Informazioni utili</strong>
+                            <p>{{ porto.datiOver|raw }}</p>
                         </div>
 
                     </div>
@@ -442,13 +409,13 @@
                                 <p>Cerca tra gli annunci di chi vuole scambiare il suo posto barca e scegli in base alle
                                     tue preferenze</p>
                                 <button type="submit" class="btn btn-default login hvr-glow"
-                                        onclick="location.href='cerca-annuncio'">CERCA TRA GLI ANNUNCI
+                                        onclick="location.href='/annuncio-scambio-posto/cerca-annuncio'">CERCA TRA GLI ANNUNCI
                                 </button>
                             {% else %}
                                 <h2>{{ porto.getAnnunciScambioPosto()|length }} persone scambiano qui il suo posto
                                     barca</h2>
                                 <button type="submit" class="btn btn-default login hvr-glow"
-                                        onclick="location.href='cerca-annuncio'">VISUALIZZA GLI ANNUNCI
+                                        onclick="location.href='/annuncio-scambio-posto/cerca-annuncio'">VISUALIZZA GLI ANNUNCI
                                 </button>
 
                             {% endif %}

@@ -47,3 +47,15 @@ services:
           class: AppBundle\EventListener\VelaForumListener
           tags:
               - { name: kernel.event_subscriber }
+
+  app.handler.logout_success_handler:
+          class:  AppBundle\Services\LogoutSuccessHandlerService
+          arguments:  [@router]
+          tags:
+              - { name: 'monolog.logger', channel: 'security' }
+
+  app.handler.login_success_handler:
+            class:  AppBundle\Services\LoginSuccessHandlerService
+            arguments:  [@router, @security.context]
+            tags:
+                - { name: 'monolog.logger', channel: 'security' }

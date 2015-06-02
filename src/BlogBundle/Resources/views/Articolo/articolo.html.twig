@@ -19,7 +19,7 @@
  <div class="row clearfix">
         <div class="col-md-6 col-xs-6 column">
              <div class="category">
-             <a href="#" id="back-link"> <span class="glyphicon glyphicon-menu-left background-celeste" style="color:white;" aria-hidden="true"></span>  </a>            <a id="category-link" href="/archivio/{{ articolo.categoria.permalink }}" style="margin-top:5px;margin-left: 12px;"><span style="background:{{ articolo.categoria.getColore() }};" >{{ articolo.categoria.nome|capitalize }}</span> </a>
+             <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left background-celeste" style="color:white;" aria-hidden="true"></span>  </a>            <a id="category-link" href="/archivio/{{ articolo.categoria.permalink }}" style="margin-top:5px;margin-left: 12px;"><span style="background:{{ articolo.categoria.getColore() }};" >{{ articolo.categoria.nome|capitalize }}</span> </a>
               </div>
 
         </div>
@@ -98,75 +98,85 @@
 
 
            <div class="col-md-4 column">
-           <div class="title">
-                    Altri articoli
-                </div>
-            <div class="content">
 
 
-
-                    {% if articoli[1] is defined %}
-    <a href="/archivio/{{ articoli[1].categoria.permalink }}/{{ articoli[1].permalink }}">
-        <div class="latest-news">
-            <div class="content">
-                <h4>{{ articoli[1].titolo }}</h4>
-
-                {{ articoli[1].sottotitolo|raw }}
-            </div>
-            <div class="arrow">
-                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-            </div>
-        </div>
-    </a>
-{% endif %}
-                    {% if articoli[2] is defined %}
-    <a href="/archivio/{{ articoli[2].categoria.permalink }}/{{ articoli[2].permalink }}">
-        <div class="latest-news">
-            <div class="content">
-                <h4>{{ articoli[2].titolo }}</h4>
-
-                {{ articoli[2].sottotitolo|raw }}
-            </div>
-            <div class="arrow">
-                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-            </div>
-        </div>
-    </a>
-{% endif %}
-                    {% if articoli[3] is defined %}
-    <a href="/archivio/{{ articoli[3].categoria.permalink }}/{{ articoli[3].permalink }}">
-        <div class="latest-news">
-            <div class="content">
-                <h4>{{ articoli[3].titolo }}</h4>
-
-                {{ articoli[3].sottotitolo|raw }}
-            </div>
-            <div class="arrow">
-                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-            </div>
-        </div>
-    </a>
-{% endif %}
+               {% if articoli[1] is defined %}
+    <div class="title">
+        Altri articoli
+    </div>
+    <div class="content">
 
 
-
-
-
-
-            </div>
-            <div class="arrow_box">
-                    <img src="http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_9.jpg">
-
+        {% if articoli[1] is defined %}
+            <a href="/archivio/{{ articoli[1].categoria.permalink }}/{{ articoli[1].permalink }}">
+                <div class="latest-news">
                     <div class="content">
-                        <h4>LEGGI ANCHE</h4>
+                        <h4>{{ articoli[1].titolo }}</h4>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing ealit, sed do eiusmod tempor incididunt ut
-                            labore et dolore. Dolor sit amet, consectetur adipiscing ealit, sed do eiusmod tempor
-                            incididunt
-                            ut labore et dolore. This is the end...</p>
+                        {{ articoli[1].sottotitolo|raw }}
                     </div>
-
+                    <div class="arrow">
+                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                    </div>
                 </div>
+            </a>
+        {% endif %}
+        {% if articoli[2] is defined %}
+            <a href="/archivio/{{ articoli[2].categoria.permalink }}/{{ articoli[2].permalink }}">
+                <div class="latest-news">
+                    <div class="content">
+                        <h4>{{ articoli[2].titolo }}</h4>
+
+                        {{ articoli[2].sottotitolo|raw }}
+                    </div>
+                    <div class="arrow">
+                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </a>
+        {% endif %}
+        {% if articoli[3] is defined %}
+            <a href="/archivio/{{ articoli[3].categoria.permalink }}/{{ articoli[3].permalink }}">
+                <div class="latest-news">
+                    <div class="content">
+                        <h4>{{ articoli[3].titolo }}</h4>
+
+                        {{ articoli[3].sottotitolo|raw }}
+                    </div>
+                    <div class="arrow">
+                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </a>
+        {% endif %}
+
+
+    </div>
+{% endif %}
+
+            {% if articolo.linkCorrelato is defined and articolo.linkCorrelato!="" %}
+
+    <a href="{{ articolo.linkCorrelato }}">
+        <div class="arrow_box">
+            {% if articolo.immagineCorrelataArticolo is defined %}
+                <img src="/images/articoli/{{ articolo.immagineCorrelataArticolo }}">
+            {% endif %}
+            <div class="content">
+                <h4>LEGGI ANCHE</h4>
+
+                <p>{{ articolo.testoCorrelato }}</p>
+            </div>
+
+        </div>
+
+    </a>
+
+
+{% endif %}
+
+
+
+
         </div>
             <!-- fine contenuto -->
         </div>
