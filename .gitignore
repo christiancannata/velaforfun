@@ -1,3 +1,4 @@
+/vendor
 
 # Cache and logs (Symfony2)
 /app/cache/*
