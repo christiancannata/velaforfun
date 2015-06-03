@@ -1382,7 +1382,7 @@ ul.share-buttons li {
 }
 
 .share-buttons li a:hover{
-color:rgb(35,82,124);
+    color:rgb(35,82,124);
 }
 
 #content-articolo .category a {
@@ -1530,9 +1530,12 @@ color:rgb(35,82,124);
     margin-top: 4px !important;
 }
 
-
-/* fluid 5 columns */
-.grid-sizer,
-.grid-item { width: 20%; }
-/* 2 columns */
-.grid-item--width2 { width: 40%; }
+.img-thumbnail {
+    padding: 10px;
+}
+.post-box {
+    margin: 15px 0 15px 0;
+}
+.immagine-articolo{
+    position:relative;float:right;width:360px;padding-left: 5px;padding-bottom: 5px
+}

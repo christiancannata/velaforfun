@@ -64,6 +64,11 @@
  <div class="row clearfix">
         <div class="col-md-12 column" >
         <div id="body-content">
+        {% if articolo.immagine!="" %}
+    <img class="immagine-articolo" style="" src="/images/articoli/{{ articolo.immagine }}">
+
+{% endif %}
+
            {{ articolo.testo|raw }}
  <div class="row clearfix">
         <div class="col-md-6 column">
