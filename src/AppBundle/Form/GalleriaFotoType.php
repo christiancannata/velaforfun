@@ -16,7 +16,7 @@ class GalleriaFotoType extends AbstractType
     {
         $builder
             ->add('nome')
-            ->add('articolo')
+            ->add('descrizione')
         ;
     }
     

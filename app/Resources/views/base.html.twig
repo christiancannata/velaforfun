@@ -18,6 +18,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     <link rel="stylesheet" href="{{ asset('bundles/app/css/colori.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/app/css/scrollPane.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap-lightbox.css') }}">
 
     {% block stylesheets %}{% endblock %}
     <link rel="icon"
@@ -62,19 +63,19 @@
                             <li><a href="/forum/velaforfun">Vedi tutte le sezioni</a></li>
                         </ul>
                     </li>
-                    <li ><a href="/porti">Porti d'Italia</a></li>
-                    <li ><a href="/segnalazioni-portolano">Portolano Online</a></li>
+                    <li><a href="/porti">Porti d'Italia</a></li>
+                    <li><a href="/segnalazioni-portolano">Portolano Online</a></li>
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if is_granted('ROLE_USER') %}
 
 
-                        <div class="dropdown" >
+                        <div class="dropdown">
                             <a class="dropdown-toggle" id="dropdownMenu1Tablet"
                                data-toggle="dropdown" aria-expanded="true">
 
-                                <div >
+                                <div>
                                     <span> {{ app.user.username }}</span>
                                     <span class="caret"></span>
                                 </div>
@@ -119,7 +120,6 @@
                             {% endif %}
 
 
-
                         </div>
                     {% else %}
                         <ul class="list-inline" id="menu-login2">
@@ -144,12 +144,12 @@
                                             <label for="remember_me">Ricordami</label>
                                         </div>
                                         <button type="submit" class="btn btn-default login hvr-glow">Accedi</button>
-                                      <!--  <input type="hidden" name="_target_path" value="{{ app.request.get('_route') }}" /> -->
+                                        <!--  <input type="hidden" name="_target_path" value="{{ app.request.get('_route') }}" /> -->
                                     </form>
 
                                     <div class="divisore"></div>
                                     <p class="menu-separator"><span>oppure</span></p>
-                                    <a href="http://local.velaforfun.dev/secure_area/connect/facebook"
+                                    <a href="/secure_area/connect/facebook"
                                        class="btn btn-block btn-social btn-sm btn-facebook"
                                        id="loginFacebook">
                                         <i class="fa fa-facebook"></i>
@@ -194,7 +194,7 @@
                                             <a href="#"><i class="fa fa-search"></i></a>
                                             <input placeholder="cerca un termine..." type="search"
                                                    class="form-control"
-                                                    onclick="$(this).val('')"/>
+                                                   onclick="$(this).val('')"/>
                                         </div>
                                     </form>
                                 </li>
@@ -238,7 +238,8 @@
 
                                             <ul class="list-inline">
                                                 {% for nodo in subMenu %}
-                                                    <li><a href="{{ nodo.link }}" target="{{ nodo.action }}">{{ nodo.nome }}</a></li>
+                                                    <li><a href="{{ nodo.link }}"
+                                                           target="{{ nodo.action }}">{{ nodo.nome }}</a></li>
 
                                                 {% endfor %}
                                             </ul>
@@ -254,83 +255,85 @@
                 <div class="col-md-3 column ">
 
                     {% if is_granted('ROLE_USER') %}
+                        <ul class="list-inline" id="menu-login">
 
+                            <li class="bordered"
+                                style="padding-right: 15px;border-right: 1px solid rgb(153, 153, 153);">
+                                <a href="/logout">Esci</a>
+                            </li>
+                            <li>
+                                <div class="dropdown" id="profileMenu">
+                                    <a class="dropdown-toggle" id="dropdownMenu1"
+                                       data-toggle="dropdown" aria-expanded="true">
+                                        <span class="username"> <strong>{{ app.user.username }}</strong></span>
+                                        {% if app.user.profilePicturePath == "" and app.user.getFacebookId() !="" %}
+                                            <img class="avatar-small"
+                                                 src="http://graph.facebook.com/{{ app.user.getFacebookId() }}/picture?type=square"
+                                                 alt="avatar"/>
 
-                        <div class="dropdown" id="profileMenu">
-                            <a class="dropdown-toggle" id="dropdownMenu1"
-                               data-toggle="dropdown" aria-expanded="true">
-                                {% if app.user.profilePicturePath == "" and app.user.getFacebookId() !="" %}
-                                    <img class="avatar-small"
-                                         src="http://graph.facebook.com/{{ app.user.getFacebookId() }}/picture?type=square"
-                                         alt="avatar"/>
+                                        {% else %}
 
-                                {% else %}
+                                            {% if app.user.profilePicturePath != "" %}
+                                                <img class="avatar-small"
+                                                     src="/uploads/utenti/profilo/{{ app.user.profilePicturePath }}"
+                                                     alt="avatar"/>
+                                            {% else %}
+                                                <img class="avatar-small"
+                                                     src="/uploads/utenti/profilo/default_avatar.png"
+                                                     alt="avatar"/>
+                                            {% endif %}
+                                        {% endif %}
+                                    </a>
 
-                                    {% if app.user.profilePicturePath != "" %}
-                                        <img class="avatar-small"
-                                             src="/uploads/utenti/profilo/{{ app.user.profilePicturePath }}"
-                                             alt="avatar"/>
+                                    {% if not is_granted('ROLE_SUPER_ADMIN') %}
+
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                            <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                                       href="/tuo-profilo">
+                                                    <i class="fa fa-user"></i>
+                                                    Il tuo profilo</a></li>
+                                            <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                                       href="/tuoi-annunci">
+                                                    <i class="fa fa-pencil"></i>
+                                                    I tuoi annunci</a>
+                                            </li>
+                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">
+                                                    <i class="fa fa-sign-out"></i>
+                                                    Esci</a>
+                                            </li>
+                                        </ul>
                                     {% else %}
-                                        <img class="avatar-small"
-                                             src="/uploads/utenti/profilo/default_avatar.png"
-                                             alt="avatar"/>
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+
+
+                                            <li class="dropdown-header">Gestione Articoli</li>
+                                            <li><a href="/archivio/articolo/crea">Crea nuovo</a></li>
+                                            <li><a href="/archivio/articolo/list">Lista</a></li>
+                                            <li class="divider"></li>
+                                            <li class="dropdown-header">Gestione Porti</li>
+                                            <li><a href="/porti/crea">Crea nuovo</a></li>
+                                            <li><a href="/porti/list">Lista</a></li>
+                                            <li class="divider"></li>
+                                            <li class="dropdown-header">Gestione Nodi</li>
+                                            <li><a href="/nodi/crea">Crea nuovo</a></li>
+                                            <li><a href="/nodi/list">Lista</a></li>
+
+                                            <li class="divider"></li>
+                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">
+                                                    <i class="fa fa-sign-out"></i>
+                                                    Esci</a>
+                                            </li>
+                                        </ul>
+
                                     {% endif %}
-                                {% endif %}
 
 
-                                <div style="padding-top:30px">
-                                    <span> {{ app.user.username }}</span>
-                                    <span class="caret"></span>
                                 </div>
-
-                            </a>
-
-                            {% if not is_granted('ROLE_SUPER_ADMIN') %}
-
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="/tuo-profilo">
-                                        <i class="fa fa-user"></i>
-                                        Il tuo profilo</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="/tuoi-annunci">
-                                        <i class="fa fa-pencil"></i>
-                                        I tuoi annunci</a>
-                                </li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">
-                                        <i class="fa fa-sign-out"></i>
-                                        Esci</a>
-                                </li>
-                            </ul>
-                            {% else %}
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-
-
-                                    <li class="dropdown-header">Gestione Articoli</li>
-                                    <li><a href="/archivio/articolo/crea">Crea nuovo</a></li>
-                                    <li><a href="/archivio/articolo/list">Lista</a></li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Gestione Porti</li>
-                                    <li><a href="/porti/crea">Crea nuovo</a></li>
-                                    <li><a href="/porti/list">Lista</a></li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Gestione Nodi</li>
-                                    <li><a href="/nodi/crea">Crea nuovo</a></li>
-                                    <li><a href="/nodi/list">Lista</a></li>
-
-                                    <li class="divider"></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">
-                                            <i class="fa fa-sign-out"></i>
-                                            Esci</a>
-                                    </li>
-                                </ul>
-
-                            {% endif %}
-
-
-
-                        </div>
+                            </li>
+                        </ul>
                     {% else %}
                         <ul class="list-inline" id="menu-login">
-                            <li style="padding-left:0px"><span>Sei già iscritto?</span></li>
+                            <li style="padding-left:0px;float:left"><span>Sei già iscritto?</span></li>
                             <li class="dropdown bordered" style="padding-right: 11px;" id="menuLogin">
                                 <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"
                                    style="border:none">ACCEDI</a>
@@ -351,14 +354,14 @@
                                             <input type="checkbox" value="on" name="_remember_me" id="remember_me">
                                             <label for="remember_me">Ricordami</label>
                                         </div>
-                                      <!--  <input type="hidden" name="_target_path" value="{{ app.request.get('_route') }}" />
+                                        <!--  <input type="hidden" name="_target_path" value="{{ app.request.get('_route') }}" />
 -->
                                         <button type="submit" class="btn btn-default login hvr-glow">Accedi</button>
                                     </form>
 
                                     <div class="divisore"></div>
                                     <span style="color:white;text-align:center;float:left;width:100%;margin-bottom:10px">oppure</span>
-                                    <a href="http://local.velaforfun.dev/secure_area/connect/facebook"
+                                    <a href="/secure_area/connect/facebook"
                                        class="btn btn-block btn-social btn-sm btn-facebook"
                                        id="loginFacebook">
                                         <i class="fa fa-facebook"></i>
@@ -372,7 +375,6 @@
 
 
                     {% endif %}
-
 
                 </div>
             </div>
@@ -444,8 +446,8 @@
                         {% set menu= menu("footer_menu") %}
 
                         {% for nodo in menu %}
-                        <a href="{{ nodo.link }}" target="{{ nodo.action }}">{{ nodo.nome }}</a>
-                       {% if not loop.last %} | {% endif %}
+                            <a href="{{ nodo.link }}" target="{{ nodo.action }}">{{ nodo.nome }}</a>
+                            {% if not loop.last %} | {% endif %}
                         {% endfor %}
                     </p>
                 </div>
@@ -493,10 +495,8 @@
 <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
 
 
-
-
 <!-- Redactor is here -->
-<link rel="stylesheet" href="/redactor/redactor.css" />
+<link rel="stylesheet" href="/redactor/redactor.css"/>
 
 
 
@@ -506,7 +506,7 @@
 
         $(document).ready(function () {
 
-            if($('[ name="{{ form.vars.full_name }}"]').length>0){
+            if ($('[ name="{{ form.vars.full_name }}"]').length > 0) {
                 $('textarea').redactor({
                     imageUpload: '/redactor/image_upload.php',
                     fileUpload: '/redactor/file_upload.php',
@@ -530,8 +530,8 @@
                         showalert(form, "Errore nella creazione", "error")
                     }
                     form.find('input[type="submit"],button').removeAttr('disabled');
-                    if(form.find(".callback").length>0){
-                        var callbackFunction=form.find(".callback").val();
+                    if (form.find(".callback").length > 0) {
+                        var callbackFunction = form.find(".callback").val();
                         window[callbackFunction](response);
                     }
 

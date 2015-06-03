@@ -80,6 +80,7 @@ form label {
 }
 
 .box-home .content h2 {
+    font-weight: bold;
     background: none repeat scroll 0 0 white;
     float: left;
     text-align: center;
@@ -161,6 +162,7 @@ form label {
 .latest-news {
     padding: 15px;
     list-style: none;
+    border-left: 1px solid rgb(153, 153, 153);
     border-top: 1px solid rgb(153, 153, 153);
     float: left;
     width: 100%;
@@ -183,7 +185,7 @@ ul.content {
 
 .latest-news p {
     margin-top: 10px;
-
+    color: rgb(153, 153, 153) !important;
 }
 
 .latest-news h4, .summary h2 {
@@ -229,6 +231,7 @@ ul.content {
     margin-bottom: 20px;
     padding: 5px;
     background: white;
+    width: 100%;
 }
 
 .box-sub p {
@@ -375,7 +378,7 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
     float: right;
     margin-bottom: 0;
     padding-bottom: 15px;
-    padding-top: 15px;
+    padding-top: 34px;
 }
 
 .shadow-menu {
@@ -754,7 +757,7 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
 }
 
 .subtitle {
-    font-size: 18px
+    font-size: 16px
 }
 
 .box-home .table-hover {
@@ -960,10 +963,6 @@ input:-moz-placeholder {
     padding-top: 20px;
 }
 
-#menu-login {
-    padding-top: 40px;
-}
-
 .back .list-inline > li {
     display: inline-block;
     padding-left: 15px;
@@ -974,27 +973,28 @@ input:-moz-placeholder {
 .back .list-inline > li:hover a {
     color: #333;
 }
-
+.username{
+    float:left;
+}
 /* Rounded avatars */
 .avatar-small {
     float: left;
-    margin-top: 1em;
-    margin-right: 1em;
     position: relative;
-    width: 50px;
+    width: 35px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-
-    -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .2);
-    -moz-box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .2);
-    box-shadow: 0 0 0 3px #fff, 0 0 0 4px #999, 0 2px 5px 4px rgba(0, 0, 0, .2);
+    margin-top:-10px;
+    margin-left: 10px;
+    -webkit-box-shadow: 0 0 0 3px #429CBC, 0 0 0 4px #429CBC, 0 2px 5px 4px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 0 0 3px #429CBC, 0 0 0 4px #429CBC, 0 2px 5px 4px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 0 3px #429CBC, 0 0 0 4px #429CBC, 0 2px 5px 4px rgba(0, 0, 0, .2);
 }
 
 #profileMenu a.dropdown-toggle {
-    padding-top: 10px;
     cursor: pointer;
     float: left;
+    padding-left: 10px;
     width: 225px;
 }
 
@@ -1008,7 +1008,7 @@ input:-moz-placeholder {
 }
 
 #profileMenu .dropdown-menu {
-    margin-top: 100px;
+    margin-top: 40px;
 
 }
 
@@ -1028,6 +1028,15 @@ input:-moz-placeholder {
     width: 100%;
 }
 
+.category .bordered{
+    border: 1px solid rgb(66, 156, 188);
+    color: rgb(66, 156, 188);
+    float: left;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-top: -1px;
+    padding: 8px;
+}
 h1 {
     border: solid 1px rgb(66, 156, 188);
     padding: 7px;
@@ -1285,6 +1294,7 @@ input[type="radio"]:checked .fa-stack-1x {
 #menu-login li.bordered {
     border-left: 1px solid rgb(153, 153, 153);
     padding-left: 15px;
+    float: left;
 }
 
 .nodo {
@@ -1519,3 +1529,10 @@ color:rgb(35,82,124);
     font-size: 25px !important;
     margin-top: 4px !important;
 }
+
+
+/* fluid 5 columns */
+.grid-sizer,
+.grid-item { width: 20%; }
+/* 2 columns */
+.grid-item--width2 { width: 40%; }

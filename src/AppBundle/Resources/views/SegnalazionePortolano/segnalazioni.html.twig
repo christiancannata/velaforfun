@@ -40,6 +40,7 @@
                     $("#latitudine").val(e.latlng.lat);
                     $("#longitudine").val(e.latlng.lng);
                     marker.addTo(map);
+
                     $("#modalPortolano").modal().on('hidden.bs.modal', function () {
                         map.removeLayer(marker);
                     });
@@ -105,9 +106,9 @@
 {% block body %}
 <div class="row clearfix">
     <div class="col-md-12 column">
-
-        <h1>Portolano Online</h1>
-
+        <div class="category">
+        <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>  <h1>Portolano Online</h1>
+</div>
     </div>
     </div>
 <div class="row clearfix">
@@ -123,6 +124,7 @@
         <div class="col-md-4 column">
             <div class="content">
                 <div class="colonna-destra" style="margin-bottom: 20px">
+                    <h2>Cos'è Portolano Online</h2>
             <p>
                 Portolano Online è un servizio innovativo che raccoglie le segnalazioni degli utenti per i mari che bagnano la penisola italiana. Qui sono raccolte tutte quelle indicazioni e particolarità che ognuno ha sperimentato e trovato navigando e che non sono segnalate sulle carte o alle quali non è dato sufficiente peso.
                 Troverai quindi accortezze nell'evitare secche, individuare fari, zone senza ridossi, allineamenti di ingresso e quant'altro ogni utente abbia ritenuto di segnalare a chi naviga in un particolare specchio d'acqua.
@@ -131,10 +133,40 @@
             </p>
 </div>
                     <div class="colonna-destra" style="margin-bottom: 20px">
-            {% if app.user %}
+
+            </div>
+
+        </div>
+    </div>
+    <!-- fine contenuto -->
+</div>
+        </div>
+</div>
 
 
-                           <h2>Inserisci una segnalazione</h2>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalPortolano" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Inserisci una segnalazione</h4>
+      </div>
+      <div class="modal-body">
+
+
+
+
+
+
+          {% if app.user %}
+
+
                              <p>compila il form per inserire una nuova segnalazione nel portolano online</p>
 
     {{ form_start(form) }}
@@ -175,51 +207,56 @@
 {% else %}
 
 
-                <div class="col-md-12 column">
-                    <h4>Per inserire una nuova segnalazione devi effettuare il login</h4>
-                    <a href="http://local.velaforfun.dev/secure_area/connect/facebook"
-                       class="btn btn-block btn-social btn-sm btn-facebook"
-                       id="loginFacebook">
-                        <i class="fa fa-facebook"></i>
-                        Accedi con Facebook
-                    </a>
+              <div class="col-md-12 column">
+                  <h4>Per inserire una nuova segnalazione devi effettuare il login</h4>
+                  <a href="http://local.velaforfun.dev/secure_area/connect/facebook"
+                     class="btn btn-block btn-social btn-sm btn-facebook"
+                     id="loginFacebook">
+                      <i class="fa fa-facebook"></i>
+                      Accedi con Facebook
+                  </a>
 
-                    <div class="divisore"></div>
-                    <p class="menu-separator"><span>oppure inserisci i tuoi dati di accesso</span></p>
-
-
-                    {% if error is defined %}
-                        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                    {% endif %}
+                  <div class="divisore"></div>
+                  <p class="menu-separator"><span>oppure inserisci i tuoi dati di accesso</span></p>
 
 
+                  {% if error is defined %}
+                      <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                  {% endif %}
 
-                    <form method="post" action="/login_check">
 
-                        <div class="form-group">                <label for="fos_user_registration_form_username" class="control-label required">Username:</label><input type="text" class="form-control" pattern=".{2,}" maxlength="255" required="required" name="_username" id="username"></div>
-                        <div class="form-group">                <label for="fos_user_registration_form_plainPassword_first" class="control-label required">Password:</label><input type="password" class="form-control" required="required" name="_password" id="password"></div>
 
-                        <div class="form-group">
+                  <form method="post" action="/login_check">
 
-                            <input type="checkbox" value="on" name="_remember_me" id="remember_me">
-                            <label for="remember_me">Ricordami</label>
-                        </div>
-                        <input type="hidden" name="_target_path" value="{{ app.request.get('_route') }}" />
-                        <input type="submit" value="Accedi" class="btn btn-default login hvr-glow" style="color:white !important">
+                      <div class="form-group">                <label for="fos_user_registration_form_username" class="control-label required">Username:</label><input type="text" class="form-control" pattern=".{2,}" maxlength="255" required="required" name="_username" id="username"></div>
+                      <div class="form-group">                <label for="fos_user_registration_form_plainPassword_first" class="control-label required">Password:</label><input type="password" class="form-control" required="required" name="_password" id="password"></div>
 
-                    </form>
-                    <a href="/register">Non sei ancora registrato?</a>
-                </div>
-{% endif %}
+                      <div class="form-group">
 
-            </div>
+                          <input type="checkbox" value="on" name="_remember_me" id="remember_me">
+                          <label for="remember_me">Ricordami</label>
+                      </div>
+                      <input type="hidden" name="_target_path" value="{{ app.request.get('_route') }}" />
+                      <input type="submit" value="Accedi" class="btn btn-default login hvr-glow" style="color:white !important">
 
-        </div>
+                  </form>
+                  <a href="/register">Non sei ancora registrato?</a>
+              </div>
+          {% endif %}
+
+
+
+      </div>
     </div>
-    <!-- fine contenuto -->
+  </div>
 </div>
-        </div>
-</div>
+
+
+
+
+
+
+
 
 
 

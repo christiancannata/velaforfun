@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  * @ORM\Table(name="foto")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Foto {
 	/**
@@ -214,12 +215,11 @@ class Foto {
      */
     public function setProfilePictureFile(\Symfony\Component\HttpFoundation\File\UploadedFile $file = null) {
         // set the value of the holder
-
         $this->profilePictureFile       =   $file;
         // check if we have an old image path
         if (isset($this->immagine)) {
             // store the old name to delete after the update
-            $this->tempimmagine = $this->immagine;
+            $this->tempProfilePicturePath = $this->immagine;
             $this->immagine = null;
         } else {
             $this->immagine = 'initial';
@@ -238,10 +238,31 @@ class Foto {
         return $this->profilePictureFile;
     }
 
+    /**
+     * Set profilePicturePath
+     *
+     * @param string $profilePicturePath
+     * @return User
+     */
+    public function setImmagine($profilePicturePath)
+    {
+        $this->immagine = $profilePicturePath;
 
+        return $this;
+    }
 
     /**
-     * Get the absolute path of the immagine
+     * Get profilePicturePath
+     *
+     * @return string
+     */
+    public function getImmagine()
+    {
+        return $this->immagine;
+    }
+
+    /**
+     * Get the absolute path of the profilePicturePath
      */
     public function getProfilePictureAbsolutePath() {
         return null === $this->immagine
@@ -269,7 +290,7 @@ class Foto {
         // the type param is to change these methods at a later date for more file uploads
         // get rid of the __DIR__ so it doesn't screw up
         // when displaying uploaded doc/image in the view.
-        return 'images/galleria';
+        return 'uploads/galleria_foto';
     }
 
     /**
@@ -277,9 +298,9 @@ class Foto {
      *
      * @return string
      */
-    public function getWebimmagine() {
+    public function getWebProfilePicturePath() {
 
-        return '/'.$this->getUploadDir().'/'.$this->getimmagine();
+        return '/'.$this->getUploadDir().'/'.$this->getImmagine();
     }
 
     /**
@@ -291,8 +312,8 @@ class Foto {
             // a file was uploaded
             // generate a unique filename
             $oggi=new \DateTime();
-            $filename=str_replace(" ","-",$this->getNome())."-".$oggi->format("U");
-            $this->setimmagine($filename.'.'.$this->getProfilePictureFile()->guessExtension());
+            $filename=str_replace(" ","",$this->getNome())."-".$oggi->format("U");
+            $this->setImmagine($filename.'.'.$this->getProfilePictureFile()->guessExtension());
         }
     }
 
@@ -329,14 +350,14 @@ class Foto {
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
-        $this->getProfilePictureFile()->move($this->getUploadRootDir(), $this->getimmagine());
+        $this->getProfilePictureFile()->move($this->getUploadRootDir(), $this->getImmagine());
 
         // check if we have an old image
-        if (isset($this->tempimmagine) && file_exists($this->getUploadRootDir().'/'.$this->tempimmagine)) {
+        if (isset($this->tempProfilePicturePath) && file_exists($this->getUploadRootDir().'/'.$this->tempProfilePicturePath)) {
             // delete the old image
-            unlink($this->getUploadRootDir().'/'.$this->tempimmagine);
+            unlink($this->getUploadRootDir().'/'.$this->tempProfilePicturePath);
             // clear the temp image path
-            $this->tempimmagine = null;
+            $this->tempProfilePicturePath = null;
         }
         $this->profilePictureFile = null;
     }
@@ -350,7 +371,6 @@ class Foto {
             unlink($file);
         }
     }
-
 
 
 }

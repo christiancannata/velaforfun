@@ -59,6 +59,12 @@ class GalleriaFoto
      */
     protected $permalink;
 
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    protected $descrizione;
+
     /**
      * @ORM\OneToMany(targetEntity="Foto", mappedBy="galleria")
      **/
@@ -147,7 +153,7 @@ class GalleriaFoto
      */
     public function getFoto()
     {
-        return $this->nodi;
+        return $this->foto;
     }
 
     /**
@@ -214,4 +220,23 @@ class GalleriaFoto
         $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $this->titolo."-".rand(1, 99));
         $this->permalink = strtolower($slug);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDescrizione()
+    {
+        return $this->descrizione;
+    }
+
+    /**
+     * @param mixed $descrizione
+     */
+    public function setDescrizione($descrizione)
+    {
+        $this->descrizione = $descrizione;
+    }
+
+
+
 }

@@ -60,11 +60,11 @@ class FotoController extends BaseController
     public function fotoAction()
     {
 
-        $nodi = $this->getDoctrine()
-            ->getRepository('AppBundle:Foto')->findAll();
+        $categorie = $this->getDoctrine()
+            ->getRepository('AppBundle:GalleriaFoto')->findAll();
 
 
-        return $this->render('AppBundle:Foto:foto.html.twig', array("foto" => $nodi));
+        return $this->render('AppBundle:Foto:gallerie.html.twig', array("gallerie" => $categorie));
     }
 
 
@@ -89,17 +89,16 @@ class FotoController extends BaseController
     public function dettagliFotoAction($permalink)
     {
 
-        $nodo = $this->getDoctrine()
-            ->getRepository('AppBundle:Nodo')->findOneByPermalink($permalink);
-        if(!$nodo){
+        $categorie = $this->getDoctrine()
+            ->getRepository('AppBundle:GalleriaFoto')->findOneByPermalink($permalink);
+        if(!$categorie){
 
 
             throw $this->createNotFoundException('Unable to find Articolo.');
         }
 
 
-        return $this->render('AppBundle:Nodo:foto.html.twig', array("nodo" => $nodo,"nodi"=>$this->getDoctrine()
-            ->getRepository('AppBundle:Nodo')->findAll()));
+        return $this->render('AppBundle:Foto:dettagliGalleria.html.twig', array("galleria" => $categorie));
     }
 
 

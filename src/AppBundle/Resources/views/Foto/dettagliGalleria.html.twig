@@ -1,0 +1,179 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block javascripts %}
+    <script src="http://imagesloaded.desandro.com/imagesloaded.pkgd.min.js"></script>
+    <script src="{{ asset('bundles/app/js/bootstrap-lightbox.min.js') }}"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.min.js"></script>
+    <script language="javascript">
+        $(document).ready(function () {
+            $('#foto-1').lightbox({backdrop: false, show: false});
+            var $container = $('.masonry');
+
+            $container.imagesLoaded(function () {
+                $container.masonry({
+                    itemSelector: '.post-box',
+                    columnWidth: '.post-box',
+                    transitionDuration: 0
+                });
+            });
+
+
+            $(".close").click(function () {
+
+                var $this = $(this);
+                var href = $this.attr('href');
+                var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))); //strip for ie7
+                var option = $target.data('lightbox') ? 'toggle' : $.extend({remote: !/#/.test(href) && href}, $target.data(), $this.data());
+
+                e.preventDefault();
+
+                $target
+                        .lightbox(option)
+                        .one('hide', function () {
+                            $this.focus();
+                        });
+            })
+
+        });
+    </script>
+{% endblock %}
+
+
+{% block title %}{{ galleria.nome }}
+{% endblock %}
+
+
+{% block body %}
+
+
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+                    <div class="category">
+            <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>  <h1>{{ galleria.nome }}</h1>
+        </div>
+        </div>
+    </div>
+    <!-- contenuto -->
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+          <p> {{ galleria.descrizione }}</p>
+
+    <div class="masonry">
+
+    <div class="post-box col-lg-4 col-md-4 col-sm-4">
+
+
+    <a data-toggle="lightbox" href="#foto-1"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/260/large/tumblr_msnl3ayMxU1rsnzy2o5_1280.jpg" /></a>
+
+<div id="foto-1" class="lightbox fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class='lightbox-dialog'>
+        <div class='lightbox-content'>
+        <a data-toggle="lightbox" class="close" href="#foto-1">X</a>
+            <img width="500" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/260/large/tumblr_msnl3ayMxU1rsnzy2o5_1280.jpg">
+            <div class='lightbox-caption'>
+                Your caption here
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/2"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/257/large/24ekOAH.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/3"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/248/large/tumblr_mqeom2a2oU1qbltjyo2_1280.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/4"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/244/large/3CjBFlN.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/5"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/241/large/OoRsR42.gif" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/1"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/260/large/tumblr_msnl3ayMxU1rsnzy2o5_1280.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/2"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/257/large/24ekOAH.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/3"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/248/large/tumblr_mqeom2a2oU1qbltjyo2_1280.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/4"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/244/large/3CjBFlN.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/5"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/241/large/OoRsR42.gif" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/1"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/260/large/tumblr_msnl3ayMxU1rsnzy2o5_1280.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/2"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/257/large/24ekOAH.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/3"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/248/large/tumblr_mqeom2a2oU1qbltjyo2_1280.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/4"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/244/large/3CjBFlN.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/5"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/241/large/OoRsR42.gif" /></a>
+
+    </div>
+     <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/4"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/244/large/3CjBFlN.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/5"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/241/large/OoRsR42.gif" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/1"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/260/large/tumblr_msnl3ayMxU1rsnzy2o5_1280.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/2"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/257/large/24ekOAH.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/3"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/248/large/tumblr_mqeom2a2oU1qbltjyo2_1280.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/4"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/244/large/3CjBFlN.jpg" /></a>
+
+    </div>
+    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/5"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/241/large/OoRsR42.gif" /></a>
+
+    </div>
+    </div>
+<!--
+<div   style="float:left">
+{% for i in range(0, 33) %}
+    {% for foto in galleria.foto %}
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <img width="{{ random(500) }}" src="/uploads/galleria_foto/{{ foto.immagine }}">
+        </div>
+    {% endfor %}
+
+{% endfor %}
+</div> -->
+        </div>
+
+            <!-- fine contenuto -->
+        </div>
+
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="divisore-big"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}
+
+
+
