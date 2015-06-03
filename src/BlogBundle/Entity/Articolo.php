@@ -47,6 +47,13 @@ class Articolo implements ItemInterface
      **/
     protected $categoria;
 
+
+    /**
+     * @ManyToOne(targetEntity="AppBundle\Entity\GalleriaFoto")
+     * @JoinColumn(name="id_galleria", referencedColumnName="id", nullable=true)
+     **/
+    protected $gallery;
+
     /**
      * @ORM\Column(type="text")
      */
@@ -674,6 +681,22 @@ class Articolo implements ItemInterface
     public function setImmagineCorrelataArticolo($immagineCorrelataArticolo)
     {
         $this->immagineCorrelataArticolo = $immagineCorrelataArticolo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGallery()
+    {
+        return $this->gallery;
+    }
+
+    /**
+     * @param mixed $gallery
+     */
+    public function setGallery($gallery)
+    {
+        $this->gallery = $gallery;
     }
 
 

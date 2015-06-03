@@ -50,6 +50,14 @@ class CategoriaVideo
      */
     protected $lastUpdateTimestamp;
 
+
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="Video", mappedBy="categoria")
+     **/
+    private $video;
+
     /**
      * @return mixed
      */
@@ -138,5 +146,24 @@ class CategoriaVideo
         $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $this->titolo."-".rand(1, 99));
         $this->permalink = strtolower($slug);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
+
+    /**
+     * @param mixed $video
+     */
+    public function setVideo($video)
+    {
+        $this->video = $video;
+    }
+
+
+
 
 }

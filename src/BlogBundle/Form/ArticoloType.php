@@ -29,6 +29,7 @@ class ArticoloType extends AbstractType
             ->add('testoCorrelato')
             ->add('linkCorrelato')
             ->add('immagineCorrelata')
+            ->add('gallery')
         ;
     }
     

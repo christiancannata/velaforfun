@@ -32,26 +32,31 @@ class ImportVideoCommand extends ContainerAwareCommand
         $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $this->connection = $this->getContainer()->get('database_connection');
 
-        $query = "select * from video";
+        $query = "select * from video_bkp";
 
         $res = $this->connection->executeQuery($query)->fetchAll();
 
         $this->output->writeln("<comment>Importing ".count($res)." </comment>");
 
         foreach ($res as $data) {
+            if($data['Categoria']!=null){
+                $categoria = $this->getContainer()->get('doctrine')
+                    ->getRepository('AppBundle:CategoriaVideo')->find($data['Categoria']);
+                if ($categoria) {
+                    $video = new Video();
+                    $video->setNome($data['titolo']);
+                    $video->setDescrizione($data['commento']);
+                    $video->setLink($data['Video']);
+                    $video->setInEvidenza(0);
+                    $video->setCategoria(
+                        $categoria
+                    );
 
-            $video = new Video();
-            $video->setNome($data['titolo']);
-            $video->setDescrizione($data['commento']);
-            $video->setLink($data['Video']);
-            $video->setInEvidenza(0);
-            $video->setCategoria(
-                $this->getContainer()->get('doctrine')
-                    ->getRepository('AppBundle:CategoriaVideo')->find($data['categoria'])
-            );
+                    $this->em->persist($video);
 
+                }
+            }
 
-            $this->em->persist($video);
 
 
         }

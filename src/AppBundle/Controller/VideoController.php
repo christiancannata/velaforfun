@@ -53,5 +53,35 @@ class VideoController extends BaseController
         return $this->delete($id);
     }
 
+    /**
+     * @Route("/{permalink}", name="dettaglio_video")
+     */
+    public function dettagliVideoAction($permalink)
+    {
+
+        $categorie = $this->getDoctrine()
+            ->getRepository('AppBundle:CategoriaVideo')->findOneByPermalink($permalink);
+        if(!$categorie){
+
+
+            throw $this->createNotFoundException('Unable to find Categoria.');
+        }
+
+
+        return $this->render('AppBundle:Video:dettagliGalleria.html.twig', array("galleria" => $categorie));
+    }
+
+    /**
+     * @Route("/", name="video")
+     */
+    public function videoAction()
+    {
+
+        $categorie = $this->getDoctrine()
+            ->getRepository('AppBundle:CategoriaVideo')->findAll();
+
+
+        return $this->render('AppBundle:Video:gallerie.html.twig', array("gallerie" => $categorie));
+    }
 
 }
