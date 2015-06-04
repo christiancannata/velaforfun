@@ -1657,11 +1657,13 @@ h1.category-title{
 
 }
 
+.modal-backdrop.in {
+    opacity: 0 !important;
+}
 
-
-
-
-
+.modal-content {
+    border-radius: 0px !important;
+}
 
 
 
