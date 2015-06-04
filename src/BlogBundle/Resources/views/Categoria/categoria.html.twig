@@ -5,17 +5,6 @@
 
 
 {% block javascripts %}
-<script src="http://airbnb.io/infinity/build/infinity.min.js"></script>
-<script language="javascript">
-    $(document).ready(function(){
-        var $el = $('#my-infinite-container');
-        var listView = new infinity.ListView($el);
-
-
-
-    });
-
-</script>
 
 
 
@@ -114,9 +103,8 @@
         </div>
     </div>
     <div class="row clearfix">
-    <ul id="my-infinite-container">
         {% for articolo in articoli|slice(4) %}
-   <li> <div class="col-md-4 column">
+  <div class="col-md-4 column">
         <a href="/archivio/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}">
             <div class="box-sub hvr-glow">
                 <div class="foto">
@@ -130,10 +118,8 @@
         </a>
 
     </div>
-   </li>
 
 {% endfor %}
-</ul>
 </div>
 
 
