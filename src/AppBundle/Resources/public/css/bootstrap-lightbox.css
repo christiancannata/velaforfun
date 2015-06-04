@@ -1,5 +1,5 @@
 /*!
-* bootstrap-lightbox.css v0.6.1
+* bootstrap-lightbox.css v0.6.1 
 * Copyright 2013 Jason Butz
 * http://www.apache.org/licenses/LICENSE-2.0.txt
 */
@@ -27,7 +27,7 @@
   background-color: #ffffff;
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  border: 1px solid #999;
+  *border: 1px solid #999;
   /* IE6-7 */
 
   -webkit-border-radius: 6px;

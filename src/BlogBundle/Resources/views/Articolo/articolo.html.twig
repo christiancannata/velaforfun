@@ -6,6 +6,20 @@
 
 
 
+
+
+
+
+
+
+{% block javascripts %}
+    <script language="javascript">
+        $(document).ready(function () {
+            $('.image-link').magnificPopup({type: 'image'});
+        });
+    </script>
+{% endblock %}
+
 {% block body %}
 
     <!-- contenuto -->
@@ -16,7 +30,7 @@
 
 
 
- <div class="row clearfix">
+ <div class="row clearfix hidden-print">
         <div class="col-md-6 col-xs-6 column">
              <div class="category">
              <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left background-celeste" style="color:white;" aria-hidden="true"></span>  </a>            <a id="category-link" href="/archivio/{{ articolo.categoria.permalink }}" style="margin-top:5px;margin-left: 12px;"><span style="background:{{ articolo.categoria.getColore() }};" >{{ articolo.categoria.nome|capitalize }}</span> </a>
@@ -26,6 +40,7 @@
 
         <div class="col-md-6 col-xs-6 column text-right">
           <ul class="share-buttons">
+                    <li><a href="#" onclick="window.print();"><i class="fa fa-print fa-2x"></i></a></li>
   <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.google.it&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-2x"></i></a></li>
   <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.google.it&text=:%20http%3A%2F%2Fwww.google.it" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-2x"></i></a></li>
   <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.google.it" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-google-plus-square fa-2x"></i></a></li>
@@ -65,17 +80,25 @@
         <div class="col-md-12 column" >
         <div id="body-content">
         {% if articolo.immagine!="" %}
-    <img class="immagine-articolo" style="" src="/images/articoli/{{ articolo.immagine }}">
+    <a class="image-link" href="/images/articoli/{{ articolo.immagine }}"><img class="immagine-articolo" style=""
+                                                                               src="/images/articoli/{{ articolo.immagine }}"></a>
 
 {% endif %}
 
            {{ articolo.testo|raw }}
- <div class="row clearfix">
+
+           {% if articolo.gallery is defined and articolo.gallery|length > 0 %}
+    <div class="divisore-big"></div>
+    <h3>Visualizza fa fotogallery</h3>
+    <div class="divisore-big"></div>
+{% endif %}
+ <div class="row clearfix hidden-print">
         <div class="col-md-6 column">
         </div>
 
         <div class="col-md-6 column text-right">
           <ul class="share-buttons">
+          <li><a href="#" onclick="window.print();"><i class="fa fa-print fa-2x"></i></a></li>
   <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.google.it&t=" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-2x"></i></a></li>
   <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.google.it&text=:%20http%3A%2F%2Fwww.google.it" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-2x"></i></a></li>
   <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.google.it" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-google-plus-square fa-2x"></i></a></li>
@@ -102,59 +125,30 @@
         </div>
 
 
-           <div class="col-md-4 column">
+           <div class="col-md-4 column hidden-print">
 
 
-               {% if articoli[1] is defined %}
-    <div class="title">
+               {% if articoli|length > 0 %}
+    <div class="title" style="border-top:1px solid rgb(153, 153, 153);">
         Altri articoli
     </div>
     <div class="content">
 
 
-        {% if articoli[1] is defined %}
-            <a href="/archivio/{{ articoli[1].categoria.permalink }}/{{ articoli[1].permalink }}">
+        {% for articoloRel in articoli %}
+            <a href="/archivio/{{ articoloRel.categoria.permalink }}/{{ articoloRel.permalink }}">
                 <div class="latest-news">
                     <div class="content">
-                        <h4>{{ articoli[1].titolo }}</h4>
+                        <h4>{{ articoloRel.titolo }}</h4>
 
-                        {{ articoli[1].sottotitolo|raw }}
+                        {{ articoloRel.sottotitolo|raw }}
                     </div>
                     <div class="arrow">
                         <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
                     </div>
                 </div>
             </a>
-        {% endif %}
-        {% if articoli[2] is defined %}
-            <a href="/archivio/{{ articoli[2].categoria.permalink }}/{{ articoli[2].permalink }}">
-                <div class="latest-news">
-                    <div class="content">
-                        <h4>{{ articoli[2].titolo }}</h4>
-
-                        {{ articoli[2].sottotitolo|raw }}
-                    </div>
-                    <div class="arrow">
-                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-                    </div>
-                </div>
-            </a>
-        {% endif %}
-        {% if articoli[3] is defined %}
-            <a href="/archivio/{{ articoli[3].categoria.permalink }}/{{ articoli[3].permalink }}">
-                <div class="latest-news">
-                    <div class="content">
-                        <h4>{{ articoli[3].titolo }}</h4>
-
-                        {{ articoli[3].sottotitolo|raw }}
-                    </div>
-                    <div class="arrow">
-                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-                    </div>
-                </div>
-            </a>
-        {% endif %}
-
+        {% endfor %}
 
     </div>
 {% endif %}
@@ -164,12 +158,16 @@
     <a href="{{ articolo.linkCorrelato }}">
         <div class="arrow_box">
             {% if articolo.immagineCorrelataArticolo is defined %}
-                <img src="/images/articoli/{{ articolo.immagineCorrelataArticolo }}">
+                <div class="foto">
+                    <div class="center-cropped"
+                         style="height: 230px;background-image: url('/images/articoli/{{ articolo.immagineCorrelataArticolo }}');">
+                    </div>
+                </div>
             {% endif %}
             <div class="content">
-                <h4>LEGGI ANCHE</h4>
+                <h4>{{ articolo.titoloCorrelato }}</h4>
 
-                <p>{{ articolo.testoCorrelato }}</p>
+                {{ articolo.testoCorrelato|raw }}
             </div>
 
         </div>
@@ -181,8 +179,9 @@
 
 
 
-
         </div>
+
+
             <!-- fine contenuto -->
         </div>
 
@@ -194,7 +193,29 @@
         </div>
 
 
+
+<div class="row clearfix">
+
+ <div class="col-md-12 column">
+        {% for categoriaRel in categorie %}
+
+
+    <div class="category" style="margin:15px;width:auto;">
+        <a href="/archivio/{{ categoriaRel.permalink }}"><span
+                    style="background:{{ categoriaRel.getColore() }}">{{ categoriaRel.nome|capitalize }}</span> <span
+                    style="background:{{ categoriaRel.getColore() }}">+</span></a>
     </div>
+
+
+{% endfor %}
+ </div>
+
+
+        </div>
+
+
+    </div>
+
 
 {% endblock %}
 

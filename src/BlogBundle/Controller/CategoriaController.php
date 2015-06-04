@@ -64,7 +64,7 @@ class CategoriaController extends BaseController
             throw $this->createNotFoundException('Unable to find Categoria.');
         }
 
-        $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(array('categoria' => $categoria, 'stato' => "ATTIVO"),array('id' => 'desc'));
+        $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(array('categoria' => $categoria, 'stato' => "ATTIVO"),array('lastUpdateTimestamp' => 'desc'));
 
         $categorie = $em->getRepository('BlogBundle:Categoria')->findAll();
 

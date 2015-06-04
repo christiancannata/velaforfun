@@ -2,44 +2,63 @@
 
 {% block title %}{{ categoria.nome }}{% endblock %}
 
+
+
+{% block javascripts %}
+<script src="http://airbnb.io/infinity/build/infinity.min.js"></script>
+<script language="javascript">
+    $(document).ready(function(){
+        var $el = $('#my-infinite-container');
+        var listView = new infinity.ListView($el);
+
+
+
+    });
+
+</script>
+
+
+
+{% endblock %}
+
 {% block body %}
-
-
-<div class="row clearfix">
-    <div class="col-md-12 column">
-    <div class="title">
-                {{ categoria.nome }} - Ultime News
-            </div>
-        </div>
-    </div>
-
 
   <div class="row clearfix">
         <div class="col-md-8 column">
-
+<div class="row clearfix">
+    <div class="col-md-12 column">
+    <div class="title">
+               <h1 class="category-title">{{ categoria.nome }} - Ultime news</h1>
+            </div>
+        </div>
+    </div>
+            <div class="row clearfix">
+                <div class="col-md-12 column">
             <div class="article main-article">
 
                 <div class="content"
                      style="background-image: url(/images/articoli/{{ articoli[0].immagine }})">
-                    <div class="category">
-                            <a href="/archivio/{{ articoli[0].categoria.permalink }}"><span style="background:{{ articoli[0].categoria.getColore() }}" >{{ articoli[0].categoria.nome|capitalize }}</span> <span
-                                        style="background:{{ articoli[0].categoria.getColore() }}"       >+</span></a>
-                        </div>
+
                     <div class="content-title">
                         <a href="/archivio/{{ categoria.permalink }}/{{ articoli[0].permalink }}"><h3>{{ articoli[0].titolo }}</h3></a>
 
                         <div class="divisore"></div>
                         <div class="subtitle">
-                            {{ articoli[0].sottotitolo }}...
+                            {{ articoli[0].sottotitolo|raw }}
                         </div>
                     </div>
 
                 </div>
 
             </div>
+                    </div></div>
         </div>
         <div class="col-md-4 column">
-            <div class="content">
+
+            <div class="content" >
+              <h4 class="title">Ultime News</h4>
+
+
 
                 {% if articoli[1] is defined %}
     <a href="/archivio/{{ categoria.permalink }}/{{ articoli[1].permalink }}">
@@ -47,7 +66,7 @@
             <div class="content">
                 <h4>{{ articoli[1].titolo }}</h4>
 
-                <p>{{ articoli[1].sottotitolo }}...</p>
+                <p>{{ articoli[1].sottotitolo|raw }}</p>
             </div>
             <div class="arrow">
                 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -61,7 +80,7 @@
             <div class="content">
                 <h4>{{ articoli[2].titolo }}</h4>
 
-                <p>{{ articoli[2].sottotitolo }}...</p>
+                <p>{{ articoli[2].sottotitolo|raw }}</p>
             </div>
             <div class="arrow">
                 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -75,7 +94,7 @@
             <div class="content">
                 <h4>{{ articoli[3].titolo }}</h4>
 
-                <p>{{ articoli[3].sottotitolo }}...</p>
+                <p>{{ articoli[3].sottotitolo|raw }}</p>
             </div>
             <div class="arrow">
                 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -91,70 +110,39 @@
 
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <div class="divisore"></div>
+            <div class="divisore-big"></div>
         </div>
     </div>
-
     <div class="row clearfix">
-
+    <ul id="my-infinite-container">
         {% for articolo in articoli|slice(4) %}
-    <div class="col-md-4 column">
-        <div class="box-sub hvr-glow">
-            <div class="foto">
-                <img style="width:100%"
-                     src="/images/articoli/{{ articoli[0].immagine }})">
-
-                <div class="category">
-                    <a href="/archivio/{{ categoria.permalink }}"><span
-                                class="background-arancione">{{ categoria.nome|capitalize }}</span> <span
-                                class="background-arancione">+</span></a>
+   <li> <div class="col-md-4 column">
+        <a href="/archivio/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}">
+            <div class="box-sub hvr-glow">
+                <div class="foto">
+                    <div class="center-cropped"
+                         style="background-image: url('/images/articoli/{{ articolo.immagine }}');">
+                    </div>
                 </div>
+                <h4>{{ articolo.titolo }}</h4>
+                {{ articolo.sottotitolo|raw }}
             </div>
-            <h4>{{ articolo.titolo }}</h4>
-            <p>{{ articolo.sottotitolo }}...</p>
-        </div>
+        </a>
 
     </div>
-
-
-    {% if loop.index is divisibleby(3) %}
-        </div>
-
-        <div class="row clearfix">
-    {% endif %}
+   </li>
 
 {% endfor %}
+</ul>
+</div>
 
 
-    </div>
-
-<div class="row clearfix">
-
-
-        {% for categoriaRel in categorie %}
-    <div class="col-md-3 column">
-
-        <div class="category" style="margin:15px">
-            <a href="/archivio/{{ categoriaRel.permalink }}"><span style="background:{{ categoriaRel.getColore() }}" >{{ categoriaRel.nome|capitalize }}</span> <span
-                        style="background:{{ categoriaRel.getColore() }}"       >+</span></a>
-        </div>
-
-
-    </div>
-
-
-    {% if loop.index is divisibleby(4) %}
-
-        </div>
 
         <div class="row clearfix">
-    {% endif %}
-
-{% endfor %}
-
-
-
+        <div class="col-md-12 column">
+            <div class="divisore-big"></div>
         </div>
+    </div>
     </div>
 
 

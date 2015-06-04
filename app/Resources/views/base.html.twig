@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{ asset('bundles/app/css/colori.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/app/css/scrollPane.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap-lightbox.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/magnific-popup.css') }}">
     {% block stylesheets %}{% endblock %}
     <link rel="icon"
           type="image/png"
@@ -35,7 +35,7 @@
 <div class="container">
 
 
-    <nav class="navbar navbar-default navbar-fixed-top hidden-md hidden-lg">
+    <nav class="navbar navbar-default navbar-fixed-top hidden-md hidden-lg hidden-print">
         <div class="container">
             <div class="navbar-header">
                 <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse"
@@ -174,7 +174,7 @@
     <nav class="navbar navbar-default navbar-fixed-top visible-md visible-lg" id="nav-top">
         <div class="container-fluid">
             <div class="row clearfix">
-                <div class="col-md-3 column">
+                <div class="col-md-4 column">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -221,7 +221,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-6 column">
+                <div class="col-md-4 column">
 
                     <div class="row clearfix">
                         <div class="col-md-12 column">
@@ -252,7 +252,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 column ">
+                <div class="col-md-4 column ">
 
                     {% if is_granted('ROLE_USER') %}
                         <ul class="list-inline" id="menu-login">
@@ -333,7 +333,7 @@
                         </ul>
                     {% else %}
                         <ul class="list-inline" id="menu-login">
-                            <li style="padding-left:0px;float:left"><span>Sei già iscritto?</span></li>
+                            <li style="padding-left:0px;float:left"><span>SEI GIÀ ISCRITTO?</span></li>
                             <li class="dropdown bordered" style="padding-right: 11px;" id="menuLogin">
                                 <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"
                                    style="border:none">ACCEDI</a>
@@ -388,7 +388,7 @@
     {% block body %}{% endblock %}
 </div>
 
-<div class="container-fluid" style="background:white;padding-top:20px">
+<div class="container-fluid hidden-print" style="background:white;padding-top:20px">
     <div class="container">
 
 
@@ -483,6 +483,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="{{ asset('bundles/app/js/bootstrap3-typeahead.min.js') }}"></script>
+<script src="{{ asset('bundles/app/js/jquery.magnific-popup.min.js') }}"></script>
 
 <script src="http://jscrollpane.kelvinluck.com/script/jquery.mousewheel.js"></script>
 <script src="http://jscrollpane.kelvinluck.com/script/mwheelIntent.js"></script>

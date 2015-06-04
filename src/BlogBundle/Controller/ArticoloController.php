@@ -79,15 +79,24 @@ class ArticoloController extends BaseController
 
         $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(
             array('categoria' => $articolo->getCategoria(), 'stato' => "ATTIVO"),
-            array('id' => 'desc')
+            array('lastUpdateTimestamp' => 'desc'),
+            4
         );
 
+
+        foreach($articoli as $key => $articoloRel){
+            if($articoloRel->getId()==$articolo->getId()){
+                unset($articoli[$key]);
+            }
+        }
+        $categorie = $em->getRepository('BlogBundle:Categoria')->findAll();
 
         return $this->render(
             'BlogBundle:Articolo:articolo.html.twig',
             array(
                 'articolo' => $articolo,
-                'articoli' => $articoli
+                'articoli' => $articoli,
+                "categorie" => $categorie
             )
         );
     }
