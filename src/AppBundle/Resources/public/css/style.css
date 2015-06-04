@@ -52,10 +52,13 @@ form label {
         background: white !important;
     }
 }
-
-.box-home {
+.box-home{
     height: 204px;
     cursor: pointer;
+    margin-left: 0%;
+}
+.nodi .box-home {
+    margin-left: 3%;
 }
 
 .box-home .content {
@@ -84,7 +87,7 @@ form label {
     text-align: center;
     color: rgba(66, 156, 188, 1);
     width: 100%;
-    margin-top: 100px;
+    margin-top: 115px;
 }
 
 .article {
@@ -418,7 +421,9 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
     padding: 10px;
     text-align: center;
 }
-
+.over-box p{
+    height: 50px;
+}
 .contenuto-articolo h1 {
     font-size: 20px;
 
@@ -1376,7 +1381,7 @@ input[type="radio"]:checked .fa-stack-1x {
     font-size: 20px;
     text-transform: uppercase;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 23px;
 }
 
 .crud form input, #Forum_BoardCreate_topicCreateAuthorisedRoles input, .dropdown-menu form input {
@@ -1459,6 +1464,9 @@ ul.share-buttons li {
     font-size: 34px;
     margin-top: 0px;
 }
+
+
+
 
 #content-articolo .latest-news h4 {
     font-size: 20px !important;
@@ -1608,4 +1616,15 @@ h1.category-title{
 
 #my-infinite-container{
     list-style:none;
+}
+
+
+
+.other-text {
+    background: white !important;
+    margin-bottom: 0px !important;
+    padding: 15px !important;
+    font-weight: bold !important;
+    font-size: 34px !important;
+    margin-top: 0px !important;
 }

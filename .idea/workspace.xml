@@ -4,6 +4,7 @@
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="velaforfun.iws" />
@@ -39,16 +40,50 @@
         <entry file="file://$PROJECT_DIR$/web/bundles/app/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-15.888889" vertical-offset="23916" max-vertical-offset="24525">
-              <caret line="1623" column="33" selection-start-line="1623" selection-start-column="33" selection-end-line="1623" selection-end-column="33" />
+              <caret line="1623" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="1629" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dettagliNodo.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9479167" vertical-offset="23889" max-vertical-offset="24525">
+              <caret line="1629" column="1" selection-start-line="1629" selection-start-column="1" selection-end-line="1629" selection-end-column="1" />
+              <folding>
+                <marker date="1433449444000" expanded="true" signature="1140:1172" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="6425:6852" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="6870:7016" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="7059:7140" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="7232:7384" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="7479:7528" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="24900:24955" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="25011:25019" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="25067:25109" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="25227:25239" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="25305:25311" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="25406:25423" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="25521:25528" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="25561:25575" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="25646:25710" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="27449:27699" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="27742:27763" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="27819:27844" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="27963:28066" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="28133:28168" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="28208:28340" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="28401:28473" placeholder="{...}" />
+                <marker date="1433449444000" expanded="true" signature="28558:28601" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dettagliNodo.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54347825" vertical-offset="645" max-vertical-offset="1500">
+            <state vertical-scroll-proportion="-12.5" vertical-offset="645" max-vertical-offset="1500">
               <caret line="63" column="53" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
               <folding>
                 <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -163,7 +198,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Video/gallerie.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/CategoriaVideo.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Video/dettagliGalleria.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/web/bundles/app/css/print.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Controller/CategoriaController.php" />
@@ -176,6 +210,7 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php" />
         <option value="$PROJECT_DIR$/web/bundles/app/css/style.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
       </list>
     </option>
   </component>
@@ -447,6 +482,14 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="css">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
@@ -465,7 +508,7 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Controller">
+            <PATH_ELEMENT USER_OBJECT="Resources">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -751,14 +794,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/nodi.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="1155">
-          <caret line="42" column="62" selection-start-line="42" selection-start-column="62" selection-end-line="42" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BlogBundle/Controller/CategoriaController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="704" max-vertical-offset="1245">
@@ -1099,14 +1134,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/app/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.888889" vertical-offset="23916" max-vertical-offset="24525">
-          <caret line="1623" column="33" selection-start-line="1623" selection-start-column="33" selection-end-line="1623" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-20.625" vertical-offset="2385" max-vertical-offset="3465">
@@ -1117,10 +1144,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54347825" vertical-offset="645" max-vertical-offset="1500">
+        <state vertical-scroll-proportion="-12.5" vertical-offset="645" max-vertical-offset="1500">
           <caret line="63" column="53" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
           <folding>
             <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/app/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.888889" vertical-offset="23916" max-vertical-offset="24525">
+          <caret line="1623" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="1629" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9479167" vertical-offset="23889" max-vertical-offset="24525">
+          <caret line="1629" column="1" selection-start-line="1629" selection-start-column="1" selection-end-line="1629" selection-end-column="1" />
+          <folding>
+            <marker date="1433449444000" expanded="true" signature="1140:1172" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="6425:6852" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="6870:7016" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="7059:7140" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="7232:7384" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="7479:7528" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="24900:24955" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="25011:25019" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="25067:25109" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="25227:25239" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="25305:25311" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="25406:25423" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="25521:25528" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="25561:25575" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="25646:25710" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="27449:27699" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="27742:27763" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="27819:27844" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="27963:28066" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="28133:28168" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="28208:28340" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="28401:28473" placeholder="{...}" />
+            <marker date="1433449444000" expanded="true" signature="28558:28601" placeholder="{...}" />
           </folding>
         </state>
       </provider>
