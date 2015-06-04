@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="velaforfun.iws" />
@@ -39,55 +37,29 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/bundles/app/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.888889" vertical-offset="23916" max-vertical-offset="24525">
-              <caret line="1623" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="1629" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="24367" max-vertical-offset="24945">
+              <caret line="1657" column="0" selection-start-line="1657" selection-start-column="0" selection-end-line="1657" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9479167" vertical-offset="23889" max-vertical-offset="24525">
+            <state vertical-scroll-proportion="0.0" vertical-offset="23889" max-vertical-offset="24525">
               <caret line="1629" column="1" selection-start-line="1629" selection-start-column="1" selection-end-line="1629" selection-end-column="1" />
-              <folding>
-                <marker date="1433449444000" expanded="true" signature="1140:1172" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="6425:6852" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="6870:7016" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="7059:7140" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="7232:7384" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="7479:7528" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="24900:24955" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="25011:25019" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="25067:25109" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="25227:25239" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="25305:25311" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="25406:25423" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="25521:25528" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="25561:25575" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="25646:25710" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="27449:27699" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="27742:27763" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="27819:27844" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="27963:28066" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="28133:28168" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="28208:28340" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="28401:28473" placeholder="{...}" />
-                <marker date="1433449444000" expanded="true" signature="28558:28601" placeholder="{...}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dettagliNodo.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dettagliNodo.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.5" vertical-offset="645" max-vertical-offset="1500">
-              <caret line="63" column="53" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
-              <folding>
-                <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.75812274" vertical-offset="645" max-vertical-offset="1530">
+              <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,7 +67,7 @@
       <file leaf-file-name="NodoController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-60.0" vertical-offset="0" max-vertical-offset="1620">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="1620">
               <caret line="105" column="61" selection-start-line="105" selection-start-column="61" selection-end-line="105" selection-end-column="61" />
               <folding />
             </state>
@@ -105,7 +77,7 @@
       <file leaf-file-name="categoria.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="18.125" vertical-offset="1260" max-vertical-offset="2430">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="2430">
               <caret line="55" column="10" selection-start-line="55" selection-start-column="10" selection-end-line="55" selection-end-column="10" />
               <folding />
             </state>
@@ -115,7 +87,7 @@
       <file leaf-file-name="articolo.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.625" vertical-offset="2385" max-vertical-offset="3465">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2385" max-vertical-offset="3465">
               <caret line="192" column="14" selection-start-line="188" selection-start-column="7" selection-end-line="192" selection-end-column="14" />
               <folding />
             </state>
@@ -208,9 +180,9 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/nodi.html.twig" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/web/bundles/app/css/style.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
       </list>
     </option>
   </component>
@@ -690,9 +662,6 @@
       <BehatRunner />
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -700,6 +669,9 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -742,14 +714,14 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27228916" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2716346" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33333334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3383405" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14096385" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1118,17 +1090,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="18.125" vertical-offset="1260" max-vertical-offset="2430">
-          <caret line="55" column="10" selection-start-line="55" selection-start-column="10" selection-end-line="55" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-60.0" vertical-offset="0" max-vertical-offset="1620">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="1620">
           <caret line="105" column="61" selection-start-line="105" selection-start-column="61" selection-end-line="105" selection-end-column="61" />
           <folding />
         </state>
@@ -1136,59 +1100,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.625" vertical-offset="2385" max-vertical-offset="3465">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2385" max-vertical-offset="3465">
           <caret line="192" column="14" selection-start-line="188" selection-start-column="7" selection-end-line="192" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.5" vertical-offset="645" max-vertical-offset="1500">
-          <caret line="63" column="53" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/app/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.888889" vertical-offset="23916" max-vertical-offset="24525">
-          <caret line="1623" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="1629" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9479167" vertical-offset="23889" max-vertical-offset="24525">
+        <state vertical-scroll-proportion="0.0" vertical-offset="23889" max-vertical-offset="24525">
           <caret line="1629" column="1" selection-start-line="1629" selection-start-column="1" selection-end-line="1629" selection-end-column="1" />
-          <folding>
-            <marker date="1433449444000" expanded="true" signature="1140:1172" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="6425:6852" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="6870:7016" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="7059:7140" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="7232:7384" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="7479:7528" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="24900:24955" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="25011:25019" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="25067:25109" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="25227:25239" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="25305:25311" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="25406:25423" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="25521:25528" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="25561:25575" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="25646:25710" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="27449:27699" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="27742:27763" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="27819:27844" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="27963:28066" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="28133:28168" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="28208:28340" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="28401:28473" placeholder="{...}" />
-            <marker date="1433449444000" expanded="true" signature="28558:28601" placeholder="{...}" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="2430">
+          <caret line="55" column="10" selection-start-line="55" selection-start-column="10" selection-end-line="55" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/app/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="24367" max-vertical-offset="24945">
+          <caret line="1657" column="0" selection-start-line="1657" selection-start-column="0" selection-end-line="1657" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75812274" vertical-offset="645" max-vertical-offset="1530">
+          <caret line="71" column="4" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
