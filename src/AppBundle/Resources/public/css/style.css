@@ -1285,11 +1285,6 @@ textarea#testo {
     color: rgb(66, 156, 188);
 }
 
-/* Hidding the radiobuttons & checkboxes */
-input[type="radio"], input[type="checkbox"] {
-    display: none;
-}
-
 .fa-stack {
     color: rgb(66, 156, 188) !important;
     font-size: 24px;
@@ -1666,7 +1661,6 @@ h1.category-title{
 }
 
 
-
-
-
-
+input[type=text],input[type=password]{
+    width:100%;
+}

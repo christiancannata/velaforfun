@@ -206,6 +206,10 @@ ccdn_forum_forum:
                 class:                CCDNForum\ForumBundle\Form\Type\User\Post\PostDeleteFormType
             post_unlock:
                 class:                CCDNForum\ForumBundle\Form\Type\Moderator\Post\PostUnlockFormType
+    component:
+            security:
+                authorizer:
+                    class:                AppBundle\Component\Security\Authorizer
     item_post:
         created_datetime_format:  d-m-Y - H:i
         edited_datetime_format:  d-m-Y - H:i

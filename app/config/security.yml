@@ -29,13 +29,13 @@ security:
                 oauth_user_provider:
                     service: hwi_oauth.user.provider.fosub_bridge
 
-            anonymous:    true
+            anonymous:  ~
             logout:
                 path:           /logout
                 success_handler: app.handler.logout_success_handler
 
     access_control:
-     - { path: ^/secure_area/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+     - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
      - { path: /annuncio-imbarco/cerca-annuncio, roles: ROLE_USER }
      - { path: /annuncio-scambio-posto/cerca-annuncio, roles: ROLE_USER }
 
@@ -43,6 +43,7 @@ security:
     # - { path: /elimina/, roles: ROLE_ADMIN }
     # - { path: /list, roles: ROLE_ADMIN }
     role_hierarchy:
-           ROLE_ADMIN:       ROLE_USER
-           ROLE_SUPER_ADMIN: ROLE_ADMIN
+           ROLE_SUPER_ADMIN: [ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_ANONYMOUSLY]
+           ROLE_ADMIN: [ROLE_USER,IS_AUTHENTICATED_ANONYMOUSLY]
+           ROLE_USER: IS_AUTHENTICATED_ANONYMOUSLY
 
