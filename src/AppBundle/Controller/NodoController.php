@@ -102,8 +102,8 @@ class NodoController extends BaseController
         }
 
 
-        return $this->render('AppBundle:Nodo:dettagliNodo.html.twig', array("nodo" => $nodo,"nodi"=>$this->getDoctrine()
-            ->getRepository('AppBundle:Nodo')->findAll()));
+        return $this->render('AppBundle:Nodo:dettagliNodo.html.twig', array("nodo" => $nodo,"nodi"=>array_slice($this->getDoctrine()
+            ->getRepository('AppBundle:Nodo')->findAll(),0,3)));
     }
 
 

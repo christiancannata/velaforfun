@@ -5,66 +5,76 @@
 
 
 {% block body %}
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-                    <div class="category">
-            <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>  <h1>Nodo "{{ nodo.nome }}"</h1>
-        </div>
-        </div>
-    </div>
+
     <!-- contenuto -->
 
     <div class="row clearfix">
         <div class="col-md-8 column">
-          <p> {{ nodo.descrizione }}</p>
+            <div class="row clearfix">
+
+        <div class="col-md-12 column">
+                    <div class="category">
+            <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>  <h1>I nodi marinari</h1>
+        </div>
+
+        </div>
+</div>
+
+
+            <div class="row clearfix">
+        <div id="content-articolo" class="col-md-12 column">
+            <h1>{{ nodo.nome }}</h1>
+
+        </div>
+</div>
+            <div class="row clearfix">
+            <div class="col-md-12 column">
+                 <p> {{ nodo.descrizione }}</p>
+            </div>
+</div>
+            <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="divisore-big"></div>
+            </div>
+                </div>
+            <div class="row clearfix">
+            <div class="col-md-12 column">
 
 
 <div class="embed-responsive embed-responsive-4by3">
     <iframe class="embed-responsive-item" src="{{ nodo.video }}"></iframe>
 </div>
-
+</div>
         </div>
+</div>
 
+           <div class="col-md-4 column">
 
-        <div class="col-md-4 column" id="colonnaPorto">
-
-
-            <div class="row clearfix">
-
-                <div class="col-md-12 column">
-
-                  <h3>Vedi altri nodi</h3>
+            <div class="content" >
+              <h4 class="title other-text" style="border-top: 1px solid rgb(153, 153, 153);">Altri nodi</h4>
 
 
 
+               {% for nodo in nodi %}
+    <a href="/nodi/{{ nodo.permalink }}">
+        <div class="latest-news">
+            <div class="content">
+                <h4>{{ nodo.nome }}</h4>
 
-                </div>
+                <p>{{ nodo.descrizione|raw|slice(0,140)}}...</p>
             </div>
+            <div class="arrow">
+                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+            </div>
+        </div>
+    </a>
 
-    <div class="row clearfix">
-
-         <div class="col-md-12 column">
-
-           <div class="content">
-            {% for nodo in nodi %}
-                         <div class="latest-news" onclick="location.href='/nodi/{{ nodo.permalink }}'">
-                             <div class="content">
-                                 <h4>{{ nodo.nome }}</h4>
-                                 <p style="text-align: left">{{ nodo.descrizione[:50] }}...</p>
-                             </div>
-                             <div class="arrow">
-                                 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-                             </div>
-                         </div>
 {% endfor %}
 
-                     </div>
-
-                     </div>
-        </div>
 
 
             </div>
+        </div>
             <!-- fine contenuto -->
         </div>
 
