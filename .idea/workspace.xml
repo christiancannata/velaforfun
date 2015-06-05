@@ -64,8 +64,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.94671404" vertical-offset="25207" max-vertical-offset="25830">
-              <caret line="1716" column="1" selection-start-line="1716" selection-start-column="1" selection-end-line="1716" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.7868561" vertical-offset="25312" max-vertical-offset="25920">
+              <caret line="1717" column="0" selection-start-line="1717" selection-start-column="0" selection-end-line="1717" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1171,8 +1171,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.94671404" vertical-offset="25207" max-vertical-offset="25830">
-          <caret line="1716" column="1" selection-start-line="1716" selection-start-column="1" selection-end-line="1716" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.7868561" vertical-offset="25312" max-vertical-offset="25920">
+          <caret line="1717" column="0" selection-start-line="1717" selection-start-column="0" selection-end-line="1717" selection-end-column="0" />
           <folding />
         </state>
       </provider>
