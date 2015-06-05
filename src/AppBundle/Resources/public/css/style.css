@@ -6,9 +6,6 @@ url('../font/ProximaNova-Regular.otf'); format('woff'), /* Pretty Modern Browser
 url('../font/ProximaNova-Regular.otf');  format('truetype'), /* Safari, Android, iOS */
 }
 
-
-
-
 body {
     font-family: ProximaNova;
     background: rgb(242, 242, 242);
@@ -41,11 +38,12 @@ form label {
 
 }
 
-.box-home{
+.box-home {
     height: 204px;
     cursor: pointer;
     margin-left: 0%;
 }
+
 .nodi .box-home {
     margin-left: 3%;
 }
@@ -136,11 +134,11 @@ form label {
     right: 25%;
     width: 94%;
 }
-.content-title a:hover{
-    text-decoration:underline !important;
-    color:white !important;
-}
 
+.content-title a:hover {
+    text-decoration: underline !important;
+    color: white !important;
+}
 
 .center-cropped {
     width: 100%;
@@ -181,7 +179,7 @@ form label {
     -ms-transition: background 0.2s ease-in-out;
     -o-transition: background 0.2s ease-in-out;
     transition: background 0.2s ease-in-out;
-    height:150px;
+    height: 150px;
 }
 
 ul.content {
@@ -210,12 +208,14 @@ ul.content {
     width: 90%;
     height: 100%;
 }
+
 .latest-news .arrow span {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
     font-size: 30px;
 }
+
 .latest-news .arrow {
     float: left;
     width: 10%;
@@ -246,16 +246,17 @@ ul.content {
     width: 100%;
 }
 
-.box-sub h4{
-    margin-top:5px;
-    height:50px;
+.box-sub h4 {
+    margin-top: 5px;
+    height: 50px;
     font-weight: bold;
 }
+
 .box-sub p {
     font-size: 15px;
     line-height: 26px;
     padding-top: 10px;
-    height:100px;
+    height: 100px;
     color: rgb(153, 153, 153) !important;
 }
 
@@ -416,9 +417,11 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
     padding: 10px;
     text-align: center;
 }
-.over-box p{
+
+.over-box p {
     height: 50px;
 }
+
 .contenuto-articolo h1 {
     font-size: 20px;
 
@@ -1455,9 +1458,6 @@ ul.share-buttons li {
     margin-top: 0px;
 }
 
-
-
-
 #content-articolo .latest-news h4 {
     font-size: 20px !important;
 }
@@ -1576,39 +1576,37 @@ ul.share-buttons li {
     width: 40%;
     padding-left: 5px;
     padding-bottom: 5px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 #category-link span {
     text-transform: uppercase;
 }
 
-.content h4.title{
+.content h4.title {
     background: white none repeat scroll 0 0;
     float: left;
     padding: 15px;
     width: 100%;
-    margin:0px 0px 0px 0px;
-    font-size:28px;
+    margin: 0px 0px 0px 0px;
+    font-size: 28px;
     font-weight: bold;
     color: rgb(153, 153, 153);
-    padding-top:30px;
+    padding-top: 30px;
 }
 
-h1.category-title{
-    border:0;
+h1.category-title {
+    border: 0;
     color: rgb(153, 153, 153);
-    font-size:36px;
+    font-size: 36px;
     font-weight: bold;
-    padding:0;
-    padding-top:10px;
+    padding: 0;
+    padding-top: 10px;
 }
 
-#my-infinite-container{
-    list-style:none;
+#my-infinite-container {
+    list-style: none;
 }
-
-
 
 .other-text {
     background: white !important;
@@ -1618,8 +1616,6 @@ h1.category-title{
     font-size: 34px !important;
     margin-top: 0px !important;
 }
-
-
 
 @media (max-width: 767px) {
 
@@ -1649,7 +1645,6 @@ h1.category-title{
         width: 94%;
     }
 
-
 }
 
 .modal-backdrop.in {
@@ -1660,7 +1655,59 @@ h1.category-title{
     border-radius: 0px !important;
 }
 
+input[type=text], input[type=password] {
+    width: 100%;
+}
 
-input[type=text],input[type=password]{
-    width:100%;
+.lead a {
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.td-boarded {
+    height: 50px;
+    text-align: center;
+    border-left: 1px solid rgb(66, 156, 188);
+}
+
+.td-boarded span {
+    background: none;
+    color: rgb(66, 156, 188);
+    font-size: 20px;
+    border-radius: 0px;
+    transform: translateY(-40%);
+    top: 40%;
+    position: relative;
+}
+
+th.center {
+    text-align: center;
+    font-weight: normal;
+}
+th.left {
+    font-weight: normal;
+}
+.center {
+    padding: 0px !important;
+}
+
+.td-boarded .border {
+    border-radius: 0px;
+
+
+    padding-bottom: 12px;
+    padding-top: 12px;
+
+}
+
+.created-by{
+    font-size: 16px;
+    color:rgb(153,153,153);
+}
+
+.tr-forum td{
+    padding:10px !important;
+}
+.tr-forum blockquote{
+    color:rgb(77,77,77);
 }

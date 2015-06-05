@@ -1,0 +1,47 @@
+{%- spaceless -%}
+    <div class="divisore-big background-celeste">
+    </div>
+
+    <span title="{{- category.name -}}" class="lead">
+		<a href="{{- path('ccdn_forum_user_category_show', {'forumName': forumName, 'categoryId': category.id }) -}}" title="{{- category.name -}}">
+			{{- category.name -}}
+		</a>
+	</span>
+
+	<section class="clearfix">
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th class="center" style="width:32px;">&nbsp;</th>
+					<th class="left">{{- 'board.th' | trans({}, 'CCDNForumForumBundle') -}}</th>
+					<th align="center" class="center" style="width:60px;">{{- 'board.topic-count-th' | trans({}, 'CCDNForumForumBundle') -}}</th>
+					<th align="center" class="center" style="width:60px;">{{- 'board.post-count-th' | trans({}, 'CCDNForumForumBundle') -}}</th>
+					<th align="center" class="center" style="width:170px;">{{- 'board.last-post-th' | trans({}, 'CCDNForumForumBundle') -}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{%- for row, board in category.boards -%}
+					{%- include "CCDNForumForumBundle:User:Category/Partial/item_board.html.twig" -%}
+				{%- else -%}
+					<tr>
+						<td class="text-center" colspan="5" style="width:100%;">
+							{{- 'category.no-boards' | trans({}, 'CCDNForumForumBundle') -}}
+						</td>
+					</tr>
+				{%- endfor -%}
+                <tr>
+                    <td colspan="5" style="padding:0px !important;">
+                        <div class="background-white" style="padding-top:4px;padding-bottom:2px;margin-top:5px">
+                            <div class="divisore-big" style="margin:0px">
+                            </div>
+                        </div>
+
+
+                    </td>
+                </tr>
+			</tbody>
+		</table>
+	</section>
+
+	<br>
+{%- endspaceless -%}

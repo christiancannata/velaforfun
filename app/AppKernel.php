@@ -31,7 +31,7 @@ class AppKernel extends Kernel
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new Ibrows\Bundle\NewsletterBundle\IbrowsNewsletterBundle(),
             new Sonata\SeoBundle\SonataSeoBundle(),
-            new Sonata\IntlBundle\SonataIntlBundle(),
+            new Sonata\IntlBundle\SonataIntlBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

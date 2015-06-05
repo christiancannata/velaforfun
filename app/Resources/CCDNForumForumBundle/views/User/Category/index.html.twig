@@ -1,0 +1,61 @@
+{% extends 'CCDNForumForumBundle:Common:Layout/base.html.twig' %}
+
+{% set LayoutTemplate = ccdn_forum_forum.category.user.index.layout_template %}
+
+{%- block title -%}
+    {{- 'title.category.index' | trans({}, 'CCDNForumForumBundle') -}}
+{%- endblock title -%}
+
+{%- block sidebar -%}
+    {%- spaceless -%}
+        {{- parent() -}}
+        {%- include 'CCDNForumForumBundle:Common:Layout/Sidebar/user_forum.html.twig' -%}
+    {%- endspaceless -%}
+{%- endblock sidebar -%}
+
+{%- block body_content -%}
+    {%- spaceless -%}
+
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+
+                <div class="category">
+                    <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered"
+                                                                        aria-hidden="true"></span> </a>
+
+                    <h1>Forum</h1>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+
+                <p  style="padding:10px;background: white">Description of Name of Board Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit, sed do eiusmod.
+                    Sonsectetur adipiscing elit, sed do eiusmod</p>
+
+            </div>
+
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+
+                {%- for category in categories -%}
+                    {%- include "CCDNForumForumBundle:User:Category/Partial/item_category.html.twig" -%}
+                {%- else -%}
+                    <section class="row clearfix">
+                        <div class="well text-center">
+			<span class="lead">
+					{{- 'category.none' | trans({}, 'CCDNForumForumBundle') -}}
+				</span>
+                        </div>
+                    </section>
+                {%- endfor -%}
+            </div>
+        </div>
+    {%- endspaceless -%}
+
+{%- endblock body_content -%}
