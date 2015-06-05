@@ -1711,3 +1711,7 @@ th.left {
 .tr-forum blockquote{
     color:rgb(77,77,77);
 }
+
+.glyphicon.glyphicon-comment {
+    font-size: 30px;
+}

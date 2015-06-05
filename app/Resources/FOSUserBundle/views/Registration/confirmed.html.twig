@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registrazione effettuata{% endblock %}
+
+{% block description %}{% endblock %}
+
+
+
+{% block body %}
+
+    <!-- contenuto -->
+
+    <div class="row clearfix" id="content-articolo">
+        <div class="col-md-8 column">
+
+
+
+         <div class="row clearfix">
+        <div class="col-md-12 column">
+            <h1>Registrazione effettuata</h1>
+
+        </div>
+         </div>
+
+
+ <div class="row clearfix">
+     <div class="col-md-12 column">
+        <div class="divisore-big"></div>
+ </div>
+         </div>
+
+
+
+
+ <div class="row clearfix">
+        <div class="col-md-12 column" >
+        <div id="body-content" style="padding:80px;width:100%;">
+        <div style="width:15%;float:left">
+                <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Symbol_OK.svg/2000px-Symbol_OK.svg.png" style="width:100%;">
+
+            </div>
+            <div style="width:80%;float:left;margin-left:5%">
+       <h4 style="display: inline;">Complimenti {{ user.nome }}, la tua registrazione è stata effettuata con successo!</h4>
+  </div>
+
+  <button type="submit" onclick="location.href='/'" class="btn btn-default login hvr-glow" style="margin-top:70px">TORNA ALLA HOMEPAGE</button>
+
+        </div>
+</div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+           <div class="col-md-4 column hidden-print">
+
+
+    <div class="title" style="border-top:1px solid rgb(153, 153, 153);">
+        Cosa puoi fare adesso?
+    </div>
+    <div class="content">
+
+
+
+            <a href="/">
+                <div class="latest-news">
+                    <div class="content">
+                        <h4>Torna alla Home</h4>
+                    </div>
+                    <div class="arrow">
+                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/forum/velaforfun">
+                <div class="latest-news">
+                    <div class="content">
+                        <h4>Entra nel forum</h4>
+                    </div>
+                    <div class="arrow">
+                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </a>
+
+
+            <a href="/archivio/">
+                <div class="latest-news">
+                    <div class="content">
+                        <h4>Leggi le ultime news</h4>
+                    </div>
+                    <div class="arrow">
+                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </a>
+
+
+
+    </div>
+
+
+        </div>
+
+
+            <!-- fine contenuto -->
+        </div>
+
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="divisore-big"></div>
+            </div>
+        </div>
+
+
+<div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="divisore-big"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
