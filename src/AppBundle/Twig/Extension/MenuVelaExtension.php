@@ -9,23 +9,27 @@ namespace AppBundle\Twig\Extension;
 
 use Symfony\Component\HttpKernel\KernelInterface;
 
-class MenuVelaExtension extends \Twig_Extension {
+class MenuVelaExtension extends \Twig_Extension
+{
 
     private $container;
 
     /**
      * {@inheritdoc}
      */
-    public function getFunctions() {
+    public function getFunctions()
+    {
         return array(
             'menu' => new \Twig_Function_Method($this, 'getMenu'),
             'meteo' => new \Twig_Function_Method($this, 'getMeteo'),
+            'getRuolo' => new \Twig_Function_Method($this, 'getRuolo'),
         );
     }
 
     public function getFilters()
     {
-        return array('auto_link_text' => new \Twig_Filter_Method($this, 'auto_link_text', array('is_safe' => array('html'))),
+        return array(
+            'auto_link_text' => new \Twig_Filter_Method($this, 'auto_link_text', array('is_safe' => array('html'))),
             'replace_tags' => new \Twig_Filter_Method($this, 'replace_tags', array('is_safe' => array('html')))
         );
     }
@@ -34,22 +38,68 @@ class MenuVelaExtension extends \Twig_Extension {
      * @param string $string
      * @return int
      */
-    public function getMenu ($string) {
+    public function getMenu($string)
+    {
 
-        $em=$this->container->get('doctrine')->getManager();
-        $menu=$em->getRepository('AppBundle:Menu')->findOneBy(array("nome"=>$string));
-        $vociMenu=[];
-        if($menu){
-            $vociMenu=$em->getRepository('AppBundle:NodoMenu')->findBy(array("menu"=>$menu), array('ordering' => 'ASC'));
+        $em = $this->container->get('doctrine')->getManager();
+        $menu = $em->getRepository('AppBundle:Menu')->findOneBy(array("nome" => $string));
+        $vociMenu = [];
+        if ($menu) {
+            $vociMenu = $em->getRepository('AppBundle:NodoMenu')->findBy(
+                array("menu" => $menu),
+                array('ordering' => 'ASC')
+            );
 
         }
+
         return $vociMenu;
     }
+
+
+    /**
+     * @param string $string
+     * @return int
+     */
+    public function getRuolo($user)
+    {
+        $messaggi = count($user->getMessaggi());
+        //RUOLI SUI MESSAGGI
+        switch ($messaggi) {
+            case ($messaggi < 30):
+                $ruolo = "Velista in porto";
+                break;
+            case ($messaggi >= 30 && $messaggi <= 100):
+                $ruolo = "Mozzo";
+                break;
+            case ($messaggi >= 100 && $messaggi <= 500):
+                $ruolo = "Velista";
+                break;
+            case ($messaggi >= 500 && $messaggi <= 700):
+                $ruolo = "Skipper";
+                break;
+            case ($messaggi >= 700 && $messaggi <= 1000):
+                $ruolo = "Velista d'alto mare";
+                break;
+            case ($messaggi > 1000):
+                $ruolo = "Capitano";
+                break;
+            default:
+                $ruolo="Velista in porto";
+                break;
+        }
+
+        return $ruolo;
+    }
+
 
     public function auto_link_text($string)
     {
 
-        return preg_replace('/\s((http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.\/]+\.[a-zA-Z\/]{2,3}(\/\S*)?)/', '<a target="_blank" href="${1}">${1}</a>', $string);
+        return preg_replace(
+            '/\s((http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.\/]+\.[a-zA-Z\/]{2,3}(\/\S*)?)/',
+            '<a target="_blank" href="${1}">${1}</a>',
+            $string
+        );
 
     }
 
@@ -64,7 +114,8 @@ class MenuVelaExtension extends \Twig_Extension {
         return preg_replace($pattern, $replacement, $string);
     }
 
-    public function getMeteo ($string) {
+    public function getMeteo($string)
+    {
 
 
         $meteoIcon = [];
@@ -90,14 +141,17 @@ class MenuVelaExtension extends \Twig_Extension {
 
         return $meteoIcon[$string];
     }
+
     /**
      * {@inheritdoc}
      */
-    public function getName() {
+    public function getName()
+    {
         return 'my_bundle';
     }
 
-    public function setContainer($container){
-        $this->container=$container;
+    public function setContainer($container)
+    {
+        $this->container = $container;
     }
 }
