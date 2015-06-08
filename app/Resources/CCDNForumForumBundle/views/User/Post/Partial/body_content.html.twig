@@ -1,5 +1,5 @@
 {%- spaceless -%}
 
-	{{- post.getBody|raw -}}
+	{{- post.getBody|replace({'[B]': '<strong>', '[/B]': "</strong>","[I]":"<italic>","[/I]":"</italic>","[QUOTE]":'<blockquote>',"[/QUOTE]":"</blockquote>"})|raw -}}
 
 {%- endspaceless -%}

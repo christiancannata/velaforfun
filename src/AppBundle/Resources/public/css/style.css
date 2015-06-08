@@ -1779,3 +1779,10 @@ th.left {
     margin-top: 10px;
     padding: 0;
 }
+
+.post-forum blockquote{
+    background:rgb(254,251,215);
+    font-size: 12px;
+    font-style: italic;
+    padding:15px;
+}
