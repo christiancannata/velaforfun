@@ -19,7 +19,14 @@ class MenuVelaExtension extends \Twig_Extension {
     public function getFunctions() {
         return array(
             'menu' => new \Twig_Function_Method($this, 'getMenu'),
-            'meteo' => new \Twig_Function_Method($this, 'getMeteo')
+            'meteo' => new \Twig_Function_Method($this, 'getMeteo'),
+        );
+    }
+
+    public function getFilters()
+    {
+        return array('auto_link_text' => new \Twig_Filter_Method($this, 'auto_link_text', array('is_safe' => array('html'))),
+            'replace_tags' => new \Twig_Filter_Method($this, 'replace_tags', array('is_safe' => array('html')))
         );
     }
 
@@ -39,6 +46,23 @@ class MenuVelaExtension extends \Twig_Extension {
         return $vociMenu;
     }
 
+    public function auto_link_text($string)
+    {
+
+        return preg_replace('/\s((http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.\/]+\.[a-zA-Z\/]{2,3}(\/\S*)?)/', '<a target="_blank" href="${1}">${1}</a>', $string);
+
+    }
+
+    public function replace_tags($string)
+    {
+
+        $pattern = Array();
+        $pattern[0] = "~\[img](.+?)\[/img]~i";
+        $replacement = Array();
+        $replacement[0] = '<img src="${1}" />';
+
+        return preg_replace($pattern, $replacement, $string);
+    }
 
     public function getMeteo ($string) {
 

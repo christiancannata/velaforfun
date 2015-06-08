@@ -38,24 +38,24 @@
                         <div class="divisore-big"></div>
                     </div>
                     <div class="col-md-12">
-{{ post.getCreatedBy.firma|replace({'[B]': '<strong>', '[/B]': "</strong>","[I]":"<italic>","[/I]":"</italic>"})|raw }}
+{{ post.getCreatedBy.firma|replace({'[B]': '<strong>', '[/B]': "</strong>","[I]":"<italic>","[/I]":"</italic>","[COLOR=green]":"<font style='color:green'>","[/COLOR]":"</font>"})|raw }}
                     </div>
                 </div>
 
             </div>
-            <div class="col-md-2" style="border-left: 1px solid rgb(66, 156, 188);min-height: 175px;">
+            <div class="col-md-2" style="border-left: 1px solid rgb(66, 156, 188);">
                 <div class="row clearfix">
 
 
                     <div class="col-md-6 col-md-offset-3 avatar-post">
-                        {% if post.getCreatedBy.profilePicturePath == "" and post.getCreatedBy.getFacebookId() !="" %}
+                        {% if post.getCreatedBy.profilePicturePath is defined and post.getCreatedBy.profilePicturePath == "" and post.getCreatedBy.getFacebookId() !="" %}
     <img class="avatar-small"
          src="http://graph.facebook.com/{{ post.getCreatedBy.getFacebookId() }}/picture?type=square"
          alt="avatar"/>
 
 {% else %}
 
-    {% if post.getCreatedBy.profilePicturePath != "" %}
+    {% if post.getCreatedBy.profilePicturePath is defined and post.getCreatedBy.profilePicturePath != "" %}
         <img class="avatar-small"
              src="/uploads/utenti/profilo/{{ post.getCreatedBy.profilePicturePath }}"
              alt="avatar"/>

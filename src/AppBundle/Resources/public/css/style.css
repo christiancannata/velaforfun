@@ -1786,3 +1786,25 @@ th.left {
     font-style: italic;
     padding:15px;
 }
+
+.panel-primary{
+    background: rgba(66,156,188,0.2);
+}
+
+.pagination {
+    border-radius: 4px;
+    display: inline-block;
+    float: right;
+    margin: 20px 0;
+    padding-left: 0;
+}
+.pagination span{
+    margin-right: 7px;
+    font-size: 18px;
+}
+.pagination .last a,.pagination .first a{
+    color:white;
+    background:rgb(66, 156, 188);
+    font-size: 22px;
+    padding:5px;
+}

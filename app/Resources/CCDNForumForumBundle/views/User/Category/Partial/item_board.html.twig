@@ -1,6 +1,7 @@
 {%- spaceless -%}
+            <a href="{{- path('ccdn_forum_user_board_show', {'forumName': forumName, 'boardId': board.getId }) -}}">
+
 	<tr class="tr-forum">
-        <a href="{{- path('ccdn_forum_user_board_show', {'forumName': forumName, 'boardId': board.getId }) -}}">
 
         <td class="center">
 	        {%- if canCreateTopicOnBoard(board, forum) -%}
@@ -85,7 +86,7 @@
             </div>
 
 	    </td>
-</a>
-	</tr>
 
+	</tr>
+            </a>
 {%- endspaceless -%}

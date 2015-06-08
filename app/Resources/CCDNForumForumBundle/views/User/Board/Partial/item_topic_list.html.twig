@@ -1,7 +1,6 @@
 {%- spaceless -%}
 
-	<tr class="tr-forum">
-        <a href="{{- path('ccdn_forum_user_topic_show', {'forumName': forumName, 'topicId': topic.getId }) -}}">
+	<tr class="tr-forum" onclick="location.href='{{- path('ccdn_forum_user_topic_show', {'forumName': forumName, 'topicId': topic.getId }) -}}'">
 		<td class="center">
 			{%- if topic.isDeleted -%}
 				<i class="glyphicon glyphicon-trash"></i>
@@ -103,7 +102,6 @@
 
 
 
- </a>
-	</tr>
 
+	</tr>
 {%- endspaceless -%}

@@ -1,5 +1,5 @@
 {%- spaceless -%}
 
-	{{- post.getBody|replace({'[B]': '<strong>', '[/B]': "</strong>","[I]":"<italic>","[/I]":"</italic>","[QUOTE]":'<blockquote>',"[/QUOTE]":"</blockquote>"})|raw -}}
+	{{- post.getBody|replace({'[B]': '<strong>', '[/B]': "</strong>","[I]":"<italic>","[/I]":"</italic>","[QUOTE]":'<blockquote>',"[/QUOTE]":"</blockquote>"})|auto_link_text|replace_tags|raw -}}
 
 {%- endspaceless -%}
