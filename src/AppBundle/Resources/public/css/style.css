@@ -1684,9 +1684,11 @@ th.center {
     text-align: center;
     font-weight: normal;
 }
+
 th.left {
     font-weight: normal;
 }
+
 .center {
     padding: 0px !important;
 }
@@ -1694,30 +1696,86 @@ th.left {
 .td-boarded .border {
     border-radius: 0px;
 
-
     padding-bottom: 12px;
     padding-top: 12px;
 
 }
 
-.created-by{
+.created-by {
     font-size: 16px;
-    color:rgb(153,153,153);
+    color: rgb(153, 153, 153);
 }
 
-.tr-forum td{
-    padding:10px !important;
+.tr-forum td {
+    padding: 10px !important;
 }
-.tr-forum blockquote{
-    color:rgb(77,77,77);
+
+.tr-forum blockquote {
+    color: rgb(77, 77, 77);
 }
 
 .glyphicon.glyphicon-comment {
     font-size: 30px;
 }
-.tr-forum{
+
+.tr-forum {
     cursor: pointer;
 }
-.tr-forum:hover a,.tr-forum:hover span {
-    color:#23527c !important;
+
+.tr-forum:hover a, .tr-forum:hover span {
+    color: #23527c !important;
+}
+
+.btn-toolbar {
+    margin-bottom: 20px;
+}
+
+.btn-toolbar a {
+    border-radius: 0px;
+}
+
+.panel-heading {
+    margin-bottom: 20px !important
+}
+
+.post-forum {
+    background: white;
+    border-top: 1px solid rgb(66, 156, 188);
+    border-bottom: 1px solid rgb(66, 156, 188);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.panel-title {
+    color: rgb(66, 156, 188);
+    padding-bottom: 15px;
+}
+
+.timestamper {
+    color: rgb(153, 153, 153);
+}
+
+.body-post {
+    color: rgb(77, 77, 77);
+}
+
+.username {
+    text-align: center;
+    width: 100%;
+}
+
+.avatar-post img{
+    display: block;
+    margin: 0 0 0 10%;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.post-forum .divisore-big {
+    background: rgb(153, 153, 153) none repeat scroll 0 0;
+    height: 1px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 0;
 }

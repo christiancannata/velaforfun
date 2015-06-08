@@ -3,22 +3,22 @@
 {% set LayoutTemplate = ccdn_forum_forum.topic.user.show.layout_template %}
 
 {%- block title -%}
-	{{- 'title.topic.show' | trans({'%topic_title%': topic.getTitle |capitalize}, 'CCDNForumForumBundle') -}}
+    {{- 'title.topic.show' | trans({'%topic_title%': topic.getTitle |capitalize}, 'CCDNForumForumBundle') -}}
 {%- endblock title -%}
 
 {%- block sidebar -%}
-	{%- spaceless -%}
-	{{- parent() -}}
-    {%- include 'CCDNForumForumBundle:Common:Layout/Sidebar/user_forum.html.twig' -%}
-	{%- endspaceless -%}
+    {%- spaceless -%}
+        {{- parent() -}}
+        {%- include 'CCDNForumForumBundle:Common:Layout/Sidebar/user_forum.html.twig' -%}
+    {%- endspaceless -%}
 {%- endblock sidebar -%}
 
 {%- block body_content -%}
     {%- spaceless -%}
 
-	<section class="row clearfix btn-toolbar">
-        {%- include 'CCDNForumForumBundle:User:Topic/Partial/topic_actions.html.twig' -%}
-	</section>
+        <section class="row clearfix btn-toolbar">
+            {%- include 'CCDNForumForumBundle:User:Topic/Partial/topic_actions.html.twig' -%}
+        </section>
         <div class="row clearfix">
             <div class="col-md-12 column">
 
@@ -32,26 +32,35 @@
 
         </div>
 
-        <div class="col-md-12 column" >
-            <h3 style="color:rgb(153,153,153);display: inline;float:left;padding: 7px;font-size: 30px;">Boards </h3><h3 style="color:rgb(153,153,153);display: inline;float:left;padding: 7px;font-size: 30px;"> >&nbsp;{{- topic.board.name -}}</h3>
-            <h1 style="display: inline;float:left;margin:0px;border:none;font-size: 30px;font-weight: bold"> >&nbsp;{{- topic.getTitle |capitalize -}}</h1>
 
+        <div class="row clearfix">
+
+            <div class="col-md-12 column">
+                <h3 style="color:rgb(153,153,153);display: inline;float:left;padding: 7px;font-size: 30px;padding-left:0px">Boards </h3>
+
+                <h3 style="color:rgb(153,153,153);display: inline;float:left;padding: 7px;font-size: 30px;">
+                    >&nbsp;{{- topic.board.name -}}</h3>
+
+                <h1 style="display: inline;float:left;margin:0px;border:none;font-size: 30px;font-weight: bold">
+                    >&nbsp;{{- topic.getTitle |capitalize -}}</h1>
+
+            </div>
         </div>
-	{%- include "CCDNForumForumBundle:User:Topic/Partial/stat_vitals.html.twig" -%}
+        {%- include "CCDNForumForumBundle:User:Topic/Partial/stat_vitals.html.twig" -%}
 
-	{%- if topic.isDeleted or topic.isClosed or topic.isSticky -%}
-		{%- include "CCDNForumForumBundle:User:Topic/Partial/stat_mods.html.twig" -%}
-	{%- endif -%}
+        {%- if topic.isDeleted or topic.isClosed or topic.isSticky -%}
+            {%- include "CCDNForumForumBundle:User:Topic/Partial/stat_mods.html.twig" -%}
+        {%- endif -%}
 
-	{{- knp_pagination_render(pager) -}}
+        {{- knp_pagination_render(pager) -}}
 
-	<section class="row clearfix">
-	    {%- for key, post in pager.getItems() -%}
-	        {%- include "CCDNForumForumBundle:User:Post/Partial/item_post.html.twig" -%}
-	    {%- endfor -%}
-	</section>
+<div class="row clearfix" style="margin-top:20px">
+            {%- for key, post in pager.getItems() -%}
+                {%- include "CCDNForumForumBundle:User:Post/Partial/item_post.html.twig" -%}
+            {%- endfor -%}
+        </div>
 
-	{{- knp_pagination_render(pager) -}}
+        {{- knp_pagination_render(pager) -}}
 
     {%- endspaceless -%}
 {%- endblock body_content -%}

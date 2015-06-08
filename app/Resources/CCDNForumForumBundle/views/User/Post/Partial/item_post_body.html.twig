@@ -29,7 +29,7 @@
 
 				&nbsp;&#183;
 
-		        <abbr class="timestamper" title="{{- post.getDeletedDate |date('Y-m-d H:i:s T Z', 'Europe/London') -}}">
+		        <abbr class="timestamper" title="{{- post.getDeletedDate |date('Y-m-d H:i:s T Z', 'Europe/Rome') -}}">
 		            {{- post.getDeletedDate |date(ccdn_forum_forum.item_post.deleted_datetime_format) -}}
 		        </abbr>
 			</div>
@@ -49,7 +49,7 @@
 			</section>
 		{%- endif -%}
 	{%- else -%}
-		<section id="post_{{- post.getId() -}}_body">
+		<section id="post_{{- post.getId() -}}_body" class="body-post">
 			{%- include 'CCDNForumForumBundle:User:Post/Partial/body_content.html.twig' with {'post': post } -%}
 		</section>
 	{%- endif -%}

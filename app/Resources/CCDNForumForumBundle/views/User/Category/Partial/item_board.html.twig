@@ -1,6 +1,8 @@
 {%- spaceless -%}
 	<tr class="tr-forum">
-	    <td class="center">
+        <a href="{{- path('ccdn_forum_user_board_show', {'forumName': forumName, 'boardId': board.getId }) -}}">
+
+        <td class="center">
 	        {%- if canCreateTopicOnBoard(board, forum) -%}
 	            {%- if canReplyToTopicOnBoard(board, forum) -%}
 	                <i class="glyphicon glyphicon-folder-close" style="margin-top:10px;"></i>
@@ -83,6 +85,7 @@
             </div>
 
 	    </td>
+</a>
 	</tr>
 
 {%- endspaceless -%}

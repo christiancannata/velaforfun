@@ -97,6 +97,12 @@ class User extends BaseUser implements MandantUserInterface
 
 
     /**
+     * @ORM\OneToMany(targetEntity="CCDNForum\ForumBundle\Entity\Post", mappedBy="createdBy")
+     **/
+    private $messaggi;
+
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="timestamp", type="datetime", nullable=false)
@@ -145,6 +151,22 @@ class User extends BaseUser implements MandantUserInterface
         $this->facebookID = $githubID;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMessaggi()
+    {
+        return $this->messaggi;
+    }
+
+    /**
+     * @param mixed $messaggi
+     */
+    public function setMessaggi($messaggi)
+    {
+        $this->messaggi = $messaggi;
     }
 
     /**
