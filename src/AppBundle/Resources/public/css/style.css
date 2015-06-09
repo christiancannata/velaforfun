@@ -1627,7 +1627,7 @@ h1.category-title {
 @media (max-width: 767px) {
 
     body {
-        padding-top: 50px;
+        padding-top: 70px;
     }
 
     .navbar-default {
@@ -1735,6 +1735,9 @@ th.left {
 
 .btn-toolbar {
     margin-bottom: 20px;
+    margin-right:0px;
+    margin-left: 0px;
+    width:100%;
 }
 
 .btn-toolbar a {
