@@ -89,6 +89,25 @@ class CheckEmailCommand extends ContainerAwareCommand
             }
             $this->em->flush();
 
+            if(count($mailsIds)>0){
+                $mailer = $this->getContainer()->get('mailer');
+                $messaggio = $mailer->createMessage()
+                    ->setSubject('Ciao')
+                    ->setFrom('mittente@example.com')
+                    ->setTo('destinatario@example.com')
+                    ->setBody(
+                        $this->renderView(
+                        // app/Resources/views/Emails/registrazione.html.twig
+                            'Emails/registration.html.twig',
+                            array('mails' => $mailsIds)
+                        ),
+                        'text/html'
+                    )
+                ;
+                $mailer->send($messaggio);
+
+            }
+
 
         }
 
