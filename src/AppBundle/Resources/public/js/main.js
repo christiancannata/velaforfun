@@ -194,7 +194,7 @@ function setRisultatiAnnunciImbarco(response) {
 
     }
     if(response.length==0){
-        risultati="<tr><td colspan=4 >La ricerca non ha prodotto risultati</td></tr>";
+        risultati="<tr><td colspan=5 >La ricerca non ha prodotto risultati</td></tr>";
     }
 
     $("table tbody").html(risultati);
@@ -208,7 +208,7 @@ function setRisultatiScambioPosto(response) {
 
     }
     if(response.length==0){
-        risultati="<tr><td colspan=4 >La ricerca non ha prodotto risultati</td></tr>";
+        risultati="<tr><td colspan=5 >La ricerca non ha prodotto risultati</td></tr>";
     }
 
     $("table tbody").html(risultati);

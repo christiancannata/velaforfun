@@ -514,7 +514,7 @@
 
         $(document).ready(function () {
 
-            if ($('[ name="{{ form.vars.full_name }}"]').length > 0) {
+            if ($('[ name="{{ form.vars.full_name }}"],#Post textarea').length > 0) {
                 $('textarea').redactor({
                     imageUpload: '/redactor/image_upload.php',
                     fileUpload: '/redactor/file_upload.php',

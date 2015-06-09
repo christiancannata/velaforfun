@@ -194,7 +194,7 @@ topic:
     subscription-count-label:          "Sottoscrizioni: "
     view-count-label:                  "Visualizzazioni: "
     reply-count-label:                 "Risposte: "
-    transcript:                        "Transcript."
+    transcript:                        "Stai rispondendo a:"
     closed-by:                         "Topic chiuso da %name%"
     deleted-by:                        "Topic eliminato da %name%"
     stickied-by:                       "Stickied by %name%"
