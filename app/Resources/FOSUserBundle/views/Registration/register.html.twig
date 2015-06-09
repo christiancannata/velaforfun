@@ -17,58 +17,56 @@
     <!-- contenuto -->
 
     <div class="row clearfix">
-        <div class="col-md-8 column">
+        <div class="col-md-8 column" style="">
 
+
+                <div class="col-md-12 column" style="">
 <a href="/secure_area/connect/facebook"
-                                       class="btn btn-block btn-social btn-sm btn-facebook"
+                                       class="btn btn-block btn-social btn-lg btn-facebook"
                                        id="loginFacebook">
                                         <i class="fa fa-facebook"></i>
                                         Accedi con Facebook
                                     </a>
+</div>
+            <div class="col-md-12 column" style="text-align:center;width:100%;">
+         <div class="divisore-big"></div>
 
-         <div class="divisore"></div>
-                                    <p class="menu-separator"><span>oppure inserisci i tuoi dati di accesso</span></p>
+                                   <span style="font-size: 20px">oppure inserisci i tuoi dati di accesso</span>
 
+                                   <div class="divisore-big"></div>
+</div>
+            <div class="col-md-12 column" style="">
 <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
     {{ form_widget(form) }}
     <div>
         <input type="submit" class="btn btn-default login hvr-glow"  value="Registrati" />
     </div>
 </form>
-
+</div>
 
 
 
         </div>
 
 
-        <div class="col-md-4 column" id="colonnaPorto">
-
-
-            <div class="row clearfix">
-
-                <div class="col-md-12 column">
+       <div class="col-md-4 column hidden-print" id="content-articolo">
 
 
 
-
-                </div>
-            </div>
-
-    <div class="row clearfix">
-
-         <div class="col-md-12 column">
-
-           <div class="content">
+        <div class="title" style="border-top:1px solid rgb(153, 153, 153);">
+            Registrati a Vela For Fun
+        </div>
+        <div class="content">
 
 
-                     </div>
 
-                     </div>
         </div>
 
 
-            </div>
+
+
+
+        </div>
             <!-- fine contenuto -->
         </div>
 

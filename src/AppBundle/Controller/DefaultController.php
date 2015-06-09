@@ -63,11 +63,22 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/faq", name="contatti")
+     * @Route("/faq", name="faq")
      */
     public function faqAction()
     {
 
         return $this->render('default/faq.html.twig', array());
+    }
+
+
+    /**
+     * @Route("/cerca", name="cerca")
+     */
+    public function cercaAction(Request $request)
+    {
+        $key=$request->get("key");
+
+        return $this->render('default/cerca.html.twig', array("key"=>$key));
     }
 }
