@@ -91,6 +91,10 @@ class ArticoloController extends BaseController
         }
         $categorie = $em->getRepository('BlogBundle:Categoria')->findAll();
 
+
+        if(count($articoli)==4){
+            unset($articoli[3]);
+        }
         return $this->render(
             'BlogBundle:Articolo:articolo.html.twig',
             array(

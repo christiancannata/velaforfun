@@ -96,6 +96,8 @@ form label {
 .category a {
     text-decoration: none;
     font-size: 20px;
+    text-transform: uppercase;
+    line-height: 30px;
 }
 
 .divisore {
@@ -1383,7 +1385,7 @@ input[type="radio"]:checked .fa-stack-1x {
 
 #content-articolo h1 {
     border: none;
-    font-size: 30px;
+    font-size: 32px;
     padding: 0;
     font-weight: bold;
     margin-top: 20px;
@@ -1395,7 +1397,7 @@ input[type="radio"]:checked .fa-stack-1x {
     background: white;
     color: rgb(77, 77, 77);
     min-height: 775px;
-    font-size: 14px !important;
+    font-size: 18px !important;
 }
 
 ul.share-buttons {
@@ -1438,11 +1440,13 @@ ul.share-buttons li {
 
 #content-articolo .sottotitolo p {
     line-height: 25px;
+    font-size: 18px !important;
 }
 
 .arrow_box h4 {
     color: white;
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 .arrow_box img {
@@ -1459,12 +1463,12 @@ ul.share-buttons li {
 }
 
 #content-articolo .latest-news h4 {
-    font-size: 20px !important;
+    font-size: 22px !important;
 }
 
 #content-articolo .latest-news p {
     color: rgb(153, 153, 153);
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .dropdown-header {
@@ -1573,7 +1577,7 @@ ul.share-buttons li {
 .immagine-articolo {
     position: relative;
     float: right;
-    width: 40%;
+    width: 50%;
     padding-left: 5px;
     padding-bottom: 5px;
     cursor: pointer;
@@ -1768,7 +1772,7 @@ th.left {
 .avatar-post img{
     display: block;
     margin: 0 0 0 10%;
-    width: 80%;
+    width: 50px;
     margin-bottom: 10px;
 }
 

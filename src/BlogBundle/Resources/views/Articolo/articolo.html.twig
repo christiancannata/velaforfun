@@ -141,7 +141,7 @@
                     <div class="content">
                         <h4>{{ articoloRel.titolo }}</h4>
 
-                        {{ articoloRel.sottotitolo|raw }}
+                        {{ articoloRel.sottotitolo|slice(0, 70)|raw }}...
                     </div>
                     <div class="arrow">
                         <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -204,7 +204,7 @@
         <a href="/archivio/{{ categoriaRel.permalink }}"><span
                     style="background:{{ categoriaRel.getColore() }}">{{ categoriaRel.nome|capitalize }}</span> <span
                     style="background:{{ categoriaRel.getColore() }};    padding-left: 15px;
-                            padding-right: 15px;">+</span></a>
+                            padding-right: 15px;font-weight: bold;">+</span></a>
     </div>
 
 
