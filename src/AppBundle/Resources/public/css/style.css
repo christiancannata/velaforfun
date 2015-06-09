@@ -829,7 +829,7 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
     color: white;
 }
 
-.right-inner-addon input:focus {
+.right-inner-addon input:focus,input[type=search]:focus {
     border-radius: 0;
     box-shadow: none;
 }
@@ -844,21 +844,21 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
 }
 
 ::-webkit-input-placeholder {
-    color: white;
+    color: white !important;
 }
 
 ::-moz-placeholder {
-    color: white;
+    color: white !important;
 }
 
 /* firefox 19+ */
 :-ms-input-placeholder {
-    color: white;
+    color: white !important;
 }
 
 /* ie */
 input:-moz-placeholder {
-    color: white;
+    color: white !important;
 }
 
 .social-menu a {
@@ -1919,3 +1919,9 @@ font-size: 16px;
     width:85%;
     margin-top:5px;
 }
+
+#body-content a:hover{
+    text-decoration: underline;
+    color: rgb(35, 82, 124);
+}
+

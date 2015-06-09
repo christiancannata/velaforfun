@@ -196,14 +196,20 @@
                                 <li><a href="/video">Galleria Video</a></li>
                                 <li class="divider"></li>
                                 <li class="form">
-                                    <form method="GET">
-                                        <div class="right-inner-addon">
-                                            <a href="#"><i class="fa fa-search"></i></a>
-                                            <input placeholder="cerca un termine..." type="search"
-                                                   class="form-control"
-                                                   onclick="$(this).val('')"/>
-                                        </div>
-                                    </form>
+
+                                            <form method="get" action="/cerca" id="cerca-form-header">
+                                                <div class="form-group" style="margin-bottom: 0px">
+                                                    <div class="inner-addon left-addon">
+                                                        <a href="#" style="top:inherit;color:white;border-color:white" onclick="event.preventDefault();$('#cerca-form-header').submit()"><i
+                                                                    class="fa fa-search"></i></a>
+                                                        <input style="background:rgb(61,144,173);color:white" name="key" type="search"
+                                                               class="form-control"
+                                                               placeholder="cerca un termine..."/>
+                                                    </div>
+
+
+                                                </div>
+                                            </form>
                                 </li>
                                 <li class="divider"></li>
                                 <li class="dropdown-header">ANNUNCI</li>

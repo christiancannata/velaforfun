@@ -4,6 +4,8 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
 
 class DefaultController extends Controller
 {
@@ -16,14 +18,11 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()
             ->getRepository('BlogBundle:Articolo');
 
-        $articoli=$repository->findByStato("ATTIVO",array('id' => 'desc'));
+        $articoli = $repository->findByStato("ATTIVO", array('id' => 'desc'));
 
 
-
-
-        return $this->render('default/index.html.twig',array("articoli"=>$articoli));
+        return $this->render('default/index.html.twig', array("articoli" => $articoli));
     }
-
 
 
     /**
@@ -42,13 +41,16 @@ class DefaultController extends Controller
     public function tuoiAnnunciAction()
     {
 
-        $annunciImbarco= $repository = $this->getDoctrine()
+        $annunciImbarco = $repository = $this->getDoctrine()
             ->getRepository('AppBundle:AnnuncioImbarco')->findByUtente($this->getUser());
 
-        $annunciScambio= $repository = $this->getDoctrine()
+        $annunciScambio = $repository = $this->getDoctrine()
             ->getRepository('AppBundle:AnnuncioScambioPosto')->findByUtente($this->getUser());
 
-        return $this->render('default/tuoi-annunci.html.twig', array("annunciImbarco"=>$annunciImbarco,"annunciScambio"=>$annunciScambio));
+        return $this->render(
+            'default/tuoi-annunci.html.twig',
+            array("annunciImbarco" => $annunciImbarco, "annunciScambio" => $annunciScambio)
+        );
     }
 
 
@@ -77,8 +79,62 @@ class DefaultController extends Controller
      */
     public function cercaAction(Request $request)
     {
-        $key=$request->get("key");
+        $key = $request->get("key");
 
-        return $this->render('default/cerca.html.twig', array("key"=>$key));
+        $risultati = array();
+
+        if ($key != "") {
+
+            $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Porto');
+            $query = $repository->createQueryBuilder('p')
+                ->where('p.nome LIKE :word')
+                ->setParameter('word', '%'.$key.'%')
+                ->getQuery();
+            $porti = $query->getResult();
+
+            if (count($porti) > 0) {
+                $rows=array();
+                foreach($porti as $porto){
+                    $rows[]=array(
+                        "name"=>$porto->getNome(),
+                        "link"=>"/porti/".$porto->getPermalink()
+                    );
+                }
+                $appo = array(
+                    "type" => "Porti",
+                    "results" => $rows
+                );
+                $risultati[]=$appo;
+            }
+
+
+            $repository = $this->getDoctrine()->getManager()->getRepository('CCDNForumForumBundle:Topic');
+            $query = $repository->createQueryBuilder('p')
+                ->where('p.title LIKE :word')
+                ->setParameter('word', '%'.$key.'%')
+                ->getQuery();
+            $annunci = $query->getResult();
+
+            if (count($annunci) > 0) {
+                $rows=array();
+                foreach($annunci as $annuncio){
+                    $rows[]=array(
+                        "name"=>$annuncio->getTitle(),
+                        "link"=>"//forum/velaforfun/topic/".$annuncio->getId()
+                    );
+                }
+                $appo = array(
+                    "type" => "Annunci",
+                    "results" => $rows
+                );
+                $risultati[]=$appo;
+            }
+
+
+
+        }
+
+
+        return $this->render('default/cerca.html.twig', array("key" => $key, "risultati" => $risultati));
     }
 }
