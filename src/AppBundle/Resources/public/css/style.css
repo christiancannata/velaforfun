@@ -844,21 +844,21 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
 }
 
 ::-webkit-input-placeholder {
-    color: white !important;
+    color: white;
 }
 
 ::-moz-placeholder {
-    color: white !important;
+    color: white;
 }
 
 /* firefox 19+ */
 :-ms-input-placeholder {
-    color: white !important;
+    color: white;
 }
 
 /* ie */
 input:-moz-placeholder {
-    color: white !important;
+    color: white ;
 }
 
 .social-menu a {

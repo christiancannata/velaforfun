@@ -76,15 +76,17 @@ jQuery(document).ready(function ($) {
 
     }
 
+    if($("#selectPorto").length>0){
+        $.get('/porti/jsondata', function (data) {
+            $("#selectPorto").typeahead({source: data});
+        }, 'json');
+    }
 
-    $.get('/porti/jsondata', function (data) {
-        $("#selectPorto").typeahead({source: data});
-    }, 'json');
-
-    $.get('/nodi/jsondata', function (data) {
-        $("#selectNodo").typeahead({source: data, valueKey: 'permalink'});
-    }, 'json');
-
+    if($("#selectNodo").length>0) {
+        $.get('/nodi/jsondata', function (data) {
+            $("#selectNodo").typeahead({source: data, valueKey: 'permalink'});
+        }, 'json');
+    }
 
     $("#formCercaPorto").submit(function (e) {
         e.preventDefault();
