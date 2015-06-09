@@ -1812,3 +1812,21 @@ th.left {
     font-size: 22px;
     padding:5px;
 }
+
+#profileMenu .avatar-small{
+    margin-top:-40px;
+    margin-left:-4px;
+    width:50px;
+}
+
+.modal-body {
+    min-height: 420px;
+    padding: 15px;
+    position: relative;
+}
+.modal-body .form-control{
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: none;
+    transition: none 0s ease 0s ;
+}

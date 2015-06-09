@@ -11,6 +11,33 @@ jQuery(document).ready(function ($) {
         window.history.back();
     });
 
+    (function($) {
+
+      if( $('.arrow_box').length >0){
+
+          var element = $('.arrow_box'),
+              originalY = element.offset().top;
+          // Space between element and top of screen (when scrolling)
+          var topMargin = 200;
+
+          // Should probably be set in CSS; but here just for emphasis
+          element.css('position', 'relative');
+
+          $(window).on('scroll', function(event) {
+              var scrollTop = $(window).scrollTop();
+
+                    element.stop(false, false).animate({
+                        top: scrollTop < originalY
+                            ? 0
+                            : scrollTop - originalY + topMargin
+                    }, 300);
+
+          });
+
+      }
+
+    })(jQuery);
+
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $(".flip-container").addClass("hover");
@@ -198,23 +225,28 @@ function setNuovoCommentoPorto(response) {
                 nuovoCommento += '<img width="50" alt="avatar" src="http://graph.facebook.com/' + commento.utente.facebook_i_d + '/picture?type=square" class="media-object">';
 
             } else {
-                if (typeof commento.utente.profilePicturePath != "udenfined") {
+                if (typeof commento.utente.profilePicturePath != "undefined") {
                     nuovoCommento += '<img width="50" alt="avatar" src="/uploads/utenti/profilo/' + commento.utente.profilePicturePath + '" class="media-object">';
 
                 } else {
 
                 }
             }
-
-
-            nuovoCommento += '</a> </div> <div class="media-body"> <h4 class="media-heading">' + commento.utente.username + '</h4> <p>' + commento.testo + '</p> <p>' + commento.timestamp + '</p> <p>';
+            var tipoCommento="";
             if (commento.tipo_commento == "POSITIVO") {
-                nuovoCommento += '<i class="fa fa-thumbs-up foreground-verde"></i>';
-
-            } else {
-                nuovoCommento += '<i class="fa fa-thumbs-down foreground-rosso"></i>';
+                tipoCommento = '<i class="fa fa-thumbs-up foreground-verde"></i>';
 
             }
+            if (commento.tipo_commento == "NEGATIVO") {
+                tipoCommento = '<i class="fa fa-thumbs-down foreground-rosso"></i>';
+
+            }
+            if (commento.tipo_commento == "NEUTRO") {
+                tipoCommento = '<i class="fa fa-pause fa-rotate-90 foreground-grey"></i>';
+
+            }
+
+            nuovoCommento += '</a> </div> <div class="media-body"> <h4 class="media-heading">' + commento.utente.username + '</h4> <p>' + tipoCommento + " - "+commento.testo + '</p> <p style=\"font-size: 12px\">Inserito il ' + commento.timestamp + '</p> <p>';
 
             nuovoCommento += '</p> </div> </li>';
 

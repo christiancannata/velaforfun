@@ -41,7 +41,7 @@
                         <div class="category">
                             <a href="/archivio/{{ articoli[0].categoria.permalink }}"><span
                                         style="background:{{ articoli[0].categoria.getColore() }}">{{ articoli[0].categoria.nome|capitalize }}</span> <span
-                                        style="background:{{ articoli[0].categoria.getColore() }}">+</span></a>
+                                        style="font-weight:bold;background:{{ articoli[0].categoria.getColore() }}">+</span></a>
                         </div>
                         <div class="content-title">
                             <a href="/archivio/{{ articoli[0].categoria.permalink }}/{{ articoli[0].permalink }}">
@@ -69,7 +69,7 @@
                                 <div class="content">
                                     <h4>{{ articoli[1].titolo }}</h4>
 
-                                    {{ articoli[1].sottotitolo|raw }}
+                                    {{ articoli[1].sottotitolo|slice(0,80)|raw }}...
                                 </div>
                                 <div class="arrow">
                                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -83,7 +83,7 @@
                                 <div class="content">
                                     <h4>{{ articoli[2].titolo }}</h4>
 
-                                    {{ articoli[2].sottotitolo|raw }}
+                                    {{ articoli[2].sottotitolo|slice(0,80)|raw }}...
                                 </div>
                                 <div class="arrow">
                                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -97,7 +97,7 @@
                                 <div class="content">
                                     <h4>{{ articoli[3].titolo }}</h4>
 
-                                    {{ articoli[3].sottotitolo|raw }}
+                                    {{ articoli[3].sottotitolo|slice(0,80)|raw }}...
                                 </div>
                                 <div class="arrow">
                                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -319,7 +319,7 @@
             </div>
         </div>
 
-
+<!--
         <div class="row clearfix">
             <div class="col-md-4 column">
                 <div class="box-sub hvr-shadow">
@@ -373,7 +373,7 @@
 
             </div>
         </div>
-
+-->
 
     </div>
 

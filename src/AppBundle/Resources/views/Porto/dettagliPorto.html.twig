@@ -233,41 +233,36 @@
                                             <input type="radio" value="POSITIVO"
                                                    name="appbundle_commentoporto[tipoCommento]" id="radio1" checked/>
                                             <label for="radio1" style="display: inline;width:auto">
-            <span class="fa-stack">
-                <i class="fa fa-thumbs-up fa-stack-1x foreground-verde"></i>
+              POSITIVO
 
-            </span>
                                             </label>
 
                                             <input type="radio" value="NEUTRO"
                                                    name="appbundle_commentoporto[tipoCommento]" id="radio3" checked/>
                                             <label for="radio3" style="display: inline;width:auto">
-            <span class="fa-stack">
-                <i class="fa fa-pause fa-rotate-90 fa-stack-1x foreground-grigio"></i>
+               NEUTRO
 
-            </span>
                                             </label>
 
 
                                             <input type="radio" value="NEGATIVO"
                                                    name="appbundle_commentoporto[tipoCommento]" id="radio2"/>
                                             <label for="radio2" style="display: inline;width:auto">
-            <span class="fa-stack">
-                <i class="fa fa-thumbs-down fa-stack-1x foreground-rosso"></i>
-            </span>
+
+                NEGATIVO
                                             </label>
                                         </div>
                                         <div class="col-md-1 column" style="padding:0">
                                             <a href="#"
                                                onclick="event.preventDefault();$('form[name=appbundle_commentoporto]').submit()">
-                                                <i class="fa fa-sign-in"></i>
+                                                <i class="fa fa-sign-in show"></i>
+                                                <i class="fa fa-spinner fa-2x fa-spin hide"></i>
                                             </a>
                                         </div>
                                         <input type="hidden" class="callback" value="setNuovoCommentoPorto">
                                     </form>
 
                                 {% else %}
-                                    <div class="col-md-12 column">
                                         <div class="row clearfix">
                                             <div class="col-md-12 column">
                                                 <p>Devi effettuare l'accesso per scrivere un nuovo commento:</p>
@@ -307,7 +302,6 @@
                                         </div>
 
 
-                                    </div>
 
                                 {% endif %}
 
@@ -371,12 +365,8 @@
                             <div class="row clearfix">
                                 <div class="col-md-6 column">
                                     <h4 id="porto-temperatura">{{ meteo.main.temp|number_format }}  <i class="wi wi-celsius" > </i></h4>
-
-                                    <p>MAX</p>
-
-                                    <p>MIN</p>
                                 </div>
-                                <div class="col-md-6column">
+                                <div class="col-md-6 column">
                                     <p style="margin:0"><i class="wi wi-strong-wind"></i></p>
                                     <div id="porto-vento" style="margin-bottom: 10px;">{{ meteo.wind.speed }}km/h</div>
                                     <p style="margin:0">UMIDITA'</p>
@@ -542,12 +532,7 @@
                                             <div class="media-body">
                                                 <h4 class="media-heading">{{ commento.utente.username }}</h4>
 
-                                                <p> {{ commento.testo }}</p>
-
-                                                <p style="font-size: 12px">Inserito
-                                                    il {{ commento.timestamp|date("d/m/Y H:i") }}</p>
-
-                                                <p>  {% if commento.tipoCommento == "POSITIVO" %}
+                                                <p>{% if commento.tipoCommento == "POSITIVO" %}
                                                         <i class="fa fa-thumbs-up foreground-verde"></i>
                                                     {% endif %}
 
@@ -557,8 +542,10 @@
 
                                                     {% if commento.tipoCommento == "NEUTRO" %}
                                                         <i class="fa fa-pause fa-rotate-90 foreground-grigio"></i>
-                                                    {% endif %}
-                                                </p>
+                                                    {% endif %} - {{ commento.testo }}</p>
+
+                                                <p style="font-size: 12px">Inserito
+                                                    il {{ commento.timestamp|date("d/m/Y H:i") }}</p>
                                             </div>
                                         </li>
 

@@ -42,58 +42,60 @@
             </div>
                     </div></div>
         </div>
-        <div class="col-md-4 column">
-
-            <div class="content" >
-              <h4 class="title">Ultime News</h4>
+        <div class="col-md-4 column hidden-print" id="content-articolo">
 
 
+               {% if articoli|length > 0 %}
+    <div class="title" style="border-top:1px solid rgb(153, 153, 153);">
+        Altri articoli
+    </div>
+    <div class="content">
 
-                {% if articoli[1] is defined %}
-    <a href="/archivio/{{ categoria.permalink }}/{{ articoli[1].permalink }}">
-        <div class="latest-news">
-            <div class="content">
-                <h4>{{ articoli[1].titolo }}</h4>
 
-                <p>{{ articoli[1].sottotitolo|raw }}</p>
-            </div>
-            <div class="arrow">
-                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-            </div>
-        </div>
-    </a>
-{% endif %}
-                {% if articoli[2] is defined %}
-    <a href="/archivio/{{ categoria.permalink }}/{{ articoli[2].permalink }}">
-        <div class="latest-news">
-            <div class="content">
-                <h4>{{ articoli[2].titolo }}</h4>
+        {% for articoloRel in articoli|slice(0,3) %}
+            <a href="/archivio/{{ articoloRel.categoria.permalink }}/{{ articoloRel.permalink }}">
+                <div class="latest-news">
+                    <div class="content">
+                        <h4>{{ articoloRel.titolo }}</h4>
 
-                <p>{{ articoli[2].sottotitolo|raw }}</p>
-            </div>
-            <div class="arrow">
-                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-            </div>
-        </div>
-    </a>
-{% endif %}
-                {% if articoli[3] is defined %}
-    <a href="/archivio/{{ categoria.permalink }}/{{ articoli[3].permalink }}">
-        <div class="latest-news">
-            <div class="content">
-                <h4>{{ articoli[3].titolo }}</h4>
+                        {{ articoloRel.sottotitolo|slice(0, 70)|raw }}...
+                    </div>
+                    <div class="arrow">
+                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
 
-                <p>{{ articoli[3].sottotitolo|raw }}</p>
-            </div>
-            <div class="arrow">
-                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-            </div>
-        </div>
-    </a>
+    </div>
 {% endif %}
 
+            {% if articolo.linkCorrelato is defined and articolo.linkCorrelato!="" %}
 
+    <a href="{{ articolo.linkCorrelato }}">
+        <div class="arrow_box">
+            {% if articolo.immagineCorrelataArticolo is defined %}
+                <div class="foto">
+                    <div class="center-cropped"
+                         style="height: 230px;background-image: url('/images/articoli/{{ articolo.immagineCorrelataArticolo }}');">
+                    </div>
+                </div>
+            {% endif %}
+            <div class="content">
+                <h4>{{ articolo.titoloCorrelato }}</h4>
+
+                {{ articolo.testoCorrelato|raw }}
             </div>
+
+        </div>
+
+    </a>
+
+
+{% endif %}
+
+
+
         </div>
     </div>
 
@@ -123,12 +125,13 @@
 </div>
 
 
-
+{% if articoli[1] is defined %}
         <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="divisore-big"></div>
         </div>
     </div>
+   {% endif %}
     </div>
 
 

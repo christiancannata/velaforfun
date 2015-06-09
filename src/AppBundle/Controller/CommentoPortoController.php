@@ -61,17 +61,23 @@ class CommentoPortoController extends BaseController
     public function dettagliPortoAction($permalink)
     {
 
-        $client = $this->container->get('weather.client');
-
         if (is_numeric($permalink)) {
             $porto = $this->getDoctrine()
                 ->getRepository('AppBundle:CommentoPorto')->find($permalink);
 
 
-            $serializer = $this->container->get('jms_serializer');
-            $serializedPorto = $serializer->serialize($porto, "json");
+            $commento=array(
+                "testo"=>$porto->getTesto(),
+                "timestamp"=>$porto->getTimestamp()->format("d-m-Y H:i"),
+                "tipo_commento"=>$porto->getTipoCommento(),
+                "utente"=>array(
+                    "facebook_i_d"=>$porto->getUtente()->getFacebookId(),
+                    "profilePicturePath"=>$porto->getUtente()->getProfilePicturePath(),
+                    "username"=>$porto->getUtente()->getUsername()
+                )
+            );
 
-            return new JsonResponse(json_decode($serializedPorto));
+            return new JsonResponse($commento);
         }
 
     }
