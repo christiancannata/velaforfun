@@ -1765,6 +1765,7 @@ th.left {
 
 .body-post {
     color: rgb(77, 77, 77);
+    font-size: 18px;
 }
 
 .username {
@@ -1876,3 +1877,11 @@ font-size: 16px;
 #btn-forum .btn{
     font-size: 20px;
 }
+
+.btn-toolbar .btn,
+.btn-toolbar i{
+    font-size: 18px !important;
+    margin-right: 10px;
+}
+
+

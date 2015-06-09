@@ -24,7 +24,7 @@
 
     <!-- contenuto -->
 
-    <div class="row clearfix" id="content-articolo">
+    <div class="row clearfix stickem-container" id="content-articolo" >
         <div class="col-md-8 column">
 
 
@@ -156,7 +156,7 @@
             {% if articolo.linkCorrelato is defined and articolo.linkCorrelato!="" %}
 
     <a href="{{ articolo.linkCorrelato }}">
-        <div class="arrow_box">
+        <div class="arrow_box aside stickem">
             {% if articolo.immagineCorrelataArticolo is defined %}
                 <div class="foto">
                     <div class="center-cropped"
@@ -186,15 +186,15 @@
         </div>
 
 
-        <div class="row clearfix">
-            <div class="col-md-12 column">
-                <div class="divisore-big" id="stop"></div>
+        <div class="row clearfix"  >
+            <div class="col-md-12 column" >
+                <div class="divisore-big"></div>
             </div>
         </div>
 
 
 
-<div class="row clearfix">
+<div class="row clearfix" >
 
  <div class="col-md-12 column">
         {% for categoriaRel in categorie %}
