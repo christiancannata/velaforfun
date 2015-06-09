@@ -183,7 +183,7 @@
                 <div class="col-md-12 column">
                     <div class="container-mappa">
 
-                        <div class="row clearfix">
+                        <div class="row clearfix" style="margin-bottom:10px !important">
                             <div class="col-md-6 col-xs-12 column text-left">
                                 <button class="localizzami hvr-glow left" id='geolocate'><i style=""
                                                                                             class="fa fa-crosshairs"></i>Localizzami
@@ -226,7 +226,7 @@
                                                    name="appbundle_commentoporto[porto]" value="{{ porto.id }}"/>
                                             <input type="text" name="appbundle_commentoporto[testo]"
                                                    class="form-control"
-                                                   required="required" placeholder="Scrivi un commento...">
+                                                   required placeholder="Scrivi un commento...">
 
                                             <p style="margin-top:5px;margin-bottom: 0px">Esprimi un giudizio su questo
                                                 porto:</p>
@@ -254,7 +254,7 @@
                                         </div>
                                         <div class="col-md-1 column" style="padding:0">
                                             <a href="#"
-                                               onclick="event.preventDefault();$('form[name=appbundle_commentoporto]').submit()">
+                                               onclick="event.preventDefault();if($('input[name=\'appbundle_commentoporto[testo]\']').val()!=''){$('form[name=appbundle_commentoporto]').submit()}else{$('input[name=\'appbundle_commentoporto[testo]\']').css('border','1px solid red');$('input[name=\'appbundle_commentoporto[testo]\']').after('<p style=\'color:red\'>Campo obbligatorio</p>')}">
                                                 <i class="fa fa-sign-in show"></i>
                                                 <i class="fa fa-spinner fa-2x fa-spin hide"></i>
                                             </a>
@@ -422,7 +422,7 @@
 
                     <div class="col-md-12 column box attracco">
                         <h3>Chi ha attraccato qui</h3>
-
+                        <div class="divisore-big background-celeste"></div>
                         <div style="margin-bottom: 20px;">
 
                             <button class="btn btn-default login hvr-glow" type="submit"><i class="fa fa-anchor"></i>
@@ -493,7 +493,7 @@
                 <div class="row clearfix">
                     <div class="col-md-12 column box commento">
                         <h3>Commenti sul porto</h3>
-
+                        <div class="divisore-big background-celeste"></div>
 
                         {% if porto.getCommenti is empty %}
                             <div class="no-commento">Non ci sono commenti per questo porto</div>

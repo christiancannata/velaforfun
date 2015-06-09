@@ -116,7 +116,15 @@ class PortoController extends BaseController
             ->getRepository('AppBundle:Porto')->findAll();
         $titolo = "Porti d'Italia";
 
-        return $this->render('AppBundle:Porto:porti.html.twig', array("porti" => $porti, "titolo" => $titolo));
+
+        $attracchi = $this->getDoctrine()
+            ->getRepository('AppBundle:Attracco')->findBy(array(), array('timestamp' => 'DESC'),5);
+
+        $commenti= $this->getDoctrine()
+            ->getRepository('AppBundle:CommentoPorto')->findBy(array(), array('timestamp' => 'DESC'),5);
+
+
+        return $this->render('AppBundle:Porto:porti.html.twig', array("porti" => $porti, "titolo" => $titolo,"attracchi"=>$attracchi,"commenti"=>$commenti));
 
     }
 

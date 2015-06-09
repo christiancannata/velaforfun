@@ -233,7 +233,7 @@ function setNuovoCommentoPorto(response) {
             $(".no-commento").remove();
             $(".commento").append(box);
 
-
+            location.href='';
         }
         $('#commentiPorto li:eq(0)').before(nuovoCommento);
 

@@ -142,7 +142,7 @@
                 <div class="col-md-12 column">
                     <div class="container-mappa">
 
-                        <div class="row clearfix">
+                        <div class="row clearfix" style="margin-bottom:10px !important">
                             <div class="col-md-6 col-xs-6 column text-left">
                                 <button class="localizzami hvr-glow left" id='geolocate'><i style=""
                                                                                             class="fa fa-crosshairs"></i>Localizzami
@@ -152,7 +152,7 @@
                         </div>
                         <div class="row clearfix">
                             <div class="col-md-12 column">
-                                <div id='map' style="margin-top:0px"></div>
+                                <div id='map' ></div>
                             </div>
                         </div>
                     </div>
@@ -243,103 +243,171 @@
 
 
 
-
             <div class="row clearfix">
-<div class="row clearfix">
-                <div class="col-md-12 column box attracco">
-                    <h3>Chi ha attraccato qui</h3>
+                <div class="row clearfix">
+                    <div class="col-md-12 column box attracco">
+                        <div class="colonna-destra" style="margin-bottom: 20px;margin-top: 20px">
+                                <h2>Vuoi cercare chi scambierebbe il tuo posto barca?</h2>
+                                <p>Cerca tra gli annunci di chi vuole scambiare il suo posto barca e scegli in base alle
+                                    tue preferenze</p>
+                                <button type="submit" class="btn btn-default login hvr-glow"
+                                        onclick="location.href='/annuncio-scambio-posto/cerca-annuncio'">CERCA TRA GLI ANNUNCI
+                                </button>
+                        </div>
+
+
                     </div>
-                    </div>
+                </div>
                 <div class="row clearfix">
 
                     <div class="col-md-12 column box attracco">
+                        <h3>Ultimi attracchi</h3>
+                        <div class="divisore-big background-celeste"></div>
+                        <div style="margin-bottom: 20px;">
 
 
-                    {% if porti[0].getAttracchi() is empty %}
-    Non ci sono utenti attraccati in questo porto
+                            {% if attracchi is empty %}
+                                Non ci sono utenti attraccati in questo porto
 
 
-{% else %}
+                            {% else %}
 
-    <div class="scroll-pane">
-        <ul class="media-list">
+                                <div class="scroll-pane" style="margin-top:15px">
+                                    <ul class="media-list" id="attracchiPorto">
 
-            {% for commento in porti[0].getAttracchi() %}
+                                        {% for attracco in attracchi %}
 
-                <li class="media">
-                    <div class="media-left">
-                        <a href="#">
-                            <img width="50" class="media-object"
-                                 src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDAI83UZB0PDXebgMxyIn6gWTjiH8o0IYCl3qrJQlDgeQh8BRTMw"
-                                 alt="...">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Pippo Pluto</h4>
-                        <p>Il giorno 10 Aprile 2015 - 10:30</p>
-                    </div>
-                </li>
-            {% endfor %}
+                                            <li class="media">
+                                                <div class="media-left">
+                                                    <a href="#">
 
-        </ul>
-    </div>
+                                                        {% if attracco.utente.profilePicturePath == "" and attracco.utente.getFacebookId() !="" %}
+                                                            <img width="50" class="media-object"
+                                                                 src="http://graph.facebook.com/{{ attracco.utente.getFacebookId() }}/picture?type=square"
+                                                                 alt="avatar"/>
 
-{% endif %}
+                                                        {% else %}
+
+                                                            {% if attracco.utente.profilePicturePath != "" %}
+                                                                <img width="50" class="media-object"
+                                                                     src="/uploads/utenti/profilo/{{ attracco.utente.profilePicturePath }}"
+                                                                     alt="avatar"/>
+                                                            {% else %}
+                                                                <img width="50" class="media-object"
+                                                                     src="/uploads/utenti/profilo/default_avatar.png"
+                                                                     alt="avatar"/>
+                                                            {% endif %}
+                                                        {% endif %}
+
+
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">{{ attracco.utente.username }}<br>a {{ attracco.porto.nome }}</h4>
+
+                                                    <p style="font-size: 12px">Il giorno {{ attracco.timestamp|date("d/m/Y") }}</p>
+
+
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+
+                                    </ul>
+                                </div>
+
+                            {% endif %}
 
                         </div>
 
-
-                        </div>
                     </div>
+
+
+                </div>
+            </div>
+
+
+
+
 
 
 
             <div class="row clearfix">
 
-<div class="row clearfix">
-                    <div class="col-md-12 column box attracco">
-                        <h3>Commenti sul porto</h3>
+                <div class="row clearfix">
+                    <div class="col-md-12 column box commento">
+                        <h3>Ultimi commenti</h3>
+                        <div class="divisore-big background-celeste"></div>
+
+                        {% if commenti is empty %}
+                            <div class="no-commento">Non ci sono commenti per questo porto</div>
+                        {% else %}
+                            <div class="scroll-pane">
+                                <ul class="media-list" id="commentiPorto">
+
+                                    {% for commento in commenti %}
+
+                                        <li class="media">
+                                            <div class="media-left">
+                                                <a href="#">
+                                                    {% if commento.utente.profilePicturePath == "" and commento.utente.getFacebookId() !="" %}
+                                                        <img width="50" class="media-object"
+                                                             src="http://graph.facebook.com/{{ commento.utente.getFacebookId() }}/picture?type=square"
+                                                             alt="avatar"/>
+                                                    {% else %}
+
+                                                        {% if commento.utente.profilePicturePath != "" %}
+                                                            <img width="50" class="media-object"
+                                                                 src="/uploads/utenti/profilo/{{ commento.utente.profilePicturePath }}"
+                                                                 alt="avatar"/>
+                                                        {% else %}
+                                                            <img width="50" class="media-object"
+                                                                 src="/uploads/utenti/profilo/default_avatar.png"
+                                                                 alt="avatar"/>
+                                                        {% endif %}
 
 
-        {% if porti[0].getCommenti is empty %}
-    Non ci sono commenti per questo porto
-{% else %}
-    <div class="scroll-pane">
-        <ul class="media-list">
 
-            {% for commento in porti[0].getCommenti() %}
 
-                <li class="media">
-                    <div class="media-left">
-                        <a href="#">
-                            <img width="50" class="media-object"
-                                 src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDAI83UZB0PDXebgMxyIn6gWTjiH8o0IYCl3qrJQlDgeQh8BRTMw"
-                                 alt="...">
-                        </a>
+                                                    {% endif %}
+
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">{{ commento.utente.username }}<br>su {{ commento.porto.nome }}</h4>
+
+                                                <p>{% if commento.tipoCommento == "POSITIVO" %}
+                                                        <i class="fa fa-thumbs-up foreground-verde"></i>
+                                                    {% endif %}
+
+                                                    {% if commento.tipoCommento == "NEGATIVO" %}
+                                                        <i class="fa fa-thumbs-down foreground-rosso"></i>
+                                                    {% endif %}
+
+                                                    {% if commento.tipoCommento == "NEUTRO" %}
+                                                        <i class="fa fa-pause fa-rotate-90 foreground-grigio"></i>
+                                                    {% endif %} - {{ commento.testo }}</p>
+
+                                                <p style="font-size: 12px">Inserito
+                                                    il {{ commento.timestamp|date("d/m/Y H:i") }}</p>
+                                            </div>
+                                        </li>
+
+
+                                    {% endfor %}
+
+                                </ul>
+                            </div>
+
+                        {% endif %}
+
+
                     </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Media heading</h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                        sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra
-                        turpis.
-                    </div>
-                </li>
-
-
-            {% endfor %}
-
-        </ul>
-    </div>
-
-{% endif %}
-
-
-  </div>
                 </div>
 
 
+            </div>
 
-        </div>
+
     <!-- fine contenuto -->
 </div>
 
