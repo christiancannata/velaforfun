@@ -34,6 +34,22 @@ class DefaultController extends Controller
         return $this->render('default/chi-siamo.html.twig', array());
     }
 
+    /**
+     * @Route("/privacy", name="privacy")
+     */
+    public function privacyAction()
+    {
+        return $this->render('default/privacy.html.twig', array());
+    }
+
+    /**
+     * @Route("/email/{layout}", name="layout")
+     */
+    public function emailAction($layout)
+    {
+        return $this->render('Emails/'.$layout.'.html.twig', array());
+    }
+
 
     /**
      * @Route("/profilo/tuoi-annunci", name="tuoi_annunci")
