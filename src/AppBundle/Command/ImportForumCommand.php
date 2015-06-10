@@ -13,6 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use CCDNForum\ForumBundle\Entity\Post;
 use CCDNForum\ForumBundle\Entity\Topic;
 use CCDNForum\ForumBundle\Entity\Board;
+use AppBundle\Entity\CompatibilitaForum;
 
 class ImportForumCommand extends ContainerAwareCommand
 {
@@ -40,7 +41,12 @@ class ImportForumCommand extends ContainerAwareCommand
 
         $this->output->writeln("<comment>Importing ".count($res)." </comment>");
 
+
+
         foreach ($res as $data) {
+            $redirect=new CompatibilitaForum();
+            $redirect->setIdOld($data['ID']);
+
             $countPost = array();
             $countRisposte = array();
             $firstTopic = new Topic();
@@ -53,6 +59,10 @@ class ImportForumCommand extends ContainerAwareCommand
 
             $this->em->persist($firstTopic);
             $this->em->flush();
+
+            $redirect->setIdNew($firstTopic->getId());
+
+            $this->em->persist($redirect);
 
             $post = new Post();
             $post->setTopic($firstTopic);

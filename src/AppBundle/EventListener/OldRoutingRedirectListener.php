@@ -90,8 +90,53 @@ class OldRoutingRedirectListener extends ContainerAware
         }
 
         if (strstr($path, "public/forum/visual.asp")) {
-            die("jjj");
+            if($request->get("post")){
+                $post = $this->container->get('doctrine')
+                    ->getRepository('AppBundle:CompatibilitaForum')->findOneByIdOld($request->get("post"));
+                if($post) {
+                    $redirect = true;
+                    $route = "ccdn_forum_user_topic_show";
+                    $params["forumName"] = "velaforfun";
+                    $params["topicId"] = $post->getIdNew();
+                }else{
+                    $redirect = true;
+                    $route = "ccdn_forum_user_topic_show";
+                    $params["forumName"] = "velaforfun";
+                }
+
+            }else{
+                $redirect = true;
+                $route = "ccdn_forum_user_topic_show";
+                $params["forumName"] = "velaforfun";
+            }
+
         }
+
+        if (strstr($path, "forumdir.asp")) {
+            if($request->get("forum")){
+                $post = $this->container->get('doctrine')
+                    ->getRepository('AppBundle:CompatibilitaForum')->findOneByIdOld($request->get("forum"));
+                if($post){
+                    $redirect = true;
+                    $route = "ccdn_forum_user_category_index";
+                    $params["forumName"] = "velaforfun";
+                    $params["topicId"] = $post->getIdNew();
+                }else{
+                    $redirect = true;
+                    $route = "ccdn_forum_user_category_index";
+                    $params["forumName"] = "velaforfun";
+                }
+
+            }else{
+                $redirect = true;
+                $route = "ccdn_forum_user_category_index";
+                $params["forumName"] = "velaforfun";
+            }
+
+        }
+
+
+
         if (strstr($path, "scambio_posto.asp")) {
             die("jjj");
         }
@@ -99,7 +144,7 @@ class OldRoutingRedirectListener extends ContainerAware
         if (strstr($path, "comunicati/index.asp")) {
             $redirect = true;
             $route = "BloggerBlogBundle_blog_show_categoria";
-            $paras["permalink"] = "comunicati";
+            $params["permalink"] = "comunicati";
         }
 
         if (strstr($path, "comunicati/comunicato_leggi.asp")) {
