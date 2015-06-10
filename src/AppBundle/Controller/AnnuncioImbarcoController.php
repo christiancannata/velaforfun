@@ -93,19 +93,27 @@ class AnnuncioImbarcoController extends BaseController
 
                 $repository = $this->container->get('doctrine')
                     ->getRepository('AppBundle:User');
-                $user = $repository->findOneBy(array("email" => $annuncio->getEmail()));
+
+                $user = $this->getUser();
+
+
                 if (!$user) {
-                    $userManager = $this->container->get('fos_user.user_manager');
-                    $user = $userManager->createUser();
-                    $user->setEmail($annuncio->getEmail());
-                    $user->setNome($annuncio->getReferente());
-                    $username = strtolower(str_replace(" ", "", $annuncio->getReferente()));
-                    $user->setUsername($username);
-                    $user->setPlainPassword($username."1");
-                    $user->setEnabled(true);
-                    $em->persist($user);
-                    $em->flush();
+                    $user = $repository->findOneBy(array("email" => $annuncio->getEmail()));
+                    if (!$user) {
+                        $userManager = $this->container->get('fos_user.user_manager');
+                        $user = $userManager->createUser();
+                        $user->setEmail($annuncio->getEmail());
+                        $user->setNome($annuncio->getReferente());
+                        $username = strtolower(str_replace(" ", "", $annuncio->getReferente().rand(0, 99)));
+                        $user->setUsername($username);
+                        $user->setPlainPassword($username."1");
+                        $user->setEnabled(true);
+                        $em->persist($user);
+                        $em->flush();
+                    }
                 }
+
+
                 $annuncio->setUtente($user);
                 $titolo = str_replace("cerco", "", $annuncio->getTitolo());
                 $titolo = str_replace("offro", "", $annuncio->getTitolo());
@@ -202,9 +210,6 @@ class AnnuncioImbarcoController extends BaseController
                     $em = $this->container->get('doctrine')->getManager();
 
 
-
-
-
                     $titolo = str_replace("cerco", "", $annuncio->getTitolo());
                     $titolo = str_replace("offro", "", $annuncio->getTitolo());
 
@@ -221,18 +226,18 @@ class AnnuncioImbarcoController extends BaseController
                         $user = $this->getUser();
                         $annuncio->setReferente($user->getNome()." ".$user->getCognome()." ".$user->getUsername());
 
-                    }else{
+                    } else {
 
                         $user = $this->container->get('doctrine')
                             ->getRepository('AppBundle:User')->findByEmail($annuncio->getEmail());
 
-                        if(!$user){
+                        if (!$user) {
 
                             $userManager = $this->getContainer()->get('fos_user.user_manager');
                             $user = $userManager->createUser();
                             $user->setEmail($annuncio->getEmail());
                             $user->setNome($annuncio->getReferente());
-                            $username = strtolower(str_replace(" ", "", $annuncio->getEmail()));
+                            $username = strtolower(str_replace(" ", "", $annuncio->getEmail())).rand(0, 99);
                             $user->setUsername($username);
                             $user->setPlainPassword($username."1");
 
@@ -344,7 +349,7 @@ class AnnuncioImbarcoController extends BaseController
                     ),
                     array('id' => 'desc')
                 );
-            foreach($annunci as $annuncio){
+            foreach ($annunci as $annuncio) {
 
                 $mailer = $this->getContainer()->get('mailer');
                 $messaggio = $mailer->createMessage()
@@ -358,8 +363,7 @@ class AnnuncioImbarcoController extends BaseController
                             array('annuncio' => $annuncio)
                         ),
                         'text/html'
-                    )
-                ;
+                    );
                 $mailer->send($messaggio);
 
             }
