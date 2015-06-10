@@ -170,7 +170,7 @@ function setRisultatiAnnunciImbarco(response) {
     for (var i=0;i<response.length;i++) {
         var risultato=response[i];
 
-        risultati += '<tr> <td>' + risultato.topic.title + '</td> <td>' + risultato.timestamp + '</td> <td>0</td> <td> <button onclick="location.href=\'/forum/velaforfun/topic/' + risultato.topic.id + '\'" class="btn btn-primary hvr-glow" type="button">Leggi Annuncio </button> </td> </tr>';
+        risultati += '<tr> <td>' + risultato.topic.title + '</td> <td>' + risultato.timestamp + '</td> <td>0</td> <td> <button onclick="location.href=\'/forum/velaforfun/topic/' + risultato.topic.id + '\'" class="btn btn-primary hvr-glow" type="button">Leggi Annuncio</button> </td> </tr>';
 
     }
     if(response.length==0){
@@ -189,7 +189,7 @@ function setRisultatiScambioPosto(response) {
     var risultati = "";
     for (var i=0;i<response.length;i++) {
         var risultato=response[i];
-        risultati += '<tr> <td>' + risultato.topic.title + '</td> <td>' + risultato.timestamp + '</td> <td>0</td> <td> <button onclick="location.href=\'/forum/velaforfun/topic/' + risultato.topic.id + '\'" class="btn btn-primary" type="button"><i class="fa fa-reply"></i> Leggi Annuncio </button> </td> </tr>';
+        risultati += '<tr> <td>' + risultato.topic.title + '</td> <td>' + risultato.timestamp + '</td> <td>0</td> <td> <button onclick="location.href=\'/forum/velaforfun/topic/' + risultato.topic.id + '\'" class="btn btn-primary hvr-glow" type="button">Leggi Annuncio</button> </td> </tr>';
 
     }
     if(response.length==0){
@@ -197,6 +197,11 @@ function setRisultatiScambioPosto(response) {
     }
 
     $("table tbody").html(risultati);
+
+    if($("#notificaAnnuncio:checked").length>0){
+        $("#annuncioCreato").modal();
+
+    }
 }
 
 function setNuovoCommentoPorto(response) {

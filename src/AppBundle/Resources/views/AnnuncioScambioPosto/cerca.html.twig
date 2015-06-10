@@ -44,10 +44,10 @@
         <td   align="center" class="center" style="width: 100px;padding:10px 0px 10px 0px !important;"><div class="td-boarded"><span title="{{ annuncio.topic.getCachedReplyCount() }}" class="label label-info lead">{{ annuncio.topic.getCachedReplyCount() }}</span></div></td>
         <td   align="center" class="center" style="width: 100px;padding:10px 0px 10px 0px !important;"><div class="td-boarded"><span title="{{ annuncio.topic.getCachedViewCount() }}" class="label label-info lead">{{ annuncio.topic.getCachedViewCount() }}</span></div></td>
         <td>
-            <button  style="margin-top: 12px;" type="button" class="btn btn-primary hvr-glow"
-                    onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'">
-                Leggi Annuncio
-            </button>
+            <div class="td-boarded" style="padding-left: 5px">   <button  style="margin-top: 10px;" type="button" class="btn btn-primary hvr-glow"
+                                                                          onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'">
+                    Leggi Annuncio
+                </button></div>
         </td>
     </tr>
 {% endfor %}
@@ -307,6 +307,31 @@
     <!-- fine contenuto -->
 
 </div>
+
+
+
+
+
+ <div class="modal fade" id="annuncioCreato">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Annuncio Cerco posto barco</h4>
+                </div>
+                <div class="modal-body" style="min-height: 10px;">
+                    <p>Complimenti, il tuo annuncio è stato creato con successo!<br>
+                    Riceverai una mail di notifica ogni volta che viene inserito un annuncio che rispondono alle tue preferenze!</p>
+                </div>
+                <div class="modal-footer">
+                     <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
 {% endblock %}
 

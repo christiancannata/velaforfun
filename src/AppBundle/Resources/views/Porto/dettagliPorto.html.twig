@@ -126,7 +126,7 @@
             });
 
 
-            $("#attracca").click(function () {
+            $("#attracca,.attracco button[type=submit]").click(function () {
                 var button = $(this);
                 $("button").attr("disabled", "disabled");
 
@@ -587,7 +587,7 @@
                                 aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Attracco nel porto di {{ porto.nome }}</h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="min-height:10px ">
                     <p>Il tuo attracco nel porto di {{ porto.nome }} è stato registrato con successo!</p>
                 </div>
                 <div class="modal-footer">
