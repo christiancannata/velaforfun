@@ -235,18 +235,26 @@
 {% else %}
 
 
-              <div class="col-md-12 column">
-                  <h4>Per inserire una nuova segnalazione devi effettuare il login</h4>
-                  <a href="http://local.velaforfun.dev/secure_area/connect/facebook"
-                     class="btn btn-block btn-social btn-sm btn-facebook"
+              <div class="col-md-12 column" style="">
+                  <a href="/secure_area/connect/facebook"
+                     class="btn btn-block btn-social btn-lg btn-facebook"
                      id="loginFacebook">
                       <i class="fa fa-facebook"></i>
                       Accedi con Facebook
                   </a>
+              </div>
+              <div class="col-md-12 column" style="text-align:center;width:100%;">
+                  <div class="divisore-big"></div>
 
-                  <div class="divisore"></div>
-                  <p class="menu-separator"><span>oppure inserisci i tuoi dati di accesso</span></p>
+                  <span style="font-size: 20px">oppure inserisci i tuoi dati di accesso</span>
 
+                  <div class="divisore-big"></div>
+              </div>
+
+
+
+
+              <div class="col-md-12 column" style="">
                   <form method="post" action="/login_check">
 
                       <div class="form-group">                <label for="fos_user_registration_form_username" class="control-label required">Username:</label><input type="text" class="form-control" pattern=".{2,}" maxlength="255" required="required" name="_username" id="username"></div>
@@ -257,10 +265,10 @@
                           <input type="checkbox" value="on" name="_remember_me" id="remember_me">
                           <label for="remember_me">Ricordami</label>
                       </div>
-                      <input type="submit" value="Accedi" class="btn btn-default login hvr-glow" style="color:white !important">
+                      <input type="submit" value="Accedi" class="btn btn-default login hvr-glow">
 
                   </form>
-                  <a href="/register">Non sei ancora registrato?</a>
+
               </div>
           {% endif %}
 
