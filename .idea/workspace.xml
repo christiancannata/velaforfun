@@ -3,6 +3,46 @@
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/Emails/comunicati.html.twig" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_10663507261960305682_Com_33_J24_European_Championship_2015_seconda_giornata.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_1151821441242280062_la_classifica_Open_dopo_sei_prove.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_11560258071569777188_pastedGraphic.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_12542529761368019935_la_classifica_Open_dopo_sei_prove.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_13841165481418656821_J24_European_Championship_2015.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_1452653115539137856_J24_Ita_416_La_Superba.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_1604317388992950469_J24_Ita_416_La_Superba.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_1623519817287878029_J24_European_Championship_2015.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_1705063410176657449_pastedGraphic.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_17509265511481030453_J24_Ita_416_La_Superba.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_1762211532724894711_Com_33_J24_European_Championship_2015_seconda_giornata.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_1805609079590220354_J24_European_Championship_2015.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_18636715871902702543_pastedGraphic.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_1886461677381735420_J24_European_Championship_2015.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_1914066260153708674_Com_33_J24_European_Championship_2015_seconda_giornata.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_19616909721540628991_pastedGraphic.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_202014407017146011_J24_Ita_416_La_Superba.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_20283273638198562_la_classifica_Open_dopo_sei_prove.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_20945297812043391570_pastedGraphic.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_21018424422024171240_la_classifica_Open_dopo_sei_prove.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_215291343402349970_J24_European_Championship_2015.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_2325685522030955402_J24_European_Championship_2015.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_2731984251146393401_la_classifica_Open_dopo_sei_prove.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_278244769851261736_J24_Ita_416_La_Superba.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_2935471361950968279_Com_33_J24_European_Championship_2015_seconda_giornata.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_31564661835461485_pastedGraphic.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_3729546491972778018_Com_33_J24_European_Championship_2015_seconda_giornata.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_482650582997262478_la_classifica_Open_dopo_sei_prove.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_499995538556117482_Com_33_J24_European_Championship_2015_seconda_giornata.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_510205401266818286_Com_33_J24_European_Championship_2015_seconda_giornata.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_56111811330699000_J24_Ita_416_La_Superba.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_602922165649373456_la_classifica_Open_dopo_sei_prove.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_725792500192184972_J24_Ita_416_La_Superba.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_7325128248671525_la_classifica_Open_dopo_sei_prove.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_8716756791746203121_pastedGraphic.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_8800870391100407203_J24_European_Championship_2015.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_884487818216281449_J24_European_Championship_2015.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_9664130501914033539_J24_Ita_416_La_Superba.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_9713842682130137087_Com_33_J24_European_Championship_2015_seconda_giornata.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/allegati/5528_977112378389068707_pastedGraphic.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Command/CheckEmailCommand.php" afterPath="$PROJECT_DIR$/src/AppBundle/Command/CheckEmailCommand.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/cerca.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/cerca.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config_dev.yml" afterPath="$PROJECT_DIR$/app/config/config_dev.yml" />
@@ -10,6 +50,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/layout_email.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/layout_email.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/lista.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/lista.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/Emails/newsletter.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/Emails/newsletter.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Porto/porti.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Porto/porti.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -65,20 +106,20 @@
       <file leaf-file-name="layout_email.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/layout_email.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.625" vertical-offset="2055" max-vertical-offset="10935">
-              <caret line="170" column="199" selection-start-line="170" selection-start-column="199" selection-end-line="170" selection-end-column="199" />
+            <state vertical-scroll-proportion="-6.875" vertical-offset="2550" max-vertical-offset="10935">
+              <caret line="181" column="49" selection-start-line="181" selection-start-column="49" selection-end-line="181" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comunicati.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/Emails/comunicati.html.twig">
+      <file leaf-file-name="newsletter.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/Emails/newsletter.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67913383" vertical-offset="0" max-vertical-offset="705">
-              <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.5607477" vertical-offset="0" max-vertical-offset="535">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -89,7 +130,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="855">
               <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
-              <folding />
+              <folding>
+                <marker date="1433953181000" expanded="true" signature="1207:1241" placeholder="assetic:" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -161,7 +204,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioImbarco/crea.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/privacy.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/Emails/layout.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/Emails/newsletter.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/app/Resources/CCDNForumForumBundle/views/User/Post/show.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/AnnuncioImbarcoType.php" />
@@ -178,6 +220,7 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Command/CheckEmailCommand.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/layout_email.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/Emails/comunicati.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Emails/newsletter.html.twig" />
       </list>
     </option>
   </component>
@@ -968,7 +1011,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3783977" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3783977" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1229,40 +1272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/Emails/newsletter.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60998154" vertical-offset="0" max-vertical-offset="3630">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#2;n#tr#1;n#table#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#2;n#tr#1;n#table#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#td#2;n#tr#1;n#table#0;n#div#2;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#3;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#3;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#3;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#3;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#2;n#tr#1;n#table#0;n#div#4;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#2;n#tr#1;n#table#0;n#div#4;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#2;n#tr#1;n#table#0;n#div#4;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#hr#0;n#td#0;n#tr#3;n#table#0;n#div#4;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#5;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#5;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#5;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#hr#0;n#td#0;n#tr#3;n#table#0;n#div#5;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#2;n#tr#1;n#table#0;n#div#6;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#2;n#tr#1;n#table#0;n#div#6;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#hr#0;n#td#0;n#tr#3;n#table#0;n#div#6;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/form.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.444445" vertical-offset="153" max-vertical-offset="750">
@@ -1294,7 +1303,7 @@
         <state vertical-scroll-proportion="-7.5" vertical-offset="5100" max-vertical-offset="5700">
           <caret line="352" column="27" selection-start-line="352" selection-start-column="27" selection-end-line="352" selection-end-column="27" />
           <folding>
-            <element signature="e#40#79#0#PHP" expanded="true" />
+            <element signature="e#40#79#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1344,8 +1353,7 @@
         <state vertical-scroll-proportion="-9.416667" vertical-offset="269" max-vertical-offset="1410">
           <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1416,7 +1424,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="232" max-vertical-offset="855">
           <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
-          <folding />
+          <folding>
+            <marker date="1433953181000" expanded="true" signature="1207:1241" placeholder="assetic:" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1428,20 +1438,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Emails/comunicati.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41338584" vertical-offset="0" max-vertical-offset="705">
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/layout_email.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.625" vertical-offset="2055" max-vertical-offset="10935">
-          <caret line="170" column="199" selection-start-line="170" selection-start-column="199" selection-end-line="170" selection-end-column="199" />
+        <state vertical-scroll-proportion="-6.875" vertical-offset="2550" max-vertical-offset="10935">
+          <caret line="181" column="49" selection-start-line="181" selection-start-column="49" selection-end-line="181" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/Emails/comunicati.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Emails/newsletter.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67913383" vertical-offset="0" max-vertical-offset="705">
-          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.5607477" vertical-offset="0" max-vertical-offset="535">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
