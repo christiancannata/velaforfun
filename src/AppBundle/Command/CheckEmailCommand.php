@@ -47,10 +47,11 @@ class CheckEmailCommand extends ContainerAwareCommand
         } else {
             $mailsIds=$mailbox->sortMails();
             $mailsIds = array_slice($mailsIds, 0,4);
-
+            $comunicati=array();
             foreach ($mailsIds as $mailId) {
                 $output->writeln('<info>Leggo email ID:'.$mailId.'</info>');
                 $mail = $mailbox->getMail($mailId);
+
                 $emailComunicato = $repositoryArticolo->findOneBy(array("idComunicato" => $mail->id));
                 if (!$emailComunicato) {
 
@@ -84,22 +85,22 @@ class CheckEmailCommand extends ContainerAwareCommand
                     $articolo->setAutore($user);
                     $this->em->persist($articolo);
                     $output->writeln('<info>Email ID:'.$mailId.' importata!</info>');
-
+                    $comunicati[]=$articolo;
                 }
             }
             $this->em->flush();
 
-            if(count($mailsIds)>0){
+            if(count($comunicati)>0){
                 $mailer = $this->getContainer()->get('mailer');
                 $messaggio = $mailer->createMessage()
-                    ->setSubject('Ciao')
-                    ->setFrom('mittente@example.com')
-                    ->setTo('destinatario@example.com')
+                    ->setSubject('Ci sono '.count($comunicati).' nuovi comunicati')
+                    ->setFrom('info@velaforfun.com')
+                    ->setTo('christian1488@hotmail.it')
                     ->setBody(
-                        $this->renderView(
+                        $this->getContainer()->get('templating')->render(
                         // app/Resources/views/Emails/registrazione.html.twig
-                            'Emails/registration.html.twig',
-                            array('mails' => $mailsIds)
+                            'Emails/comunicati.html.twig',
+                            array('comunicati' => $comunicati)
                         ),
                         'text/html'
                     )
