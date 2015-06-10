@@ -254,6 +254,9 @@
                                                     <li><a href="{{ nodo.link }}"
                                                            target="{{ nodo.action }}">{{ nodo.nome }}</a></li>
 
+                                                    {% if  not loop.last %}
+                                                <li style="padding:0px 0px 0px 0px">|</li>
+                                                    {% endif %}
                                                 {% endfor %}
                                             </ul>
 
