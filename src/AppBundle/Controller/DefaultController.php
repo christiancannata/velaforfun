@@ -158,7 +158,7 @@ class DefaultController extends Controller
                 $rows=array();
                 foreach($annunci as $annuncio){
                     $rows[]=array(
-                        "name"=>$annuncio->getTitle(),
+                        "name"=>$annuncio->getNome(),
                         "link"=>"/nodi/".$annuncio->getPermalink()
                     );
                 }
