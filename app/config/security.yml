@@ -24,6 +24,7 @@ security:
                 login_path: /login
                 check_path: /secure_area/connect
                 provider: fos_userbundle
+                success_handler: app.handler.login_success_handler
                 resource_owners:
                     facebook:           "/secure_area/login/check-facebook"
                 oauth_user_provider:

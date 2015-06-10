@@ -17,24 +17,26 @@
 
     <div class="row clearfix">
         <div class="col-md-8 column">
-
+                <div class="col-md-12 column" style="">
 <a href="/secure_area/connect/facebook"
-                                       class="btn btn-block btn-social btn-sm btn-facebook"
+                                       class="btn btn-block btn-social btn-lg btn-facebook"
                                        id="loginFacebook">
                                         <i class="fa fa-facebook"></i>
                                         Accedi con Facebook
                                     </a>
+</div>
+            <div class="col-md-12 column" style="text-align:center;width:100%;">
+         <div class="divisore-big"></div>
 
-         <div class="divisore"></div>
-                                   <span>oppure inserisci i tuoi dati di accesso</span>
+                                   <span style="font-size: 20px">oppure inserisci i tuoi dati di accesso</span>
 
-
-{% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+                                   <div class="divisore-big"></div>
+</div>
 
 
 
+
+            <div class="col-md-12 column" style="">
                              <form method="post" action="/login_check">
 
                                       <div class="form-group">                <label for="fos_user_registration_form_username" class="control-label required">Username:</label><input type="text" class="form-control" pattern=".{2,}" maxlength="255" required="required" name="_username" id="username"></div>
@@ -48,6 +50,10 @@
                                    <input type="submit" value="Accedi" class="btn btn-default login hvr-glow">
 
                                     </form>
+                                    {% if error %}
+        <div class="alert alert-danger" role="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+                </div>
         </div>
 
 

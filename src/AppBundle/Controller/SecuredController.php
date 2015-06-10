@@ -36,6 +36,7 @@ class SecuredController extends ConnectController
         $connect = $this->container->getParameter('hwi_oauth.connect');
         $hasUser = $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED');
 
+
         $error = $this->getErrorForRequest($request);
 
         // if connecting is enabled and there is no user, redirect to the registration form
@@ -222,7 +223,6 @@ class SecuredController extends ConnectController
                 ));
             }
         }
-
         return $this->container->get('templating')->renderResponse('AppBundle:Security:conferma-iscrizione.html.' . $this->getTemplatingEngine(), array(
             'key'             => $key,
             'service'         => $service,
