@@ -77,6 +77,24 @@ form label {
     margin-top: 115px;
 }
 
+.video-box .box-home .content h2 {
+
+    margin-top: 240px;
+}
+
+.video-box .box-home:hover .box-action h2 {
+    margin-top: 100px;
+    /*  -webkit-transition: margin-top 0.4s;
+      -moz-transition: margin-top 0.4s;
+      -ms-transition: margin-top 0.4s;
+      -o-transition: margin-top 0.4s;
+      transition: margin-top 0.4s; */
+    color: rgb(255, 255, 255);
+    padding-bottom: 5px;
+    background: rgba(66, 156, 188, 0.8);
+}
+
+
 .article {
     float: left;
     width: 100%;

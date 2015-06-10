@@ -46,12 +46,12 @@
         {% set link = gallery.video[0].link|split('v=') %}
 
 
-        <div class="col-md-4 column">
+        <div class="col-md-4 column video-box" >
 
 
-            <div class="box-home">
-                <div style="background-image: url(http://img.youtube.com/vi/{{ link[1] }}/0.jpg);"
-                     class="divBackgroundImage">
+         <a href="/video/{{ gallery.permalink }}">   <div class="box-home" style="height: 330px;">
+                <div style="opacity: 1;background-image: url(http://img.youtube.com/vi/{{ link[1] }}/0.jpg);"
+                     class="divBackgroundImage" >
                 </div>
                 <div class="content">
 
@@ -74,7 +74,7 @@
                 </div>
 
             </div>
-
+         </a>
 
         </div>
         {% if loop.index is divisibleby(3) %}
