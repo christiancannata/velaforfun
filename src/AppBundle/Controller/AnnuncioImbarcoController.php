@@ -350,19 +350,20 @@ class AnnuncioImbarcoController extends BaseController
                 );
             foreach ($annunci as $annuncio) {
 
-                $mailer = $this->container->get('mailer');
+                $mailer = $this->getContainer()->get('mailer');
                 $messaggio = $mailer->createMessage()
-                    ->setSubject('')
-                    ->setFrom('mittente@example.com')
+                    ->setSubject("Nuovo posto imbarco compatibile!")
+                    ->setFrom('info@velaforfun.com')
                     ->setTo($annuncio->getUtente()->getEmail())
                     ->setBody(
-                        $this->renderView(
+                        $this->getContainer()->get('templating')->render(
                         // app/Resources/views/Emails/registrazione.html.twig
                             'Emails/annuncio_imbarco.html.twig',
                             array('annuncio' => $annuncio)
                         ),
                         'text/html'
-                    );
+                    )
+                ;
                 $mailer->send($messaggio);
 
             }
