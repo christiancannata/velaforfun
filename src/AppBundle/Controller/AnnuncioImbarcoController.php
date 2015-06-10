@@ -156,7 +156,6 @@ class AnnuncioImbarcoController extends BaseController
                 $em->persist($annuncio);
                 $em->flush();
 
-
                 $this->allertaAnnunci($annuncio);
 
                 $firstTopic->setFirstPost($post);
@@ -220,7 +219,7 @@ class AnnuncioImbarcoController extends BaseController
                     );
                     $firstTopic->setCachedViewCount(1);
                     $board = null;
-                    if ($annuncio->getTipoAnnuncio() == "OFFRO") {
+                    if ($annuncio->getTipoAnnuncio() == "CERCO") {
                         $board = $this->container->get('doctrine')
                             ->getRepository('CCDNForumForumBundle:Board')->find(19);
                         $user = $this->getUser();
@@ -233,7 +232,7 @@ class AnnuncioImbarcoController extends BaseController
 
                         if (!$user) {
 
-                            $userManager = $this->getContainer()->get('fos_user.user_manager');
+                            $userManager = $this->container->get('fos_user.user_manager');
                             $user = $userManager->createUser();
                             $user->setEmail($annuncio->getEmail());
                             $user->setNome($annuncio->getReferente());
@@ -351,9 +350,9 @@ class AnnuncioImbarcoController extends BaseController
                 );
             foreach ($annunci as $annuncio) {
 
-                $mailer = $this->getContainer()->get('mailer');
+                $mailer = $this->container->get('mailer');
                 $messaggio = $mailer->createMessage()
-                    ->setSubject('Ciao')
+                    ->setSubject('')
                     ->setFrom('mittente@example.com')
                     ->setTo($annuncio->getUtente()->getEmail())
                     ->setBody(
