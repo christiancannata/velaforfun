@@ -120,11 +120,58 @@ class DefaultController extends Controller
                 foreach($annunci as $annuncio){
                     $rows[]=array(
                         "name"=>$annuncio->getTitle(),
-                        "link"=>"//forum/velaforfun/topic/".$annuncio->getId()
+                        "link"=>"/forum/velaforfun/topic/".$annuncio->getId()
                     );
                 }
                 $appo = array(
-                    "type" => "Annunci",
+                    "type" => "Forum",
+                    "results" => $rows
+                );
+                $risultati[]=$appo;
+            }
+
+
+            $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Nodo');
+            $query = $repository->createQueryBuilder('p')
+                ->where('p.nome LIKE :word')
+                ->setParameter('word', '%'.$key.'%')
+                ->getQuery();
+            $annunci = $query->getResult();
+
+            if (count($annunci) > 0) {
+                $rows=array();
+                foreach($annunci as $annuncio){
+                    $rows[]=array(
+                        "name"=>$annuncio->getTitle(),
+                        "link"=>"/nodi/".$annuncio->getPermalink()
+                    );
+                }
+                $appo = array(
+                    "type" => "Nodi",
+                    "results" => $rows
+                );
+                $risultati[]=$appo;
+            }
+
+
+            $repository = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Articolo');
+            $query = $repository->createQueryBuilder('p')
+                ->where('p.titolo LIKE :word')
+                ->orWhere('p.sottotitolo LIKE :word')
+                ->setParameter('word', '%'.$key.'%')
+                ->getQuery();
+            $annunci = $query->getResult();
+
+            if (count($annunci) > 0) {
+                $rows=array();
+                foreach($annunci as $annuncio){
+                    $rows[]=array(
+                        "name"=>$annuncio->getTitolo(),
+                        "link"=>"/archivio/".$annuncio->getCategoria()->getPermalink()."/".$annuncio->getPermalink()
+                    );
+                }
+                $appo = array(
+                    "type" => "Articoli",
                     "results" => $rows
                 );
                 $risultati[]=$appo;
