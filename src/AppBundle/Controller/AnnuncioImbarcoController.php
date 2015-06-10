@@ -201,26 +201,51 @@ class AnnuncioImbarcoController extends BaseController
                     $annuncio = $postform->getData();
                     $em = $this->container->get('doctrine')->getManager();
 
-                    $repository = $this->container->get('doctrine')
-                        ->getRepository('AppBundle:User');
 
 
-                    $user=$this->getUser();
-                    $annuncio->setEmail($user->getEmail());
-                    $annuncio->setReferente($user->getNome()." ".$user->getCognome()." ".$user->getUsername());
-                    $annuncio->setUtente($user);
+
+
                     $titolo = str_replace("cerco", "", $annuncio->getTitolo());
                     $titolo = str_replace("offro", "", $annuncio->getTitolo());
 
                     $firstTopic = new Topic();
-                    $firstTopic->setTitle($annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo()." a ".$annuncio->getLuogo());
+                    $firstTopic->setTitle(
+                        $annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo(
+                        )." a ".$annuncio->getLuogo()
+                    );
                     $firstTopic->setCachedViewCount(1);
                     $board = null;
-                    if ($annuncio->getTipoAnnuncio() == "CERCO") {
+                    if ($annuncio->getTipoAnnuncio() == "OFFRO") {
                         $board = $this->container->get('doctrine')
                             ->getRepository('CCDNForumForumBundle:Board')->find(19);
+                        $user = $this->getUser();
+                        $annuncio->setReferente($user->getNome()." ".$user->getCognome()." ".$user->getUsername());
+
+                    }else{
+
+                        $user = $this->container->get('doctrine')
+                            ->getRepository('AppBundle:User')->findByEmail($annuncio->getEmail());
+
+                        if(!$user){
+
+                            $userManager = $this->getContainer()->get('fos_user.user_manager');
+                            $user = $userManager->createUser();
+                            $user->setEmail($annuncio->getEmail());
+                            $user->setNome($annuncio->getReferente());
+                            $username = strtolower(str_replace(" ", "", $annuncio->getEmail()));
+                            $user->setUsername($username);
+                            $user->setPlainPassword($username."1");
+
+                            $em->persist($user);
+                            $em->flush();
+                        }
+
 
                     }
+                    $annuncio->setReferente($user->getNome()." ".$user->getCognome()." ".$user->getUsername());
+
+                    $annuncio->setEmail($user->getEmail());
+                    $annuncio->setUtente($user);
 
                     $firstTopic->setBoard(
                         $board
@@ -238,11 +263,9 @@ class AnnuncioImbarcoController extends BaseController
                     );
 
 
-
-
-
                     $annuncio->setDescrizione(
-                        "Cerco ".$annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo()." a ".$annuncio->getLuogo()
+                        "Offro ".$annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo(
+                        )." a ".$annuncio->getLuogo()
                     );
 
 
@@ -286,12 +309,14 @@ class AnnuncioImbarcoController extends BaseController
                 );
 
 
-
-            $responseJson=array();
-            foreach($annunci as $annuncio){
-                $responseJson[]=array(
-                    "topic"=>array("id"=>$annuncio->getTopic()->getId(),"title"=>$annuncio->getTopic()->getTitle()),
-                    "timestamp"=>$annuncio->getTimestamp()->format("d-m-Y H:i"),
+            $responseJson = array();
+            foreach ($annunci as $annuncio) {
+                $responseJson[] = array(
+                    "topic" => array(
+                        "id" => $annuncio->getTopic()->getId(),
+                        "title" => $annuncio->getTopic()->getTitle()
+                    ),
+                    "timestamp" => $annuncio->getTimestamp()->format("d-m-Y H:i"),
 
                 );
             }
@@ -307,6 +332,40 @@ class AnnuncioImbarcoController extends BaseController
 
     private function allertaAnnunci($annuncio)
     {
+
+        if ($annuncio->getTipoAnnuncio() == "CERCO") {
+
+            $annunci = $this->getDoctrine()
+                ->getRepository('AppBundle:AnnuncioImbarco')->findBy(
+                    array(
+                        "tipoAnnuncio" => "OFFRO",
+                        "ruoloRichiesto" => $annuncio->getRuoloRichiesto(),
+                        "luogo" => $annuncio->getLuogo()
+                    ),
+                    array('id' => 'desc')
+                );
+            foreach($annunci as $annuncio){
+
+                $mailer = $this->getContainer()->get('mailer');
+                $messaggio = $mailer->createMessage()
+                    ->setSubject('Ciao')
+                    ->setFrom('mittente@example.com')
+                    ->setTo($annuncio->getUtente()->getEmail())
+                    ->setBody(
+                        $this->renderView(
+                        // app/Resources/views/Emails/registrazione.html.twig
+                            'Emails/annuncio_imbarco.html.twig',
+                            array('annuncio' => $annuncio)
+                        ),
+                        'text/html'
+                    )
+                ;
+                $mailer->send($messaggio);
+
+            }
+
+        }
+
 
     }
 }
