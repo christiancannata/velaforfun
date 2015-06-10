@@ -536,7 +536,7 @@
                 var form = $(this)
                 form.find('input[type="submit"],button,a').attr('disabled', 'disabled');
 
-                form.find("input[type='submit'].show,button.show,a.show,i.show").addClass("hide").removeClass("show");
+                form.find("input[type='submit'].show,button.show,a.show,i.show,span.show").addClass("hide").removeClass("show");
                 form.find(".fa-spinner").toggleClass("hide");
 
                 postForm($(this), function (response) {
@@ -552,7 +552,7 @@
                     }
 
                 });
-                form.find("input[type='submit'].hide,button.hide,a.hide,i.hide").addClass("show").removeClass("hide");
+                form.find("input[type='submit'].hide,button.hide,a.hide,i.hide,span.hide").addClass("show").removeClass("hide");
                 form.find(".fa-spinner").toggleClass("hide");
                 form.find('input[type="submit"],button,a').removeAttr('disabled');
                 return false;
