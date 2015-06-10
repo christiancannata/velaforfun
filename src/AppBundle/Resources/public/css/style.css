@@ -1843,7 +1843,7 @@ form label{
     font-size: 16px;
 }
 
-.btn-default{
+.btn-default,.btn-success,.btn-danger{
     border-radius: 0px;
 }
 

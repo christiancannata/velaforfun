@@ -159,6 +159,9 @@ function redirectScambioPosto(response) {
     location.href = '/forum/velaforfun/topic/' + response.response;
 }
 function redirectImbarco(response) {
+
+
+
     location.href = '/forum/velaforfun/topic/' + response.response;
 }
 
@@ -175,6 +178,9 @@ function setRisultatiAnnunciImbarco(response) {
     }
 
     $("table tbody").html(risultati);
+
+    $("#annuncioCreato").modal();
+
 }
 
 function setRisultatiScambioPosto(response) {
