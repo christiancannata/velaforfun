@@ -142,7 +142,7 @@
 
 
                                 <div class="form-group">
-    <textarea class="form-control" id="testo">{{ k }}</textarea>
+    <textarea class="form-control" id="testo" onclick="$(this).html('')">{% if k!="" %}{{ k }}{% else %}scrivi la tua frase...{% endif %}</textarea>
                                 </div>
 
 
