@@ -47,9 +47,13 @@ class AnnuncioImbarcoController extends BaseController
             ->getRepository('AppBundle:AnnuncioImbarco')->findAll();
         $titolo = "Annunci Imbarco";
 
+
+        $form['vars'] = array("full_name" => "appbundle_annuncioimbarco");
+
+
         return $this->render(
             'AppBundle:AnnuncioImbarco:lista.html.twig',
-            array("annunci" => $annunci, "titolo" => $titolo)
+            array("annunci" => $annunci, "titolo" => $titolo,"form" => $form)
         );
 
     }

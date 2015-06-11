@@ -8,38 +8,37 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.min.js"></script>
     <script language="javascript">
         $(document).ready(function () {
-            $('#foto-1').lightbox({backdrop: false, show: false});
-            var $container = $('.masonry');
+            $('.link-video').click(function () {
+                var src = $(this).attr("data-foto");
+                $("#immaginePopup").attr('src',src);
 
-            $container.imagesLoaded(function () {
-                $container.masonry({
-                    itemSelector: '.post-box',
-                    columnWidth: '.post-box',
-                    transitionDuration: 0
-                });
+                $('#modalVideo').modal('show');
             });
-
-
-            $(".close").click(function () {
-
-                var $this = $(this);
-                var href = $this.attr('href');
-                var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))); //strip for ie7
-                var option = $target.data('lightbox') ? 'toggle' : $.extend({remote: !/#/.test(href) && href}, $target.data(), $this.data());
-
-                e.preventDefault();
-
-                $target
-                        .lightbox(option)
-                        .one('hide', function () {
-                            $this.focus();
-                        });
-            })
 
         });
     </script>
 {% endblock %}
 
+
+{% block stylesheets %}
+    <style>
+        .modal.fade .modal-dialog {
+            -webkit-transform: translate(0, -25%);
+            -ms-transform: translate(0, -25%);
+            transform: translate(0, -25%);
+            -webkit-transition: -webkit-transform 0.3s ease-out;
+            -moz-transition: -moz-transform 0.3s ease-out;
+            -o-transition: -o-transform 0.3s ease-out;
+            transition: transform 0.3s ease-out;
+        }
+
+        .modal.in .modal-dialog {
+            -webkit-transform: translate(0, 0);
+            -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+    </style>
+{% endblock %}
 
 {% block title %}{{ galleria.nome }}
 {% endblock %}
@@ -62,102 +61,46 @@
         <div class="col-md-12 column">
           <p> {{ galleria.descrizione }}</p>
 
-    <div class="masonry">
-
-    <div class="post-box col-lg-4 col-md-4 col-sm-4">
 
 
-    <a data-toggle="lightbox" href="#foto-1"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/260/large/tumblr_msnl3ayMxU1rsnzy2o5_1280.jpg" /></a>
-
-<div id="foto-1" class="lightbox fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class='lightbox-dialog'>
-        <div class='lightbox-content'>
-        <a data-toggle="lightbox" class="close" href="#foto-1">X</a>
-            <img width="500" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/260/large/tumblr_msnl3ayMxU1rsnzy2o5_1280.jpg">
-            <div class='lightbox-caption'>
-                Your caption here
-            </div>
-        </div>
-    </div>
-</div>
-
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/2"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/257/large/24ekOAH.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/3"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/248/large/tumblr_mqeom2a2oU1qbltjyo2_1280.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/4"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/244/large/3CjBFlN.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/5"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/241/large/OoRsR42.gif" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/1"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/260/large/tumblr_msnl3ayMxU1rsnzy2o5_1280.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/2"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/257/large/24ekOAH.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/3"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/248/large/tumblr_mqeom2a2oU1qbltjyo2_1280.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/4"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/244/large/3CjBFlN.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/5"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/241/large/OoRsR42.gif" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/1"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/260/large/tumblr_msnl3ayMxU1rsnzy2o5_1280.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/2"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/257/large/24ekOAH.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/3"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/248/large/tumblr_mqeom2a2oU1qbltjyo2_1280.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/4"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/244/large/3CjBFlN.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/5"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/241/large/OoRsR42.gif" /></a>
-
-    </div>
-     <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/4"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/244/large/3CjBFlN.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/5"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/241/large/OoRsR42.gif" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/1"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/260/large/tumblr_msnl3ayMxU1rsnzy2o5_1280.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/2"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/257/large/24ekOAH.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/3"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/248/large/tumblr_mqeom2a2oU1qbltjyo2_1280.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/4"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/244/large/3CjBFlN.jpg" /></a>
-
-    </div>
-    <div class="post-box col-lg-4 col-md-4 col-sm-4"> <a href="/posts/5"><img class="img-responsive img-thumbnail" src="http://s3.amazonaws.com/s3.babblin.gs/posts/images/000/000/241/large/OoRsR42.gif" /></a>
-
-    </div>
-    </div>
-<!--
 <div   style="float:left">
 {% for i in range(0, 33) %}
     {% for foto in galleria.foto %}
-        <div class="col-lg-3 col-md-4 col-sm-6">
-            <img width="{{ random(500) }}" src="/uploads/galleria_foto/{{ foto.immagine }}">
+
+        <div class="col-md-4 column">
+
+
+            <div class="box-home">
+                <div style="background-image: url(/uploads/galleria_foto/{{ foto.immagine }})"
+                     class="divBackgroundImage">
+                </div>
+                <div class="content">
+
+                    <div class="box-action">
+                        <h2>{{ foto.nome }}
+                        </h2>
+
+                        <div class="over-box">
+
+                            <button class="btn btn-default dettagli-nodo hvr-glow" type="submit"
+                                    onclick="location.href='/uploads/galleria_foto/{{ foto.immagine }})'">VISUALIZZA
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
         </div>
+
     {% endfor %}
 
 {% endfor %}
-</div> -->
+</div>
         </div>
 
             <!-- fine contenuto -->
@@ -172,6 +115,31 @@
 
 
     </div>
+
+
+
+
+
+        <div id="modalVideo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <div class="embed-responsive embed-responsive-4by3">
+                            <img src="" id="immaginePopup">
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
 {% endblock %}
 

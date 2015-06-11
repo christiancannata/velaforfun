@@ -29,6 +29,7 @@ class AnnuncioImbarcoType extends AbstractType
                 'choice',
                 array(
                     'choices' => array(
+                        'TUTTO'=>"TUTTO",
                         'NORD_ITALIA' => 'Nord Italia',
                         'SUD_ITALIA' => 'Sud Italia',
                         'CENTRO' => 'Centro',
@@ -39,7 +40,7 @@ class AnnuncioImbarcoType extends AbstractType
             ->add(
                 'tipo',
                 'choice',
-                array('choices' => array('CABINATO' => 'Cabinato', 'DERIVA' => 'Deriva', 'ALTRO' => 'Altro'))
+                array('choices' => array('TUTTO'=>"TUTTO",'CABINATO' => 'Cabinato', 'DERIVA' => 'Deriva', 'ALTRO' => 'Altro'))
             )
             ->add('localita')
             ->add('tempo')
@@ -48,6 +49,7 @@ class AnnuncioImbarcoType extends AbstractType
                 'choice',
                 array(
                     'choices' => array(
+                        'TUTTO'=>"TUTTO",
                         'PRODIERE' => 'Prodiere',
                         'UOMO_ALBERO' => 'Uomo Albero',
                         'PITMAN' => 'Pitman',
@@ -69,7 +71,7 @@ class AnnuncioImbarcoType extends AbstractType
             ->add(
                 'costo',
                 'choice',
-                array('choices' => array('GRATIS' => 'Gratis', 'A_PAGAMENTO' => 'A pagamento', 'PAGATO' => 'Pagato'))
+                array('choices' => array('TUTTO'=>"TUTTO",'GRATIS' => 'Gratis', 'A_PAGAMENTO' => 'A pagamento', 'PAGATO' => 'Pagato'))
             )
             ->add('descrizione');
     }

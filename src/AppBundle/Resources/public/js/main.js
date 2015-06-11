@@ -1,18 +1,18 @@
-
 jQuery(document).ready(function ($) {
 
     $('select').selectpicker();
 
-    $(".marker-description button").click(function(){
-        location.href=$(this).attr("id");
+    $(".marker-description button").click(function () {
+        location.href = $(this).attr("id");
     });
 
 
-    $(".back-link").click(function(){
-        window.history.back();return false;
+    $(".back-link").click(function () {
+        window.history.back();
+        return false;
     });
 
-    $(".check").click(function(){
+    $(".check").click(function () {
         $(".check").removeClass("checked");
         $(this).addClass("checked");
     });
@@ -80,13 +80,13 @@ jQuery(document).ready(function ($) {
 
     }
 
-    if($("#selectPorto").length>0){
+    if ($("#selectPorto").length > 0) {
         $.get('/porti/jsondata', function (data) {
             $("#selectPorto").typeahead({source: data});
         }, 'json');
     }
 
-    if($("#selectNodo").length>0) {
+    if ($("#selectNodo").length > 0) {
         $.get('/nodi/jsondata', function (data) {
             $("#selectNodo").typeahead({source: data, valueKey: 'permalink'});
         }, 'json');
@@ -165,44 +165,50 @@ function redirectScambioPosto(response) {
 function redirectImbarco(response) {
 
 
-
     location.href = '/forum/velaforfun/topic/' + response.response;
 }
 
 function setRisultatiAnnunciImbarco(response) {
     var risultati = "";
-    for (var i=0;i<response.length;i++) {
-        var risultato=response[i];
+    for (var i = 0; i < response.length; i++) {
+        var risultato = response[i];
 
         risultati += '<tr> <td>' + risultato.topic.title + '</td> <td>' + risultato.timestamp + '</td> <td>0</td> <td> <button onclick="location.href=\'/forum/velaforfun/topic/' + risultato.topic.id + '\'" class="btn btn-primary hvr-glow" type="button">Leggi Annuncio</button> </td> </tr>';
 
     }
-    if(response.length==0){
-        risultati="<tr><td colspan=5 >La ricerca non ha prodotto risultati</td></tr>";
+    if (response.length == 0) {
+        risultati = "<tr><td colspan=5 >La ricerca non ha prodotto risultati</td></tr>";
     }
 
     $("table tbody").html(risultati);
-    if($("#notificaAnnuncio:checked").length>0){
+    if ($("#notificaAnnuncio:checked").length > 0) {
         $("#annuncioCreato").modal();
 
     }
 
 }
 
+function riceviNotifica(response) {
+    $("#modalVideo").hide();
+    $("#annuncioCreato").modal();
+
+}
+
+
 function setRisultatiScambioPosto(response) {
     var risultati = "";
-    for (var i=0;i<response.length;i++) {
-        var risultato=response[i];
+    for (var i = 0; i < response.length; i++) {
+        var risultato = response[i];
         risultati += '<tr> <td>' + risultato.topic.title + '</td> <td>' + risultato.timestamp + '</td> <td>0</td> <td> <button onclick="location.href=\'/forum/velaforfun/topic/' + risultato.topic.id + '\'" class="btn btn-primary hvr-glow" type="button">Leggi Annuncio</button> </td> </tr>';
 
     }
-    if(response.length==0){
-        risultati="<tr><td colspan=5 >La ricerca non ha prodotto risultati</td></tr>";
+    if (response.length == 0) {
+        risultati = "<tr><td colspan=5 >La ricerca non ha prodotto risultati</td></tr>";
     }
 
     $("table tbody").html(risultati);
 
-    if($("#notificaAnnuncio:checked").length>0){
+    if ($("#notificaAnnuncio:checked").length > 0) {
         $("#annuncioCreato").modal();
 
     }
@@ -226,7 +232,7 @@ function setNuovoCommentoPorto(response) {
 
                 }
             }
-            var tipoCommento="";
+            var tipoCommento = "";
             if (commento.tipo_commento == "POSITIVO") {
                 tipoCommento = '<i class="fa fa-thumbs-up foreground-verde"></i>';
 
@@ -240,7 +246,7 @@ function setNuovoCommentoPorto(response) {
 
             }
 
-            nuovoCommento += '</a> </div> <div class="media-body"> <h4 class="media-heading">' + commento.utente.username + '</h4> <p>' + tipoCommento + " - "+commento.testo + '</p> <p style=\"font-size: 12px\">Inserito il ' + commento.timestamp + '</p> <p>';
+            nuovoCommento += '</a> </div> <div class="media-body"> <h4 class="media-heading">' + commento.utente.username + '</h4> <p>' + tipoCommento + " - " + commento.testo + '</p> <p style=\"font-size: 12px\">Inserito il ' + commento.timestamp + '</p> <p>';
 
             nuovoCommento += '</p> </div> </li>';
 
@@ -252,7 +258,7 @@ function setNuovoCommentoPorto(response) {
             $(".no-commento").remove();
             $(".commento").append(box);
 
-            location.href='';
+            location.href = '';
         }
         $('#commentiPorto li:eq(0)').before(nuovoCommento);
 
