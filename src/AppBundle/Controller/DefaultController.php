@@ -4,11 +4,12 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\Type\RegistrationFormType;
+use AppBundle\Controller\BaseController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
-class DefaultController extends Controller
+class DefaultController extends BaseController
 {
     /**
      * @Route("/", name="homepage")
@@ -74,10 +75,41 @@ class DefaultController extends Controller
     /**
      * @Route("/contatti", name="contatti")
      */
-    public function contattiAction()
+    public function contattiAction(Request $request)
     {
 
-        return $this->render('default/contatti.html.twig', array());
+
+        if ($request->isMethod('POST')) {
+
+            $params = $request->request->all();
+
+
+            $mailer = $this->container->get('mailer');
+
+            $messaggio = $mailer->createMessage()
+                ->setSubject('Nuova richiesta di contatto')
+                ->setFrom('info@velaforfun.com')
+                ->setTo('christian1488@hotmail.it')
+                ->setBody(
+                    $this->container->get('templating')->render(
+                    // app/Resources/views/Emails/registrazione.html.twig
+                        'Emails/richiesta_contatto.html.twig',
+                        array('contatto' => $params['contatto'])
+                    ),
+                    'text/html'
+                );
+            $mailer->send($messaggio);
+
+
+            $response['success'] = true;
+
+
+            return new JsonResponse($response);
+        }
+
+        $form['vars'] = array("full_name" => "contatti");
+
+        return $this->render('default/contatti.html.twig', array("form"=> $form));
     }
 
     /**
@@ -151,18 +183,18 @@ class DefaultController extends Controller
             $porti = $query->getResult();
 
             if (count($porti) > 0) {
-                $rows=array();
-                foreach($porti as $porto){
-                    $rows[]=array(
-                        "name"=>$porto->getNome(),
-                        "link"=>"/porti/".$porto->getPermalink()
+                $rows = array();
+                foreach ($porti as $porto) {
+                    $rows[] = array(
+                        "name" => $porto->getNome(),
+                        "link" => "/porti/".$porto->getPermalink()
                     );
                 }
                 $appo = array(
                     "type" => "Porti",
                     "results" => $rows
                 );
-                $risultati[]=$appo;
+                $risultati[] = $appo;
             }
 
 
@@ -174,18 +206,18 @@ class DefaultController extends Controller
             $annunci = $query->getResult();
 
             if (count($annunci) > 0) {
-                $rows=array();
-                foreach($annunci as $annuncio){
-                    $rows[]=array(
-                        "name"=>$annuncio->getTitle(),
-                        "link"=>"/forum/velaforfun/topic/".$annuncio->getId()
+                $rows = array();
+                foreach ($annunci as $annuncio) {
+                    $rows[] = array(
+                        "name" => $annuncio->getTitle(),
+                        "link" => "/forum/velaforfun/topic/".$annuncio->getId()
                     );
                 }
                 $appo = array(
                     "type" => "Forum",
                     "results" => $rows
                 );
-                $risultati[]=$appo;
+                $risultati[] = $appo;
             }
 
 
@@ -197,18 +229,18 @@ class DefaultController extends Controller
             $annunci = $query->getResult();
 
             if (count($annunci) > 0) {
-                $rows=array();
-                foreach($annunci as $annuncio){
-                    $rows[]=array(
-                        "name"=>$annuncio->getNome(),
-                        "link"=>"/nodi/".$annuncio->getPermalink()
+                $rows = array();
+                foreach ($annunci as $annuncio) {
+                    $rows[] = array(
+                        "name" => $annuncio->getNome(),
+                        "link" => "/nodi/".$annuncio->getPermalink()
                     );
                 }
                 $appo = array(
                     "type" => "Nodi",
                     "results" => $rows
                 );
-                $risultati[]=$appo;
+                $risultati[] = $appo;
             }
 
 
@@ -220,20 +252,19 @@ class DefaultController extends Controller
             $annunci = $query->getResult();
 
             if (count($annunci) > 0) {
-                $rows=array();
-                foreach($annunci as $annuncio){
-                    $rows[]=array(
-                        "name"=>$annuncio->getNome(),
-                        "link"=>"/foto/".$annuncio->getGalleria()->getPermalink()
+                $rows = array();
+                foreach ($annunci as $annuncio) {
+                    $rows[] = array(
+                        "name" => $annuncio->getNome(),
+                        "link" => "/foto/".$annuncio->getGalleria()->getPermalink()
                     );
                 }
                 $appo = array(
                     "type" => "Foto",
                     "results" => $rows
                 );
-                $risultati[]=$appo;
+                $risultati[] = $appo;
             }
-
 
 
             $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Video');
@@ -244,20 +275,19 @@ class DefaultController extends Controller
             $annunci = $query->getResult();
 
             if (count($annunci) > 0) {
-                $rows=array();
-                foreach($annunci as $annuncio){
-                    $rows[]=array(
-                        "name"=>$annuncio->getNome(),
-                        "link"=>"/video/".$annuncio->getCategoria()->getPermalink()
+                $rows = array();
+                foreach ($annunci as $annuncio) {
+                    $rows[] = array(
+                        "name" => $annuncio->getNome(),
+                        "link" => "/video/".$annuncio->getCategoria()->getPermalink()
                     );
                 }
                 $appo = array(
                     "type" => "Video",
                     "results" => $rows
                 );
-                $risultati[]=$appo;
+                $risultati[] = $appo;
             }
-
 
 
             $repository = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Articolo');
@@ -269,20 +299,19 @@ class DefaultController extends Controller
             $annunci = $query->getResult();
 
             if (count($annunci) > 0) {
-                $rows=array();
-                foreach($annunci as $annuncio){
-                    $rows[]=array(
-                        "name"=>$annuncio->getTitolo(),
-                        "link"=>"/archivio/".$annuncio->getCategoria()->getPermalink()."/".$annuncio->getPermalink()
+                $rows = array();
+                foreach ($annunci as $annuncio) {
+                    $rows[] = array(
+                        "name" => $annuncio->getTitolo(),
+                        "link" => "/archivio/".$annuncio->getCategoria()->getPermalink()."/".$annuncio->getPermalink()
                     );
                 }
                 $appo = array(
                     "type" => "Articoli",
                     "results" => $rows
                 );
-                $risultati[]=$appo;
+                $risultati[] = $appo;
             }
-
 
 
         }

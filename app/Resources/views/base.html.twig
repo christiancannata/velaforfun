@@ -198,19 +198,21 @@
                                 <li class="divider"></li>
                                 <li class="form">
 
-                                            <form method="get" action="/cerca" id="cerca-form-header">
-                                                <div class="form-group" style="margin-bottom: 0px">
-                                                    <div class="inner-addon left-addon">
-                                                        <a href="#" style="top:inherit;color:white;border-color:white" onclick="event.preventDefault();$('#cerca-form-header').submit()"><i
-                                                                    class="fa fa-search"></i></a>
-                                                        <input style="background:rgb(61,144,173);color:white" name="key" type="search"
-                                                               class="form-control"
-                                                               placeholder="cerca un termine..."/>
-                                                    </div>
+                                    <form method="get" action="/cerca" id="cerca-form-header">
+                                        <div class="form-group" style="margin-bottom: 0px">
+                                            <div class="inner-addon left-addon">
+                                                <a href="#" style="top:inherit;color:white;border-color:white"
+                                                   onclick="event.preventDefault();$('#cerca-form-header').submit()"><i
+                                                            class="fa fa-search"></i></a>
+                                                <input style="background:rgb(61,144,173);color:white" name="key"
+                                                       type="search"
+                                                       class="form-control"
+                                                       placeholder="cerca un termine..."/>
+                                            </div>
 
 
-                                                </div>
-                                            </form>
+                                        </div>
+                                    </form>
                                 </li>
                                 <li class="divider"></li>
                                 <li class="dropdown-header">ANNUNCI</li>
@@ -256,7 +258,7 @@
                                                            target="{{ nodo.action }}">{{ nodo.nome }}</a></li>
 
                                                     {% if  not loop.last %}
-                                                <li style="padding:0px 0px 0px 0px">|</li>
+                                                        <li style="padding:0px 0px 0px 0px">|</li>
                                                     {% endif %}
                                                 {% endfor %}
                                             </ul>
@@ -306,9 +308,9 @@
                                         <li class="dropdown-header">Profilo</li>
                                         <li><a href="/tuo-profilo/">Modifica dati</a></li>
                                         <li><a href="#">I tuoi annunci</a></li>
-                                    {% if not is_granted('ROLE_SUPER_ADMIN') %}
+                                        {% if not is_granted('ROLE_SUPER_ADMIN') %}
 
-                                    {% else %}
+                                        {% else %}
 
                                             <li class="dropdown-header">Gestione Articoli</li>
                                             <li><a href="/archivio/articoli/crea">Crea nuovo</a></li>
@@ -324,7 +326,7 @@
 
                                             <li class="divider"></li>
 
-                                    {% endif %}
+                                        {% endif %}
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">
                                                 <i class="fa fa-sign-out"></i>
                                                 Esci</a>
@@ -359,8 +361,8 @@
                                         <!--  <input type="hidden" name="_target_path" value="{{ app.request.get('_route') }}" />
 -->
                                         <button type="submit" class="btn btn-default login hvr-glow">Accedi</button>
-                                    <a href="">Dimenticato la password?</a>
-                                        </form>
+                                        <a href="">Dimenticato la password?</a>
+                                    </form>
 
                                     <div class="divisore"></div>
                                     <span style="color:white;text-align:center;float:left;width:100%;margin-bottom:10px">oppure</span>
@@ -519,7 +521,7 @@
 
             }
 
-            if($("#Post textarea").length>0){
+            if ($("#Post textarea").length > 0) {
                 $('textarea').redactor({
                     imageUpload: '/redactor/image_upload.php',
                     fileUpload: '/redactor/file_upload.php',
@@ -540,11 +542,19 @@
                 form.find("input[type='submit'].show,button.show,a.show,i.show,span.show").addClass("hide").removeClass("show");
                 form.find(".fa-spinner").toggleClass("hide");
 
+                var errorMessage = "Errore nella creazione!";
+                var successMessage = "Creato con successo!";
+                if ($("#successMessage").length > 0) {
+                    successMessage = $("#successMessage").val();
+                }
+                if ($("#errorMessage").length > 0) {
+                    errorMessage = $("#errorMessage").val();
+                }
                 postForm($(this), function (response) {
                     if (response.success == true) {
-                        showalert(form, "Creato con successo!", "success")
+                        showalert(form, successMessage, "success")
                     } else {
-                        showalert(form, "Errore nella creazione", "error")
+                        showalert(form, errorMessage, "error")
                     }
                     form.find('input[type="submit"],button').removeAttr('disabled');
                     if (form.find(".callback").length > 0) {
