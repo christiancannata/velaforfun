@@ -19,6 +19,7 @@ class NodoType extends AbstractType
             ->add('permalink')
             ->add('video')
             ->add('descrizione')
+            ->add('immagineCorrelata')
 
         ;
     }
