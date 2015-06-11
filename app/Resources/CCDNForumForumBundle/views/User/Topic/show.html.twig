@@ -34,18 +34,22 @@
         <div class="row clearfix">
 
             <div class="col-md-12 column breadcrumb">
-                <a href="/forum/velaforfun"><h3 style="color:rgb(153,153,153);display: inline;float:left;padding: 7px;font-size: 30px;padding-left:0px">Boards </h3>
+                <a href="/forum/velaforfun"><h3 style="color:rgb(153,153,153);display: inline;float:left;padding: 7px;padding-left:0px">Boards </h3>
                 </a>
-                <a href="../board/{{ topic.board.id  }}"><h3 style="color:rgb(153,153,153);display: inline;float:left;padding: 7px;font-size: 30px;">
+                <a href="../board/{{ topic.board.id  }}"><h3 style="color:rgb(153,153,153);display: inline;float:left;padding: 7px;">
                     >&nbsp;{{- topic.board.name -}}</h3>
                 </a>
-                <h1 style="display: inline;float:left;margin:0px;border:none;font-size: 30px;font-weight: bold">
+                <h1 style="display: inline;float:left;margin:0px;border:none;font-weight: bold">
                     >&nbsp;{{- topic.getTitle |capitalize -}}</h1>
 
             </div>
         </div>
+        <div class="row clearfix btn-toolbar">
 
-        {%- include "CCDNForumForumBundle:User:Topic/Partial/stat_vitals.html.twig" -%}
+            {%- include 'CCDNForumForumBundle:User:Topic/Partial/topic_actions.html.twig' -%}
+            {%- include "CCDNForumForumBundle:User:Topic/Partial/stat_vitals.html.twig" -%}
+        </div>
+
 
         {%- if topic.isDeleted or topic.isClosed or topic.isSticky -%}
             {%- include "CCDNForumForumBundle:User:Topic/Partial/stat_mods.html.twig" -%}

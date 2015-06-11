@@ -165,7 +165,7 @@
 
 
 
-        <div class="col-md-4 column" id="colonnaPorto">
+        <div class="col-md-4 column" id="colonnaPorto" style="padding-top: 10px;">
 
 
             <div class="row clearfix">
@@ -282,18 +282,18 @@
                                                     <a href="#">
 
                                                         {% if attracco.utente.profilePicturePath == "" and attracco.utente.getFacebookId() !="" %}
-                                                            <img width="50" class="media-object"
+                                                            <img width="50" class="media-object avatar-small"
                                                                  src="http://graph.facebook.com/{{ attracco.utente.getFacebookId() }}/picture?type=square"
                                                                  alt="avatar"/>
 
                                                         {% else %}
 
                                                             {% if attracco.utente.profilePicturePath != "" %}
-                                                                <img width="50" class="media-object"
+                                                                <img width="50" class="media-object avatar-small"
                                                                      src="/uploads/utenti/profilo/{{ attracco.utente.profilePicturePath }}"
                                                                      alt="avatar"/>
                                                             {% else %}
-                                                                <img width="50" class="media-object"
+                                                                <img width="50" class="media-object avatar-small"
                                                                      src="/uploads/utenti/profilo/default_avatar.png"
                                                                      alt="avatar"/>
                                                             {% endif %}
@@ -303,7 +303,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="media-body">
-                                                    <h4 class="media-heading">{{ attracco.utente.username }}<br>a {{ attracco.porto.nome }}</h4>
+                                                    <h4 class="media-heading">{{ attracco.utente.username }}a {{ attracco.porto.nome }}</h4>
 
                                                     <p style="font-size: 12px">Il giorno {{ attracco.timestamp|date("d/m/Y") }}</p>
 
@@ -350,17 +350,17 @@
                                             <div class="media-left">
                                                 <a href="#">
                                                     {% if commento.utente.profilePicturePath == "" and commento.utente.getFacebookId() !="" %}
-                                                        <img width="50" class="media-object"
+                                                        <img width="50" class="media-object avatar-small"
                                                              src="http://graph.facebook.com/{{ commento.utente.getFacebookId() }}/picture?type=square"
                                                              alt="avatar"/>
                                                     {% else %}
 
                                                         {% if commento.utente.profilePicturePath != "" %}
-                                                            <img width="50" class="media-object"
+                                                            <img width="50" class="media-object avatar-small"
                                                                  src="/uploads/utenti/profilo/{{ commento.utente.profilePicturePath }}"
                                                                  alt="avatar"/>
                                                         {% else %}
-                                                            <img width="50" class="media-object"
+                                                            <img width="50" class="media-object avatar-small"
                                                                  src="/uploads/utenti/profilo/default_avatar.png"
                                                                  alt="avatar"/>
                                                         {% endif %}
@@ -373,7 +373,7 @@
                                                 </a>
                                             </div>
                                             <div class="media-body">
-                                                <h4 class="media-heading">{{ commento.utente.username }}<br>su {{ commento.porto.nome }}</h4>
+                                                <h4 class="media-heading">{{ commento.utente.username }} su {{ commento.porto.nome }}</h4>
 
                                                 <p>{% if commento.tipoCommento == "POSITIVO" %}
                                                         <i class="fa fa-thumbs-up foreground-verde"></i>

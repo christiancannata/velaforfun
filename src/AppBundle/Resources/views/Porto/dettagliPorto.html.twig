@@ -39,7 +39,7 @@
             // Provide your access token
             L.mapbox.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFuMTQ4OCIsImEiOiJZaldjZlM0In0.hXiRMyyCDLdQZUrqXF2eNw';
             // Create a map in the div #map
-            var map = L.mapbox.map('map', 'christian1488.m5b7ic2b');
+
             var myLayer = null;
             // Build a marker from a simple GeoJSON object:
             var arrayPorti = new Array();
@@ -62,25 +62,13 @@
                 },
                 "id": {{ porto.getId() }}
             };
-
+            var map = L.mapbox.map('map', 'christian1488.m5b7ic2b') .setView([{{ porto.getLatitudine() }},{{ porto.getLongitudine() }}], 19);
             arrayPorti.push(arrayPorto);
 
 
             myLayer = L.mapbox.featureLayer(arrayPorti).addTo(map);
 
 
-            myLayer.on('ready', function (e) {
-                map.fitBounds(myLayer.getBounds());
-
-                myLayer.eachLayer(function (layer) {
-                    var item = markerList.appendChild(document.createElement('li'));
-                    item.innerHTML = layer.toGeoJSON().properties.title;
-                    item.onclick = function () {
-                        L.mapbox.setView(layer.getLatLng(), 14);
-                        layer.openPopup();
-                    };
-                });
-            });
 
 // This uses the HTML5 geolocation API, which is available on
 // most mobile browsers and modern browsers, but not in Internet Explorer
@@ -322,7 +310,7 @@
         </div>
 
 
-        <div class="col-md-4 column" id="colonnaPorto">
+        <div class="col-md-4 column" id="colonnaPorto" style="padding-top: 10px;">
 
 
                     <div class="over-box">
@@ -444,18 +432,18 @@
                                                     <a href="#">
 
                                                         {% if attracco.utente.profilePicturePath == "" and attracco.utente.getFacebookId() !="" %}
-                                                            <img width="50" class="media-object"
+                                                            <img width="50" class="media-object avatar-small"
                                                                  src="http://graph.facebook.com/{{ attracco.utente.getFacebookId() }}/picture?type=square"
                                                                  alt="avatar"/>
 
                                                         {% else %}
 
                                                             {% if attracco.utente.profilePicturePath != "" %}
-                                                                <img width="50" class="media-object"
+                                                                <img width="50" class="media-object avatar-small"
                                                                      src="/uploads/utenti/profilo/{{ attracco.utente.profilePicturePath }}"
                                                                      alt="avatar"/>
                                                             {% else %}
-                                                                <img width="50" class="media-object"
+                                                                <img width="50" class="media-object avatar-small"
                                                                      src="/uploads/utenti/profilo/default_avatar.png"
                                                                      alt="avatar"/>
                                                             {% endif %}
@@ -507,17 +495,17 @@
                                             <div class="media-left">
                                                 <a href="#">
                                                     {% if commento.utente.profilePicturePath == "" and commento.utente.getFacebookId() !="" %}
-                                                        <img width="50" class="media-object"
+                                                        <img width="50" class="media-object avatar-small"
                                                              src="http://graph.facebook.com/{{ commento.utente.getFacebookId() }}/picture?type=square"
                                                              alt="avatar"/>
                                                     {% else %}
 
                                                         {% if commento.utente.profilePicturePath != "" %}
-                                                            <img width="50" class="media-object"
+                                                            <img width="50" class="media-object avatar-small"
                                                                  src="/uploads/utenti/profilo/{{ commento.utente.profilePicturePath }}"
                                                                  alt="avatar"/>
                                                         {% else %}
-                                                            <img width="50" class="media-object"
+                                                            <img width="50" class="media-object avatar-small"
                                                                  src="/uploads/utenti/profilo/default_avatar.png"
                                                                  alt="avatar"/>
                                                         {% endif %}

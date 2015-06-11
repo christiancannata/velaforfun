@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('bundles/app/css/scrollPane.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap-lightbox.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/app/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap-select.min.css') }}">
     {% block stylesheets %}{% endblock %}
     <link rel="icon"
           type="image/png"
@@ -35,7 +36,7 @@
 <div class="container">
 
 
-    <nav class="navbar navbar-default navbar-fixed-top hidden-md hidden-lg hidden-print">
+    <nav class="navbar navbar-default navbar-fixed-top hidden-md hidden-lg ">
         <div class="container">
             <div class="navbar-header">
                 <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse"
@@ -177,10 +178,10 @@
     </nav>
 
 
-    <nav class="navbar navbar-default navbar-fixed-top visible-md visible-lg" id="nav-top">
+    <nav class="navbar navbar-default navbar-fixed-top visible-md visible-lg " id="nav-top">
         <div class="container-fluid">
             <div class="row clearfix">
-                <div class="col-md-4 column">
+                <div class="col-md-4 column ">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -404,11 +405,11 @@
     {% block body %}{% endblock %}
 </div>
 
-<div class="container-fluid hidden-print" style="background:white;padding-top:20px">
+<div class="container-fluid " style="background:white;padding-top:20px">
     <div class="container">
 
 
-        <div class="row clearfix">
+        <div class="row clearfix hidden-print">
             <div class="col-md-6 column">
                 <div class="box-grande">
 
@@ -506,6 +507,7 @@
 
 <script src="{{ asset('bundles/app/js/form.js') }}"></script>
 <script src="{{ asset('bundles/app/js/main.js') }}"></script>
+<script src="{{ asset('bundles/app/js/bootstrap-select.js') }}"></script>
 <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
 <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
 
@@ -521,7 +523,17 @@
 
         $(document).ready(function () {
 
-            if ($('[ name="{{ form.vars.full_name }}"],#Post textarea').length > 0) {
+            if ($('[ name="{{ form.vars.full_name }}"]').length > 0) {
+
+                $('textarea.editor').redactor({
+                    imageUpload: '/redactor/image_upload.php',
+                    fileUpload: '/redactor/file_upload.php',
+                    imageGetJson: '/redactor/json/data.json'
+                });
+
+            }
+
+            if($("#Post textarea").length>0){
                 $('textarea').redactor({
                     imageUpload: '/redactor/image_upload.php',
                     fileUpload: '/redactor/file_upload.php',

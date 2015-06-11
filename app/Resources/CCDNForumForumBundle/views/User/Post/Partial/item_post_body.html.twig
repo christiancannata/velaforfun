@@ -47,11 +47,17 @@
 			<section class="accordion-body collapse" id="post_{{- post.getId() -}}_body">
 				{%- include 'CCDNForumForumBundle:User:Post/Partial/body_content.html.twig' with {'post': post } -%}
 			</section>
+            <span class="timestamper" title="{{- post.getCreatedDate |date('Y-m-d H:i:s T Z', 'Europe/Rome') -}}">
+		            Inserito il <strong>{{- post.getCreatedDate |date("d-m-Y") -}}</strong> alle <strong>{{- post.getCreatedDate |date("H:i") -}} </strong>
+		        </span>
 		{%- endif -%}
 	{%- else -%}
 		<section id="post_{{- post.getId() -}}_body" class="body-post">
 			{%- include 'CCDNForumForumBundle:User:Post/Partial/body_content.html.twig' with {'post': post } -%}
 		</section>
+        <span class="timestamper" title="{{- post.getCreatedDate |date('Y-m-d H:i:s T Z', 'Europe/Rome') -}}">
+		           Inserito il <strong>{{- post.getCreatedDate |date("d-m-Y") -}}</strong> alle <strong>{{- post.getCreatedDate |date("H:i") -}}</strong>
+		        </span>
 	{%- endif -%}
 
 {%- endspaceless -%}

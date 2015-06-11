@@ -33,7 +33,7 @@
  <div class="row clearfix hidden-print">
         <div class="col-md-6 col-xs-6 column">
              <div class="category">
-             <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left background-celeste" style="color:white;" aria-hidden="true"></span>  </a>            <a id="category-link" href="/archivio/{{ articolo.categoria.permalink }}" style="margin-top:5px;margin-left: 12px;"><span style="background:{{ articolo.categoria.getColore() }};" >{{ articolo.categoria.nome|capitalize }}</span> </a>
+             <a href="#" id="back-link" class="back-link" style="background: rgb(153, 153, 153) none repeat scroll 0 0;"> <span class="glyphicon glyphicon-menu-left" style="padding:0;" aria-hidden="true"></span>  </a>            <a id="category-link" href="/archivio/{{ articolo.categoria.permalink }}" style="margin-left: 12px;"><span style="float: left;font-size:18px;background:{{ articolo.categoria.getColore() }};" >{{ articolo.categoria.nome|capitalize }}</span> </a>
               </div>
 
         </div>
@@ -196,7 +196,7 @@
 
 <div class="row clearfix" >
 
- <div class="col-md-12 column">
+ <div class="col-md-12 column hidden-print">
         {% for categoriaRel in categorie %}
 
 

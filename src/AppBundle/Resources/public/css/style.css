@@ -115,7 +115,6 @@ form label {
     text-decoration: none;
     font-size: 20px;
     text-transform: uppercase;
-    line-height: 30px;
 }
 
 .divisore {
@@ -129,7 +128,9 @@ form label {
 
 .category a span {
     color: white;
-    padding: 7px;
+    color: white;
+    padding: 5px 7px 4.5px;
+    transition: opacity 0.1s ease-in-out 0s;
     -webkit-transition: opacity 0.1s ease-in-out;
     -moz-transition: opacity 0.1s ease-in-out;
     -ms-transition: opacity 0.1s ease-in-out;
@@ -141,7 +142,9 @@ form label {
     opacity: 0.8;
 
 }
-
+.mfp-zoom-out-cur, .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
+    cursor: inherit !important;
+}
 .content-title {
     background: rgba(66, 156, 188, 0.8) none repeat scroll 0 0;
     bottom: 10px;
@@ -1113,6 +1116,7 @@ h1 {
     font-size: 20px;
     line-height: 51px;
     padding: 10px;
+    width: 100%;
 }
 
 .localizzami .fa, .checkin .fa {
@@ -1222,7 +1226,9 @@ h1 {
     padding: 10px;
     margin-top: 20px;
 }
-
+.field-nuovo-commento input[type=text]{
+    border-bottom: 1px solid #429CBC;
+}
 .field-nuovo-commento p {
     color: #429CBC;
 }
@@ -1447,7 +1453,14 @@ ul.share-buttons li {
     opacity: 1 !important;
 
 }
+.back-link{
 
+    color: white;
+    height: 35px;
+    padding: 7px;
+    text-align: center;
+    width: 35px;
+}
 #back-link:hover, #category-link:hover {
     opacity: 0.8;
 }
@@ -1945,7 +1958,26 @@ font-size: 16px;
     text-decoration: underline;
     color: rgb(35, 82, 124);
 }
-
+.breadcrumb h3,.breadcrumb h1{
+    text-transform: uppercase;
+    font-size:28px;
+}
 .breadcrumb h3:hover{
     text-decoration: underline;
+}
+
+.timestamper{
+    float:right
+}
+
+h3.panel-title{
+font-size: 20px !important;
+}
+
+.media-list .avatar-small{
+    margin-top:5px;
+}
+
+.media-list H4{
+    font-size:18px !important;
 }

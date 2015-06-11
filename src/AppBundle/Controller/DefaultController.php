@@ -170,6 +170,54 @@ class DefaultController extends Controller
             }
 
 
+            $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Foto');
+            $query = $repository->createQueryBuilder('p')
+                ->where('p.nome LIKE :word')
+                ->setParameter('word', '%'.$key.'%')
+                ->getQuery();
+            $annunci = $query->getResult();
+
+            if (count($annunci) > 0) {
+                $rows=array();
+                foreach($annunci as $annuncio){
+                    $rows[]=array(
+                        "name"=>$annuncio->getNome(),
+                        "link"=>"/foto/".$annuncio->getGalleria()->getPermalink()
+                    );
+                }
+                $appo = array(
+                    "type" => "Foto",
+                    "results" => $rows
+                );
+                $risultati[]=$appo;
+            }
+
+
+
+            $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Video');
+            $query = $repository->createQueryBuilder('p')
+                ->where('p.nome LIKE :word')
+                ->setParameter('word', '%'.$key.'%')
+                ->getQuery();
+            $annunci = $query->getResult();
+
+            if (count($annunci) > 0) {
+                $rows=array();
+                foreach($annunci as $annuncio){
+                    $rows[]=array(
+                        "name"=>$annuncio->getNome(),
+                        "link"=>"/video/".$annuncio->getCategoria()->getPermalink()
+                    );
+                }
+                $appo = array(
+                    "type" => "Video",
+                    "results" => $rows
+                );
+                $risultati[]=$appo;
+            }
+
+
+
             $repository = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Articolo');
             $query = $repository->createQueryBuilder('p')
                 ->where('p.titolo LIKE :word')

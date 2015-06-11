@@ -69,7 +69,7 @@ class AnnuncioImbarco
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="luogo", type="string", columnDefinition="ENUM('NORD_ITALIA','SUD_ITALIA','CENTRO','ESTERO')", nullable=false)
+     * @ORM\Column(name="luogo", type="string", columnDefinition="ENUM('TUTTO','NORD_ITALIA','SUD_ITALIA','CENTRO','ESTERO')", nullable=false)
      */
     private $luogo;
 
@@ -77,7 +77,7 @@ class AnnuncioImbarco
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="tipo", type="string", columnDefinition="ENUM('CABINATO','DERIVA','ALTRO')", nullable=false)
+     * @ORM\Column(name="tipo", type="string", columnDefinition="ENUM('TUTTO','CABINATO','DERIVA','ALTRO')", nullable=false)
      */
     private $tipo;
 
@@ -99,7 +99,7 @@ class AnnuncioImbarco
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="ruolo_richiesto", type="string", columnDefinition="ENUM('PRODIERE','UOMO_ALBERO','PITMAN','GRINDER','TAILER','TATTICO','RANDISTA','TIMONIERE','CUOCO','MOZZO_GENERICO','COMANDANTE','SECONDO','MOTORISTA','STEWARD','HOSTESS')", nullable=false)
+     * @ORM\Column(name="ruolo_richiesto", type="string", columnDefinition="ENUM('TUTTO','PRODIERE','UOMO_ALBERO','PITMAN','GRINDER','TAILER','TATTICO','RANDISTA','TIMONIERE','CUOCO','MOZZO_GENERICO','COMANDANTE','SECONDO','MOTORISTA','STEWARD','HOSTESS')", nullable=false)
      */
     private $ruoloRichiesto;
 
@@ -107,7 +107,7 @@ class AnnuncioImbarco
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="costo", type="string", columnDefinition="ENUM('GRATIS','A_PAGAMENTO','PAGATO')", nullable=false)
+     * @ORM\Column(name="costo", type="string", columnDefinition="ENUM('TUTTO','GRATIS','A_PAGAMENTO','PAGATO')", nullable=false)
      */
     private $costo;
 

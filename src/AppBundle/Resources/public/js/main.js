@@ -1,6 +1,7 @@
 
 jQuery(document).ready(function ($) {
 
+    $('select').selectpicker();
 
     $(".marker-description button").click(function(){
         location.href=$(this).attr("id");
@@ -8,7 +9,7 @@ jQuery(document).ready(function ($) {
 
 
     $(".back-link").click(function(){
-        window.history.back();
+        window.history.back();return false;
     });
 
 
