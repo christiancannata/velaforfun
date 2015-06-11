@@ -1,6 +1,5 @@
 cp /var/www/velaforfun/app/config/services.yml /var/www/dev_velaforfun/app/config/
 cp /var/www/velaforfun/app/config/security.yml /var/www/dev_velaforfun/app/config/
-cp /var/www/velaforfun/app/config/config.yml /var/www/dev_velaforfun/app/config/
 cp /var/www/velaforfun/app/config/config_dev.yml /var/www/dev_velaforfun/app/config/
 cp /var/www/velaforfun/app/config/routing.yml /var/www/dev_velaforfun/app/config/
 
