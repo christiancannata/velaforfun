@@ -62,12 +62,11 @@
                 },
                 "id": {{ porto.getId() }}
             };
-            var map = L.mapbox.map('map', 'christian1488.m5b7ic2b') .setView([{{ porto.getLatitudine() }},{{ porto.getLongitudine() }}], 19);
+            var map = L.mapbox.map('map', 'christian1488.m5b7ic2b').setView([{{ porto.getLatitudine() }}, {{ porto.getLongitudine() }}], 19);
             arrayPorti.push(arrayPorto);
 
 
             myLayer = L.mapbox.featureLayer(arrayPorti).addTo(map);
-
 
 
 // This uses the HTML5 geolocation API, which is available on
@@ -157,7 +156,10 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="category">
-                <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>  <h1>Porto di {{ porto.nome }}</h1>
+                <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered"
+                                                                    aria-hidden="true"></span> </a>
+
+                <h1>Porto di {{ porto.nome }}</h1>
             </div>
 
         </div>
@@ -173,7 +175,7 @@
 
                         <div class="row clearfix" style="margin-bottom:10px !important">
                             <div class="col-md-6 col-xs-12 column text-left">
-                                <button  class="localizzami hvr-glow left" id='geolocate'><i style=""
+                                <button class="localizzami hvr-glow left" id='geolocate'><i style=""
                                                                                             class="fa fa-crosshairs"></i>Localizzami
                                 </button>
                             </div>
@@ -200,7 +202,7 @@
                     <div class="field-nuovo-commento">
                         <div class="row clearfix">
                             <div class="col-md-12 column">
-                                <p><strong>Scrivi un commento su questo porto</strong></p>
+                                <p><strong style="font-size: 20px">Scrivi un commento su questo porto</strong></p>
                             </div>
                         </div>
                         <div class="row clearfix">
@@ -216,29 +218,33 @@
                                                    class="form-control"
                                                    required placeholder="Scrivi un commento...">
 
-                                            <p style="margin-top:5px;margin-bottom: 0px">Esprimi un giudizio su questo
+                                            <p style="margin-top:5px;margin-bottom: 10px">Esprimi un giudizio su questo
                                                 porto:</p>
-                                            <input type="radio" value="POSITIVO"
-                                                   name="appbundle_commentoporto[tipoCommento]" id="radio1" checked/>
-                                            <label for="radio1" style="display: inline;width:auto">
-              POSITIVO
+                                            <a class="btn btn-primary check" style="color:white;margin-right: 20px;cursor:pointer">
+                                                <input  style="display:none" type="radio" value="POSITIVO"
+                                                       name="appbundle_commentoporto[tipoCommento]" id="radio1"
+                                                       checked/>
+                                                <label for="radio1" style="display: inline;width:auto;color:white !important;cursor:pointer">
+                                                    POSITIVO
+                                                </label>
+                                            </a>
 
-                                            </label>
+                                            <a class="btn btn-primary check checked"  style="color:white;margin-right: 20px;cursor:pointer">
+                                                <input style="display:none" type="radio" value="NEUTRO"
+                                                       name="appbundle_commentoporto[tipoCommento]" id="radio3"
+                                                       checked/>
+                                                <label for="radio3" style="display: inline;width:auto;color:white !important;cursor:pointer">
+                                                    NEUTRO
 
-                                            <input type="radio" value="NEUTRO"
-                                                   name="appbundle_commentoporto[tipoCommento]" id="radio3" checked/>
-                                            <label for="radio3" style="display: inline;width:auto">
-               NEUTRO
+                                                </label>
+                                            </a>
+                                            <a class="btn btn-primary check"  style="color:white;cursor:pointer">
+                                                <input  style="display:none" type="radio" value="NEGATIVO"
+                                                       name="appbundle_commentoporto[tipoCommento]" id="radio2"/>
+                                                <label for="radio2" style="display: inline;width:auto;color:white !important;cursor:pointer">
 
-                                            </label>
-
-
-                                            <input type="radio" value="NEGATIVO"
-                                                   name="appbundle_commentoporto[tipoCommento]" id="radio2"/>
-                                            <label for="radio2" style="display: inline;width:auto">
-
-                NEGATIVO
-                                            </label>
+                                                    NEGATIVO
+                                                </label></a>
                                         </div>
                                         <div class="col-md-1 column" style="padding:0">
                                             <a href="#"
@@ -251,43 +257,43 @@
                                     </form>
 
                                 {% else %}
-                                        <div class="row clearfix">
-                                            <div class="col-md-12 column">
-                                                <p>Devi effettuare l'accesso per scrivere un nuovo commento:</p>
+                                    <div class="row clearfix">
+                                        <div class="col-md-12 column">
+                                            <p>Devi effettuare l'accesso per scrivere un nuovo commento:</p>
 
-                                            </div>
                                         </div>
-                                        <div class="row clearfix">
-                                            <div class="col-md-8 column">
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-md-8 column">
 
 
-                                                <form action="/login_check" method="post">
-                                                    <div class="input-group">
-                                                        <span><i class="glyphicon glyphicon-user"></i></span>
-                                                        <input id="username" name="_username" type="text" value=""
-                                                               placeholder="Nome utente">
-                                                        <span><i class="glyphicon glyphicon-lock"></i></span>
-                                                        <input type="password" id="password" name="_password" value=""
-                                                               placeholder="Password">
-                                                        <button class="btn btn-default login hvr-glow small"
-                                                                type="submit">
-                                                            Accedi
-                                                        </button>
+                                            <form action="/login_check" method="post">
+                                                <div class="input-group">
+                                                    <span><i class="glyphicon glyphicon-user"></i></span>
+                                                    <input id="username" name="_username" type="text" value=""
+                                                           placeholder="Nome utente">
+                                                    <span><i class="glyphicon glyphicon-lock"></i></span>
+                                                    <input type="password" id="password" name="_password" value=""
+                                                           placeholder="Password">
+                                                    <button class="btn btn-default login hvr-glow small"
+                                                            type="submit">
+                                                        Accedi
+                                                    </button>
 
-                                                    </div>
-                                                </form>
-                                            </div>
-
-                                            <div class="col-md-4 column">
-
-
-                                                <a class="btn btn-block btn-social btn-sm btn-facebook loginFacebook"
-                                                   href="http://local.velaforfun.dev/secure_area/connect/facebook">
-                                                    <i class="fa fa-facebook"></i>
-                                                    Accedi con Facebook
-                                                </a>
-                                            </div>
+                                                </div>
+                                            </form>
                                         </div>
+
+                                        <div class="col-md-4 column">
+
+
+                                            <a class="btn btn-block btn-social btn-sm btn-facebook loginFacebook"
+                                               href="http://local.velaforfun.dev/secure_area/connect/facebook">
+                                                <i class="fa fa-facebook"></i>
+                                                Accedi con Facebook
+                                            </a>
+                                        </div>
+                                    </div>
 
 
 
@@ -313,23 +319,21 @@
         <div class="col-md-4 column" id="colonnaPorto" style="padding-top: 10px;">
 
 
-                    <div class="over-box">
-                        <form name="cerca_porti" id="formCercaPorto" action="/porti/{permalink}" method="GET">
-                            <div class="form-group">
-                                <div class="inner-addon left-addon">
-                                    <a onclick="$('#formCercaPorto').submit();" href="#"><i
-                                                class="fa fa-search"></i></a>
-                                    <input type="search" placeholder="cerca un porto..." class="form-control"
-                                           id="selectPorto" autocomplete="off">
-                                </div>
+            <div class="over-box">
+                <form name="cerca_porti" id="formCercaPorto" action="/porti/{permalink}" method="GET">
+                    <div class="form-group">
+                        <div class="inner-addon left-addon">
+                            <a onclick="$('#formCercaPorto').submit();" href="#"><i
+                                        class="fa fa-search"></i></a>
+                            <input type="search" placeholder="cerca un porto..." class="form-control"
+                                   id="selectPorto" autocomplete="off">
+                        </div>
 
-                            </div>
-
-
-                        </form>
                     </div>
 
 
+                </form>
+            </div>
 
 
             <div class="row clearfix">
@@ -352,18 +356,19 @@
                         <div class="col-md-8 column">
                             <div class="row clearfix">
                                 <div class="col-md-6 column">
-                                    <h4 id="porto-temperatura">{{ meteo.main.temp|number_format }}  <i class="wi wi-celsius" > </i></h4>
+                                    <h4 id="porto-temperatura">{{ meteo.main.temp|number_format }}  <i
+                                                class="wi wi-celsius"> </i></h4>
                                 </div>
                                 <div class="col-md-6 column">
                                     <p style="margin:0"><i class="wi wi-strong-wind"></i></p>
+
                                     <div id="porto-vento" style="margin-bottom: 10px;">{{ meteo.wind.speed }}km/h</div>
                                     <p style="margin:0">UMIDITA'</p>
-                                    <div id="porto-umidita" style="margin-bottom: 10px;">{{ meteo.main.humidity  }}%</div>
+
+                                    <div id="porto-umidita" style="margin-bottom: 10px;">{{ meteo.main.humidity }}%
+                                    </div>
                                 </div>
                             </div>
-
-
-
 
 
                         </div>
@@ -371,8 +376,15 @@
                     </div>
                     <div class="row clearfix">
                         <div class="col-md-12 column" style="text-align: left">
-                            <strong >Informazioni utili</strong>
+                            <strong>Informazioni utili</strong>
+
                             <p>{{ porto.datiOver|raw }}</p>
+                            <strong>Posti totali</strong>
+
+                            <p>{{ porto.postiTotale|raw }}</p>
+                            <strong>Posti di transito</strong>
+
+                            <p>{{ porto.postiTransito|raw }}</p>
                         </div>
 
                     </div>
@@ -390,13 +402,15 @@
                                 <p>Cerca tra gli annunci di chi vuole scambiare il suo posto barca e scegli in base alle
                                     tue preferenze</p>
                                 <button type="submit" class="btn btn-default login hvr-glow"
-                                        onclick="location.href='/annuncio-scambio-posto/cerca-annuncio'">CERCA TRA GLI ANNUNCI
+                                        onclick="location.href='/annuncio-scambio-posto/cerca-annuncio'">CERCA TRA GLI
+                                    ANNUNCI
                                 </button>
                             {% else %}
                                 <h2>{{ porto.getAnnunciScambioPosto()|length }} persone scambiano qui il suo posto
                                     barca</h2>
                                 <button type="submit" class="btn btn-default login hvr-glow"
-                                        onclick="location.href='/annuncio-scambio-posto/cerca-annuncio'">VISUALIZZA GLI ANNUNCI
+                                        onclick="location.href='/annuncio-scambio-posto/cerca-annuncio'">VISUALIZZA GLI
+                                    ANNUNCI
                                 </button>
 
                             {% endif %}
@@ -410,6 +424,7 @@
 
                     <div class="col-md-12 column box attracco">
                         <h3>Chi ha attraccato qui</h3>
+
                         <div class="divisore-big background-celeste"></div>
                         <div style="margin-bottom: 20px;">
 
@@ -481,6 +496,7 @@
                 <div class="row clearfix">
                     <div class="col-md-12 column box commento">
                         <h3>Commenti sul porto</h3>
+
                         <div class="divisore-big background-celeste"></div>
 
                         {% if porto.getCommenti is empty %}

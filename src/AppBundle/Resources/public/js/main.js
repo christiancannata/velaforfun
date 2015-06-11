@@ -12,7 +12,10 @@ jQuery(document).ready(function ($) {
         window.history.back();return false;
     });
 
-
+    $(".check").click(function(){
+        $(".check").removeClass("checked");
+        $(this).addClass("checked");
+    });
 
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
