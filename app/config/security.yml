@@ -38,11 +38,14 @@ security:
     access_control:
      - { path: /annuncio-imbarco/cerca-annuncio, roles: ROLE_USER }
      - { path: /annuncio-scambio-posto/nuovo-annuncio, roles: ROLE_USER }
+     - { path: /modifica/, roles: ROLE_ADMIN }
+     - { path: /elimina/, roles: ROLE_ADMIN }
+     - { path: /list, roles: ROLE_ADMIN }
+     - { path: /crea, roles: ROLE_ADMIN }
      - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
-    # - { path: /modifica/, roles: ROLE_ADMIN }
-    # - { path: /elimina/, roles: ROLE_ADMIN }
-    # - { path: /list, roles: ROLE_ADMIN }
+
+
     role_hierarchy:
            ROLE_SUPER_ADMIN: [ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_ANONYMOUSLY]
            ROLE_ADMIN: [ROLE_USER,IS_AUTHENTICATED_ANONYMOUSLY]

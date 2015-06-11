@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Nodi
+{% endblock %}
+
+
 {% block body %}
 
 
@@ -30,7 +34,7 @@
 
 <a href="/nodi/{{ nodo.permalink }}">
         <div class="box-home">
-            <div style="background-image: url(http://www.superedo.it/sfondi/sfondi/Trasporti/Barche%20A%20Vela/barche_a_vela_11.jpg);"
+            <div style="background-image: url(/images/nodi/{{ nodo.immagineCorrelataArticolo }});"
                  class="divBackgroundImage">
             </div>
             <div class="content">

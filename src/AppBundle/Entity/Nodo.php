@@ -36,7 +36,6 @@ class Nodo
     private $permalink;
 
 
-
     /**
      * @var string
      *
@@ -232,23 +231,28 @@ class Nodo
      *
      * @return string
      */
-    public function getWebimmagine() {
+    public function getWebimmagine()
+    {
 
         return '/'.$this->getUploadDir().'/'.$this->getimmagine();
     }
-
 
 
     /**
      * @ORM\PrePersist()
      * @ORM\PreUpdate()
      */
-    public function preUploadImmagineCorrelata() {
+    public function preUploadImmagineCorrelata()
+    {
         if (null !== $this->getImmagineCorrelata()) {
             // a file was uploaded
             // generate a unique filename
-            $oggi=new \DateTime();
-            $filename=str_replace('"','',str_replace("''","",str_replace(" ","-",$this->getNome())."-".$oggi->format("U")));
+            $oggi = new \DateTime();
+            $filename = str_replace(
+                '"',
+                '',
+                str_replace("''", "", str_replace(" ", "-", $this->getNome())."-".$oggi->format("U"))
+            );
             $this->setImmagineCorrelataArticolo($filename.'.'.$this->getImmagineCorrelata()->guessExtension());
         }
     }
@@ -258,18 +262,19 @@ class Nodo
      *
      * @return string
      */
-    public function generateRandomProfilePictureFilename() {
-        $count                  =   0;
+    public function generateRandomProfilePictureFilename()
+    {
+        $count = 0;
         do {
-            $oggi=new \DateTime();
+            $oggi = new \DateTime();
             $randomString = bin2hex($oggi->format("U"));
             $count++;
-        }
-        while(file_exists($this->getUploadRootDir().'/'.$randomString.'.'.$this->getProfilePictureFile()->guessExtension()) && $count < 50);
+        } while (file_exists(
+                $this->getUploadRootDir().'/'.$randomString.'.'.$this->getProfilePictureFile()->guessExtension()
+            ) && $count < 50);
 
         return $randomString;
     }
-
 
 
     /**
@@ -280,7 +285,8 @@ class Nodo
      *
      * @return mixed
      */
-    public function uploadImmagineCorrelata() {
+    public function uploadImmagineCorrelata()
+    {
         // check there is a profile pic to upload
         if ($this->getImmagineCorrelata() === null) {
             return;
@@ -301,22 +307,15 @@ class Nodo
     }
 
 
-    /**
-     * @ORM\PostRemove()
-     */
-    public function removeProfilePictureFile()
-    {
-        if ($file = $this->getProfilePictureAbsolutePath() && file_exists($this->getProfilePictureAbsolutePath())) {
-            unlink($file);
-        }
-    }
+
 
     /**
      * Get root directory for file uploads
      *
      * @return string
      */
-    protected function getUploadRootDir($type='profilePicture') {
+    protected function getUploadRootDir($type = 'profilePicture')
+    {
         // the absolute directory path where uploaded
         // documents should be saved
         return __DIR__.'/../../../web/'.$this->getUploadDir($type);
@@ -327,7 +326,8 @@ class Nodo
      *
      * @return string
      */
-    protected function getUploadDir($type='profilePicture') {
+    protected function getUploadDir($type = 'profilePicture')
+    {
         // the type param is to change these methods at a later date for more file uploads
         // get rid of the __DIR__ so it doesn't screw up
         // when displaying uploaded doc/image in the view.
@@ -335,5 +335,9 @@ class Nodo
     }
 
 
+    public function __toString()
+    {
+        return $this->nome;
+    }
 
 }
