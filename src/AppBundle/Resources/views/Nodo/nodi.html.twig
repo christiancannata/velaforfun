@@ -29,6 +29,7 @@
     </div>
 
 <div class="row nodi">
+ <div class="scroll-pane" style="height: 460px;width:100%;margin-bottom:20px">
     {% for nodo in nodi %}
     <div class="col-md-4 column">
 
@@ -58,15 +59,11 @@
 
 </a>
     </div>
-    {% if loop.index is divisibleby(3) %}
-</div>
-
-<div class="row nodi">
-    {% endif %}
 
     {% endfor %}
+    </div>
     <!-- fine contenuto -->
-
+</div>
 </div>
 
 {% endblock %}
