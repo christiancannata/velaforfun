@@ -17,6 +17,7 @@
                 $(".codice-morse-result").html($("#testo").val());
                 var morse = $(".codice-morse-result").morseCode({bpm: 12});
                 //  morse.emit;
+                $('.content-traduzione').removeClass('hidden');
             });
 
             $(".ascolta").click(function () {
