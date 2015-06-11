@@ -2013,3 +2013,7 @@ h3.panel-title {
 .check.checked,.check.checked:hover{
     background:  #23527c !important;
 }
+
+#cerca-form-header .form-control::-moz-placeholder{
+    color: white !important;
+}
