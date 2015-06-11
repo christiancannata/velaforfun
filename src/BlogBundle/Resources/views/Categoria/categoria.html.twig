@@ -105,8 +105,9 @@
         </div>
     </div>
     <div class="row clearfix">
+     <div class="scroll-pane" style="height: 430px;width:100%">
         {% for articolo in articoli|slice(4) %}
-  <div class="col-md-4 column">
+    <div class="col-md-4 column">
         <a href="/archivio/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}">
             <div class="box-sub hvr-glow">
                 <div class="foto">
@@ -123,15 +124,16 @@
 
 {% endfor %}
 </div>
+</div>
 
 
 {% if articoli[1] is defined %}
-        <div class="row clearfix">
+    <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="divisore-big"></div>
         </div>
     </div>
-   {% endif %}
+{% endif %}
     </div>
 
 
