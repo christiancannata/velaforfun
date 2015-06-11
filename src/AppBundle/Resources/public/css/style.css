@@ -94,7 +94,6 @@ form label {
     background: rgba(66, 156, 188, 0.8);
 }
 
-
 .article {
     float: left;
     width: 100%;
@@ -142,9 +141,11 @@ form label {
     opacity: 0.8;
 
 }
+
 .mfp-zoom-out-cur, .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
     cursor: inherit !important;
 }
+
 .content-title {
     background: rgba(66, 156, 188, 0.8) none repeat scroll 0 0;
     bottom: 10px;
@@ -850,7 +851,7 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
     color: white;
 }
 
-.right-inner-addon input:focus,input[type=search]:focus {
+.right-inner-addon input:focus, input[type=search]:focus {
     border-radius: 0;
     box-shadow: none;
 }
@@ -879,7 +880,7 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
 
 /* ie */
 input:-moz-placeholder {
-    color: white ;
+    color: white;
 }
 
 .social-menu a {
@@ -1029,7 +1030,6 @@ input:-moz-placeholder {
 .username {
     float: left;
 }
-
 
 /* Rounded avatars */
 .avatar-small {
@@ -1226,9 +1226,11 @@ h1 {
     padding: 10px;
     margin-top: 20px;
 }
-.field-nuovo-commento input[type=text]{
+
+.field-nuovo-commento input[type=text] {
     border-bottom: 1px solid #429CBC;
 }
+
 .field-nuovo-commento p {
     color: #429CBC;
 }
@@ -1453,7 +1455,8 @@ ul.share-buttons li {
     opacity: 1 !important;
 
 }
-.back-link{
+
+.back-link {
 
     color: white;
     height: 35px;
@@ -1461,6 +1464,7 @@ ul.share-buttons li {
     text-align: center;
     width: 35px;
 }
+
 #back-link:hover, #category-link:hover {
     opacity: 0.8;
 }
@@ -1507,9 +1511,11 @@ ul.share-buttons li {
     font-size: 16px;
     font-weight: bold;
 }
+
 .dropdown-menu {
     font-size: 16px !important;
 }
+
 .colonna-destra {
     background: white none repeat scroll 0 0;
     border-right: medium none;
@@ -1766,9 +1772,9 @@ th.left {
 
 .btn-toolbar {
     margin-bottom: 20px;
-    margin-right:0px;
+    margin-right: 0px;
     margin-left: 0px;
-    width:100%;
+    width: 100%;
 }
 
 .btn-toolbar a {
@@ -1807,7 +1813,7 @@ th.left {
     width: 100%;
 }
 
-.avatar-post img{
+.avatar-post img {
     display: block;
     margin: 0 0 0 10%;
     width: 50px;
@@ -1822,15 +1828,15 @@ th.left {
     padding: 0;
 }
 
-.post-forum blockquote{
-    background:rgb(254,251,215);
+.post-forum blockquote {
+    background: rgb(254, 251, 215);
     font-size: 12px;
     font-style: italic;
-    padding:15px;
+    padding: 15px;
 }
 
-.panel-primary{
-    background: rgba(66,156,188,0.2);
+.panel-primary {
+    background: rgba(66, 156, 188, 0.2);
 }
 
 .pagination {
@@ -1840,21 +1846,23 @@ th.left {
     margin: 20px 0;
     padding-left: 0;
 }
-.pagination span{
+
+.pagination span {
     margin-right: 7px;
     font-size: 18px;
 }
-.pagination .last a,.pagination .first a{
-    color:white;
-    background:rgb(66, 156, 188);
+
+.pagination .last a, .pagination .first a {
+    color: white;
+    background: rgb(66, 156, 188);
     font-size: 22px;
-    padding:5px;
+    padding: 5px;
 }
 
-#profileMenu .avatar-small{
-    margin-top:-40px;
-    margin-left:-4px;
-    width:50px;
+#profileMenu .avatar-small {
+    margin-top: -40px;
+    margin-left: -4px;
+    width: 50px;
 }
 
 .modal-body {
@@ -1862,62 +1870,63 @@ th.left {
     padding: 15px;
     position: relative;
 }
-.modal-body .form-control{
+
+.modal-body .form-control {
     border: 1px solid #ccc;
     border-radius: 0;
     box-shadow: none;
-    transition: none 0s ease 0s ;
+    transition: none 0s ease 0s;
 }
 
-
-form label{
+form label {
     font-size: 16px;
 }
 
-.btn-default,.btn-success,.btn-danger{
+.btn-default, .btn-success, .btn-danger {
     border-radius: 0px;
 }
 
-#Post_subscribe{
-    display:inline;
-    float:left;
-}
-label[for=Post_subscribe]{
-    display:inline;
-    margin-left:10px
+#Post_subscribe {
+    display: inline;
+    float: left;
 }
 
-#Post_body{
-    width:60%;
+label[for=Post_subscribe] {
+    display: inline;
+    margin-left: 10px
+}
+
+#Post_body {
+    width: 60%;
     height: 300px;
 }
 
-.redactor_editor{
+.redactor_editor {
     height: 200px;
 }
 
-#Post ul{
+#Post ul {
     list-style: none;
-    color:white;
-    background: rgba(242, 20, 35,0.5);
-    padding-bottom:10px;
-    padding-top:10px;
-font-size: 16px;
+    color: white;
+    background: rgba(242, 20, 35, 0.5);
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 16px;
 }
-.redactor_toolbar{
+
+.redactor_toolbar {
     background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #f1f1f1 0%, #e2e2e2 100%) repeat scroll 0 0 !important;
 }
 
-#btn-forum .btn{
+#btn-forum .btn {
     font-size: 20px;
 }
 
 .btn-toolbar .btn,
-.btn-toolbar i{
+.btn-toolbar i {
     font-size: 18px !important;
     margin-right: 10px;
 }
-
 
 .btn-social.btn-lg {
     margin: 0 auto !important;
@@ -1932,62 +1941,71 @@ font-size: 16px;
     width: 36px;
     height: 36px;
     padding: 8px;
-    float:left;
+    float: left;
     color: white;
     text-align: center;
     line-height: 26px;
     font-size: 32px;
 }
-.row-number{
+
+.row-number {
     float: left;
     height: 50px;
     margin-top: 20px;
 }
 
-.row-number h5{
+.row-number h5 {
     font-weight: bold;
-    color:rgb(66, 156, 188);
-    float:left;
-    margin-left:5px;
+    color: rgb(66, 156, 188);
+    float: left;
+    margin-left: 5px;
     font-size: 20px;
-    width:85%;
-    margin-top:5px;
+    width: 85%;
+    margin-top: 5px;
 }
 
-#body-content a:hover{
+#body-content a:hover {
     text-decoration: underline;
     color: rgb(35, 82, 124);
 }
-.breadcrumb h3,.breadcrumb h1{
+
+.breadcrumb h3, .breadcrumb h1 {
     text-transform: uppercase;
-    font-size:28px;
+    font-size: 28px;
 }
-.breadcrumb h3:hover{
+
+.breadcrumb h3:hover {
     text-decoration: underline;
 }
 
-.timestamper{
-    float:right
+.timestamper {
+    float: right
 }
 
-h3.panel-title{
-font-size: 20px !important;
+h3.panel-title {
+    font-size: 20px !important;
 }
 
-.media-list .avatar-small{
-    margin-top:5px;
+.media-list .avatar-small {
+    margin-top: 5px;
 }
 
-.media-list H4{
-    font-size:18px !important;
+.media-list H4 {
+    font-size: 18px !important;
 }
 
-#body-content input[type=text],#body-content input[type=password],#body-content input[type=email]{
+#body-content input[type=text], #body-content input[type=password], #body-content input[type=email] {
     border-bottom: 1px solid rgb(66, 156, 188);
 }
-#body-content textarea{
-    border: 1px solid rgb(66, 156, 188);
+
+#body-content textarea {
+    border-bottom: 1px solid rgb(66, 156, 188);
 }
-#loginFacebook:hover{
+
+#loginFacebook:hover {
     text-decoration: none !important;
+}
+
+.tr-forum .td-boarded {
+    padding-right: 8px;
 }
