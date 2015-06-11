@@ -301,27 +301,14 @@
                                             {% endif %}
                                         {% endif %}
                                     </a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 
+                                        <li class="dropdown-header">Profilo</li>
+                                        <li><a href="/tuo-profilo/">Modifica dati</a></li>
+                                        <li><a href="#">I tuoi annunci</a></li>
                                     {% if not is_granted('ROLE_SUPER_ADMIN') %}
 
-                                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                                       href="/tuo-profilo">
-                                                    <i class="fa fa-user"></i>
-                                                    Il tuo profilo</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1"
-                                                                       href="/tuoi-annunci">
-                                                    <i class="fa fa-pencil"></i>
-                                                    I tuoi annunci</a>
-                                            </li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">
-                                                    <i class="fa fa-sign-out"></i>
-                                                    Esci</a>
-                                            </li>
-                                        </ul>
                                     {% else %}
-                                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-
 
                                             <li class="dropdown-header">Gestione Articoli</li>
                                             <li><a href="/archivio/articoli/crea">Crea nuovo</a></li>
@@ -336,15 +323,13 @@
                                             <li><a href="/nodi/list">Lista</a></li>
 
                                             <li class="divider"></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">
-                                                    <i class="fa fa-sign-out"></i>
-                                                    Esci</a>
-                                            </li>
-                                        </ul>
 
                                     {% endif %}
-
-
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">
+                                                <i class="fa fa-sign-out"></i>
+                                                Esci</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </li>
                         </ul>
@@ -374,7 +359,8 @@
                                         <!--  <input type="hidden" name="_target_path" value="{{ app.request.get('_route') }}" />
 -->
                                         <button type="submit" class="btn btn-default login hvr-glow">Accedi</button>
-                                    </form>
+                                    <a href="">Dimenticato la password?</a>
+                                        </form>
 
                                     <div class="divisore"></div>
                                     <span style="color:white;text-align:center;float:left;width:100%;margin-bottom:10px">oppure</span>

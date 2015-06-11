@@ -1,0 +1,70 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Recupera Password
+{% endblock %}
+
+    {% block body %}
+
+  <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="category">
+            <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>  <h1>Recupera Password</h1>
+        </div>
+        </div>
+    </div>
+    <!-- contenuto -->
+
+    <div class="row clearfix" id="content-articolo" style="min-height: 250px">
+        <div class="col-md-8 column"  id="body-content" style="min-height: 250px">
+
+
+            <div class="col-md-12 column" style="">
+
+<form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+    <div>
+        {% if invalid_username is defined %}
+        <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
+    {% endif %}
+<div class="form-group">
+
+        <label for="username">Inserisci il tuo indirizzo email</label>
+        <input type="email" id="username" name="username" class="form-control" required="required" />
+
+         </div>
+    </div>
+    <div>
+        <input type="submit" class="btn btn-default login hvr-glow" value="Recupera password" />
+    </div>
+</form>
+
+
+
+</div>
+
+
+
+        </div>
+
+
+
+            <!-- fine contenuto -->
+        </div>
+
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="divisore-big"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    {% endblock %}
+
+

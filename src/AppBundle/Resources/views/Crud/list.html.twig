@@ -5,6 +5,16 @@
 
 {% endblock %}
 
+    {% set base_path = path(app.request.attributes.get('_route'))|split('/') %}
+
+    {% if base_path|length > 3 %}
+        {% set base_path =  '/'~base_path[1]~'/'~base_path[3] %}
+
+    {% else %}
+        {% set base_path =  '/'~base_path[1] %}
+    {% endif %}
+
+{% block title %}{{ base_path }}{% endblock %}
 
 {% block javascripts %}
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
@@ -18,18 +28,9 @@
 
 {% block body %}
 
-    {% set base_path = path(app.request.attributes.get('_route'))|split('/') %}
-
-    {% if base_path|length > 3 %}
-        {% set base_path =  '/'~base_path[1]~'/'~base_path[3] %}
-
-    {% else %}
-        {% set base_path =  '/'~base_path[1] %}
-    {% endif %}
-
     <div class="col-md-12 column">
         <div class="category">
-            <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>   <h1>{%   if titolo is defined %} {{ titolo }} {% endif %}</h1>
+            <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>   <h1>{{ base_path }}</h1>
         </div>
 
     </div>

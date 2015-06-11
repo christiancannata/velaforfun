@@ -1981,3 +1981,13 @@ font-size: 20px !important;
 .media-list H4{
     font-size:18px !important;
 }
+
+#body-content input[type=text],#body-content input[type=password],#body-content input[type=email]{
+    border-bottom: 1px solid rgb(66, 156, 188);
+}
+#body-content textarea{
+    border: 1px solid rgb(66, 156, 188);
+}
+#loginFacebook:hover{
+    text-decoration: none !important;
+}

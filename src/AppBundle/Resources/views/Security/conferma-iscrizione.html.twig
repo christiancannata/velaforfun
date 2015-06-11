@@ -3,19 +3,36 @@
 
 
 
-
 <div class="row clearfix">
-    <div class="col-md-12 column">
-            <h1>{{ 'header.connecting' | trans({}, 'HWIOAuthBundle') }}</h1>
+            <div class="col-md-12 column">
+
+                <div class="category">
+                    <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered"
+                                                                        aria-hidden="true"></span> </a>
+
+                    <h1>{{ 'header.connecting' | trans({}, 'HWIOAuthBundle') }}</h1>
+                </div>
+            </div>
 
         </div>
-
-    </div>
-</div>
     <!-- contenuto -->
 
     <div class="row clearfix">
-        <div class="col-md-8 column">
+        <div class="col-md-8 column"  id="content-articolo">
+
+   <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <h2>Collega il tuo account Facebook</h2>
+
+                        <div class="divisore-big"></div>
+
+                    </div>
+                </div>
+
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div id="body-content" style="min-height: 10px;margin-bottom: 10px">
+
 
 
 
@@ -29,7 +46,7 @@
                                 {{ form_widget(form) }}
                                 <div>
                                     <button type="submit"
-                                            class="btn btn-primary">{{ 'connect.confirm.submit' | trans({}, 'HWIOAuthBundle') }}</button>
+                                            class="btn btn-primary">COLLEGA IL TUO ACCOUNT</button>
                                     <a href="{{ path('hwi_oauth_connect') }}"
                                        class="btn">{{ 'connect.confirm.cancel' | trans({}, 'HWIOAuthBundle') }}</a>
                                 </div>
@@ -39,8 +56,16 @@
                         <div class="span6" id="profilePictureDiv">
                             {% if userInformation.profilePicture is defined and userInformation.profilePicture is not empty %}
         <img src="{{ userInformation.profilePicture }}"/>
-                             {% endif %}
+    {% endif %}
                         </div>
+
+
+                        </div>
+                    </div>
+                    </div>
+
+
+
 
 
         </div>
@@ -49,6 +74,8 @@
 
 
         </div>
+    </div>
+
     </div>
     <!-- fine contenuto -->
 

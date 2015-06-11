@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+
+{% block title %}
+    Connessione effettuata
+{% endblock %}
   {% block body %}
 
 
@@ -8,24 +12,35 @@
                   <h1>Connessione effettuata</h1>
 
         </div>
-
-    </div>
 </div>
       <!-- contenuto -->
 
-      <div class="row clearfix">
+      <div class="row clearfix" id="content-articolo" style="min-height: 10px!important;margin-bottom: 20px">
+
+
           <div class="col-md-8 column">
 
 
+ <div class="row clearfix">
+        <div class="col-md-12 column" >
+        <div id="body-content" style="">
+
+            <div >
                     <h3>{{ 'header.success' | trans({'%name%': userInformation.realName}, 'HWIOAuthBundle') }}</h3>
+  </div>
+
+  <button type="submit" onclick="location.href='/'" class="btn btn-default login hvr-glow" style="margin-top:70px">TORNA ALLA HOMEPAGE</button>
+
+        </div>
+</div>
+
+        </div>
+
 
 
                       </div>
-        <div class="col-md-4 column">
+                      </div>
 
-
-
-        </div>
     </div>
     <!-- fine contenuto -->
 

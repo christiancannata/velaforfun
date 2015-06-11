@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
 
+
+{% block title %}Registrati{% endblock %}
+
+
 {% block javascripts %}
 <script language="javascript">
     $(document).ready(function(){
@@ -14,15 +18,19 @@
 {% endblock %}
     {% block body %}
 
-  <div class="row clearfix">
+
+<div class="row clearfix">
         <div class="col-md-12 column">
-            <h1>{{ 'header.register' | trans({'%name%': userInformation.realName}, 'HWIOAuthBundle') }}</h1>
+            <div class="category">
+            <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>  <h1>{{ 'header.register' | trans({'%name%': userInformation.realName}, 'HWIOAuthBundle') }}</h1>
+        </div>
         </div>
     </div>
+
     <!-- contenuto -->
 
-    <div class="row clearfix">
-        <div class="col-md-8 column">
+    <div class="row clearfix" id="content-articolo">
+        <div class="col-md-8 column"  id="body-content" >
  <div class="span6">
             <form action="{{ path('hwi_oauth_connect_registration', {'key': key}) }}" {{ form_enctype(form) }} method="POST" class="hwi_oauth_registration_register">
                 {{ form_widget(form) }}

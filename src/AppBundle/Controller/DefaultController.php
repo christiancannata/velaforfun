@@ -2,10 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
+use AppBundle\Form\Type\RegistrationFormType;
 
 class DefaultController extends Controller
 {
@@ -77,6 +78,47 @@ class DefaultController extends Controller
     {
 
         return $this->render('default/contatti.html.twig', array());
+    }
+
+    /**
+     * @Route("/tuo-profilo/modifica-dati", name="modifica_dati")
+     */
+    public function modificaDatiAction(Request $request)
+    {
+        $postform = $this->createForm(new RegistrationFormType(), $this->getUser());
+
+        if ($request->isMethod('POST')) {
+
+            $postform->handleRequest($request);
+
+            if ($postform->isValid()) {
+
+
+                /*
+                 * $data['title']
+                 * $data['body']
+                 */
+                $em = $this->getDoctrine()->getManager();
+
+                $em->flush();
+
+
+                $response['success'] = true;
+
+            } else {
+
+                $response['success'] = false;
+                $response['cause'] = $postform->getErrors();
+
+            }
+
+            return new JsonResponse($response);
+        }
+
+        return $this->render(
+            'default/modifica-dati.html.twig',
+            array('form' => $postform->createView())
+        );
     }
 
 
