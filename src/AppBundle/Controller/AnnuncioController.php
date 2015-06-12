@@ -19,10 +19,10 @@ class AnnuncioController extends BaseController
     protected $entity = "Annuncio";
 
     /**
-     * @Route( "crea", name="create_annuncio" )
+     * @Route( "nuovo-annuncio", name="crea_nuovo_annuncio" )
      * @Template()
      */
-    public function createAction(Request $request)
+    public function nuovoAnnuncioAction(Request $request)
     {
         $postform = $this->createForm(new AnnuncioType());
 
@@ -37,37 +37,22 @@ class AnnuncioController extends BaseController
 
                 $repository = $this->container->get('doctrine')
                     ->getRepository('AppBundle:User');
-                $user = $repository->findOneBy(array("email" => $annuncio->getEmail()));
-                if (!$user) {
-                    $userManager = $this->container->get('fos_user.user_manager');
-                    $user = $userManager->createUser();
-                    $user->setEmail($annuncio->getEmail());
-                    $user->setNome($annuncio->getReferente());
-                    $username = strtolower(str_replace(" ", "", $annuncio->getReferente()));
-                    $user->setUsername($username);
-                    $user->setPlainPassword($username."1");
-                    $user->setEnable(true);
-                    $em->persist($user);
-                    $em->flush();
-                }
 
+
+                $board = $this->container->get('doctrine')
+                    ->getRepository('CCDNForumForumBundle:Board')->find(6);
 
                 $firstTopic = new Topic();
-                $firstTopic->setTitle($annuncio->getTitolo());
+
+
+                $firstTopic->setTitle(
+                    $annuncio->getTitolo()
+                );
                 $firstTopic->setCachedViewCount(1);
 
-                if ($annuncio->getTipo() == "COMPRO") {
-                    $firstTopic->setBoard(
-                        $this->container->get('doctrine')
-                            ->getRepository('CCDNForumForumBundle:Board')->find(17)
-                    );
-                } else {
-                    $firstTopic->setBoard(
-                        $this->container->get('doctrine')
-                            ->getRepository('CCDNForumForumBundle:Board')->find(18)
-                    );
-                }
-
+                $firstTopic->setBoard(
+                    $board
+                );
 
                 $em->persist($firstTopic);
                 $em->flush();
@@ -77,7 +62,7 @@ class AnnuncioController extends BaseController
                 $post->setTopic($firstTopic);
                 $post->setCreatedDate(new \DateTime());
                 $post->setCreatedBy(
-                    $user
+                    $this->getUser()
                 );
 
 
@@ -92,8 +77,17 @@ class AnnuncioController extends BaseController
                 $em->flush();
 
 
+                $this->allertaAnnunci($annuncio);
+
+                $firstTopic->setFirstPost($post);
+                $firstTopic->setLastPost($post);
+                $em->merge($firstTopic);
+                $board->setLastPost($post);
+                $em->persist($board);
+                $em->flush();
+
                 $response['success'] = true;
-                $response['response'] = $annuncio->getId();
+                $response['response'] = $firstTopic->getId();
 
 
             } else {
@@ -107,10 +101,7 @@ class AnnuncioController extends BaseController
             return new JsonResponse($response);
         }
 
-        return $this->render(
-            'AppBundle:Crud:create.html.twig',
-            array('form' => $postform->createView(), "titolo" => "Crea ".$this->entity)
-        );
+        return $this->render('AppBundle:AnnuncioScambioPosto:crea.html.twig', array("form" => $postform->createView()));
     }
 
 
@@ -141,5 +132,144 @@ class AnnuncioController extends BaseController
     public function eliminaAction(Request $request, $id)
     {
         return $this->delete($id);
+    }
+
+
+
+    /**
+     * @Route( "cerca-annuncio", name="cerca_annuncio" )
+     * @Template()
+     */
+    public function cercaAnnuncioAction(Request $request)
+    {
+
+
+        $annunci = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioScambioPosto')->findAll();
+
+        $postform = $this->createForm(new AnnuncioScambioPostoType());
+
+        if ($request->isMethod('POST')) {
+            $params = $request->request->all();
+            if (isset($params['appbundle_annuncioscambioposto']['notifica']) && $params['appbundle_annuncioscambioposto']['notifica'] == 1) {
+                unset($params['appbundle_annuncioscambioposto']['notifica']);
+                $request->request->set('appbundle_annuncioscambioposto', $params['appbundle_annuncioscambioposto']);
+                $postform->handleRequest($request);
+                if ($postform->isValid()) {
+                    $annuncio = $postform->getData();
+                    $em = $this->container->get('doctrine')->getManager();
+
+                    $repository = $this->container->get('doctrine')
+                        ->getRepository('AppBundle:User');
+
+
+                    $user = $this->getUser();
+
+                    $luogoCercato=ucwords(str_replace("_"," ",strtolower($annuncio->getLuogoRicercato())));
+
+                    $annuncio->setUtente($user);
+                    $annuncio->setDescrizione("Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$luogoCercato);
+                    $firstTopic = new Topic();
+                    $firstTopic->setTitle(
+                        "Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$luogoCercato
+                    );
+                    $firstTopic->setCachedViewCount(1);
+                    $board = null;
+
+
+                    $board = $this->container->get('doctrine')
+                        ->getRepository('CCDNForumForumBundle:Board')->find(11);
+
+
+                    $firstTopic->setBoard(
+                        $board
+                    );
+
+                    $em->persist($firstTopic);
+                    $em->flush();
+
+
+                    $post = new Post();
+                    $post->setTopic($firstTopic);
+                    $post->setCreatedDate(new \DateTime());
+                    $post->setCreatedBy(
+                        $user
+                    );
+
+
+                    $post->setBody($annuncio->getDescrizione());
+
+                    $em->persist($post);
+                    $em->flush();
+
+
+                    $annuncio->setTopic($firstTopic);
+                    $em->persist($annuncio);
+                    $em->flush();
+
+
+                    $this->allertaAnnunci($annuncio);
+
+                    $firstTopic->setFirstPost($post);
+                    $firstTopic->setLastPost($post);
+                    $em->merge($firstTopic);
+                    $board->setLastPost($post);
+                    $em->persist($board);
+                    $em->flush();
+
+
+                } else {
+                    die(var_dump($this->getErrorsAsArray($postform)));
+
+                }
+
+            }
+
+            $annunci = $this->getDoctrine()
+                ->getRepository('AppBundle:AnnuncioScambioPosto')->findBy(
+                    array(
+                        "luogoAttuale" => $params['appbundle_annuncioscambioposto']['luogoRicercato']
+                    ),
+                    array('id' => 'desc')
+                );
+
+
+            $serializer = $this->container->get('jms_serializer');
+            $serialized = $serializer->serialize($annunci, "json");
+
+            return new JsonResponse(json_decode($serialized));
+        }
+
+        return $this->render(
+            'AppBundle:AnnuncioScambioPosto:cerca.html.twig',
+            array("annunci" => $annunci, "form" => $postform->createView())
+        );
+    }
+
+    private function allertaAnnunci($annuncio)
+    {
+
+    }
+
+
+    /**
+     * @Route("/", name="annunci_home")
+     */
+    public function annunciAction()
+    {
+
+        $annunci = $this->getDoctrine()
+            ->getRepository('AppBundle:Annuncio')->findAll();
+        $titolo = "Annunci Vendo/Compro";
+
+
+        $form['vars'] = array("full_name" => "appbundle_annuncio");
+
+
+        return $this->render(
+            'AppBundle:Annuncio:lista.html.twig',
+            array("annunci" => $annunci, "titolo" => $titolo,"form" => $form)
+        );
+
     }
 }

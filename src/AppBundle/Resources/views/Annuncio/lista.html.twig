@@ -1,0 +1,202 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+    Annunci cerco/offro imbarco
+{% endblock %}
+
+
+
+{% block javascripts %}
+    <script language="javascript">
+        $(document).ready(function () {
+            $('.vendo').click(function () {
+                $('#modalVideo').modal('show');
+            });
+        });
+    </script>
+{% endblock %}
+
+
+
+{% block body %}
+
+
+    <!-- contenuto -->
+    <div class="row clearfix">
+
+
+        <div class="col-md-12 column">
+            <div class="category">
+                <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered"
+                                                                    aria-hidden="true"></span> </a>
+
+                <h1>{{ titolo }}</h1>
+            </div>
+        </div>
+
+
+        <div class="row clearfix">
+            <div class="col-md-8 column">
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                    </div>
+                </div>
+
+
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th>Titolo</th>
+                                <th align="center" class="center" style="width:60px;">Inserito il</th>
+                                <th align="center" class="center" style="width:60px;"><i class="fa fa-reply"></i></th>
+                                <th align="center" class="center" style="width:60px;"><i class="fa fa-eye"></i></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for annuncio in annunci %}
+                                <tr class="tr-forum">
+                                    <td class="left">{{ annuncio.topic.title }}</td>
+                                    <td align="center" class="center"
+                                        style="width: 100px;padding:10px 0px 10px 0px !important;">
+                                        <div class="td-boarded">{{ annuncio.timestamp|date("d/m/Y H:i") }}</div>
+                                    </td>
+                                    <td align="center" class="center"
+                                        style="width: 100px;padding:10px 0px 10px 0px !important;">
+                                        <div class="td-boarded"><span title="{{ annuncio.topic.getCachedReplyCount() }}"
+                                                                      class="label label-info lead">{{ annuncio.topic.getCachedReplyCount() }}</span>
+                                        </div>
+                                    </td>
+                                    <td align="center" class="center"
+                                        style="width: 100px;padding:10px 0px 10px 0px !important;">
+                                        <div class="td-boarded"><span title="{{ annuncio.topic.getCachedViewCount() }}"
+                                                                      class="label label-info lead">{{ annuncio.topic.getCachedViewCount() }}</span>
+                                        </div>
+                                    </td>
+                                    <td align="center" class="center"
+                                        style="padding:10px 0px 10px 0px !important;width:150px;">
+                                        <div class="td-boarded">
+                                            <button style="margin-top: 12px;" type="button"
+                                                    class="btn btn-primary hvr-glow "
+                                                    onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'">
+                                                Leggi Annuncio
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 column">
+                <div class="content">
+                    <div class="colonna-destra" style="margin-bottom: 20px">
+                        <h2>Vuoi vendere qualcosa?</h2>
+
+                        <p>Se possiedi una barca o sei in contatto per poter offrire un imbarco pagato o a pagamento</p>
+                        <button type="submit" class="btn btn-default login hvr-glow vendo"
+                               >CREA ORA IL TUO ANNUNCIO
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+        <!-- fine contenuto -->
+
+    </div>
+
+
+
+
+
+
+
+    <div id="modalVideo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+
+
+                    <form action="nuovo-annuncio" method="post" name="appbundle_annuncio">
+                        <div id="appbundle_annuncio">
+                            <div class="form-group"><label for="appbundle_annuncio_referente"
+                                                           class="control-label required">Referente</label><input
+                                        type="text" class="form-control" required="required"
+                                        name="appbundle_annuncio[referente]" id="appbundle_annuncio_referente"></div>
+                            <div class="form-group"><label for="appbundle_annuncio_titolo"
+                                                           class="control-label required">Titolo</label><input
+                                        type="text" class="form-control" required="required"
+                                        name="appbundle_annuncio[titolo]" id="appbundle_annuncio_titolo"></div>
+                            <div class="form-group"><label for="appbundle_annuncio_email"
+                                                           class="control-label required">Email</label><input
+                                        type="text" class="form-control" required="required"
+                                        name="appbundle_annuncio[email]" id="appbundle_annuncio_email"></div>
+                            <div class="form-group">
+                                <input type="hidden" value="VENDO" name="appbundle_annuncio[tipo]"
+                                       id="appbundle_annuncio_tipo">
+                            </div>
+                            <div class="form-group"><label for="appbundle_annuncio_descrizione"
+                                                           class="control-label required">Descrizione</label><textarea
+                                        class="form-control" required="required" name="appbundle_annuncio[descrizione]"
+                                        id="appbundle_annuncio_descrizione"></textarea></div>
+                        </div>
+                        <div>
+                            <input type="submit" value="Crea" class="btn btn-default login hvr-glow">
+                        </div>
+                        <input type="hidden" value="redirectScambioPosto" class="callback">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="modal fade" id="annuncioCreato">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Annuncio Cerco posto barco</h4>
+                </div>
+                <div class="modal-body" style="min-height: 10px;">
+                    <p>Complimenti, il tuo annuncio è stato creato con successo!<br>
+                        Riceverai una mail di notifica ogni volta che viene inserito un annuncio che rispondono alle tue
+                        preferenze!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
+
+{% endblock %}
+
+
+
