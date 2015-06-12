@@ -179,13 +179,13 @@ board:
     topic-count-label:                 "Topics: "
     post-count-label:                  "Posts: "
     description-label:                 "Descrizione: "
-    confirm-delete-label:              "I confirm I want to delete this Board."
+    confirm-delete-label:              "Confermo di vole cancellare la board"
     confirm-delete-subordinates-label: "Also delete topics."
     roles:
-        topic-create-label:            "Topic Create Roles: "
-        topic-view-label:              "Topic View Roles: "
-        topic-reply-label:             "Topic Reply Roles: "
-    no-topics:                         "There are no topics for this board, be the first to post one!"
+        topic-create-label:            "Permessi per creare topic: "
+        topic-view-label:              "Permessi per vedere topic: "
+        topic-reply-label:             "Permessi per rispondere ai topic: "
+    no-topics:                         "Non ci sono topic in questa board!"
 topic:
     label:                             "Topic: "
     board-label:                       "Board: "
