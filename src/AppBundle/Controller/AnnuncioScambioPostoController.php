@@ -144,9 +144,13 @@ class AnnuncioScambioPostoController extends BaseController
             ->getRepository('AppBundle:AnnuncioScambioPosto')->findAll();
         $titolo = "Annunci Imbarco";
 
+
+        $form['vars'] = array("full_name" => "appbundle_annuncioscambioposto");
+
+
         return $this->render(
             'AppBundle:AnnuncioScambioPosto:lista.html.twig',
-            array("annunci" => $annunci, "titolo" => $titolo)
+            array("annunci" => $annunci, "titolo" => $titolo,"form" => $form)
         );
 
     }
