@@ -61,6 +61,8 @@
                     geolocate.innerHTML = 'Geolocation is not available';
                 } else {
                     geolocate.onclick = function (e) {
+
+
                         e.preventDefault();
                         e.stopPropagation();
                         map.locate();
@@ -70,26 +72,27 @@
 // Once we've got a position, zoom and center the map
 // on it, and add a single marker.
                 map.on('locationfound', function (e) {
-                    map.fitBounds(e.bounds);
 
                     $("#latitudine").val(e.latlng.lat);
                     $("#longitudine").val(e.latlng.lng);
 
-                    myLayer.setGeoJSON({
-                        type: 'Feature',
-                        geometry: {
-                            type: 'Point',
-                            coordinates: [e.latlng.lng, e.latlng.lat]
-                        },
-                        properties: {
-                            "marker-color": "#fc4353",
-                            'marker-symbol': 'cross'
-                        }
-                    });
+                    if(marker!=""){
+                        map.removeLayer(marker);
+                    }
+
+                    marker = L.marker([e.latlng.lat, e.latlng.lng]);
+                    marker.setIcon(L.mapbox.marker.icon({
+                        "marker-color": "#429CBC",
+                        'marker-symbol': 'star',
+                        'marker-size': 'medium'
+                    }));
+                    $("#latitudine").val(e.latlng.lat);
+                    $("#longitudine").val(e.latlng.lng);
+                    marker.addTo(map);
+
 
                     // And hide the geolocation button
-                    geolocate.parentNode.removeChild(geolocate);
-
+                    $("#geolocate").after('<div role="alert" id="alertdiv" class="alert alert-success"><span>Geolocalizzazione effettuata!</span></div>');
 
                 });
 

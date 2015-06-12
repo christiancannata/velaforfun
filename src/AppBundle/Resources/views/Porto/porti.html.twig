@@ -35,7 +35,7 @@
 
 
         $(document).ready(function () {
-
+            var marker="";
 
             // Provide your access token
             L.mapbox.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFuMTQ4OCIsImEiOiJZaldjZlM0In0.hXiRMyyCDLdQZUrqXF2eNw';
@@ -95,23 +95,26 @@
 // Once we've got a position, zoom and center the map
 // on it, and add a single marker.
             map.on('locationfound', function (e) {
-                map.fitBounds(e.bounds);
 
-                myLayer.setGeoJSON({
-                    type: 'Feature',
-                    geometry: {
-                        type: 'Point',
-                        coordinates: [e.latlng.lng, e.latlng.lat]
-                    },
-                    properties: {
-                        'title': 'Here I am!',
-                        'marker-color': '#ff8888',
-                        'marker-symbol': 'star'
-                    }
-                });
+                if(marker!=""){
+                    map.removeLayer(marker);
+                }
+
+
+                marker = L.marker([e.latlng.lat, e.latlng.lng]);
+                marker.setIcon(L.mapbox.marker.icon({
+                    "marker-color": "#fc4353",
+                    'marker-symbol': 'star',
+                    'marker-size': 'medium'
+                }));
+                $("#latitudine").val(e.latlng.lat);
+                $("#longitudine").val(e.latlng.lng);
+                marker.addTo(map);
+
 
                 // And hide the geolocation button
-                geolocate.parentNode.removeChild(geolocate);
+                $("#geolocate").after('<div role="alert" id="alertdiv" class="alert alert-success"><span>Geolocalizzazione effettuata!</span></div>');
+
             });
 
 // If the user chooses not to allow their location
