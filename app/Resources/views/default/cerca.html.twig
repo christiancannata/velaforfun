@@ -41,10 +41,13 @@
                     <div class="col-md-12 column">
                         <div id="body-content" style="min-height: 10px;margin-bottom: 10px">
                             <p>
-
+                            <table class="table">
                                 {% for risultato in categoria.results %}
-                                    <a href="{{ risultato.link }}">{{ risultato.name }}</a><br>
+                               <tr><td>{{ risultato.name }}</td><td> <a href="{{ risultato.link }}"><button class="btn btn-primary pull-right hvr-glow" >VAI ALLA PAGINA</button></a></td></tr>
+
                                 {% endfor %}
+                            </table>
+
                             </p>
                         </div>
                     </div>

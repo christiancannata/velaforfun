@@ -3255,6 +3255,7 @@ var RLANG = {
 					}
 
 					// ajax upload
+
 					this.uploadInit('redactor_file',
 					{
 						auto: true,
@@ -3314,6 +3315,7 @@ var RLANG = {
 		},
 		imageUploadCallback: function(data)
 		{
+
 			this._imageSet(data);
 		},
 		_imageSet: function(json, link)

@@ -18,6 +18,11 @@ nodi:
     type:     annotation
     prefix:   /nodi
 
+images:
+    resource: "@AppBundle/Controller/ImageController.php"
+    type:     annotation
+    prefix:   /images
+
 foto:
     resource: "@AppBundle/Controller/FotoController.php"
     type:     annotation

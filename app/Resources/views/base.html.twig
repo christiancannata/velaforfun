@@ -506,7 +506,7 @@
 
 
 {% if form is defined %}
-    <script src="/redactor/redactor.min.js"></script>
+    <script src="/redactor/redactor.js"></script>
     <script language="javascript">
 
         $(document).ready(function () {
@@ -521,11 +521,11 @@
 
             }
 
-            if ($("#Post textarea").length > 0) {
+            if ($("#Post textarea,#blogbundle_articolo textarea").length > 0) {
                 $('textarea').redactor({
-                    imageUpload: '/redactor/image_upload.php',
-                    fileUpload: '/redactor/file_upload.php',
-                    imageGetJson: '/redactor/json/data.json'
+                    imageUpload: '/images/upload',
+                    fileUpload: '/images/upload',
+                    imageGetJson: '/images/list'
                 });
             }
 
