@@ -71,5 +71,72 @@ class ImportArticoliCommand extends ContainerAwareCommand
         }
 
 
+
+
+
+
+
+        //IMPORT DELLE RICETTE
+
+
+        $query = "select * from ricette";
+
+        $res = $this->connection->executeQuery($query)->fetchAll();
+
+        $this->output->writeln("<comment>Importing ".count($res)." </comment>");
+
+        foreach ($res as $data) {
+
+            $utente = $this->getContainer()->get('doctrine')
+                ->getRepository('BlogBundle:Articolo')->findOneByTitolo($data['titolo']);
+
+            if ($utente) {
+                $this->output->writeln("<comment>Gia presente: ".$data['titolo']." </comment>");
+            } else {
+                $this->output->writeln("<comment>Importing: ".$data['titolo']." </comment>");
+
+                $utente = new Articolo();
+
+                $utente->setTitolo($data['titolo']);
+
+
+                $testo="Tempo: ".$data['tempo'];
+                $testo.="<br><br>Persone: ".$data['persone'];
+                $testo.="<br><br>".$data['ingredienti'];
+                $testo.="<br><br>".$data['ricetta'];
+
+                $utente->setTesto($testo);
+                $utente->setAutore(
+                    $this->getContainer()->get('doctrine')
+                        ->getRepository('AppBundle:User')->findOneByUsername($data['Autore'])
+                );
+
+
+                $mappaGeneri=array(
+                    0=>20,
+                    1=>21,
+                    2=>22,
+                    3=>23,
+                    4=>24
+                );
+
+                $categoria = $this->getContainer()->get('doctrine')
+                    ->getRepository('BlogBundle:Categoria')->find($mappaGeneri[$data['genere']]);
+
+
+
+                if ($categoria) {
+                    $utente->setCategoria($categoria);
+                    $this->em->persist($utente);
+                    $this->em->flush();
+                } else {
+
+                }
+
+            }
+
+        }
+
+
     }
 }
