@@ -6,8 +6,8 @@ jQuery(document).ready(function ($) {
         $("#meteo-localized-nome").html(meteo.geoposition.name);
 
         $("#meteo-localized-temperatura").html(parseInt(meteo.geoposition.main.temp)+"°");
-        $("#meteo-localized-vento").html(meteo.geoposition.wind.speed);
-        $("#meteo-localized-umidita").html(meteo.geoposition.main.humidity);
+        $("#meteo-localized-vento").html(meteo.geoposition.wind.speed+" km/h");
+        $("#meteo-localized-umidita").html(meteo.geoposition.main.humidity+" %");
         $("#meteo-localized-icon").addClass(meteo.geoposition.weather[0].icon);
 
         $("#meteo-localized-box").removeClass("hide");
