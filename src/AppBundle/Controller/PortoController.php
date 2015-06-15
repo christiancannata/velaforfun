@@ -7,6 +7,7 @@ use AppBundle\Entity\Meteo;
 use AppBundle\Entity\Porto;
 use AppBundle\Form\CommentoPortoType;
 use AppBundle\Form\PortoType;
+use AppBundle\Twig\Extension\MenuVelaExtension;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -118,13 +119,16 @@ class PortoController extends BaseController
 
 
         $attracchi = $this->getDoctrine()
-            ->getRepository('AppBundle:Attracco')->findBy(array(), array('timestamp' => 'DESC'),5);
+            ->getRepository('AppBundle:Attracco')->findBy(array(), array('timestamp' => 'DESC'), 5);
 
-        $commenti= $this->getDoctrine()
-            ->getRepository('AppBundle:CommentoPorto')->findBy(array(), array('timestamp' => 'DESC'),5);
+        $commenti = $this->getDoctrine()
+            ->getRepository('AppBundle:CommentoPorto')->findBy(array(), array('timestamp' => 'DESC'), 5);
 
 
-        return $this->render('AppBundle:Porto:porti.html.twig', array("porti" => $porti, "titolo" => $titolo,"attracchi"=>$attracchi,"commenti"=>$commenti));
+        return $this->render(
+            'AppBundle:Porto:porti.html.twig',
+            array("porti" => $porti, "titolo" => $titolo, "attracchi" => $attracchi, "commenti" => $commenti)
+        );
 
     }
 
@@ -174,13 +178,9 @@ class PortoController extends BaseController
         }
 
 
-
-
         $dal = new \DateTime();
         $al = new \DateTime();
         $dal->sub(new \DateInterval("P120M"));
-
-
 
 
         $qb = $this->getDoctrine()->getManager()->createQueryBuilder();
@@ -212,7 +212,7 @@ class PortoController extends BaseController
 
             $weather = json_decode($response->getBody(true));
         } else {
-            $meteo=$meteo[0]['data'];
+            $meteo = $meteo[0]['data'];
             $weather = json_decode($meteo);
         }
 
@@ -249,8 +249,6 @@ class PortoController extends BaseController
         $dal->sub(new \DateInterval("P120M"));
 
 
-
-
         $qb = $this->getDoctrine()->getManager()->createQueryBuilder();
         $qb->select('m')
             ->from('AppBundle:Meteo', 'm')
@@ -280,13 +278,39 @@ class PortoController extends BaseController
 
             $meteo = json_decode($response->getBody(true));
         } else {
-            $meteo=$meteo[0];
+            $meteo = $meteo[0];
             $meteo = $meteo['data'];
             $meteo = json_decode($meteo);
         }
 
         $serializedPorto = $serializer->serialize($porto, "json");
         $data = array("porto" => json_decode($serializedPorto), "meteo" => $meteo);
+
+        return new JsonResponse($data);
+    }
+
+
+    /**
+     * @Route("/localizzami/jsondata", name="jsondata_porto")
+     */
+    public function localizzamiAction(Request $request)
+    {
+        $utils= new MenuVelaExtension();
+        $client = $this->container->get('weather.client');
+
+
+        $request = $client->get(
+            '/data/2.5/weather?lat='.$request->get("lat").'&lon='.$request->get("long").'&APPID=8704a88837e9eabcf7b50de51728a0c0&units=metric'
+        );
+
+        $response = $client->send($request);
+
+
+        $meteo = json_decode($response->getBody(true));
+
+        $icon=$utils->getMeteo($meteo->weather[0]->icon);
+        $meteo->weather[0]->icon=$icon;
+        $data = array("geoposition" => $meteo);
 
         return new JsonResponse($data);
     }
@@ -303,20 +327,19 @@ class PortoController extends BaseController
         if (!$porto) {
 
 
-            return new JsonResponse(array("response"=>false));
+            return new JsonResponse(array("response" => false));
         }
 
 
-        $attracca=new Attracco();
+        $attracca = new Attracco();
         $attracca->setPorto($porto);
         $attracca->setUtente($this->getUser());
 
         $this->getDoctrine()->getManager()->persist($attracca);
         $this->getDoctrine()->getManager()->flush();
 
-        return new JsonResponse(array("response"=>true));
+        return new JsonResponse(array("response" => true));
     }
-
 
 
 }

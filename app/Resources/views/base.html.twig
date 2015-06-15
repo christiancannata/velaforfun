@@ -191,7 +191,8 @@
                             <ul class="dropdown-menu" role="menu">
 
                                 {% for nodo in subMenu %}
-                                    <li><a  {% if nodo.colore !=""  %}class="bordered " style="border-color:{{nodo.colore}};"{%  endif %} href="{{ nodo.link }}"
+                                    <li><a {% if nodo.colore !="" %}class="bordered "
+                                           style="border-color:{{ nodo.colore }};"{% endif %} href="{{ nodo.link }}"
                                            target="{{ nodo.action }}">{{ nodo.nome }}</a></li>
 
                                 {% endfor %}
@@ -223,6 +224,71 @@
                                         </div>
                                     </form>
                                 </li>
+                                <lI>
+
+                                    <div class="row clearfix">
+
+                                        <div class="col-md-12 column ">
+
+
+                                            <div id="meteo-localized-box" class="hide">
+                                                <div class="row clearfix">
+
+                                                    <div class="col-md-12 column">
+                                                        <h1 id="meteo-localized-nome" style="padding-left:0px;"></h1>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row clearfix ">
+
+                                                    <div class="col-md-4 column">
+                                                        <i class="wi "
+                                                           id="meteo-localized-icon"> </i>
+                                                    </div>
+
+                                                    <div class="col-md-8 column">
+
+
+                                                        <div class="row clearfix">
+                                                            <div class="col-md-6 column">
+                                                                <h4>
+                                                                    <i
+                                                                            class="wi wi-celsius "
+                                                                            id="meteo-localized-temperatura"> </i></h4>
+                                                            </div>
+                                                            <div class="col-md-6 column">
+                                                                <p style="margin:0"><i class="wi wi-strong-wind"></i>
+                                                                </p>
+
+                                                                <div id="meteo-localized-vento"
+                                                                     style="margin-bottom: 10px;">km/h
+                                                                </div>
+                                                                <p style="margin:0">UMIDITA'</p>
+
+                                                                <div id="meteo-localized-umidita"
+                                                                     style="margin-bottom: 10px;">%
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="row clearfix" id="div-localized">
+
+                                                <div class="col-md-12 column">
+                                                    <button class="btn btn-primary" onclick="localizzami()">
+                                                        Localizzami
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </lI>
                                 <li class="divider"></li>
                                 <li class="dropdown-header">ANNUNCI</li>
                                 <li><a href="/annuncio-imbarco">Cerco/Offro imbarco</a></li>

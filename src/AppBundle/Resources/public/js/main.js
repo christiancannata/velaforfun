@@ -1,5 +1,21 @@
 jQuery(document).ready(function ($) {
 
+    if (typeof localStorage.getItem("geolocation") != undefined ) {
+        var meteo = JSON.parse(localStorage.getItem("geolocation"));
+
+        $("#meteo-localized-nome").html(meteo.geoposition.name);
+
+        $("#meteo-localized-temperatura").html(meteo.geoposition.main.temp);
+        $("#meteo-localized-vento").html(meteo.geoposition.wind.speed);
+        $("#meteo-localized-umidita").html(meteo.geoposition.main.humidity);
+        $("#meteo-localized-icon").addClass(meteo.geoposition.weather[0].icon);
+
+        $("#meteo-localized-box").removeClass("hide");
+        $("#div-localized").fadeOut();
+    }
+
+
+
     $('select').selectpicker();
 
     $(".marker-description button").click(function () {
@@ -265,5 +281,35 @@ function setNuovoCommentoPorto(response) {
     });
 
 
+
 };
 
+
+function localizzami() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+
+    }
+}
+function showPosition(position) {
+
+
+    $.get("/porti/localizzami/jsondata?lat=" + position.coords.latitude + "&long=" + position.coords.longitude, function (meteo) {
+
+
+        $("#meteo-localized-nome").html(meteo.geoposition.name);
+
+        $("#meteo-localized-temperatura").html(meteo.geoposition.main.temp);
+        $("#meteo-localized-vento").html(meteo.geoposition.wind.speed);
+        $("#meteo-localized-umidita").html(meteo.geoposition.main.humidity);
+        $("#meteo-localized-icon").addClass(meteo.geoposition.weather[0].icon);
+
+        $("#meteo-localized-box").removeClass("hide");
+        $("#div-localized").fadeOut();
+
+        localStorage.setItem("geolocation", JSON.stringify(meteo));
+    });
+
+
+}
