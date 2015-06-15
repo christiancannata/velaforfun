@@ -36,6 +36,10 @@ class DefaultController extends BaseController
         return $this->render('default/chi-siamo.html.twig', array());
     }
 
+
+
+
+
     /**
      * @Route("/privacy", name="privacy")
      */
@@ -109,7 +113,7 @@ class DefaultController extends BaseController
 
         $form['vars'] = array("full_name" => "contatti");
 
-        return $this->render('default/contatti.html.twig', array("form"=> $form));
+        return $this->render('default/contatti.html.twig', array("form" => $form));
     }
 
     /**
@@ -319,4 +323,35 @@ class DefaultController extends BaseController
 
         return $this->render('default/cerca.html.twig', array("key" => $key, "risultati" => $risultati));
     }
+
+
+
+    /**
+     * @Route("/{permalink}", name="pagine_statiche")
+     */
+    public function pagineStaticheAction($permalink)
+    {
+
+        $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:PaginaStatica');
+        $articoli = $repository->findOneByPermalink($permalink);
+
+        if(!$articoli){
+
+
+            throw $this->createNotFoundException('Unable to find Page.');
+        }
+
+
+        return $this->render(
+            'default/static.html.twig',
+            array(
+                "content" => $articoli->getContent(),
+                "titolo" => $articoli->getTitolo(),
+                "descrizione" => $articoli->getDescrizione()
+            )
+        );
+    }
+
+
 }

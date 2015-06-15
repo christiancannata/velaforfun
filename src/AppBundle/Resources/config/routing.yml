@@ -1,8 +1,3 @@
-app:
-    resource: "@AppBundle/Controller/DefaultController.php"
-    type:     annotation
-    prefix:   /
-
 video:
     resource: "@AppBundle/Controller/VideoController.php"
     type:     annotation
@@ -28,6 +23,10 @@ foto:
     type:     annotation
     prefix:   /foto
 
+pagina_statica:
+    resource: "@AppBundle/Controller/PaginaStaticaController.php"
+    type:     annotation
+    prefix:   /cms
 
 segnali:
     resource: "@AppBundle/Controller/SegnaleController.php"
@@ -90,3 +89,8 @@ commenti_porto:
     resource: "@AppBundle/Controller/CommentoPortoController.php"
     type:     annotation
     prefix:   /commento-porto
+
+app:
+    resource: "@AppBundle/Controller/DefaultController.php"
+    type:     annotation
+    prefix:   /
