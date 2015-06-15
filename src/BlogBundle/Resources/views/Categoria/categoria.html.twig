@@ -24,6 +24,7 @@
             <div class="row clearfix">
                 <div class="col-md-12 column">
             <div class="article main-article">
+            {% if articoli|length > 0 and articoli[0] is defined %}
 
                 <div class="content"
                      style="background-image: url(/images/articoli/{{ articoli[0].immagine }})">
@@ -38,7 +39,7 @@
                     </div>
 
                 </div>
-
+            {% endif %}
             </div>
                     </div></div>
         </div>

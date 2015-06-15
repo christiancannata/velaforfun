@@ -78,6 +78,31 @@ class PaginaStatica
     protected $lastUpdateTimestamp;
 
 
+    /**
+     * @Assert\Image(mimeTypesMessage="Please upload a valid image.")
+     */
+    protected $immagineCorrelata;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $immagineCorrelataArticolo;
+
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $titoloCorrelato;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $testoCorrelato;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $linkCorrelato;
 
 
     /**
@@ -213,4 +238,112 @@ class PaginaStatica
         return $this->nome;
     }
 
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     *
+     * Upload the profile picture
+     *
+     * @return mixed
+     */
+    public function uploadImmagineCorrelata()
+    {
+        // check there is a profile pic to upload
+        if ($this->getImmagineCorrelata() === null) {
+            return;
+        }
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->getImmagineCorrelata()->move($this->getUploadRootDir(), $this->getImmagineCorrelataArticolo());
+
+        // check if we have an old image
+        if (isset($this->tempimmagine) && file_exists($this->getUploadRootDir().'/'.$this->tempimmagine)) {
+            // delete the old image
+            unlink($this->getUploadRootDir().'/'.$this->tempimmagine);
+            // clear the temp image path
+            $this->tempimmagine = null;
+        }
+        $this->immagineCorrelata = null;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImmagineCorrelata()
+    {
+        return $this->immagineCorrelata;
+    }
+
+    /**
+     * @param mixed $immagineCorrelata
+     */
+    public function setImmagineCorrelata($immagineCorrelata)
+    {
+        $this->immagineCorrelata = $immagineCorrelata;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitoloCorrelato()
+    {
+        return $this->titoloCorrelato;
+    }
+
+    /**
+     * @param mixed $titoloCorrelato
+     */
+    public function setTitoloCorrelato($titoloCorrelato)
+    {
+        $this->titoloCorrelato = $titoloCorrelato;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTestoCorrelato()
+    {
+        return $this->testoCorrelato;
+    }
+
+    /**
+     * @param mixed $testoCorrelato
+     */
+    public function setTestoCorrelato($testoCorrelato)
+    {
+        $this->testoCorrelato = $testoCorrelato;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLinkCorrelato()
+    {
+        return $this->linkCorrelato;
+    }
+
+    /**
+     * @param mixed $linkCorrelato
+     */
+    public function setLinkCorrelato($linkCorrelato)
+    {
+        $this->linkCorrelato = $linkCorrelato;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImmagineCorrelataArticolo()
+    {
+        return $this->immagineCorrelataArticolo;
+    }
+
+    /**
+     * @param mixed $immagineCorrelataArticolo
+     */
+    public function setImmagineCorrelataArticolo($immagineCorrelataArticolo)
+    {
+        $this->immagineCorrelataArticolo = $immagineCorrelataArticolo;
+    }
 }
