@@ -184,9 +184,18 @@
                 <div class="col-md-4 column ">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
+                            {% set subMenu= menu("main_menu") %}
+
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false"> <i class="fa fa-bars fa-lg"></i> <strong>Tutte le sezioni</strong></a>
                             <ul class="dropdown-menu" role="menu">
+
+                                {% for nodo in subMenu %}
+                                    <li><a  {% if nodo.colore !=""  %}class="bordered " style="border-color:{{nodo.colore}};"{%  endif %} href="{{ nodo.link }}"
+                                           target="{{ nodo.action }}">{{ nodo.nome }}</a></li>
+
+                                {% endfor %}
+
                                 <li><a class="bordered blue" href="/archivio/categoria-news">News di Vela</a></li>
                                 <li><a href="/segnalazione-portolano">Portolano Online</a></li>
                                 <li><a href="/porti">I porti d'Italia</a></li>

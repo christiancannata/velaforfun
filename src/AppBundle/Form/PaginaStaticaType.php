@@ -18,19 +18,20 @@ class PaginaStaticaType extends AbstractType
             ->add('nome')
             ->add('permalink')
             ->add('titolo')
-            ->add('descrizione',null, array('attr'=> array("class" => 'editor')))
-            ->add('content')
-        ;
+            ->add('descrizione', null, array('attr' => array("class" => 'editor')))
+            ->add('content');
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\PaginaStatica'
-        ));
+        $resolver->setDefaults(
+            array(
+                'data_class' => 'AppBundle\Entity\PaginaStatica'
+            )
+        );
     }
 
     /**

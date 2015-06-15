@@ -46,6 +46,17 @@ class NodoMenu {
      */
     private $link;
 
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="colore", type="string")
+     */
+    private $colore;
+
+
+
     /**
      * @var string
      *
@@ -235,10 +246,21 @@ class NodoMenu {
         $this->action = $action;
     }
 
+    /**
+     * @return string
+     */
+    public function getColore()
+    {
+        return $this->colore;
+    }
 
-
-
-
+    /**
+     * @param string $colore
+     */
+    public function setColore($colore)
+    {
+        $this->colore = $colore;
+    }
 
 
 }

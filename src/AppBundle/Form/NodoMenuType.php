@@ -22,6 +22,7 @@ class NodoMenuType extends AbstractType
                 array('choices' => array('TOP' => 'TOP', '_BLANK' => '_BLANK'))
             )
             ->add('link')
+            ->add('colore')
             ->add('isActive')
             ->add('ordering')
             ->add('menu')
