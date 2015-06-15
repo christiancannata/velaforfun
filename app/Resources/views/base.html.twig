@@ -235,24 +235,25 @@
                                                 <div class="row clearfix">
 
                                                     <div class="col-md-12 column">
-                                                        <h4  style="padding-left:0px;">METEO</h4>
+                                                        <h4  class="foreground-celeste"style="padding-left:0px;">METEO</h4>
                                                     </div>
                                                 </div>
 
 
                                                 <div class="row clearfix">
 
-                                                    <div class="col-md-4 column">
+                                                    <div class="col-md-4 column foreground-celeste" style="margin-top:10px">
+                                                        {{ "now"|date("H:i") }}
                                                     </div>
                                                     <div class="col-md-4 column">
-                                                        <i class="wi "
+                                                        <i class="wi foreground-celeste"
                                                            id="meteo-localized-icon"> </i>
                                                     </div>
                                                     <div class="col-md-4 column">
                                                         <h4>
-                                                            <i
-                                                                    class="wi wi-celsius "
-                                                                    id="meteo-localized-temperatura"> </i></h4>
+                                                            <span
+                                                                    class="foreground-celeste"
+                                                                    id="meteo-localized-temperatura"> </span></h4>
 
                                                     </div>
                                                 </div>
@@ -262,19 +263,19 @@
                                                 <div class="row clearfix">
 
                                                     <div class="col-md-6 column">
-                                                        <p style="margin:0"><i class="wi wi-strong-wind"></i>
+                                                        <p style="margin:0"><i class="wi wi-strong-wind foreground-celeste"></i>
                                                         </p>
 
                                                         <div id="meteo-localized-vento"
-                                                             style="margin-bottom: 10px;">km/h
+                                                             style="margin-bottom: 10px;" class="foreground-celeste">km/h
                                                         </div>
 
                                                     </div>
                                                     <div class="col-md-6 column">
 
-                                                        <p style="margin:0">UMIDITA'</p>
+                                                        <p style="margin:0" class="foreground-celeste">UMIDITA'</p>
 
-                                                        <div id="meteo-localized-umidita"
+                                                        <div id="meteo-localized-umidita" class="foreground-celeste"
                                                              style="margin-bottom: 10px;">%
                                                         </div>
                                                     </div>

@@ -2017,3 +2017,19 @@ h3.panel-title {
 #cerca-form-header .form-control::-moz-placeholder{
     color: white !important;
 }
+
+#meteo-localized-box{margin-top:20px}
+
+#meteo-localized-icon{
+    font-size: 54px;
+}
+
+#meteo-localized-temperatura{
+    float: left;
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+#meteo-localized-nome{
+    border:none;
+}
