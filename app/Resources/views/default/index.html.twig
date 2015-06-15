@@ -40,8 +40,10 @@
                          style="background-image: url(/images/articoli/{{ articoli[0].immagine }})">
                         <div class="category">
                             <a href="/archivio/{{ articoli[0].categoria.permalink }}"><span
-                                        style="background:{{ articoli[0].categoria.getColore() }}">{{ articoli[0].categoria.nome|capitalize }}</span> <span
-                                        style="font-weight:bold;background:{{ articoli[0].categoria.getColore() }}">+</span></a>
+                                        style="background:{{ articoli[0].categoria.getColore() }}">{{ articoli[0].categoria.nome|capitalize }}</span>
+                            <span style="background:{{ articoli[0].categoria.getColore() }};    padding-left: 15px;
+                            padding-right: 15px;font-weight: bold;">+</span>
+                            </a>
                         </div>
                         <div class="content-title">
                             <a href="/archivio/{{ articoli[0].categoria.permalink }}/{{ articoli[0].permalink }}">
