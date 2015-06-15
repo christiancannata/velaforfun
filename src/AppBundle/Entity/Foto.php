@@ -6,18 +6,20 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="foto")
  * @ORM\HasLifecycleCallbacks()
  */
-class Foto {
-	/**
-	 * @ORM\Id
-	 * @ORM\Column(type="integer")
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 */
-	protected $id;
+class Foto
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
 
     /**
      * @Assert\Image(mimeTypesMessage="Please upload a valid image.")
@@ -40,12 +42,12 @@ class Foto {
      */
     private $nome;
 
-	/**
-	 * @var string
-	 *
-	 * @ORM\Column(name="in_evidenza", type="boolean", nullable=true)
-	 */
-	private $inEvidenza;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="in_evidenza", type="boolean", nullable=true)
+     */
+    private $inEvidenza;
 
     /**
      * @var \DateTime
@@ -71,7 +73,6 @@ class Foto {
      * @ORM\JoinColumn(name="id_galleria", referencedColumnName="id", nullable=true)
      **/
     private $galleria;
-
 
 
     /**
@@ -155,7 +156,6 @@ class Foto {
     }
 
 
-
     /**
      * @return \DateTime
      */
@@ -205,17 +205,16 @@ class Foto {
     }
 
 
-
-
     /**
      * Sets the file used for profile picture uploads
      *
      * @param UploadedFile $file
      * @return object
      */
-    public function setProfilePictureFile(\Symfony\Component\HttpFoundation\File\UploadedFile $file = null) {
+    public function setProfilePictureFile(\Symfony\Component\HttpFoundation\File\UploadedFile $file = null)
+    {
         // set the value of the holder
-        $this->profilePictureFile       =   $file;
+        $this->profilePictureFile = $file;
         // check if we have an old image path
         if (isset($this->immagine)) {
             // store the old name to delete after the update
@@ -233,7 +232,8 @@ class Foto {
      *
      * @return UploadedFile
      */
-    public function getProfilePictureFile() {
+    public function getProfilePictureFile()
+    {
 
         return $this->profilePictureFile;
     }
@@ -264,7 +264,8 @@ class Foto {
     /**
      * Get the absolute path of the profilePicturePath
      */
-    public function getProfilePictureAbsolutePath() {
+    public function getProfilePictureAbsolutePath()
+    {
         return null === $this->immagine
             ? null
             : $this->getUploadRootDir().'/'.$this->immagine;
@@ -275,7 +276,8 @@ class Foto {
      *
      * @return string
      */
-    protected function getUploadRootDir($type='profilePicture') {
+    protected function getUploadRootDir($type = 'profilePicture')
+    {
         // the absolute directory path where uploaded
         // documents should be saved
         return __DIR__.'/../../../web/'.$this->getUploadDir($type);
@@ -286,7 +288,8 @@ class Foto {
      *
      * @return string
      */
-    protected function getUploadDir($type='profilePicture') {
+    protected function getUploadDir($type = 'profilePicture')
+    {
         // the type param is to change these methods at a later date for more file uploads
         // get rid of the __DIR__ so it doesn't screw up
         // when displaying uploaded doc/image in the view.
@@ -298,7 +301,8 @@ class Foto {
      *
      * @return string
      */
-    public function getWebProfilePicturePath() {
+    public function getWebProfilePicturePath()
+    {
 
         return '/'.$this->getUploadDir().'/'.$this->getImmagine();
     }
@@ -307,12 +311,13 @@ class Foto {
      * @ORM\PrePersist()
      * @ORM\PreUpdate()
      */
-    public function preUploadProfilePicture() {
+    public function preUploadProfilePicture()
+    {
         if (null !== $this->getProfilePictureFile()) {
             // a file was uploaded
             // generate a unique filename
-            $oggi=new \DateTime();
-            $filename=str_replace(" ","",$this->getNome())."-".$oggi->format("U");
+            $oggi = new \DateTime();
+            $filename = str_replace(" ", "", $this->getNome())."-".$oggi->format("U");
             $this->setImmagine($filename.'.'.$this->getProfilePictureFile()->guessExtension());
         }
     }
@@ -322,14 +327,16 @@ class Foto {
      *
      * @return string
      */
-    public function generateRandomProfilePictureFilename() {
-        $count                  =   0;
+    public function generateRandomProfilePictureFilename()
+    {
+        $count = 0;
         do {
-            $oggi=new \DateTime();
+            $oggi = new \DateTime();
             $randomString = bin2hex($oggi->format("U"));
             $count++;
-        }
-        while(file_exists($this->getUploadRootDir().'/'.$randomString.'.'.$this->getProfilePictureFile()->guessExtension()) && $count < 50);
+        } while (file_exists(
+                $this->getUploadRootDir().'/'.$randomString.'.'.$this->getProfilePictureFile()->guessExtension()
+            ) && $count < 50);
 
         return $randomString;
     }
@@ -342,7 +349,8 @@ class Foto {
      *
      * @return mixed
      */
-    public function uploadProfilePicture() {
+    public function uploadProfilePicture()
+    {
         // check there is a profile pic to upload
         if ($this->getProfilePictureFile() === null) {
             return;
@@ -353,7 +361,10 @@ class Foto {
         $this->getProfilePictureFile()->move($this->getUploadRootDir(), $this->getImmagine());
 
         // check if we have an old image
-        if (isset($this->tempProfilePicturePath) && file_exists($this->getUploadRootDir().'/'.$this->tempProfilePicturePath)) {
+        if (isset($this->tempProfilePicturePath) && file_exists(
+                $this->getUploadRootDir().'/'.$this->tempProfilePicturePath
+            )
+        ) {
             // delete the old image
             unlink($this->getUploadRootDir().'/'.$this->tempProfilePicturePath);
             // clear the temp image path
@@ -372,5 +383,9 @@ class Foto {
         }
     }
 
+    public function __toString()
+    {
+        return $this->nome;
+    }
 
 }

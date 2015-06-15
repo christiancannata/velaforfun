@@ -101,7 +101,7 @@
             <div class="divisore-big"></div>
             <h3>Visualizza fa fotogallery</h3>
             {% for foto in articolo.gallery.foto %}
-                <a class='gallery' href='/images/{{ foto.immagine }}'><img src="/images/{{ foto.immagine }}"></a>
+                <a class='gallery' rel="g1" href='/uploads/galleria_foto/{{ foto.immagine }}'><img width="150" src="/uploads/galleria_foto/{{ foto.immagine }}"></a>
             {% endfor %}
             <div class="divisore-big"></div>
         </div>
