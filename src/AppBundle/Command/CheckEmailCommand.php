@@ -35,7 +35,7 @@ class CheckEmailCommand extends ContainerAwareCommand
             '{imap.gmail.com:993/imap/ssl}INBOX',
             'comunicati@velaforfun.com ',
             'comunicati01 ',
-            '/var/www/web/allegati'
+            '/var/www/web/images/articoli'
         );
         $mails = array();
 
