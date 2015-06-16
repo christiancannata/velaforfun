@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+use BlogBundle\Entity\Articolo;
+use BlogBundle\Form\ArticoloType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\Type\RegistrationFormType;
@@ -37,7 +39,103 @@ class DefaultController extends BaseController
     }
 
 
+    /**
+     * @Route("/ricette-da-cambusa", name="ricette")
+     */
+    public function ricetteAction()
+    {
 
+        $repository = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Articolo');
+        $query = $repository->createQueryBuilder('p')
+            ->where('p.categoria in(11,12,13,14,15)')
+            ->getQuery();
+        $articoli = $query->getResult();
+
+
+        return $this->render('default/ricette.html.twig', array("articoli" => $articoli));
+    }
+
+
+    /**
+     * @Route("/nuova-ricetta", name="crea_ricetta")
+     */
+    public function creaRicettaAction(Request $request)
+    {
+
+
+        $postform = $this->createForm(new ArticoloType());
+
+        if ($request->isMethod('POST')) {
+
+
+            $params = $request->request->all();
+
+            $articolo = new Articolo();
+
+
+            $articolo->setTitolo($params['blogbundle_articolo']['titolo']);
+
+
+            $testo = "Tempo: ".$params['blogbundle_articolo']['tempo'];
+            $testo .= "<br><br>Persone: ".$params['blogbundle_articolo']['persone'];
+            $testo .= "<br><br>Ingredienti ".$params['blogbundle_articolo']['ingredienti'];
+            $testo .= "<br><br>Ricetta: ".$params['blogbundle_articolo']['ricetta'];
+
+            $articolo->setTesto($testo);
+
+
+            if ($this->getUser()) {
+                $autore = $this->getUser();
+            } else {
+                $autore = $this->container->get('doctrine')
+                    ->getRepository('AppBundle:User')->findOneByUsername($params['blogbundle_articolo']['autore']);
+
+                if (!$autore) {
+                    $userManager = $this->getContainer()->get('fos_user.user_manager');
+                    $autore = $userManager->createUser();
+                    $autore->setEmail($params['blogbundle_articolo']['autore']);
+                    $autore->setNome($params['blogbundle_articolo']['email']);
+                    $username = strtolower(str_replace(" ", "", $params['blogbundle_articolo']['autore']));
+                    $autore->setUsername($username);
+                    $autore->setPlainPassword($username."1");
+
+                    $this->em->persist($autore);
+                }
+            }
+
+            $articolo->setAutore(
+                $autore
+            );
+
+
+            $articolo->setCategoria(
+                $this->container->get('doctrine')
+                    ->getRepository('BlogBundle:Categoria')->find($params['blogbundle_articolo']['categoria'])
+            );
+
+
+            $files=$request->files->all();
+
+            $articolo->setProfilePictureFile(
+                $files['blogbundle_articolo']['profilePictureFile']
+            );
+
+
+
+
+            $em = $this->container->get('doctrine')->getManager();
+
+            $em->persist($articolo);
+            $em->flush();
+
+            $response['success'] = true;
+            $response['response'] = $articolo->getId();
+
+            return new JsonResponse($response);
+        }
+
+        return $this->render('default/crea-ricetta.html.twig', array("form" => $postform->createView()));
+    }
 
 
     /**
@@ -325,7 +423,6 @@ class DefaultController extends BaseController
     }
 
 
-
     /**
      * @Route("/{permalink}", name="pagine_statiche")
      */
@@ -336,7 +433,7 @@ class DefaultController extends BaseController
             ->getRepository('AppBundle:PaginaStatica');
         $articoli = $repository->findOneByPermalink($permalink);
 
-        if(!$articoli){
+        if (!$articoli) {
 
 
             throw $this->createNotFoundException('Unable to find Page.');
