@@ -32,7 +32,7 @@ class ImportVideoCommand extends ContainerAwareCommand
         $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $this->connection = $this->getContainer()->get('database_connection');
 
-        $query = "select * from video_bkp";
+        $query = "select * from video2";
 
         $res = $this->connection->executeQuery($query)->fetchAll();
 
@@ -46,8 +46,8 @@ class ImportVideoCommand extends ContainerAwareCommand
                     $video = new Video();
                     $video->setNome($data['titolo']);
                     $video->setDescrizione($data['commento']);
-                    $video->setLink($data['Video']);
-                    $video->setInEvidenza(0);
+                    $video->setLink($data['video2']);
+                    $video->setInEvidenza(1);
                     $video->setCategoria(
                         $categoria
                     );
