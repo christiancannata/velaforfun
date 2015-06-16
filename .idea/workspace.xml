@@ -109,8 +109,8 @@
       <file leaf-file-name="PaginaStatica.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/PaginaStatica.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62903225" vertical-offset="4179" max-vertical-offset="6120">
-              <caret line="302" column="32" selection-start-line="302" selection-start-column="32" selection-end-line="302" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.49462366" vertical-offset="4149" max-vertical-offset="6120">
+              <caret line="295" column="40" selection-start-line="295" selection-start-column="40" selection-end-line="295" selection-end-column="40" />
               <folding>
                 <element signature="e#36#68#0#PHP" expanded="true" />
               </folding>
@@ -121,8 +121,8 @@
       <file leaf-file-name="Articolo.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BlogBundle/Entity/Articolo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.882353" vertical-offset="8874" max-vertical-offset="10830">
-              <caret line="622" column="5" selection-start-line="607" selection-start-column="0" selection-end-line="622" selection-end-column="5" />
+            <state vertical-scroll-proportion="-3.6470587" vertical-offset="8169" max-vertical-offset="10830">
+              <caret line="564" column="43" selection-start-line="564" selection-start-column="8" selection-end-line="564" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -807,7 +807,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3040057" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4055794" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14096385" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1215,16 +1215,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BlogBundle/Entity/Articolo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.882353" vertical-offset="8874" max-vertical-offset="10830">
-          <caret line="622" column="5" selection-start-line="607" selection-start-column="0" selection-end-line="622" selection-end-column="5" />
+        <state vertical-scroll-proportion="-3.6470587" vertical-offset="8169" max-vertical-offset="10830">
+          <caret line="564" column="43" selection-start-line="564" selection-start-column="8" selection-end-line="564" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/PaginaStatica.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62903225" vertical-offset="4179" max-vertical-offset="6120">
-          <caret line="302" column="32" selection-start-line="302" selection-start-column="32" selection-end-line="302" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.49462366" vertical-offset="4149" max-vertical-offset="6120">
+          <caret line="295" column="40" selection-start-line="295" selection-start-column="40" selection-end-line="295" selection-end-column="40" />
           <folding>
             <element signature="e#36#68#0#PHP" expanded="true" />
           </folding>

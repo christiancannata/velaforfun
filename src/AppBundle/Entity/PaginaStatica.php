@@ -291,7 +291,7 @@ class PaginaStatica
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
-        $this->getImmagineCorrelata()->move($this->getUploadRootDir(), $this->getImmagineCorrelata());
+        $this->getImmagineCorrelata()->move($this->getUploadRootDir(), $this->getImmagineCorrelataArticolo());
 
         // check if we have an old image
         if (isset($this->tempimmagine) && file_exists($this->getUploadRootDir().'/'.$this->tempimmagine)) {
