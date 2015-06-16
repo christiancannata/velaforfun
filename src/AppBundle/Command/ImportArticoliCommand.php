@@ -41,7 +41,7 @@ class ImportArticoliCommand extends ContainerAwareCommand
         foreach ($res as $data) {
 
             $utente = $this->getContainer()->get('doctrine')
-                ->getRepository('BlogBundle:Articolo')->findOneById($data['id']);
+                ->getRepository('BlogBundle:Articolo')->findOneByIdOriginale($data['id']);
 
             if ($utente) {
                 $this->output->writeln("<comment>Gia presente: ".$data['titolo']." </comment>");
@@ -88,7 +88,7 @@ class ImportArticoliCommand extends ContainerAwareCommand
         foreach ($res as $data) {
 
             $utente = $this->getContainer()->get('doctrine')
-                ->getRepository('BlogBundle:Articolo')->findOneByTitolo($data['titolo']);
+                ->getRepository('BlogBundle:Articolo')->findOneByIdOriginale($data['titolo']);
 
             if ($utente) {
                 $this->output->writeln("<comment>Gia presente: ".$data['titolo']." </comment>");
@@ -96,7 +96,7 @@ class ImportArticoliCommand extends ContainerAwareCommand
                 $this->output->writeln("<comment>Importing: ".$data['titolo']." </comment>");
 
                 $utente = new Articolo();
-                $utente->setIdOriginale($data['id']);
+                $utente->setIdOriginale($data['ID']);
                 $utente->setTitolo($data['titolo']);
 
                 $testo="Tempo: ".$data['tempo'];
@@ -105,6 +105,8 @@ class ImportArticoliCommand extends ContainerAwareCommand
                 $testo.="<br><br>".$data['ricetta'];
 
                 $utente->setTesto($testo);
+
+
                 $utente->setAutore(
                     $this->getContainer()->get('doctrine')
                         ->getRepository('AppBundle:User')->findOneByUsername($data['Autore'])
@@ -112,11 +114,11 @@ class ImportArticoliCommand extends ContainerAwareCommand
 
 
                 $mappaGeneri=array(
-                    0=>20,
-                    1=>21,
-                    2=>22,
-                    3=>23,
-                    4=>24
+                    0=>11,
+                    1=>12,
+                    2=>13,
+                    3=>14,
+                    4=>15
                 );
 
                 $categoria = $this->getContainer()->get('doctrine')
