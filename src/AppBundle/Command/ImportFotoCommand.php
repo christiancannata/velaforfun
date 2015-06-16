@@ -2,6 +2,8 @@
 namespace AppBundle\Command;
 
 use AppBundle\Entity\CategoriaVideo;
+use AppBundle\Entity\Foto;
+use AppBundle\Entity\GalleriaFoto;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\DBAL\Connection;
@@ -12,7 +14,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use PhpImap\Mailbox as MailBox;
 
-class ImportVideoCommand extends ContainerAwareCommand
+class ImportFotoCommand extends ContainerAwareCommand
 {
     protected $output;
     protected $em;
@@ -21,8 +23,8 @@ class ImportVideoCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('app:import-video')
-            ->setDescription('Importa utenti');
+            ->setName('app:import-foto')
+            ->setDescription('Importa foto');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -32,23 +34,28 @@ class ImportVideoCommand extends ContainerAwareCommand
         $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $this->connection = $this->getContainer()->get('database_connection');
 
-        $query = "select * from video2";
+        $query = "select * from img";
 
         $res = $this->connection->executeQuery($query)->fetchAll();
 
         $this->output->writeln("<comment>Importing ".count($res)." </comment>");
 
         foreach ($res as $data) {
-            if($data['Categoria']!=null){
+            if($data['categoria']!=null){
                 $categoria = $this->getContainer()->get('doctrine')
-                    ->getRepository('AppBundle:CategoriaVideo')->find($data['Categoria']);
+                    ->getRepository('AppBundle:GalleriaFoto')->findOneByNome(ucfirst($data['categoria']));
+                if(!$categoria){
+                    $categoria=new GalleriaFoto();
+                    $categoria->setNome(ucfirst($data['categoria']));
+                    $this->em->persist($categoria);
+                    $this->em->flush();
+                }
                 if ($categoria) {
-                    $video = new Video();
-                    $video->setNome($data['titolo']);
-                    $video->setDescrizione($data['commento']);
-                    $video->setLink($data['video2']);
-                    $video->setInEvidenza(1);
-                    $video->setCategoria(
+                    $video = new Foto();
+                    $video->setInEvidenza(true);
+                    $video->setNome($data['Titolo']);
+                    $video->setImmagine($data['nomefile']);
+                    $video->setGalleria(
                         $categoria
                     );
 

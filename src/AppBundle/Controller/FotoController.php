@@ -13,7 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class FotoController extends BaseController
 {
 
-    protected $entity="Foto";
+    protected $entity = "Foto";
 
     /**
      * @Route( "crea", name="create_foto" )
@@ -28,9 +28,9 @@ class FotoController extends BaseController
      * @Route( "modifica/{id}", name="modifica_foto" )
      * @Template()
      */
-    public function patchAction(Request $request,$id)
+    public function patchAction(Request $request, $id)
     {
-        return $this->patchForm($request,new FotoType(),$id,"Foto");
+        return $this->patchForm($request, new FotoType(), $id, "Foto");
     }
 
 
@@ -44,12 +44,11 @@ class FotoController extends BaseController
     }
 
 
-
     /**
      * @Route( "elimina/{id}", name="delete_foto" )
      * @Template()
      */
-    public function eliminaAction(Request $request,$id)
+    public function eliminaAction(Request $request, $id)
     {
         return $this->delete($id);
     }
@@ -63,6 +62,11 @@ class FotoController extends BaseController
         $categorie = $this->getDoctrine()
             ->getRepository('AppBundle:GalleriaFoto')->findAll();
 
+        foreach ($categorie as $key => $cat) {
+            if (count($cat->getFoto()) == 0) {
+                unset($categorie[$key]);
+            }
+        }
 
         return $this->render('AppBundle:Foto:gallerie.html.twig', array("gallerie" => $categorie));
     }
@@ -76,10 +80,11 @@ class FotoController extends BaseController
         $porti = $this->getDoctrine()
             ->getRepository('AppBundle:Foto')->findAll();
 
-        $arrayJson=[];
-        foreach($porti as $porto){
-            $arrayJson[]=array("permalink"=>$porto->getPermalink(),"name"=>$porto->getNome());
+        $arrayJson = [];
+        foreach ($porti as $porto) {
+            $arrayJson[] = array("permalink" => $porto->getPermalink(), "name" => $porto->getNome());
         }
+
         return new JsonResponse($arrayJson);
     }
 
@@ -91,7 +96,7 @@ class FotoController extends BaseController
 
         $categorie = $this->getDoctrine()
             ->getRepository('AppBundle:GalleriaFoto')->findOneByPermalink($permalink);
-        if(!$categorie){
+        if (!$categorie) {
 
 
             throw $this->createNotFoundException('Unable to find Articolo.');
@@ -100,7 +105,6 @@ class FotoController extends BaseController
 
         return $this->render('AppBundle:Foto:dettagliGalleria.html.twig', array("galleria" => $categorie));
     }
-
 
 
 }

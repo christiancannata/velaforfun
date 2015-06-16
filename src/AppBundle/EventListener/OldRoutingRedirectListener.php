@@ -95,6 +95,32 @@ class OldRoutingRedirectListener extends ContainerAware
             $route = "ricette";
         }
 
+        if (strstr($path, "immagini.asp")) {
+            $redirect = true;
+            $route = "foto";
+        }
+
+        if (strstr($path, "img_visual.asp")) {
+
+            if($request->get("cat")){
+                $post = $this->container->get('doctrine')
+                    ->getRepository('AppBundle:GalleriaFoto')->find($request->get("cat"));
+                if($post) {
+                    $redirect = true;
+                    $route = "galleria_foto";
+                    $params["permalink"] = $post->getPermalink();
+                }else{
+                    $redirect = true;
+                    $route = "foto";
+                }
+
+            }else{
+                $redirect = true;
+                $route = "foto";
+            }
+
+        }
+
 
         if (strstr($path, "cucina_v.asp")) {
 

@@ -217,7 +217,7 @@ class GalleriaFoto
      */
     public function generatePermalink()
     {
-        $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $this->titolo."-".rand(1, 99));
+        $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $this->nome."-".rand(1, 99));
         $this->permalink = strtolower($slug);
     }
 

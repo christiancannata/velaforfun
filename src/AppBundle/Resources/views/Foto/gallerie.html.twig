@@ -43,7 +43,7 @@
 
     <div class="row nodi">
     {% for gallery in gallerie %}
-
+        {% if gallery.foto|length > 0%}
         {% set copertina = gallery.foto[0].immagine %}
         {% for foto in gallery.foto %}
             {% if foto.inEvidenza == 1 %}
@@ -52,43 +52,43 @@
         {% endfor %}
 
 
-        <div class="col-md-4 column">
+            <div class="col-md-4 column video-box" >
 
 
-            <div class="box-home">
-                <div style="background-image: url(/uploads/galleria_foto/{{ copertina }});"
-                     class="divBackgroundImage">
-                </div>
-                <div class="content">
+                <a href="/foto/{{ gallery.permalink }}">   <div class="box-home" style="height: 330px;">
+                        <div style="opacity: 1;background-image: url(/uploads/galleria_foto/{{ copertina }});"
+                             class="divBackgroundImage" >
+                        </div>
+                        <div class="content">
 
-                    <div class="box-action">
-                        <h2>{{ gallery.nome }}
-                        </h2>
+                            <div class="box-action">
+                                <h2>{{ gallery.nome }}
+                                </h2>
 
-                        <div class="over-box">
-                            <p>
-                                Foto nella galleria: {{ gallery.foto|length }}
-                            </p>
-                            <button class="btn btn-default dettagli-nodo hvr-glow" type="submit"
-                                    onclick="location.href='/foto/{{ gallery.permalink }}'">VEDI GALLERIA
-                            </button>
+                                <div class="over-box">
+                                    <p>
+                                        Video nella galleria: {{ gallery.foto|length }}
+                                    </p>
+                                    <button class="btn btn-default dettagli-nodo hvr-glow" type="submit"
+                                            onclick="location.href='/foto/{{ gallery.permalink }}'">VEDI GALLERIA
+                                    </button>
+                                </div>
+
+                            </div>
+
+
                         </div>
 
                     </div>
-
-
-                </div>
+                </a>
 
             </div>
-
-
-        </div>
         {% if loop.index is divisibleby(3) %}
             </div>
 
             <div class="row nodi">
         {% endif %}
-
+        {% endif %}
     {% endfor %}
     <!-- fine contenuto -->
 
