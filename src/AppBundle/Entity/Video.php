@@ -234,4 +234,10 @@ class Video {
         $this->descrizione = $descrizione;
     }
 
+
+    public function __toString()
+    {
+        return $this->nome;
+    }
+
 }

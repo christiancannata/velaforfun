@@ -174,7 +174,10 @@ class SegnalazionePortolano
         $this->lastUpdateTimestamp = $lastUpdateTimestamp;
     }
 
-
+    public function __toString()
+    {
+        return $this->utente->getEmail()."<br><br>".$this->descrizione;
+    }
 
 
 }

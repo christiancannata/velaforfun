@@ -401,30 +401,25 @@
 
                                         <li class="dropdown-header">Profilo</li>
                                         <li><a href="/tuo-profilo/">Modifica dati</a></li>
-                                        <li><a href="#">I tuoi annunci</a></li>
                                         {% if not is_granted('ROLE_SUPER_ADMIN') %}
 
                                         {% else %}
 
                                             <li class="dropdown-header">Gestione Articoli</li>
-                                            <li><a href="/archivio/articoli/crea">Crea nuovo</a></li>
-                                            <li><a href="/archivio/list/articoli">Lista</a></li>
-                                            <li class="divider"></li>
+                                            <li><a href="/archivio/list/articoli">Lista Articoli</a></li>
+                                            <li><a href="/segnalazione-portolano/list">Gestione Portolano Online</a></li>
                                             <li class="dropdown-header">Gestione Porti</li>
-                                            <li><a href="/porti/crea">Crea nuovo</a></li>
                                             <li><a href="/porti/list">Lista</a></li>
-                                            <li class="divider"></li>
                                             <li class="dropdown-header">Gestione Nodi</li>
-                                            <li><a href="/nodi/crea">Crea nuovo</a></li>
                                             <li><a href="/nodi/list">Lista</a></li>
-
-                                            <li class="divider"></li>
-
+                                            <li class="dropdown-header">Gestione Media</li>
+                                            <li><a href="/foto/list">FotoGallery</a></li>
+                                            <li><a href="/video/list">VideoGallery</a></li>
+                                            <li class="dropdown-header">Gestione Menu</li>
+                                            <li><a href="/menu/list">Menù</a></li>
+                                            <li><a href="/nodomenu/list">Nodi Menù</a></li>
                                         {% endif %}
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">
-                                                <i class="fa fa-sign-out"></i>
-                                                Esci</a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </li>

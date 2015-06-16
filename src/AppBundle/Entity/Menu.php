@@ -154,7 +154,7 @@ class Menu
     }
 
     public function __toString(){
-        return $this->id."-".$this->nome;
+        return $this->nome;
     }
 
 
