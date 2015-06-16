@@ -18,6 +18,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig" afterPath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="velaforfun.iws" />
@@ -69,10 +70,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67741936" vertical-offset="7227" max-vertical-offset="10530">
+            <state vertical-scroll-proportion="-7.4117646" vertical-offset="7227" max-vertical-offset="10530">
               <caret line="507" column="65" selection-start-line="507" selection-start-column="65" selection-end-line="507" selection-end-column="65" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -81,16 +82,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImportForumCommand.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php">
+      <file leaf-file-name="segnalazioni.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.3333335" vertical-offset="1667" max-vertical-offset="2670">
-              <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
-              <folding>
-                <element signature="e#36#59#0#PHP" expanded="true" />
-                <marker date="1434462999000" expanded="true" signature="1136:1197" placeholder="select * fro..forum1..." />
-                <marker date="1434462999000" expanded="true" signature="3508:3551" placeholder="select * fro..forum1..." />
-              </folding>
+            <state vertical-scroll-proportion="0.4139785" vertical-offset="2979" max-vertical-offset="4590">
+              <caret line="214" column="43" selection-start-line="214" selection-start-column="43" selection-end-line="214" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -175,7 +172,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Crud/create.html.twig" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Form/ArticoloType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/form.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/CCDNForumForumBundle/translations/CCDNForumForumBundle.it.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Annuncio/cerca.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/AnnuncioType.php" />
@@ -219,6 +215,7 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig" />
       </list>
     </option>
   </component>
@@ -517,6 +514,84 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="AppBundle">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="velaforfun">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="AppBundle">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Resources">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="velaforfun">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="AppBundle">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Resources">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="SegnalazionePortolano">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="velaforfun">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="AppBundle">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Resources">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -892,16 +967,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2610">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#40#99#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7692308" vertical-offset="930" max-vertical-offset="1620">
@@ -1243,8 +1308,8 @@
           <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
           <folding>
             <element signature="e#36#59#0#PHP" expanded="true" />
-            <marker date="1434462999000" expanded="true" signature="1136:1197" placeholder="select * fro..forum1..." />
-            <marker date="1434462999000" expanded="true" signature="3508:3551" placeholder="select * fro..forum1..." />
+            <marker date="1434462999000" expanded="true" signature="-1:-1" placeholder="select * fro..forum1..." />
+            <marker date="1434462999000" expanded="true" signature="-1:-1" placeholder="select * fro..forum1..." />
           </folding>
         </state>
       </provider>
@@ -1320,11 +1385,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67741936" vertical-offset="7227" max-vertical-offset="10530">
+        <state vertical-scroll-proportion="-7.4117646" vertical-offset="7227" max-vertical-offset="10530">
           <caret line="507" column="65" selection-start-line="507" selection-start-column="65" selection-end-line="507" selection-end-column="65" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4139785" vertical-offset="2979" max-vertical-offset="4590">
+          <caret line="214" column="43" selection-start-line="214" selection-start-column="43" selection-end-line="214" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
