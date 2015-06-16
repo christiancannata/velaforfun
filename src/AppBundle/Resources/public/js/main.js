@@ -186,6 +186,14 @@ function redirectImbarco(response) {
     location.href = '/forum/velaforfun/topic/' + response.response;
 }
 
+
+function redirectRicetta(response) {
+
+
+    location.href = '/archivio/' + response.response;
+}
+
+
 function setRisultatiAnnunciImbarco(response) {
     var risultati = "";
     for (var i = 0; i < response.length; i++) {

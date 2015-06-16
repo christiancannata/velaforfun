@@ -79,9 +79,13 @@ class DefaultController extends BaseController
             $testo = "Tempo: ".$params['blogbundle_articolo']['tempo'];
             $testo .= "<br><br>Persone: ".$params['blogbundle_articolo']['persone'];
             $testo .= "<br><br>Ingredienti ".$params['blogbundle_articolo']['ingredienti'];
+
+            $articolo->setSottotitolo($testo);
+
             $testo .= "<br><br>Ricetta: ".$params['blogbundle_articolo']['ricetta'];
 
             $articolo->setTesto($testo);
+
 
 
             if ($this->getUser()) {
@@ -103,6 +107,7 @@ class DefaultController extends BaseController
                 }
             }
 
+            $articolo->setStato("ATTIVO");
             $articolo->setAutore(
                 $autore
             );
@@ -129,7 +134,7 @@ class DefaultController extends BaseController
             $em->flush();
 
             $response['success'] = true;
-            $response['response'] = $articolo->getId();
+            $response['response'] = $articolo->getCategoria()->getPermalink()."/".$articolo->getPermalink();
 
             return new JsonResponse($response);
         }
@@ -449,6 +454,7 @@ class DefaultController extends BaseController
             )
         );
     }
+
 
 
 }
