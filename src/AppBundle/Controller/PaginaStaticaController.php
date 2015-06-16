@@ -25,7 +25,7 @@ class PaginaStaticaController extends BaseController
     }
 
     /**
-     * @Route( "modifica/{id}", name="modifica_nodo" )
+     * @Route( "modifica/{id}", name="modifica_pagina_statica" )
      * @Template()
      */
     public function patchAction(Request $request,$id)

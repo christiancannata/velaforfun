@@ -20,7 +20,7 @@ class PaginaStaticaType extends AbstractType
             ->add('titolo')
             ->add('descrizione')
             ->add('content')
-            ->add('immagineCorrelataArticolo')
+            ->add('immagineCorrelata')
             ->add('titoloCorrelato')
             ->add('testoCorrelato')
             ->add('linkCorrelato')

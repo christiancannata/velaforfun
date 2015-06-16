@@ -98,7 +98,8 @@ class PaginaStatica
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $testoCorrelato;
-
+    // for temporary storage
+    private $tempimmagine;
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -239,6 +240,41 @@ class PaginaStatica
     }
 
     /**
+     * Get the absolute path of the immagine
+     */
+    public function getProfilePictureAbsolutePath() {
+        return null === $this->immagine
+            ? null
+            : $this->getUploadRootDir().'/'.$this->immagine;
+    }
+
+
+
+    /**
+     * Specifies where in the /web directory profile pic uploads are stored
+     *
+     * @return string
+     */
+    protected function getUploadDir($type='profilePicture') {
+        // the type param is to change these methods at a later date for more file uploads
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'images/articoli';
+    }
+
+
+
+    /**
+     * Get root directory for file uploads
+     *
+     * @return string
+     */
+    protected function getUploadRootDir($type='profilePicture') {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__.'/../../../web/'.$this->getUploadDir($type);
+    }
+    /**
      * @ORM\PostPersist()
      * @ORM\PostUpdate()
      *
@@ -255,7 +291,7 @@ class PaginaStatica
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
-        $this->getImmagineCorrelata()->move($this->getUploadRootDir(), $this->getImmagineCorrelataArticolo());
+        $this->getImmagineCorrelata()->move($this->getUploadRootDir(), $this->getImmagineCorrelata());
 
         // check if we have an old image
         if (isset($this->tempimmagine) && file_exists($this->getUploadRootDir().'/'.$this->tempimmagine)) {
@@ -267,21 +303,7 @@ class PaginaStatica
         $this->immagineCorrelata = null;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getImmagineCorrelata()
-    {
-        return $this->immagineCorrelata;
-    }
 
-    /**
-     * @param mixed $immagineCorrelata
-     */
-    public function setImmagineCorrelata($immagineCorrelata)
-    {
-        $this->immagineCorrelata = $immagineCorrelata;
-    }
 
     /**
      * @return mixed
@@ -345,5 +367,36 @@ class PaginaStatica
     public function setImmagineCorrelataArticolo($immagineCorrelataArticolo)
     {
         $this->immagineCorrelataArticolo = $immagineCorrelataArticolo;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUploadImmagineCorrelata() {
+        if (null !== $this->getImmagineCorrelata()) {
+            // a file was uploaded
+            // generate a unique filename
+            $oggi=new \DateTime();
+            $filename=str_replace('"','',str_replace("''","",str_replace(" ","-",$this->getTitoloCorrelato())."-".$oggi->format("U")));
+            $this->setImmagineCorrelataArticolo($filename.'.'.$this->getImmagineCorrelata()->guessExtension());
+        }
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getImmagineCorrelata()
+    {
+        return $this->immagineCorrelata;
+    }
+
+    /**
+     * @param mixed $immagineCorrelata
+     */
+    public function setImmagineCorrelata($immagineCorrelata)
+    {
+        $this->immagineCorrelata = $immagineCorrelata;
     }
 }

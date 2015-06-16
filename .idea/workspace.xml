@@ -9,6 +9,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/GalleriaFoto.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/GalleriaFoto.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Command/ImportFotoCommand.php" afterPath="$PROJECT_DIR$/src/AppBundle/Command/ImportFotoCommand.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php" afterPath="$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/PaginaStatica.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/PaginaStatica.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/PaginaStaticaController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/PaginaStaticaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/PaginaStaticaType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/PaginaStaticaType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Video/dettagliGalleria.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Video/dettagliGalleria.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/gallerie.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/gallerie.html.twig" />
@@ -43,34 +46,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="OldRoutingRedirectListener.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1370" max-vertical-offset="3690">
-              <caret line="108" column="25" selection-start-line="108" selection-start-column="25" selection-end-line="108" selection-end-column="25" />
-              <folding>
-                <element signature="e#42#70#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImportFotoCommand.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportFotoCommand.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="317" max-vertical-offset="1005">
-              <caret line="55" column="53" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
-              <folding>
-                <marker date="1434469202000" expanded="true" signature="1073:1090" placeholder="select * fro..img..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="gallerie.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/gallerie.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="452" max-vertical-offset="1590">
+            <state vertical-scroll-proportion="-11.166667" vertical-offset="452" max-vertical-offset="1590">
               <caret line="48" column="33" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="33" />
               <folding />
             </state>
@@ -97,51 +76,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dettagliGalleria.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dettagliGalleria.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7692308" vertical-offset="1395" max-vertical-offset="2160">
-              <caret line="123" column="57" selection-start-line="123" selection-start-column="57" selection-end-line="123" selection-end-column="57" />
+            <state vertical-scroll-proportion="-13.75" vertical-offset="1395" max-vertical-offset="2160">
+              <caret line="115" column="30" selection-start-line="115" selection-start-column="30" selection-end-line="115" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gallerie.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Video/gallerie.html.twig">
+      <file leaf-file-name="PaginaStaticaType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/PaginaStaticaType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="1500">
-              <caret line="78" column="14" selection-start-line="48" selection-start-column="7" selection-end-line="78" selection-end-column="14" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="765">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Foto.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Foto.php">
+      <file leaf-file-name="PaginaStaticaController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/PaginaStaticaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="810" max-vertical-offset="5910">
-              <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
+            <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="900">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GalleriaFotoController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/GalleriaFotoController.php">
+      <file leaf-file-name="PaginaStatica.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/PaginaStatica.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1245">
-              <caret line="75" column="40" selection-start-line="75" selection-start-column="30" selection-end-line="75" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.62903225" vertical-offset="4179" max-vertical-offset="6120">
+              <caret line="302" column="32" selection-start-line="302" selection-start-column="32" selection-end-line="302" selection-end-column="32" />
+              <folding>
+                <element signature="e#36#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Articolo.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BlogBundle/Entity/Articolo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.882353" vertical-offset="8874" max-vertical-offset="10830">
+              <caret line="622" column="5" selection-start-line="607" selection-start-column="0" selection-end-line="622" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml">
+      <file leaf-file-name="ArticoloType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BlogBundle/Form/ArticoloType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="1515">
-              <caret line="20" column="4" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="4" />
+            <state vertical-scroll-proportion="-18.75" vertical-offset="0" max-vertical-offset="885">
+              <caret line="32" column="38" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -160,7 +151,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioController.php" />
         <option value="$PROJECT_DIR$/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_head.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/PaginaStaticaController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/static.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/NodoMenuType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/NodoMenu.php" />
@@ -170,8 +160,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Foto.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/PaginaStatica.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Form/PaginaStaticaType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/ricette.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/crea-ricetta.html.twig" />
@@ -206,6 +194,9 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/FotoController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Video/dettagliGalleria.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Form/PaginaStaticaType.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/PaginaStaticaController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/PaginaStatica.php" />
       </list>
     </option>
   </component>
@@ -455,6 +446,28 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Form">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="velaforfun">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="BlogBundle">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="Entity">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
@@ -517,133 +530,7 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Resources">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="views">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="velaforfun">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="AppBundle">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Resources">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="views">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="SegnalazionePortolano">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="velaforfun">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="AppBundle">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Resources">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="velaforfun">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="AppBundle">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Resources">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="config">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="velaforfun">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="AppBundle">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="EventListener">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="velaforfun">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="AppBundle">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Entity">
+            <PATH_ELEMENT USER_OBJECT="Form">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -800,7 +687,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="last_opened_file_path" value="/private/var/www/ws" />
-    <property name="SearchEverywhereHistoryKey" value="dettagliGalleria&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig&#10;gallerie&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Video/gallerie.html.twig&#10;gallerie.&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Foto/gallerie.html.twig&#10;Foto&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/Foto.php&#10;style&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/style.css&#10;item_post_head.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_head.html.twig&#10;item_post.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post.html.twig&#10;image_upload&#9;FILE&#9;file:///var/www/velaforfun/web/redactor/image_upload.php&#10;contatti.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/contatti.html.twig&#10;conferma-iscrizione.html&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Security/conferma-iscrizione.html.twig&#10;body_content.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/body_content.html.twig&#10;item_post_body.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_body.html.twig&#10;item_topic_list.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Board/Partial/item_topic_list.html.twig&#10;stat_vitals.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Topic/Partial/stat_vitals.html.twig&#10;topic_actions.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Topic/Partial/topic_actions.html.twig&#10;articolo&#9;FILE&#9;file:///var/www/velaforfun/src/BlogBundle/Resources/views/Articolo/articolo.html.twig&#10;color&#9;FILE&#9;file:///var/www/velaforfun/web/bundles/app/css/colori.css&#10;reply&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Topic/reply.html.twig&#10;base&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/base.html.twig&#10;body&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/body_content.html.twig&#10;/item_board.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Category/Partial/item_board.html.twig&#10;category&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Category/Partial/item_category.html.twig&#10;item_post_body.html&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_body.html.twig&#10;item_b&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Category/Partial/item_board.html.twig&#10;item_topic_list&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Board/Partial/item_topic_list.html.twig&#10;item_board.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Category/Partial/item_board.html.twig&#10;item_board&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Category/Partial/item_board.html.twig&#10;login&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/FOSUserBundle/views/Security/login.html.twig&#10;registrati.html.twig&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Security/registrati.html.twig&#10;dettagliPorto.html&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;connessione-effettuata&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Security/connessione-effettuata.html.twig&#10;nodi.html.twig&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Nodo/nodi.html.twig&#10;login.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/FOSUserBundle/views/login.html.twig&#10;index.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/index.html.twig&#10;base.html.twig&#9;FILE&#9;file:///var/www/velaforfun/vendor/codeconsortium/ccdn-forum-bundle/CCDNForum/ForumBundle/Resources/views/base.html.twig&#10;Node&#9;FILE&#9;file:///var/www/velaforfun/vendor/knplabs/knp-menu/src/Knp/Menu/NodeInterface.php&#10;KnpComponentTreeMaterializedPathNode&#9;null&#9;null&#10;Cache&#9;null&#9;null&#10;Memcached&#9;null&#9;null&#10;routing.yml&#9;FILE&#9;file:///private/var/www/velaforfun/vendor/codeconsortium/ccdn-forum-bundle/CCDNForum/ForumBundle/Resources/config/routing.yml&#10;TopicCreateFormType&#9;null&#9;null&#10;RegistrationFormType&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Form/Type/RegistrationFormType.php&#10;UserInterface&#9;null&#9;null&#10;Topic&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="Pagin&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/PaginaStatica.php&#10;dettagliGalleria&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig&#10;gallerie&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Video/gallerie.html.twig&#10;gallerie.&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Foto/gallerie.html.twig&#10;Foto&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/Foto.php&#10;style&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/style.css&#10;item_post_head.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_head.html.twig&#10;item_post.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post.html.twig&#10;image_upload&#9;FILE&#9;file:///var/www/velaforfun/web/redactor/image_upload.php&#10;contatti.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/contatti.html.twig&#10;conferma-iscrizione.html&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Security/conferma-iscrizione.html.twig&#10;body_content.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/body_content.html.twig&#10;item_post_body.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_body.html.twig&#10;item_topic_list.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Board/Partial/item_topic_list.html.twig&#10;stat_vitals.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Topic/Partial/stat_vitals.html.twig&#10;topic_actions.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Topic/Partial/topic_actions.html.twig&#10;articolo&#9;FILE&#9;file:///var/www/velaforfun/src/BlogBundle/Resources/views/Articolo/articolo.html.twig&#10;color&#9;FILE&#9;file:///var/www/velaforfun/web/bundles/app/css/colori.css&#10;reply&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Topic/reply.html.twig&#10;base&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/base.html.twig&#10;body&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/body_content.html.twig&#10;/item_board.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Category/Partial/item_board.html.twig&#10;category&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Category/Partial/item_category.html.twig&#10;item_post_body.html&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_body.html.twig&#10;item_b&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Category/Partial/item_board.html.twig&#10;item_topic_list&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Board/Partial/item_topic_list.html.twig&#10;item_board.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Category/Partial/item_board.html.twig&#10;item_board&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Category/Partial/item_board.html.twig&#10;login&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/FOSUserBundle/views/Security/login.html.twig&#10;registrati.html.twig&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Security/registrati.html.twig&#10;dettagliPorto.html&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;connessione-effettuata&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Security/connessione-effettuata.html.twig&#10;nodi.html.twig&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Nodo/nodi.html.twig&#10;login.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/FOSUserBundle/views/login.html.twig&#10;index.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/index.html.twig&#10;base.html.twig&#9;FILE&#9;file:///var/www/velaforfun/vendor/codeconsortium/ccdn-forum-bundle/CCDNForum/ForumBundle/Resources/views/base.html.twig&#10;Node&#9;FILE&#9;file:///var/www/velaforfun/vendor/knplabs/knp-menu/src/Knp/Menu/NodeInterface.php&#10;KnpComponentTreeMaterializedPathNode&#9;null&#9;null&#10;Cache&#9;null&#9;null&#10;Memcached&#9;null&#9;null&#10;routing.yml&#9;FILE&#9;file:///private/var/www/velaforfun/vendor/codeconsortium/ccdn-forum-bundle/CCDNForum/ForumBundle/Resources/config/routing.yml&#10;TopicCreateFormType&#9;null&#9;null&#10;RegistrationFormType&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Form/Type/RegistrationFormType.php&#10;UserInterface&#9;null&#9;null&#10;Topic&#9;null&#9;null" />
     <property name="FullScreen" value="true" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
@@ -910,10 +797,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21686748" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21686748" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -965,34 +852,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Annuncio.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.4832776" vertical-offset="887" max-vertical-offset="3915">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/PaginaStaticaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.25" vertical-offset="30" max-vertical-offset="975">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/PaginaStatica.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4592" max-vertical-offset="5280">
-          <caret line="333" column="7" selection-start-line="333" selection-start-column="7" selection-end-line="333" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/PaginaStaticaType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="765">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioImbarco/lista.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.25" vertical-offset="1215" max-vertical-offset="4260">
@@ -1011,13 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10033445" vertical-offset="0" max-vertical-offset="598">
           <caret line="4" column="26" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Form/ArticoloType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="885">
-          <caret line="23" column="37" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1147,13 +999,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Entity/Articolo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.9411764" vertical-offset="10272" max-vertical-offset="10830">
-          <caret line="712" column="7" selection-start-line="712" selection-start-column="7" selection-end-line="712" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.529412" vertical-offset="2979" max-vertical-offset="4590">
@@ -1276,7 +1121,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="317" max-vertical-offset="1005">
           <caret line="55" column="53" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
           <folding>
-            <marker date="1434469202000" expanded="true" signature="1073:1090" placeholder="select * fro..img..." />
+            <marker date="1434469202000" expanded="true" signature="-1:-1" placeholder="select * fro..img..." />
           </folding>
         </state>
       </provider>
@@ -1306,7 +1151,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/gallerie.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="452" max-vertical-offset="1590">
+        <state vertical-scroll-proportion="-11.166667" vertical-offset="452" max-vertical-offset="1590">
           <caret line="48" column="33" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="33" />
           <folding />
         </state>
@@ -1330,9 +1175,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7692308" vertical-offset="1395" max-vertical-offset="2160">
-          <caret line="123" column="57" selection-start-line="123" selection-start-column="57" selection-end-line="123" selection-end-column="57" />
+        <state vertical-scroll-proportion="-13.75" vertical-offset="1395" max-vertical-offset="2160">
+          <caret line="115" column="30" selection-start-line="115" selection-start-column="30" selection-end-line="115" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/PaginaStaticaType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="765">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34615386" vertical-offset="63" max-vertical-offset="2535">
+          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/PaginaStaticaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="900">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Form/ArticoloType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.75" vertical-offset="0" max-vertical-offset="885">
+          <caret line="32" column="38" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Entity/Articolo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.882353" vertical-offset="8874" max-vertical-offset="10830">
+          <caret line="622" column="5" selection-start-line="607" selection-start-column="0" selection-end-line="622" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/PaginaStatica.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62903225" vertical-offset="4179" max-vertical-offset="6120">
+          <caret line="302" column="32" selection-start-line="302" selection-start-column="32" selection-end-line="302" selection-end-column="32" />
+          <folding>
+            <element signature="e#36#68#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
