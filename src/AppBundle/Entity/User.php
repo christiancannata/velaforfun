@@ -82,6 +82,10 @@ class User extends BaseUser implements MandantUserInterface
      */
     protected $mandant;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $idOriginale;
 
     /**
      * @ORM\ManyToOne(targetEntity="Porto", inversedBy="commenti")
@@ -490,6 +494,22 @@ class User extends BaseUser implements MandantUserInterface
     public function setAttracchi($attracchi)
     {
         $this->attracchi = $attracchi;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdOriginale()
+    {
+        return $this->idOriginale;
+    }
+
+    /**
+     * @param mixed $idOriginale
+     */
+    public function setIdOriginale($idOriginale)
+    {
+        $this->idOriginale = $idOriginale;
     }
 
 }

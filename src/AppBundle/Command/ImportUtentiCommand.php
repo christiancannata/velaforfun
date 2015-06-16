@@ -49,7 +49,7 @@ class ImportUtentiCommand extends ContainerAwareCommand
                 $this->output->writeln("<comment>Importing: ".$data['username']." </comment>");
 
                 $utente=new User();
-                $utente->setId($data['ID']);
+                $utente->setIdOriginale($data['ID']);
                 $utente->setNome("");
                 $utente->setEmail($data['mail']);
                 $utente->setTimestamp(new \DateTime($data['data']));
