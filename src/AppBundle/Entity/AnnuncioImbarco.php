@@ -139,12 +139,6 @@ class AnnuncioImbarco
 
 
     /**
-     * @ORM\OneToMany(targetEntity="RispostaAnnuncioImbarco", mappedBy="annuncio")
-     **/
-    private $risposte;
-
-
-    /**
      * @ORM\ManyToOne(targetEntity="CCDNForum\ForumBundle\Entity\Topic")
      * @ORM\JoinColumn(name="id_topic", referencedColumnName="id", nullable=true)
      **/
@@ -159,7 +153,6 @@ class AnnuncioImbarco
 
 
     public function __construct() {
-        $this->risposte = new ArrayCollection();
     }
 
     /**
@@ -388,21 +381,6 @@ class AnnuncioImbarco
         $this->tipoAnnuncio = $tipoAnnuncio;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getRisposte()
-    {
-        return $this->risposte;
-    }
-
-    /**
-     * @param mixed $risposte
-     */
-    public function setRisposte($risposte)
-    {
-        $this->risposte = $risposte;
-    }
 
     /**
      * @return string
