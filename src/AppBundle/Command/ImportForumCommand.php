@@ -35,7 +35,7 @@ class ImportForumCommand extends ContainerAwareCommand
         $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $this->connection = $this->getContainer()->get('database_connection');
 
-        $query = "select * from forum1 where stato=0 and idr=0";
+        $query = "select * from forum1 where stato=0 and idr=0 order by ID desc";
 
         $res = $this->connection->executeQuery($query)->fetchAll();
 
@@ -44,56 +44,29 @@ class ImportForumCommand extends ContainerAwareCommand
 
 
         foreach ($res as $data) {
-            $redirect=new CompatibilitaForum();
-            $redirect->setIdOld($data['ID']);
 
-            $countPost = array();
-            $countRisposte = array();
-            $firstTopic = new Topic();
-            $firstTopic->setTitle($data['titolo']);
-            $firstTopic->setCachedViewCount(1);
-            $firstTopic->setBoard(
-                $this->getContainer()->get('doctrine')
-                    ->getRepository('CCDNForumForumBundle:Board')->find($data['forum'])
-            );
+                $inserito=$this->getContainer()->get('doctrine')
+                    ->getRepository('AppBundle:CompatibilitaForum')->findOneByIdOld($data['ID']);
+            if(!$inserito){
+                $redirect=new CompatibilitaForum();
+                $redirect->setIdOld($data['ID']);
 
-            $this->em->persist($firstTopic);
-            $this->em->flush();
+                $countPost = array();
+                $countRisposte = array();
+                $firstTopic = new Topic();
+                $firstTopic->setTitle($data['titolo']);
+                $firstTopic->setCachedViewCount(1);
+                $firstTopic->setBoard(
+                    $this->getContainer()->get('doctrine')
+                        ->getRepository('CCDNForumForumBundle:Board')->find($data['forum'])
+                );
 
-            $redirect->setIdNew($firstTopic->getId());
+                $this->em->persist($firstTopic);
+                $this->em->flush();
 
-            $this->em->persist($redirect);
+                $redirect->setIdNew($firstTopic->getId());
 
-            $post = new Post();
-            $post->setTopic($firstTopic);
-            $dataPost = new \DateTime($data['data']);
-            $ora = new \DateTime($data['ora']);
-            $post->setCreatedDate(new \DateTime($dataPost->format("Y-m-d")." ".$ora->format("H:i:m")));
-            $post->setCreatedBy(
-                $this->getContainer()->get('doctrine')
-                    ->getRepository('AppBundle:User')->findOneByUsername($data['autore'])
-            );
-            $data['testo']=str_replace("[B]","<strong>",$data['testo']);
-            $data['testo']=str_replace("[/B]","</strong>",$data['testo']);
-            $data['testo']=str_replace("[I]","<i>",$data['testo']);
-            $data['testo']=str_replace("[/I]","</i>",$data['testo']);
-
-            $post->setBody($data['testo']);
-
-            $this->em->persist($post);
-            $this->em->flush();
-            $countPost[] = $post;
-            $firstTopic->setFirstPost($post);
-            $firstTopic->setLastPost($post);
-
-            $this->em->merge($firstTopic);
-            $this->em->flush();
-
-            $query = "select * from forum1 where stato=0 and idr=".$data['ID']." ";
-
-            $risposte = $this->connection->executeQuery($query)->fetchAll();
-
-            foreach ($risposte as $risposta) {
+                $this->em->persist($redirect);
 
                 $post = new Post();
                 $post->setTopic($firstTopic);
@@ -102,46 +75,86 @@ class ImportForumCommand extends ContainerAwareCommand
                 $post->setCreatedDate(new \DateTime($dataPost->format("Y-m-d")." ".$ora->format("H:i:m")));
                 $post->setCreatedBy(
                     $this->getContainer()->get('doctrine')
-                        ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore'])
+                        ->getRepository('AppBundle:User')->findOneByUsername($data['autore'])
                 );
-                $risposta['testo']=str_replace("[B]","<strong>",$risposta['testo']);
-                $risposta['testo']=str_replace("[/B]","</strong>",$risposta['testo']);
-                $risposta['testo']=str_replace("[I]","<i>",$risposta['testo']);
-                $risposta['testo']=str_replace("[/I]","</i>",$risposta['testo']);
 
-                $post->setBody($risposta['testo']);
+
+                $data['testo']=str_replace("[B]","<strong>",$data['testo']);
+                $data['testo']=str_replace("[/B]","</strong>",$data['testo']);
+                $data['testo']=str_replace("[I]","<i>",$data['testo']);
+                $data['testo']=str_replace("[/I]","</i>",$data['testo']);
+
+                $post->setBody($data['testo']);
 
                 $this->em->persist($post);
                 $this->em->flush();
-                $countRisposte[] = $post;
-
+                $countPost[] = $post;
+                $firstTopic->setFirstPost($post);
                 $firstTopic->setLastPost($post);
 
                 $this->em->merge($firstTopic);
                 $this->em->flush();
-            }
 
+                $query = "select * from forum1 where stato=0 and idr=".$data['ID']." ";
 
-            if ($firstTopic) {
-                $firstTopic->setCachedReplyCount(count($countRisposte));
-                $this->em->merge($firstTopic);
-                $this->em->flush();
-            }
+                $risposte = $this->connection->executeQuery($query)->fetchAll();
 
+                foreach ($risposte as $risposta) {
 
-            $board = $firstTopic->getBoard();
-            if ($board) {
-                $board->setLastPost(end($countPost));
-                $board->setCachedTopicCount(
-                    count(
+                    $post = new Post();
+                    $post->setTopic($firstTopic);
+                    $dataPost = new \DateTime($data['data']);
+                    $ora = new \DateTime($data['ora']);
+                    $post->setCreatedDate(new \DateTime($dataPost->format("Y-m-d")." ".$ora->format("H:i:m")));
+                    $post->setCreatedBy(
                         $this->getContainer()->get('doctrine')
-                            ->getRepository('CCDNForumForumBundle:Topic')->findByBoard($board)
-                    )
-                );
-                $board->setCachedPostCount(count($countPost));
-                $this->em->merge($board);
-                $this->em->flush();
+                            ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore'])
+                    );
+                    $risposta['testo']=str_replace("[B]","<strong>",$risposta['testo']);
+                    $risposta['testo']=str_replace("[/B]","</strong>",$risposta['testo']);
+                    $risposta['testo']=str_replace("[I]","<i>",$risposta['testo']);
+                    $risposta['testo']=str_replace("[/I]","</i>",$risposta['testo']);
+
+                    $post->setBody($risposta['testo']);
+
+                    $this->em->persist($post);
+                    $this->em->flush();
+                    $countRisposte[] = $post;
+
+                    $firstTopic->setLastPost($post);
+
+                    $this->em->merge($firstTopic);
+                    $this->em->flush();
+                }
+
+
+                if ($firstTopic) {
+                    $firstTopic->setCachedReplyCount(count($countRisposte));
+                    $this->em->merge($firstTopic);
+                    $this->em->flush();
+                }
+
+
+                $board = $firstTopic->getBoard();
+                if ($board) {
+                    $board->setLastPost(end($countPost));
+                    $board->setCachedTopicCount(
+                        count(
+                            $this->getContainer()->get('doctrine')
+                                ->getRepository('CCDNForumForumBundle:Topic')->findByBoard($board)
+                        )
+                    );
+                    $board->setCachedPostCount(count($countPost));
+                    $this->em->merge($board);
+                    $this->em->flush();
+                }
+
             }
+
+
+
+
+
 
         }
 

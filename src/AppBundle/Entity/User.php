@@ -83,7 +83,7 @@ class User extends BaseUser implements MandantUserInterface
     protected $mandant;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(name="id_originale",type="integer", nullable=true)
      */
     protected $idOriginale;
 

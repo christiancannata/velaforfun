@@ -32,7 +32,7 @@ class ImportUtentiCommand extends ContainerAwareCommand
         $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $this->connection = $this->getContainer()->get('database_connection');
 
-        $query = "select * from utenti";
+        $query = "select * from utenti order by ID desc";
 
         $res = $this->connection->executeQuery($query)->fetchAll();
 
@@ -41,31 +41,48 @@ class ImportUtentiCommand extends ContainerAwareCommand
         foreach ($res as $data) {
 
             $utente = $this->getContainer()->get('doctrine')
-                ->getRepository('AppBundle:User')->findOneByUsername($data['username']);
+                ->getRepository('AppBundle:User')->findOneByEmail($data['mail']);
 
-            if($utente){
+            if ($utente) {
                 $this->output->writeln("<comment>Gia presente: ".$data['username']." </comment>");
-            }else{
-                $this->output->writeln("<comment>Importing: ".$data['username']." </comment>");
+            } else {
 
-                $utente=new User();
-                $utente->setIdOriginale($data['ID']);
-                $utente->setNome("");
-                $utente->setEmail($data['mail']);
-                $utente->setTimestamp(new \DateTime($data['data']));
-                $utente->setCognome("");
-                $utente->setFirma($data['firma']);
-                $utente->setUsername($data['username']);
-                $utente->setPlainPassword($data['password']);
-                $utente->setPrivacy($data['privacy']);
-                $utente->setProfilePicturePath($data['avart']);
-                $utente->setEnabled(1);
+                $utente = $this->getContainer()->get('doctrine')
+                    ->getRepository('AppBundle:User')->findOneByUsername($data['username']);
+                if ($utente) {
+                    $this->output->writeln("<comment>Gia presente: ".$data['username']." </comment>");
+                } else {
+                    $this->output->writeln("<comment>Importing: ".$data['username']." </comment>");
 
-                $this->em->persist($utente);
-                $this->em->flush();
+                    $utente = new User();
+                    $utente->setIdOriginale($data['ID']);
+                    $utente->setNome("");
+                    $utente->setEmail($data['mail']);
+                    $utente->setTimestamp(new \DateTime($data['data']));
+                    $utente->setCognome("");
+
+                    $data['firma'] = str_replace("[B]", "<strong>", $data['firma']);
+                    $data['firma'] = str_replace("[/B]", "</strong>", $data['firma']);
+                    $data['firma'] = str_replace("[I]", "<i>", $data['firma']);
+                    $data['firma'] = str_replace("[/I]", "</i>", $data['firma']);
+
+
+                    $utente->setFirma($data['firma']);
+                    $utente->setUsername($data['username']);
+                    $utente->setPlainPassword($data['password']);
+                    $utente->setPrivacy($data['privacy']);
+                    $utente->setProfilePicturePath($data['avart']);
+                    $utente->setEnabled(1);
+
+                    $this->em->persist($utente);
+
+                    $this->em->flush();
+                }
             }
 
         }
+
+
 
 
     }

@@ -76,6 +76,15 @@ class Porto
      */
     private $postiTransito;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id_originale", type="integer", nullable=true)
+     */
+    private $idOriginale;
+
+
     /**
      * @var string
      *
@@ -404,6 +413,22 @@ class Porto
     public function setAnnunciScambioPosto($annunciScambioPosto)
     {
         $this->annunciScambioPosto = $annunciScambioPosto;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIdOriginale()
+    {
+        return $this->idOriginale;
+    }
+
+    /**
+     * @param string $idOriginale
+     */
+    public function setIdOriginale($idOriginale)
+    {
+        $this->idOriginale = $idOriginale;
     }
 
 

@@ -67,6 +67,11 @@ class OldRoutingRedirectListener extends ContainerAware
             $route = "contatti";
         }
 
+        if (strstr($path, "newsletter.asp#normal")) {
+            $redirect = true;
+            $route = "privacy";
+        }
+
 
         if (strstr($path, "chisiamo.asp")) {
             $redirect = true;
@@ -83,6 +88,36 @@ class OldRoutingRedirectListener extends ContainerAware
             $redirect = true;
             $route = "codice-internazionale";
         }
+
+
+        if (strstr($path, "cucina.asp")) {
+            $redirect = true;
+            $route = "ricette";
+        }
+
+
+        if (strstr($path, "cucina_v.asp")) {
+
+            if($request->get("ricetta")){
+                $post = $this->container->get('doctrine')
+                    ->getRepository('BlogBundle:Articolo')->findOneByIdOriginale($request->get("ricetta"));
+                if($post) {
+                    $redirect = true;
+                    $route = "articolo";
+                    $params["categoria"] = $post->getCategoria()->getPermalink();
+                    $params["permalink"] = $post->getPermalink();
+                }else{
+                    $redirect = true;
+                    $route = "ricette";
+                }
+
+            }else{
+                $redirect = true;
+                $route = "ricette";
+            }
+
+        }
+
 
 
         if (strstr($path, "imbarco_i.asp")) {
@@ -152,7 +187,22 @@ class OldRoutingRedirectListener extends ContainerAware
         }
 
         if (strstr($path, "porti/dettaglio.asp")) {
-            die("jjj");
+            if($request->get("id")){
+                $post = $this->container->get('doctrine')
+                    ->getRepository('AppBundle:Porto')->findOneByIdOriginale($request->get("id"));
+                if($post) {
+                    $redirect = true;
+                    $route = "dettaglio_porto";
+                    $params["permalink"] = $post->getPermalink();
+                }else{
+                    $redirect = true;
+                    $route = "porti_italia";
+                }
+
+            }else{
+                $redirect = true;
+                $route = "porti_italia";
+            }
 
         }
 
