@@ -137,11 +137,7 @@ class Porto
      **/
     protected $annunciScambioPosto;
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->utenti = new ArrayCollection();
-    }
+
 
     /**
      * Get id
@@ -343,22 +339,6 @@ class Porto
     public function setTimestamp($timestamp)
     {
         $this->timestamp = $timestamp;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUtenti()
-    {
-        return $this->utenti;
-    }
-
-    /**
-     * @param mixed $utenti
-     */
-    public function setUtenti($utenti)
-    {
-        $this->utenti = $utenti;
     }
 
     public function __toString(){
