@@ -12,7 +12,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation as Serializer;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity
  * @ORM\Table(name="menu")
@@ -59,7 +59,7 @@ class Menu
 
     public function __construct()
     {
-        $this->nodi = new ArrayCollection();
+        $this->nodi = new ArrayCollection;
     }  // your own logic
 
     /**
