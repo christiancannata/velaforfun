@@ -49,7 +49,7 @@ class OldRoutingRedirectListener extends ContainerAware
 
         if (strstr($path, "portolano/index.asp")) {
             $redirect = true;
-            $route = "list_segnalazione_portolano";
+            $route = "portolano_homepage";
         }
 
         if (strstr($path, "porti/index.asp")) {
