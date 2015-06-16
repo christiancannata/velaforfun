@@ -52,6 +52,8 @@ class ImportArticoliCommand extends ContainerAwareCommand
                 $utente->setIdOriginale($data['id']);
                 $utente->setTitolo($data['titolo']);
                 $utente->setTesto($data['nomefile']);
+                $utente->setStato("ATTIVO");
+
                 $utente->setAutore(
                     $this->getContainer()->get('doctrine')
                         ->getRepository('AppBundle:User')->findOneByUsername("ToroSeduto")
@@ -98,7 +100,7 @@ class ImportArticoliCommand extends ContainerAwareCommand
                 $utente = new Articolo();
                 $utente->setIdOriginale($data['ID']);
                 $utente->setTitolo($data['titolo']);
-
+                $utente->setStato("ATTIVO");
                 $testo="Tempo: ".$data['tempo'];
                 $testo.="<br><br>Persone: ".$data['persone'];
                 $testo.="<br><br>".$data['ingredienti'];
