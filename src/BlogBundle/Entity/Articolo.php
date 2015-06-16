@@ -116,7 +116,10 @@ class Articolo implements ItemInterface
      */
     protected $idComunicato;
 
-
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $idOriginale;
 
     /**
      * @Assert\Image(mimeTypesMessage="Please upload a valid image.")
@@ -697,6 +700,22 @@ class Articolo implements ItemInterface
     public function setGallery($gallery)
     {
         $this->gallery = $gallery;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdOriginale()
+    {
+        return $this->idOriginale;
+    }
+
+    /**
+     * @param mixed $idOriginale
+     */
+    public function setIdOriginale($idOriginale)
+    {
+        $this->idOriginale = $idOriginale;
     }
 
 

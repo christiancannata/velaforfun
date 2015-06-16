@@ -49,7 +49,7 @@ class ImportArticoliCommand extends ContainerAwareCommand
                 $this->output->writeln("<comment>Importing: ".$data['titolo']." </comment>");
 
                 $utente = new Articolo();
-                $utente->setId($data['id']);
+                $utente->setIdOriginale($data['id']);
                 $utente->setTitolo($data['titolo']);
                 $utente->setTesto($data['nomefile']);
                 $utente->setAutore(
@@ -96,9 +96,8 @@ class ImportArticoliCommand extends ContainerAwareCommand
                 $this->output->writeln("<comment>Importing: ".$data['titolo']." </comment>");
 
                 $utente = new Articolo();
-
+                $utente->setIdOriginale($data['id']);
                 $utente->setTitolo($data['titolo']);
-
 
                 $testo="Tempo: ".$data['tempo'];
                 $testo.="<br><br>Persone: ".$data['persone'];

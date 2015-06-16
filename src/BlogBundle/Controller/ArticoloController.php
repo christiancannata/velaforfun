@@ -73,7 +73,7 @@ class ArticoloController extends BaseController
             ->addMeta(
                 'property',
                 'og:image',
-                "http://local.velaforfun.dev/images/articoli/".$articolo->getProfilePictureFile()
+                "http://www.velaforfun.com/images/articoli/".$articolo->getProfilePictureFile()
             )
             ->addMeta('property', 'og:description', $articolo->getSottotitolo());
 
