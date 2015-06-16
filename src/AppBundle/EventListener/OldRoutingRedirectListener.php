@@ -204,7 +204,7 @@ class OldRoutingRedirectListener extends ContainerAware
 
         if (strstr($path, "comunicati/index.asp")) {
             $redirect = true;
-            $route = "BloggerBlogBundle_blog_show_categoria";
+            $route = "categoria";
             $params["permalink"] = "comunicati";
         }
 
