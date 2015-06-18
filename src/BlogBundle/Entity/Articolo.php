@@ -7,10 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\OneToMany;
-use Eko\FeedBundle\Item\Reader\ItemInterface;
+use Eko\FeedBundle\Item\Writer\ItemInterface;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="articolo")
@@ -84,7 +85,6 @@ class Articolo implements ItemInterface
     protected $sottotitolo;
 
 
-
     /**
      * @var string
      *
@@ -146,7 +146,6 @@ class Articolo implements ItemInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $linkCorrelato;
-
 
 
     /**
@@ -277,49 +276,6 @@ class Articolo implements ItemInterface
         $this->timestamp = $timestamp;
     }
 
-    /**
-     * This method sets feed item title
-     *
-     * @param string $title
-     *
-     */
-    public function setFeedItemTitle($title)
-    {
-        // TODO: Implement setFeedItemTitle() method.
-    }
-
-    /**
-     * This method sets feed item description (or content)
-     *
-     * @param string $description
-     *
-     */
-    public function setFeedItemDescription($description)
-    {
-        // TODO: Implement setFeedItemDescription() method.
-    }
-
-    /**
-     * This method sets feed item URL link
-     *
-     * @param string $link
-     *
-     */
-    public function setFeedItemLink($link)
-    {
-        // TODO: Implement setFeedItemLink() method.
-    }
-
-    /**
-     * This method sets item publication date
-     *
-     * @param \DateTime $date
-     *
-     */
-    public function setFeedItemPubDate(\DateTime $date)
-    {
-        // TODO: Implement setFeedItemPubDate() method.
-    }
 
     /**
      * @return mixed
@@ -395,17 +351,17 @@ class Articolo implements ItemInterface
     }
 
 
-
     /**
      * Sets the file used for profile picture uploads
      *
      * @param UploadedFile $file
      * @return object
      */
-    public function setProfilePictureFile(\Symfony\Component\HttpFoundation\File\UploadedFile $file = null) {
+    public function setProfilePictureFile(\Symfony\Component\HttpFoundation\File\UploadedFile $file = null)
+    {
         // set the value of the holder
 
-        $this->profilePictureFile       =   $file;
+        $this->profilePictureFile = $file;
         // check if we have an old image path
         if (isset($this->immagine)) {
             // store the old name to delete after the update
@@ -423,17 +379,18 @@ class Articolo implements ItemInterface
      *
      * @return UploadedFile
      */
-    public function getProfilePictureFile() {
+    public function getProfilePictureFile()
+    {
 
         return $this->profilePictureFile;
     }
 
 
-
     /**
      * Get the absolute path of the immagine
      */
-    public function getProfilePictureAbsolutePath() {
+    public function getProfilePictureAbsolutePath()
+    {
         return null === $this->immagine
             ? null
             : $this->getUploadRootDir().'/'.$this->immagine;
@@ -444,7 +401,8 @@ class Articolo implements ItemInterface
      *
      * @return string
      */
-    protected function getUploadRootDir($type='profilePicture') {
+    protected function getUploadRootDir($type = 'profilePicture')
+    {
         // the absolute directory path where uploaded
         // documents should be saved
         return __DIR__.'/../../../web/'.$this->getUploadDir($type);
@@ -455,7 +413,8 @@ class Articolo implements ItemInterface
      *
      * @return string
      */
-    protected function getUploadDir($type='profilePicture') {
+    protected function getUploadDir($type = 'profilePicture')
+    {
         // the type param is to change these methods at a later date for more file uploads
         // get rid of the __DIR__ so it doesn't screw up
         // when displaying uploaded doc/image in the view.
@@ -467,7 +426,8 @@ class Articolo implements ItemInterface
      *
      * @return string
      */
-    public function getWebimmagine() {
+    public function getWebimmagine()
+    {
 
         return '/'.$this->getUploadDir().'/'.$this->getimmagine();
     }
@@ -476,12 +436,17 @@ class Articolo implements ItemInterface
      * @ORM\PrePersist()
      * @ORM\PreUpdate()
      */
-    public function preUploadProfilePicture() {
+    public function preUploadProfilePicture()
+    {
         if (null !== $this->getProfilePictureFile()) {
             // a file was uploaded
             // generate a unique filename
-            $oggi=new \DateTime();
-            $filename=str_replace('"','',str_replace("''","",str_replace(" ","-",$this->getTitolo())."-".$oggi->format("U")));
+            $oggi = new \DateTime();
+            $filename = str_replace(
+                '"',
+                '',
+                str_replace("''", "", str_replace(" ", "-", $this->getTitolo())."-".$oggi->format("U"))
+            );
             $this->setimmagine($filename.'.'.$this->getProfilePictureFile()->guessExtension());
         }
     }
@@ -491,12 +456,17 @@ class Articolo implements ItemInterface
      * @ORM\PrePersist()
      * @ORM\PreUpdate()
      */
-    public function preUploadImmagineCorrelata() {
+    public function preUploadImmagineCorrelata()
+    {
         if (null !== $this->getImmagineCorrelata()) {
             // a file was uploaded
             // generate a unique filename
-            $oggi=new \DateTime();
-            $filename=str_replace('"','',str_replace("''","",str_replace(" ","-",$this->getTitoloCorrelato())."-".$oggi->format("U")));
+            $oggi = new \DateTime();
+            $filename = str_replace(
+                '"',
+                '',
+                str_replace("''", "", str_replace(" ", "-", $this->getTitoloCorrelato())."-".$oggi->format("U"))
+            );
             $this->setImmagineCorrelataArticolo($filename.'.'.$this->getImmagineCorrelata()->guessExtension());
         }
     }
@@ -506,14 +476,16 @@ class Articolo implements ItemInterface
      *
      * @return string
      */
-    public function generateRandomProfilePictureFilename() {
-        $count                  =   0;
+    public function generateRandomProfilePictureFilename()
+    {
+        $count = 0;
         do {
-            $oggi=new \DateTime();
+            $oggi = new \DateTime();
             $randomString = bin2hex($oggi->format("U"));
             $count++;
-        }
-        while(file_exists($this->getUploadRootDir().'/'.$randomString.'.'.$this->getProfilePictureFile()->guessExtension()) && $count < 50);
+        } while (file_exists(
+                $this->getUploadRootDir().'/'.$randomString.'.'.$this->getProfilePictureFile()->guessExtension()
+            ) && $count < 50);
 
         return $randomString;
     }
@@ -526,7 +498,8 @@ class Articolo implements ItemInterface
      *
      * @return mixed
      */
-    public function uploadProfilePicture() {
+    public function uploadProfilePicture()
+    {
         // check there is a profile pic to upload
         if ($this->getProfilePictureFile() === null) {
             return;
@@ -554,7 +527,8 @@ class Articolo implements ItemInterface
      *
      * @return mixed
      */
-    public function uploadImmagineCorrelata() {
+    public function uploadImmagineCorrelata()
+    {
         // check there is a profile pic to upload
         if ($this->getImmagineCorrelata() === null) {
             return;
@@ -586,7 +560,8 @@ class Articolo implements ItemInterface
     }
 
 
-    public function __toString(){
+    public function __toString()
+    {
         return $this->titolo;
     }
 
@@ -718,6 +693,29 @@ class Articolo implements ItemInterface
         $this->idOriginale = $idOriginale;
     }
 
+
+    public function getFeedItemTitle()
+    {
+        return $this->titolo;
+    }
+
+    public function getFeedItemDescription()
+    {
+        return $this->sottotitolo;
+    }
+
+    public function getFeedItemPubDate()
+    {
+        return $this->lastUpdateTimestamp;
+    }
+
+    public function getFeedItemLink()
+    {
+        if ($this->getCategoria() != null) {
+            return "http://www.velaforfun.com/".$this->getCategoria()->getPermalink()."/".$this->getPermalink();
+
+        }
+    }
 
 
 }
