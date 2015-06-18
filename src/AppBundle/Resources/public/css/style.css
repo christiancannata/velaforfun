@@ -160,8 +160,20 @@ form label {
 }
 
 .content-title a:hover {
-    text-decoration: underline !important;
-    color: white !important;
+
+    color: #333 !important;
+}
+.main-article .content-title{
+    -webkit-transition: background-color 0.2s linear;
+    -moz-transition: background-color 0.2s linear;
+    -o-transition: background-color 0.2s linear;
+    -ms-transition: background-color 0.2s linear;
+    transition: background-color 0.2s linear;
+}
+.main-article .content-title:hover{
+background:rgba(66, 156, 188, 1);
+    cursor: pointer;
+
 }
 
 .center-cropped {
