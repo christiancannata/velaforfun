@@ -67,6 +67,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="segnalazioni.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.625" vertical-offset="870" max-vertical-offset="4620">
+              <caret line="75" column="98" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="98" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ImportForumCommand.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -85,10 +95,10 @@
       <file leaf-file-name="dettagliPorto.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43928573" vertical-offset="5604" max-vertical-offset="9690">
-              <caret line="390" column="39" selection-start-line="390" selection-start-column="39" selection-end-line="390" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.5625" vertical-offset="1305" max-vertical-offset="9735">
+              <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
               <folding>
-                <marker date="1434642771000" expanded="true" signature="11333:11342" placeholder="..." />
+                <marker date="1434642863000" expanded="true" signature="11409:11418" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -155,18 +165,6 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="2205" max-vertical-offset="30780">
               <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4307" max-vertical-offset="4950">
-              <caret line="304" column="33" selection-start-line="304" selection-start-column="33" selection-end-line="304" selection-end-column="33" />
-              <folding>
-                <marker date="1434447840000" expanded="true" signature="8617:8632" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -344,6 +342,36 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="velaforfun">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="AppBundle">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Resources">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="SegnalazionePortolano">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -903,14 +931,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.375" vertical-offset="2919" max-vertical-offset="4620">
-          <caret line="216" column="88" selection-start-line="216" selection-start-column="88" selection-end-line="216" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/IbrowsNewsletterBundle/translations/IbrowsNewsletterBundleForms.de.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
@@ -1096,7 +1116,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="4337" max-vertical-offset="4950">
           <caret line="304" column="33" selection-start-line="304" selection-start-column="33" selection-end-line="304" selection-end-column="33" />
           <folding>
-            <marker date="1434447840000" expanded="true" signature="8617:8632" placeholder="..." />
+            <marker date="1434447840000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1162,6 +1182,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.625" vertical-offset="870" max-vertical-offset="4620">
+          <caret line="75" column="98" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.3333335" vertical-offset="1324" max-vertical-offset="2730">
@@ -1177,10 +1205,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43928573" vertical-offset="5604" max-vertical-offset="9690">
-          <caret line="390" column="39" selection-start-line="390" selection-start-column="39" selection-end-line="390" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.5625" vertical-offset="1305" max-vertical-offset="9735">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
           <folding>
-            <marker date="1434642771000" expanded="true" signature="11333:11342" placeholder="..." />
+            <marker date="1434642863000" expanded="true" signature="11409:11418" placeholder="..." />
           </folding>
         </state>
       </provider>

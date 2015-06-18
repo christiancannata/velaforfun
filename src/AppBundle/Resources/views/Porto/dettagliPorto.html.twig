@@ -80,13 +80,17 @@
                 geolocate.onclick = function (e) {
                     e.preventDefault();
                     e.stopPropagation();
+                    $("#geolocate").html('<i class="fa fa-spinner fa-2x fa-spin "></i>');
                     map.locate();
+
+
                 };
             }
 
 // Once we've got a position, zoom and center the map
 // on it, and add a single marker.
             map.on('locationfound', function (e) {
+                $("#geolocate").html('<i style="" class="fa fa-crosshairs "></i>Localizzami');
                 map.fitBounds(e.bounds);
 
                 myLayer.setGeoJSON({
@@ -102,8 +106,7 @@
                     }
                 });
 
-                // And hide the geolocation button
-                geolocate.parentNode.removeChild(geolocate);
+
             });
 
 // If the user chooses not to allow their location
