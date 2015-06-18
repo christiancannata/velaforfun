@@ -1,0 +1,116 @@
+newsletter:
+  subscriber: Modifica destinatari per la Newsletter "%name%"
+  unsubscribe: Disiscrivi "%email%"
+  settings: Modificare le impostazioni per la Newsletter "%name%"
+  name: Nome
+  created_at: Creato il
+  design: Modello
+  testmail: Prova di spedizione
+  overview: Panoramica
+  statistic: Statistiche
+  block:
+    clone: Clona
+    add: Aggiungi
+    new: Nuovo blocco
+    provider:
+      'ibrows_newsletter.block.provider.textarea':
+        name: Testo
+      'ibrows_newsletter.block.provider.image': 
+        name: Immagine
+      'ibrows_newsletter.block.provider.textareaandimage': 
+        name: Testo ed immagine
+        textwidth: Larghezza testo
+        imagewidth: Larghezza immagine
+  layout:
+    index:
+      title: Benvenuti nella gestione della vostra Newsletter
+  wizard:
+    meta:       Meta
+    edit:       Modifica
+    subscriber: Iscritti
+    settings:   Impostazioni
+    summary:    Sommario
+  create: Nuova newsletter
+  list: Newsletter
+  edit: Modifica Newsletter "%name%"
+  summary: Sommario Newsletter "%name%"
+  blocks: Blocchi
+  dialog:
+    abort: annulla
+  gendertitle:
+    male:
+      formal: Signor %subscriber.lastname%
+      informal: Ciao %subscriber.firstname%
+    female:
+      formal: Signora %subscriber.lastname%
+      informal: Ciao %subscriber.firstname%
+  error:
+    mail: "Impossibile inviare il messaggio: %message%"
+  generate:   
+    mail: Avviare spedizione
+
+mandant:
+  admin: Impostazioni
+  edit: Modifica mandante %name%
+  general: Impostazioni generali
+  settings: Impostazioni della posta di default
+
+user:
+  logout: Esci
+
+subscriber:
+  list: Iscritti
+  firstname: Nome
+  lastname: Cognome
+  company: Azienda
+  email: E-Mail
+  groups: Gruppi
+  delete:
+    button: Elimina
+    status_ok: Utente eliminato con successo
+    status_ko: "Errore imprevisto durante l'eliminazione dell'utente. Contattare l'amministratore di sistema."
+  create:
+    button: Aggiungi
+    status_ok: Utente creato con successo
+  multiselect:
+    selectable: Utente iscritto
+    selected:   Destinatari selezionati
+
+design:
+  create: Nuovo modello
+  list: Modelli
+  preview: Anteprima
+  name: Nome
+  created_at: Creato il
+  edit: Modifica modello
+
+email: E-Mail
+
+statistic:
+  title: Statistiche della Newsletter "%name%"
+  show: Mostra statistiche
+  readpiechart:
+    read: Letto
+    unread: Non letto
+  jobpiechart:
+    status:
+      working: Spedizione
+      onhold: Attendere
+      ready: Pronto per la spedizione
+      completed: Spedizione effettuata
+      error: Errore
+
+form:
+  save: Salva
+  cancel: Annulla
+  send: Invia
+  testmail: Prova di spedizione
+  
+security:
+  login:
+    mandant:  Mandante
+  
+layout:
+  header:
+    title:
+      newsletterbundle: iBROWS NewsletterBundle
