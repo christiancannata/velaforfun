@@ -61,18 +61,19 @@
                     geolocate.innerHTML = 'Geolocation is not available';
                 } else {
                     geolocate.onclick = function (e) {
-
-
                         e.preventDefault();
                         e.stopPropagation();
+                        $("#geolocate").html('<i class="fa fa-spinner fa-2x fa-spin "></i>');
                         map.locate();
+
+
                     };
                 }
 
 // Once we've got a position, zoom and center the map
 // on it, and add a single marker.
                 map.on('locationfound', function (e) {
-
+                    $("#geolocate").html('<i style="" class="fa fa-crosshairs "></i>Localizzami');
                     $("#latitudine").val(e.latlng.lat);
                     $("#longitudine").val(e.latlng.lng);
 
@@ -201,9 +202,10 @@
 
     {{ form_start(form) }}
                 <div class="modal-body">
-                 <button class="localizzami hvr-glow left" id='geolocate'><i style=""
-                                                                                            class="fa fa-crosshairs"></i>Localizzami
-                                </button>
+                 <button class="localizzami hvr-glow left" id='geolocate'>
+                 <i style="" class="fa fa-crosshairs "></i>Localizzami
+
+                 </button>
 
 
 
@@ -212,7 +214,7 @@
                         <label for="descrizione">Descrizione:</label>
                         <textarea id="descrizione" name="appbundle_segnalazioneportolano[descrizione]"
                                   class="form-control"
-                                  required placeholder="Descrizione della segnalazione"></textarea>
+                                  required placeholder="Descrizione della segnalazione" ></textarea>
                     </div>
                     <div class="form-group">
 
