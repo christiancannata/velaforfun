@@ -1,13 +1,13 @@
 jQuery(document).ready(function ($) {
 
-    if (typeof localStorage.getItem("geolocation") != undefined ) {
+    if (typeof localStorage.getItem("geolocation") != undefined) {
         var meteo = JSON.parse(localStorage.getItem("geolocation"));
-        if (meteo != null){
+        if (meteo != null) {
             $("#meteo-localized-nome").html(meteo.geoposition.name);
 
-            $("#meteo-localized-temperatura").html(parseInt(meteo.geoposition.main.temp)+"°");
-            $("#meteo-localized-vento").html(meteo.geoposition.wind.speed+" km/h");
-            $("#meteo-localized-umidita").html(meteo.geoposition.main.humidity+" %");
+            $("#meteo-localized-temperatura").html(parseInt(meteo.geoposition.main.temp) + "°");
+            $("#meteo-localized-vento").html(meteo.geoposition.wind.speed + " km/h");
+            $("#meteo-localized-umidita").html(meteo.geoposition.main.humidity + " %");
             $("#meteo-localized-icon").addClass(meteo.geoposition.weather[0].icon);
 
             $("#meteo-localized-box").removeClass("hide");
@@ -17,8 +17,9 @@ jQuery(document).ready(function ($) {
     }
 
 
-
-    $('select').selectpicker();
+    $('select').selectpicker(
+        {title: "Seleziona un elemento"}
+    );
 
     $(".marker-description button").click(function () {
         location.href = $(this).attr("id");
@@ -289,7 +290,6 @@ function setNuovoCommentoPorto(response) {
         $('#commentiPorto li:eq(0)').before(nuovoCommento);
 
     });
-
 
 
 };

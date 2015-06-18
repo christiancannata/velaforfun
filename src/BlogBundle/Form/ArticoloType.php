@@ -21,7 +21,7 @@ class ArticoloType extends AbstractType
             ->add('testo',null, array('attr' => array(
                 'style' => 'height:400px'
             )))
-            ->add('profilePictureFile')
+            ->add('profilePictureFile',null,array("label"=>"Immagine articolo"))
             ->add('tags')
             ->add('idComunicato')
             ->add('autore')
