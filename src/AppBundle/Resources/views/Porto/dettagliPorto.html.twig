@@ -220,28 +220,33 @@
 
                                             <p style="margin-top:5px;margin-bottom: 10px">Esprimi un giudizio su questo
                                                 porto:</p>
-                                            <a class="btn btn-primary check" style="color:white;margin-right: 20px;cursor:pointer">
-                                                <input  style="display:none" type="radio" value="POSITIVO"
+                                            <a class="btn btn-primary check"
+                                               style="color:white;margin-right: 20px;cursor:pointer">
+                                                <input style="display:none" type="radio" value="POSITIVO"
                                                        name="appbundle_commentoporto[tipoCommento]" id="radio1"
                                                        checked/>
-                                                <label for="radio1" style="display: inline;width:auto;color:white !important;cursor:pointer">
+                                                <label for="radio1"
+                                                       style="display: inline;width:auto;color:white !important;cursor:pointer">
                                                     POSITIVO
                                                 </label>
                                             </a>
 
-                                            <a class="btn btn-primary check checked"  style="color:white;margin-right: 20px;cursor:pointer">
+                                            <a class="btn btn-primary check checked"
+                                               style="color:white;margin-right: 20px;cursor:pointer">
                                                 <input style="display:none" type="radio" value="NEUTRO"
                                                        name="appbundle_commentoporto[tipoCommento]" id="radio3"
                                                        checked/>
-                                                <label for="radio3" style="display: inline;width:auto;color:white !important;cursor:pointer">
+                                                <label for="radio3"
+                                                       style="display: inline;width:auto;color:white !important;cursor:pointer">
                                                     NEUTRO
 
                                                 </label>
                                             </a>
-                                            <a class="btn btn-primary check"  style="color:white;cursor:pointer">
-                                                <input  style="display:none" type="radio" value="NEGATIVO"
+                                            <a class="btn btn-primary check" style="color:white;cursor:pointer">
+                                                <input style="display:none" type="radio" value="NEGATIVO"
                                                        name="appbundle_commentoporto[tipoCommento]" id="radio2"/>
-                                                <label for="radio2" style="display: inline;width:auto;color:white !important;cursor:pointer">
+                                                <label for="radio2"
+                                                       style="display: inline;width:auto;color:white !important;cursor:pointer">
 
                                                     NEGATIVO
                                                 </label></a>
@@ -379,12 +384,16 @@
                             <strong>Informazioni utili</strong>
 
                             <p>{{ porto.datiOver|raw }}</p>
-                            <strong>Posti totali</strong>
+                            {% if porto.postiTotale != "" %}
+                                <strong>Posti totali</strong>
 
-                            <p>{{ porto.postiTotale|raw }}</p>
-                            <strong>Posti di transito</strong>
+                                <p>{{ porto.postiTotale|raw }}</p>
+                            {% endif %}
+                            {% if porto.postiTransito != "" %}
+                                <strong>Posti di transito</strong>
 
-                            <p>{{ porto.postiTransito|raw }}</p>
+                                <p>{{ porto.postiTransito|raw }}</p>
+                            {% endif %}
                         </div>
 
                     </div>
