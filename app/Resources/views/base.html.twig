@@ -234,16 +234,17 @@
                                             <div class="row clearfix">
 
                                                 <div class="col-md-12 column">
-                                                    <h4  class="foreground-celeste"style="padding-left:0px;margin-top:10px">METEO</h4>
+                                                    <h4 class="foreground-celeste"
+                                                        style="padding-left:0px;margin-top:10px">METEO</h4>
                                                 </div>
                                             </div>
                                             <div id="meteo-localized-box" class="hide">
 
 
-
                                                 <div class="row clearfix">
 
-                                                    <div class="col-md-4 column foreground-celeste" style="margin-top:10px">
+                                                    <div class="col-md-4 column foreground-celeste"
+                                                         style="margin-top:10px">
                                                         {{ "now"|date("H:i") }}
                                                     </div>
                                                     <div class="col-md-4 column">
@@ -260,15 +261,16 @@
                                                 </div>
 
 
-
                                                 <div class="row clearfix">
 
                                                     <div class="col-md-6 column">
-                                                        <p style="margin:0"><i class="wi wi-strong-wind foreground-celeste"></i>
+                                                        <p style="margin:0"><i
+                                                                    class="wi wi-strong-wind foreground-celeste"></i>
                                                         </p>
 
                                                         <div id="meteo-localized-vento"
-                                                             style="margin-bottom: 10px;" class="foreground-celeste">km/h
+                                                             style="margin-bottom: 10px;" class="foreground-celeste">
+                                                            km/h
                                                         </div>
 
                                                     </div>
@@ -287,9 +289,12 @@
                                                 <div class="row clearfix">
 
                                                     <div class="col-md-12 column">
-                                                        <i class="fa fa-location-arrow foreground-celeste left" style="padding-left:0px;float:left"
-                                                           > </i>
-                                                        <h1 id="meteo-localized-nome" style="padding-left:0px;float:left"></h1>
+                                                        <i class="fa fa-location-arrow foreground-celeste left"
+                                                           style="padding-left:0px;float:left"
+                                                                > </i>
+
+                                                        <h1 id="meteo-localized-nome"
+                                                            style="padding-left:0px;float:left"></h1>
                                                     </div>
 
                                                 </div>
@@ -299,7 +304,8 @@
                                             <div class="row clearfix" id="div-localized">
 
                                                 <div class="col-md-12 column">
-                                                    <button class="btn btn-primary" onclick="localizzami()" style="width:100%;margin-top:10px;margin-bottom:10px">
+                                                    <button class="btn btn-primary" onclick="localizzami()"
+                                                            style="width:100%;margin-top:10px;margin-bottom:10px">
                                                         Localizzami
                                                     </button>
                                                 </div>
@@ -407,7 +413,8 @@
 
                                             <li class="dropdown-header">Gestione Articoli</li>
                                             <li><a href="/archivio/list/articoli">Lista Articoli</a></li>
-                                            <li><a href="/segnalazione-portolano/list">Gestione Portolano Online</a></li>
+                                            <li><a href="/segnalazione-portolano/list">Gestione Portolano Online</a>
+                                            </li>
                                             <li class="dropdown-header">Gestione Porti</li>
                                             <li><a href="/porti/list">Lista</a></li>
                                             <li class="dropdown-header">Gestione Nodi</li>
@@ -493,7 +500,7 @@
                     <h3>Iscriviti alla newsletter</h3>
 
 
-                    <form method="post" action="">
+                    <form method="post" name="newsletter" action="/iscritti-newsletter">
                         <div class="form-group">
                             <label for="username">Nome:</label>
                             <input type="text" required="required" value="" name="nome"
@@ -501,7 +508,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Email:</label>
-                            <input type="email" style="width:100%"required="required" name="email" id="email">
+                            <input type="email" style="width:100%" required="required" name="email" id="email">
                         </div>
                         <div class="form-group">
                             <input type="checkbox" value="1" name="_remember_me" id="remember_me">
@@ -640,7 +647,8 @@
             }
 
             var forms = [
-                '[ name="{{ form.vars.full_name }}"]'
+                '[ name="{{ form.vars.full_name }}"]',
+                '[name="newsletter"]'
             ];
 
 
@@ -680,6 +688,48 @@
             });
 
 
+        });
+    </script>
+
+{% else %}
+    <script language="javascript">
+        $(document).ready(function () {
+
+
+            $('form[name="newsletter"]').submit(function (e) {
+                e.preventDefault();
+                var form = $(this)
+                form.find('input[type="submit"],button,a').attr('disabled', 'disabled');
+
+                form.find("input[type='submit'].show,button.show,a.show,i.show,span.show").addClass("hide").removeClass("show");
+                form.find(".fa-spinner").toggleClass("hide");
+
+                var errorMessage = "Errore nella creazione!";
+                var successMessage = "Creato con successo!";
+                if ($("#successMessage").length > 0) {
+                    successMessage = $("#successMessage").val();
+                }
+                if ($("#errorMessage").length > 0) {
+                    errorMessage = $("#errorMessage").val();
+                }
+                postForm($(this), function (response) {
+                    if (response.success == true) {
+                        showalert(form, successMessage, "success")
+                    } else {
+                        showalert(form, errorMessage, "error")
+                    }
+                    form.find('input[type="submit"],button').removeAttr('disabled');
+                    if (form.find(".callback").length > 0) {
+                        var callbackFunction = form.find(".callback").val();
+                        window[callbackFunction](response);
+                    }
+
+                });
+                form.find("input[type='submit'].hide,button.hide,a.hide,i.hide,span.hide").addClass("show").removeClass("hide");
+                form.find(".fa-spinner").toggleClass("hide");
+                form.find('input[type="submit"],button,a').removeAttr('disabled');
+                return false;
+            });
         });
     </script>
 

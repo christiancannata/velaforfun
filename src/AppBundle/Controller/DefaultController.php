@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Newsletter\Subscriber;
 use AppBundle\Entity\User;
 use BlogBundle\Entity\Articolo;
 use BlogBundle\Form\ArticoloType;
@@ -427,6 +428,45 @@ class DefaultController extends BaseController
         return $this->render('default/cerca.html.twig', array("key" => $key, "risultati" => $risultati));
     }
 
+    /**
+     * @Route("/iscritti-newsletter", name="iscriviti_newsletter")
+     */
+    public function iscrivitiNewsletterAction(Request $request)
+    {
+
+
+        if ($request->isMethod('POST')) {
+
+
+            $params = $request->request->all();
+
+            $repository = $this->getDoctrine()
+                ->getRepository('AppBundle\Entity\Newsletter\Mandant');
+            $mandant = $repository->find(1);
+
+            $iscrizione=new Subscriber();
+            $iscrizione->setMandant($mandant);
+            $iscrizione->setLocale("it");
+            $iscrizione->setEmail($params['email']);
+            $iscrizione->setFirstName($params['nome']);
+            $iscrizione->setLastName("");
+            $iscrizione->setGender("MALE");
+            $iscrizione->setCompanyname("");
+            $iscrizione->setTitle("");
+
+            $em = $this->container->get('doctrine')->getManager();
+
+            $em->persist($iscrizione);
+            $em->flush();
+
+            $response['success'] = true;
+            $response['response'] = "ok";
+
+            return new JsonResponse($response);
+        }
+
+    }
+
 
     /**
      * @Route("/{permalink}", name="pagine_statiche")
@@ -454,6 +494,10 @@ class DefaultController extends BaseController
             )
         );
     }
+
+
+
+
 
 
 
