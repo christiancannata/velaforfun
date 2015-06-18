@@ -8,18 +8,18 @@ ibrows_newsletter:
     # needed entities - see next step for creating them
     model:
       # most likely fos user
-      user:         Ibrows\YourBundle\Entity\User
+      user:         AppBundle\Entity\User
       # depends on the namespace you set at
-      mandant:      Ibrows\YourBundle\Entity\Newsletter\Mandant
-      newsletter:   Ibrows\YourBundle\Entity\Newsletter\Newsletter
-      subscriber:   Ibrows\YourBundle\Entity\Newsletter\Subscriber
-      design:       Ibrows\YourBundle\Entity\Newsletter\Design
-      block:        Ibrows\YourBundle\Entity\Newsletter\Block
-      group:        Ibrows\YourBundle\Entity\Newsletter\Group
-      readlog:      Ibrows\YourBundle\Entity\Newsletter\Log\ReadLog
-      sendlog:      Ibrows\YourBundle\Entity\Newsletter\Log\SendLog
-      sendsettings: Ibrows\YourBundle\Entity\Newsletter\SendSettings
-      mailjob:      Ibrows\YourBundle\Entity\Newsletter\MailJob
+      mandant:      AppBundle\Entity\Newsletter\Mandant
+      newsletter:   AppBundle\Entity\Newsletter\Newsletter
+      subscriber:   AppBundle\Entity\Newsletter\Subscriber
+      design:       AppBundle\Entity\Newsletter\Design
+      block:        AppBundle\Entity\Newsletter\Block
+      group:        AppBundle\Entity\Newsletter\Group
+      readlog:      AppBundle\Entity\Newsletter\Log\ReadLog
+      sendlog:      AppBundle\Entity\Newsletter\Log\SendLog
+      sendsettings: AppBundle\Entity\Newsletter\SendSettings
+      mailjob:      AppBundle\Entity\Newsletter\MailJob
 
   filesystem:
       block:

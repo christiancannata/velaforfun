@@ -59,3 +59,11 @@ services:
             arguments:  [@router, @security.context]
             tags:
                 - { name: 'monolog.logger', channel: 'security' }
+
+  mynewsletter.encryption.adapter.mcrypt:
+            class:  NewsletterBundle\Encryption\Adapter\McryptAdapter
+            arguments:  [rijndael-256,ecb,2]
+
+  mynewsletter.mailservice:
+              class:  NewsletterBundle\Service\MyMailerService
+              arguments:  [@mynewsletter.encryption.adapter.mcrypt]
