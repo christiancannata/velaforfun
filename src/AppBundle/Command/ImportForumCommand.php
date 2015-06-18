@@ -35,7 +35,7 @@ class ImportForumCommand extends ContainerAwareCommand
         $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $this->connection = $this->getContainer()->get('database_connection');
 
-        $query = "select * from forum1 where stato=0 and idr=0 order by ID desc";
+        $query = "select f.* from forum1 f where f.stato=0 and f.idr=0 and ID not in (select distinct id_old from compatibilita_forum) order by ID desc";
 
         $res = $this->connection->executeQuery($query)->fetchAll();
 
@@ -47,7 +47,9 @@ class ImportForumCommand extends ContainerAwareCommand
 
                 $inserito=$this->getContainer()->get('doctrine')
                     ->getRepository('AppBundle:CompatibilitaForum')->findOneByIdOld($data['ID']);
-            if(!$inserito){
+            if(!$inserito && $data['titolo']!=""){
+                $this->output->writeln("<comment>Importing: ".$data['titolo']." </comment>");
+
                 $redirect=new CompatibilitaForum();
                 $redirect->setIdOld($data['ID']);
 
@@ -147,6 +149,8 @@ class ImportForumCommand extends ContainerAwareCommand
                     $board->setCachedPostCount(count($countPost));
                     $this->em->merge($board);
                     $this->em->flush();
+
+                    $this->output->writeln("<info>Importing: ".$data['titolo']." </info>");
                 }
 
             }
