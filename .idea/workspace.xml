@@ -15,6 +15,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/NewsletterBundle/Controller/UnsubscribeController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/ibrows_newsletter.yml" afterPath="$PROJECT_DIR$/app/config/ibrows_newsletter.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -113,11 +114,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="services.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/services.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.85623" vertical-offset="484" max-vertical-offset="1125">
+            <state vertical-scroll-proportion="0.0" vertical-offset="484" max-vertical-offset="1125">
               <caret line="68" column="66" selection-start-line="68" selection-start-column="66" selection-end-line="68" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="security.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.54472846" vertical-offset="259" max-vertical-offset="900">
+              <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -151,7 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/ricette.html.twig" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Command/CheckEmailCommand.php" />
@@ -202,6 +212,7 @@
         <option value="$PROJECT_DIR$/src/NewsletterBundle/Controller/NewsletterController.php" />
         <option value="$PROJECT_DIR$/src/NewsletterBundle/Service/MailerService.php" />
         <option value="$PROJECT_DIR$/app/config/services.yml" />
+        <option value="$PROJECT_DIR$/app/config/security.yml" />
       </list>
     </option>
   </component>
@@ -654,13 +665,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2916665" vertical-offset="3767" max-vertical-offset="4770">
-          <caret line="259" column="21" selection-start-line="259" selection-start-column="21" selection-end-line="259" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/SegnalazionePortolanoController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.25" vertical-offset="885" max-vertical-offset="1515">
@@ -1036,8 +1040,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85623" vertical-offset="484" max-vertical-offset="1125">
+        <state vertical-scroll-proportion="0.0" vertical-offset="484" max-vertical-offset="1125">
           <caret line="68" column="66" selection-start-line="68" selection-start-column="66" selection-end-line="68" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54472846" vertical-offset="259" max-vertical-offset="900">
+          <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
           <folding />
         </state>
       </provider>

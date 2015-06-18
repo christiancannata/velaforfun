@@ -38,6 +38,7 @@ security:
     access_control:
      - { path: /annuncio-imbarco/cerca-annuncio, roles: ROLE_USER }
      - { path: /annuncio-scambio-posto/nuovo-annuncio, roles: ROLE_USER }
+     - { path: /newsletter/, roles: ROLE_ADMIN }
      - { path: /modifica/, roles: ROLE_ADMIN }
      - { path: /elimina/, roles: ROLE_ADMIN }
      - { path: /list, roles: ROLE_ADMIN }
