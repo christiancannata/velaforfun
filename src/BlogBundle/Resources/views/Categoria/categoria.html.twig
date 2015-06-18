@@ -36,7 +36,7 @@
 
                         <div class="divisore"></div>
                         <div class="subtitle">
-                            {{ articoli[0].sottotitolo|raw }}
+                            {{ articoli[0].sottotitolo|raw|striptags }}
                         </div>
                     </div>
 
@@ -61,7 +61,7 @@
                     <div class="content">
                         <h4>{{ articoloRel.titolo }}</h4>
 
-                        {{ articoloRel.sottotitolo|slice(0, 70)|raw }}...
+                        <p>  {{ articoloRel.sottotitolo|slice(0, 70)|raw|striptags }}...</p>
                     </div>
                     <div class="arrow">
                         <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -87,7 +87,7 @@
             <div class="content">
                 <h4>{{ articolo.titoloCorrelato }}</h4>
 
-                {{ articolo.testoCorrelato|raw }}
+                <p>  {{ articolo.testoCorrelato|striptags }}</p>
             </div>
 
         </div>
@@ -119,7 +119,7 @@
                     </div>
                 </div>
                 <h4>{{ articolo.titolo }}</h4>
-                {{ articolo.sottotitolo|raw }}
+                <p> {{ articolo.sottotitolo|raw|striptags }}</p>
             </div>
         </a>
 

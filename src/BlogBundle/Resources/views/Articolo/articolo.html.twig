@@ -76,7 +76,7 @@
 
  <div class="row clearfix">
         <div class="col-md-12 column sottotitolo">
-            {{ articolo.sottotitolo|raw }}
+            {{ articolo.sottotitolo|raw|striptags }}
         <div class="divisore-big"></div>
         </div>
          </div>
@@ -156,7 +156,7 @@
                     <div class="content">
                         <h4>{{ articoloRel.titolo }}</h4>
 
-                        {{ articoloRel.sottotitolo|slice(0, 70)|raw }}...
+                        <p>{{ articoloRel.sottotitolo|slice(0, 70)|raw|striptags }}...</p>
                     </div>
                     <div class="arrow">
                         <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
