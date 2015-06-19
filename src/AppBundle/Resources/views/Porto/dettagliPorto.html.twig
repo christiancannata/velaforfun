@@ -254,13 +254,26 @@
                                                     NEGATIVO
                                                 </label></a>
                                         </div>
-                                        <div class="col-md-1 column" style="padding:0">
+
+
+
+                                        <div class="col-md-1 column hidden-xs" style="padding:0">
                                             <a href="#"
                                                onclick="event.preventDefault();if($('input[name=\'appbundle_commentoporto[testo]\']').val()!=''){$('form[name=appbundle_commentoporto]').submit()}else{$('input[name=\'appbundle_commentoporto[testo]\']').css('border','1px solid red');$('input[name=\'appbundle_commentoporto[testo]\']').after('<p style=\'color:red\'>Campo obbligatorio</p>')}">
                                                 <i class="fa fa-sign-in show"></i>
                                                 <i class="fa fa-spinner fa-2x fa-spin hide"></i>
                                             </a>
                                         </div>
+
+                                        <div class="col-xs-12 column hidden-lg hidden-md" style="padding:0">
+                                            <a href="#"
+                                               onclick="event.preventDefault();if($('input[name=\'appbundle_commentoporto[testo]\']').val()!=''){$('form[name=appbundle_commentoporto]').submit()}else{$('input[name=\'appbundle_commentoporto[testo]\']').css('border','1px solid red');$('input[name=\'appbundle_commentoporto[testo]\']').after('<p style=\'color:red\'>Campo obbligatorio</p>')}">
+                                                <button class="btn btn-lg btn-primary hvr-glow show" style="width:100%;margin-top:10px">Inserisci commento</button>
+                                                <i class="fa fa-spinner fa-2x fa-spin hide"></i>
+                                            </a>
+                                        </div>
+
+
                                         <input type="hidden" class="callback" value="setNuovoCommentoPorto">
                                     </form>
 
@@ -440,7 +453,7 @@
                         <div class="divisore-big background-celeste"></div>
                         <div style="margin-bottom: 20px;">
 
-                            <button class="btn btn-default login hvr-glow" type="submit"><i class="fa fa-anchor"></i>
+                            <button class="btn btn-default login hvr-glow" data-route="/porti/{{ porto.id }}/attracca" type="submit"><i class="fa fa-anchor"></i>
                                 ATTRACCA NEL PORTO
                             </button>
                             {% if porto.getAttracchi() is empty %}

@@ -2058,4 +2058,10 @@ h3.panel-title {
         text-align: center !important;
         width: 100% !important;
     }
+    #attracca{
+        margin-top:5px;
+    }
+    .box{
+        float:inherit;
+    }
 }

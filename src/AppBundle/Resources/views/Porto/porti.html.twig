@@ -100,20 +100,25 @@
 // on it, and add a single marker.
             map.on('locationfound', function (e) {
                 $("#geolocate").html('<i style="" class="fa fa-crosshairs "></i>Localizzami');
-                map.fitBounds(e.bounds);
+               
 
-                myLayer.setGeoJSON({
-                    type: 'Feature',
-                    geometry: {
-                        type: 'Point',
-                        coordinates: [e.latlng.lng, e.latlng.lat]
-                    },
-                    properties: {
-                        'title': 'Io sono qui!',
-                        'marker-color': '#ff8888',
-                        'marker-symbol': 'star'
-                    }
-                });
+                if(marker!=""){
+                    map.removeLayer(marker);
+                }
+
+                marker = L.marker([e.latlng.lat, e.latlng.lng]);
+                marker.setIcon(L.mapbox.marker.icon({
+                    'marker-color': '#ff8888',
+                    'marker-symbol': 'star',
+                    'marker-size': 'medium'
+                }));
+                $("#latitudine").val(e.latlng.lat);
+                $("#longitudine").val(e.latlng.lng);
+                marker.addTo(map);
+
+
+
+
 
 
             });

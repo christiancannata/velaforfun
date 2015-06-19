@@ -39,14 +39,14 @@
 
 
  <div class="row clearfix hidden-print">
-        <div class="col-md-6 col-xs-6 column">
+        <div class="col-md-6 col-xs-12 column">
              <div class="category">
              <a href="#" id="back-link" class="back-link" style="background: rgb(153, 153, 153) none repeat scroll 0 0;"> <span class="glyphicon glyphicon-menu-left" style="padding:0;" aria-hidden="true"></span>  </a>            <a id="category-link" href="/archivio/{{ articolo.categoria.permalink }}" style="margin-left: 12px;"><span style="float: left;font-size:18px;background:{{ articolo.categoria.getColore() }};" >{{ articolo.categoria.nome|capitalize }}</span> </a>
               </div>
 
         </div>
 
-        <div class="col-md-6 col-xs-6 column text-right">
+        <div class="col-md-6 col-xs-6 column text-right hidden-xs">
           <ul class="share-buttons">
                     <li><a href="#" onclick="window.print();"><i class="fa fa-print fa-2x"></i></a></li>
   <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&t={{ articolo.titolo }}" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-2x"></i></a></li>
