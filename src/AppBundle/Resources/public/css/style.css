@@ -297,7 +297,6 @@ ul.content {
 }
 
 .box-grande {
-    float: left;
     width: 100%;
     background: rgb(242, 242, 242) none repeat scroll 0 0;
     height: 300px;
