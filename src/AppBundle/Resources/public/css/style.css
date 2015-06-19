@@ -2045,9 +2045,12 @@ h3.panel-title {
     border:none;
 }
 
+#username2{
+    border:1px solid rgb(204,204,204) !important;
+}
 
 
-label[for=remember_me]{
+label[for=remember_me],label[for=remember_me2]{
     display: inline;
 }
 @media (max-width: 1000px) {
