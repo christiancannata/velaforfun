@@ -69,13 +69,13 @@
       <file leaf-file-name="ImportForumCommand.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8432709" vertical-offset="855" max-vertical-offset="2775">
-              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7666099" vertical-offset="855" max-vertical-offset="2775">
+              <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
               <folding>
                 <element signature="e#36#59#0#PHP" expanded="true" />
-                <marker date="1434724131000" expanded="true" signature="1136:1269" placeholder="select f.* f..forum1..." />
-                <marker date="1434724131000" expanded="true" signature="1204:1251" placeholder="select disti..compatibilita_forum..." />
-                <marker date="1434724131000" expanded="true" signature="4008:4051" placeholder="select * fro..forum1..." />
+                <marker date="1434724152000" expanded="true" signature="1136:1269" placeholder="select f.* f..forum1..." />
+                <marker date="1434724152000" expanded="true" signature="1204:1251" placeholder="select disti..compatibilita_forum..." />
+                <marker date="1434724152000" expanded="true" signature="4005:4048" placeholder="select * fro..forum1..." />
               </folding>
             </state>
           </provider>
@@ -1353,13 +1353,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8432709" vertical-offset="855" max-vertical-offset="2775">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.7666099" vertical-offset="855" max-vertical-offset="2775">
+          <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
           <folding>
             <element signature="e#36#59#0#PHP" expanded="true" />
-            <marker date="1434724131000" expanded="true" signature="1136:1269" placeholder="select f.* f..forum1..." />
-            <marker date="1434724131000" expanded="true" signature="1204:1251" placeholder="select disti..compatibilita_forum..." />
-            <marker date="1434724131000" expanded="true" signature="4008:4051" placeholder="select * fro..forum1..." />
+            <marker date="1434724152000" expanded="true" signature="1136:1269" placeholder="select f.* f..forum1..." />
+            <marker date="1434724152000" expanded="true" signature="1204:1251" placeholder="select disti..compatibilita_forum..." />
+            <marker date="1434724152000" expanded="true" signature="4005:4048" placeholder="select * fro..forum1..." />
           </folding>
         </state>
       </provider>

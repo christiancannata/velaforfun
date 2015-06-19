@@ -85,10 +85,10 @@ class ImportForumCommand extends ContainerAwareCommand
                 $data['testo']=str_replace("[/B]","</strong>",$data['testo']);
                 $data['testo']=str_replace("[I]","<i>",$data['testo']);
                 $data['testo']=str_replace("[/I]","</i>",$data['testo']);
-                $data['testo']=str_replace("[SIZE=1]","</i>",$data['testo']);
+                $data['testo']=str_replace("[SIZE=1]","<i>",$data['testo']);
                 $data['testo']=str_replace("[/SIZE]","</i>",$data['testo']);
-                $data['testo']=str_replace("[SIZE=2]","</i>",$data['testo']);
-                $data['testo']=str_replace("[SIZE=3]","</i>",$data['testo']);
+                $data['testo']=str_replace("[SIZE=2]","<i>",$data['testo']);
+                $data['testo']=str_replace("[SIZE=3]","<i>",$data['testo']);
                 $post->setBody($data['testo']);
 
                 $this->em->persist($post);
