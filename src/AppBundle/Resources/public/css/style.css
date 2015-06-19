@@ -2046,12 +2046,15 @@ h3.panel-title {
     border:none;
 }
 
-.dropdown-header {
-    background: #e3e3e3 none repeat scroll 0 0;
+
+
+label[for=remember_me]{
+    display: inline;
 }
-
-
 @media (max-width: 1000px) {
+    .dropdown-header {
+        background: #e3e3e3 none repeat scroll 0 0;
+    }
     .btn-social.btn-lg {
         margin: 0 auto !important;
 
@@ -2065,3 +2068,4 @@ h3.panel-title {
         float:inherit;
     }
 }
+
