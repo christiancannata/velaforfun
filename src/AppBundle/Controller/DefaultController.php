@@ -481,7 +481,7 @@ class DefaultController extends BaseController
         if (!$articoli) {
 
 
-            throw $this->createNotFoundException('Unable to find Page.');
+            return $this->redirect('/');
         }
 
 
