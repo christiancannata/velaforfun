@@ -52,9 +52,7 @@
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a aria-expanded="false" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Forum
-                            <span class="caret"></span></a>
-                        <ul role="menu" class="dropdown-menu">
+
                             <li><a class="bordered blue" href="/archivio/categoria-news">News di Vela</a></li>
                             <li><a href="/segnalazione-portolano">Portolano Online</a></li>
                             <li><a href="/porti">I porti d'Italia</a></li>
@@ -70,8 +68,7 @@
                             <li><a href="#">Vendo</a></li>
                             <li><a href="#">Compro</a></li>
                             <li class="divider"></li>
-                            <li><a href="/forum/velaforfun">Vedi tutte le sezioni</a></li>
-                        </ul>
+                            <li><a href="/forum/velaforfun">Forum</a></li>
                     </li>
 
                 </ul>
@@ -130,43 +127,13 @@
 
                         </div>
                     {% else %}
+
                         <ul class="list-inline" id="menu-login2">
-                            <li class="dropdown bordered" style="" id="menuLogin2">
-                                <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin2"
-                                   style="border:none;">ACCEDI</a>
+                            <li class="bordered" style="margin-left: 10px"><a href="/login">Accedi</a></li>
+                            <li class="bordered"><a href="/register">Registrati</a></li>
 
-                                <div class="dropdown-menu" style="">
-                                    <form method="post" action="/login_check">
-                                        <div class="form-group">
-                                            <label for="username">Username:</label>
-                                            <input type="text" required="required" value="" name="_username"
-                                                   id="username">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password">Password:</label>
-                                            <input type="password" required="required" name="_password" id="password">
-                                        </div>
-                                        <div class="form-group">
-
-                                            <input type="checkbox" value="on" name="_remember_me" id="remember_me">
-                                            <label for="remember_me">Ricordami</label>
-                                        </div>
-                                        <button type="submit" class="btn btn-default login hvr-glow">Accedi</button>
-                                        <!--  <input type="hidden" name="_target_path" value="{{ app.request.get('_route') }}" /> -->
-                                    </form>
-
-                                    <div class="divisore"></div>
-                                    <p class="menu-separator"><span>oppure</span></p>
-                                    <a href="/secure_area/connect/facebook"
-                                       class="btn btn-block btn-social btn-sm btn-facebook"
-                                       id="loginFacebook">
-                                        <i class="fa fa-facebook"></i>
-                                        Accedi con Facebook
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="bordered"><a href="/register">REGISTRATI</a></li>
                         </ul>
+
 
 
 
