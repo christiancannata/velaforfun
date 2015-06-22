@@ -53,7 +53,7 @@ class AnnuncioImbarcoController extends BaseController
 
         return $this->render(
             'AppBundle:AnnuncioImbarco:lista.html.twig',
-            array("annunci" => $annunci, "titolo" => $titolo,"form" => $form)
+            array("annunci" => $annunci, "titolo" => $titolo, "form" => $form)
         );
 
     }
@@ -356,7 +356,7 @@ class AnnuncioImbarcoController extends BaseController
 
                 $mailer = $this->getContainer()->get('mailer');
                 $messaggio = $mailer->createMessage()
-                    ->setSubject("Nuovo posto imbarco compatibile!")
+                    ->setSubject("Annuncio imbarco [".$annuncio->getLocalita()."]")
                     ->setFrom('info@velaforfun.com')
                     ->setTo($annuncio->getUtente()->getEmail())
                     ->setBody(
@@ -366,8 +366,7 @@ class AnnuncioImbarcoController extends BaseController
                             array('annuncio' => $annuncio)
                         ),
                         'text/html'
-                    )
-                ;
+                    );
                 $mailer->send($messaggio);
 
             }

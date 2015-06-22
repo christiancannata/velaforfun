@@ -77,4 +77,33 @@ class CategoriaController extends BaseController
             )
         );
     }
+
+
+    /**
+     * @Route("/{permalink}.json", name="categoria_json")
+     */
+    public function getArticoliJsonAction($permalink)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $categoria = $em->getRepository('BlogBundle:Categoria')->findOneByPermalink($permalink);
+        if (!$categoria) {
+            throw $this->createNotFoundException('Unable to find Categoria.');
+        }
+
+        $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(array('categoria' => $categoria, 'stato' => "ATTIVO"),array('lastUpdateTimestamp' => 'desc'));
+
+        $categorie = $em->getRepository('BlogBundle:Categoria')->findAll();
+
+        return $this->render(
+            'BlogBundle:Categoria:categoria.html.twig',
+            array(
+                'articoli' => $articoli,
+                'categoria' => $categoria,
+                'categorie' => $categorie
+            )
+        );
+    }
+
+
 }
