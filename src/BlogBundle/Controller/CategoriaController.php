@@ -6,13 +6,13 @@ use BlogBundle\Form\CategoriaType;
 use AppBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class CategoriaController extends BaseController
 {
 
 
-    protected $entity="Categoria";
-
+    protected $entity = "Categoria";
 
 
     /**
@@ -20,16 +20,16 @@ class CategoriaController extends BaseController
      */
     public function createAction(Request $request)
     {
-        return $this->postForm($request,new CategoriaType());
+        return $this->postForm($request, new CategoriaType());
     }
 
 
     /**
      * @Route( "modifica/{id}", name="modifica_categoria" )
      */
-    public function patchAction(Request $request,$id)
+    public function patchAction(Request $request, $id)
     {
-        return $this->patchForm($request,new CategoriaType(),$id,"Categoria");
+        return $this->patchForm($request, new CategoriaType(), $id, "Categoria");
     }
 
 
@@ -45,11 +45,10 @@ class CategoriaController extends BaseController
     /**
      * @Route( "elimina/{id}", name="delete_categoria" )
      */
-    public function eliminaAction(Request $request,$id)
+    public function eliminaAction(Request $request, $id)
     {
         return $this->delete($id);
     }
-
 
 
     /**
@@ -64,7 +63,10 @@ class CategoriaController extends BaseController
             throw $this->createNotFoundException('Unable to find Categoria.');
         }
 
-        $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(array('categoria' => $categoria, 'stato' => "ATTIVO"),array('lastUpdateTimestamp' => 'desc'));
+        $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(
+            array('categoria' => $categoria, 'stato' => "ATTIVO"),
+            array('lastUpdateTimestamp' => 'desc')
+        );
 
         $categorie = $em->getRepository('BlogBundle:Categoria')->findAll();
 
@@ -80,9 +82,9 @@ class CategoriaController extends BaseController
 
 
     /**
-     * @Route("/{permalink}.json", name="categoria_json")
+     * @Route("/{permalink}/json", name="categoria_json")
      */
-    public function getArticoliJsonAction($permalink)
+    public function getArticoliJsonAction($permalink, Request $r)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
@@ -91,18 +93,21 @@ class CategoriaController extends BaseController
             throw $this->createNotFoundException('Unable to find Categoria.');
         }
 
-        $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(array('categoria' => $categoria, 'stato' => "ATTIVO"),array('lastUpdateTimestamp' => 'desc'));
+        $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(
+            array('categoria' => $categoria, 'stato' => "ATTIVO"),
+            array('lastUpdateTimestamp' => 'desc'),
+            $r->get('limit'),
+            $r->get('offset')
+        );
 
-        $categorie = $em->getRepository('BlogBundle:Categoria')->findAll();
 
         return $this->render(
-            'BlogBundle:Categoria:categoria.html.twig',
+            'BlogBundle:Categoria:articoli-ajax.html.twig',
             array(
                 'articoli' => $articoli,
-                'categoria' => $categoria,
-                'categorie' => $categorie
             )
         );
+
     }
 
 

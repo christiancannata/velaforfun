@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class VideoController extends BaseController
 {
 
-    protected $entity="Video";
+    protected $entity = "Video";
 
     /**
      * @Route( "crea", name="create_video" )
@@ -27,9 +27,9 @@ class VideoController extends BaseController
      * @Route( "modifica/{id}", name="modifica_video" )
      * @Template()
      */
-    public function patchAction(Request $request,$id)
+    public function patchAction(Request $request, $id)
     {
-        return $this->patchForm($request,new VideoType(),$id,"Video");
+        return $this->patchForm($request, new VideoType(), $id, "Video");
     }
 
 
@@ -43,15 +43,41 @@ class VideoController extends BaseController
     }
 
 
-
     /**
      * @Route( "elimina/{id}", name="delete_video" )
      * @Template()
      */
-    public function eliminaAction(Request $request,$id)
+    public function eliminaAction(Request $request, $id)
     {
         return $this->delete($id);
     }
+
+
+    /**
+     * @Route("/json", name="gallery_json")
+     */
+    public function getGalleryJsonAction(Request $r)
+    {
+
+
+        $categorie = $this->getDoctrine()
+            ->getRepository('AppBundle:CategoriaVideo')->findBy(
+                array(),
+                array(),
+                3,
+                $r->get('offset')
+            );
+
+
+        return $this->render(
+            'AppBundle:Video:ajax.html.twig',
+
+                array("gallerie" => $categorie)
+
+        );
+
+    }
+
 
     /**
      * @Route("/{permalink}", name="dettaglio_video")
@@ -61,7 +87,7 @@ class VideoController extends BaseController
 
         $categorie = $this->getDoctrine()
             ->getRepository('AppBundle:CategoriaVideo')->findOneByPermalink($permalink);
-        if(!$categorie){
+        if (!$categorie) {
 
 
             throw $this->createNotFoundException('Unable to find Categoria.');
@@ -78,10 +104,11 @@ class VideoController extends BaseController
     {
 
         $categorie = $this->getDoctrine()
-            ->getRepository('AppBundle:CategoriaVideo')->findAll();
+            ->getRepository('AppBundle:CategoriaVideo')->findBy(array(),array(),3,0);
 
 
         return $this->render('AppBundle:Video:gallerie.html.twig', array("gallerie" => $categorie));
     }
+
 
 }

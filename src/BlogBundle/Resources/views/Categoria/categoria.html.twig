@@ -7,7 +7,6 @@
 {% block javascripts %}
 
 
-
 {% endblock %}
 
 {% block body %}
@@ -28,20 +27,21 @@
             <div class="article main-article">
             {% if articoli|length > 0 and articoli[0] is defined %}
 
-                <div class="content"
-                     style="background-image: url(/images/articoli/{{ articoli[0].immagine }})">
+    <div class="content"
+         style="background-image: url(/images/articoli/{{ articoli[0].immagine }})">
 
-                    <div class="content-title">
-                        <a href="/archivio/{{ categoria.permalink }}/{{ articoli[0].permalink }}"><h3>{{ articoli[0].titolo }}</h3></a>
+        <div class="content-title">
+            <a href="/archivio/{{ categoria.permalink }}/{{ articoli[0].permalink }}"><h3>{{ articoli[0].titolo }}</h3>
+            </a>
 
-                        <div class="divisore"></div>
-                        <div class="subtitle">
-                            {{ articoli[0].sottotitolo|raw|striptags }}
-                        </div>
-                    </div>
+            <div class="divisore"></div>
+            <div class="subtitle">
+                {{ articoli[0].sottotitolo|raw|striptags }}
+            </div>
+        </div>
 
-                </div>
-            {% endif %}
+    </div>
+{% endif %}
             </div>
                     </div></div>
         </div>
@@ -119,6 +119,7 @@
                     </div>
                 </div>
                 <h4>{{ articolo.titolo }}</h4>
+
                 <p> {{ articolo.sottotitolo|raw|striptags }}</p>
             </div>
         </a>

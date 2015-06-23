@@ -1,0 +1,21 @@
+
+<div class="row nodi">
+{% for articolo in articoli %}
+    <div class="col-md-4 column">
+        <a href="/archivio/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}">
+            <div class="box-sub hvr-glow">
+                <div class="foto">
+                    <div class="center-cropped"
+                         style="background-image: url('/images/articoli/{{ articolo.immagine }}');">
+                    </div>
+                </div>
+                <h4>{{ articolo.titolo }}</h4>
+
+                <p> {{ articolo.sottotitolo|raw|striptags }}</p>
+            </div>
+        </a>
+
+    </div>
+
+{% endfor %}
+</div>
