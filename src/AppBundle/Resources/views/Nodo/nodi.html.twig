@@ -4,6 +4,47 @@
 {% endblock %}
 
 
+
+{% block javascripts %}
+    <script src="http://imagesloaded.desandro.com/imagesloaded.pkgd.min.js"></script>
+    <script src="{{ asset('bundles/app/js/bootstrap-lightbox.min.js') }}"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.min.js"></script>
+    <script language="javascript">
+        $(document).ready(function () {
+
+
+            var offset = 3;
+            var loading = false;
+            $(window).scroll(function () {
+                if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                    if (loading == false) {
+                        $('div#loadmoreajaxloader').show();
+                        loading = true;
+                        $.ajax({
+                            url: "json?offset=" + offset,
+                            success: function (html) {
+                                if (html) {
+                                    $('div#loadmoreajaxloader').remove();
+                                    $("#postswrapper").append(html);
+                                } else {
+                                    $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+                                }
+                                offset += 3;
+                                loading = false;
+                            }
+                        });
+                    }
+
+                }
+            });
+
+
+        })
+    </script>
+{% endblock %}
+
+
+
 {% block body %}
 
 
@@ -29,39 +70,47 @@
     </div>
 
 <div class="row nodi">
- <div class="scroll-pane" style="height: 460px;width:100%;margin-bottom:20px">
+
+
+    <div id="postswrapper">
     {% for nodo in nodi %}
     <div class="col-md-4 column">
 
-<a href="/nodi/{{ nodo.permalink }}">
-        <div class="box-home">
-            <div style="background-image: url(/images/nodi/{{ nodo.immagineCorrelataArticolo }});"
-                 class="divBackgroundImage">
-            </div>
-            <div class="content">
+        <a href="/nodi/{{ nodo.permalink }}">
+            <div class="box-home">
+                <div style="background-image: url(/images/nodi/{{ nodo.immagineCorrelataArticolo }});"
+                     class="divBackgroundImage">
+                </div>
+                <div class="content">
 
-                <div class="box-action">
-                    <h2>Nodo "{{ nodo.nome }}"
-                    </h2>
+                    <div class="box-action">
+                        <h2>Nodo "{{ nodo.nome }}"
+                        </h2>
 
-                    <div class="over-box">
-                        <p>{{ nodo.descrizione[:150] }}...</p>
+                        <div class="over-box">
+                            <p>{{ nodo.descrizione[:150] }}...</p>
 
-                        <button class="btn btn-default dettagli-nodo hvr-glow" type="submit" >DETTAGLI</button>
+                            <button class="btn btn-default dettagli-nodo hvr-glow" type="submit">DETTAGLI</button>
+                        </div>
+
                     </div>
+
 
                 </div>
 
-
             </div>
 
-        </div>
-
-</a>
+        </a>
     </div>
 
-    {% endfor %}
+{% endfor %}
+
+
+ <div id="loadmoreajaxloader" style="display:none;">
+                        <center><i class="fa fa-spinner fa-2x fa-spin "></i></center>
+                    </div>
     </div>
+
     <!-- fine contenuto -->
 </div>
 </div>

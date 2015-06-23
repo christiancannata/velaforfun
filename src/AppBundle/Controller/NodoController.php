@@ -17,7 +17,7 @@ use Ivory\GoogleMap\Helper\MapHelper;
 class NodoController extends BaseController
 {
 
-    protected $entity="Nodo";
+    protected $entity = "Nodo";
 
     /**
      * @Route( "crea", name="create_nodo" )
@@ -32,9 +32,9 @@ class NodoController extends BaseController
      * @Route( "modifica/{id}", name="modifica_nodo" )
      * @Template()
      */
-    public function patchAction(Request $request,$id)
+    public function patchAction(Request $request, $id)
     {
-        return $this->patchForm($request,new NodoType(),$id,"Nodo");
+        return $this->patchForm($request, new NodoType(), $id, "Nodo");
     }
 
 
@@ -48,12 +48,11 @@ class NodoController extends BaseController
     }
 
 
-
     /**
      * @Route( "elimina/{id}", name="delete_nodo" )
      * @Template()
      */
-    public function eliminaAction(Request $request,$id)
+    public function eliminaAction(Request $request, $id)
     {
         return $this->delete($id);
     }
@@ -65,7 +64,7 @@ class NodoController extends BaseController
     {
 
         $nodi = $this->getDoctrine()
-            ->getRepository('AppBundle:Nodo')->findAll();
+            ->getRepository('AppBundle:Nodo')->findBy(array(), array(), 3, 0);
 
 
         return $this->render('AppBundle:Nodo:nodi.html.twig', array("nodi" => $nodi));
@@ -80,12 +79,39 @@ class NodoController extends BaseController
         $porti = $this->getDoctrine()
             ->getRepository('AppBundle:Nodo')->findAll();
 
-        $arrayJson=[];
-        foreach($porti as $porto){
-            $arrayJson[]=array("permalink"=>$porto->getPermalink(),"name"=>$porto->getNome());
+        $arrayJson = [];
+        foreach ($porti as $porto) {
+            $arrayJson[] = array("permalink" => $porto->getPermalink(), "name" => $porto->getNome());
         }
+
         return new JsonResponse($arrayJson);
     }
+
+
+    /**
+     * @Route("/json", name="nodi_json")
+     */
+    public function getNodiJsonAction(Request $r)
+    {
+
+
+        $categorie = $this->getDoctrine()
+            ->getRepository('AppBundle:Nodo')->findBy(
+                array(),
+                array(),
+                3,
+                $r->get('offset')
+            );
+
+
+        return $this->render(
+            'AppBundle:Nodo:ajax.html.twig',
+            array("nodi" => $categorie)
+
+        );
+
+    }
+
 
     /**
      * @Route("/{permalink}", name="dettaglio_nodo")
@@ -95,17 +121,26 @@ class NodoController extends BaseController
 
         $nodo = $this->getDoctrine()
             ->getRepository('AppBundle:Nodo')->findOneByPermalink($permalink);
-        if(!$nodo){
+        if (!$nodo) {
 
 
             throw $this->createNotFoundException('Unable to find Articolo.');
         }
 
 
-        return $this->render('AppBundle:Nodo:dettagliNodo.html.twig', array("nodo" => $nodo,"nodi"=>array_slice($this->getDoctrine()
-            ->getRepository('AppBundle:Nodo')->findAll(),0,3)));
+        return $this->render(
+            'AppBundle:Nodo:dettagliNodo.html.twig',
+            array(
+                "nodo" => $nodo,
+                "nodi" => array_slice(
+                    $this->getDoctrine()
+                        ->getRepository('AppBundle:Nodo')->findAll(),
+                    0,
+                    3
+                )
+            )
+        );
     }
-
 
 
 }
