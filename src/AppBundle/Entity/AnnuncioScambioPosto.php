@@ -65,7 +65,7 @@ class AnnuncioScambioPosto
     /**
      * @var string
      *
-     * @ORM\Column(name="lunghezza", type="float", nullable=true)
+     * @ORM\Column(name="lunghezza", type="string", nullable=true)
      */
     private $lunghezza;
 
