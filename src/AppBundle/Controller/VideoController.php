@@ -71,8 +71,7 @@ class VideoController extends BaseController
 
         return $this->render(
             'AppBundle:Video:ajax.html.twig',
-
-                array("gallerie" => $categorie)
+            array("gallerie" => $categorie)
 
         );
 
@@ -97,6 +96,39 @@ class VideoController extends BaseController
         return $this->render('AppBundle:Video:dettagliGalleria.html.twig', array("galleria" => $categorie));
     }
 
+
+    /**
+     * @Route("/{permalink}/json", name="video_gallery_json")
+     */
+    public function getVideoGalleryJsonAction($permalink, Request $r)
+    {
+
+        $categorie = $this->getDoctrine()
+            ->getRepository('AppBundle:CategoriaVideo')->findOneByPermalink($permalink);
+        if (!$categorie) {
+
+
+            throw $this->createNotFoundException('Unable to find Categoria.');
+        }
+
+        $video = $this->getDoctrine()
+            ->getRepository('AppBundle:Video')->findBy(
+                array("categoria" => $categorie),
+                array(),
+                3,
+                $r->get('offset')
+            );
+
+
+        return $this->render(
+            'AppBundle:Video:videogallery-ajax.html.twig',
+            array("videos" => $video)
+
+        );
+
+    }
+
+
     /**
      * @Route("/", name="video")
      */
@@ -104,7 +136,7 @@ class VideoController extends BaseController
     {
 
         $categorie = $this->getDoctrine()
-            ->getRepository('AppBundle:CategoriaVideo')->findBy(array(),array(),3,0);
+            ->getRepository('AppBundle:CategoriaVideo')->findBy(array(), array(), 3, 0);
 
 
         return $this->render('AppBundle:Video:gallerie.html.twig', array("gallerie" => $categorie));

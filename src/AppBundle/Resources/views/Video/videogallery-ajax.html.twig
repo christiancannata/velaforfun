@@ -1,0 +1,40 @@
+
+<div class="row nodi">
+                {% for video in videos %}
+                    {% set link = video.link|split('v=') %}
+                    <div class="col-md-4 column  video-box ">
+
+
+                        <div class="box-home link-video" style="height: 330px;" data-video="{{ link[1] }}">
+                            <div style="opacity: 1;background-image: url(http://img.youtube.com/vi/{{ link[1] }}/0.jpg);"
+                                 class="divBackgroundImage">
+                            </div>
+                            <div class="content">
+
+                                <div class="box-action">
+                                    <h2>{{ video.nome }}
+                                    </h2>
+
+                                    <div class="over-box">
+                                        <p style="height:50px">{{ video.descrizione }}
+                                        </p>
+                                        <button class="btn btn-default dettagli-nodo hvr-glow " type="submit">GUARDA
+                                            VIDEO
+                                        </button>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                {% endfor %}
+</div>
+
+
