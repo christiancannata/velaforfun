@@ -88,6 +88,32 @@ class FotoController extends BaseController
         return new JsonResponse($arrayJson);
     }
 
+
+    /**
+     * @Route("/json", name="gallery_foto__json")
+     */
+    public function getGalleryJsonAction(Request $r)
+    {
+
+
+        $categorie = $this->getDoctrine()
+            ->getRepository('AppBundle:GalleriaFoto')->findBy(
+                array(),
+                array(),
+                3,
+                $r->get('offset')
+            );
+
+
+        return $this->render(
+            'AppBundle:Foto:ajax.html.twig',
+            array("gallerie" => $categorie)
+
+        );
+
+    }
+
+
     /**
      * @Route("/{permalink}", name="dettaglio_foto")
      */
@@ -105,6 +131,41 @@ class FotoController extends BaseController
 
         return $this->render('AppBundle:Foto:dettagliGalleria.html.twig', array("galleria" => $categorie));
     }
+
+
+
+    /**
+     * @Route("/{permalink}/json", name="foto_gallery_json")
+     */
+    public function getFotoGalleryJsonAction($permalink, Request $r)
+    {
+
+        $categorie = $this->getDoctrine()
+            ->getRepository('AppBundle:GalleriaFoto')->findOneByPermalink($permalink);
+        if (!$categorie) {
+
+
+            throw $this->createNotFoundException('Unable to find Categoria.');
+        }
+
+        $video = $this->getDoctrine()
+            ->getRepository('AppBundle:Foto')->findBy(
+                array("galleria" => $categorie),
+                array(),
+                3,
+                $r->get('offset')
+            );
+
+
+        return $this->render(
+            'AppBundle:Foto:fotogallery-ajax.html.twig',
+            array("fotos" => $video)
+
+        );
+
+    }
+
+
 
 
 }

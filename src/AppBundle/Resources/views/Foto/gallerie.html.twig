@@ -5,6 +5,54 @@
 {% endblock %}
 
 
+
+
+
+
+{% block javascripts %}
+    <script src="http://imagesloaded.desandro.com/imagesloaded.pkgd.min.js"></script>
+    <script src="{{ asset('bundles/app/js/bootstrap-lightbox.min.js') }}"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.min.js"></script>
+    <script language="javascript">
+        $(document).ready(function () {
+
+
+            var offset = 3;
+            var loading = false;
+            $(window).scroll(function () {
+                if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                    if (loading == false) {
+                        $('div#loadmoreajaxloader').show();
+                        loading = true;
+                        $.ajax({
+                            url: "json?offset=" + offset,
+                            success: function (html) {
+                                if (html) {
+                                    $('div#loadmoreajaxloader').remove();
+                                    $("#postswrapper").append(html);
+                                } else {
+                                    $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');
+                                }
+                                offset += 3;
+                                loading = false;
+                            }
+                        });
+                    }
+
+                }
+            });
+
+
+        })
+    </script>
+{% endblock %}
+
+
+
+
+
+
+
 {% block body %}
 
 
@@ -42,7 +90,9 @@
     </div>
 
     <div class="row nodi">
-    {% for gallery in gallerie %}
+
+        <div id="postswrapper">
+    {% for gallery in gallerie|slice(0,3) %}
         {% if gallery.foto|length > 0%}
         {% set copertina = gallery.foto[0].immagine %}
         {% for foto in gallery.foto %}
@@ -83,13 +133,17 @@
                 </a>
 
             </div>
-        {% if loop.index is divisibleby(3) %}
-            </div>
 
-            <div class="row nodi">
-        {% endif %}
         {% endif %}
     {% endfor %}
+
+</div>
+
+            <div id="loadmoreajaxloader" style="display:none;">
+                <center><i class="fa fa-spinner fa-2x fa-spin "></i></center>
+            </div>
+        </div>
+
     <!-- fine contenuto -->
 
     </div>
