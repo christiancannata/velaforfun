@@ -51,7 +51,7 @@
 
                             <div class="divisore"></div>
                             <div class="subtitle">
-                                {{ articoli[0].sottotitolo|raw }}
+                                {{ articoli[0].sottotitolo|striptags }}
                             </div>
                         </div>
 
@@ -71,7 +71,7 @@
                                 <div class="content">
                                     <h4>{{ articoli[1].titolo }}</h4>
 
-                                    {{ articoli[1].sottotitolo|slice(0,80)|raw }}...
+                                    <p>  {{ articoli[1].sottotitolo|slice(0,80)|striptags }}...</p>
                                 </div>
                                 <div class="arrow">
                                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -85,7 +85,7 @@
                                 <div class="content">
                                     <h4>{{ articoli[2].titolo }}</h4>
 
-                                    {{ articoli[2].sottotitolo|slice(0,80)|raw }}...
+                                    <p>    {{ articoli[2].sottotitolo|slice(0,80)|striptags }}...</p>
                                 </div>
                                 <div class="arrow">
                                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -99,7 +99,7 @@
                                 <div class="content">
                                     <h4>{{ articoli[3].titolo }}</h4>
 
-                                    {{ articoli[3].sottotitolo|slice(0,80)|raw }}...
+                             <p>{{ articoli[3].sottotitolo|slice(0,80)|striptags }}...</p>
                                 </div>
                                 <div class="arrow">
                                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
