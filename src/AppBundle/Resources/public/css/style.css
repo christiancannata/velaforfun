@@ -1396,7 +1396,9 @@ input[type="radio"]:checked .fa-stack-1x {
 .nodo:hover .content {
     background: rgba(255, 255, 255, 1);
 }
-
+.row .nodi{
+    margin-bottom: 20px;
+}
 .nodi .column {
     margin-top: 20px;
 }
