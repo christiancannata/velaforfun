@@ -331,7 +331,7 @@ function localizzami() {
     }
 }
 function showPosition(position) {
-
+    $('#meteoModal').modal();
 
     $.get("/porti/localizzami/jsondata?lat=" + position.coords.latitude + "&long=" + position.coords.longitude, function (meteo) {
 
@@ -358,9 +358,12 @@ function showPosition(position) {
                 "marker-symbol": "harbor"
             }
         };
-        var map = L.mapbox.map('mappaMeteo', 'christian1488.m5b7ic2b').setView([position.coords.latitude, position.coords.longitude], 8);
+        var map = L.mapbox.map('mappaMeteo', 'christian1488.m5b7ic2b');
 
         myLayer = L.mapbox.featureLayer(arrayPorto2).addTo(map);
+
+        map.setView([position.coords.latitude, position.coords.longitude], 8);
+
 
         $("#meteo-localized-box").removeClass("hide");
         $("#div-localized").fadeOut();
@@ -373,8 +376,8 @@ function showPosition(position) {
         $("#meteo-localized-umidita-2").html(meteo.geoposition.main.humidity + " %");
         $("#meteo-localized-icon-2").addClass(meteo.geoposition.weather[0].icon);
 
-        $('#meteoModal').modal();
-
+        $("#meteoModal #loading").addClass("hide");
+        $("#meteoModal #contenuto").removeClass("hide");
 
         localStorage.setItem("geolocation", JSON.stringify(meteo));
     });
