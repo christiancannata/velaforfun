@@ -362,7 +362,7 @@ function showPosition(position) {
 
         myLayer = L.mapbox.featureLayer(arrayPorto2).addTo(map);
 
-        map.setView([position.coords.latitude, position.coords.longitude], 8);
+
 
 
         $("#meteo-localized-box").removeClass("hide");
@@ -380,6 +380,9 @@ function showPosition(position) {
         $("#meteoModal #contenuto").removeClass("hide");
 
         localStorage.setItem("geolocation", JSON.stringify(meteo));
+
+        map.setView([position.coords.latitude, position.coords.longitude], 9);
+
     });
 
 
