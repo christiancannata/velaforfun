@@ -671,7 +671,7 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
     font-size: 16px;
 }
 
-#map {
+#map,#mappaMeteo {
     position: relative;
     top: 0;
     bottom: 0;
@@ -1159,7 +1159,7 @@ h1 {
 }
 
 #colonnaPorto .over-box {
-    background: white !important;
+    background: inherit !important;
     color: #429CBC !important;
     border: 1px solid #429CBC;
     padding: 8px;
@@ -1247,7 +1247,6 @@ h1 {
 }
 
 .field-nuovo-commento .fa.fa-sign-in {
-    border-left: 1px solid #429CBC;
     font-size: 28px;
     line-height: 32px;
     padding-left: 7px;
@@ -2075,3 +2074,86 @@ label[for=remember_me],label[for=remember_me2]{
     }
 }
 
+
+
+#meteo-localized-box-2{
+    font-size: 24px;
+}
+
+#meteoModal{
+    background: rgba(66, 156, 188,0.8);
+}
+
+#meteoModal .modal-content {
+    border-radius: 0px !important;
+    border:none !important;
+    box-shadow: none !important;
+    background: none;
+
+}
+
+#meteoModal h4{
+    color:white;
+    font-size:24px;
+}
+#meteo-localized-icon-2 {
+    font-size: 100px;
+    margin-top: 40px;
+}
+#meteo-localized-temperatura-2 {
+    float: left;
+    font-size: 45px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+#meteoModal .modal-dialog {
+    margin: 30px auto;
+    width: 90% !important;
+}
+
+#meteoModal .modal-header{
+    background:none !important;
+    color:white;
+    border-bottom:none;
+}
+#meteoModal .modal-body{
+    background:none !important;
+    color:white !important;
+}
+
+#meteoModal .modal-title{
+    color:white;
+    font-size:30px;
+}
+
+#meteoModal .over-box{
+    padding:0px;
+}
+
+#meteoModal .form-control {
+    border: medium none;
+    height: 55px;
+}
+
+
+
+#meteoModal .inner-addon.left-addon > a {
+    border-left: 1px solid rgb(66, 156, 188);
+    font-size: 24px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: absolute;
+    right: 0;
+    top: 17px;
+}
+
+#meteoModal #porto-meteo{
+    background: none;
+}
+
+#meteoModal button.close{
+    color:white  !important;
+    font-size:30px !important;
+}

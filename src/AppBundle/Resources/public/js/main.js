@@ -1,20 +1,22 @@
 jQuery(document).ready(function ($) {
 
-    if (typeof localStorage.getItem("geolocation") != undefined) {
-        var meteo = JSON.parse(localStorage.getItem("geolocation"));
-        if (meteo != null) {
-            $("#meteo-localized-nome").html(meteo.geoposition.name);
 
-            $("#meteo-localized-temperatura").html(parseInt(meteo.geoposition.main.temp) + "°");
-            $("#meteo-localized-vento").html(meteo.geoposition.wind.speed + " km/h");
-            $("#meteo-localized-umidita").html(meteo.geoposition.main.humidity + " %");
-            $("#meteo-localized-icon").addClass(meteo.geoposition.weather[0].icon);
 
-            $("#meteo-localized-box").removeClass("hide");
-            $("#div-localized").fadeOut();
-        }
+    /*if (typeof localStorage.getItem("geolocation") != undefined) {
+     var meteo = JSON.parse(localStorage.getItem("geolocation"));
+     if (meteo != null) {
+     $("#meteo-localized-nome").html(meteo.geoposition.name);
 
-    }
+     $("#meteo-localized-temperatura").html(parseInt(meteo.geoposition.main.temp) + "°");
+     $("#meteo-localized-vento").html(meteo.geoposition.wind.speed + " km/h");
+     $("#meteo-localized-umidita").html(meteo.geoposition.main.humidity + " %");
+     $("#meteo-localized-icon").addClass(meteo.geoposition.weather[0].icon);
+
+     $("#meteo-localized-box").removeClass("hide");
+     $("#div-localized").fadeOut();
+     }
+
+     } */
 
 
     $('select').selectpicker(
@@ -105,6 +107,14 @@ jQuery(document).ready(function ($) {
         }, 'json');
     }
 
+
+    if ($("#selectPorto3").length > 0) {
+        $.get('/porti/jsondata', function (data) {
+            $("#selectPorto3").typeahead({source: data});
+        }, 'json');
+    }
+
+
     if ($("#selectNodo").length > 0) {
         $.get('/nodi/jsondata', function (data) {
             $("#selectNodo").typeahead({source: data, valueKey: 'permalink'});
@@ -125,6 +135,24 @@ jQuery(document).ready(function ($) {
 
 
     });
+
+
+
+    $("#formCercaPorto3").submit(function (e) {
+        e.preventDefault();
+        if ($("#selectPorto3").val() != "") {
+            var form = $(this);
+            var url = form.attr("action");
+            if (url.indexOf("{permalink}") >= 0 && form.attr("method") == "GET") {
+                e.preventDefault();
+                url = url.replace('{permalink}', $("#selectPorto3").typeahead("getActive").permalink);
+                location.href = url;
+            }
+        }
+
+
+    });
+
 
 
     $("#formTraduci").submit(function (e) {
@@ -308,15 +336,45 @@ function showPosition(position) {
     $.get("/porti/localizzami/jsondata?lat=" + position.coords.latitude + "&long=" + position.coords.longitude, function (meteo) {
 
 
-        $("#meteo-localized-nome").html(meteo.geoposition.name);
 
-        $("#meteo-localized-temperatura").html(meteo.geoposition.main.temp);
-        $("#meteo-localized-vento").html(meteo.geoposition.wind.speed);
-        $("#meteo-localized-umidita").html(meteo.geoposition.main.humidity);
-        $("#meteo-localized-icon").addClass(meteo.geoposition.weather[0].icon);
+
+        // Provide your access token
+        L.mapbox.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFuMTQ4OCIsImEiOiJZaldjZlM0In0.hXiRMyyCDLdQZUrqXF2eNw';
+        // Create a map in the div #map
+
+        var arrayPorto2 = {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    position.coords.longitude, position.coords.latitude
+
+                ]
+            },
+            "properties": {
+                "title": "Tu sei qui!",
+                "marker-color": "#429CBC",
+                "marker-size": "medium",
+                "marker-symbol": "harbor"
+            }
+        };
+        var map = L.mapbox.map('mappaMeteo', 'christian1488.m5b7ic2b').setView([position.coords.latitude, position.coords.longitude], 8);
+
+        myLayer = L.mapbox.featureLayer(arrayPorto2).addTo(map);
 
         $("#meteo-localized-box").removeClass("hide");
         $("#div-localized").fadeOut();
+
+
+        $("#meteo-localized-nome-2").html(meteo.geoposition.name);
+
+        $("#meteo-localized-temperatura-2").html(parseInt(meteo.geoposition.main.temp) + "°");
+        $("#meteo-localized-vento-2").html(meteo.geoposition.wind.speed + " km/h");
+        $("#meteo-localized-umidita-2").html(meteo.geoposition.main.humidity + " %");
+        $("#meteo-localized-icon-2").addClass(meteo.geoposition.weather[0].icon);
+
+        $('#meteoModal').modal();
+
 
         localStorage.setItem("geolocation", JSON.stringify(meteo));
     });

@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('bundles/app/css/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/app/css/colorbox.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap-select.min.css') }}">
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet'/>
     {% block stylesheets %}{% endblock %}
     <link rel="icon"
           type="image/png"
@@ -53,22 +54,22 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
 
-                            <li><a class="bordered blue" href="/archivio/categoria-news">News di Vela</a></li>
-                            <li><a href="/segnalazione-portolano">Portolano Online</a></li>
-                            <li><a href="/porti">I porti d'Italia</a></li>
-                            <li><a href="/forum/velaforfun">Forum</a></li>
-                            <li><a href="/nodi">I nodi Marinari</a></li>
-                            <li><a href="/codice-internazionale">Codice internazionale</a></li>
-                            <li><a href="/foto">Archivio Fotografico</a></li>
-                            <li><a href="/video">Galleria Video</a></li>
-                            <li class="dropdown-header">Annunci di imbarco</li>
-                            <li><a href="#">Cerco</a></li>
-                            <li><a href="#">Offro</a></li>
-                            <li class="dropdown-header">Annunci di usato</li>
-                            <li><a href="#">Vendo</a></li>
-                            <li><a href="#">Compro</a></li>
-                            <li class="divider"></li>
-                            <li><a href="/forum/velaforfun">Forum</a></li>
+                    <li><a class="bordered blue" href="/archivio/categoria-news">News di Vela</a></li>
+                    <li><a href="/segnalazione-portolano">Portolano Online</a></li>
+                    <li><a href="/porti">I porti d'Italia</a></li>
+                    <li><a href="/forum/velaforfun">Forum</a></li>
+                    <li><a href="/nodi">I nodi Marinari</a></li>
+                    <li><a href="/codice-internazionale">Codice internazionale</a></li>
+                    <li><a href="/foto">Archivio Fotografico</a></li>
+                    <li><a href="/video">Galleria Video</a></li>
+                    <li class="dropdown-header">Annunci di imbarco</li>
+                    <li><a href="#">Cerco</a></li>
+                    <li><a href="#">Offro</a></li>
+                    <li class="dropdown-header">Annunci di usato</li>
+                    <li><a href="#">Vendo</a></li>
+                    <li><a href="#">Compro</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/forum/velaforfun">Forum</a></li>
                     </li>
 
                 </ul>
@@ -195,7 +196,6 @@
                                 <lI>
 
                                     <div class="row clearfix">
-
                                         <div class="col-md-12 column ">
 
                                             <div class="row clearfix">
@@ -207,63 +207,11 @@
                                             </div>
                                             <div id="meteo-localized-box" class="hide">
 
-
-                                                <div class="row clearfix">
-
-                                                    <div class="col-md-4 column foreground-celeste"
-                                                         style="margin-top:10px">
-                                                        {{ "now"|date("H:i") }}
-                                                    </div>
-                                                    <div class="col-md-4 column">
-                                                        <i class="wi foreground-celeste"
-                                                           id="meteo-localized-icon"> </i>
-                                                    </div>
-                                                    <div class="col-md-4 column">
-                                                        <h4>
-                                                            <span
-                                                                    class="foreground-celeste"
-                                                                    id="meteo-localized-temperatura"> </span></h4>
-
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="row clearfix">
-
-                                                    <div class="col-md-6 column">
-                                                        <p style="margin:0"><i
-                                                                    class="wi wi-strong-wind foreground-celeste"></i>
-                                                        </p>
-
-                                                        <div id="meteo-localized-vento"
-                                                             style="margin-bottom: 10px;" class="foreground-celeste">
-                                                            km/h
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="col-md-6 column">
-
-                                                        <p style="margin:0" class="foreground-celeste">UMIDITA'</p>
-
-                                                        <div id="meteo-localized-umidita" class="foreground-celeste"
-                                                             style="margin-bottom: 10px;">%
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
-                                                <div class="row clearfix">
-
-                                                    <div class="col-md-12 column">
-                                                        <i class="fa fa-location-arrow foreground-celeste left"
-                                                           style="padding-left:0px;float:left"
-                                                                > </i>
-
-                                                        <h1 id="meteo-localized-nome"
-                                                            style="padding-left:0px;float:left"></h1>
-                                                    </div>
-
+                                                <div class="col-md-12 column">
+                                                    <button class="btn btn-primary" onclick="$('#meteoModal').modal()"
+                                                            style="width:100%;margin-top:10px;margin-bottom:10px">
+                                                        VISUALIZZA IL METEO
+                                                    </button>
                                                 </div>
 
                                             </div>
@@ -565,145 +513,331 @@
 </div>
 <!-- /.modal -->
 
-<script language="javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-<script language="javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="{{ asset('bundles/app/js/bootstrap3-typeahead.min.js') }}"></script>
-<script src="{{ asset('bundles/app/js/jquery.magnific-popup.min.js') }}"></script>
 
-<script src="http://jscrollpane.kelvinluck.com/script/jquery.mousewheel.js"></script>
-<script src="http://jscrollpane.kelvinluck.com/script/mwheelIntent.js"></script>
-<script src="http://jscrollpane.kelvinluck.com/script/jquery.jscrollpane.min.js"></script>
+<!-- Modal -->
+<div class="modal fade" id="meteoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-md-12 column ">
+                    <div class="col-md-12 column ">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
 
-<script src="{{ asset('bundles/app/js/form.js') }}"></script>
-<script src="{{ asset('bundles/app/js/main.js') }}"></script>
-<script src="{{ asset('bundles/app/js/bootstrap-select.js') }}"></script>
-<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script><!--
+                        <h4 class="modal-title">Il Meteo di Velaforfun</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+
+                <div class="col-md-12 column ">
+                    <div class="col-md-6 column ">
+                        <div class="container-mappa">
+                            <div id='mappaMeteo'></div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6 column ">
+                        <div class="row clearfix">
+
+                            <div class="col-md-12 column">
+                                <h4
+                                        style="padding-left:0px;float:left;">
+                                    Cerca la tua destinazione!
+                                </h4>
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row clearfix">
+
+                            <div class="col-md-12 column">
+                                <p style="margin-top:10px;font-size:18px">Cerca un luogo in mare, ottieni le previsioni!</p>
+
+                            </div>
+                        </div>
+
+
+                        <div class="row clearfix">
+
+                            <div class="col-md-12 column porto-meteo">
+                                <div class="over-box">
+                                    <form name="cerca_porti" id="formCercaPorto3" action="/porti/{permalink}" method="GET">
+                                        <div class="form-group">
+                                            <div class="inner-addon left-addon">
+                                                <a onclick="$('#formCercaPorto3').submit();" href="#"><i
+                                                            class="fa fa-search"></i></a>
+                                                <input type="search" placeholder="cerca un porto..." class="form-control"
+                                                       id="selectPorto3" autocomplete="off">
+                                            </div>
+
+                                        </div>
+
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row clearfix">
+
+                            <div class="col-md-12 column">
+                                <div class="divisore-big background-white"></div>
+
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-md-12 column">
+                            <h4 style="margin-top:20px">La tua posizione</h4>
+
+
+                        </div>
+                        </div>
+                        <div class="row clearfix">
+
+                            <div class="col-md-12 column">
+                                <h4 id="meteo-localized-nome-2"
+                                    style="padding-left:0px;float:left;margin-top:10px"></h4>
+
+                            </div>
+                        </div>
+
+
+                        <div id="meteo-localized-box-2">
+
+
+                            <div class="row clearfix">
+
+
+
+
+
+                                <div class="col-md-4 column">
+
+                                    <i class="wi "
+                                       id="meteo-localized-icon-2"> </i>
+
+
+                                </div>
+
+
+                                <div class="col-md-8 column ">
+
+
+                                    <div class="row clearfix">
+
+                                        <div class="col-md-12 column">
+                                            <h4>
+                                                            <span
+                                                                    class=""
+                                                                    id="meteo-localized-temperatura-2"> </span></h4>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="row clearfix">
+
+                                        <div class="col-md-2 column">
+                                            <p style="margin:0" class="">UMIDITA'</p>
+                                        </div>
+
+
+                                        <div class="col-md-4 column">
+                                            <div id="meteo-localized-umidita-2" class=""
+                                                 style="margin-bottom: 10px;">%
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2 column">
+                                            <p style="margin:0"><i
+                                                        class="wi wi-strong-wind "></i>
+                                            </p>
+                                        </div>
+
+                                        <div class="col-md-4 column">
+                                            <div id="meteo-localized-vento-2"
+                                                 style="margin-bottom: 10px;" class="">
+                                                km/h
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+    <script language="javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script language="javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="{{ asset('bundles/app/js/bootstrap3-typeahead.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/jquery.magnific-popup.min.js') }}"></script>
+
+    <script src="http://jscrollpane.kelvinluck.com/script/jquery.mousewheel.js"></script>
+    <script src="http://jscrollpane.kelvinluck.com/script/mwheelIntent.js"></script>
+    <script src="http://jscrollpane.kelvinluck.com/script/jquery.jscrollpane.min.js"></script>
+
+
+    <script src="{{ asset('bundles/app/js/form.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/main.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/bootstrap-select.js') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <!--
 <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script> -->
 
 
-<!-- Redactor is here -->
-<link rel="stylesheet" href="/redactor/redactor.css"/>
+    <!-- Redactor is here -->
+
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+
+
+    <link rel="stylesheet" href="/redactor/redactor.css"/>
 
 
 
-{% if form is defined %}
-    <script src="/redactor/redactor.js"></script>
-    <script language="javascript">
+    {% if form is defined %}
+        <script src="/redactor/redactor.js"></script>
+        <script language="javascript">
 
-        $(document).ready(function () {
+            $(document).ready(function () {
 
-            if ($('[ name="{{ form.vars.full_name }}"]').length > 0) {
+                if ($('[ name="{{ form.vars.full_name }}"]').length > 0) {
 
-                $('textarea.editor,#appbundle_paginastatica_content,#blogbundle_articolo_ricetta').redactor({
-                    imageUpload: '/redactor/image_upload.php',
-                    fileUpload: '/redactor/file_upload.php',
-                    imageGetJson: '/redactor/json/data.json'
-                });
+                    $('textarea.editor,#appbundle_paginastatica_content,#blogbundle_articolo_ricetta').redactor({
+                        imageUpload: '/redactor/image_upload.php',
+                        fileUpload: '/redactor/file_upload.php',
+                        imageGetJson: '/redactor/json/data.json'
+                    });
 
-            }
-
-            if ($("#Post textarea,#blogbundle_articolo textarea").length > 0) {
-                $('textarea').redactor({
-                    imageUpload: '/images/upload',
-                    fileUpload: '/images/upload',
-                    imageGetJson: '/images/list'
-                });
-            }
-
-            var forms = [
-                '[ name="{{ form.vars.full_name }}"]',
-                '[name="newsletter"]'
-            ];
-
-
-            $(forms.join(',')).submit(function (e) {
-                e.preventDefault();
-                var form = $(this)
-                form.find('input[type="submit"],button,a').attr('disabled', 'disabled');
-
-                form.find("input[type='submit'].show,button.show,a.show,i.show,span.show").addClass("hide").removeClass("show");
-                form.find(".fa-spinner").toggleClass("hide");
-
-                var errorMessage = "Errore nella creazione!";
-                var successMessage = "Creato con successo!";
-                if ($("#successMessage").length > 0) {
-                    successMessage = $("#successMessage").val();
                 }
-                if ($("#errorMessage").length > 0) {
-                    errorMessage = $("#errorMessage").val();
-                }
-                postForm($(this), function (response) {
-                    if (response.success == true) {
-                        showalert(form, successMessage, "success")
-                    } else {
-                        showalert(form, errorMessage, "error")
-                    }
-                    form.find('input[type="submit"],button').removeAttr('disabled');
-                    if (form.find(".callback").length > 0) {
-                        var callbackFunction = form.find(".callback").val();
-                        window[callbackFunction](response);
-                    }
 
+                if ($("#Post textarea,#blogbundle_articolo textarea").length > 0) {
+                    $('textarea').redactor({
+                        imageUpload: '/images/upload',
+                        fileUpload: '/images/upload',
+                        imageGetJson: '/images/list'
+                    });
+                }
+
+                var forms = [
+                    '[ name="{{ form.vars.full_name }}"]',
+                    '[name="newsletter"]'
+                ];
+
+
+                $(forms.join(',')).submit(function (e) {
+                    e.preventDefault();
+                    var form = $(this)
+                    form.find('input[type="submit"],button,a').attr('disabled', 'disabled');
+
+                    form.find("input[type='submit'].show,button.show,a.show,i.show,span.show").addClass("hide").removeClass("show");
+                    form.find(".fa-spinner").toggleClass("hide");
+
+                    var errorMessage = "Errore nella creazione!";
+                    var successMessage = "Creato con successo!";
+                    if ($("#successMessage").length > 0) {
+                        successMessage = $("#successMessage").val();
+                    }
+                    if ($("#errorMessage").length > 0) {
+                        errorMessage = $("#errorMessage").val();
+                    }
+                    postForm($(this), function (response) {
+                        if (response.success == true) {
+                            showalert(form, successMessage, "success")
+                        } else {
+                            showalert(form, errorMessage, "error")
+                        }
+                        form.find('input[type="submit"],button').removeAttr('disabled');
+                        if (form.find(".callback").length > 0) {
+                            var callbackFunction = form.find(".callback").val();
+                            window[callbackFunction](response);
+                        }
+
+                    });
+                    form.find("input[type='submit'].hide,button.hide,a.hide,i.hide,span.hide").addClass("show").removeClass("hide");
+                    form.find(".fa-spinner").toggleClass("hide");
+                    form.find('input[type="submit"],button,a').removeAttr('disabled');
+                    return false;
                 });
-                form.find("input[type='submit'].hide,button.hide,a.hide,i.hide,span.hide").addClass("show").removeClass("hide");
-                form.find(".fa-spinner").toggleClass("hide");
-                form.find('input[type="submit"],button,a').removeAttr('disabled');
-                return false;
+
+
             });
+        </script>
+
+    {% else %}
+        <script language="javascript">
+            $(document).ready(function () {
 
 
-        });
-    </script>
+                $('form[name="newsletter"]').submit(function (e) {
+                    e.preventDefault();
+                    var form = $(this)
+                    form.find('input[type="submit"],button,a').attr('disabled', 'disabled');
 
-{% else %}
-    <script language="javascript">
-        $(document).ready(function () {
+                    form.find("input[type='submit'].show,button.show,a.show,i.show,span.show").addClass("hide").removeClass("show");
+                    form.find(".fa-spinner").toggleClass("hide");
 
-
-            $('form[name="newsletter"]').submit(function (e) {
-                e.preventDefault();
-                var form = $(this)
-                form.find('input[type="submit"],button,a').attr('disabled', 'disabled');
-
-                form.find("input[type='submit'].show,button.show,a.show,i.show,span.show").addClass("hide").removeClass("show");
-                form.find(".fa-spinner").toggleClass("hide");
-
-                var errorMessage = "Errore nella creazione!";
-                var successMessage = "Creato con successo!";
-                if ($("#successMessage").length > 0) {
-                    successMessage = $("#successMessage").val();
-                }
-                if ($("#errorMessage").length > 0) {
-                    errorMessage = $("#errorMessage").val();
-                }
-                postForm($(this), function (response) {
-                    if (response.success == true) {
-                        showalert(form, successMessage, "success")
-                    } else {
-                        showalert(form, errorMessage, "error")
+                    var errorMessage = "Errore nella creazione!";
+                    var successMessage = "Creato con successo!";
+                    if ($("#successMessage").length > 0) {
+                        successMessage = $("#successMessage").val();
                     }
-                    form.find('input[type="submit"],button').removeAttr('disabled');
-                    if (form.find(".callback").length > 0) {
-                        var callbackFunction = form.find(".callback").val();
-                        window[callbackFunction](response);
+                    if ($("#errorMessage").length > 0) {
+                        errorMessage = $("#errorMessage").val();
                     }
+                    postForm($(this), function (response) {
+                        if (response.success == true) {
+                            showalert(form, successMessage, "success")
+                        } else {
+                            showalert(form, errorMessage, "error")
+                        }
+                        form.find('input[type="submit"],button').removeAttr('disabled');
+                        if (form.find(".callback").length > 0) {
+                            var callbackFunction = form.find(".callback").val();
+                            window[callbackFunction](response);
+                        }
 
+                    });
+                    form.find("input[type='submit'].hide,button.hide,a.hide,i.hide,span.hide").addClass("show").removeClass("hide");
+                    form.find(".fa-spinner").toggleClass("hide");
+                    form.find('input[type="submit"],button,a').removeAttr('disabled');
+                    return false;
                 });
-                form.find("input[type='submit'].hide,button.hide,a.hide,i.hide,span.hide").addClass("show").removeClass("hide");
-                form.find(".fa-spinner").toggleClass("hide");
-                form.find('input[type="submit"],button,a').removeAttr('disabled');
-                return false;
             });
-        });
-    </script>
+        </script>
 
-{% endif %}
-
+    {% endif %}
 
 
-{% block javascripts %}{% endblock %}
+
+    {% block javascripts %}{% endblock %}
 </body>
 </html>

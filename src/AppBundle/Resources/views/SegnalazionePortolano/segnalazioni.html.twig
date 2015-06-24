@@ -8,7 +8,7 @@
 
 {% block javascripts %}
     {% spaceless %}
-        <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+
         <script language="javascript">
 
             $(document).ready(function () {
@@ -94,6 +94,10 @@
 
                     // And hide the geolocation button
                     $("#geolocate").after('<div role="alert" id="alertdiv" class="alert alert-success"><span>Geolocalizzazione effettuata!</span></div>');
+
+                    setTimeout(function() {
+                        $("#geolocate").hide('blind', {}, 500);
+                    }, 3000);
 
                 });
 

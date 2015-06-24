@@ -19,7 +19,6 @@
 {%- block body_content -%}
     {%- spaceless -%}
 
-
         <div class="row clearfix">
             <div class="col-md-12 column">
 
@@ -36,14 +35,14 @@
 
         <div class="row clearfix">
 
-            <div class="col-md-12 column">
-                <h3 style="color:rgb(153,153,153);display: inline;float:left;padding: 7px;font-size: 30px;padding-left:0px">Boards </h3>
-
-                <h3 style="color:rgb(153,153,153);display: inline;float:left;padding: 7px;font-size: 30px;">
-                    >&nbsp;{{- topic.board.name -}}</h3>
-
-                <h1 style="display: inline;float:left;margin:0px;border:none;font-size: 30px;font-weight: bold">
-                    <a href="/forum/velaforfun/topic/{{topic.getId}}">>&nbsp;{{- topic.getTitle |capitalize -}}</a></h1>
+            <div class="col-md-12 column breadcrumb">
+                <a href="/forum/velaforfun"><h3 style="color:rgb(153,153,153);display: inline;float:left;padding: 7px;padding-left:0px">Boards </h3>
+                </a>
+                <a href="../board/{{ topic.board.id  }}"><h3 style="color:rgb(153,153,153);display: inline;float:left;padding: 7px;">
+                        >&nbsp;{{- topic.board.name -}}</h3>
+                </a>
+                <h1 style="display: inline;float:left;margin:0px;border:none;font-weight: bold">
+                    >&nbsp;{{- topic.getTitle |capitalize -}}</h1>
 
             </div>
         </div>
