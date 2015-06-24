@@ -121,7 +121,7 @@
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.33214286" vertical-offset="8409" max-vertical-offset="12900">
-              <caret line="573" column="93" selection-start-line="573" selection-start-column="93" selection-end-line="573" selection-end-column="93" />
+              <caret line="573" column="104" selection-start-line="573" selection-start-column="104" selection-end-line="573" selection-end-column="104" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#0;n#ul#0;n#ul#1;n#div#1;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1309,7 +1309,7 @@
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33214286" vertical-offset="8409" max-vertical-offset="12900">
-          <caret line="573" column="93" selection-start-line="573" selection-start-column="93" selection-end-line="573" selection-end-column="93" />
+          <caret line="573" column="104" selection-start-line="573" selection-start-column="104" selection-end-line="573" selection-end-column="104" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#ul#0;n#ul#1;n#div#1;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
