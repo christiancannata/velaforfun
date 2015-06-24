@@ -1322,7 +1322,9 @@ textarea#testo {
 .ascolta, .stop {
     cursor: pointer;
 }
-
+.ascolta.selected,.stop.selected{
+    color: rgb(66, 156, 188);
+}
 .ascolta:hover, .stop:hover {
     color: rgb(66, 156, 188);
 }

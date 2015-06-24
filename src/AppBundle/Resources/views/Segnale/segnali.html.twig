@@ -21,10 +21,14 @@
             });
 
             $(".ascolta").click(function () {
+                $(".stop").removeClass("selected");
+                $(".ascolta").addClass("selected");
                 $(".codice-morse-result").trigger("morse.emit");
             });
 
             $(".stop").click(function () {
+                $(".ascolta").removeClass("selected");
+                $(".stop").addClass("selected");
                 $("#morse-code-output").remove();
             });
             {% if k is defined and k!="" %}
