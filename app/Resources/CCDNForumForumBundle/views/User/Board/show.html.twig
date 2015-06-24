@@ -29,15 +29,7 @@
 
         </div>
 
-	<section class="row btn-toolbar clearfix">
-            {% set is_topic_create_disabled = board.isAuthorisedToCreateTopic(app.security) ? '': ' disabled' %}
 
-            <a class="btn btn-danger{{ is_topic_create_disabled }}" rel="nofollow" href="{{- path('ccdn_forum_user_topic_create', {'forumName': forumName, 'boardId': board.getId }) -}}">
-				<i class="glyphicon glyphicon-asterisk"></i>
-				{{- 'link.topic.create' | trans({}, 'CCDNForumForumBundle') -}}
-			</a>
-
-	</section>
 
 	<header class="row clearfix">
             <div class="col-md-12 column breadcrumb" >
@@ -58,7 +50,34 @@
 		</div>-->
 	</header>
 
-	{{- knp_pagination_render(pager) -}}
+
+        <section class="row btn-toolbar clearfix" style="margin-bottom: 0px">
+            <div class="col-md-6">
+            {% set is_topic_create_disabled = board.isAuthorisedToCreateTopic(app.security) ? '': ' disabled' %}
+
+            <a class="btn btn-danger{{ is_topic_create_disabled }}" rel="nofollow" href="{{- path('ccdn_forum_user_topic_create', {'forumName': forumName, 'boardId': board.getId }) -}}">
+                <i class="glyphicon glyphicon-asterisk"></i>
+                {{- 'link.topic.create' | trans({}, 'CCDNForumForumBundle') -}}
+            </a>
+
+
+            </div>
+
+            <div class="col-md-6">
+                <style>
+                    .pagination{
+                        margin-top:0px !important;
+                    }
+                </style>
+                {{- knp_pagination_render(pager) -}}
+
+            </div>
+
+        </section>
+
+
+
+
 
 	<section class="clearfix">
         <table class="table table-striped table-hover">
