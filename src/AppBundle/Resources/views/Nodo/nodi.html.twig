@@ -16,7 +16,7 @@
             var offset = 3;
             var loading = false;
             $(window).scroll(function () {
-                if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                if ($(window).scrollTop() >= ($("#loadmoreajaxloader").height() - $(window).height()) ) {
                     if (loading == false) {
                         $('div#loadmoreajaxloader').show();
                         loading = true;
