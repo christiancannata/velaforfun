@@ -1,9 +1,5 @@
 {% extends 'base.html.twig' %}
 
- {% block stylesheets %}
-     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet'/>
- {% endblock %}
-
 {% block title %}Portolano Online{% endblock %}
 
 {% block javascripts %}
@@ -96,7 +92,7 @@
                     $("#geolocate").after('<div role="alert" id="alertdiv" class="alert alert-success"><span>Geolocalizzazione effettuata!</span></div>');
 
                     setTimeout(function() {
-                        $("#geolocate").hide('blind', {}, 500);
+                        $("#alertdiv").hide('blind', {}, 500);
                     }, 3000);
 
                 });
