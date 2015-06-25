@@ -2171,10 +2171,18 @@ label[for=remember_me],label[for=remember_me2]{
 
 }
 
-#mobile-localized:hover,#mobile-localized:focus{
+button.close{
     text-decoration: none;
     border:none;
     border-radius: 0px;
     outline:none;
-    color: rgb(66, 156, 188);
 }
+
+
+#mobile-localized:hover,#mobile-localized:focus{
+     text-decoration: none;
+     border:none;
+     border-radius: 0px;
+     outline:none;
+     color: rgb(66, 156, 188);
+ }
