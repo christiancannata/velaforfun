@@ -1487,7 +1487,7 @@ ul.share-buttons li {
     text-transform: uppercase;
 }
 
-#content-articolo .sottotitolo p {
+#content-articolo .sottotitolo{
     line-height: 25px;
     font-size: 18px !important;
 }
