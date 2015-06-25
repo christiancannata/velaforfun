@@ -2160,8 +2160,9 @@ label[for=remember_me],label[for=remember_me2]{
 }
 
 #mobile-localized{
-    margin-top: 20px;
+    padding-top: 20px;
     font-size: 16px;
     float: left;
-    margin-left: 12px;
+    padding-left: 12px;
+    z-index: 9999999;
 }

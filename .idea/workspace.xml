@@ -59,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="31909" max-vertical-offset="32580">
-              <caret line="2166" column="0" selection-start-line="2166" selection-start-column="0" selection-end-line="2166" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.92635024" vertical-offset="31909" max-vertical-offset="32595">
+              <caret line="2165" column="16" selection-start-line="2165" selection-start-column="16" selection-end-line="2165" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -91,10 +91,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.71428573" vertical-offset="7850" max-vertical-offset="12990">
+            <state vertical-scroll-proportion="-7.8431373" vertical-offset="7850" max-vertical-offset="12990">
               <caret line="550" column="75" selection-start-line="550" selection-start-column="75" selection-end-line="550" selection-end-column="75" />
               <folding>
                 <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -173,8 +173,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Crud/create.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
       </list>
     </option>
   </component>
@@ -1179,14 +1179,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="31909" max-vertical-offset="32580">
-          <caret line="2166" column="0" selection-start-line="2166" selection-start-column="0" selection-end-line="2166" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.45098" vertical-offset="2899" max-vertical-offset="4800">
@@ -1199,11 +1191,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71428573" vertical-offset="7850" max-vertical-offset="12990">
+        <state vertical-scroll-proportion="-7.8431373" vertical-offset="7850" max-vertical-offset="12990">
           <caret line="550" column="75" selection-start-line="550" selection-start-column="75" selection-end-line="550" selection-end-column="75" />
           <folding>
             <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.92635024" vertical-offset="31909" max-vertical-offset="32595">
+          <caret line="2165" column="16" selection-start-line="2165" selection-start-column="16" selection-end-line="2165" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
