@@ -2160,9 +2160,21 @@ label[for=remember_me],label[for=remember_me2]{
 }
 
 #mobile-localized{
-    padding-top: 20px;
-    font-size: 16px;
+    font-size: 18px;
     float: left;
-    padding-left: 12px;
+    padding-top: 20px;
+    padding-left: 20px;
     z-index: 9999999;
+    text-decoration: none;
+    border:none;
+    border-radius: 0px;
+
+}
+
+#mobile-localized:hover,#mobile-localized:focus{
+    text-decoration: none;
+    border:none;
+    border-radius: 0px;
+    outline:none;
+    color: rgb(66, 156, 188);
 }
