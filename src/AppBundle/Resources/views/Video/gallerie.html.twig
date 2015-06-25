@@ -11,7 +11,8 @@
         var offset = 3;
         var loading = false;
         $(window).scroll(function () {
-            if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+
+            if ($(window).scrollTop() >= ($(document).height() - $(window).height()-100) ) {
                 if (loading == false) {
                     $('div#loadmoreajaxloader').show();
                     loading = true;
@@ -73,7 +74,7 @@
 
     </div>
     <div id="postswrapper">
-        <div class="row nodi">
+        <div class="row nodi" style="margin-bottom: 20px">
             {% for gallery in gallerie %}
     {% set link = gallery.video[0].link|split('v=') %}
 
