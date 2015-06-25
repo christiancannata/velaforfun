@@ -209,8 +209,14 @@ jQuery(document).ready(function ($) {
 
     });
 
+    if($('.scroll-pane').length>0){
+        $('.scroll-pane').jScrollPane({autoReinitialise:true});
+    }
 
-    $('.scroll-pane').jScrollPane();
+
+    if($('.scroll-pane-horizontal').length>0){
+        $('.scroll-pane-horizontal').jScrollPane({autoReinitialise:true});
+    }
 
 
     /* $("#loginFacebook").click(function (e) {

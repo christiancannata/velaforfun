@@ -6,7 +6,21 @@
 
 
 
-
+{% block stylesheets %}
+<style>
+    .scroll-pane-horizontal
+    {
+        width: 100%;
+        height: 200px;
+        overflow: auto;
+    }
+    .horizontal-only
+    {
+        height: auto;
+        max-height: 200px;
+    }
+</style>
+{% endblock %}
 
 
 
@@ -127,14 +141,22 @@
            {{ articolo.testo|raw }}
 
            {% if articolo.gallery is defined and articolo.gallery|length > 0 %}
-    <div class="row clearfix">
+    <div class="row clearfix hidden-print">
         <div class="col-md-12 column">
             <div class="divisore-big"></div>
             <h3>Visualizza la fotogallery</h3>
+
+            <div class="scroll-pane-horizontal horizontal-only" >
+                <p style="width: {{ articolo.gallery.foto|length*160 }}px;">
             {% for foto in articolo.gallery.foto %}
-                <a class='gallery' rel="g1" href='/uploads/galleria_foto/{{ foto.immagine }}'><img width="150"
+                  <a class='gallery' style="display:inline" rel="g1" href='/uploads/galleria_foto/{{ foto.immagine }}'><img style="display:inline" width="150"
                                                                                                    src="/uploads/galleria_foto/{{ foto.immagine }}"></a>
-            {% endfor %}
+           {% endfor %}
+
+                       </p>
+            </div>
+
+
             <div class="divisore-big"></div>
         </div>
     </div>
