@@ -31,6 +31,37 @@
 {% block body %}
 
     <!-- contenuto -->
+<div class="row clearfix hidden-lg hidden-md hidden-xs visible-print">
+                <div class="col-md-4 column ">
+
+                </div>
+                <div class="col-md-4 column">
+
+                    <div class="row clearfix">
+                        <div class="col-md-12 column">
+                            <div id="logo">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                           <img width="250" src="/bundles/app/images/logotipo-01.png">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 column ">
+
+
+
+
+                </div>
+            </div>
+
+
 
     <div class="row clearfix stickem-container" id="content-articolo" >
         <div class="col-md-8 column">
@@ -101,7 +132,8 @@
             <div class="divisore-big"></div>
             <h3>Visualizza la fotogallery</h3>
             {% for foto in articolo.gallery.foto %}
-                <a class='gallery' rel="g1" href='/uploads/galleria_foto/{{ foto.immagine }}'><img width="150" src="/uploads/galleria_foto/{{ foto.immagine }}"></a>
+                <a class='gallery' rel="g1" href='/uploads/galleria_foto/{{ foto.immagine }}'><img width="150"
+                                                                                                   src="/uploads/galleria_foto/{{ foto.immagine }}"></a>
             {% endfor %}
             <div class="divisore-big"></div>
         </div>
@@ -211,7 +243,7 @@
 
 <div class="row clearfix" >
 
- <div class="col-md-12 column ">
+ <div class="col-md-12 column hidden-print">
         {% for categoriaRel in categorie %}
 
 
@@ -228,6 +260,8 @@
 
 
         </div>
+
+
 <div class="row clearfix">
             <div class="col-md-12 column">
                 <div class="divisore-big"></div>
