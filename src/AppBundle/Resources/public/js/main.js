@@ -400,10 +400,10 @@ function showPosition(position) {
 
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 
-
+            $("#loadingMeteoMobile").hide();
             $("#mobile-localized-city").html(meteo.geoposition.name);
-            $("#mobile-localized").fadeIn();
-
+            $("#mobile-localized-city").fadeIn();
+            $("#mobile-localized-arrow").fadeIn();
 
         }
 
