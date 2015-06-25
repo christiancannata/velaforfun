@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js" />
@@ -59,10 +60,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.92635024" vertical-offset="31909" max-vertical-offset="32595">
+            <state vertical-scroll-proportion="0.0" vertical-offset="31909" max-vertical-offset="32595">
               <caret line="2165" column="16" selection-start-line="2165" selection-start-column="16" selection-end-line="2165" selection-end-column="16" />
               <folding />
             </state>
@@ -82,11 +83,21 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.74074" vertical-offset="5566" max-vertical-offset="6345">
+            <state vertical-scroll-proportion="-16.074074" vertical-offset="5611" max-vertical-offset="6345">
               <caret line="403" column="68" selection-start-line="403" selection-start-column="68" selection-end-line="403" selection-end-column="68" />
               <folding>
                 <marker date="1435224570000" expanded="true" signature="9535:9550" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NodoController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4" vertical-offset="735" max-vertical-offset="2145">
+              <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,7 +160,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/VideoController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Video/dettagliGalleria.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Video/videogallery-ajax.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/nodi.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/ajax.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/gallerie.html.twig" />
@@ -175,6 +185,7 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php" />
       </list>
     </option>
   </component>
@@ -971,13 +982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="658" max-vertical-offset="2145">
-          <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/ajax.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
@@ -1169,16 +1173,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.74074" vertical-offset="5566" max-vertical-offset="6345">
-          <caret line="403" column="68" selection-start-line="403" selection-start-column="68" selection-end-line="403" selection-end-column="68" />
-          <folding>
-            <marker date="1435224570000" expanded="true" signature="9535:9550" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.45098" vertical-offset="2899" max-vertical-offset="4800">
@@ -1201,8 +1195,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.92635024" vertical-offset="31909" max-vertical-offset="32595">
+        <state vertical-scroll-proportion="0.0" vertical-offset="31909" max-vertical-offset="32595">
           <caret line="2165" column="16" selection-start-line="2165" selection-start-column="16" selection-end-line="2165" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.074074" vertical-offset="5611" max-vertical-offset="6345">
+          <caret line="403" column="68" selection-start-line="403" selection-start-column="68" selection-end-line="403" selection-end-column="68" />
+          <folding>
+            <marker date="1435224570000" expanded="true" signature="9535:9550" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/NodoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4" vertical-offset="735" max-vertical-offset="2145">
+          <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
           <folding />
         </state>
       </provider>

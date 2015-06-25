@@ -72,7 +72,7 @@ class NodoController extends BaseController
 
 
     /**
-     * @Route("/jsondata", name="nodi_json")
+     * @Route("/jsondata", name="nodi_jsondata")
      */
     public function nodiJsonAction()
     {
