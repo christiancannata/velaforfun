@@ -49,6 +49,14 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="/" class="navbar-brand" style="padding:0"> <img src="/bundles/app/images/logo.png" width="60"></a>
+                <a data-toggle="modal" data-target="#meteoModal" id="mobile-localized" style="display:none">
+                    <i  class="fa fa-location-arrow foreground-celeste"></i>
+                    <span id="mobile-localized-city" ></span>
+
+                </a>
+
+
+
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
@@ -519,21 +527,28 @@
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <div class="col-md-12 column ">
-                    <div class="col-md-12 column ">
 
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <div class="row clearfix ">
+                        <div class="col-md-12 column ">
+                            <div class="row clearfix ">
+                                <div class="col-md-11 column ">
 
 
-                        <h4 class="modal-title">Il Meteo di Velaforfun</h4>
+                                    <h4 class="modal-title">Il Meteo di Velaforfun</h4>
+                                </div>
+
+                                <div class="col-md-1 column ">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-body">
-
+                <div class="row clearfix ">
                 <i class="fa fa-spinner fa-2x fa-spin " style="font-size: 50px;text-align:center" id="loading"></i>
-
 
 
                 <div class="col-md-12 column hide" id="contenuto">
@@ -558,12 +573,11 @@
                         </div>
 
 
-
-
                         <div class="row clearfix">
 
                             <div class="col-md-12 column">
-                                <p style="margin-top:10px;font-size:18px">Cerca un luogo in mare, ottieni le previsioni!</p>
+                                <p style="margin-top:10px;font-size:18px">Cerca un luogo in mare, ottieni le
+                                    previsioni!</p>
 
                             </div>
                         </div>
@@ -573,12 +587,14 @@
 
                             <div class="col-md-12 column porto-meteo" style="background: none !important">
                                 <div class="over-box">
-                                    <form name="cerca_porti" id="formCercaPorto3" action="/porti/{permalink}" method="GET">
+                                    <form name="cerca_porti" id="formCercaPorto3" action="/porti/{permalink}"
+                                          method="GET">
                                         <div class="form-group">
                                             <div class="inner-addon left-addon">
                                                 <a onclick="$('#formCercaPorto3').submit();" href="#"><i
                                                             class="fa fa-search"></i></a>
-                                                <input type="search" placeholder="cerca un porto..." class="form-control"
+                                                <input type="search" placeholder="cerca un porto..."
+                                                       class="form-control"
                                                        id="selectPorto3" autocomplete="off">
                                             </div>
 
@@ -591,8 +607,6 @@
                         </div>
 
 
-
-
                         <div class="row clearfix">
 
                             <div class="col-md-12 column">
@@ -602,10 +616,10 @@
                         </div>
                         <div class="row clearfix">
                             <div class="col-md-12 column">
-                            <h4 style="margin-top:20px">La tua posizione</h4>
+                                <h4 style="margin-top:20px">La tua posizione</h4>
 
 
-                        </div>
+                            </div>
                         </div>
                         <div class="row clearfix">
 
@@ -621,9 +635,6 @@
 
 
                             <div class="row clearfix">
-
-
-
 
 
                                 <div class="col-md-4 column">
@@ -690,12 +701,7 @@
                     </div>
 
                 </div>
-
-
-
-
-
-
+</div>
 
             </div>
             <!-- /.modal-content -->

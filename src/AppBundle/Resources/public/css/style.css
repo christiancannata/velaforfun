@@ -2154,6 +2154,14 @@ label[for=remember_me],label[for=remember_me2]{
 }
 
 #meteoModal button.close{
-    color:white  !important;
-    font-size:30px !important;
+    color: white !important;
+    font-size: 50px !important;
+    opacity: 1;
+}
+
+#mobile-localized{
+    margin-top: 20px;
+    font-size: 16px;
+    float: left;
+    margin-left: 12px;
 }

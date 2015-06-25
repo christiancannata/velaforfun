@@ -2,6 +2,15 @@ jQuery(document).ready(function ($) {
 
 
 
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+
+        }
+    }
+
+
     /*if (typeof localStorage.getItem("geolocation") != undefined) {
      var meteo = JSON.parse(localStorage.getItem("geolocation"));
      if (meteo != null) {
@@ -331,7 +340,11 @@ function localizzami() {
     }
 }
 function showPosition(position) {
-    $('#meteoModal').modal();
+
+
+    if( ! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        $('#meteoModal').modal();
+    }
 
     $.get("/porti/localizzami/jsondata?lat=" + position.coords.latitude + "&long=" + position.coords.longitude, function (meteo) {
 
@@ -383,7 +396,23 @@ function showPosition(position) {
 
         map.setView([position.coords.latitude, position.coords.longitude], 9);
 
+
+
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+
+
+            $("#mobile-localized-city").html(meteo.geoposition.name);
+            $("#mobile-localized").fadeIn();
+
+
+        }
+
+
+
     });
+
+
+
 
 
 }
