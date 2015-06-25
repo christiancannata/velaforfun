@@ -1,10 +1,21 @@
 jQuery(document).ready(function ($) {
 
 
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        if(localStorage.getItem("geolocation")){
+            var meteo = JSON.parse(localStorage.getItem("geolocation"));
+
+            $("#loadingMeteoMobile").hide();
+            $("#mobile-localized-city").html(meteo.geoposition.name);
+            $("#mobile-localized-city").show();
+            $("#mobile-localized-arrow").show();
+
+        }
+
+
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
+            navigator.geolocation.getCurrentPosition(showPosition, null, {maximumAge: 900000});
         } else {
 
             $("#loadingMeteoMobile").hide();
@@ -151,7 +162,6 @@ jQuery(document).ready(function ($) {
     });
 
 
-
     $("#formCercaPorto3").submit(function (e) {
         e.preventDefault();
         if ($("#selectPorto3").val() != "") {
@@ -166,7 +176,6 @@ jQuery(document).ready(function ($) {
 
 
     });
-
 
 
     $("#formTraduci").submit(function (e) {
@@ -347,8 +356,11 @@ function localizzami() {
 function showPosition(position) {
 
 
-    if( ! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         $('#meteoModal').modal();
+    }else{
+
+
     }
 
     $.get("/porti/localizzami/jsondata?lat=" + position.coords.latitude + "&long=" + position.coords.longitude, function (meteo) {
@@ -381,8 +393,6 @@ function showPosition(position) {
         myLayer = L.mapbox.featureLayer(arrayPorto2).addTo(map);
 
 
-
-
         $("#meteo-localized-box").removeClass("hide");
         $("#div-localized").fadeOut();
 
@@ -397,25 +407,21 @@ function showPosition(position) {
         $("#meteoModal #loading").addClass("hide");
         $("#meteoModal #contenuto").removeClass("hide");
 
-        localStorage.setItem("geolocation", JSON.stringify(meteo));
+
 
         map.setView([position.coords.latitude, position.coords.longitude], 9);
 
 
-
-        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             $("#loadingMeteoMobile").hide();
             $("#mobile-localized-city").html(meteo.geoposition.name);
             $("#mobile-localized-city").fadeIn();
             $("#mobile-localized-arrow").fadeIn();
         }
 
-
+        localStorage.setItem("geolocation", JSON.stringify(meteo));
 
     });
-
-
-
 
 
 }
