@@ -1,3 +1,26 @@
+var meteoIcon = [];
+meteoIcon["01d"] = "wi-day-sunny";
+
+meteoIcon["02d"] = "wi-day-cloudy";
+meteoIcon["03d"] = "wi-cloud";
+meteoIcon["04d"] = "wi-cloudy";
+meteoIcon["09d"] = "wi-showers";
+meteoIcon["10d"] = "wi-day-showers";
+meteoIcon["11d"] = "wi-thunderstorm";
+meteoIcon["13d"] = "wi-snow";
+meteoIcon["50d"] = "wi-fog";
+meteoIcon["01n"] = "wi-moon-new";
+meteoIcon["02n"] = "wi-night-cloudy";
+meteoIcon["03n"] = "wi-cloud";
+meteoIcon["04n"] = "wi-cloudy";
+meteoIcon["09n"] = "wi-showers";
+meteoIcon["10n"] = "wi-night-showers";
+meteoIcon["11n"] = "wi-thunderstorm";
+meteoIcon["13n"] = "wi-snow";
+meteoIcon["50n"] = "wi-fog";
+
+
+
 jQuery(document).ready(function ($) {
 
 

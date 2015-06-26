@@ -2026,6 +2026,7 @@ h3.panel-title {
 
 .check.checked,.check.checked:hover{
     background:  #23527c !important;
+    opacity: 1 !important;
 }
 
 #cerca-form-header .form-control::-moz-placeholder{

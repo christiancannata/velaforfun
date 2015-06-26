@@ -11,27 +11,6 @@
 {% block javascripts %}
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
     <script language="javascript"><!--
-        var meteoIcon = [];
-        meteoIcon["01d"] = "wi-day-sunny";
-
-        meteoIcon["02d"] = "wi-day-cloudy";
-        meteoIcon["03d"] = "wi-cloud";
-        meteoIcon["04d"] = "wi-cloudy";
-        meteoIcon["09d"] = "wi-showers";
-        meteoIcon["10d"] = "wi-day-showers";
-        meteoIcon["11d"] = "wi-thunderstorm";
-        meteoIcon["13d"] = "wi-snow";
-        meteoIcon["50d"] = "wi-fog";
-        meteoIcon["01n"] = "wi-night-sunny";
-        meteoIcon["02n"] = "wi-night-cloudy";
-        meteoIcon["03n"] = "wi-cloud";
-        meteoIcon["04n"] = "wi-cloudy";
-        meteoIcon["09n"] = "wi-showers";
-        meteoIcon["10n"] = "wi-night-showers";
-        meteoIcon["11n"] = "wi-thunderstorm";
-        meteoIcon["13n"] = "wi-snow";
-        meteoIcon["50n"] = "wi-fog";
-
 
         $(document).ready(function () {
 
@@ -224,7 +203,7 @@
                                             <p style="margin-top:5px;margin-bottom: 10px">Esprimi un giudizio su questo
                                                 porto:</p>
                                             <a class="btn btn-primary check"
-                                               style="color:white;margin-right: 20px;cursor:pointer">
+                                               style="color:white;margin-right: 20px;cursor:pointer;    background: rgb(7, 169, 157) !important;opacity:0.7">
                                                 <input style="display:none" type="radio" value="POSITIVO"
                                                        name="appbundle_commentoporto[tipoCommento]" id="radio1"
                                                        checked/>
@@ -245,11 +224,11 @@
 
                                                 </label>
                                             </a>
-                                            <a class="btn btn-primary check" style="color:white;cursor:pointer">
+                                            <a class="btn btn-primary check" style="color:white;cursor:pointer;background: rgb(242, 20, 35) !important;opacity:0.7">
                                                 <input style="display:none" type="radio" value="NEGATIVO"
                                                        name="appbundle_commentoporto[tipoCommento]" id="radio2"/>
                                                 <label for="radio2"
-                                                       style="display: inline;width:auto;color:white !important;cursor:pointer">
+                                                       style="display: inline;width:auto;color:white !important;cursor:pointer;">
 
                                                     NEGATIVO
                                                 </label></a>
