@@ -82,9 +82,18 @@
 </div>
 
 <div class="form-group">
-<label for="blogbundle_articolo_profilePictureFile" class="control-label">Immagine</label>
-<input type="file" name="blogbundle_articolo[profilePictureFile]" id="blogbundle_articolo_profilePictureFile">
-</div>
+<label for="blogbundle_articolo_profilePictureFile" class="control-label required">Carica una foto</label>
+
+                <span class="input-group-btn">
+                    <span class="btn btn-primary btn-file">
+                        Sfoglia&hellip; <input type="file" name="blogbundle_articolo[profilePictureFile]" id="blogbundle_articolo_profilePictureFile">
+
+                    </span>
+                </span>
+                <input type="text" class="form-control" readonly>
+            </div>
+
+
 
        <div>
         <input type="submit" class="btn btn-default login hvr-glow"  value="Invia la tua ricetta" />
