@@ -39,6 +39,7 @@ security:
      - { path: /annuncio-imbarco/cerca-annuncio, roles: ROLE_USER }
      - { path: /annuncio-scambio-posto/nuovo-annuncio, roles: ROLE_USER }
      - { path: /newsletter/, roles: ROLE_ADMIN }
+     - { path: /utenti/modifica, roles: ROLE_ADMIN }
      - { path: /modifica/, roles: ROLE_ADMIN }
      - { path: /elimina/, roles: ROLE_ADMIN }
      - { path: /list, roles: ROLE_ADMIN }
@@ -50,5 +51,5 @@ security:
     role_hierarchy:
            ROLE_SUPER_ADMIN: [ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_ANONYMOUSLY]
            ROLE_ADMIN: [ROLE_USER,IS_AUTHENTICATED_ANONYMOUSLY]
-           ROLE_USER: IS_AUTHENTICATED_ANONYMOUSLY
+           ROLE_USER: [IS_AUTHENTICATED_ANONYMOUSLY]
 

@@ -90,6 +90,14 @@ commenti_porto:
     type:     annotation
     prefix:   /commento-porto
 
+
+
+user:
+    resource: "@AppBundle/Controller/UserController.php"
+    type:     annotation
+    prefix:   /utenti
+
+
 app:
     resource: "@AppBundle/Controller/DefaultController.php"
     type:     annotation
