@@ -234,10 +234,7 @@ ul.content {
     font-size: 22px !important;
 }
 
-.latest-news:hover {
-    background: lightblue;
 
-}
 
 .latest-news .content {
     float: left;
@@ -2187,3 +2184,7 @@ button.close{
      outline:none;
      color: rgb(66, 156, 188);
  }
+
+input[type=text]{
+    border:1px solid #ccc !important;
+}
