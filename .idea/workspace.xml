@@ -122,20 +122,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.444445" vertical-offset="32268" max-vertical-offset="32925">
-              <caret line="2188" column="37" selection-start-line="2188" selection-start-column="37" selection-end-line="2188" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.8241206" vertical-offset="32388" max-vertical-offset="33060">
+              <caret line="2192" column="16" selection-start-line="2192" selection-start-column="16" selection-end-line="2192" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lista.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="lista.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/lista.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.575" vertical-offset="5955" max-vertical-offset="6720">
+            <state vertical-scroll-proportion="-14.375" vertical-offset="5955" max-vertical-offset="6720">
               <caret line="420" column="71" selection-start-line="420" selection-start-column="71" selection-end-line="420" selection-end-column="71" />
               <folding />
             </state>
@@ -209,8 +209,8 @@
         <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/lista.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
       </list>
     </option>
   </component>
@@ -1292,18 +1292,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/lista.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.444445" vertical-offset="32268" max-vertical-offset="32925">
-          <caret line="2188" column="37" selection-start-line="2188" selection-start-column="37" selection-end-line="2188" selection-end-column="37" />
+        <state vertical-scroll-proportion="-14.375" vertical-offset="5955" max-vertical-offset="6720">
+          <caret line="420" column="71" selection-start-line="420" selection-start-column="71" selection-end-line="420" selection-end-column="71" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/lista.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.575" vertical-offset="5955" max-vertical-offset="6720">
-          <caret line="420" column="71" selection-start-line="420" selection-start-column="71" selection-end-line="420" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.8241206" vertical-offset="32388" max-vertical-offset="33060">
+          <caret line="2192" column="16" selection-start-line="2192" selection-start-column="16" selection-end-line="2192" selection-end-column="16" />
           <folding />
         </state>
       </provider>

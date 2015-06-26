@@ -2185,6 +2185,15 @@ button.close{
      color: rgb(66, 156, 188);
  }
 
-input[type=text]{
+input[type=text],input[type=email],input[type=password]{
     border:1px solid #ccc !important;
+    height: 34px !important;
+    padding-top:6px !important;
+    padding-bottom: 6px !important;
+    color: #555;
+    display: block;
+    font-size: 16px;
+    height: 34px;
+    line-height: 1.42857;
+    text-indent: 5px;
 }
