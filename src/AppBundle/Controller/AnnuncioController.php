@@ -259,7 +259,7 @@ class AnnuncioController extends BaseController
     {
 
         $annunci = $this->getDoctrine()
-            ->getRepository('AppBundle:Annuncio')->findAll();
+            ->getRepository('AppBundle:Annuncio')->findBy(array(),array('id' => 'desc'),5);
         $titolo = "Annunci Vendo/Compro";
 
 

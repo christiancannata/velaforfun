@@ -44,7 +44,7 @@ class AnnuncioImbarcoController extends BaseController
     {
 
         $annunci = $this->getDoctrine()
-            ->getRepository('AppBundle:AnnuncioImbarco')->findAll();
+            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array(),array('id' => 'desc'),5);
         $titolo = "Annunci Imbarco";
 
 

@@ -1,13 +1,36 @@
 {%- spaceless -%}
 
 	<div class="row clearfix" >
+
+
 	    <div class="col-md-8">
-			<h3 class="panel-title">
-              <strong>{{ post.topic.title }}</strong>
+
+
+					<h3 class="panel-title">
+
+
+
+                        {%- if post.id and post.topic -%}
+                            {%- if post.topic.firstPost -%}
+                                {%- if post.topic.firstPost.id == post.id -%}
+                                    <strong>{{ post.topic.title }}</strong>
+                                {%- else -%}
+                                    <strong>Risposta al topic</strong>
+                                {%- endif -%}
+                            {%- else -%}
+                            {%- endif -%}
+                        {%- else -%}
+                        {%- endif -%}
+
+
+
+
 
 
 			</h3>
+
 	    </div>
+
 
 	    <div class="col-md-4 pull-right text-right ">
 	        {% if post.id and not post.isDeleted %}
