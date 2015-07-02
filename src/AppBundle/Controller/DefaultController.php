@@ -57,6 +57,29 @@ class DefaultController extends BaseController
         return $this->render('default/ricette.html.twig', array("articoli" => $articoli));
     }
 
+    /**
+     * @Route("/forum-post/{id}", name="post_jsondata")
+     */
+    public function postGetAction($id)
+    {
+
+        $connection = $this->getDoctrine()->getManager()->getConnection();
+        $statement = $connection->prepare("SELECT * FROM cc_forum_post WHERE id = :id limit 1");
+        $statement->bindValue('id', $id);
+        $statement->execute();
+        $results = $statement->fetchAll();
+
+
+        if(count($results)>0){
+            return $this->render('default/post-forum-partial.html.twig', array("post" => $results[0]));
+
+        }
+
+
+
+
+    }
+
 
     /**
      * @Route("/nuova-ricetta", name="crea_ricetta")

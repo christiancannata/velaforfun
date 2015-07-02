@@ -20,9 +20,23 @@ meteoIcon["13n"] = "wi-snow";
 meteoIcon["50n"] = "wi-fog";
 
 
+function getUrlParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam)
+        {
+            return sParameterName[1];
+        }
+    }
+}
+
+
 
 jQuery(document).ready(function ($) {
-
 
 
     $(document).on('change', '.btn-file :file', function() {
@@ -480,17 +494,3 @@ function showPosition(position) {
 
 }
 
-
-function getUrlParameter(sParam)
-{
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++)
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam)
-        {
-            return sParameterName[1];
-        }
-    }
-}

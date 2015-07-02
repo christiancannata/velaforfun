@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('bundles/app/css/normalize.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="/redactor/redactor.css"/>
     <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/app/css/hover-min.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/app/css/social.css') }}">
@@ -183,14 +184,14 @@
                                 <li><a href="/forum/velaforfun">Forum</a></li>
                                 <li><a href="/nodi">I nodi Marinari</a></li>
                                 <li><a href="/codice-internazionale">Codice internazionale</a></li>
-                                <li  class="dropdown-submenu"><a tabindex="-1" href="#">Multimedia</a>
+                                <li class="dropdown-submenu"><a tabindex="-1" href="#">Multimedia</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="/foto">Archivio Fotografico</a></li>
                                         <li><a href="/video">Galleria Video</a></li>
                                     </ul>
                                 </li>
 
-                                <li  class="dropdown-submenu"><a tabindex="-1" href="#">Annunci</a>
+                                <li class="dropdown-submenu"><a tabindex="-1" href="#">Annunci</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="/annuncio-imbarco">Cerco/Offro imbarco</a></li>
                                         <li><a href="/annuncio/">Mercatino dell'usato</a></li>
@@ -425,7 +426,7 @@
 
     {% block sidebar %}
     {% endblock %}
-<div style="margin-bottom: 30px"></div>
+    <div style="margin-bottom: 30px"></div>
 
     {% block body %}{% endblock %}
 </div>
@@ -757,7 +758,6 @@
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
 
 
-    <link rel="stylesheet" href="/redactor/redactor.css"/>
 
 
 
@@ -778,11 +778,36 @@
                 }
 
                 if ($("#Post textarea,#blogbundle_articolo textarea,textarea#Post_body").length > 0) {
-                    $('textarea').redactor({
-                        imageUpload: '/images/upload',
-                        fileUpload: '/images/upload',
-                        imageGetJson: '/images/list'
-                    });
+
+                    if (getUrlParameter("quota") != "") {
+
+                        var idQuota = getUrlParameter("quota");
+
+                        $.get('/forum-post/' + idQuota, function (data) {
+
+                            $('#Post textarea,#blogbundle_articolo textarea,textarea#Post_body').append(data);
+
+
+                            $('textarea').redactor({
+                                imageUpload: '/images/upload',
+                                fileUpload: '/images/upload',
+                                imageGetJson: '/images/list'
+                            }).setCode(data);
+
+                        }, 'html');
+
+                    } else {
+
+                        $('textarea').redactor({
+                            imageUpload: '/images/upload',
+                            fileUpload: '/images/upload',
+                            imageGetJson: '/images/list'
+                        });
+
+
+                    }
+
+
                 }
 
                 var forms = [

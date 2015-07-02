@@ -2262,3 +2262,12 @@ input[readonly] {
 .dropdown-submenu.pull-left {
     float: none;
 }
+
+
+.redactor_editor blockquote{
+    color: rgb(77, 77, 77) !important;
+    background: rgb(254, 251, 215)  !important;
+    font-size: 12px  !important;
+    font-style: italic  !important;
+    padding: 15px  !important;
+}

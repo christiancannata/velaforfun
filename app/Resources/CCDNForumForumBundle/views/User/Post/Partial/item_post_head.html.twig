@@ -48,6 +48,13 @@
                                 {{- 'link.topic.reply' | trans({}, 'CCDNForumForumBundle') -}}
                             </a>
                         </li>
+                        <li>
+                            <a rel="nofollow"
+                               href="{{- path('ccdn_forum_user_topic_reply', {'forumName': forumName, 'topicId': post.getTopic.getId }) -}}?quota={{ post.getId }}">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                                Quota
+                            </a>
+                        </li>
                     {%- endif -%}
 
                     {%- if canEditPost(post) -%}
