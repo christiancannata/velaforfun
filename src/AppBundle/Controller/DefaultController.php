@@ -168,7 +168,6 @@ class DefaultController extends BaseController
     }
 
 
-
     /**
      * @Route("/profilo/tuoi-annunci", name="tuoi_annunci")
      */
@@ -453,31 +452,43 @@ class DefaultController extends BaseController
 
 
         if ($request->isMethod('POST')) {
-
-
             $params = $request->request->all();
 
             $repository = $this->getDoctrine()
-                ->getRepository('AppBundle\Entity\Newsletter\Mandant');
-            $mandant = $repository->find(1);
+                ->getRepository('AppBundle\Entity\Newsletter\Subscriber');
+            $iscritto = $repository->findOneByEmail($params['email']);
 
-            $iscrizione = new Subscriber();
-            $iscrizione->setMandant($mandant);
-            $iscrizione->setLocale("it");
-            $iscrizione->setEmail($params['email']);
-            $iscrizione->setFirstName($params['nome']);
-            $iscrizione->setLastName("");
-            $iscrizione->setGender("MALE");
-            $iscrizione->setCompanyname("");
-            $iscrizione->setTitle("");
 
-            $em = $this->container->get('doctrine')->getManager();
+            if (!$iscritto) {
+                $repository = $this->getDoctrine()
+                    ->getRepository('AppBundle\Entity\Newsletter\Mandant');
+                $mandant = $repository->find(1);
 
-            $em->persist($iscrizione);
-            $em->flush();
+                $iscrizione = new Subscriber();
+                $iscrizione->setMandant($mandant);
+                $iscrizione->setLocale("it");
+                $iscrizione->setEmail($params['email']);
+                $iscrizione->setFirstName($params['nome']);
+                $iscrizione->setLastName("");
+                $iscrizione->setGender("MALE");
+                $iscrizione->setCompanyname("");
+                $iscrizione->setTitle("");
+                $iscrizione->addGroup($this->getDoctrine()
+                    ->getRepository('AppBundle\Entity\Newsletter\Group')->find(1));
 
-            $response['success'] = true;
-            $response['response'] = "ok";
+
+                $em = $this->container->get('doctrine')->getManager();
+
+                $em->persist($iscrizione);
+                $em->flush();
+
+                $response['success'] = true;
+                $response['response'] = "ok";
+
+            } else {
+                $response['success'] = false;
+                $response['response'] = "ko";
+            }
 
             return new JsonResponse($response);
         }
