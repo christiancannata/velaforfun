@@ -79,7 +79,8 @@
                                     <td align="center" class="center"
                                         style="padding:10px 0px 10px 0px !important;width:150px;">
                                         <div class="td-boarded">
-                                            <button style="padding-left: 5px;margin-top: 12px;" type="button"
+                                            <button style="padding-left: 5px;
+    padding-right: 5px;margin-top: 12px;" type="button"
                                                     class="btn btn-primary hvr-glow "
                                                     onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'">
                                                 Leggi Annuncio
@@ -145,18 +146,34 @@
                                                            class="control-label required">Nome e Cognome</label><input
                                         type="text" class="form-control" required="required"
                                         name="appbundle_annuncio[referente]" id="appbundle_annuncio_referente"></div>
+
+
+
+                            <div class="form-group">
+                                <label for="appbundle_annuncioscambioposto_luogoRicercato" class="control-label required">Dove cerchi un posto?</label>
+                                <select class="form-control" name="appbundle_annuncio[tipo]" id="appbundle_annuncioscambioposto_luogoRicercato">
+                                    <option value="VENDO">Vendo</option>
+                                    <option value="COMPRO">Compro</option>
+                                </select>
+                            </div>
+
+
                             <div class="form-group"><label for="appbundle_annuncio_titolo"
                                                            class="control-label required">Titolo</label><input
                                         type="text" class="form-control" required="required"
                                         name="appbundle_annuncio[titolo]" id="appbundle_annuncio_titolo"></div>
                             <div class="form-group"><label for="appbundle_annuncio_email"
                                                            class="control-label required">Email</label><input
-                                        type="text" class="form-control" required="required"
+                                        type="email" class="form-control" required="required"
                                         name="appbundle_annuncio[email]" id="appbundle_annuncio_email"></div>
-                            <div class="form-group">
-                                <input type="hidden" value="VENDO" name="appbundle_annuncio[tipo]"
-                                       id="appbundle_annuncio_tipo">
-                            </div>
+
+                            <div class="form-group"><label for="appbundle_annuncio_telefono"
+                                                           class="control-label required">Telefono</label><input
+                                        type="text" class="form-control" required="required"
+                                        name="appbundle_annuncio[telefono]" id="appbundle_annuncio_telefono"></div>
+
+
+
                             <div class="form-group"><label for="appbundle_annuncio_descrizione"
                                                            class="control-label required">Descrizione</label><textarea
                                         class="form-control" required="required" name="appbundle_annuncio[descrizione]"

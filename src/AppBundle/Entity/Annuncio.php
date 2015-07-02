@@ -49,12 +49,19 @@ class Annuncio
      */
     private $email;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono", type="string", nullable=false)
+     */
+    private $telefono;
+
 
     /**
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="luogo", type="string", columnDefinition="ENUM('COMPRO','VENDO')", nullable=false)
+     * @ORM\Column(name="tipo", type="string", columnDefinition="ENUM('COMPRO','VENDO')", nullable=false)
      */
     private $tipo;
 
@@ -251,6 +258,22 @@ class Annuncio
     public function setTopic($topic)
     {
         $this->topic = $topic;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * @param string $telefono
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
     }
 
 

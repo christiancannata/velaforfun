@@ -18,6 +18,7 @@ class AnnuncioType extends AbstractType
             ->add('referente')
             ->add('titolo')
             ->add('email')
+            ->add('telefono')
             ->add(
                 'tipo',
                 'choice',
