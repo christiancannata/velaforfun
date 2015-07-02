@@ -10,6 +10,22 @@
 {% block javascripts %}
     <script language="javascript">
         $(document).ready(function () {
+
+            {% if app.user is defined and app.user.username is defined %}
+            $('#cerca-posti').click(function () {
+                location.href = 'cerca-annuncio';
+            });
+
+            {% else %}
+
+            $('#cerca-posti').click(function () {
+                $('#loginModal').modal('show');
+            });
+
+
+
+            {% endif %}
+
             $('.notifiche').click(function () {
                 $('#modalVideo').modal('show');
             });
@@ -23,113 +39,197 @@
 
 
     <!-- contenuto -->
-<div class="row clearfix">
-
-
-
-    <div class="col-md-12 column">
-        <div class="category">
-            <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>  <h1>{{ titolo }}</h1>
-        </div>
-    </div>
-
-
-
     <div class="row clearfix">
-        <div class="col-md-8 column">
-            <div class="row clearfix">
-                <div class="col-md-12 column">
+
+
+        <div class="col-md-12 column">
+            <div class="category">
+                <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered"
+                                                                    aria-hidden="true"></span> </a>
+
+                <h1>{{ titolo }}</h1>
+            </div>
+        </div>
+
+
+        <div class="row clearfix">
+            <div class="col-md-8 column">
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
                     </div>
                 </div>
 
 
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-          <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-        <th></th>
-          <th>Titolo</th>
-          <th  align="center" class="center" style="width:60px;">Inserito il</th>
-          <th  align="center" class="center" style="width:60px;"><i class="fa fa-reply"></i></th>
-          <th  align="center" class="center" style="width:60px;"><i class="fa fa-eye"></i></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-      {% for annuncio in annunci %}
-    <tr class="tr-forum">
-        <td>{{ annuncio.tipoAnnuncio }}</td>
-        <td class="left">{{ annuncio.topic.title }}</td>
-        <td  align="center" class="center"style="width: 100px;padding:10px 0px 10px 0px !important;"> <div class="td-boarded">{{ annuncio.timestamp|date("d/m/Y H:i") }}</div></td>
-        <td   align="center" class="center" style="width: 100px;padding:10px 0px 10px 0px !important;"><div class="td-boarded"><span title="{{ annuncio.topic.getCachedReplyCount() }}" class="label label-info lead">{{ annuncio.topic.getCachedReplyCount() }}</span></div></td>
-        <td   align="center" class="center" style="width: 100px;padding:10px 0px 10px 0px !important;"><div class="td-boarded"><span title="{{ annuncio.topic.getCachedViewCount() }}" class="label label-info lead">{{ annuncio.topic.getCachedViewCount() }}</span></div></td>
-        <td align="center" class="center" style="padding:10px 0px 10px 0px !important;width:150px;">
-            <div class="td-boarded" style="padding-left: 5px">   <button  style="margin-top: 12px;" type="button" class="btn btn-primary hvr-glow "
-                    onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'">
-                Leggi Annuncio
-            </button>
-            </div>
-        </td>
-    </tr>
-{% endfor %}
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>Titolo</th>
+                                <th align="center" class="center" style="width:60px;">Inserito il</th>
+                                <th align="center" class="center" style="width:60px;"><i class="fa fa-reply"></i></th>
+                                <th align="center" class="center" style="width:60px;"><i class="fa fa-eye"></i></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for annuncio in annunci %}
+                                <tr class="tr-forum">
+                                    <td>{{ annuncio.tipoAnnuncio }}</td>
+                                    <td class="left">{{ annuncio.topic.title }}</td>
+                                    <td align="center" class="center"
+                                        style="width: 100px;padding:10px 0px 10px 0px !important;">
+                                        <div class="td-boarded">{{ annuncio.timestamp|date("d/m/Y H:i") }}</div>
+                                    </td>
+                                    <td align="center" class="center"
+                                        style="width: 100px;padding:10px 0px 10px 0px !important;">
+                                        <div class="td-boarded"><span title="{{ annuncio.topic.getCachedReplyCount() }}"
+                                                                      class="label label-info lead">{{ annuncio.topic.getCachedReplyCount() }}</span>
+                                        </div>
+                                    </td>
+                                    <td align="center" class="center"
+                                        style="width: 100px;padding:10px 0px 10px 0px !important;">
+                                        <div class="td-boarded"><span title="{{ annuncio.topic.getCachedViewCount() }}"
+                                                                      class="label label-info lead">{{ annuncio.topic.getCachedViewCount() }}</span>
+                                        </div>
+                                    </td>
+                                    <td align="center" class="center"
+                                        style="padding:10px 0px 10px 0px !important;width:150px;">
+                                        <div class="td-boarded" style="padding-left: 5px">
+                                            <button style="margin-top: 12px;" type="button"
+                                                    class="btn btn-primary hvr-glow "
+                                                    onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'">
+                                                Leggi Annuncio
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
 
 
-      </tbody>
-    </table>
+                            </tbody>
+                        </table>
 
-                    <button  style="margin-top: 12px;" type="button" class="btn btn-primary hvr-glow "
-                             onclick="location.href='/forum/velaforfun/board/20'">
-                        Visualizza tutti gli annunci
-                    </button>
-</div>
+                        <button style="margin-top: 12px;" type="button" class="btn btn-primary hvr-glow "
+                                onclick="location.href='/forum/velaforfun/board/20'">
+                            Visualizza tutti gli annunci
+                        </button>
+                    </div>
                 </div>
 
-        </div>
-        <div class="col-md-4 column">
-            <div class="content">
-            <div class="colonna-destra" style="margin-bottom: 20px">
-                           <h2>Hai una barca e sei carente di equipaggio?</h2>
-                             <p>Se possiedi una barca o sei in contatto per poter offrire un imbarco pagato o a pagamento</p>
-                        <button type="submit" class="btn btn-default login hvr-glow" onclick="location.href='nuovo-annuncio'">CREA ORA IL TUO ANNUNCIO</button>
+            </div>
+            <div class="col-md-4 column">
+                <div class="content">
+                    <div class="colonna-destra" style="margin-bottom: 20px">
+                        <h2>Hai una barca e sei carente di equipaggio?</h2>
 
-        </div>
+                        <p>Se possiedi una barca o sei in contatto per poter offrire un imbarco pagato o a pagamento</p>
+                        <button type="submit" class="btn btn-default login hvr-glow"
+                                onclick="location.href='nuovo-annuncio'">CREA ORA IL TUO ANNUNCIO
+                        </button>
 
-<div class="colonna-destra" style="margin-bottom: 20px">
-                           <h2 class="foreground-verde">Sei alla ricerca di un imbarco?</h2>
-                             <p>Se sei alla ricerca di un posto in un equipaggio pagato, gratis o a pagamento</p>
-           <button type="submit" class="btn btn-default login hvr-glow background-verde" onclick="location.href='cerca-annuncio'">CERCA TRA I POSTI DISPONIBILI</button>
+                    </div>
+
+                    <div class="colonna-destra" style="margin-bottom: 20px">
+                        <h2 class="foreground-verde">Sei alla ricerca di un imbarco?</h2>
+
+                        <p>Se sei alla ricerca di un posto in un equipaggio pagato, gratis o a pagamento</p>
+                        <button type="submit" class="btn btn-default login hvr-glow background-verde" id="cerca-posti">
+                            CERCA TRA I POSTI DISPONIBILI
+                        </button>
 
 
-        </div>
+                    </div>
 
 
-                <div class="colonna-destra" style="margin-bottom: 20px">
-                    <h2 class="foreground-verde">Vuoi ricevere notifiche?</h2>
-                    <p>Se sei alla ricerca di un posto, ricevi una mail per gli annunci compatibili con le tue preferenze</p>
-                    <button type="submit" class="btn btn-default login hvr-glow background-verde notifiche" >RICEVI LE NOTIFICHE</button>
+                    <div class="colonna-destra" style="margin-bottom: 20px">
+                        <h2 class="foreground-verde">Vuoi ricevere notifiche?</h2>
+
+                        <p>Se sei alla ricerca di un posto, ricevi una mail per gli annunci compatibili con le tue
+                            preferenze</p>
+                        <button type="submit" class="btn btn-default login hvr-glow background-verde notifiche">RICEVI
+                            LE NOTIFICHE
+                        </button>
+
+
+                    </div>
 
 
                 </div>
 
 
             </div>
+        </div>
+        <!-- fine contenuto -->
+
+    </div>
 
 
 
 
+    <div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
 
+
+                    <div class="col-md-12 column" style="">
+                        <a href="/secure_area/connect/facebook"
+                           class="btn btn-block btn-social btn-lg btn-facebook"
+                           id="loginFacebook">
+                            <i class="fa fa-facebook"></i>
+                            Accedi con Facebook
+                        </a>
+                    </div>
+                    <div class="col-md-12 column" style="text-align:center;width:100%;">
+                        <div class="divisore-big"></div>
+
+                        <span style="font-size: 20px">oppure inserisci i tuoi dati di accesso</span>
+
+                        <div class="divisore-big"></div>
+                    </div>
+
+
+                    <div class="col-md-12 column" style="">
+                        <form method="post" action="/login_check">
+
+                            <div class="form-group"><label for="fos_user_registration_form_username"
+                                                           class="control-label required">Username:</label><input
+                                        type="text" class="form-control" pattern=".{2,}" maxlength="255"
+                                        required="required" name="_username" id="username"></div>
+                            <div class="form-group"><label for="fos_user_registration_form_plainPassword_first"
+                                                           class="control-label required">Password:</label><input
+                                        type="password" class="form-control" required="required" name="_password"
+                                        id="password"></div>
+
+                            <div class="form-group">
+
+                                <input type="checkbox" value="on" name="_remember_me" id="remember_me">
+                                <label for="remember_me">Ricordami</label>
+                            </div>
+                            <input type="submit" value="Accedi" class="btn btn-default login hvr-glow">
+
+                        </form>
+
+                    </div>
+
+
+                </div>
+            </div>
         </div>
     </div>
-    <!-- fine contenuto -->
-
-</div>
 
 
 
 
 
-    <div id="modalVideo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modalVideo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -138,73 +238,92 @@
                 <div class="modal-body">
                     {% if app.user %}
 
-                    <form action="cerca-annuncio" method="post" name="appbundle_annuncioimbarco">
-                        <div id="appbundle_annuncioimbarco">
-                            <input type="hidden" name="appbundle_annuncioimbarco[tipoAnnuncio]"  value="CERCO">
-                            <div class="form-group"> <input type="hidden" class="form-control" name="appbundle_annuncioimbarco[titolo]" id="appbundle_annuncioimbarco_titolo"></div>
-                            <div class="form-group">  <input type="hidden" class="form-control" required="required" name="appbundle_annuncioimbarco[referente]" id="appbundle_annuncioimbarco_referente"></div>
-                            <div class="form-group"> <input type="hidden" class="form-control" name="appbundle_annuncioimbarco[telefono]" id="appbundle_annuncioimbarco_telefono"></div>
-                            <div class="form-group">
-                                <label for="appbundle_annuncioimbarco_luogo" class="control-label required">Dove vuoi andare?</label>
-                                <select class="form-control" name="appbundle_annuncioimbarco[luogo]" id="appbundle_annuncioimbarco_luogo">
-                                    <option value="TUTTO">Tutti</option>
-                                    <option value="NORD_ITALIA">Nord Italia</option>
-                                    <option value="SUD_ITALIA">Sud Italia</option>
-                                    <option value="CENTRO">Centro</option>
-                                    <option value="ESTERO">Estero</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="appbundle_annuncioimbarco_tipo" class="control-label required">Tipo di imbarcazione</label>
-                                <select class="form-control" name="appbundle_annuncioimbarco[tipo]" id="appbundle_annuncioimbarco_tipo">
-                                    <option value="TUTTO">Tutti</option>
-                                    <option value="CABINATO">Cabinato</option>
-                                    <option value="DERIVA">Deriva</option>
-                                    <option value="ALTRO">Altro</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="appbundle_annuncioimbarco_ruoloRichiesto" class="control-label required">Ruolo da ricoprire</label>
-                                <select class="form-control" name="appbundle_annuncioimbarco[ruoloRichiesto]" id="appbundle_annuncioimbarco_ruoloRichiesto">
-                                    <option value="TUTTO">Tutti</option>
-                                    <option value="PRODIERE">Prodiere</option>
-                                    <option value="UOMO_ALBERO">Uomo Albero</option>
-                                    <option value="PITMAN">Pitman</option>
-                                    <option value="GRINDER">Grinder</option>
-                                    <option value="TAILER">Tailer</option>
-                                    <option value="TATTICO">Tattico</option>
-                                    <option value="RANDISTA">Randista</option>
-                                    <option value="TIMONIERE">Timoniere</option>
-                                    <option value="CUOCO">Cuoco</option>
-                                    <option value="MOZZO_GENERICO">Mozzo Generico</option>
-                                    <option value="COMANDANTE">Comandante</option>
-                                    <option value="SECONDO">Secondo</option>
-                                    <option value="MOTORISTA">Motorista</option>
-                                    <option value="STEWARD">Steward</option>
-                                    <option value="HOSTESS">Hostess</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="appbundle_annuncioimbarco_costo" class="control-label required">Retribuzione</label>
-                                <select class="form-control" name="appbundle_annuncioimbarco[costo]" id="appbundle_annuncioimbarco_costo">
-                                    <option value="TUTTO">Tutti</option>
-                                    <option value="GRATIS">Gratis</option>
-                                    <option value="A_PAGAMENTO">A pagamento</option>
-                                    <option value="PAGATO">Pagato</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <input name="appbundle_annuncioimbarco[tempo]" id="appbundle_annuncioimbarco_descrizione" type="hidden">
-                                <input name="appbundle_annuncioimbarco[descrizione]" id="appbundle_annuncioimbarco_descrizione" type="hidden">
-                            </div>
-                            <label for="BoostCakeCheckbox"><input type="hidden" id="notificaAnnuncio" checked value="1" name="appbundle_annuncioimbarco[notifica]"></label>
-                        </div>
+                        <form action="cerca-annuncio" method="post" name="appbundle_annuncioimbarco">
+                            <div id="appbundle_annuncioimbarco">
+                                <input type="hidden" name="appbundle_annuncioimbarco[tipoAnnuncio]" value="CERCO">
 
-                        <button type="submit" onclick='' class="btn btn-default login hvr-glow">Ricevi notifiche</button>
-                        <input type="hidden" class="callback" value="riceviNotifica">
-                    </form>
+                                <div class="form-group"><input type="hidden" class="form-control"
+                                                               name="appbundle_annuncioimbarco[titolo]"
+                                                               id="appbundle_annuncioimbarco_titolo"></div>
+                                <div class="form-group"><input type="hidden" class="form-control" required="required"
+                                                               name="appbundle_annuncioimbarco[referente]"
+                                                               id="appbundle_annuncioimbarco_referente"></div>
+                                <div class="form-group"><input type="hidden" class="form-control"
+                                                               name="appbundle_annuncioimbarco[telefono]"
+                                                               id="appbundle_annuncioimbarco_telefono"></div>
+                                <div class="form-group">
+                                    <label for="appbundle_annuncioimbarco_luogo" class="control-label required">Dove
+                                        vuoi andare?</label>
+                                    <select class="form-control" name="appbundle_annuncioimbarco[luogo]"
+                                            id="appbundle_annuncioimbarco_luogo">
+                                        <option value="TUTTO">Tutti</option>
+                                        <option value="NORD_ITALIA">Nord Italia</option>
+                                        <option value="SUD_ITALIA">Sud Italia</option>
+                                        <option value="CENTRO">Centro</option>
+                                        <option value="ESTERO">Estero</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="appbundle_annuncioimbarco_tipo" class="control-label required">Tipo di
+                                        imbarcazione</label>
+                                    <select class="form-control" name="appbundle_annuncioimbarco[tipo]"
+                                            id="appbundle_annuncioimbarco_tipo">
+                                        <option value="TUTTO">Tutti</option>
+                                        <option value="CABINATO">Cabinato</option>
+                                        <option value="DERIVA">Deriva</option>
+                                        <option value="ALTRO">Altro</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="appbundle_annuncioimbarco_ruoloRichiesto"
+                                           class="control-label required">Ruolo da ricoprire</label>
+                                    <select class="form-control" name="appbundle_annuncioimbarco[ruoloRichiesto]"
+                                            id="appbundle_annuncioimbarco_ruoloRichiesto">
+                                        <option value="TUTTO">Tutti</option>
+                                        <option value="PRODIERE">Prodiere</option>
+                                        <option value="UOMO_ALBERO">Uomo Albero</option>
+                                        <option value="PITMAN">Pitman</option>
+                                        <option value="GRINDER">Grinder</option>
+                                        <option value="TAILER">Tailer</option>
+                                        <option value="TATTICO">Tattico</option>
+                                        <option value="RANDISTA">Randista</option>
+                                        <option value="TIMONIERE">Timoniere</option>
+                                        <option value="CUOCO">Cuoco</option>
+                                        <option value="MOZZO_GENERICO">Mozzo Generico</option>
+                                        <option value="COMANDANTE">Comandante</option>
+                                        <option value="SECONDO">Secondo</option>
+                                        <option value="MOTORISTA">Motorista</option>
+                                        <option value="STEWARD">Steward</option>
+                                        <option value="HOSTESS">Hostess</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="appbundle_annuncioimbarco_costo" class="control-label required">Retribuzione</label>
+                                    <select class="form-control" name="appbundle_annuncioimbarco[costo]"
+                                            id="appbundle_annuncioimbarco_costo">
+                                        <option value="TUTTO">Tutti</option>
+                                        <option value="GRATIS">Gratis</option>
+                                        <option value="A_PAGAMENTO">A pagamento</option>
+                                        <option value="PAGATO">Pagato</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input name="appbundle_annuncioimbarco[tempo]"
+                                           id="appbundle_annuncioimbarco_descrizione" type="hidden">
+                                    <input name="appbundle_annuncioimbarco[descrizione]"
+                                           id="appbundle_annuncioimbarco_descrizione" type="hidden">
+                                </div>
+                                <label for="BoostCakeCheckbox"><input type="hidden" id="notificaAnnuncio" checked
+                                                                      value="1"
+                                                                      name="appbundle_annuncioimbarco[notifica]"></label>
+                            </div>
 
-                    <div class="response-form" style="display: none"></div>
+                            <button type="submit" onclick='' class="btn btn-default login hvr-glow">Ricevi notifiche
+                            </button>
+                            <input type="hidden" class="callback" value="riceviNotifica">
+                        </form>
+
+                        <div class="response-form" style="display: none"></div>
                     {% else %}
 
 
@@ -230,8 +349,14 @@
                         <div class="col-md-12 column" style="">
                             <form method="post" action="/login_check">
 
-                                <div class="form-group">                <label for="fos_user_registration_form_username" class="control-label required">Username:</label><input type="text" class="form-control" pattern=".{2,}" maxlength="255" required="required" name="_username" id="username"></div>
-                                <div class="form-group">                <label for="fos_user_registration_form_plainPassword_first" class="control-label required">Password:</label><input type="password" class="form-control" required="required" name="_password" id="password"></div>
+                                <div class="form-group"><label for="fos_user_registration_form_username"
+                                                               class="control-label required">Username:</label><input
+                                            type="text" class="form-control" pattern=".{2,}" maxlength="255"
+                                            required="required" name="_username" id="username"></div>
+                                <div class="form-group"><label for="fos_user_registration_form_plainPassword_first"
+                                                               class="control-label required">Password:</label><input
+                                            type="password" class="form-control" required="required" name="_password"
+                                            id="password"></div>
 
                                 <div class="form-group">
 
@@ -265,7 +390,8 @@
                 </div>
                 <div class="modal-body" style="min-height: 10px;">
                     <p>Complimenti, il tuo annuncio è stato creato con successo!<br>
-                        Riceverai una mail di notifica ogni volta che viene inserito un annuncio che rispondono alle tue preferenze!</p>
+                        Riceverai una mail di notifica ogni volta che viene inserito un annuncio che rispondono alle tue
+                        preferenze!</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
