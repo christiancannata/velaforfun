@@ -27,7 +27,7 @@ title:
             edit:                      "Modifica categoria %category_name%"
             delete:                    "Elimina Categoria %category_name%"
         manage-boards:
-            index:                     "Manage Boards"
+            index:                     "Gestisci Boards"
             create:                    "Crea nuova Board"
             edit:                      "Edit Board %board_name%"
             delete:                    "Delete Board %board_name%"
@@ -54,17 +54,17 @@ crumbs:
     admin:
         index:                         "Admin Index"
         manage-forums:
-            index:                     "Manage Forums"
+            index:                     "Gestisci Forums"
             create:                    "Create New Forum"
             edit:                      "Edit Forum %forum_name%"
             delete:                    "Delete Forum %forum_name%"
         manage-categories:
-            index:                     "Manage Categories"
+            index:                     "Gestisci Categories"
             create:                    "Create New Category"
             edit:                      "Edit Category %category_name%"
             delete:                    "Delete Category %category_name%"
         manage-boards:
-            index:                     "Manage Boards"
+            index:                     "Gestisci Boards"
             create:                    "Create New Board"
             edit:                      "Edit Board %board_name%"
             delete:                    "Delete Board %board_name%"
@@ -146,19 +146,19 @@ forum:
     category-count-th:                 "Categorie"
     name-label:                        "Nome: "
     roles:
-        board-view-label:              "Board View Roles:"
+        board-view-label:              "Regole di visualizzazione delle board:"
     confirm-delete-label:              "I confirm I want to delete this Forum."
     confirm-delete-subordinates-label: "Also delete categories, boards and topics."
 category:
-    label:                             "Category"
+    label:                             "Categoria"
     id-th:                             "ID"
-    name-th:                           "Name"
+    name-th:                           "Nome"
     board-count-th:                    "Board Count"
-    name-label:                        "Name: "
+    name-label:                        "Nome: "
     confirm-delete-label:              "I confirm I want to delete this Category."
     confirm-delete-subordinates-label: "Also delete boards and topics."
     roles:
-        board-view-label:              "Board View Roles:"
+        board-view-label:              "Regole di visualizzazione delle board"
     index:                             "Forum Index"
     none:                              "Non ci sono categorie."
     no-boards:                         "Non ci sono board per questa categoria."
