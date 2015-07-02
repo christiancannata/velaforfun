@@ -76,17 +76,21 @@ class DefaultController extends BaseController
 
             $articolo->setTitolo($params['blogbundle_articolo']['titolo']);
 
-
+            $ingredienti = explode(",", $params['blogbundle_articolo']['ingredienti']);
+            $strIngredienti = "<ul class='ingrendienti'>";
+            foreach ($ingredienti as $ingrediente) {
+                $strIngredienti .= "<li>".trim($ingrediente)."</li>";
+            }
+            $strIngredienti .= "</ul>";
             $testo = "Tempo: ".$params['blogbundle_articolo']['tempo'];
-            $testo .= "<br><br>Persone: ".$params['blogbundle_articolo']['persone'];
-            $testo .= "<br><br>Ingredienti ".$params['blogbundle_articolo']['ingredienti'];
+            $testo .= "<br><br>Ricetta per ".$params['blogbundle_articolo']['persone']." persone";
+            $testo .= "<br><br>Ingredienti:<br> ".$strIngredienti;
 
             $articolo->setSottotitolo($testo);
 
             $testo .= "<br><br>Ricetta: ".$params['blogbundle_articolo']['ricetta'];
 
             $articolo->setTesto($testo);
-
 
 
             if ($this->getUser()) {
@@ -120,13 +124,11 @@ class DefaultController extends BaseController
             );
 
 
-            $files=$request->files->all();
+            $files = $request->files->all();
 
             $articolo->setProfilePictureFile(
                 $files['blogbundle_articolo']['profilePictureFile']
             );
-
-
 
 
             $em = $this->container->get('doctrine')->getManager();
@@ -444,7 +446,7 @@ class DefaultController extends BaseController
                 ->getRepository('AppBundle\Entity\Newsletter\Mandant');
             $mandant = $repository->find(1);
 
-            $iscrizione=new Subscriber();
+            $iscrizione = new Subscriber();
             $iscrizione->setMandant($mandant);
             $iscrizione->setLocale("it");
             $iscrizione->setEmail($params['email']);
@@ -494,11 +496,6 @@ class DefaultController extends BaseController
             )
         );
     }
-
-
-
-
-
 
 
 }
