@@ -49,6 +49,7 @@ class DefaultController extends BaseController
         $repository = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Articolo');
         $query = $repository->createQueryBuilder('p')
             ->where('p.categoria in(11,12,13,14,15)')
+            ->orderBy("p.id","desc")
             ->getQuery();
         $articoli = $query->getResult();
 
