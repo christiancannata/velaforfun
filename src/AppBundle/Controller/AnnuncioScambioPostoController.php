@@ -279,7 +279,7 @@ class AnnuncioScambioPostoController extends BaseController
 
     private function allertaAnnunci($annuncio)
     {
-
+/*
         if ($annuncio->getTipoAnnuncio() == "CERCO") {
 
             $annunci = $this->getDoctrine()
@@ -312,7 +312,7 @@ class AnnuncioScambioPostoController extends BaseController
 
         }
 
-
+*/
     }
 
 }
