@@ -15,7 +15,7 @@ class AnnuncioType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('referente')
+            ->add('referente',null,array("label"=>"Nome e Cognome"))
             ->add('titolo')
             ->add('email')
             ->add('telefono')

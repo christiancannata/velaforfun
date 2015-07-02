@@ -21,7 +21,7 @@ class AnnuncioImbarcoType extends AbstractType
                 array('choices' => array('OFFRO' => 'Offro imbarco',"CERCO" => "Cerco imbarco"))
             )
             ->add('titolo')
-            ->add('referente')
+            ->add('referente',null,array("label"=>"Nome e Cognome"))
             ->add('telefono')
             ->add('email')
             ->add(
