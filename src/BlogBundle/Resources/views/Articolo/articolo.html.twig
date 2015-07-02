@@ -199,7 +199,11 @@
 
                {% if articoli|length > 0 %}
     <div class="title" style="border-top:1px solid rgb(153, 153, 153);">
-        Altri articoli
+        {% if articolo.categoria.permalink == "ricette-antipasti" or  articolo.categoria.permalink == "ricette-primi" or articolo.categoria.permalink == "ricette-secondi" or articolo.categoria.permalink == "ricette-dolci" or articolo.categoria.permalink == "ricette-frutta" %}
+            Altre ricette
+        {% else %}
+            Altri articoli
+        {% endif %}
     </div>
     <div class="content">
 
