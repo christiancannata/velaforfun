@@ -7,6 +7,22 @@
     <script src="{{ asset('bundles/app/js/bootstrap-lightbox.min.js') }}"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.min.js"></script>
     <script language="javascript">
+
+        function getUrlParameter(sParam)
+        {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++)
+            {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam)
+                {
+                    return sParameterName[1];
+                }
+            }
+        }
+
+
         $(document).ready(function () {
             $('.link-video').click(function () {
                 var src = $(this).attr("data-video");
@@ -47,6 +63,13 @@
             });
 
 
+
+            if(getUrlParameter("video")){
+                var video=getUrlParameter("video");
+
+                $("#guarda-"+video).click();
+
+            }
         })
     </script>
 {% endblock %}
@@ -114,7 +137,7 @@
                                         <div class="over-box">
                                             <p style="height:50px">{{ video.descrizione }}
                                             </p>
-                                            <button class="btn btn-default dettagli-nodo hvr-glow " type="submit">GUARDA
+                                            <button class="btn btn-default dettagli-nodo hvr-glow " id="guarda-{{ video.id }}" type="submit">GUARDA
                                                 VIDEO
                                             </button>
                                         </div>
