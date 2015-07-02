@@ -69,16 +69,26 @@ class UserController extends BaseController
 
 
     /**
-     * @Route("/{permalink}", name="user_singolo")
+     * @Route("/{username}", name="dettagli_profilo")
      */
-    public function dettagliPartnerAction($permalink)
+    public function dettagliProfiloAction($username)
     {
 
-        $porti = $this->getDoctrine()
-            ->getRepository('AppBundle:User')->findByUsername($permalink);
-        $titolo = "Partner";
+        $user = $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:User')->findOneByUsername($username);
+        if (!$user) {
+            return $this->redirect('/');
+        }
+        $annunciImbarco = $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioImbarco')->findByUtente($user);
 
-        return $this->render('AppBundle:User:dettagliUtente.html.twig', array("user" => $porti, "titolo" => $titolo));
+        $annunciScambio = $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioScambioPosto')->findByUtente($user);
 
+        return $this->render(
+            'default/profilo-utente.html.twig',
+            array("annunciImbarco" => $annunciImbarco, "annunciScambio" => $annunciScambio, "user" => $user)
+        );
     }
+
 }
