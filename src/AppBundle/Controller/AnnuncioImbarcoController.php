@@ -44,7 +44,7 @@ class AnnuncioImbarcoController extends BaseController
     {
 
         $annunci = $this->getDoctrine()
-            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array(),array('id' => 'desc'),5);
+            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array(), array('id' => 'desc'), 5);
         $titolo = "Annunci Imbarco";
 
 
@@ -126,14 +126,9 @@ class AnnuncioImbarcoController extends BaseController
                 $firstTopic->setTitle($annuncio->getTipoAnnuncio()." ".$titolo);
                 $firstTopic->setCachedViewCount(1);
                 $board = null;
-                if ($annuncio->getTipoAnnuncio() == "CERCO") {
-                    $board = $this->container->get('doctrine')
-                        ->getRepository('CCDNForumForumBundle:Board')->find(19);
 
-                } else {
-                    $board = $this->container->get('doctrine')
-                        ->getRepository('CCDNForumForumBundle:Board')->find(20);
-                }
+                $board = $this->container->get('doctrine')
+                    ->getRepository('CCDNForumForumBundle:Board')->find(20);
                 $firstTopic->setBoard(
                     $board
                 );
@@ -223,33 +218,11 @@ class AnnuncioImbarcoController extends BaseController
                     );
                     $firstTopic->setCachedViewCount(1);
                     $board = null;
-                    if ($annuncio->getTipoAnnuncio() == "CERCO") {
-                        $board = $this->container->get('doctrine')
-                            ->getRepository('CCDNForumForumBundle:Board')->find(19);
-                        $user = $this->getUser();
-                        $annuncio->setReferente($user->getNome()." ".$user->getCognome()." ".$user->getUsername());
+                    $board = $this->container->get('doctrine')
+                        ->getRepository('CCDNForumForumBundle:Board')->find(19);
+                    $user = $this->getUser();
+                    $annuncio->setReferente($user->getNome()." ".$user->getCognome()." ".$user->getUsername());
 
-                    } else {
-
-                        $user = $this->container->get('doctrine')
-                            ->getRepository('AppBundle:User')->findByEmail($annuncio->getEmail());
-
-                        if (!$user) {
-
-                            $userManager = $this->container->get('fos_user.user_manager');
-                            $user = $userManager->createUser();
-                            $user->setEmail($annuncio->getEmail());
-                            $user->setNome($annuncio->getReferente());
-                            $username = strtolower(str_replace(" ", "", $annuncio->getEmail())).rand(0, 99);
-                            $user->setUsername($username);
-                            $user->setPlainPassword($username."1");
-
-                            $em->persist($user);
-                            $em->flush();
-                        }
-
-
-                    }
                     $annuncio->setReferente($user->getNome()." ".$user->getCognome()." ".$user->getUsername());
 
                     $annuncio->setEmail($user->getEmail());
@@ -272,7 +245,7 @@ class AnnuncioImbarcoController extends BaseController
 
 
                     $annuncio->setDescrizione(
-                        "Offro ".$annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo(
+                        "Cerco ".$annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo(
                         )." a ".$annuncio->getLuogo()
                     );
 
@@ -315,6 +288,26 @@ class AnnuncioImbarcoController extends BaseController
                     ),
                     array('id' => 'desc')
                 );
+
+
+            $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:AnnuncioImbarco');
+            $query = $repository->createQueryBuilder('p')
+                ->where("p.tipoAnnuncio = 'OFFRO'");
+            if ($params['appbundle_annuncioimbarco']['luogo'] != "TUTTO") {
+                $query->andWhere("p.luogo = '".$params['appbundle_annuncioimbarco']['luogo']."' or p.luogo='TUTTO'");
+
+            }
+
+            if ($params['appbundle_annuncioimbarco']['ruoloRichiesto'] != "TUTTO") {
+                $query->andWhere("p.ruoloRichiesto = '".$params['appbundle_annuncioimbarco']['ruoloRichiesto']."' or p.ruoloRichiesto='TUTTO'");
+
+            }
+            if ($params['appbundle_annuncioimbarco']['costo'] != "TUTTO") {
+                $query->andWhere("p.costo = '".$params['appbundle_annuncioimbarco']['costo']."' or p.costo='TUTTO'");
+
+            }
+
+            $annunci = $query->getQuery()->getResult();
 
 
             $responseJson = array();
