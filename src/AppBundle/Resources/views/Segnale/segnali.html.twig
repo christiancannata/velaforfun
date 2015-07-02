@@ -10,14 +10,34 @@
 
             var morse = null;
             $(".traduci").click(function () {
-                $('.content-traduzione').fadeIn().slideDown();
-                $('.traduci').addClass('hidden');
 
 
-                $(".codice-morse-result").html($("#testo").val());
-                var morse = $(".codice-morse-result").morseCode({bpm: 12});
-                //  morse.emit;
-                $('.content-traduzione').removeClass('hidden');
+                $.ajax({
+                    type: "POST",
+                    url: "/codice-internazionale/traduci-json",
+                    data: {data: $("#testo").val()},
+                    datatype:"html",
+                    success: function (response) {
+                        if (response) {
+
+                            $("#body-segnali").html(response);
+                            $('.content-traduzione').fadeIn().slideDown();
+                            $('.traduci').addClass('hidden');
+
+
+                            $(".codice-morse-result").html($("#testo").val());
+                            var morse = $(".codice-morse-result").morseCode({bpm: 12});
+                            //  morse.emit;
+                            $('.content-traduzione').removeClass('hidden');
+                        } else {
+
+                        }
+
+
+                    }
+                });
+
+
             });
 
             $(".ascolta").click(function () {
@@ -47,7 +67,10 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="category">
-                <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>  <h1>Codice internazionale Velico</h1>
+                <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered"
+                                                                    aria-hidden="true"></span> </a>
+
+                <h1>Codice internazionale Velico</h1>
             </div>
         </div>
     </div>
@@ -64,7 +87,7 @@
                         <td style="width: 150px;">Linguaggio morse</td>
                         <td>Significato</td>
                         </thead>
-                        <tbody>
+                        <tbody id="body-segnali">
                         {% for segnale in segnali %}
                             <tr>
                                 <td>
@@ -147,7 +170,8 @@
 
 
                                 <div class="form-group">
-    <textarea class="form-control" id="testo" onclick="$(this).html('')">{% if k!="" %}{{ k }}{% else %}scrivi la tua frase...{% endif %}</textarea>
+                                    <textarea class="form-control" id="testo"
+                                              onclick="$(this).html('')">{% if k!="" %}{{ k }}{% else %}scrivi la tua frase...{% endif %}</textarea>
                                 </div>
 
 

@@ -57,6 +57,40 @@ class SegnaleController extends BaseController
         return $this->delete($id);
     }
 
+
+    /**
+     * @Route("/traduci-json", name="traduci")
+     */
+    public function traduciAction(Request $r)
+    {
+        $params = $r->request->all();
+        $k = null;
+        $segnali = array();
+        if ($params['data']) {
+            $parole = trim($params['data']);
+            $length = strlen($parole);
+            for ($i = 0; $i < $length; $i++) {
+                $segnale = $this->getDoctrine()
+                    ->getRepository('AppBundle:Segnale')->findOneByLettera(strtoupper($parole[$i]));
+                if($segnale){
+                    $segnali[] = $segnale;
+                }
+
+
+            }
+
+
+        }
+
+        return $this->render(
+            'AppBundle:Segnale:segnali-ajax.html.twig',
+            array(
+                'segnali' => $segnali,
+            )
+        );
+    }
+
+
     /**
      * @Route("/{frase}", name="segnali")
      */
