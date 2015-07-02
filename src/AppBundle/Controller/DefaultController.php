@@ -91,7 +91,7 @@ class DefaultController extends BaseController
             $testo .= "<br><br>Ricetta: ".$params['blogbundle_articolo']['ricetta'];
 
 
-            $testo.="<br><br>Scritta da: ".$params['blogbundle_articolo']['autore'];
+            $testo .= "<br><br>Scritta da: ".$params['blogbundle_articolo']['autore'];
 
 
             $articolo->setTesto($testo);
@@ -431,7 +431,16 @@ class DefaultController extends BaseController
         }
 
 
-        return $this->render('default/cerca.html.twig', array("key" => $key, "risultati" => $risultati));
+        $repository = $this->getDoctrine()
+            ->getRepository('BlogBundle:Articolo');
+
+        $articoli = $repository->findByStato("ATTIVO", array('id' => 'desc'), 3);
+
+
+        return $this->render(
+            'default/cerca.html.twig',
+            array("key" => $key, "risultati" => $risultati, "articoli" => $articoli)
+        );
     }
 
     /**

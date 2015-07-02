@@ -54,7 +54,47 @@
                 </div>
             {% endfor %}
         </div>
+
         <div class="col-md-4 column">
+
+
+            {% if articoli|length > 0 %}
+                <div class="title" style="border-top:1px solid rgb(153, 153, 153);">
+                    Ultimi articoli
+                </div>
+                <div class="content">
+
+
+                    {% for articoloRel in articoli|slice(0,3) %}
+                        <a href="/archivio/{{ articoloRel.categoria.permalink }}/{{ articoloRel.permalink }}">
+                            <div class="latest-news hvr-underline-from-left">
+                                <div class="content">
+                                    <h4>{{ articoloRel.titolo }}</h4>
+
+                                    <p>  {{ articoloRel.sottotitolo|slice(0, 70)|raw|striptags }}...</p>
+                                </div>
+                                <div class="arrow">
+                                    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+
+
+
+            <div class="colonna-destra" style="margin-bottom: 20px">
+                <h2 class="foreground-verde">Hai una ricetta da segnalare?</h2>
+                <p>Inviacela subito gratuitamente</p>
+                <button type="submit" class="btn btn-default login hvr-glow background-verde" onclick="location.href='nuova-ricetta'">Inserisci ora la tua ricetta</button>
+
+
+            </div>
+
+
+
 
         </div>
 
