@@ -2222,3 +2222,7 @@ input[readonly] {
     background-color: white !important;
     cursor: text !important;
 }
+
+.modal-backdrop{
+    display: none !important;
+}
