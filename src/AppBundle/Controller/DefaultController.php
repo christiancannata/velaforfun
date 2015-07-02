@@ -364,7 +364,7 @@ class DefaultController extends BaseController
                 foreach ($annunci as $annuncio) {
                     $rows[] = array(
                         "name" => $annuncio->getNome(),
-                        "link" => "/foto/".$annuncio->getGalleria()->getPermalink()
+                        "link" => "/foto/".$annuncio->getGalleria()->getPermalink()."?foto=".$annuncio->getId()
                     );
                 }
                 $appo = array(
