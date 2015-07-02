@@ -7,19 +7,19 @@
     <script src="{{ asset('bundles/app/js/bootstrap-lightbox.min.js') }}"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.min.js"></script>
     <script language="javascript">
+        
+
+
         $(document).ready(function () {
-            $('.link-video').click(function () {
-                var src = $(this).attr("data-video");
-                $(".embed-responsive").html('<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + src + '?VQ=HD720" ></iframe>');
+            $(document).ready(function () {
+                $('.link-video').click(function () {
+                    var src = $(this).attr("data-foto");
+                    $("#immaginePopup").attr('src', src);
 
-                $('#modalVideo').modal('show');
+                    $('#modalVideo').modal('show');
+                });
+
             });
-
-            $('#modalVideo button').click(function () {
-                $('iframe').attr('src', '');
-                $(".embed-responsive").html();
-            });
-
 
             var offset = 3;
             var loading = false;
@@ -45,6 +45,18 @@
 
                 }
             });
+
+
+
+
+
+            if(getUrlParameter("foto")){
+                var video=getUrlParameter("foto");
+
+                $("#guarda-"+video).click();
+
+            }
+
 
 
         })
@@ -108,7 +120,7 @@
 
                     <div class="over-box">
 
-                        <button class="btn btn-default dettagli-nodo hvr-glow " type="submit">GUARDA FOTO</button>
+                        <button class="btn btn-default dettagli-nodo hvr-glow " type="submit" id="guarda-{{ foto.id }}">GUARDA FOTO</button>
                     </div>
 
                 </div>
