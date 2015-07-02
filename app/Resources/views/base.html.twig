@@ -51,11 +51,9 @@
                 <a href="/" class="navbar-brand" style="padding:0"> <img src="/bundles/app/images/logo.png" width="60"></a>
 
 
+                <a data-toggle="modal" href="#" data-target="#meteoModal" id="mobile-localized">
 
-
-                <a data-toggle="modal" href="#" data-target="#meteoModal" id="mobile-localized" >
-
-                    <i class="fa fa-location-arrow foreground-celeste" id="mobile-localized-arrow" ></i>
+                    <i class="fa fa-location-arrow foreground-celeste" id="mobile-localized-arrow"></i>
                     <i class="fa fa-spinner fa-pulse" style="" id="loadingMeteoMobile"></i>
                     <span id="mobile-localized-city" style="display:none"></span>
 
@@ -185,8 +183,21 @@
                                 <li><a href="/forum/velaforfun">Forum</a></li>
                                 <li><a href="/nodi">I nodi Marinari</a></li>
                                 <li><a href="/codice-internazionale">Codice internazionale</a></li>
-                                <li><a href="/foto">Archivio Fotografico</a></li>
-                                <li><a href="/video">Galleria Video</a></li>
+                                <li  class="dropdown-submenu"><a tabindex="-1" href="#">Multimedia</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/foto">Archivio Fotografico</a></li>
+                                        <li><a href="/video">Galleria Video</a></li>
+                                    </ul>
+                                </li>
+
+                                <li  class="dropdown-submenu"><a tabindex="-1" href="#">Annunci</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/annuncio-imbarco">Cerco/Offro imbarco</a></li>
+                                        <li><a href="/annuncio/">Mercatino dell'usato</a></li>
+                                        <li><a href="/annuncio-scambio-posto">Scambio posto barca</a></li>
+                                    </ul>
+                                </li>
+
                                 <li class="divider"></li>
                                 <li class="form">
 
@@ -199,7 +210,8 @@
                                                 <input style="background:rgb(61,144,173);color:white" name="key"
                                                        type="search"
                                                        class="form-control"
-                                                       placeholder="" value="cerca un termine..." onClick="$(this).val('');$(this).attr('value','');"/>
+                                                       placeholder="" value="cerca un termine..."
+                                                       onClick="$(this).val('');$(this).attr('value','');"/>
                                             </div>
 
 
@@ -222,7 +234,7 @@
 
                                                 <div class="col-md-12 column">
                                                     <button class="btn btn-primary" onclick="$('#meteoModal').modal()"
-                                                            style="width:100%;margin-top:10px;margin-bottom:10px">
+                                                            style="width:100%;">
                                                         VISUALIZZA IL METEO
                                                     </button>
                                                 </div>
@@ -243,11 +255,7 @@
                                     </div>
                                 </lI>
                                 <li class="divider"></li>
-                                <li class="dropdown-header">ANNUNCI</li>
-                                <li><a href="/annuncio-imbarco">Cerco/Offro imbarco</a></li>
-                                <li><a href="/annuncio/">Mercatino dell'usato</a></li>
-                                <li><a href="/annuncio-scambio-posto">Scambio posto barca</a></li>
-                                <li class="divider"></li>
+
                                 <li>
                                     <div class="social-menu">
                                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -556,10 +564,10 @@
                 <div class="row clearfix ">
                     <div style="font-size: 70px;text-align:center;width:100%;margin-top:50px">
 
-                    <i class="fa fa-spinner fa-2x fa-spin "
-                        id="loading"></i>
+                        <i class="fa fa-spinner fa-2x fa-spin "
+                           id="loading"></i>
 
-                </div>
+                    </div>
                     <div class="col-md-12 column hide" id="contenuto">
                         <div class="col-md-6 column ">
                             <div class="container-mappa">
@@ -765,7 +773,7 @@
 
                 }
 
-                if ($("#Post textarea,#blogbundle_articolo textarea").length > 0) {
+                if ($("#Post textarea,#blogbundle_articolo textarea,textarea#Post_body").length > 0) {
                     $('textarea').redactor({
                         imageUpload: '/images/upload',
                         fileUpload: '/images/upload',
