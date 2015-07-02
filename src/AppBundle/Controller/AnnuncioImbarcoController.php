@@ -278,18 +278,6 @@ class AnnuncioImbarcoController extends BaseController
 
             }
 
-            $annunci = $this->getDoctrine()
-                ->getRepository('AppBundle:AnnuncioImbarco')->findBy(
-                    array(
-                        "tipoAnnuncio" => "OFFRO",
-                        "luogo" => $params['appbundle_annuncioimbarco']['luogo'],
-                        "ruoloRichiesto" => $params['appbundle_annuncioimbarco']['ruoloRichiesto'],
-                        "costo" => $params['appbundle_annuncioimbarco']['costo']
-                    ),
-                    array('id' => 'desc')
-                );
-
-
             $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:AnnuncioImbarco');
             $query = $repository->createQueryBuilder('p')
                 ->where("p.tipoAnnuncio = 'OFFRO'");

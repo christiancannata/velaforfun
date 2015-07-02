@@ -38,16 +38,26 @@
       {% for annuncio in annunci %}
     <tr>
         <td>{{ annuncio.topic.title }}</td>
-        <td  style="width: 100px;padding:10px 0px 10px 0px !important;">
+        <td style="width: 100px;padding:10px 0px 10px 0px !important;">
             <div class="td-boarded">  {{ annuncio.timestamp|date("d/m/Y H:i") }}</div>
         </td>
-        <td   align="center" class="center" style="width: 100px;padding:10px 0px 10px 0px !important;"><div class="td-boarded"><span title="{{ annuncio.topic.getCachedReplyCount() }}" class="label label-info lead">{{ annuncio.topic.getCachedReplyCount() }}</span></div></td>
-        <td   align="center" class="center" style="width: 100px;padding:10px 0px 10px 0px !important;"><div class="td-boarded"><span title="{{ annuncio.topic.getCachedViewCount() }}" class="label label-info lead">{{ annuncio.topic.getCachedViewCount() }}</span></div></td>
+        <td align="center" class="center" style="width: 100px;padding:10px 0px 10px 0px !important;">
+            <div class="td-boarded"><span title="{{ annuncio.topic.getCachedReplyCount() }}"
+                                          class="label label-info lead">{{ annuncio.topic.getCachedReplyCount() }}</span>
+            </div>
+        </td>
+        <td align="center" class="center" style="width: 100px;padding:10px 0px 10px 0px !important;">
+            <div class="td-boarded"><span title="{{ annuncio.topic.getCachedViewCount() }}"
+                                          class="label label-info lead">{{ annuncio.topic.getCachedViewCount() }}</span>
+            </div>
+        </td>
         <td align="center" class="center" style="padding:10px 0px 10px 0px !important;width:150px;">
-            <div class="td-boarded" style="padding-left: 5px">   <button  style="margin-top: 10px;" type="button" class="btn btn-primary hvr-glow"
-                                                                          onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'">
+            <div class="td-boarded" style="padding-left: 5px">
+                <button style="margin-top: 10px;" type="button" class="btn btn-primary hvr-glow"
+                        onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'">
                     Leggi Annuncio
-                </button></div>
+                </button>
+            </div>
         </td>
     </tr>
 {% endfor %}
@@ -265,6 +275,7 @@
    <div class="form-group">
       <label for="appbundle_annuncioscambioposto_luogoRicercato" class="control-label required">Dove cerchi un posto?</label>
       <select class="form-control" name="appbundle_annuncioscambioposto[luogoRicercato]" id="appbundle_annuncioscambioposto_luogoRicercato">
+         <option value="TUTTO">OVUNQUE</option>
          <option value="NORD_ITALIA_TIRRENO">Nord Italia Tirreno</option>
          <option value="NORD_ITALIA_ADRIATICO">Nord Italia Adriatico</option>
          <option value="CENTRO_ITALIA_TIRRENO">Centro Italia Tirreno</option>
@@ -276,7 +287,7 @@
          <option value="ESTERO">Estero</option>
       </select>
    </div>
-   <div class="form-group">
+   <div class="form-group hide" >
       <label for="appbundle_annuncioscambioposto_tipo" class="control-label required">Cosa?</label>
       <select class="form-control" name="appbundle_annuncioscambioposto[tipo]" id="appbundle_annuncioscambioposto_tipo">
          <option value="VELA">Vela</option>
@@ -284,8 +295,8 @@
          <option value="ALTRO">Altro</option>
       </select>
    </div>
-   <div class="form-group">                <label for="appbundle_annuncioscambioposto_tempo" class="control-label">Tempo (specifica se possibile le date e/o la durata e/o il periodo)</label><input type="text" class="form-control" name="appbundle_annuncioscambioposto[tempo]" id="appbundle_annuncioscambioposto_tempo"></div>
-   <div class="form-group">                <label for="appbundle_annuncioscambioposto_lunghezza" class="control-label">Lunghezza (metri)</label><input type="text" class="form-control" name="appbundle_annuncioscambioposto[lunghezza]" id="appbundle_annuncioscambioposto_lunghezza"></div>
+   <div class="form-group hide">                <label for="appbundle_annuncioscambioposto_tempo" class="control-label">Tempo (specifica se possibile le date e/o la durata e/o il periodo)</label><input type="text" class="form-control" name="appbundle_annuncioscambioposto[tempo]" id="appbundle_annuncioscambioposto_tempo"></div>
+   <div class="form-group hide">                <label for="appbundle_annuncioscambioposto_lunghezza" class="control-label">Lunghezza (metri)</label><input type="text" class="form-control" name="appbundle_annuncioscambioposto[lunghezza]" id="appbundle_annuncioscambioposto_lunghezza"></div>
          <input type="hidden" name="appbundle_annuncioscambioposto[descrizione]" id="appbundle_annuncioscambioposto_descrizione" style="display: none;" />
 </div>   <label for="BoostCakeCheckbox"><input type="checkbox" id="BoostCakeCheckbox" value="1" name="appbundle_annuncioscambioposto[notifica]">Voglio ricevere notifiche quando viene inserito un annuncio che combacia con le mie preferenze</label>
 

@@ -254,6 +254,17 @@ class AnnuncioScambioPostoController extends BaseController
                 );
 
 
+            $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:AnnuncioScambioPosto');
+            $query = $repository->createQueryBuilder('p');
+            if ($params['appbundle_annuncioscambioposto']['luogoRicercato'] != "TUTTO") {
+                $query->andWhere("p.luogoAttuale = '".$params['appbundle_annuncioscambioposto']['luogoRicercato']."'");
+            }
+
+
+            $annunci = $query->getQuery()->getResult();
+
+
+
             $serializer = $this->container->get('jms_serializer');
             $serialized = $serializer->serialize($annunci, "json");
 
