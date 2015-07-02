@@ -49,7 +49,7 @@ class DefaultController extends BaseController
         $repository = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Articolo');
         $query = $repository->createQueryBuilder('p')
             ->where('p.categoria in(11,12,13,14,15)')
-            ->orderBy("p.id","desc")
+            ->orderBy("p.id", "desc")
             ->getQuery();
         $articoli = $query->getResult();
 
@@ -165,6 +165,30 @@ class DefaultController extends BaseController
     public function emailAction($layout)
     {
         return $this->render('Emails/'.$layout.'.html.twig', array());
+    }
+
+
+    /**
+     * @Route("/utente/{username}", name="dettagli_profilo")
+     */
+    public function dettagliProfiloAction($username)
+    {
+
+        $user = $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:User')->findOneByUsername($username);
+        if (!$user) {
+            return $this->redirect('/');
+        }
+        $annunciImbarco = $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioImbarco')->findByUtente($user);
+
+        $annunciScambio = $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioScambioPosto')->findByUtente($user);
+
+        return $this->render(
+            'default/profilo-utente.html.twig',
+            array("annunciImbarco" => $annunciImbarco, "annunciScambio" => $annunciScambio, "user" => $user)
+        );
     }
 
 

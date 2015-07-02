@@ -1,0 +1,178 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+
+            <div class="category">
+                <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered"
+                                                                    aria-hidden="true"></span> </a>
+
+                <h1>Profilo di {{ user.username }}</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- contenuto -->
+
+    <div class="row clearfix" id="content-articolo" style="">
+        <div class="col-md-8 column">
+
+
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <h2>Profilo di {{ user.username }}</h2>
+
+                    <div class="divisore-big"></div>
+
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div id="body-content" style="min-height: 10px;margin-bottom: 10px">
+                        <h3>Il tuo profilo</h3>
+
+                        <div class="divisore-big"></div>
+                        <p style="margin-top:20px">
+
+                        <div class="row clearfix">
+                            <div class="col-md-6 column">
+                                {% if app.user.profilePicturePath == "" and app.user.getFacebookId() !="" %}
+                                    <div class="row clearfix">
+                                        <div class="col-md-12 column">
+                                            <img class="avatar-small" style="width: 100px;margin:0"
+                                                 src="http://graph.facebook.com/{{ app.user.getFacebookId() }}/picture?type=large"
+                                                 alt="avatar"/>
+                                        </div>
+
+                                    </div>
+                                {% else %}
+                                    <div class="row clearfix">
+                                        <div class="col-md-12 column">
+                                            {% if app.user.profilePicturePath != "" %}
+                                                <img class="avatar-small" style="width: 100px;margin:0"
+                                                     src="/uploads/utenti/profilo/{{ app.user.profilePicturePath }}"
+                                                     alt="avatar"/>
+                                            {% else %}
+                                                <img class="avatar-small" style="width: 100px;margin:0"
+                                                     src="/uploads/utenti/profilo/default_avatar.png"
+                                                     alt="avatar"/>
+                                            {% endif %}
+                                        </div>
+
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6 column">
+                                <strong>Nome:</strong> {{ user.nome }}<br>
+                                <strong>Cognome:</strong> {{ user.cognome }}<br>
+                                <strong>Username:</strong> {{ user.username }}<br>
+                            </div>
+                        </div>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div id="body-content" style="min-height: 10px;margin-bottom: 10px">
+                        <h3>I suoi annunci</h3>
+
+                        <div class="divisore-big"></div>
+                        <p style="margin-top:20px">
+
+                        <div class="row clearfix">
+                            <div class="col-md-12 column">
+
+                            </div>
+
+                        </div>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--   <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <div id="body-content" style="min-height: 10px;margin-bottom: 10px">
+                            <h3>I tuoi commenti</h3>
+
+                            <div class="divisore-big"></div>
+                            <p style="margin-top:20px">
+
+                            <div class="row clearfix">
+                                <div class="col-md-12 column">
+                                    {% for commento in user.attracchi %}
+                                        - Attraccato a {{ commento.porto.nome }} il {{ commento.timestamp|date("d-m-Y H:i") }}<br>
+                                    {% endfor %}
+                                </div>
+
+                            </div>
+
+                            </p>
+                        </div>
+                    </div>
+                </div> -->
+
+
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div id="body-content" style="min-height: 10px;margin-bottom: 10px">
+                        <h3>I suoi attracchi</h3>
+
+                        <div class="divisore-big"></div>
+                        <p style="margin-top:20px">
+
+                        <div class="row clearfix">
+                            <div class="col-md-12 column">
+                                {% for attracco in user.attracchi %}
+                                    - Attraccato a <a href="/porti/{{ attracco.porto.permalink }}">{{ attracco.porto.nome }}</a> il {{ attracco.timestamp|date("d-m-Y H:i") }}<br>
+                                {% endfor %}
+                            </div>
+
+                        </div>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--   <div class="row clearfix">
+                   <div class="col-md-12 column">
+                       <div id="body-content" style="min-height: 10px;margin-bottom: 10px">
+                           <p>
+
+                               Velaforfun è una Associazione Sportiva Dilettantistica per la promozione dello sport
+                               della vela.
+                               VelaForFun è interamente gestito da un gruppo di professionisti della vela che lavorano
+                               quotidianamente per aggiornarne i contenuti e rispondere ai quesiti degli utenti.
+                               Scegliere il nostro portale significa poter dialogare realmente con lo staff e usufruire
+                               di contenuti appositamente redatti e costantemente revisionati.
+                               Tramite eventi e momenti di incontro VelaForFun si pone l'obiettivo di avvicinare più
+                               persone possibili alla vela e al rispetto della natura e del mare.
+
+                           </p>
+                       </div>
+                   </div>
+               </div> -->
+
+        </div>
+        <div class="col-md-4 column">
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
