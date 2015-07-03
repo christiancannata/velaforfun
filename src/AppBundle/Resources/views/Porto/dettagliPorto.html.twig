@@ -14,7 +14,7 @@
 
         $(document).ready(function () {
 
-
+            var marker="";
             // Provide your access token
             L.mapbox.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFuMTQ4OCIsImEiOiJZaldjZlM0In0.hXiRMyyCDLdQZUrqXF2eNw';
             // Create a map in the div #map
@@ -70,20 +70,28 @@
 // on it, and add a single marker.
             map.on('locationfound', function (e) {
                 $("#geolocate").html('<i style="" class="fa fa-crosshairs "></i>Localizzami');
-                map.fitBounds(e.bounds);
 
-                myLayer.setGeoJSON({
-                    type: 'Feature',
-                    geometry: {
-                        type: 'Point',
-                        coordinates: [e.latlng.lng, e.latlng.lat]
-                    },
-                    properties: {
-                        'title': 'Io sono qui!',
-                        'marker-color': '#ff8888',
-                        'marker-symbol': 'star'
-                    }
-                });
+
+                if(marker!=""){
+                    map.removeLayer(marker);
+                }
+
+                marker = L.marker([e.latlng.lat, e.latlng.lng]);
+                marker.setIcon(L.mapbox.marker.icon({
+                    'marker-color': '#ff8888',
+                    'marker-symbol': 'star',
+                    'marker-size': 'medium'
+                }));
+
+
+                map.setView([ e.latlng.lat,  e.latlng.lng ], 8);
+
+
+                marker.addTo(map);
+
+
+
+
 
 
             });
