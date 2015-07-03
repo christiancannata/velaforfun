@@ -2268,3 +2268,14 @@ input[readonly] {
     font-style: italic  !important;
     padding: 15px  !important;
 }
+
+.MultiFile-title {
+    float: left;
+    width: 500px;
+}
+
+.MultiFile-label {
+    float: left;
+    margin-top: 10px;
+    width: 100%;
+}

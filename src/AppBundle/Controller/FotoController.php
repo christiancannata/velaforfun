@@ -2,6 +2,9 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Foto;
+use AppBundle\Entity\GalleriaFoto;
+use AppBundle\Form\GalleriaFotoType;
 use AppBundle\Form\FotoType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Controller\BaseController;
@@ -21,7 +24,49 @@ class FotoController extends BaseController
      */
     public function createAction(Request $request)
     {
-        return $this->postForm($request, new FotoType());
+        $postform = $this->createForm(new GalleriaFotoType());
+
+        if ($request->isMethod('POST')) {
+
+            $em = $this->getDoctrine()->getManager();
+            $params = $request->request->all();
+
+
+            $files = $request->files;
+
+            $gallery=new GalleriaFoto();
+
+
+
+            $foto=array();
+    // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
+    foreach ($files as $uploadedFile) {
+
+        $fileUpload=new Foto();
+        $fileUpload->setProfilePictureFile($uploadedFile);
+        $fileUpload->setNome($uploadedFile->getFileName());
+
+        $em->persist($fileUpload);
+        $em->flush();
+        $foto[]=$fileUpload;
+    }
+
+
+
+
+
+
+                $response['success'] = true;
+                $response['response'] = $gallery->getId();
+
+
+            return new JsonResponse($response);
+        }
+
+        return $this->render(
+            'AppBundle:Foto:create.html.twig',
+            array('form' => $postform->createView(), "titolo" => "Crea ".$this->entity)
+        );
     }
 
     /**
@@ -68,7 +113,7 @@ class FotoController extends BaseController
             }
         }
 
-        return $this->render('AppBundle:Foto:gallerie.html.twig', array("gallerie" => array_reverse ($categorie)));
+        return $this->render('AppBundle:Foto:gallerie.html.twig', array("gallerie" => array_reverse($categorie)));
     }
 
 
@@ -99,7 +144,7 @@ class FotoController extends BaseController
         $categorie = $this->getDoctrine()
             ->getRepository('AppBundle:GalleriaFoto')->findBy(
                 array(),
-                array("id","desc"),
+                array("id", "desc"),
                 3,
                 $r->get('offset')
             );
@@ -133,7 +178,6 @@ class FotoController extends BaseController
     }
 
 
-
     /**
      * @Route("/{permalink}/json", name="foto_gallery_json")
      */
@@ -151,7 +195,7 @@ class FotoController extends BaseController
         $video = $this->getDoctrine()
             ->getRepository('AppBundle:Foto')->findBy(
                 array("galleria" => $categorie),
-                array("id","desc"),
+                array("id", "desc"),
                 3,
                 $r->get('offset')
             );
@@ -164,8 +208,6 @@ class FotoController extends BaseController
         );
 
     }
-
-
 
 
 }
