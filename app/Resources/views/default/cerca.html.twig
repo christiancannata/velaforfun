@@ -25,7 +25,9 @@
     <div class="row clearfix" id="content-articolo">
         <div class="col-md-8 column">
 
-
+            {% if risultati|length == 0 %}
+                <h5 style="font-size:20px">Non ci sono risultati per la ricerca</h5>
+            {% endif %}
             {% for categoria in risultati %}
                 <div class="row clearfix">
                     <div class="col-md-12 column">
@@ -42,6 +44,7 @@
                         <div id="body-content" style="min-height: 10px;margin-bottom: 10px">
                             <p>
                             <table class="table">
+
                                 {% for risultato in categoria.results %}
                                <tr><td>{{ risultato.name }}</td><td> <a href="{{ risultato.link }}"><button class="btn btn-primary pull-right hvr-glow" >VAI ALLA PAGINA</button></a></td></tr>
 
