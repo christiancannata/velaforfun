@@ -11,7 +11,7 @@
                 </div>
                 <h4>{{ articolo.titolo }}</h4>
 
-                <p> {{ articolo.sottotitolo|raw|striptags }}</p>
+                <p> {{ articolo.sottotitolo|slice(0, 140)|raw|striptags }}...</p>
             </div>
         </a>
 

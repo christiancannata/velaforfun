@@ -38,11 +38,11 @@
 
                         <div class="row clearfix">
                             <div class="col-md-6 column">
-                                {% if app.user.profilePicturePath == "" and app.user.getFacebookId() !="" %}
+                                {% if user.profilePicturePath == "" and user.getFacebookId() !="" %}
                                     <div class="row clearfix">
                                         <div class="col-md-12 column">
                                             <img class="avatar-small" style="width: 100px;margin:0"
-                                                 src="http://graph.facebook.com/{{ app.user.getFacebookId() }}/picture?type=large"
+                                                 src="http://graph.facebook.com/{{ user.getFacebookId() }}/picture?type=large"
                                                  alt="avatar"/>
                                         </div>
 
@@ -50,9 +50,9 @@
                                 {% else %}
                                     <div class="row clearfix">
                                         <div class="col-md-12 column">
-                                            {% if app.user.profilePicturePath != "" %}
+                                            {% if user.profilePicturePath != "" %}
                                                 <img class="avatar-small" style="width: 100px;margin:0"
-                                                     src="/uploads/utenti/profilo/{{ app.user.profilePicturePath }}"
+                                                     src="/uploads/utenti/profilo/{{ user.profilePicturePath }}"
                                                      alt="avatar"/>
                                             {% else %}
                                                 <img class="avatar-small" style="width: 100px;margin:0"
@@ -66,9 +66,7 @@
                             </div>
                             <div class="col-md-6 column">
                                 <strong>Username:</strong> {{ user.username }}<br>
-                                <strong>Data iscrizione:</strong> {{ user.username }}<br>
-                                <strong>Livello:</strong> {{ user.username }}<br>
-
+                                <strong>Data iscrizione:</strong> {{ user.timestamp|date("d-m-Y") }}<br>
                                 <strong>Numero post:</strong> {{ user.username }}<br>
 
                             </div>

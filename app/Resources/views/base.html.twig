@@ -321,7 +321,7 @@
                                 <div class="dropdown" id="profileMenu">
                                     <a class="dropdown-toggle" id="dropdownMenu1"
                                        data-toggle="dropdown" aria-expanded="true">
-                                        <span class="username"> <strong>{{ app.user.username }}</strong></span>
+
                                         {% if app.user.profilePicturePath == "" and app.user.getFacebookId() !="" %}
                                             <img class="avatar-small"
                                                  src="http://graph.facebook.com/{{ app.user.getFacebookId() }}/picture?type=square"
@@ -339,6 +339,7 @@
                                                      alt="avatar"/>
                                             {% endif %}
                                         {% endif %}
+                                        <span class="username" > <strong>{{ app.user.username }}</strong></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 
