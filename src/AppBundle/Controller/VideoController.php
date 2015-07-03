@@ -63,7 +63,7 @@ class VideoController extends BaseController
         $categorie = $this->getDoctrine()
             ->getRepository('AppBundle:CategoriaVideo')->findBy(
                 array(),
-                array(),
+                array("id"=>"desc"),
                 3,
                 $r->get('offset')
             );
@@ -114,7 +114,7 @@ class VideoController extends BaseController
         $video = $this->getDoctrine()
             ->getRepository('AppBundle:Video')->findBy(
                 array("categoria" => $categorie),
-                array(),
+                array("id"=>"desc"),
                 3,
                 $r->get('offset')
             );
@@ -136,7 +136,7 @@ class VideoController extends BaseController
     {
 
         $categorie = $this->getDoctrine()
-            ->getRepository('AppBundle:CategoriaVideo')->findBy(array(), array(), 3, 0);
+            ->getRepository('AppBundle:CategoriaVideo')->findBy(array(),array("id"=>"desc"), 3, 0);
 
 
         return $this->render('AppBundle:Video:gallerie.html.twig', array("gallerie" => $categorie));

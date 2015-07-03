@@ -68,7 +68,7 @@ class FotoController extends BaseController
             }
         }
 
-        return $this->render('AppBundle:Foto:gallerie.html.twig', array("gallerie" => $categorie));
+        return $this->render('AppBundle:Foto:gallerie.html.twig', array("gallerie" => array_reverse ($categorie)));
     }
 
 
@@ -99,7 +99,7 @@ class FotoController extends BaseController
         $categorie = $this->getDoctrine()
             ->getRepository('AppBundle:GalleriaFoto')->findBy(
                 array(),
-                array(),
+                array("id","desc"),
                 3,
                 $r->get('offset')
             );
@@ -151,7 +151,7 @@ class FotoController extends BaseController
         $video = $this->getDoctrine()
             ->getRepository('AppBundle:Foto')->findBy(
                 array("galleria" => $categorie),
-                array(),
+                array("id","desc"),
                 3,
                 $r->get('offset')
             );
