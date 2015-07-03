@@ -16,7 +16,7 @@
                     type: "POST",
                     url: "/codice-internazionale/traduci-json",
                     data: {data: $("#testo").val()},
-                    datatype:"html",
+                    datatype: "html",
                     success: function (response) {
                         if (response) {
 
@@ -26,7 +26,7 @@
 
 
                             $(".codice-morse-result").html($("#testo").val());
-                            var morse = $(".codice-morse-result").morseCode({bpm: 12});
+                            morse = $(".codice-morse-result").morseCode({bpm: 12});
                             //  morse.emit;
                             $('.content-traduzione').removeClass('hidden');
                         } else {
@@ -43,18 +43,24 @@
             $(".ascolta").click(function () {
                 $(".stop").removeClass("selected");
                 $(".ascolta").addClass("selected");
-                $(".codice-morse-result").trigger("morse.emit");
+
+                morse = new morseSynth();
+                morse.speed(10);
+                morse.play($("#testo").val());
             });
 
             $(".stop").click(function () {
                 $(".ascolta").removeClass("selected");
                 $(".stop").addClass("selected");
-                $("#morse-code-output").remove();
+
+                morse.stop();
             });
+
             {% if k is defined and k!="" %}
             $(".codice-morse-result").html($("#testo").val());
-            var morse = $(".codice-morse-result").morseCode({bpm: 12});
+            morse = $(".codice-morse-result").morseCode({bpm: 12});
             {% endif %}
+
         });
     </script>
 {% endblock %}
