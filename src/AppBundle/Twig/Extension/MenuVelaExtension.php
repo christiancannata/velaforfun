@@ -128,7 +128,7 @@ class MenuVelaExtension extends \Twig_Extension
         $meteoIcon["11d"] = "wi-thunderstorm";
         $meteoIcon["13d"] = "wi-snow";
         $meteoIcon["50d"] = "wi-fog";
-        $meteoIcon["01n"] = "wi-night-sunny";
+        $meteoIcon["01n"] = "wi-night-clear";
         $meteoIcon["02n"] = "wi-night-cloudy";
         $meteoIcon["03n"] = "wi-cloud";
         $meteoIcon["04n"] = "wi-cloudy";
