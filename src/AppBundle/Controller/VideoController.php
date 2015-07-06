@@ -81,7 +81,7 @@ class VideoController extends BaseController
     /**
      * @Route("/{permalink}", name="dettaglio_video")
      */
-    public function dettagliVideoAction($permalink)
+    public function dettagliVideoAction(Request $r,$permalink)
     {
 
         $categorie = $this->getDoctrine()
@@ -90,6 +90,19 @@ class VideoController extends BaseController
 
 
             throw $this->createNotFoundException('Unable to find Categoria.');
+        }
+
+
+        if($r->query->get("video")){
+            $galleriaAppo=$categorie->getVideo();
+           foreach($galleriaAppo as $key=>$video){
+
+               if($video->getId()==$r->query->get("video")){
+                   $new_value = $galleriaAppo[$key];
+
+               }
+           }
+            $categorie->setVideo(array($new_value));
         }
 
 
