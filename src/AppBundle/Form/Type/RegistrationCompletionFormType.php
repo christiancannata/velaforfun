@@ -1,0 +1,41 @@
+<?php
+
+namespace AppBundle\Form\Type;
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+
+class RegistrationCompletionFormType extends AbstractType
+{
+	public function buildForm(FormBuilderInterface $builder, array $options)
+	{
+		// add your custom field
+		$builder->add('nome');
+		$builder->add('cognome');
+        $builder->add('roles', 'choice', array(
+            'choices' => array(
+                'ROLE_USER' => 'Utente semplice',
+                'ROLE_MODERATOR' => 'Moderatore',
+                'ROLE_ADMIN' => 'Admin',
+                'ROLE_SUPER_ADMIN' => 'Super Admin'
+            ),
+            'expanded' => false,
+            'multiple' => true,
+            'required' => false
+        ));
+        $builder->add('profilePictureFile',null, array('label' => 'Avatar'));
+        $builder->add('firma',null, array('label' => 'La tua firma'));
+	}
+
+	public function getParent()
+	{
+		return 'fos_user_registration';
+	}
+
+	public function getName()
+	{
+		return 'app_user_registration';
+	}
+
+
+}

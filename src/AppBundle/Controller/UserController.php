@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Form\Type\RegistrationFormType;
+use AppBundle\Form\Type\RegistrationCompletionFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -28,7 +29,7 @@ class UserController extends BaseController
      */
     public function patchAction(Request $request,$id)
     {
-        return $this->patchForm($request,new RegistrationFormType(),$id,"User");
+        return $this->patchForm($request,new RegistrationCompletionFormType(),$id,"User");
     }
 
 
@@ -53,19 +54,6 @@ class UserController extends BaseController
     }
 
 
-    /**
-     * @Route("/", name="user")
-     */
-    public function partnerAction()
-    {
-
-        $porti = $this->getDoctrine()
-            ->getRepository('AppBundle:User')->findAll();
-        $titolo = "Partner";
-
-        return $this->render('AppBundle:User:user.html.twig', array("users" => $porti, "titolo" => $titolo));
-
-    }
 
 
     /**
