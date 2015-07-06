@@ -23,7 +23,7 @@ class DefaultController extends BaseController
         $repository = $this->getDoctrine()
             ->getRepository('BlogBundle:Articolo');
 
-        $articoli = $repository->findByStato("ATTIVO", array('id' => 'desc'));
+        $articoli = $repository->findByStato("ATTIVO", array('id' => 'desc'), 4);
 
 
         return $this->render('default/index.html.twig', array("articoli" => $articoli));
@@ -35,8 +35,13 @@ class DefaultController extends BaseController
      */
     public function chiSiamoAction()
     {
+        $repository = $this->getDoctrine()
+            ->getRepository('BlogBundle:Articolo');
 
-        return $this->render('default/chi-siamo.html.twig', array());
+        $articoli = $repository->findByStato("ATTIVO", array('id' => 'desc'), 4);
+
+
+        return $this->render('default/chi-siamo.html.twig', array("articoli" => $articoli));
     }
 
 
