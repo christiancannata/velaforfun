@@ -50,12 +50,12 @@
                                 <div class="col-md-6 column">
                                     {% if app.user.profilePicturePath == "" and app.user.getFacebookId() !="" %}
                                         <div class="row clearfix">
-                                            <div class="col-md-12 column">
+                                            <div class="col-md-6 column">
                                                 <img class="avatar-small" style="width: 100px;margin:0"
                                                      src="http://graph.facebook.com/{{ app.user.getFacebookId() }}/picture?type=large"
                                                      alt="avatar"/>
                                             </div>
-                                            <div class="col-md-12 column">
+                                            <div class="col-md-6 column" style="font-size: 12px">
                                                 <i class="fa fa-facebook-square"></i> Collegato con Facebook
                                             </div>
                                         </div>
@@ -148,7 +148,7 @@
                             <div class="row clearfix">
                                 <div class="col-md-12 column">
                                     {% for attracco in user.attracchi %}
-                                     - Attraccato a {{ attracco.porto.nome }} il {{ attracco.timestamp|date("d-m-Y H:i") }}<br>
+                                     - Attraccato a <a href="/porti/{{ attracco.porto.permalink }}">{{ attracco.porto.nome }}</a> il {{ attracco.timestamp|date("d-m-Y H:i") }}<br>
                                     {% endfor %}
                                 </div>
 

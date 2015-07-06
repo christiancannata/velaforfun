@@ -79,6 +79,13 @@ class OldRoutingRedirectListener extends ContainerAware
         }
 
 
+        if (strstr($path, "nomi_b.asp")) {
+            $redirect = true;
+            $route = "nome_barca_home";
+        }
+
+
+
         if (strstr($path, "nodi.asp")) {
             $redirect = true;
             $route = "nodi";
