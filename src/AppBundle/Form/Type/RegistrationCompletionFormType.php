@@ -12,6 +12,7 @@ class RegistrationCompletionFormType extends AbstractType
 		// add your custom field
 		$builder->add('nome');
 		$builder->add('cognome');
+        $builder->add('username');
         $builder->add('roles', 'choice', array(
             'choices' => array(
                 'ROLE_USER' => 'Utente semplice',
@@ -21,15 +22,8 @@ class RegistrationCompletionFormType extends AbstractType
             ),
             'expanded' => false,
             'multiple' => true,
-            'required' => false
+            'required' => true
         ));
-        $builder->add('profilePictureFile',null, array('label' => 'Avatar'));
-        $builder->add('firma',null, array('label' => 'La tua firma'));
-	}
-
-	public function getParent()
-	{
-		return 'fos_user_registration';
 	}
 
 	public function getName()

@@ -100,7 +100,6 @@ class BaseController extends Controller
 
             return new JsonResponse($response);
         }
-
         return $this->render(
             'AppBundle:Crud:create.html.twig',
             array('form' => $postform->createView(), "titolo" => "Modifica ".$this->entity." - ".$id)
