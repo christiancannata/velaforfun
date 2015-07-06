@@ -32,20 +32,29 @@ class FotoController extends BaseController
             $params = $request->request->all();
 
 
-            $files = $request->files;
+            $files = $request->files->get('appbundle_galleriafoto');
 
             $gallery=new GalleriaFoto();
 
 
+            $gallery->setNome($params['appbundle_galleriafoto']['nome']);
+            $gallery->setDescrizione($params['appbundle_galleriafoto']['descrizione']);
+
+            $em->persist($gallery);
+            $em->flush();
+
 
             $foto=array();
-    // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
-    foreach ($files as $uploadedFile) {
 
+            $files=$files['foto'];
+
+            // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
+    foreach ($files as $uploadedFile) {
         $fileUpload=new Foto();
         $fileUpload->setProfilePictureFile($uploadedFile);
         $fileUpload->setNome($uploadedFile->getFileName());
-
+        $fileUpload->setGalleria($gallery);
+        $fileUpload->setInEvidenza(true);
         $em->persist($fileUpload);
         $em->flush();
         $foto[]=$fileUpload;
@@ -144,7 +153,7 @@ class FotoController extends BaseController
         $categorie = $this->getDoctrine()
             ->getRepository('AppBundle:GalleriaFoto')->findBy(
                 array(),
-                array("id", "desc"),
+                array("id"=> "desc"),
                 3,
                 $r->get('offset')
             );
@@ -195,7 +204,7 @@ class FotoController extends BaseController
         $video = $this->getDoctrine()
             ->getRepository('AppBundle:Foto')->findBy(
                 array("galleria" => $categorie),
-                array("id", "desc"),
+                array("id"=> "desc"),
                 3,
                 $r->get('offset')
             );
