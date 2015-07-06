@@ -83,7 +83,7 @@ class NomeBarcaController extends BaseController
         $arrayBarche=array();
         $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:NomeBarca');
         $query = $repository->createQueryBuilder('p')
-            ->orderBy("p.nome","ASC");
+            ->orderBy("p.nome","DESC");
 
         $barche = $query->getQuery()->getResult();
 
@@ -94,7 +94,7 @@ class NomeBarcaController extends BaseController
         }
 
 
-        return $this->render('AppBundle:NomeBarca:lista.html.twig', array("barche" => $arrayBarche));
+        return $this->render('AppBundle:NomeBarca:lista.html.twig', array("barche" => array_reverse($arrayBarche)));
 
     }
 
