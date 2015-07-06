@@ -54,7 +54,7 @@
         <td  align="center" class="center"style="width: 100px;padding:10px 0px 10px 0px !important;"><div class="td-boarded"> {{ annuncio.timestamp|date("d/m/Y H:i") }}</div></td>
         <td   align="center" class="center" style="width: 100px;padding:10px 0px 10px 0px !important;"><div class="td-boarded"><span title="{{ annuncio.topic.getCachedReplyCount() }}" class="label label-info lead">{{ annuncio.topic.getCachedReplyCount() }}</span></div></td>
         <td   align="center" class="center" style="width: 100px;padding:10px 0px 10px 0px !important;"><div class="td-boarded"><span title="{{ annuncio.topic.getCachedViewCount() }}" class="label label-info lead">{{ annuncio.topic.getCachedViewCount() }}</span></div></td>
-        <td align="center" class="center" style="padding:10px 0px 10px 0px !important;width:150px;">  <div class="td-boarded" style="padding-left: 5px">   <button  style="margin-top: 10px;" type="button" class="btn btn-primary hvr-glow"
+        <td align="center" class="center" style="padding:10px 0px 10px 0px !important;width:150px;">  <div class="td-boarded" style="padding-left: 5px">   <button  style="margin-top: 10px;" type="button" class="btn btn-primary hvr-sweep-to-right"
                                                                             onclick="location.href='/forum/velaforfun/topic/{{ annuncio.topic.id }}'">
                     Leggi Annuncio
                 </button></div></td>
@@ -64,7 +64,7 @@
 
       </tbody>
     </table>
-  <button  style="margin-top: 12px;" type="button" class="btn btn-primary hvr-glow "
+  <button  style="margin-top: 12px;" type="button" class="btn btn-primary hvr-sweep-to-right "
                              onclick="location.href='/forum/velaforfun/board/11'">
                         Visualizza tutti gli annunci
                     </button>
@@ -75,7 +75,7 @@
             <div class="colonna-destra" style="margin-bottom: 20px">
                            <h2>E' ora di cambiare mare... scambia il tuo posto barca!</h2>
                              <p>Crea il tuo annuncio gratuitamente e verrai contattato da chi è interessato a scambiare il tuo posto barca in base alle tue preferenze</p>
-                        <button type="submit" class="btn btn-default login hvr-glow" onclick="location.href='nuovo-annuncio'">CREA ORA IL TUO ANNUNCIO</button>
+                        <button type="submit" class="btn btn-default login hvr-sweep-to-right" onclick="location.href='nuovo-annuncio'">CREA ORA IL TUO ANNUNCIO</button>
 
         </div>
 
@@ -84,7 +84,7 @@
 <div class="colonna-destra" style="margin-bottom: 20px">
                            <h2 class="foreground-verde">Vuoi cercare chi scambierebbe il suo posto barca?</h2>
                              <p>Cerca tra gli annunci di chi vuole scambiare il suo posto barca e scegli in base alle tue preferenze</p>
-           <button type="submit" class="btn btn-default login hvr-glow background-verde" onclick="location.href='cerca-annuncio'">CERCA TRA GLI ANNUNCI</button>
+           <button type="submit" class="btn btn-default login hvr-sweep-to-right background-verde" onclick="location.href='cerca-annuncio'">CERCA TRA GLI ANNUNCI</button>
 
 
         </div>
@@ -95,7 +95,7 @@
    <div class="colonna-destra" style="margin-bottom: 20px">
                     <h2 class="foreground-verde">Vuoi ricevere notifiche?</h2>
                     <p>Se sei alla ricerca di un posto, ricevi una mail per gli annunci compatibili con le tue preferenze</p>
-                    <button type="submit" class="btn btn-default login hvr-glow background-verde notifiche" >RICEVI LE NOTIFICHE</button>
+                    <button type="submit" class="btn btn-default login hvr-sweep-to-right background-verde notifiche" >RICEVI LE NOTIFICHE</button>
 
 
                 </div>
@@ -360,7 +360,7 @@
             <input type="hidden" name="appbundle_annuncioscambioposto[descrizione]" id="appbundle_annuncioscambioposto_descrizione" style="display: none;" />
         </div>   <label for="BoostCakeCheckbox"><input type="hidden" id="BoostCakeCheckbox" checked value="1" name="appbundle_annuncioscambioposto[notifica]"></label>
 
-        <button type="submit" class="btn btn-default login hvr-glow">Cerca</button>
+        <button type="submit" class="btn btn-default login hvr-sweep-to-right">Cerca</button>
         <input type="hidden" class="callback" value="riceviNotifica">
 
     </form>
@@ -398,7 +398,7 @@
                 <input type="checkbox" value="on" name="_remember_me" id="remember_me">
                 <label for="remember_me">Ricordami</label>
             </div>
-            <input type="submit" value="Accedi" class="btn btn-default login hvr-glow">
+            <input type="submit" value="Accedi" class="btn btn-default login hvr-sweep-to-right">
 
         </form>
 

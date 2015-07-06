@@ -2279,3 +2279,7 @@ input[readonly] {
     margin-top: 10px;
     width: 100%;
 }
+
+.hvr-sweep-to-right::before{
+    background:rgb(0,133,188) !important;
+}

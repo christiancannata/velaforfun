@@ -165,12 +165,12 @@
 
                         <div class="row clearfix" style="margin-bottom:10px !important">
                             <div class="col-md-6 col-xs-12 column text-left">
-                                <button class="localizzami hvr-glow left" id='geolocate'><i style=""
+                                <button class="localizzami hvr-sweep-to-right left" id='geolocate'><i style=""
                                                                                             class="fa fa-crosshairs"></i>Localizzami
                                 </button>
                             </div>
                             <div class="col-md-6 col-xs-12 column text-right">
-                                <button class="checkin  hvr-glow right" id='attracca'
+                                <button class="checkin  hvr-sweep-to-right right" id='attracca'
                                         data-route="/porti/{{ porto.id }}/attracca"><i class="fa fa-anchor"></i>
                                     Attracca
                                     qui
@@ -255,7 +255,7 @@
                                         <div class="col-xs-12 column hidden-lg hidden-md" style="padding:0">
                                             <a href="#"
                                                onclick="event.preventDefault();if($('input[name=\'appbundle_commentoporto[testo]\']').val()!=''){$('form[name=appbundle_commentoporto]').submit()}else{$('input[name=\'appbundle_commentoporto[testo]\']').css('border','1px solid red');$('input[name=\'appbundle_commentoporto[testo]\']').after('<p style=\'color:red\'>Campo obbligatorio</p>')}">
-                                                <button class="btn btn-lg btn-primary hvr-glow show" style="width:100%;margin-top:10px">Inserisci commento</button>
+                                                <button class="btn btn-lg btn-primary hvr-sweep-to-right show" style="width:100%;margin-top:10px">Inserisci commento</button>
                                                 <i class="fa fa-spinner fa-2x fa-spin hide"></i>
                                             </a>
                                         </div>
@@ -291,7 +291,7 @@
                                                 </div>
                                                 <!--  <input type="hidden" name="_target_path" value="dettaglio_porto" />
         -->
-                                                <button class="btn btn-default login hvr-glow" type="submit">Accedi</button>
+                                                <button class="btn btn-default login hvr-sweep-to-right" type="submit">Accedi</button>
                                                 <a href="/resetting/request">Dimenticato la password?</a>
                                             </form>
                                         </div>
@@ -420,14 +420,14 @@
                                 <h2>Vuoi cercare chi scambierebbe il tuo posto barca?</h2>
                                 <p>Cerca tra gli annunci di chi vuole scambiare il suo posto barca e scegli in base alle
                                     tue preferenze</p>
-                                <button type="submit" class="btn btn-default login hvr-glow"
+                                <button type="submit" class="btn btn-default login hvr-sweep-to-right"
                                         onclick="location.href='/annuncio-scambio-posto/cerca-annuncio'">CERCA TRA GLI
                                     ANNUNCI
                                 </button>
                             {% else %}
                                 <h2>{{ porto.getAnnunciScambioPosto()|length }} persone scambiano qui il suo posto
                                     barca</h2>
-                                <button type="submit" class="btn btn-default login hvr-glow"
+                                <button type="submit" class="btn btn-default login hvr-sweep-to-right"
                                         onclick="location.href='/annuncio-scambio-posto/cerca-annuncio'">VISUALIZZA GLI
                                     ANNUNCI
                                 </button>
@@ -447,7 +447,7 @@
                         <div class="divisore-big background-celeste"></div>
                         <div style="margin-bottom: 20px;">
 
-                            <button class="btn btn-default login hvr-glow" data-route="/porti/{{ porto.id }}/attracca" type="submit"><i class="fa fa-anchor"></i>
+                            <button class="btn btn-default login hvr-sweep-to-right" data-route="/porti/{{ porto.id }}/attracca" type="submit"><i class="fa fa-anchor"></i>
                                 ATTRACCA NEL PORTO
                             </button>
                             {% if porto.getAttracchi() is empty %}
