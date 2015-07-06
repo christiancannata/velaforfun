@@ -141,8 +141,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7201493" vertical-offset="33546" max-vertical-offset="34350">
-              <caret line="2275" column="0" selection-start-line="2275" selection-start-column="0" selection-end-line="2275" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.83253586" vertical-offset="33723" max-vertical-offset="34350">
+              <caret line="2283" column="16" selection-start-line="2283" selection-start-column="16" selection-end-line="2283" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -227,8 +227,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/Type/RegistrationCompletionFormType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/hover-min.css" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
       </list>
     </option>
   </component>
@@ -1223,7 +1223,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21274039" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21274039" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1610577" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1673,8 +1673,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7201493" vertical-offset="33546" max-vertical-offset="34350">
-          <caret line="2275" column="0" selection-start-line="2275" selection-start-column="0" selection-end-line="2275" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.83253586" vertical-offset="33723" max-vertical-offset="34350">
+          <caret line="2283" column="16" selection-start-line="2283" selection-start-column="16" selection-end-line="2283" selection-end-column="16" />
           <folding />
         </state>
       </provider>
