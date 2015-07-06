@@ -18,9 +18,14 @@
 
 {% block javascripts %}
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+
     <script language="javascript">
         $(document).ready(function(){
-            $('.crud table').dataTable();
+            $('.crud table').dataTable( {"language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.7/i18n/Italian.json",
+
+            }});
         });
     </script>
 {% endblock %}

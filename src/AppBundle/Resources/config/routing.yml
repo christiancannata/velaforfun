@@ -33,10 +33,11 @@ segnali:
     type:     annotation
     prefix:   /codice-internazionale
 
-barche:
-    resource: "@AppBundle/Controller/BarcaController.php"
+
+nomi_barca:
+    resource: "@AppBundle/Controller/NomeBarcaController.php"
     type:     annotation
-    prefix:   /barche
+    prefix:   /nomi-barca
 
 
 menu:

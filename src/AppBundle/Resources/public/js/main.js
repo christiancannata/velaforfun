@@ -20,6 +20,22 @@ meteoIcon["13n"] = "wi-snow";
 meteoIcon["50n"] = "wi-fog";
 
 
+function vota(voto){
+    var button = $(this);
+    $("button").attr("disabled", "disabled");
+    $.ajax({
+        type: "POST",
+        url: "vota/"+voto,
+        success: function (response) {
+            if (response.success == true) {
+                $(".vota-"+voto).html("Voto inserito!");
+            } else {
+            }
+            $("button").removeAttr("disabled");
+
+        }
+    });
+}
 function getUrlParameter(sParam)
 {
     var sPageURL = window.location.search.substring(1);
@@ -490,6 +506,7 @@ function showPosition(position) {
         localStorage.setItem("geolocation", JSON.stringify(meteo));
 
     });
+
 
 
 }
