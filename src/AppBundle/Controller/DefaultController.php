@@ -69,13 +69,13 @@ class DefaultController extends BaseController
         $statement->execute();
         $results = $statement->fetchAll();
 
+        $user = $this->container->get('doctrine')
+            ->getRepository('AppBundle:User')->find($results[0]['fk_created_by_user_id']);
 
-        if(count($results)>0){
-            return $this->render('default/post-forum-partial.html.twig', array("post" => $results[0]));
+        if (count($results) > 0) {
+            return $this->render('default/post-forum-partial.html.twig', array("post" => $results[0], "user" => $user));
 
         }
-
-
 
 
     }
@@ -496,8 +496,10 @@ class DefaultController extends BaseController
                 $iscrizione->setGender("MALE");
                 $iscrizione->setCompanyname("");
                 $iscrizione->setTitle("");
-                $iscrizione->addGroup($this->getDoctrine()
-                    ->getRepository('AppBundle\Entity\Newsletter\Group')->find(1));
+                $iscrizione->addGroup(
+                    $this->getDoctrine()
+                        ->getRepository('AppBundle\Entity\Newsletter\Group')->find(1)
+                );
 
 
                 $em = $this->container->get('doctrine')->getManager();
