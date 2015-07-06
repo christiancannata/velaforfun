@@ -80,6 +80,7 @@ class NomeBarcaController extends BaseController
      */
     public function nomiBarcaAction()
     {
+
         $arrayBarche=array();
         $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:NomeBarca');
         $query = $repository->createQueryBuilder('p')
@@ -93,8 +94,10 @@ class NomeBarcaController extends BaseController
             $arrayBarche[$firstone][] = $barca;
         }
 
+        $form['vars'] = array("full_name" => "appbundle_nome_barca");
 
-        return $this->render('AppBundle:NomeBarca:lista.html.twig', array("barche" => array_reverse($arrayBarche)));
+
+        return $this->render('AppBundle:NomeBarca:lista.html.twig', array("barche" => array_reverse($arrayBarche),"form"=>$form));
 
     }
 
