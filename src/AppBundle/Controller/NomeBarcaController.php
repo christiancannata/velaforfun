@@ -90,7 +90,7 @@ class NomeBarcaController extends BaseController
 
         $arrayBarche = array();
         foreach ($barche as $barca){
-            $firstone = substr( trim($barca->getNome()) , 0 , 1 );
+            $firstone = substr( strtoupper(trim($barca->getNome()) ), 0 , 1 );
             $arrayBarche[$firstone][] = $barca;
         }
 
