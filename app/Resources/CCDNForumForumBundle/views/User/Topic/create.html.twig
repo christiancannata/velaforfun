@@ -16,17 +16,38 @@
 {%- block body_content -%}
 	{%- spaceless -%}
 
+
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+
+                <div class="category">
+                    <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered"
+                                                                        aria-hidden="true"></span> </a>
+
+                    <h1>Forum</h1>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row clearfix">
+
+            <div class="col-md-12 column breadcrumb">
+
+                <h1 style="display: inline;float:left;margin:0px;border:none;font-weight: bold">
+                    >&nbsp;Crea nuovo topic</h1>
+
+            </div>
+        </div>
+
+
 	<section class="clearfix">
 		{%- form_theme form ccdn_forum_forum.topic.user.create.form_theme -%}
 		<form action="{{- path('ccdn_forum_user_topic_create_process', {'forumName': forumName, 'boardId': board.id } ) -}}"
 		 method="post" {{ form_enctype(form) }} class="form-horizontal" role="form" novalidate>
 			<fieldset>
 
-				<div class="form-group">
-					<div class="col-lg-offset-2 col-lg-10">
-						<h4>{{- 'title.topic.create' | trans({}, 'CCDNForumForumBundle') -}}</h4>
-					</div>
-				</div>
+
 
 				{{- form_errors(form) -}}
 
