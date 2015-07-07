@@ -72,7 +72,7 @@ class SegnaleController extends BaseController
             for ($i = 0; $i < $length; $i++) {
                 $segnale = $this->getDoctrine()
                     ->getRepository('AppBundle:Segnale')->findOneByLettera(strtoupper($parole[$i]));
-                if($segnale){
+                if ($segnale) {
                     $segnali[] = $segnale;
                 }
 
@@ -103,7 +103,21 @@ class SegnaleController extends BaseController
         $k = null;
         if ($frase) {
             $k = $frase;
+            $nodi = [];
+            $parole = trim($frase);
+            $length = strlen($parole);
+            for ($i = 0; $i < $length; $i++) {
+                $segnale = $this->getDoctrine()
+                    ->getRepository('AppBundle:Segnale')->findOneByLettera(strtoupper($parole[$i]));
+                if ($segnale) {
+                    $nodi[] = $segnale;
+                }
+
+
+            }
+
         }
+
 
         return $this->render('AppBundle:Segnale:segnali.html.twig', array("segnali" => $nodi, "k" => $k));
     }
