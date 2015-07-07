@@ -12,14 +12,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class UserController extends BaseController
 {
-    protected $entity="User";
+    protected $entity = "User";
+
     /**
      * @Route( "crea", name="create_user" )
      * @Template()
      */
     public function createAction(Request $request)
     {
-        return $this->postForm($request,new RegistrationFormType());
+        return $this->postForm($request, new RegistrationFormType());
     }
 
 
@@ -27,9 +28,9 @@ class UserController extends BaseController
      * @Route( "modifica/{id}", name="modifica_user" )
      * @Template()
      */
-    public function patchAction(Request $request,$id)
+    public function patchAction(Request $request, $id)
     {
-        return $this->patchForm($request,new RegistrationCompletionFormType(),$id,"User");
+        return $this->patchForm($request, new RegistrationCompletionFormType(), $id, "User");
     }
 
 
@@ -43,17 +44,14 @@ class UserController extends BaseController
     }
 
 
-
     /**
      * @Route( "elimina/{id}", name="delete_user" )
      * @Template()
      */
-    public function eliminaAction(Request $request,$id)
+    public function eliminaAction(Request $request, $id)
     {
         return $this->delete($id);
     }
-
-
 
 
     /**
@@ -73,9 +71,21 @@ class UserController extends BaseController
         $annunciScambio = $repository = $this->getDoctrine()
             ->getRepository('AppBundle:AnnuncioScambioPosto')->findByUtente($user);
 
+
+        $repository = $this->getDoctrine()
+            ->getRepository('BlogBundle:Articolo');
+
+        $articoli = $repository->findByStato("ATTIVO", array('id' => 'desc'), 4);
+
+
         return $this->render(
             'default/profilo-utente.html.twig',
-            array("annunciImbarco" => $annunciImbarco, "annunciScambio" => $annunciScambio, "user" => $user)
+            array(
+                "annunciImbarco" => $annunciImbarco,
+                "annunciScambio" => $annunciScambio,
+                "user" => $user,
+                "articoli" => $articoli
+            )
         );
     }
 
