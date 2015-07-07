@@ -2,7 +2,7 @@
 
 {% block title %}{{ articolo.titolo }}{% endblock %}
 
-{% block description %}{{ articolo.testo }}{% endblock %}
+{% block description %}{{ articolo.testo|striptags }}{% endblock %}
 
 
 

@@ -66,7 +66,7 @@ class ArticoloController extends BaseController
 
         $seoPage
             ->setTitle($articolo->getTitolo())
-            ->addMeta('name', 'description', $articolo->getSottotitolo())
+            ->addMeta('name', 'description', strip_tags($articolo->getSottotitolo()))
             ->addMeta('property', 'og:title', $articolo->getTitolo())
             ->addMeta('property', 'og:type', 'blog')
             ->addMeta('property', 'og:url', $routeName)
@@ -75,7 +75,7 @@ class ArticoloController extends BaseController
                 'og:image',
                 "http://www.velaforfun.com/images/articoli/".$articolo->getProfilePictureFile()
             )
-            ->addMeta('property', 'og:description', $articolo->getSottotitolo());
+            ->addMeta('property', 'og:description', strip_tags($articolo->getSottotitolo()));
 
         $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(
             array('categoria' => $articolo->getCategoria(), 'stato' => "ATTIVO"),
@@ -84,17 +84,18 @@ class ArticoloController extends BaseController
         );
 
 
-        foreach($articoli as $key => $articoloRel){
-            if($articoloRel->getId()==$articolo->getId()){
+        foreach ($articoli as $key => $articoloRel) {
+            if ($articoloRel->getId() == $articolo->getId()) {
                 unset($articoli[$key]);
             }
         }
         $categorie = $em->getRepository('BlogBundle:Categoria')->findAll();
 
 
-        if(count($articoli)==4){
+        if (count($articoli) == 4) {
             unset($articoli[3]);
         }
+
         return $this->render(
             'BlogBundle:Articolo:articolo.html.twig',
             array(

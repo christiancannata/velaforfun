@@ -6,8 +6,8 @@ dashboard:
         forum:                         "Forum"
         community:                     "Community"
     links:
-        forum:                         "Forum Index"
-        subscriptions:                 "Forum Subscriptions"
+        forum:                         "Pagina Principale"
+        subscriptions:                 "Sottoscrizioni Forum"
 
 layout:
     header_links:
