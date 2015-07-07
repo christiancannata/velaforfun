@@ -252,7 +252,14 @@ class DefaultController extends BaseController
 
         $form['vars'] = array("full_name" => "contatti");
 
-        return $this->render('default/contatti.html.twig', array("form" => $form));
+
+        $repository = $this->getDoctrine()
+            ->getRepository('BlogBundle:Articolo');
+
+        $articoli = $repository->findByStato("ATTIVO", array('id' => 'desc'), 4);
+
+
+        return $this->render('default/contatti.html.twig', array("form" => $form, "articoli" => $articoli));
     }
 
     /**
