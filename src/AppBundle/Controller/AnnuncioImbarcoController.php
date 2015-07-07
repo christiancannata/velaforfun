@@ -88,6 +88,7 @@ class AnnuncioImbarcoController extends BaseController
 
         if ($request->isMethod('POST')) {
 
+
             $postform->handleRequest($request);
 
             if ($postform->isValid()) {
@@ -174,7 +175,6 @@ class AnnuncioImbarcoController extends BaseController
 
 
                 $response['reponse'] = $this->getErrorsAsArray($postform);
-
             }
 
             return new JsonResponse($response);
@@ -324,22 +324,36 @@ class AnnuncioImbarcoController extends BaseController
 
         if ($annuncio->getTipoAnnuncio() == "OFFRO") {
 
-            $annunci = $this->getDoctrine()
-                ->getRepository('AppBundle:AnnuncioImbarco')->findBy(
-                    array(
-                        "tipoAnnuncio" => "CERCO",
-                        "ruoloRichiesto" => $annuncio->getRuoloRichiesto(),
-                        "luogo" => $annuncio->getLuogo()
-                    ),
-                    array('id' => 'desc')
-                );
-            foreach ($annunci as $annuncio) {
+            $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:AnnuncioImbarco');
+            $query = $repository->createQueryBuilder('p')
+                ->where("p.tipoAnnuncio = 'CERCO'");
+            if ($annuncio->getLuogo() != "TUTTO") {
+                $query->andWhere("p.luogo = '".$annuncio->getLuogo()."' or p.luogo = 'TUTTO'");
 
+            }
+
+            if ($annuncio->getRuoloRichiesto() != "TUTTO") {
+                $query->andWhere("p.ruoloRichiesto = '".$annuncio->getRuoloRichiesto()."'  or p.ruoloRichiesto = 'TUTTO'");
+
+            }
+            if ($annuncio->getCosto() != "TUTTO") {
+                $query->andWhere("p.costo = '".$annuncio->getCosto()."'  or p.costo = 'TUTTO'");
+
+            }
+
+
+            $destinatari = $query->getQuery()->getResult();
+
+
+
+
+            foreach ($destinatari as $destinatario) {
                 $mailer = $this->container->get('mailer');
                 $messaggio = $mailer->createMessage()
                     ->setSubject("Annuncio imbarco [".$annuncio->getLocalita()."]")
                     ->setFrom('info@velaforfun.com')
-                    ->setTo($annuncio->getUtente()->getEmail())
+                    ->setTo($destinatario->getEmail())
+                    ->setBcc('christian1488@hotmail.it')
                     ->setBody(
                         $this->container->get('templating')->render(
                         // app/Resources/views/Emails/registrazione.html.twig

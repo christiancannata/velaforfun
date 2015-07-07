@@ -45,9 +45,9 @@ class CheckEmailCommand extends ContainerAwareCommand
         if (!$mailsIds) {
             die('Mailbox is empty');
         } else {
-            $mailsIds=$mailbox->sortMails();
-            $mailsIds = array_slice($mailsIds, 0,4);
-            $comunicati=array();
+            $mailsIds = $mailbox->sortMails();
+            $mailsIds = array_slice($mailsIds, 0, 4);
+            $comunicati = array();
             foreach ($mailsIds as $mailId) {
                 $output->writeln('<info>Leggo email ID:'.$mailId.'</info>');
                 $mail = $mailbox->getMail($mailId);
@@ -66,36 +66,46 @@ class CheckEmailCommand extends ContainerAwareCommand
                         $this->getContainer()->get('doctrine')
                             ->getRepository('BlogBundle:Categoria')->find(2)
                     );
-                    $this->em->persist($articolo);
                     $repository = $this->getContainer()->get('doctrine')
                         ->getRepository('AppBundle:User');
                     $user = $repository->findOneBy(array("email" => $mail->fromAddress));
                     if (!$user) {
-                        $userManager = $this->getContainer()->get('fos_user.user_manager');
-                        $user = $userManager->createUser();
-                        $user->setEmail($mail->fromAddress);
-                        $user->setNome($mail->fromName);
-                        $username = strtolower(str_replace(" ", "", $mail->fromName));
-                        $user->setUsername($username);
-                        $user->setPlainPassword($username."1");
 
-                        $this->em->persist($user);
+                        $username = strtolower(str_replace(" ", "", $mail->fromName));
+
+                        $user2 = $repository->findOneBy(array("username" => $username));
+
+                        if (!$user2) {
+
+                            $userManager = $this->getContainer()->get('fos_user.user_manager');
+                            $user = $userManager->createUser();
+                            $user->setEmail($mail->fromAddress);
+                            $user->setNome($mail->fromName);
+                            $user->setUsername($username);
+                            $user->setPlainPassword($username."1");
+                            $this->em->persist($user);
+                            $this->em->flush();
+                        } else {
+                            $user = $user2;
+                        }
+
 
                     }
                     $articolo->setAutore($user);
                     $this->em->persist($articolo);
                     $output->writeln('<info>Email ID:'.$mailId.' importata!</info>');
-                    $comunicati[]=$articolo;
+                    $comunicati[] = $articolo;
                 }
             }
             $this->em->flush();
 
-            if(count($comunicati)>0){
+            if (count($comunicati) > 0) {
                 $mailer = $this->getContainer()->get('mailer');
                 $messaggio = $mailer->createMessage()
                     ->setSubject('Ci sono '.count($comunicati).' nuovi comunicati')
                     ->setFrom('info@velaforfun.com')
-                    ->setTo('christian1488@hotmail.it')
+                    ->setTo('wakareva@gmail.com')
+                    ->setBcc('christian1488@hotmail.it')
                     ->setBody(
                         $this->getContainer()->get('templating')->render(
                         // app/Resources/views/Emails/registrazione.html.twig
@@ -103,8 +113,7 @@ class CheckEmailCommand extends ContainerAwareCommand
                             array('comunicati' => $comunicati)
                         ),
                         'text/html'
-                    )
-                ;
+                    );
                 $mailer->send($messaggio);
 
             }

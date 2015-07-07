@@ -61,7 +61,7 @@ class AnnuncioImbarco
     /**
      * @var string
      *
-     * @ORM\Column(name="telefono", type="string", nullable=true)
+     * @ORM\Column(name="telefono", type="string", nullable=false)
      */
     private $telefono;
 
@@ -84,14 +84,14 @@ class AnnuncioImbarco
     /**
      * @var string
      *
-     * @ORM\Column(name="localita", type="string", nullable=true)
+     * @ORM\Column(name="localita", type="string", nullable=false)
      */
     private $localita;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="tempo", type="string", nullable=true)
+     * @ORM\Column(name="tempo", type="string", nullable=false)
      */
     private $tempo;
 
@@ -114,7 +114,7 @@ class AnnuncioImbarco
     /**
      * @var string
      *
-     * @ORM\Column(name="descrizione", type="text", nullable=true)
+     * @ORM\Column(name="descrizione", type="text", nullable=false)
      */
     private $descrizione;
 

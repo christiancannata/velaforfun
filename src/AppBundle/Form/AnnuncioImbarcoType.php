@@ -17,11 +17,21 @@ class AnnuncioImbarcoType extends AbstractType
         $builder
             ->add(
                 'tipoAnnuncio',
-                'choice',
-                array('choices' => array('OFFRO' => 'Offro imbarco',"CERCO" => "Cerco imbarco"))
+                'hidden',
+                array(
+                    'data' => 'OFFRO',
+                )
+            )
+            ->add(
+                'callback',
+                'hidden',
+                array(
+                    'data' => 'redirectImbarco',
+                    'mapped'=>false
+                )
             )
             ->add('titolo')
-            ->add('referente',null,array("label"=>"Nome e Cognome"))
+            ->add('referente', null, array("label" => "Nome e Cognome"))
             ->add('telefono')
             ->add('email')
             ->add(
@@ -29,7 +39,7 @@ class AnnuncioImbarcoType extends AbstractType
                 'choice',
                 array(
                     'choices' => array(
-                        'TUTTO'=>"TUTTO",
+                        'TUTTO' => "TUTTO",
                         'NORD_ITALIA' => 'Nord Italia',
                         'SUD_ITALIA' => 'Sud Italia',
                         'CENTRO' => 'Centro',
@@ -40,7 +50,14 @@ class AnnuncioImbarcoType extends AbstractType
             ->add(
                 'tipo',
                 'choice',
-                array('choices' => array('TUTTO'=>"TUTTO",'CABINATO' => 'Cabinato', 'DERIVA' => 'Deriva', 'ALTRO' => 'Altro'))
+                array(
+                    'choices' => array(
+                        'TUTTO' => "TUTTO",
+                        'CABINATO' => 'Cabinato',
+                        'DERIVA' => 'Deriva',
+                        'ALTRO' => 'Altro'
+                    )
+                )
             )
             ->add('localita')
             ->add('tempo')
@@ -49,7 +66,7 @@ class AnnuncioImbarcoType extends AbstractType
                 'choice',
                 array(
                     'choices' => array(
-                        'TUTTO'=>"TUTTO",
+                        'TUTTO' => "TUTTO",
                         'PRODIERE' => 'Prodiere',
                         'UOMO_ALBERO' => 'Uomo Albero',
                         'PITMAN' => 'Pitman',
@@ -71,7 +88,14 @@ class AnnuncioImbarcoType extends AbstractType
             ->add(
                 'costo',
                 'choice',
-                array('choices' => array('TUTTO'=>"TUTTO",'GRATIS' => 'Gratis', 'A_PAGAMENTO' => 'A pagamento', 'PAGATO' => 'Pagato'))
+                array(
+                    'choices' => array(
+                        'TUTTO' => "TUTTO",
+                        'GRATIS' => 'Gratis',
+                        'A_PAGAMENTO' => 'A pagamento',
+                        'PAGATO' => 'Pagato'
+                    )
+                )
             )
             ->add('descrizione');
     }

@@ -152,10 +152,11 @@ class BaseController extends Controller
     public function getErrorsAsArray($form)
     {
         $errors = array();
+
         foreach ($form->getErrors() as $error) {
             $errors[] = $error->getMessage();
-        }
 
+        }
         foreach ($form->all() as $key => $child) {
             if ($err = $this->getErrorsAsArray($child)) {
                 $errors[$key] = $err;
