@@ -96,6 +96,18 @@ class User extends BaseUser implements MandantUserInterface
 
 
     /**
+     * @ORM\OneToMany(targetEntity="AnnuncioScambioPosto", mappedBy="utente")
+     **/
+    private $annuncioScambioPosto;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="AnnuncioImbarco", mappedBy="utente")
+     **/
+    private $annuncioImbarco;
+
+
+    /**
      * @ORM\OneToMany(targetEntity="CCDNForum\ForumBundle\Entity\Post", mappedBy="createdBy")
      **/
     private $messaggi;
@@ -491,5 +503,39 @@ class User extends BaseUser implements MandantUserInterface
     {
         $this->idOriginale = $idOriginale;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAnnuncioImbarco()
+    {
+        return $this->annuncioImbarco;
+    }
+
+    /**
+     * @param mixed $annuncioImbarco
+     */
+    public function setAnnuncioImbarco($annuncioImbarco)
+    {
+        $this->annuncioImbarco = $annuncioImbarco;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAnnuncioScambioPosto()
+    {
+        return $this->annuncioScambioPosto;
+    }
+
+    /**
+     * @param mixed $annuncioScambioPosto
+     */
+    public function setAnnuncioScambioPosto($annuncioScambioPosto)
+    {
+        $this->annuncioScambioPosto = $annuncioScambioPosto;
+    }
+
+
 
 }

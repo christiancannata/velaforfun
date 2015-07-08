@@ -31,8 +31,20 @@ class AnnuncioScambioPostoController extends BaseController
 
             if ($postform->isValid()) {
 
-                $annuncio = $postform->getData();
                 $em = $this->container->get('doctrine')->getManager();
+
+                $annunciUtente = $this->getDoctrine()
+                    ->getRepository('AppBundle:AnnuncioScambioPosto')->findBy(array("utente" => $this->getUser()));
+
+                foreach ($annunciUtente as $annuncioUtente) {
+
+                    $em->remove($annuncioUtente->getTopic());
+                    $em->remove($annuncioUtente);
+                }
+
+
+                $annuncio = $postform->getData();
+
 
                 $repository = $this->container->get('doctrine')
                     ->getRepository('AppBundle:User');
@@ -42,7 +54,7 @@ class AnnuncioScambioPostoController extends BaseController
                     ->getRepository('CCDNForumForumBundle:Board')->find(11);
 
                 $firstTopic = new Topic();
-                $luogoCercato=ucwords(str_replace("_"," ",strtolower($annuncio->getLuogoRicercato())));
+                $luogoCercato = ucwords(str_replace("_", " ", strtolower($annuncio->getLuogoRicercato())));
 
 
                 $firstTopic->setTitle(
@@ -141,7 +153,7 @@ class AnnuncioScambioPostoController extends BaseController
     {
 
         $annunci = $this->getDoctrine()
-            ->getRepository('AppBundle:AnnuncioScambioPosto')->findBy(array(),array('id' => 'desc'),8);
+            ->getRepository('AppBundle:AnnuncioScambioPosto')->findBy(array(), array('id' => 'desc'), 8);
         $titolo = "Annunci Scambio Posto Barca";
 
 
@@ -150,7 +162,7 @@ class AnnuncioScambioPostoController extends BaseController
 
         return $this->render(
             'AppBundle:AnnuncioScambioPosto:lista.html.twig',
-            array("annunci" => $annunci, "titolo" => $titolo,"form" => $form)
+            array("annunci" => $annunci, "titolo" => $titolo, "form" => $form)
         );
 
     }
@@ -185,10 +197,23 @@ class AnnuncioScambioPostoController extends BaseController
 
                     $user = $this->getUser();
 
-                    $luogoCercato=ucwords(str_replace("_"," ",strtolower($annuncio->getLuogoRicercato())));
+                    $em = $this->container->get('doctrine')->getManager();
+
+                    $annunciUtente = $this->getDoctrine()
+                        ->getRepository('AppBundle:AnnuncioScambioPosto')->findBy(array("utente" => $user));
+
+                    foreach ($annunciUtente as $annuncioUtente) {
+
+                        $em->remove($annuncioUtente->getTopic());
+                        $em->remove($annuncioUtente);
+                    }
+
+                    $luogoCercato = ucwords(str_replace("_", " ", strtolower($annuncio->getLuogoRicercato())));
 
                     $annuncio->setUtente($user);
-                    $annuncio->setDescrizione("Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$luogoCercato);
+                    $annuncio->setDescrizione(
+                        "Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$luogoCercato
+                    );
                     $firstTopic = new Topic();
                     $firstTopic->setTitle(
                         "Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$luogoCercato
@@ -262,7 +287,6 @@ class AnnuncioScambioPostoController extends BaseController
 
 
             $annunci = $query->getQuery()->getResult();
-
 
 
             $serializer = $this->container->get('jms_serializer');

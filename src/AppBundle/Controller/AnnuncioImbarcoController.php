@@ -257,8 +257,19 @@ class AnnuncioImbarcoController extends BaseController
 
 
                     $annuncio->setTopic($firstTopic);*/
+
+
+                    $annunciUtente = $this->getDoctrine()
+                        ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array("utente"=>$user,"tipoAnnuncio"=>"CERCO"));
+
+                    foreach($annunciUtente as $annuncioUtente){
+                        $em->remove($annuncioUtente);
+                    }
+
                     $em->persist($annuncio);
                     $em->flush();
+
+
 
 
                     $this->allertaAnnunci($annuncio);
