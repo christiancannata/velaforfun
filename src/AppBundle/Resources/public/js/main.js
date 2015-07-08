@@ -28,8 +28,10 @@ function vota(voto){
         url: "vota/"+voto,
         success: function (response) {
             if (response.success == true) {
-                $(".vota-"+voto).html("Voto inserito!");
+             //   $(".vota-"+voto).html("Voto inserito!");
+                $("#modalVoto").modal();
                 $("#voto-"+voto).html(parseInt($("#voto-"+voto).html())+1);
+
             } else {
             }
             $("button").removeAttr("disabled");

@@ -87,7 +87,8 @@
                                                                 <button style="float:right"
                                                                         class="btn btn-primary vota-{{ barca.id }}"
                                                                         onclick="vota({{ barca.id }})"
-                                                                        data-id="{{ barca.id }}">Vota
+                                                                        data-id="{{ barca.id }}"><i class="fa fa-star"></i>
+                                                                    Vota questo nome
                                                                 </button>
                                                             </td>
                                                         </tr>
@@ -172,8 +173,36 @@
         </div>
         <!-- fine contenuto -->
 
+
+
+
+
+
+
     </div>
 
+
+
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalVoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Voto inserito correttamente</h4>
+                </div>
+                <div class="modal-body">
+
+                             <p>Complimenti, il tuo voto è stato inserito correttamente!</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 
