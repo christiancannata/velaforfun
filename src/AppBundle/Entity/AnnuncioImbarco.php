@@ -46,7 +46,7 @@ class AnnuncioImbarco
     /**
      * @var string
      *
-     * @ORM\Column(name="titolo", type="string", nullable=true)
+     * @ORM\Column(name="titolo", type="string", nullable=false)
      */
     private $titolo;
 

@@ -55,6 +55,21 @@ function getUrlParameter(sParam)
 jQuery(document).ready(function ($) {
 
 
+
+
+    if($("#fos_user_registration_form_profilePictureFile").length>0){
+        var html='<div class="form-group"> <label class="control-label required" for="blogbundle_articolo_profilePictureFile">Carica un Avatar</label> <span class="input-group-btn"> <span class="btn btn-primary btn-file">Sfoglia… <input type="file" name="fos_user_registration_form[profilePictureFile]" id="fos_user_registration_form_profilePictureFile"> </span> </span> <input type="text" readonly="" class="form-control"> </div>';
+        $("#fos_user_registration_form_profilePictureFile").parent().html(html);
+    }
+
+    if($("#app_user_registration_profilePictureFile").length>0){
+        var html='<div class="form-group"> <label class="control-label required" for="blogbundle_articolo_profilePictureFile">Carica un Avatar</label> <span class="input-group-btn"> <span class="btn btn-primary btn-file">Sfoglia… <input type="file" name="app_user_registration[profilePictureFile]" id="app_user_registration_profilePictureFile"> </span> </span> <input type="text" readonly="" class="form-control"> </div>';
+        $("#app_user_registration_profilePictureFile").parent().html(html);
+    }
+
+
+
+
     $(document).on('change', '.btn-file :file', function() {
         var input = $(this),
             numFiles = input.get(0).files ? input.get(0).files.length : 1,
@@ -314,9 +329,11 @@ jQuery(document).ready(function ($) {
 
 });
 function redirectScambioPosto(response) {
+    if(typeof response.response!="undefined")
     location.href = '/forum/velaforfun/topic/' + response.response;
 }
 function redirectImbarco(response) {
+     if(typeof response.response!="undefined")
      location.href = '/forum/velaforfun/topic/' + response.response;
 }
 

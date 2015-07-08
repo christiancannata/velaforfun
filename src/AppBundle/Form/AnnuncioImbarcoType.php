@@ -27,7 +27,8 @@ class AnnuncioImbarcoType extends AbstractType
                 'hidden',
                 array(
                     'data' => 'redirectImbarco',
-                    'mapped'=>false
+                    'mapped'=>false,
+                    'attr'=>array("class"=> "callback")
                 )
             )
             ->add('titolo')
@@ -97,6 +98,7 @@ class AnnuncioImbarcoType extends AbstractType
                     )
                 )
             )
+
             ->add('descrizione');
     }
 
