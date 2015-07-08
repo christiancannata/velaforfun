@@ -184,8 +184,8 @@
 
                             <div class="row clearfix">
                                 <div class="col-md-12 column">
-                                    {{ user.annuncioImbarco|length }}
-                                    {{ user.annuncioScambioPosto|length }}
+
+
                                 </div>
 
                             </div>
@@ -229,11 +229,16 @@
 
                             <div class="row clearfix">
                                 <div class="col-md-12 column">
+                                    <div class="scroll-pane">
+                                        <p>
                                     {% for attracco in user.attracchi %}
                                         - Attraccato a <a
                                             href="/porti/{{ attracco.porto.permalink }}">{{ attracco.porto.nome }}</a> il {{ attracco.timestamp|date("d-m-Y H:i") }}
                                         <br>
                                     {% endfor %}
+                                        </p>
+                                    </div>
+
                                 </div>
 
                             </div>
