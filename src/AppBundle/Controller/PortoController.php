@@ -55,6 +55,7 @@ class PortoController extends BaseController
     public function jsonlistAction(Request $request)
     {
 
+
         $json = array();
         $res = $this->cJsonGet();
         foreach ($res as $result) {
@@ -67,6 +68,38 @@ class PortoController extends BaseController
 
         return new JsonResponse($json);
     }
+
+
+    /**
+     * @Route( "select_list", name="select_list_porto" )
+     * @Template()
+     */
+    public function selectListAction(Request $request)
+    {
+
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $repo = $em->getRepository("AppBundle:Porto");
+
+        $regioni = $repo->createQueryBuilder('p')
+            ->groupBy("p.regione")
+            ->orderBy("p.regione")
+            ->getQuery();
+
+        $regioni = $regioni->getResult();
+        $arrRegioni = array();
+        foreach ($regioni as $regione) {
+
+            $porti = $repo->findByRegione($regione->getRegione());
+            $arrRegioni[] = array(
+                "nome" => $regione->getRegione(),
+                "porti" => $porti
+            );
+        }
+
+        return $this->render('AppBundle:Porto:selectList.html.twig', array("regioni" =>$arrRegioni));
+    }
+
 
     /**
      * @Route( "crea", name="create_porto" )
@@ -295,12 +328,14 @@ class PortoController extends BaseController
      */
     public function localizzamiAction(Request $request)
     {
-        $utils= new MenuVelaExtension();
+        $utils = new MenuVelaExtension();
         $client = $this->container->get('weather.client');
 
 
         $request = $client->get(
-            '/data/2.5/weather?lat='.$request->get("lat").'&lon='.$request->get("long").'&APPID=8704a88837e9eabcf7b50de51728a0c0&units=metric'
+            '/data/2.5/weather?lat='.$request->get("lat").'&lon='.$request->get(
+                "long"
+            ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&units=metric'
         );
 
         $response = $client->send($request);
@@ -308,8 +343,8 @@ class PortoController extends BaseController
 
         $meteo = json_decode($response->getBody(true));
 
-        $icon=$utils->getMeteo($meteo->weather[0]->icon);
-        $meteo->weather[0]->icon=$icon;
+        $icon = $utils->getMeteo($meteo->weather[0]->icon);
+        $meteo->weather[0]->icon = $icon;
         $data = array("geoposition" => $meteo);
 
         return new JsonResponse($data);

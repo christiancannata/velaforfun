@@ -1,0 +1,7 @@
+{% for regione in regioni %}
+    <optgroup label="{{ regione.nome }}">
+    {% for porto in regione.porti %}
+        <option value="{{ porto.id }}">{{ porto.nome }}</option>
+    {% endfor %}
+    </optgroup>
+{% endfor %}
