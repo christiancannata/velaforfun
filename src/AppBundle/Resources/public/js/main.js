@@ -29,6 +29,7 @@ function vota(voto){
         success: function (response) {
             if (response.success == true) {
                 $(".vota-"+voto).html("Voto inserito!");
+                $("#voto-"+voto).html(parseInt($("#voto-"+voto).html())+1);
             } else {
             }
             $("button").removeAttr("disabled");

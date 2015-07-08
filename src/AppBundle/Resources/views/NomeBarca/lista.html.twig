@@ -82,7 +82,7 @@
                                                     {% for barca in lettera %}
                                                         <tr>
                                                             <td><a href="/codice-internazionale/{{ barca.nome }}" target="_blank">{{ barca.nome }}</a></td>
-                                                            <td>{{ barca.punti }} </td>
+                                                            <td><span id="voto-{{ barca.id }}">{{ barca.punti }}</span> </td>
                                                             <td>
                                                                 <button style="float:right"
                                                                         class="btn btn-primary vota-{{ barca.id }}"
