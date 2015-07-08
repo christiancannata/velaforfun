@@ -1945,15 +1945,14 @@ label[for=Post_subscribe] {
 
 .number {
     border-radius: 50%;
-
-    width: 36px;
-    height: 36px;
+    width: 33px;
+    height: 33px;
     padding: 8px;
     float: left;
     color: white;
     text-align: center;
-    line-height: 26px;
-    font-size: 32px;
+    line-height: 23px;
+    font-size: 28px;
 }
 
 .row-number {
