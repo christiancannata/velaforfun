@@ -44,7 +44,7 @@ class AnnuncioImbarcoController extends BaseController
     {
 
         $annunci = $this->getDoctrine()
-            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array(), array('id' => 'desc'), 8);
+            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array("tipo"=>"OFFRO"), array('id' => 'desc'), 8);
         $titolo = "Annunci Imbarco";
 
 
@@ -193,7 +193,7 @@ class AnnuncioImbarcoController extends BaseController
 
 
         $annunci = $this->getDoctrine()
-            ->getRepository('AppBundle:AnnuncioImbarco')->findAll();
+            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array("tipoAnnuncio"=>"OFFRO"),array(),8);
 
         $postform = $this->createForm(new AnnuncioImbarcoType());
 
@@ -211,12 +211,12 @@ class AnnuncioImbarcoController extends BaseController
                     $titolo = str_replace("cerco", "", $annuncio->getTitolo());
                     $titolo = str_replace("offro", "", $annuncio->getTitolo());
 
-                    $firstTopic = new Topic();
+                  /*  $firstTopic = new Topic();
                     $firstTopic->setTitle(
                         $annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo(
                         )." a ".$annuncio->getLuogo()
                     );
-                    $firstTopic->setCachedViewCount(1);
+                    $firstTopic->setCachedViewCount(1);*/
                     $board = null;
                     $board = $this->container->get('doctrine')
                         ->getRepository('CCDNForumForumBundle:Board')->find(19);
@@ -228,7 +228,7 @@ class AnnuncioImbarcoController extends BaseController
                     $annuncio->setEmail($user->getEmail());
                     $annuncio->setUtente($user);
 
-                    $firstTopic->setBoard(
+                  /*  $firstTopic->setBoard(
                         $board
                     );
 
@@ -242,7 +242,7 @@ class AnnuncioImbarcoController extends BaseController
                     $post->setCreatedBy(
                         $user
                     );
-
+*/
 
                     $annuncio->setDescrizione(
                         "Cerco ".$annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo(
@@ -250,26 +250,26 @@ class AnnuncioImbarcoController extends BaseController
                     );
 
 
-                    $post->setBody($annuncio->getDescrizione());
+                  /*  $post->setBody($annuncio->getDescrizione());
 
                     $em->persist($post);
                     $em->flush();
 
 
-                    $annuncio->setTopic($firstTopic);
+                    $annuncio->setTopic($firstTopic);*/
                     $em->persist($annuncio);
                     $em->flush();
 
 
                     $this->allertaAnnunci($annuncio);
 
-                    $firstTopic->setFirstPost($post);
+                    /* $firstTopic->setFirstPost($post);
                     $firstTopic->setLastPost($post);
                     $em->merge($firstTopic);
                     $board->setLastPost($post);
                     $em->persist($board);
                     $em->flush();
-
+*/
 
                 } else {
                     die(var_dump($this->getErrorsAsArray($postform)));

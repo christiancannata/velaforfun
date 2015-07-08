@@ -2193,7 +2193,9 @@ input[type=text],input[type=email],input[type=password]{
     line-height: 1.42857;
     text-indent: 5px;
 }
-
+textarea{
+    border:1px solid #ccc !important;
+}
 .btn-file {
     position: relative;
     overflow: hidden;
