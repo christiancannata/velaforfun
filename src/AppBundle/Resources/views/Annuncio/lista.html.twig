@@ -94,7 +94,7 @@
                             </tbody>
                         </table>
 
-                        <button  style="margin-top: 12px;" type="button" class="btn btn-primary hvr-sweep-to-right "
+                        <button  style="margin-top: 12px;margin-bottom: 12px;" type="button" class="btn btn-primary hvr-sweep-to-right "
                                  onclick="location.href='/forum/velaforfun/board/6'">
                             Visualizza tutti gli annunci
                         </button>
@@ -145,6 +145,9 @@
                             <div class="form-group"><label for="appbundle_annuncio_referente"
                                                            class="control-label required">Nome e Cognome</label><input
                                         type="text" class="form-control" required="required"
+                                        {% if app.user is defined %}
+                                            value="{{ app.user.nome }} {{ app.user.cognome }}"
+                                        {% endif %}
                                         name="appbundle_annuncio[referente]" id="appbundle_annuncio_referente"></div>
 
 
@@ -162,10 +165,17 @@
                                                            class="control-label required">Titolo</label><input
                                         type="text" class="form-control" required="required"
                                         name="appbundle_annuncio[titolo]" id="appbundle_annuncio_titolo"></div>
+
                             <div class="form-group"><label for="appbundle_annuncio_email"
                                                            class="control-label required">Email</label><input
                                         type="email" class="form-control" required="required"
-                                        name="appbundle_annuncio[email]" id="appbundle_annuncio_email"></div>
+                                        name="appbundle_annuncio[email]" id="appbundle_annuncio_email"
+                                        {% if app.user is defined %}
+                                            value="{{ app.user.email }}" readonly
+                                        {% endif %}
+                                        ></div>
+
+
 
                             <div class="form-group"><label for="appbundle_annuncio_telefono"
                                                            class="control-label required">Telefono</label><input

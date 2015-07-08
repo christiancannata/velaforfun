@@ -17,18 +17,27 @@ class NomeBarcaType extends AbstractType
         $builder
             ->add('nome')
             ->add('punti')
-
-        ;
+            ->add(
+                'callback',
+                'hidden',
+                array(
+                    'data' => 'checkNomeBarca',
+                    'mapped' => false,
+                    'attr' => array("class" => "callback")
+                )
+            );
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\NomeBarca'
-        ));
+        $resolver->setDefaults(
+            array(
+                'data_class' => 'AppBundle\Entity\NomeBarca'
+            )
+        );
     }
 
     /**

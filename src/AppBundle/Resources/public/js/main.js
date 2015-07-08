@@ -344,6 +344,9 @@ function redirectRicetta(response) {
     location.href = '/archivio/' + response.response;
 }
 
+function checkNomeBarca(response){
+        console.log(response);
+}
 
 function setRisultatiAnnunciImbarco(response) {
     var risultati = "";

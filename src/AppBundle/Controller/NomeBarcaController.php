@@ -20,7 +20,53 @@ class NomeBarcaController extends BaseController
      */
     public function createAction(Request $request)
     {
-        return $this->postForm($request, new NomeBarcaType());
+        $postform = $this->createForm(new NomeBarcaType());
+
+        if ($request->isMethod('POST')) {
+
+            $postform->handleRequest($request);
+
+            if ($postform->isValid()) {
+
+
+                /*
+                 * $data['title']
+                 * $data['body']
+                 */
+                $data = $postform->getData();
+
+                $em = $this->getDoctrine()->getManager();
+
+                if(!$em->getRepository('AppBundle:NomeBarca')->findByNome($data->getNome())){
+                    $em->persist($data);
+                    $em->flush();
+
+
+                    $response['success'] = true;
+                    $response['response'] = $data->getId();
+                }else{
+                    $response['success'] = false;
+                    $response['response'] = "Il nome della barca è gia esistente!";
+                }
+
+
+
+
+            } else {
+                $response['success'] = false;
+
+
+                $response['reponse'] = $this->getErrorsAsArray($postform);
+
+            }
+
+            return new JsonResponse($response);
+        }
+
+        return $this->render(
+            'AppBundle:Crud:create.html.twig',
+            array('form' => $postform->createView(), "titolo" => "Crea ".$this->entity)
+        );
     }
 
 
