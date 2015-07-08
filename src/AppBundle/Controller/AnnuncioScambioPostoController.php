@@ -142,7 +142,7 @@ class AnnuncioScambioPostoController extends BaseController
 
         $annunci = $this->getDoctrine()
             ->getRepository('AppBundle:AnnuncioScambioPosto')->findBy(array(),array('id' => 'desc'),8);
-        $titolo = "Annunci Imbarco";
+        $titolo = "Annunci Scambio Posto Barca";
 
 
         $form['vars'] = array("full_name" => "appbundle_annuncioscambioposto");
@@ -279,40 +279,6 @@ class AnnuncioScambioPostoController extends BaseController
 
     private function allertaAnnunci($annuncio)
     {
-/*
-        if ($annuncio->getTipoAnnuncio() == "CERCO") {
-
-            $annunci = $this->getDoctrine()
-                ->getRepository('AppBundle:AnnuncioImbarco')->findBy(
-                    array(
-                        "tipoAnnuncio" => "OFFRO",
-                        "ruoloRichiesto" => $annuncio->getRuoloRichiesto(),
-                        "luogo" => $annuncio->getLuogo()
-                    ),
-                    array('id' => 'desc')
-                );
-            foreach ($annunci as $annuncio) {
-
-                $mailer = $this->getContainer()->get('mailer');
-                $messaggio = $mailer->createMessage()
-                    ->setSubject("Annuncio imbarco [".$annuncio->getLocalita()."]")
-                    ->setFrom('info@velaforfun.com')
-                    ->setTo($annuncio->getUtente()->getEmail())
-                    ->setBody(
-                        $this->getContainer()->get('templating')->render(
-                        // app/Resources/views/Emails/registrazione.html.twig
-                            'Emails/annuncio_imbarco.html.twig',
-                            array('annuncio' => $annuncio)
-                        ),
-                        'text/html'
-                    );
-                $mailer->send($messaggio);
-
-            }
-
-        }
-
-*/
     }
 
 }

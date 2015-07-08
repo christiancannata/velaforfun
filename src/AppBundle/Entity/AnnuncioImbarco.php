@@ -39,6 +39,7 @@ class AnnuncioImbarco
      * @var string
      *
      * @ORM\Column(name="email", type="string", nullable=false)
+     * @Assert\Email()
      */
     private $email;
 

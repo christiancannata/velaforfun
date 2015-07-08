@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Annuncio.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Annuncio.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/AnnuncioImbarco.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/AnnuncioImbarco.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioImbarcoController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioImbarcoController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/AnnuncioImbarcoType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/AnnuncioImbarcoType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioScambioPostoController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioScambioPostoController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/NomeBarcaController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/NomeBarcaController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/NomeBarcaType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/NomeBarcaType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Partner.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Partner.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/js/form.js" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/js/form.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Annuncio/lista.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Annuncio/lista.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioImbarco/lista.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioImbarco/lista.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/lista.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/lista.html.twig" />
@@ -44,10 +47,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.098039" vertical-offset="7009" max-vertical-offset="8430">
+              <caret line="496" column="29" selection-start-line="496" selection-start-column="29" selection-end-line="496" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.6666665" vertical-offset="5010" max-vertical-offset="8055">
+            <state vertical-scroll-proportion="0.0" vertical-offset="5010" max-vertical-offset="8055">
               <caret line="346" column="23" selection-start-line="346" selection-start-column="23" selection-end-line="346" selection-end-column="23" />
               <folding>
                 <marker date="1436356155000" expanded="true" signature="13791:13806" placeholder="..." />
@@ -56,98 +69,83 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lista.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioImbarco/lista.html.twig">
+      <file leaf-file-name="form.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5" vertical-offset="1515" max-vertical-offset="6225">
-              <caret line="113" column="77" selection-start-line="113" selection-start-column="77" selection-end-line="113" selection-end-column="77" />
+            <state vertical-scroll-proportion="0.43445122" vertical-offset="15" max-vertical-offset="1020">
+              <caret line="20" column="90" selection-start-line="20" selection-start-column="90" selection-end-line="20" selection-end-column="90" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NomeBarcaController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/NomeBarcaController.php">
+      <file leaf-file-name="AnnuncioImbarcoController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioImbarcoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.375" vertical-offset="312" max-vertical-offset="2565">
-              <caret line="47" column="48" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="48" />
+            <state vertical-scroll-proportion="-5.1372547" vertical-offset="398" max-vertical-offset="5565">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnnuncioScambioPostoController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioScambioPostoController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.7647057" vertical-offset="3474" max-vertical-offset="4230">
+              <caret line="266" column="0" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="segnalazioni.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.0" vertical-offset="3210" max-vertical-offset="4620">
+              <caret line="222" column="60" selection-start-line="222" selection-start-column="60" selection-end-line="222" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Annuncio.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Annuncio.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.5" vertical-offset="300" max-vertical-offset="4320">
+              <caret line="48" column="22" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="22" />
               <folding>
-                <element signature="e#40#73#0#PHP" expanded="true" />
+                <element signature="e#36#68#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NomeBarcaType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/NomeBarcaType.php">
+      <file leaf-file-name="AnnuncioImbarco.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/AnnuncioImbarco.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="810">
-              <caret line="23" column="45" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="45" />
+            <state vertical-scroll-proportion="-8.458333" vertical-offset="352" max-vertical-offset="6855">
+              <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lista.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Annuncio/lista.html.twig">
+      <file leaf-file-name="Partner.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Partner.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.8333335" vertical-offset="1237" max-vertical-offset="3585">
-              <caret line="96" column="78" selection-start-line="96" selection-start-column="33" selection-end-line="96" selection-end-column="78" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lista.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/lista.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29746836" vertical-offset="802" max-vertical-offset="6765">
-              <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
+            <state vertical-scroll-proportion="-8.666667" vertical-offset="602" max-vertical-offset="4275">
+              <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnnuncioImbarcoType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/AnnuncioImbarcoType.php">
+      <file leaf-file-name="Porto.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Porto.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.75" vertical-offset="0" max-vertical-offset="1920">
-              <caret line="32" column="13" selection-start-line="24" selection-start-column="12" selection-end-line="32" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PaginaStaticaType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/PaginaStaticaType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="765">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="crea.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioImbarco/crea.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="1125">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnnuncioType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/AnnuncioType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="795">
-              <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+            <state vertical-scroll-proportion="-12.416667" vertical-offset="1112" max-vertical-offset="6285">
+              <caret line="96" column="7" selection-start-line="96" selection-start-column="7" selection-end-line="96" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -161,10 +159,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Video/dettagliGalleria.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/VideoController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/CCDNForumForumBundle/views/User/Topic/reply.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Barca.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/NomeBarca.php" />
@@ -185,7 +179,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Command/CheckEmailCommand.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/form.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/BaseController.php" />
         <option value="$PROJECT_DIR$/app/Resources/CCDNForumForumBundle/translations/CCDNForumForumBundle.it.yml" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Controller/ArticoloController.php" />
@@ -200,11 +193,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/profilo-utente.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/AnnuncioImbarco.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/AnnuncioImbarcoType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioImbarcoController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioImbarco/crea.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/NomeBarcaController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/NomeBarcaType.php" />
@@ -212,6 +202,14 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Annuncio/lista.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioImbarco/lista.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/lista.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioImbarcoController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioScambioPostoController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Annuncio.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/AnnuncioImbarco.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Partner.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Porto.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/form.js" />
       </list>
     </option>
   </component>
@@ -1278,7 +1276,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="last_opened_file_path" value="/private/var/www/toner" />
-    <property name="SearchEverywhereHistoryKey" value="AnnuncioIm&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/AnnuncioImbarco.php&#10;main&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;style&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/style.css&#10;base&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/base.html.twig&#10;profilo-utente&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;main.&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;form.js&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/form.js&#10;index.&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/index.html.twig&#10;contatt&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/contatti.html.twig&#10;rice&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/ricette.html.twig&#10;chi-siamo.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/chi-siamo.html.twig&#10;post-forum-partial.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/post-forum-partial.html.twig&#10;redirect&#9;null&#9;null&#10;index&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/index.html.twig&#10;dettag&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;bas&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/base.html.twig&#10;h&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/hover-min.css&#10;hover&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/hover-min.css&#10;annuncio&#9;null&#9;null&#10;main.js&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;User&#9;null&#9;null&#10;item&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_head.html.twig&#10;body_co&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/body_content.html.twig&#10;item_&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_body.html.twig&#10;annu&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/AnnuncioController.php&#10;video&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/VideoController.php&#10;dettagli&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Video/dettagliGalleria.html.twig&#10;dettagliGa&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig&#10;jquery.morse.js&#9;FILE&#9;file:///var/www/velaforfun/web/bundles/app/js/jquery.morse.js&#10;profi&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;AnnuncioSca&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/AnnuncioScambioPostoController.php&#10;reda&#9;FILE&#9;file:///var/www/velaforfun/web/redactor/redactor.js&#10;Defau&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/DefaultController.php&#10;transcript.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Topic/Partial/transcript.html.twig&#10;post_preview.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/post_preview.html.twig&#10;Subscriber&#9;null&#9;null&#10;nodi&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Nodo/nodi.html.twig&#10;AnnuncioScambioPosto&#9;null&#9;null&#10;item_post_head.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_head.html.twig&#10;item_post.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post.html.twig&#10;styl&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/style.css&#10;color.&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/colori.css&#10;color.s&#9;null&#9;null&#10;style.&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/style.css&#10;nnuncio_imbarco.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/Emails/annuncio_imbarco.html.twig&#10;Video&#9;null&#9;null&#10;OldR&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/EventListener/OldRoutingRedirectListener.php&#10;Pagin&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/PaginaStatica.php&#10;dettagliGalleria&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig&#10;gallerie&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Video/gallerie.html.twig" />
+    <property name="SearchEverywhereHistoryKey" value="form&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/form.js&#10;mai&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;Subscriber&#9;null&#9;null&#10;AnnuncioIm&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/AnnuncioImbarco.php&#10;main&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;style&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/style.css&#10;base&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/base.html.twig&#10;profilo-utente&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;main.&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;form.js&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/form.js&#10;index.&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/index.html.twig&#10;contatt&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/contatti.html.twig&#10;rice&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/ricette.html.twig&#10;chi-siamo.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/chi-siamo.html.twig&#10;post-forum-partial.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/post-forum-partial.html.twig&#10;redirect&#9;null&#9;null&#10;index&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/index.html.twig&#10;dettag&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;bas&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/base.html.twig&#10;h&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/hover-min.css&#10;hover&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/hover-min.css&#10;annuncio&#9;null&#9;null&#10;main.js&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;User&#9;null&#9;null&#10;item&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_head.html.twig&#10;body_co&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/body_content.html.twig&#10;item_&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_body.html.twig&#10;annu&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/AnnuncioController.php&#10;video&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/VideoController.php&#10;dettagli&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Video/dettagliGalleria.html.twig&#10;dettagliGa&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig&#10;jquery.morse.js&#9;FILE&#9;file:///var/www/velaforfun/web/bundles/app/js/jquery.morse.js&#10;profi&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;AnnuncioSca&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/AnnuncioScambioPostoController.php&#10;reda&#9;FILE&#9;file:///var/www/velaforfun/web/redactor/redactor.js&#10;Defau&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/DefaultController.php&#10;transcript.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Topic/Partial/transcript.html.twig&#10;post_preview.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/post_preview.html.twig&#10;nodi&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Nodo/nodi.html.twig&#10;AnnuncioScambioPosto&#9;null&#9;null&#10;item_post_head.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_head.html.twig&#10;item_post.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post.html.twig&#10;styl&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/style.css&#10;color.&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/colori.css&#10;color.s&#9;null&#9;null&#10;style.&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/style.css&#10;nnuncio_imbarco.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/Emails/annuncio_imbarco.html.twig&#10;Video&#9;null&#9;null&#10;OldR&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/EventListener/OldRoutingRedirectListener.php&#10;Pagin&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/PaginaStatica.php" />
     <property name="FullScreen" value="true" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
@@ -1452,7 +1450,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.213253" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16024096" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16024096" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21445782" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1504,46 +1502,11 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/PortoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="26.941177" vertical-offset="4224" max-vertical-offset="5115">
-          <caret line="200" column="61" selection-start-line="200" selection-start-column="60" selection-end-line="200" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Twig/Extension/MenuVelaExtension.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3880597" vertical-offset="1641" max-vertical-offset="2355">
-          <caret line="130" column="43" selection-start-line="130" selection-start-column="43" selection-end-line="130" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/AppBundle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="627">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/CCDNForumForumBundle/views/User/Post/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="645">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.25" vertical-offset="795" max-vertical-offset="3720">
@@ -1604,13 +1567,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34046346" vertical-offset="2854" max-vertical-offset="4815">
           <caret line="204" column="32" selection-start-line="204" selection-start-column="32" selection-end-line="204" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5882353" vertical-offset="0" max-vertical-offset="750">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1714,16 +1670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3690" max-vertical-offset="8430">
-          <caret line="255" column="8" selection-start-line="255" selection-start-column="8" selection-end-line="259" selection-end-column="0" />
-          <folding>
-            <marker date="1436213575000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..cc_forum_post..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.041666" vertical-offset="746" max-vertical-offset="1380">
@@ -1772,37 +1718,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/AnnuncioImbarco.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.375" vertical-offset="195" max-vertical-offset="6840">
-          <caret line="48" column="63" selection-start-line="48" selection-start-column="63" selection-end-line="48" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.444445" vertical-offset="32550" max-vertical-offset="34365">
           <caret line="2196" column="27" selection-start-line="2196" selection-start-column="27" selection-end-line="2196" selection-end-column="27" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioImbarcoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.875" vertical-offset="4170" max-vertical-offset="5565">
-          <caret line="305" column="30" selection-start-line="305" selection-start-column="30" selection-end-line="305" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.75" vertical-offset="3012" max-vertical-offset="4620">
-          <caret line="226" column="45" selection-start-line="226" selection-start-column="45" selection-end-line="226" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1859,16 +1779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6666665" vertical-offset="5010" max-vertical-offset="8055">
-          <caret line="346" column="23" selection-start-line="346" selection-start-column="23" selection-end-line="346" selection-end-column="23" />
-          <folding>
-            <marker date="1436356155000" expanded="true" signature="13791:13806" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/NomeBarcaType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="810">
@@ -1897,8 +1807,100 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/lista.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29746836" vertical-offset="802" max-vertical-offset="6765">
+        <state vertical-scroll-proportion="-30.625" vertical-offset="255" max-vertical-offset="6765">
           <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioImbarcoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.1372547" vertical-offset="398" max-vertical-offset="5565">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioScambioPostoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.7647057" vertical-offset="3474" max-vertical-offset="4230">
+          <caret line="266" column="0" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/SegnalazionePortolano/segnalazioni.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0" vertical-offset="3210" max-vertical-offset="4620">
+          <caret line="222" column="60" selection-start-line="222" selection-start-column="60" selection-end-line="222" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Annuncio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.5" vertical-offset="300" max-vertical-offset="4320">
+          <caret line="48" column="22" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="22" />
+          <folding>
+            <element signature="e#36#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/AnnuncioImbarco.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.458333" vertical-offset="352" max-vertical-offset="6855">
+          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Partner.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.666667" vertical-offset="602" max-vertical-offset="4275">
+          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Porto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.416667" vertical-offset="1112" max-vertical-offset="6285">
+          <caret line="96" column="7" selection-start-line="96" selection-start-column="7" selection-end-line="96" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Newsletter/Subscriber.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41860464" vertical-offset="0" max-vertical-offset="660">
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.098039" vertical-offset="7009" max-vertical-offset="8430">
+          <caret line="496" column="29" selection-start-line="496" selection-start-column="29" selection-end-line="496" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5010" max-vertical-offset="8055">
+          <caret line="346" column="23" selection-start-line="346" selection-start-column="23" selection-end-line="346" selection-end-column="23" />
+          <folding>
+            <marker date="1436356155000" expanded="true" signature="13791:13806" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43445122" vertical-offset="15" max-vertical-offset="1020">
+          <caret line="20" column="90" selection-start-line="20" selection-start-column="90" selection-end-line="20" selection-end-column="90" />
           <folding />
         </state>
       </provider>

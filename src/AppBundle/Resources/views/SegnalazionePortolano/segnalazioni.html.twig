@@ -220,13 +220,13 @@
 
                          <label for="descrizione">Latitudine:</label>
 
-                            <input required type="text" class="form-control" name="appbundle_segnalazioneportolano[latitudine]"
+                            <input pattern="-?\d{1,3}\.\d+" required type="text" class="form-control" name="appbundle_segnalazioneportolano[latitudine]"
                                    placeholder="Inserisci la coordinata"
                                    id="latitudine" aria-describedby="basic-addon1">
                                    </div>
                                    <div class="form-group">
                            <label for="longitudine">Longitudine:</label>
-                            <input required type="text" class="form-control" name="appbundle_segnalazioneportolano[longitudine]"
+                            <input pattern="-?\d{1,3}\.\d+" required type="text" class="form-control" name="appbundle_segnalazioneportolano[longitudine]"
                                    placeholder="Inserisci la coordinata"
                                    id="longitudine" aria-describedby="basic-addon1">
                         <input type="hidden" name="appbundle_segnalazioneportolano[utente]" value='{{ app.user.id }}'>
