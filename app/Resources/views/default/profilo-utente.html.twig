@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+Profilo di {{ user.username }}
+{% endblock %}
+
+
 {% block body %}
 
     <div class="row clearfix">
@@ -67,7 +72,7 @@
                             <div class="col-md-6 column">
                                 <strong>Username:</strong> {{ user.username }}<br>
                                 <strong>Data iscrizione:</strong> {{ user.timestamp|date("d-m-Y") }}<br>
-                                <strong>Numero post:</strong> {{ user.username }}<br>
+                                <strong>Numero post:</strong> {{ user.messaggi|length }}<br>
 
                             </div>
                         </div>
