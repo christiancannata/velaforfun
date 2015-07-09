@@ -8,11 +8,19 @@
     <script language="javascript">
         $(document).ready(function () {
             $('table').dataTable({
+                "order": [[ 1, 'desc' ]],
                 "bFilter": false, "bLengthChange": false, "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.7/i18n/Italian.json"
                 },
                 "sDom": '<lf<t>ip>'
             });
+
+            if(getUrlParameter("lettera")){
+                var lettera=getUrlParameter("lettera");
+                $("#"+lettera).click();
+                goToByScroll(lettera);
+            }
+
         });
     </script>
 {% endblock %}
@@ -51,7 +59,7 @@
                             <div class="panel panel-primary " style="border-radius: 0px">
                                 <div class="panel-heading background-celeste" style="border-radius: 0px">
                                     <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        <a id="{{ key }}" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
                                            href="#pannello-{{ loop.index }}"><h2
                                                     style="color:white;width:100%">{{ key }}</h2></a>
                                     </h4>
