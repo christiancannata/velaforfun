@@ -60,12 +60,12 @@ jQuery(document).ready(function ($) {
 
 
 
-    if($("#fos_user_registration_form_profilePictureFile").length>0){
+    if($("#fos_user_registration_form_profilePictureFile").length>0 && $(".hwi_oauth_registration_register").length==0){
         var html='<div class="form-group"> <label class="control-label required" for="blogbundle_articolo_profilePictureFile">Carica un Avatar</label> <span class="input-group-btn"> <span class="btn btn-primary btn-file">Sfoglia… <input type="file" name="fos_user_registration_form[profilePictureFile]" id="fos_user_registration_form_profilePictureFile"> </span> </span> <input type="text" readonly="" class="form-control"> </div>';
         $("#fos_user_registration_form_profilePictureFile").parent().html(html);
     }
 
-    if($("#app_user_registration_profilePictureFile").length>0){
+    if($("#app_user_registration_profilePictureFile").length>0 && $(".hwi_oauth_registration_register").length==0){
         var html='<div class="form-group"> <label class="control-label required" for="blogbundle_articolo_profilePictureFile">Carica un Avatar</label> <span class="input-group-btn"> <span class="btn btn-primary btn-file">Sfoglia… <input type="file" name="app_user_registration[profilePictureFile]" id="app_user_registration_profilePictureFile"> </span> </span> <input type="text" readonly="" class="form-control"> </div>';
         $("#app_user_registration_profilePictureFile").parent().html(html);
     }

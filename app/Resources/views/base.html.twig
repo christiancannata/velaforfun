@@ -552,7 +552,7 @@
 
             <div class="modal-body">
                 <div class="modal-header">
-                    <div class="row clearfix ">
+                    <div class="row clearfix hidden-xs">
                         <div class="col-md-12 column ">
                             <div class="row clearfix ">
                                 <div class="col-md-11 column ">
@@ -568,10 +568,41 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
+                    <div class="row clearfix hidden-mg hidden-lg">
+                        <div class="col-md-1 column right">
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
+
+                        </div>
+                    </div>
+                    <div class="row clearfix hidden-mg hidden-lg">
+
+
+                        <div class="col-md-12 column ">
+
+                            <h4 class="modal-title hidden-lg hidden-md" style="font-size:24px" >Il Meteo di Velaforfun</h4>
+                                    <h4 class="modal-title hidden-xs" >Il Meteo di Velaforfun</h4>
+
+                        </div>
+
+
+
+                    </div>
+
+
                 </div>
                 <div class="row clearfix ">
-                    <div style="font-size: 70px;text-align:center;width:100%;margin-top:50px">
+
+                    <div class="hidden-xs"style="font-size: 70px;text-align:center;width:100%;margin-top:50px">
+
+                        <i class="fa fa-spinner fa-2x fa-spin "
+                           id="loading"></i>
+
+                    </div>
+
+                    <div class="hidden-lg hidden-md"style="font-size: 70px;text-align:center;width:100%;">
 
                         <i class="fa fa-spinner fa-2x fa-spin "
                            id="loading"></i>
