@@ -76,6 +76,41 @@ class ImportUtentiCommand extends ContainerAwareCommand
 
                     $this->em->persist($utente);
 
+
+
+                    $repository = $this->getDoctrine()
+                        ->getRepository('AppBundle\Entity\Newsletter\Subscriber');
+                    $iscritto = $repository->findOneByEmail($data['mail']);
+
+
+                    if (!$iscritto) {
+                        $repository = $this->getDoctrine()
+                            ->getRepository('AppBundle\Entity\Newsletter\Mandant');
+                        $mandant = $repository->find(1);
+
+                        $iscrizione = new Subscriber();
+                        $iscrizione->setMandant($mandant);
+                        $iscrizione->setLocale("it");
+                        $iscrizione->setEmail($data['mail']);
+                        $iscrizione->setFirstName($data['username']);
+                        $iscrizione->setLastName("");
+                        $iscrizione->setGender("MALE");
+                        $iscrizione->setCompanyname("");
+                        $iscrizione->setTitle("");
+                        $iscrizione->addGroup(
+                            $this->getDoctrine()
+                                ->getRepository('AppBundle\Entity\Newsletter\Group')->find(1)
+                        );
+
+
+                        $em = $this->container->get('doctrine')->getManager();
+
+                        $em->persist($iscrizione);
+
+                    }
+
+
+
                     $this->em->flush();
                 }
             }

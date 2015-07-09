@@ -314,7 +314,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="media-body">
-                                                    <h4 class="media-heading">{{ attracco.utente.username }}a {{ attracco.porto.nome }}</h4>
+                                                    <h4 class="media-heading"><a href="/utenti/{{ attracco.utente.username }}">{{ attracco.utente.username }}</a> a {{ attracco.porto.nome }}</h4>
 
                                                     <p style="font-size: 12px">Il giorno {{ attracco.timestamp|date("d/m/Y") }}</p>
 
@@ -384,7 +384,7 @@
                                                 </a>
                                             </div>
                                             <div class="media-body">
-                                                <h4 class="media-heading">{{ commento.utente.username }} su {{ commento.porto.nome }}</h4>
+                                                <h4 class="media-heading"><a href="/utenti/{{ commento.utente.username }}">{{ commento.utente.username }}</a> su {{ commento.porto.nome }}</h4>
 
                                                 <p>{% if commento.tipoCommento == "POSITIVO" %}
                                                         <i class="fa fa-thumbs-up foreground-verde"></i>

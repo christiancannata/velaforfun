@@ -129,6 +129,7 @@ class SecuredController extends ConnectController
             // Authenticate the user
             $this->authenticateUser($request, $form->getData(), $error->getResourceOwnerName(), $error->getRawToken());
 
+
             return $this->container->get('templating')->renderResponse('AppBundle:Security:connessione-effettuata.html.' . $this->getTemplatingEngine(), array(
                 'userInformation' => $userInformation,
             ));
