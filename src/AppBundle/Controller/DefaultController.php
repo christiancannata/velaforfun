@@ -125,6 +125,7 @@ class DefaultController extends BaseController
 
             $articolo->setTesto($testo);
 
+            $em = $this->container->get('doctrine')->getManager();
 
             if ($this->getUser()) {
                 $autore = $this->getUser();
@@ -133,7 +134,7 @@ class DefaultController extends BaseController
                     ->getRepository('AppBundle:User')->findOneByUsername($params['blogbundle_articolo']['autore']);
 
                 if (!$autore) {
-                    $userManager = $this->getContainer()->get('fos_user.user_manager');
+                    $userManager = $this->container->get('fos_user.user_manager');
                     $autore = $userManager->createUser();
                     $autore->setEmail($params['blogbundle_articolo']['autore']);
                     $autore->setNome($params['blogbundle_articolo']['email']);
@@ -141,7 +142,7 @@ class DefaultController extends BaseController
                     $autore->setUsername($username);
                     $autore->setPlainPassword($username."1");
 
-                    $this->em->persist($autore);
+                    $em->persist($autore);
                 }
             }
 
