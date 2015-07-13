@@ -121,7 +121,7 @@
 
  <div class="row clearfix">
         <div class="col-md-12 column sottotitolo">
-            {{ articolo.sottotitolo|raw|striptags }}
+            {{ articolo.sottotitolo|striptags|raw }}
         <div class="divisore-big"></div>
         </div>
          </div>
@@ -149,7 +149,7 @@
             <div class="scroll-pane-horizontal horizontal-only" >
                 <p style="width: {{ articolo.gallery.foto|length*160 }}px;">
             {% for foto in articolo.gallery.foto %}
-                  <a class='gallery' style="display:inline" rel="g1" href='/uploads/galleria_foto/{{ foto.immagine }}'><img style="display:inline" width="150"
+                  <a class='gallery' style="display:inline" rel="g1" href='/uploads/galleria_foto/{{ foto.immagine }}'><img style="display:inline" width="150" height="150"
                                                                                                    src="/uploads/galleria_foto/{{ foto.immagine }}"></a>
            {% endfor %}
 
