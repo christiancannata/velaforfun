@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig" afterPath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/cerca.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/cerca.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/nodi.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/nodi.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="velaforfun.iws" />
@@ -31,28 +33,72 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.7647057">
-              <caret line="242" column="21" selection-start-line="242" selection-start-column="21" selection-end-line="242" selection-end-column="21" />
-              <folding>
-                <marker date="1436448771000" expanded="true" signature="1984:2034" placeholder="SELECT * FRO..cc_forum_post..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="articolo.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="articolo.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68720376">
-              <caret line="151" column="170" selection-start-line="151" selection-start-column="170" selection-end-line="151" selection-end-column="170" />
+            <state vertical-scroll-proportion="-1.1764706">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="23" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#div#1;n#div#1;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nodi.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/nodi.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.625">
+              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lista.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/lista.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.1372547">
+              <caret line="148" column="48" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cerca.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/cerca.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.71451104">
+              <caret line="127" column="49" selection-start-line="127" selection-start-column="49" selection-end-line="127" selection-end-column="49" />
+              <folding>
+                <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <marker date="1436792390000" expanded="true" signature="6478:6510" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.125">
+              <caret line="5" column="75" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="75" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#6;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#p#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#6;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dettagliNodo.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.125">
+              <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,9 +111,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/AppBundle/Twig/Extension/MenuVelaExtension.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/post-forum-partial.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/chi-siamo.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/contatti.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Command/CheckEmailCommand.php" />
@@ -116,6 +159,9 @@
         <option value="$PROJECT_DIR$/app/Resources/CCDNForumForumBundle/translations/CCDNForumForumBundle.it.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Services/LoginSuccessHandlerService.php" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/nodi.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/cerca.html.twig" />
       </list>
     </option>
   </component>
@@ -272,6 +318,36 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="AnnuncioScambioPosto">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="velaforfun">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="AppBundle">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Resources">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
@@ -338,7 +414,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../adsl2" />
-    <property name="SearchEverywhereHistoryKey" value="articolo&#9;FILE&#9;file:///private/var/www/velaforfun/src/BlogBundle/Resources/views/Articolo/articolo.html.twig&#10;richiesta_contatto.html.twig&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/Emails/richiesta_contatto.html.twig&#10;dettagli&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;porti&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Porto/porti.html.twig&#10;connession&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Security/connessione-effettuata.html.twig&#10;list&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/NomeBarca/lista.html.twig&#10;base&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/base.html.twig&#10;index.&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/default/index.html.twig&#10;main.&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;User&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Entity/User.php&#10;profilo&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;por&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;AnnuncioImb&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/AnnuncioImbarco.php&#10;main&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;AnnuncioSca&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/AnnuncioScambioPosto.php&#10;style&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/style.css&#10;form&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/form.js&#10;mai&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;Subscriber&#9;null&#9;null&#10;AnnuncioIm&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/AnnuncioImbarco.php&#10;profilo-utente&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;form.js&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/form.js&#10;contatt&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/contatti.html.twig&#10;rice&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/ricette.html.twig&#10;chi-siamo.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/chi-siamo.html.twig&#10;post-forum-partial.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/post-forum-partial.html.twig&#10;redirect&#9;null&#9;null&#10;index&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/index.html.twig&#10;dettag&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;bas&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/base.html.twig&#10;h&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/hover-min.css&#10;hover&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/hover-min.css&#10;annuncio&#9;null&#9;null&#10;main.js&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;item&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_head.html.twig&#10;body_co&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/body_content.html.twig&#10;item_&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_body.html.twig&#10;annu&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/AnnuncioController.php&#10;video&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/VideoController.php&#10;dettagliGa&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig&#10;jquery.morse.js&#9;FILE&#9;file:///var/www/velaforfun/web/bundles/app/js/jquery.morse.js&#10;profi&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;reda&#9;FILE&#9;file:///var/www/velaforfun/web/redactor/redactor.js&#10;Defau&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/DefaultController.php&#10;transcript.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Topic/Partial/transcript.html.twig&#10;post_preview.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/post_preview.html.twig&#10;nodi&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Nodo/nodi.html.twig&#10;AnnuncioScambioPosto&#9;null&#9;null&#10;item_post_head.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_head.html.twig&#10;item_post.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post.html.twig" />
+    <property name="SearchEverywhereHistoryKey" value="base&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/base.html.twig&#10;articolo&#9;FILE&#9;file:///private/var/www/velaforfun/src/BlogBundle/Resources/views/Articolo/articolo.html.twig&#10;richiesta_contatto.html.twig&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/Emails/richiesta_contatto.html.twig&#10;dettagli&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;porti&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Porto/porti.html.twig&#10;connession&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Security/connessione-effettuata.html.twig&#10;list&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/NomeBarca/lista.html.twig&#10;index.&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/default/index.html.twig&#10;main.&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;User&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Entity/User.php&#10;profilo&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;por&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;AnnuncioImb&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/AnnuncioImbarco.php&#10;main&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;AnnuncioSca&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/AnnuncioScambioPosto.php&#10;style&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/style.css&#10;form&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/form.js&#10;mai&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;Subscriber&#9;null&#9;null&#10;AnnuncioIm&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/AnnuncioImbarco.php&#10;profilo-utente&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;form.js&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/form.js&#10;contatt&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/contatti.html.twig&#10;rice&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/ricette.html.twig&#10;chi-siamo.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/chi-siamo.html.twig&#10;post-forum-partial.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/post-forum-partial.html.twig&#10;redirect&#9;null&#9;null&#10;index&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/index.html.twig&#10;dettag&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;bas&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/base.html.twig&#10;h&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/hover-min.css&#10;hover&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/hover-min.css&#10;annuncio&#9;null&#9;null&#10;main.js&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;item&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_head.html.twig&#10;body_co&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/body_content.html.twig&#10;item_&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_body.html.twig&#10;annu&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/AnnuncioController.php&#10;video&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/VideoController.php&#10;dettagliGa&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig&#10;jquery.morse.js&#9;FILE&#9;file:///var/www/velaforfun/web/bundles/app/js/jquery.morse.js&#10;profi&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;reda&#9;FILE&#9;file:///var/www/velaforfun/web/redactor/redactor.js&#10;Defau&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/DefaultController.php&#10;transcript.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Topic/Partial/transcript.html.twig&#10;post_preview.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/post_preview.html.twig&#10;nodi&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Nodo/nodi.html.twig&#10;AnnuncioScambioPosto&#9;null&#9;null&#10;item_post_head.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_head.html.twig&#10;item_post.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post.html.twig" />
     <property name="FullScreen" value="true" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -508,15 +584,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14423077" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14302884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38412017" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24821173" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21445782" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -565,27 +641,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioImbarco/crea.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.875">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/AnnuncioImbarcoType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.75">
-          <caret line="32" column="13" selection-start-line="24" selection-start-column="12" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/PaginaStaticaType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/NomeBarcaType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.125">
@@ -740,13 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/lista.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="246" column="25" selection-start-line="246" selection-start-column="25" selection-end-line="246" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/faq.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34608695">
@@ -865,14 +913,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="724" column="103" selection-start-line="724" selection-start-column="103" selection-end-line="724" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportUtentiCommand.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -928,22 +968,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.7647057">
+        <state vertical-scroll-proportion="-0.3270142">
           <caret line="242" column="21" selection-start-line="242" selection-start-column="21" selection-end-line="242" selection-end-column="21" />
           <folding>
-            <marker date="1436448771000" expanded="true" signature="1984:2034" placeholder="SELECT * FRO..cc_forum_post..." />
+            <marker date="1436448771000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..cc_forum_post..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.125">
+          <caret line="5" column="75" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="75" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#6;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#p#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#6;n#div#1;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68720376">
-          <caret line="151" column="170" selection-start-line="151" selection-start-column="170" selection-end-line="151" selection-end-column="170" />
+        <state vertical-scroll-proportion="-1.1764706">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/dettagliNodo.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.125">
+          <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Nodo/nodi.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.625">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/lista.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.1372547">
+          <caret line="148" column="48" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/AnnuncioScambioPosto/cerca.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71451104">
+          <caret line="127" column="49" selection-start-line="127" selection-start-column="49" selection-end-line="127" selection-end-column="49" />
+          <folding>
+            <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <marker date="1436792390000" expanded="true" signature="6478:6510" placeholder="..." />
           </folding>
         </state>
       </provider>

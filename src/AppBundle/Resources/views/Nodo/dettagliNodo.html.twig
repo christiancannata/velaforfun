@@ -3,6 +3,8 @@
 {% block title %}Nodo "{{ nodo.nome }}"
 {% endblock %}
 
+{% block description %}{{ nodo.descrizione|striptags }}{% endblock %}
+
 
 {% block body %}
 {% set link = nodo.video|split('v=') %}
