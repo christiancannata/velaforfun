@@ -195,9 +195,9 @@ topic:
     view-count-label:                  "Visualizzazioni: "
     reply-count-label:                 "Risposte: "
     transcript:                        "Stai rispondendo a:"
-    closed-by:                         "Topic chiuso da %name%"
-    deleted-by:                        "Topic eliminato da %name%"
-    stickied-by:                       "Stickied by %name%"
+    closed-by:                         "Topic chiuso da "
+    deleted-by:                        "Topic eliminato da "
+    stickied-by:                       "Stickied by "
     delete-confirm:                    "Sei sicuro di voler eliminare eliminare questo post?"
     badge:
         closed:                        "Chiuso"

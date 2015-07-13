@@ -26,6 +26,9 @@ class LoginSuccessHandlerService implements AuthenticationSuccessHandlerInterfac
         // redirect the user to where they were before the login process begun.
         $referer_url = $request->headers->get('referer');
 
+        if(strstr($referer_url,"/login")!==false){
+            $referer_url="/";
+        }
         $response = new RedirectResponse($referer_url);
 
         return $response;
