@@ -97,14 +97,7 @@
     <input type="hidden"  name="appbundle_annuncioscambioposto[telefono]" />
    <div class="form-group">
       <label for="appbundle_annuncioscambioposto_luogoAttuale" class="control-label required">Dove hai la barca adesso?</label>
-      <select data-live-search="true"  class="form-control" name="appbundle_annuncioscambioposto[luogoAttuale]" id="appbundle_annuncioscambioposto_luogoAttuale">
-
-      </select>
-   </div>
-   <div class="form-group">
-      <label for="appbundle_annuncioscambioposto_luogoRicercato" class="control-label required">Dove cerchi un posto?</label>
       <select class="form-control" name="appbundle_annuncioscambioposto[luogoRicercato]" id="appbundle_annuncioscambioposto_luogoRicercato">
-         <option value="TUTTO">OVUNQUE</option>
          <option value="NORD_ITALIA_TIRRENO">Nord Italia Tirreno</option>
          <option value="NORD_ITALIA_ADRIATICO">Nord Italia Adriatico</option>
          <option value="CENTRO_ITALIA_TIRRENO">Centro Italia Tirreno</option>
@@ -115,6 +108,13 @@
          <option value="SICILIA">Sicilia</option>
          <option value="ESTERO">Estero</option>
       </select>
+   </div>
+   <div class="form-group">
+      <label for="appbundle_annuncioscambioposto_luogoRicercato" class="control-label required">Dove cerchi un posto?</label>
+         <select data-live-search="true"  class="form-control" name="appbundle_annuncioscambioposto[luogoAttuale]" id="appbundle_annuncioscambioposto_luogoAttuale">
+
+      </select>
+
    </div>
    <div class="form-group hide" >
       <label for="appbundle_annuncioscambioposto_tipo" class="control-label required">Cosa?</label>

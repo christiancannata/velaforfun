@@ -310,7 +310,7 @@ class AnnuncioImbarcoController extends BaseController
                 $query->andWhere("p.tipo = '".$params['appbundle_annuncioimbarco']['tipo']."' or p.tipo='TUTTO'");
 
             }
-
+            $query->orderBy("p.id","DESC");
 
             $annunci = $query->getQuery()->getResult();
 
