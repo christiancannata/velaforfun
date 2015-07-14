@@ -193,7 +193,7 @@ class AnnuncioImbarcoController extends BaseController
 
 
         $annunci = $this->getDoctrine()
-            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array("tipoAnnuncio"=>"OFFRO"),array(),8);
+            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array(),array(),8);
 
         $postform = $this->createForm(new AnnuncioImbarcoType());
 
