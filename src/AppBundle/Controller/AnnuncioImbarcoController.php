@@ -44,7 +44,7 @@ class AnnuncioImbarcoController extends BaseController
     {
 
         $annunci = $this->getDoctrine()
-            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array(), array('id' => 'desc'), 8);
+            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array("tipoAnnuncio"=>"OFFRO"), array('id' => 'desc'), 8);
         $titolo = "Annunci Imbarco";
 
 
@@ -193,7 +193,7 @@ class AnnuncioImbarcoController extends BaseController
 
 
         $annunci = $this->getDoctrine()
-            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array(), array('id' => 'desc'), 8);
+            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array("tipoAnnuncio"=>"OFFRO"), array('id' => 'desc'), 8);
 
         $postform = $this->createForm(new AnnuncioImbarcoType());
 
@@ -305,6 +305,12 @@ class AnnuncioImbarcoController extends BaseController
                 $query->andWhere("p.costo = '".$params['appbundle_annuncioimbarco']['costo']."' or p.costo='TUTTO'");
 
             }
+
+            if ($params['appbundle_annuncioimbarco']['tipo'] != "TUTTO") {
+                $query->andWhere("p.tipo = '".$params['appbundle_annuncioimbarco']['tipo']."' or p.tipo='TUTTO'");
+
+            }
+
 
             $annunci = $query->getQuery()->getResult();
 
