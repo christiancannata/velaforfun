@@ -304,6 +304,13 @@ class AnnuncioScambioPostoController extends BaseController
 
     private function allertaAnnunci($annuncio)
     {
+
+        // CHI CREA INVIA A TUTTI QUELLI CHE ERANO IN ATTESA
+
+
+
+
+
     }
 
 }

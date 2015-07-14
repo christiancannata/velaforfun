@@ -88,6 +88,7 @@ class PortoController extends BaseController
 
         $regioni = $regioni->getResult();
         $arrRegioni = array();
+
         foreach ($regioni as $regione) {
 
             $porti = $repo->findByRegione($regione->getRegione());
