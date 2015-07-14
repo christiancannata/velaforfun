@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Porto;
 use AppBundle\Form\AnnuncioScambioPostoType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Controller\BaseController;
@@ -283,7 +284,11 @@ class AnnuncioScambioPostoController extends BaseController
             $query = $repository->createQueryBuilder('p');
 
             if ($params['appbundle_annuncioscambioposto']['luogoRicercato'] != "TUTTO") {
-                $query->andWhere("p.luogoAttuale = '".$params['appbundle_annuncioscambioposto']['luogoRicercato']."'");
+
+                $porto = $this->getDoctrine()
+                    ->getRepository('AppBundle:Porto')->find($params['appbundle_annuncioscambioposto']['luogoRicercato']);
+
+                $query->andWhere("p.luogoAttuale = ".$porto);
             }
 
 
