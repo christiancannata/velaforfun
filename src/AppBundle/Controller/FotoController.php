@@ -39,7 +39,7 @@ class FotoController extends BaseController
 
             $gallery->setNome($params['appbundle_galleriafoto']['nome']);
             $gallery->setDescrizione($params['appbundle_galleriafoto']['descrizione']);
-
+            $gallery->setInGallery(true);
             $em->persist($gallery);
             $em->flush();
 
@@ -52,7 +52,7 @@ class FotoController extends BaseController
             foreach ($files as $uploadedFile) {
                 $fileUpload = new Foto();
                 $fileUpload->setProfilePictureFile($uploadedFile);
-                $fileUpload->setNome($uploadedFile->getClientOriginalName());
+                $fileUpload->setNome(preg_replace('/\\.[^.\\s]{3,4}$/', '',$uploadedFile->getClientOriginalName()));
                 $fileUpload->setGalleria($gallery);
                 $fileUpload->setInEvidenza(true);
                 $em->persist($fileUpload);
