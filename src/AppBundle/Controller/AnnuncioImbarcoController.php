@@ -340,20 +340,11 @@ class AnnuncioImbarcoController extends BaseController
 
             $annunci = $query->getQuery()->getResult();
 
+            return $this->render(
+                'AppBundle:AnnuncioScambioPosto:cercaAjax.html.twig',
+                array("annunci" => $annunci)
+            );
 
-            $responseJson = array();
-            foreach ($annunci as $annuncio) {
-                $responseJson[] = array(
-                    "topic" => array(
-                        "id" => $annuncio->getTopic()->getId(),
-                        "title" => $annuncio->getTopic()->getTitle()
-                    ),
-                    "timestamp" => $annuncio->getTimestamp()->format("d-m-Y H:i"),
-
-                );
-            }
-
-            return new JsonResponse($responseJson);
         }
 
         return $this->render(

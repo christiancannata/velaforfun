@@ -303,13 +303,10 @@ class AnnuncioScambioPostoController extends BaseController
             }
 
 
-
-
-
-            $serializer = $this->container->get('jms_serializer');
-            $serialized = $serializer->serialize($annunci, "json");
-
-            return new JsonResponse(json_decode($serialized));
+            return $this->render(
+                'AppBundle:AnnuncioScambioPosto:cercaAjax.html.twig',
+                array("annunci" => $annunci)
+            );
         }
 
         return $this->render(
