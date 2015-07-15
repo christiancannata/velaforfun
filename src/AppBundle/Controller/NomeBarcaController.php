@@ -15,15 +15,14 @@ class NomeBarcaController extends BaseController
     protected $entity = "NomeBarca";
 
     /**
-     * @Route( "crea", name="create_barca" )
-     * @Template()
+     * @Route( "nuova-barca", name="crea_barca" )
      */
     public function createAction(Request $request)
     {
+
         $postform = $this->createForm(new NomeBarcaType());
 
         if ($request->isMethod('POST')) {
-
             $postform->handleRequest($request);
 
             if ($postform->isValid()) {
@@ -46,7 +45,7 @@ class NomeBarcaController extends BaseController
                     $response['response'] = $data->getId();
                 }else{
                     $response['success'] = false;
-                    $response['response'] = "Il nome della barca è gia esistente!";
+                    $response['response'] = array("nome"=>"Questo nome esiste già!");
                 }
 
 
