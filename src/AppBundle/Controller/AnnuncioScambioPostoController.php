@@ -99,6 +99,21 @@ class AnnuncioScambioPostoController extends BaseController
                 $em->persist($board);
                 $em->flush();
 
+
+
+                $subscription=new Subscription();
+                $subscription->setTopic($firstTopic);
+                $subscription->setOwnedBy($this->getUser());
+
+                $forum = $this->container->get('doctrine')
+                    ->getRepository('CCDNForumForumBundle:Forum')->find(1);
+
+                $subscription->setForum($forum);
+
+                $em->persist($subscription);
+                $em->flush();
+
+
                 $response['success'] = true;
                 $response['response'] = $firstTopic->getId();
 

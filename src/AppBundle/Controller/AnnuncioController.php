@@ -12,6 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use CCDNForum\ForumBundle\Entity\Post;
 use CCDNForum\ForumBundle\Entity\Topic;
 use CCDNForum\ForumBundle\Entity\Board;
+use CCDNForum\ForumBundle\Entity\Subscription;
 
 
 class AnnuncioController extends BaseController
@@ -108,6 +109,21 @@ class AnnuncioController extends BaseController
                 $board->setLastPost($post);
                 $em->persist($board);
                 $em->flush();
+
+
+                $subscription=new Subscription();
+                $subscription->setTopic($firstTopic);
+                $subscription->setOwnedBy($user);
+
+                $forum = $this->container->get('doctrine')
+                    ->getRepository('CCDNForumForumBundle:Forum')->find(1);
+
+                $subscription->setForum($forum);
+
+                $em->persist($subscription);
+                $em->flush();
+
+
 
                 $response['success'] = true;
                 $response['response'] = $firstTopic->getId();

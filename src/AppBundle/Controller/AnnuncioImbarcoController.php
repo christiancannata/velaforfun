@@ -176,6 +176,22 @@ class AnnuncioImbarcoController extends BaseController
                 $em->flush();
 
 
+
+
+                $subscription=new Subscription();
+                $subscription->setTopic($firstTopic);
+                $subscription->setOwnedBy($user);
+
+                $forum = $this->container->get('doctrine')
+                    ->getRepository('CCDNForumForumBundle:Forum')->find(1);
+
+                $subscription->setForum($forum);
+
+                $em->persist($subscription);
+                $em->flush();
+
+
+
                 $response['success'] = true;
                 $response['response'] = $firstTopic->getId();
 
