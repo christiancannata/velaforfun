@@ -36,19 +36,17 @@ class NomeBarcaController extends BaseController
 
                 $em = $this->getDoctrine()->getManager();
 
-                if(!$em->getRepository('AppBundle:NomeBarca')->findByNome($data->getNome())){
+                if (!$em->getRepository('AppBundle:NomeBarca')->findByNome($data->getNome())) {
                     $em->persist($data);
                     $em->flush();
 
 
                     $response['success'] = true;
                     $response['response'] = $data->getId();
-                }else{
+                } else {
                     $response['success'] = false;
-                    $response['response'] = array("nome"=>"Questo nome esiste già!");
+                    $response['response'] = array("nome" => "Questo nome esiste già!");
                 }
-
-
 
 
             } else {
@@ -79,7 +77,6 @@ class NomeBarcaController extends BaseController
     }
 
 
-
     /**
      * @Route( "vota/{id}", name="vota_barca" )
      * @Template()
@@ -87,15 +84,15 @@ class NomeBarcaController extends BaseController
     public function votaAction(Request $request, $id)
     {
 
-        $barca=$this->getDoctrine()->getManager()->getRepository('AppBundle:NomeBarca')->find($id);
+        $barca = $this->getDoctrine()->getManager()->getRepository('AppBundle:NomeBarca')->find($id);
 
-        if($barca){
+        if ($barca) {
 
-            $barca->setPunti($barca->getPunti()+1);
+            $barca->setPunti($barca->getPunti() + 1);
             $this->getDoctrine()->getManager()->merge($barca);
             $this->getDoctrine()->getManager()->flush();
 
-            return new JsonResponse(array("response"=>"ok","success"=>true));
+            return new JsonResponse(array("response" => "ok", "success" => true));
         }
 
     }
@@ -126,23 +123,28 @@ class NomeBarcaController extends BaseController
     public function nomiBarcaAction()
     {
 
-        $arrayBarche=array();
         $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:NomeBarca');
         $query = $repository->createQueryBuilder('p')
-            ->orderBy("p.nome","DESC");
+            ->orderBy("p.punti", "DESC");
 
         $barche = $query->getQuery()->getResult();
 
-        $arrayBarche = array();
-        foreach ($barche as $barca){
-            $firstone = substr( strtoupper(trim($barca->getNome()) ), 0 , 1 );
-            $arrayBarche[$firstone][] = $barca;
+        $lettere = array();
+        foreach ($barche as $barca) {
+            $firstone = substr(strtoupper(trim($barca->getNome())), 0, 1);
+            if (!in_array($firstone, $lettere)) {
+                $lettere[] = $firstone;
+            }
         }
 
         $form['vars'] = array("full_name" => "appbundle_nome_barca");
 
+        sort($lettere);
 
-        return $this->render('AppBundle:NomeBarca:lista.html.twig', array("barche" => array_reverse($arrayBarche),"form"=>$form));
+        return $this->render(
+            'AppBundle:NomeBarca:lista.html.twig',
+            array("barche" => $barche, "form" => $form, "lettere" => $lettere)
+        );
 
     }
 
@@ -158,15 +160,28 @@ class NomeBarcaController extends BaseController
         $query = $repository->createQueryBuilder('p')
             ->where("p.nome like '".$lettera."%'");
 
-        $query->orderBy("p.punti","DESC");
+        $query->orderBy("p.punti", "DESC");
 
         $barche = $query->getQuery()->getResult();
 
 
-
         $titolo = "Nomi di Barca - ".strtoupper($lettera);
 
-        return $this->render('AppBundle:NomeBarca:lettera.html.twig', array("barche" => $barche, "titolo" => $titolo));
+        $lettere = array();
+        foreach ($barche as $barca) {
+            $firstone = substr(strtoupper(trim($barca->getNome())), 0, 1);
+            if (!in_array($firstone, $lettere)) {
+                $lettere[] = $firstone;
+            }
+        }
+        $form['vars'] = array("full_name" => "appbundle_nome_barca");
+
+        sort($lettere);
+
+        return $this->render(
+            'AppBundle:NomeBarca:lettera.html.twig',
+            array("form" => $form, "barche" => $barche, "titolo" => $titolo, "lettere" => $lettere)
+        );
 
     }
 

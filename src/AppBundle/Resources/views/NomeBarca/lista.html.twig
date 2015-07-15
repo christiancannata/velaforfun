@@ -49,73 +49,64 @@
 
 
             <div class="row clearfix">
+
+
+
                 <div class="col-md-12 column">
 
-
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-
-                        {% for key,lettera in barche %}
-                            <div class="panel panel-primary " style="border-radius: 0px">
-                                <div class="panel-heading background-celeste" style="border-radius: 0px">
-                                    <h4 class="panel-title">
-                                        <a id="{{ key }}" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                                           href="#pannello-{{ loop.index }}"><h2
-                                                    style="color:white;width:100%">{{ key }}</h2></a>
-                                    </h4>
-                                </div>
-                                <div style="border-radius: 0px" id="pannello-{{ loop.index }}"
-                                     class="panel-collapse collapse {% if loop.first %}in{% endif %}">
-                                    <div class="panel-body">
-
-
-                                        <div class="row clearfix">
-                                            <div class="col-md-12 column crud">
-
-                                                <div id="response-div"></div>
-                                                <table class="table table-striped table-bordered">
-
-                                                    <thead>
-
-                                                    <tr>
-                                                        <th>NOME</th>
-
-                                                        <th>VOTI</th>
-
-                                                        <th></th>
-                                                    </tr>
-                                                    </thead>
-
-                                                    <tbody>
-                                                    {% for barca in lettera %}
-                                                        <tr>
-                                                            <td><a href="/codice-internazionale/{{ barca.nome }}" target="_blank">{{ barca.nome }}</a></td>
-                                                            <td><span id="voto-{{ barca.id }}">{{ barca.punti }}</span> </td>
-                                                            <td>
-                                                                <button style="float:right"
-                                                                        class="btn btn-primary vota-{{ barca.id }} hvr-sweep-to-right"
-                                                                        onclick="vota({{ barca.id }})"
-                                                                        data-id="{{ barca.id }}"><i class="fa fa-star"></i>
-                                                                    Vota questo nome
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                    {% endfor %}
-                                                    </tbody>
-
-                                                </table>
-
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
+                    <div class="col-md-12 column">
+                           <h2>Cerca per lettera</h2>
+                        <div class="divisore-big"></div>
                     </div>
 
+                    <div class="col-md-12 column">
 
+                        <div class="btn-group" role="group" aria-label="..." style="margin-bottom: 20px;">
+                            <button onclick="location.href='/nomi-barca/'"  type="button" class="btn btn-default">Tutte le lettere</button>
+                            {% for lettera in lettere %}
+
+                                    <button type="button" class="btn btn-default" onclick="location.href='./{{ lettera }}'">{{ lettera }}</button>
+                            {% endfor %}
+
+
+                        </div>
+
+
+
+
+                        <table class="table table-striped table-bordered">
+
+                            <thead>
+
+                            <tr>
+                                <th>NOME</th>
+
+                                <th>VOTI</th>
+
+                                <th></th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {% for barca in barche %}
+                                <tr>
+                                    <td><a href="/codice-internazionale/{{ barca.nome }}" target="_blank">{{ barca.nome }}</a></td>
+                                    <td><span id="voto-{{ barca.id }}">{{ barca.punti }}</span> </td>
+                                    <td>
+                                        <button style="float:right"
+                                                class="btn btn-primary vota-{{ barca.id }} hvr-sweep-to-right"
+                                                onclick="vota({{ barca.id }})"
+                                                data-id="{{ barca.id }}"><i class="fa fa-star"></i>
+                                            Vota questo nome
+                                        </button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+
+                        </table>
+
+</div>
                 </div>
             </div>
 
