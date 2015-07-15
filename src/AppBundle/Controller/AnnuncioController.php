@@ -47,7 +47,7 @@ class AnnuncioController extends BaseController
 
 
                 $firstTopic->setTitle(
-                    $annuncio->getTitolo()
+                    $annuncio->getTipo()." - ".$annuncio->getTitolo()
                 );
                 $firstTopic->setCachedViewCount(1);
 

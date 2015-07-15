@@ -46,7 +46,7 @@ class CheckEmailCommand extends ContainerAwareCommand
             die('Mailbox is empty');
         } else {
             $mailsIds = $mailbox->sortMails();
-            $mailsIds = array_slice($mailsIds, 0, 4);
+            $mailsIds = array_slice($mailsIds, 0, 20);
             $comunicati = array();
             foreach ($mailsIds as $mailId) {
                 $output->writeln('<info>Leggo email ID:'.$mailId.'</info>');
@@ -93,6 +93,7 @@ class CheckEmailCommand extends ContainerAwareCommand
                     }
                     $articolo->setAutore($user);
                     $this->em->persist($articolo);
+                    $mail->markMailAsRead($mail->id);
                     $output->writeln('<info>Email ID:'.$mailId.' importata!</info>');
                     $comunicati[] = $articolo;
                 }

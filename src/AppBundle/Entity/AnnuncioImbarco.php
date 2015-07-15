@@ -100,7 +100,7 @@ class AnnuncioImbarco
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="ruolo_richiesto", type="string", columnDefinition="ENUM('TUTTO','PRODIERE','UOMO_ALBERO','PITMAN','GRINDER','TAILER','TATTICO','RANDISTA','TIMONIERE','CUOCO','MOZZO_GENERICO','COMANDANTE','SECONDO','MOTORISTA','STEWARD','HOSTESS')", nullable=false)
+     * @ORM\Column(name="ruolo_richiesto", type="string", columnDefinition="ENUM('TUTTO','PRODIERE','UOMO_ALBERO','PITMAN','GRINDER','TAILER','TATTICO','RANDISTA','TIMONIERE','CUOCO','MOZZO_GENERICO','COMANDANTE','SECONDO','MOTORISTA','STEWARD','HOSTESS','SKIPPER')", nullable=false)
      */
     private $ruoloRichiesto;
 

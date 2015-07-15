@@ -27,8 +27,8 @@ class AnnuncioImbarcoType extends AbstractType
                 'hidden',
                 array(
                     'data' => 'redirectImbarco',
-                    'mapped'=>false,
-                    'attr'=>array("class"=> "callback")
+                    'mapped' => false,
+                    'attr' => array("class" => "callback")
                 )
             )
             ->add('titolo')
@@ -74,6 +74,7 @@ class AnnuncioImbarcoType extends AbstractType
                         'GRINDER' => 'Grinder',
                         'TAILER' => 'Tailer',
                         'TATTICO' => 'Tattico',
+                        'SKIPPER' => 'Skipper',
                         'RANDISTA' => 'Randista',
                         'TIMONIERE' => 'Timoniere',
                         'CUOCO' => 'Cuoco',
@@ -98,7 +99,6 @@ class AnnuncioImbarcoType extends AbstractType
                     )
                 )
             )
-
             ->add('descrizione');
     }
 

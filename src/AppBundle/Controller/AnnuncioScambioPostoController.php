@@ -271,13 +271,7 @@ class AnnuncioScambioPostoController extends BaseController
 
             }
 
-            $annunci = $this->getDoctrine()
-                ->getRepository('AppBundle:AnnuncioScambioPosto')->findBy(
-                    array(
-                        "luogoAttuale" => $params['appbundle_annuncioscambioposto']['luogoRicercato']
-                    ),
-                    array('id' => 'desc')
-                );
+
 
 
             $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:AnnuncioScambioPosto');
@@ -288,9 +282,9 @@ class AnnuncioScambioPostoController extends BaseController
                 $porto = $this->getDoctrine()
                     ->getRepository('AppBundle:Porto')->find($params['appbundle_annuncioscambioposto']['luogoRicercato']);
 
-                $annunci = $repository->findBy("luogoAttuale",$porto);
+                $annunci = $repository->findBy(array("luogoAttuale"=>$porto),array("id"=>"desc"));
             }else{
-                $annunci = $repository->findAll();
+                $annunci = $repository->findBy(array(),array("id"=>"desc"));
             }
 
 

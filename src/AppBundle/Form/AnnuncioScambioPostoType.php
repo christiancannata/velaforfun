@@ -33,8 +33,8 @@ class AnnuncioScambioPostoType extends AbstractType
                 )
             )
             ->
-            add('luogoRicercato', 'choice', array("label" => "Dove cerchi un posto?",'choices'=>array('NORD_ITALIA_TIRRENO'=>'Nord Italia Tirreno','NORD_ITALIA_ADRIATICO'=>'Nord Italia Adriatico','CENTRO_ITALIA_TIRRENO'=>'Centro Italia Tirreno','CENTRO_ITALIA_ADRIATICO'=>'Centro Italia Adriatico','SUD_ITALIA_TIRRENO'=>'Sud Italia Tirreno','SUD_ITALIA_ADRIATICO'=>'Sud Italia Adriatico','SARDEGNA'=>'Sardegna','SICILIA'=>'Sicilia','ESTERO'=>'Estero')))
-            ->add('tipo', 'choice', array("label" => "Cosa?",'choices'=>array("VELA"=>"Vela","MOTORE"=>"Motore","ALTRO"=>"Altro")))
+            add('luogoRicercato', 'choice', array("label" => "Dove cerchi un posto?",'choices'=>array('TUTTO'=>'Ovunque','NORD_ITALIA_TIRRENO'=>'Nord Italia Tirreno','NORD_ITALIA_ADRIATICO'=>'Nord Italia Adriatico','CENTRO_ITALIA_TIRRENO'=>'Centro Italia Tirreno','CENTRO_ITALIA_ADRIATICO'=>'Centro Italia Adriatico','SUD_ITALIA_TIRRENO'=>'Sud Italia Tirreno','SUD_ITALIA_ADRIATICO'=>'Sud Italia Adriatico','SARDEGNA'=>'Sardegna','SICILIA'=>'Sicilia','ESTERO'=>'Estero')))
+            ->add('tipo', 'choice', array("label" => "Cosa?",'choices'=>array('TUTTO'=>'Tutto',"VELA"=>"Vela","MOTORE"=>"Motore","ALTRO"=>"Altro")))
             ->add(
                 'tempo',
                 null,

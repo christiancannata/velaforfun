@@ -9,7 +9,16 @@
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
 
 
-
+ {% if app.user is defined and is_granted("ROLE_USER") %}
+     {% block javascripts %}
+         <script language="javascript">
+             $(document).ready(function () {
+                 $("#appbundle_annuncioimbarco_referente").val("{{ app.user.nome }} {{ app.user.cognome }}");
+                 $("#appbundle_annuncioimbarco_email").val("{{ app.user.email }}");
+             });
+         </script>
+     {% endblock %}
+ {% endif %}
 
 
 {% block body %}

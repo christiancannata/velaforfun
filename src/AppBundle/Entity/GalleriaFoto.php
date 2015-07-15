@@ -71,7 +71,10 @@ class GalleriaFoto
     private $foto;
 
 
-
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $inGallery;
 
     /**
      * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Articolo")
@@ -235,6 +238,22 @@ class GalleriaFoto
     public function setDescrizione($descrizione)
     {
         $this->descrizione = $descrizione;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInGallery()
+    {
+        return $this->inGallery;
+    }
+
+    /**
+     * @param mixed $inGallery
+     */
+    public function setInGallery($inGallery)
+    {
+        $this->inGallery = $inGallery;
     }
 
 

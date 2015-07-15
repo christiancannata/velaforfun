@@ -145,8 +145,18 @@ class AnnuncioImbarcoController extends BaseController
                     $user
                 );
 
+                $testo="Ruolo richiesto: ".$annuncio->getRuoloRichiesto();
+                $testo.="Luogo: ".$annuncio->getLuogo();
+                $testo.="Prezzo: ".$annuncio->getCosto();
+                $testo.="Tempo: ".$annuncio->getTempo();
+                $testo.="Tipo: ".$annuncio->getTipo();
 
-                $post->setBody($annuncio->getDescrizione());
+
+                $testo.= nl2br($annuncio->getDescrizione());
+
+                $post->setBody(
+                   $testo
+                );
 
                 $em->persist($post);
                 $em->flush();
@@ -367,7 +377,7 @@ class AnnuncioImbarcoController extends BaseController
             foreach ($destinatari as $destinatario) {
                 $mailer = $this->container->get('mailer');
                 $messaggio = $mailer->createMessage()
-                    ->setSubject("Annuncio imbarco [".$annuncio->getLocalita()."]")
+                    ->setSubject("Annuncio imbarco [".$annuncio->getLocalita()."] - ".$annuncio->getRuoloRichiesto())
                     ->setFrom('info@velaforfun.com')
                     ->setTo($destinatario->getEmail())
                     ->setBcc('christian1488@hotmail.it')

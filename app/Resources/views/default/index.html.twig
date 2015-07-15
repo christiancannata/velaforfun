@@ -49,10 +49,10 @@
                             <a href="/archivio/{{ articoli[0].categoria.permalink }}/{{ articoli[0].permalink }}">
                                 <h3>{{ articoli[0].titolo }}</h3>
 
-                            <div class="divisore hidden-xs"></div>
-                            <div class="subtitle hidden-xs" style="color:white">
-                                {{ articoli[0].sottotitolo|slice(0,250)|striptags }}...
-                            </div>
+                                <div class="divisore hidden-xs"></div>
+                                <div class="subtitle hidden-xs" style="color:white">
+                                    {{ articoli[0].sottotitolo|slice(0,250)|striptags }}...
+                                </div>
                             </a>
                         </div>
 
@@ -100,7 +100,7 @@
                                 <div class="content">
                                     <h4>{{ articoli[3].titolo }}</h4>
 
-                             <p class="hidden-xs">{{ articoli[3].sottotitolo|slice(0,80)|striptags }}...</p>
+                                    <p class="hidden-xs">{{ articoli[3].sottotitolo|slice(0,80)|striptags }}...</p>
                                 </div>
                                 <div class="arrow">
                                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -125,15 +125,16 @@
                     <div class="content">
 
                         <div class="box-action">
-                            <h2>I PORTI ITALIANI
-                            </h2>
+                            <a href="/porti"><h2>I PORTI ITALIANI
+                                </h2>
+                            </a>
 
                             <div class="over-box">
                                 Cerca il tuo porto fra i centinaia selezionati da Velaforfun
                                 <form method="GET" action="/porti/{permalink}" id="formCercaPorto" name="cerca_porti">
                                     <div class="form-group">
                                         <div class="inner-addon left-addon">
-                                            <a  onclick="$('#formCercaPorto').submit();return false;"><i
+                                            <a onclick="$('#formCercaPorto').submit();return false;"><i
                                                         class="fa fa-search"></i></a>
                                             <input autocomplete="off" id="selectPorto" type="search"
                                                    class="form-control"
@@ -166,6 +167,7 @@
                             <div class="box-no-action">
                                 <h2>FORUM
                                 </h2>
+
                             </div>
 
 
@@ -188,7 +190,6 @@
                             <div class="box-no-action">
                                 <h2>PORTOLANO ONLINE
                                 </h2>
-
                             </div>
 
 
@@ -202,26 +203,26 @@
 
         <div class="row clearfix">
             <div class="col-md-4 column">
-            <a href="/annuncio">
+                <a href="/annuncio">
 
-                <div class="box-home">
-                    <div style="background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ3_xuziS8-fYCRqEVqhOFxhVRasPAloEocUz5q5hvFZWhpBQ4ebA);"
-                         class="divBackgroundImage">
-                    </div>
-                    <div class="content">
+                    <div class="box-home">
+                        <div style="background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ3_xuziS8-fYCRqEVqhOFxhVRasPAloEocUz5q5hvFZWhpBQ4ebA);"
+                             class="divBackgroundImage">
+                        </div>
+                        <div class="content">
 
 
-                        <div class="box-no-action">
-                            <h2>ANNUNCI CERCO/OFFRO
-                            </h2>
+                            <div class="box-no-action">
+                                <h2>ANNUNCI CERCO/OFFRO
+                                </h2>
 
+
+                            </div>
 
                         </div>
 
                     </div>
-
-                </div>
-            </a>
+                </a>
 
             </div>
             <div class="col-md-4 column">
@@ -234,8 +235,9 @@
 
 
                         <div class="box-action">
-                            <h2>I NODI VELICI
-                            </h2>
+                            <a href="/nodi"><h2>I NODI VELICI
+                                </h2>
+                            </a>
 
                             <div class="over-box">
                                 Cerca il nodo velico per vedere i dettagli
@@ -274,8 +276,8 @@
                     <div class="content">
 
                         <div class="box-action">
-                            <h2>CODICE INTERNAZIONALE
-                            </h2>
+                            <a href="/codice-internazionale"><h2>CODICE INTERNAZIONALE
+                            </h2></a>
 
                             <div class="over-box">
                                 <form method="GET" id="formTraduci" action="/codice-internazionale/{permalink}"

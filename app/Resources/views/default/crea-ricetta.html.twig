@@ -34,12 +34,18 @@
 
 <div class="form-group">
 <label for="blogbundle_articolo_autore" class="control-label required">Autore</label>
-<input type="text" class="form-control" required="required" name="blogbundle_articolo[autore]" id="blogbundle_articolo_autore">
+<input type="text" class="form-control" required="required" name="blogbundle_articolo[autore]" id="blogbundle_articolo_autore"
+ {% if app.user is defined and is_granted("ROLE_USER") %}
+                                            value="{{ app.user.nome }} {{ app.user.cognome }}"
+                                        {% endif %}>
 </div>
 
 <div class="form-group">
 <label for="blogbundle_articolo_email" class="control-label required">Email</label>
-<input type="text" class="form-control" required="required" name="blogbundle_articolo[email]" id="blogbundle_articolo_email">
+<input type="text" class="form-control" required="required" name="blogbundle_articolo[email]" id="blogbundle_articolo_email"
+ {% if app.user is defined and is_granted("ROLE_USER") %}
+                                            value="{{ app.user.email }}"
+                                        {% endif %}>
 </div>
 
 

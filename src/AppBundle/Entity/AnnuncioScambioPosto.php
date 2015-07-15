@@ -43,7 +43,7 @@ class AnnuncioScambioPosto
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="luogo_ricercato", type="string", columnDefinition="ENUM('NORD_ITALIA_TIRRENO','NORD_ITALIA_ADRIATICO','CENTRO_ITALIA_TIRRENO','CENTRO_ITALIA_ADRIATICO','SUD_ITALIA_TIRRENO','SUD_ITALIA_ADRIATICO','SARDEGNA','SICILIA','ESTERO')", nullable=false)
+     * @ORM\Column(name="luogo_ricercato", type="string", columnDefinition="ENUM('TUTTO','NORD_ITALIA_TIRRENO','NORD_ITALIA_ADRIATICO','CENTRO_ITALIA_TIRRENO','CENTRO_ITALIA_ADRIATICO','SUD_ITALIA_TIRRENO','SUD_ITALIA_ADRIATICO','SARDEGNA','SICILIA','ESTERO')", nullable=false)
      */
     private $luogoRicercato;
 
@@ -51,7 +51,7 @@ class AnnuncioScambioPosto
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="tipo", type="string", columnDefinition="ENUM('VELA','MOTORE','ALTRO')", nullable=false)
+     * @ORM\Column(name="tipo", type="string", columnDefinition="ENUM('TUTTO','VELA','MOTORE','ALTRO')", nullable=false)
      */
     private $tipo;
 

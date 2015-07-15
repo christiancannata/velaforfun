@@ -17,6 +17,7 @@ class GalleriaFotoType extends AbstractType
         $builder
             ->add('nome')
             ->add('descrizione')
+            ->add('inGallery')
             ->add('foto','file',array('multiple'=>true, 'attr' => array('class' => ' with-preview')))
         ;
     }
