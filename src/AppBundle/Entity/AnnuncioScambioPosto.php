@@ -29,13 +29,13 @@ class AnnuncioScambioPosto
     /**
      * @var string
      *
-     * @ORM\Column(name="telefono", type="string", nullable=true)
+     * @ORM\Column(name="telefono", type="string", nullable=false)
      */
     private $telefono;
 
     /**
      * @ORM\ManyToOne(targetEntity="Porto", inversedBy="annunciScambioPosto")
-     * @ORM\JoinColumn(name="id_porto_attuale", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="id_porto_attuale", referencedColumnName="id", nullable=false)
      **/
     private $luogoAttuale;
 
@@ -58,14 +58,14 @@ class AnnuncioScambioPosto
     /**
      * @var string
      *
-     * @ORM\Column(name="tempo", type="string", nullable=true)
+     * @ORM\Column(name="tempo", type="string", nullable=false)
      */
     private $tempo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lunghezza", type="string", nullable=true)
+     * @ORM\Column(name="lunghezza", type="string", nullable=false)
      */
     private $lunghezza;
 
@@ -73,7 +73,7 @@ class AnnuncioScambioPosto
     /**
      * @var string
      *
-     * @ORM\Column(name="descrizione", type="text", nullable=true)
+     * @ORM\Column(name="descrizione", type="text", nullable=false)
      */
     private $descrizione;
 
