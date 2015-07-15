@@ -52,7 +52,7 @@ class FotoController extends BaseController
             foreach ($files as $uploadedFile) {
                 $fileUpload = new Foto();
                 $fileUpload->setProfilePictureFile($uploadedFile);
-                $fileUpload->setNome($uploadedFile->getFileName());
+                $fileUpload->setNome($uploadedFile->getClientOriginalName());
                 $fileUpload->setGalleria($gallery);
                 $fileUpload->setInEvidenza(true);
                 $em->persist($fileUpload);
