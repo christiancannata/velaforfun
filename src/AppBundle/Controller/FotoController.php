@@ -34,7 +34,7 @@ class FotoController extends BaseController
 
             $files = $request->files->get('appbundle_galleriafoto');
 
-            $gallery=new GalleriaFoto();
+            $gallery = new GalleriaFoto();
 
 
             $gallery->setNome($params['appbundle_galleriafoto']['nome']);
@@ -44,29 +44,25 @@ class FotoController extends BaseController
             $em->flush();
 
 
-            $foto=array();
+            $foto = array();
 
-            $files=$files['foto'];
+            $files = $files['foto'];
 
             // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
-    foreach ($files as $uploadedFile) {
-        $fileUpload=new Foto();
-        $fileUpload->setProfilePictureFile($uploadedFile);
-        $fileUpload->setNome($uploadedFile->getFileName());
-        $fileUpload->setGalleria($gallery);
-        $fileUpload->setInEvidenza(true);
-        $em->persist($fileUpload);
-        $em->flush();
-        $foto[]=$fileUpload;
-    }
+            foreach ($files as $uploadedFile) {
+                $fileUpload = new Foto();
+                $fileUpload->setProfilePictureFile($uploadedFile);
+                $fileUpload->setNome($uploadedFile->getFileName());
+                $fileUpload->setGalleria($gallery);
+                $fileUpload->setInEvidenza(true);
+                $em->persist($fileUpload);
+                $em->flush();
+                $foto[] = $fileUpload;
+            }
 
 
-
-
-
-
-                $response['success'] = true;
-                $response['response'] = $gallery->getId();
+            $response['success'] = true;
+            $response['response'] = $gallery->getId();
 
 
             return new JsonResponse($response);
@@ -114,7 +110,7 @@ class FotoController extends BaseController
     {
 
         $categorie = $this->getDoctrine()
-            ->getRepository('AppBundle:GalleriaFoto')->findAll();
+            ->getRepository('AppBundle:GalleriaFoto')->findBy(array('inGallery' => true), array('id' => 'desc'));
 
         foreach ($categorie as $key => $cat) {
             if (count($cat->getFoto()) == 0) {
@@ -122,7 +118,7 @@ class FotoController extends BaseController
             }
         }
 
-        return $this->render('AppBundle:Foto:gallerie.html.twig', array("gallerie" => array_reverse($categorie)));
+        return $this->render('AppBundle:Foto:gallerie.html.twig', array("gallerie" => $categorie));
     }
 
 
@@ -152,8 +148,8 @@ class FotoController extends BaseController
 
         $categorie = $this->getDoctrine()
             ->getRepository('AppBundle:GalleriaFoto')->findBy(
-                array(),
-                array("id"=> "desc"),
+                array('inGallery' => true),
+                array("id" => "desc"),
                 3,
                 $r->get('offset')
             );
@@ -204,7 +200,7 @@ class FotoController extends BaseController
         $video = $this->getDoctrine()
             ->getRepository('AppBundle:Foto')->findBy(
                 array("galleria" => $categorie),
-                array("id"=> "desc"),
+                array("id" => "desc"),
                 3,
                 $r->get('offset')
             );
