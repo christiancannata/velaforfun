@@ -51,7 +51,7 @@ class BaseController extends Controller
                 $response['success'] = false;
 
 
-                $response['reponse'] = $this->getErrorsAsArray($postform);
+                $response['response'] = $this->getErrorsAsArray($postform);
 
             }
 

@@ -184,7 +184,7 @@ class AnnuncioImbarcoController extends BaseController
                 $response['success'] = false;
 
 
-                $response['reponse'] = $this->getErrorsAsArray($postform);
+                $response['response'] = $this->getErrorsAsArray($postform);
             }
 
             return new JsonResponse($response);
