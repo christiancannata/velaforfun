@@ -173,7 +173,7 @@ board:
     topic-count-th:                    "Topics"
     post-count-th:                     "Posts"
     last-post-th:                      "Ultimo Post"
-    announcements-th:                  "Announcements"
+    announcements-th:                  "In Evidenza"
     label:                             "Board: "
     name-label:                        "Name: "
     topic-count-label:                 "Topics: "
