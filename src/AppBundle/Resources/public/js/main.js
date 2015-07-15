@@ -371,7 +371,7 @@ function setRisultatiAnnunciImbarco(response) {
 }
 
 function riceviNotifica(response) {
-    $("#modalVideo").hide();
+    $("#modalVideo").modal("hide");
     $("#annuncioCreato").modal();
 
 }
