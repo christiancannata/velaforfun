@@ -150,13 +150,23 @@ class NomeBarcaController extends BaseController
     /**
      * @Route("/{lettera}", name="nome_barca_singolo")
      */
-    public function dettagliPartnerAction($lettera)
+    public function letteraAction($lettera)
     {
 
 
-        $titolo = "Partner";
+        $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:NomeBarca');
+        $query = $repository->createQueryBuilder('p')
+            ->where("p.nome like '".$lettera."%'");
 
-        return $this->render('AppBundle:NomeBarca:lettera.html.twig', array("barche" => [], "titolo" => $titolo));
+        $query->orderBy("p.punti","DESC");
+
+        $barche = $query->getQuery()->getResult();
+
+
+
+        $titolo = "Nomi di Barca - ".strtoupper($lettera);
+
+        return $this->render('AppBundle:NomeBarca:lettera.html.twig', array("barche" => $barche, "titolo" => $titolo));
 
     }
 

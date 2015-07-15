@@ -1,0 +1,180 @@
+{% extends 'base.html.twig' %}
+
+
+{% block javascripts %}
+    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+
+    <script language="javascript">
+        $(document).ready(function () {
+            $('table').dataTable({
+                "order": [[ 1, 'desc' ]],
+                "bFilter": false, "bLengthChange": false, "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.7/i18n/Italian.json"
+                },
+                "sDom": '<lf<t>ip>'
+            });
+
+        });
+    </script>
+{% endblock %}
+
+{% block title %}
+    Nomi di Barca
+{% endblock %}
+
+{% block body %}
+
+
+    <!-- contenuto -->
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="category">
+                <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered"
+                                                                    aria-hidden="true"></span> </a>
+
+                <h1>{{ titolo }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-md-8 column">
+
+
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+
+
+                    <table class="table table-striped table-bordered">
+
+                        <thead>
+
+                        <tr>
+                            <th>NOME</th>
+
+                            <th>VOTI</th>
+
+                            <th></th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for barca in barche %}
+                            <tr>
+                                <td><a href="/codice-internazionale/{{ barca.nome }}" target="_blank">{{ barca.nome }}</a></td>
+                                <td><span id="voto-{{ barca.id }}">{{ barca.punti }}</span> </td>
+                                <td>
+                                    <button style="float:right"
+                                            class="btn btn-primary vota-{{ barca.id }} hvr-sweep-to-right"
+                                            onclick="vota({{ barca.id }})"
+                                            data-id="{{ barca.id }}"><i class="fa fa-star"></i>
+                                        Vota questo nome
+                                    </button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+
+                    </table>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-4 column ">
+            <div class="row clearfix">
+
+
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+
+                        <div class="colonna-destra" style="margin-bottom: 20px">
+                            <h2>Nomi di barca</h2>
+
+                            <p> Scegli una lettera qui affianco o inserisci un nome nel modulo che trovi sopra.
+                                A differenza di altre classifiche qui è possibile votare liberamente ogni voce quante
+                                volte lo si ritiene opportuno in relazione all'apprezzamento del nome.
+                                Anche se l'inserimento è libero l'archivio sarà comunque controllato dallo staff.
+                                <br><br>
+                                Grazie a tutti per la partecipazione che ha portato l'archivio a superare i 5.500 nomi
+                                raccolti.
+                            </p>
+
+
+                        </div>
+
+
+                        <div class="colonna-destra" style="margin-bottom: 20px">
+                            <h2>Inserisci una nuova barca</h2>
+
+                            <p>da far votare alla comunità di VelaForFun!</p>
+
+                            <form action="nuova-barca" method="post" name="appbundle_nome_barca">
+                                <div id="appbundle_nome_barca">
+                                    <div class="form-group"><label for="appbundle_nome_barca_nome"
+                                                                   class="control-label">Nome</label><input required type="text"
+                                                                                                            class="form-control"
+                                                                                                            name="appbundle_nome_barca[nome]"
+                                                                                                            id="appbundle_nome_barca_nome">
+                                    </div>
+                                    <input
+                                            type="hidden" class="form-control" value="0" name="appbundle_nome_barca[punti]"
+                                            id="appbundle_nome_barca_punti">
+                                </div>
+                                <div>
+
+                                </div>
+                                <button type="submit" class="btn btn-default login hvr-sweep-to-right"> <i class="fa fa-spinner fa-2x fa-spin hide"></i><span class="show">Inserisci</span></button>
+                            </form>
+
+                            <div class="response-form" ></div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+        <!-- fine contenuto -->
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalVoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Voto inserito correttamente</h4>
+                </div>
+                <div class="modal-body">
+
+                             <p>Complimenti, il tuo voto è stato inserito correttamente!</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
