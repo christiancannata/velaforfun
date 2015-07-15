@@ -155,7 +155,7 @@ stof_doctrine_extensions:
 eko_feed:
     feeds:
         article:
-            title:       'My articles/posts'
+            title:       'Feed RSS'
             description: 'Latests articles'
             link:        'http://vincent.composieux.fr'
             encoding:    'utf-8'

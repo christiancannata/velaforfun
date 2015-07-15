@@ -113,6 +113,16 @@ class User extends BaseUser implements MandantUserInterface
     private $messaggi;
 
 
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="data_nascita", type="datetime", nullable=true)
+     */
+    protected $dataNascita;
+
+
+
     /**
      * @var \DateTime
      *
@@ -534,6 +544,22 @@ class User extends BaseUser implements MandantUserInterface
     public function setAnnuncioScambioPosto($annuncioScambioPosto)
     {
         $this->annuncioScambioPosto = $annuncioScambioPosto;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDataNascita()
+    {
+        return $this->dataNascita;
+    }
+
+    /**
+     * @param \DateTime $dataNascita
+     */
+    public function setDataNascita($dataNascita)
+    {
+        $this->dataNascita = $dataNascita;
     }
 
 

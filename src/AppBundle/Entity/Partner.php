@@ -54,7 +54,6 @@ class Partner
      * @var string
      *
      * @ORM\Column(name="email", type="string", nullable=true)
-     * @Assert\Email()
      */
     private $email;
 

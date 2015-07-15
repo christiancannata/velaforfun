@@ -90,7 +90,7 @@ class AnnuncioController extends BaseController
                 );
 
 
-                $post->setBody($annuncio->getDescrizione()."<br><br>Recapito: ".$annuncio->getTelefono());
+                $post->setBody(nl2br($annuncio->getDescrizione())."<br><br>Recapito: ".$annuncio->getTelefono());
 
                 $em->persist($post);
                 $em->flush();

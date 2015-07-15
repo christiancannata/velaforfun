@@ -132,26 +132,31 @@ jQuery(document).ready(function ($) {
     }
 
 
-    /*if (typeof localStorage.getItem("geolocation") != undefined) {
-     var meteo = JSON.parse(localStorage.getItem("geolocation"));
-     if (meteo != null) {
-     $("#meteo-localized-nome").html(meteo.geoposition.name);
-
-     $("#meteo-localized-temperatura").html(parseInt(meteo.geoposition.main.temp) + "°");
-     $("#meteo-localized-vento").html(meteo.geoposition.wind.speed + " km/h");
-     $("#meteo-localized-umidita").html(meteo.geoposition.main.humidity + " %");
-     $("#meteo-localized-icon").addClass(meteo.geoposition.weather[0].icon);
-
-     $("#meteo-localized-box").removeClass("hide");
-     $("#div-localized").fadeOut();
-     }
-
-     } */
 
 
     $('select').selectpicker(
         {title: "Seleziona un elemento"}
     );
+
+/*
+    if($('#fos_user_registration_form_dataNascita').length>0){
+
+    var html='<div id="datetimepicker" class="input-append date">';
+        html+='<input data-format="dd/MM/yyyy hh:mm:ss" type="text"  id="fos_user_registration_form_dataNascita" required="required" name="fos_user_registration_form[dataNascita]"></input>';
+        html+='  <span class="add-on">';
+        html+='  <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>';
+        html+= ' </span>';
+        html+= ' </div>';
+
+        $("#fos_user_registration_form_dataNascita").replaceWith(html);
+
+        $('#fos_user_registration_form_dataNascita').datetimepicker({
+            format: 'dd/MM/yyyy'
+        });
+    }
+
+ */
+
 
     $(".marker-description button").click(function () {
         location.href = $(this).attr("id");

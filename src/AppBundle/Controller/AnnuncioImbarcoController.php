@@ -124,7 +124,7 @@ class AnnuncioImbarcoController extends BaseController
                 $titolo = str_replace("offro", "", $annuncio->getTitolo());
 
                 $firstTopic = new Topic();
-                $firstTopic->setTitle($annuncio->getTipoAnnuncio()." ".$titolo);
+                $firstTopic->setTitle(nl2br($annuncio->getTipoAnnuncio())." ".$titolo);
                 $firstTopic->setCachedViewCount(1);
                 $board = null;
 
