@@ -1,5 +1,5 @@
 {% for regione in regioni %}
-    <option value="TUTTO">OVUNQUE</option>
+    <option value="TUTTO" selected>Ovunque</option>
     <optgroup label="{{ regione.nome }}">
     {% for porto in regione.porti %}
         <option value="{{ porto.id }}">{{ porto.nome }}</option>

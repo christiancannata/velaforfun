@@ -12,6 +12,15 @@
 {% block javascripts %}
 <script language="javascript">
     $(document).ready(function () {
+
+        $.get( "/porti/select_list", function( data ) {
+            $('#appbundle_annuncioscambioposto_luogoAttuale').html( data );
+
+            $('#appbundle_annuncioscambioposto_luogoAttuale').selectpicker('refresh');
+        });
+
+
+
         $('.notifiche-scambio').click(function () {
             $('#modalScambio').modal('show');
         });
@@ -459,7 +468,7 @@
                     </div>
                     <div class="modal-body">
 
-                        <form action="cerca-annuncio" method="post" name="appbundle_annuncioimbarco">
+                        <form action="/annuncio-imbarco/cerca-annuncio" method="post" name="appbundle_annuncioimbarco">
                             <div id="appbundle_annuncioimbarco">
                                 <input type="hidden" name="appbundle_annuncioimbarco[tipoAnnuncio]" value="CERCO">
 
@@ -571,14 +580,14 @@
                     <div class="modal-body">
                         {% if app.user %}
 
-                            <form action="cerca-annuncio" method="post" name="appbundle_annuncioscambioposto">
+                            <form action="/annuncio-scambio-posto/cerca-annuncio" method="post" name="appbundle_annuncioscambioposto">
                                 <div id="appbundle_annuncioscambioposto">
                                     <input type="hidden" name="appbundle_annuncioscambioposto[telefono]"/>
 
                                     <div class="form-group">
                                         <label for="appbundle_annuncioscambioposto_luogoAttuale"
                                                class="control-label required">Dove hai la barca adesso?</label>
-                                        <select class="form-control" name="appbundle_annuncioscambioposto[luogoAttuale]"
+                                        <select data-live-search="true" class="form-control" name="appbundle_annuncioscambioposto[luogoAttuale]"
                                                 id="appbundle_annuncioscambioposto_luogoAttuale">
 
                                         </select>
