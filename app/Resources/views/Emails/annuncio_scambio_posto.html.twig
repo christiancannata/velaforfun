@@ -1,0 +1,64 @@
+{% extends 'layout_email.html.twig' %}
+
+{% block title %}Annuncio Imbarco{% endblock %}
+
+{% block body %}
+
+
+
+
+    <div class='movableContent'>
+        <table width="580" border="0" cellspacing="0" cellpadding="0" align="center">
+            <tr>
+                <td height='40'></td>
+            </tr>
+            <tr>
+                <td width='410'>
+                    <table width="580" cellpadding="0" cellspacing="0" align="center">
+                        <tr>
+                            <td height='15'></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class='contentEditableContainer contentTextEditable'>
+                                    <div class='contentEditable' style='text-align: left;'>
+                                        <h2 style='font-size:16px;'>Nuovo annunci di scambio posto barca</h2>
+
+
+                                        <h3>DATI RICHIEDENTE</h3>
+
+                                        <b>RICHIESTA DI:</b> {{ annuncio.utente.nome }} {{ annuncio.utente.cognome }}<br>
+                                        <b>E-MAIL:</b> {{  annuncio.utente.email }} <br>
+                                        <b>RECAPITO TELEFONICO:</b> {{ annuncio.telefono }} <br> <br>
+
+                                        <h3>SPECIFICHE</h3>
+
+                                        <b>PORTO ATTUALE:</b> {{ annuncio.luogoAttuale.nome }} <br>
+                                        <b>LUOGO RICERCATO:</b> {{ annuncio.luogoRicercato }} <br>
+                                        <b>TEMPO DI PERMANENZA:</b> {{ annuncio.tempo }} <br>
+                                        <b>TIPO DI IMBARCAZIONE:</b> {{ annuncio.tipo }} <br>
+
+                                        <h3>NOTE VARIE</h3>
+
+                                        {{ annuncio.descrizione }}<br><br>
+
+                                        <i>Questa mail le è stata inviata in quanto i parametri dell'annuncio
+                                        corrispondono a quelli inseriti da lei al momento della registrazione al
+                                        servizio. Per modificare i parametri o per annullare l'iscrizione vada
+                                        direttamente sul sito.</i>
+
+                                        <br>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+{% endblock %}
+
+
+

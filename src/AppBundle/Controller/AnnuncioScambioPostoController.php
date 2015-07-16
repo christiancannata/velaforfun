@@ -100,8 +100,7 @@ class AnnuncioScambioPostoController extends BaseController
                 $em->flush();
 
 
-
-                $subscription=new Subscription();
+                $subscription = new Subscription();
                 $subscription->setTopic($firstTopic);
                 $subscription->setOwnedBy($this->getUser());
 
@@ -269,8 +268,6 @@ class AnnuncioScambioPostoController extends BaseController
                     $em->flush();
 
 
-                    $this->allertaAnnunci($annuncio);
-
                     $firstTopic->setFirstPost($post);
                     $firstTopic->setLastPost($post);
                     $em->merge($firstTopic);
@@ -287,19 +284,19 @@ class AnnuncioScambioPostoController extends BaseController
             }
 
 
-
-
             $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:AnnuncioScambioPosto');
             $query = $repository->createQueryBuilder('p');
-            $annunci=array();
+            $annunci = array();
             if ($params['appbundle_annuncioscambioposto']['luogoRicercato'] != "TUTTO") {
 
                 $porto = $this->getDoctrine()
-                    ->getRepository('AppBundle:Porto')->find($params['appbundle_annuncioscambioposto']['luogoRicercato']);
+                    ->getRepository('AppBundle:Porto')->find(
+                        $params['appbundle_annuncioscambioposto']['luogoRicercato']
+                    );
 
-                $annunci = $repository->findBy(array("luogoAttuale"=>$porto),array("id"=>"desc"));
-            }else{
-                $annunci = $repository->findBy(array(),array("id"=>"desc"));
+                $annunci = $repository->findBy(array("luogoAttuale" => $porto), array("id" => "desc"));
+            } else {
+                $annunci = $repository->findBy(array(), array("id" => "desc"));
             }
 
 
@@ -320,8 +317,39 @@ class AnnuncioScambioPostoController extends BaseController
 
         // CHI CREA INVIA A TUTTI QUELLI CHE ERANO IN ATTESA
 
+        $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:AnnuncioScambioPosto');
+        $query = $repository->createQueryBuilder('p')
+            ->where("p.tipoAnnuncio = 'CERCO'");
+        $destinatari = [];
+        if ($annuncio->getLuogoRicercato() != "TUTTO") {
+
+            $porto = $this->getDoctrine()
+                ->getRepository('AppBundle:Porto')->find($annuncio->getLuogoRicercato());
+
+            $destinatari = $repository->findBy(array("luogoAttuale" => $porto), array("id" => "desc"));
+        } else {
+            $destinatari = $repository->findBy(array(), array("id" => "desc"));
+        }
 
 
+        foreach ($destinatari as $destinatario) {
+            $mailer = $this->container->get('mailer');
+            $messaggio = $mailer->createMessage()
+                ->setSubject("Annuncio scambio posto")
+                ->setFrom('info@velaforfun.com')
+                ->setTo($destinatario->getEmail())
+                ->setBcc('christian1488@hotmail.it')
+                ->setBody(
+                    $this->container->get('templating')->render(
+                    // app/Resources/views/Emails/registrazione.html.twig
+                        'Emails/annuncio_scambio_posto.html.twig',
+                        array('annuncio' => $annuncio)
+                    ),
+                    'text/html'
+                );
+            $mailer->send($messaggio);
+
+        }
 
 
     }

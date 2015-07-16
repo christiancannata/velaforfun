@@ -298,7 +298,6 @@ class AnnuncioImbarcoController extends BaseController
 
 
 
-                    $this->allertaAnnunci($annuncio);
 
                     /* $firstTopic->setFirstPost($post);
                     $firstTopic->setLastPost($post);
