@@ -1913,7 +1913,7 @@ label[for=Post_subscribe] {
     height: 450px;
 }
 
-#Post ul {
+#Post ul,.crea-topic ul {
     list-style: none;
     color: white;
     background: rgba(242, 20, 35, 0.5);
