@@ -2286,3 +2286,8 @@ input[readonly] {
 .hvr-sweep-to-right::before{
     background:#23527c !important;
 }
+
+.datetimepicker .btn-group{
+    width:auto !important;
+    float:left;
+}

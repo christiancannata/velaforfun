@@ -134,6 +134,21 @@ jQuery(document).ready(function ($) {
 
 
 
+
+
+
+    if($(".datetimepicker").length>0){
+        $('select[id*=day]').selectpicker(
+            {title: "Giorno"}
+        );
+        $('select[id*=month]').selectpicker(
+            {title: "Mese"}
+        );
+        $('select[id*=year]').selectpicker(
+            {title: "Anno"}
+        );
+    }
+
     $('select').selectpicker(
         {title: "Seleziona un elemento"}
     );
