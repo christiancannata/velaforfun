@@ -1,9 +1,13 @@
 #production
 deployment:
-  user: dummy
+  user: myuser
   from: ./
-  to: /var/www/vhosts/example.com/www
+  to: /path/to/deployment
   excludes:
+    - app/cache/*
+    - app/config/parameters.yml
+    - web/bundles/*
+    - web/uploads
 releases:
   enabled: true
   max: 10
@@ -12,6 +16,6 @@ releases:
 hosts:
 tasks:
   pre-deploy:
+    - scm/update
   on-deploy:
-  post-release:
-  post-deploy:
+    - sharedFolderTask: {sharedFiles: 'app/config/parameters.yml,web/uploads'}
