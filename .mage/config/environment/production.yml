@@ -1,21 +1,25 @@
 #production
 deployment:
-  user: myuser
+  user: root
   from: ./
-  to: /path/to/deployment
+  to: /var/www
   excludes:
     - app/cache/*
     - app/config/parameters.yml
     - web/bundles/*
     - web/uploads
+    strategy: git-rebase
 releases:
   enabled: true
-  max: 10
+  max: 3
   symlink: current
   directory: releases
 hosts:
+  - 151.236.62.144
 tasks:
   pre-deploy:
     - scm/update
+  on-deploy:
+    - symfony2/cache-warmup: {env: prod}
   on-deploy:
     - sharedFolderTask: {sharedFiles: 'app/config/parameters.yml,web/uploads'}

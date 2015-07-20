@@ -41,7 +41,15 @@ class DefaultController extends BaseController
         $articoli = $repository->findByStato("ATTIVO", array('id' => 'desc'), 4);
 
 
-        return $this->render('default/chi-siamo.html.twig', array("articoli" => $articoli));
+        $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:PaginaStatica');
+        $paginaStatica = $repository->findOneByPermalink("chi-siamo");
+
+
+        return $this->render(
+            'default/chi-siamo.html.twig',
+            array("articoli" => $articoli, "paginaStatica" => $paginaStatica)
+        );
     }
 
 
