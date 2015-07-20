@@ -8,7 +8,7 @@ deployment:
     - app/config/parameters.yml
     - web/bundles/*
     - web/uploads
-    strategy: git-rebase
+  strategy: rsync
 releases:
   enabled: true
   max: 3
@@ -17,9 +17,11 @@ releases:
 hosts:
   - 151.236.62.144
 tasks:
-  pre-deploy:
-    - scm/update
   on-deploy:
+    - symfony2/assetic-dump: {env: prod}
+    - symfony2/assets-install: {env: prod}
+    - symfony2/cache-clear: {env: prod}
     - symfony2/cache-warmup: {env: prod}
-  on-deploy:
-    - sharedFolderTask: {sharedFiles: 'app/config/parameters.yml,web/uploads'}
+
+
+
