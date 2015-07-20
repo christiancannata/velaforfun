@@ -1,0 +1,7 @@
+# global settings
+name: Vela For Fun
+email: christian1488@hotmail.it
+notifications: true
+logging: true
+maxlogs: 30
+ssh_needs_tty: false
