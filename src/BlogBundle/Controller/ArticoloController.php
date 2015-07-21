@@ -27,7 +27,43 @@ class ArticoloController extends BaseController
      */
     public function patchAction(Request $request, $id)
     {
-        return $this->patchForm($request, new ArticoloType(), $id, "Articolo");
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository("BlogBundle:".$this->entity)->find($id);
+
+        $postform = $this->createForm(new ArticoloType(), $entity);
+
+        if ($request->isMethod('POST')) {
+
+            $postform->handleRequest($request);
+
+            if ($postform->isValid()) {
+
+
+                /*
+                 * $data['title']
+                 * $data['body']
+                 */
+                $em = $this->getDoctrine()->getManager();
+
+                $em->flush();
+
+
+                $response['success'] = true;
+
+            } else {
+
+                $response['success'] = false;
+                $response['cause'] = $postform->getErrors();
+
+            }
+
+            return new JsonResponse($response);
+        }
+        return $this->render(
+            'AppBundle:Crud:create-articolo.html.twig',
+            array('form' => $postform->createView(), "titolo" => "Modifica ".$this->entity." - ".$id,"entity"=>$entity)
+        );
     }
 
 

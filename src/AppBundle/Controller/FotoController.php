@@ -24,7 +24,7 @@ class FotoController extends BaseController
      */
     public function createAction(Request $request)
     {
-        $postform = $this->createForm(new GalleriaFotoType());
+        $postform = $this->createForm(new FotoType());
 
         if ($request->isMethod('POST')) {
 

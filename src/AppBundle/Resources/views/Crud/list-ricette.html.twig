@@ -77,9 +77,9 @@
                     <tr data-id="{{ entity.id }}">
                         <td>{{ entity.id }}</td>
 
-                        <td>{{ entity.__toString()|raw }} </td>
+                        <td><a target="_BLANK" href="/archivio/{{ entity.categoria.permalink }}/{{ entity.permalink }}">{{ entity.__toString()|raw }}</a> </td>
                         <td>{{ entity.categoria.nome }}</td>
-                        <td>{{ entity.categoria.stato }}</td>
+                        <td>{{ entity.stato }}</td>
                         <td>{{ entity.timestamp|date('d-m-Y H:i') }}</td>
                         <td>
                             <button type="button" onclick="location.href='{{ base_path }}/modifica/{{ entity.id }}'"
