@@ -42,6 +42,8 @@ class CategoriaController extends BaseController
     }
 
 
+
+
     /**
      * @Route( "elimina/{id}", name="delete_categoria" )
      */

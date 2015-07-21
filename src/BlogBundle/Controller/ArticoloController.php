@@ -36,8 +36,76 @@ class ArticoloController extends BaseController
      */
     public function listAction(Request $request)
     {
-        return $this->cGet();
+
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entities = $em->getRepository("BlogBundle:".$this->entity)->findAll();
+
+        $exclude = array(2,11,12,13,14,15);
+        foreach ($entities as $key => $entity) {
+            if ($entity->getCategoria() != null && in_array($entity->getCategoria()->getId(), $exclude)) {
+                unset($entities[$key]);
+            }
+        }
+
+        return $this->render('AppBundle:Crud:list-ricette.html.twig', array('entities' => $entities));
     }
+
+    /**
+     * @Route( "list/comunicati", name="list_comunicati" )
+     */
+    public function listComunicatiAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $categoria = $em->getRepository('BlogBundle:Categoria')->find(2);
+        $entities = $em->getRepository("BlogBundle:".$this->entity)->findByCategoria($categoria);
+
+
+        return $this->render('AppBundle:Crud:list-comunicati.html.twig', array('entities' => $entities));
+    }
+
+    /**
+     * @Route( "list/ricette", name="list_ricette" )
+     */
+    public function listRicetteAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $entities = [];
+        $categoria = $em->getRepository('BlogBundle:Categoria')->find(11);
+        $entities = array_merge(
+            $em->getRepository("BlogBundle:".$this->entity)->findByCategoria($categoria),
+            $entities
+        );
+
+
+        $categoria = $em->getRepository('BlogBundle:Categoria')->find(12);
+        $entities = array_merge(
+            $em->getRepository("BlogBundle:".$this->entity)->findByCategoria($categoria),
+            $entities
+        );
+
+        $categoria = $em->getRepository('BlogBundle:Categoria')->find(13);
+        $entities = array_merge(
+            $em->getRepository("BlogBundle:".$this->entity)->findByCategoria($categoria),
+            $entities
+        );
+
+        $categoria = $em->getRepository('BlogBundle:Categoria')->find(14);
+        $entities = array_merge(
+            $em->getRepository("BlogBundle:".$this->entity)->findByCategoria($categoria),
+            $entities
+        );
+
+        $categoria = $em->getRepository('BlogBundle:Categoria')->find(15);
+        $entities = array_merge(
+            $em->getRepository("BlogBundle:".$this->entity)->findByCategoria($categoria),
+            $entities
+        );
+
+        return $this->render('AppBundle:Crud:list-ricette.html.twig', array('entities' => $entities));
+    }
+
 
     /**
      * @Route( "articoli/elimina/{id}", name="delete_articolo" )
