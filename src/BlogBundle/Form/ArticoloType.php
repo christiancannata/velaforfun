@@ -32,6 +32,10 @@ class ArticoloType extends AbstractType
             ->add('linkCorrelato')
             ->add('immagineCorrelata')
             ->add('gallery')
+            ->add('allegato1File')
+            ->add('allegato2File')
+            ->add('allegato3File')
+            ->add('allegato4File')
         ;
     }
     

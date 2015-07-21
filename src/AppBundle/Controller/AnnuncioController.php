@@ -123,6 +123,11 @@ class AnnuncioController extends BaseController
                 $em->persist($subscription);
                 $em->flush();
 
+                $board->setCachedPostCount($board->getCachedPostCount()+1);
+                $board->setCachedTopicCount($board->getCachedTopicCount()+1);
+
+                $em->persist($board);
+                $em->flush();
 
 
                 $response['success'] = true;

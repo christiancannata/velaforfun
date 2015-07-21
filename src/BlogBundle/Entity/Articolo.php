@@ -149,6 +149,45 @@ class Articolo implements ItemInterface
 
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $allegato1;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $allegato2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $allegato3;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $allegato4;
+
+
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    protected $allegato1File;
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    protected $allegato2File;
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    protected $allegato3File;
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    protected $allegato4File;
+
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -472,6 +511,83 @@ class Articolo implements ItemInterface
     }
 
     /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUploadAllegato1()
+    {
+        if (null !== $this->getAllegato1File()) {
+            // a file was uploaded
+            // generate a unique filename
+            $oggi = new \DateTime();
+            $filename = str_replace(
+                '"',
+                '',
+                str_replace("''", "", str_replace(" ", "-", $this->getTitolo())."-".$oggi->format("U"))
+            );
+            $this->setAllegato1($filename.'.'.$this->getAllegato1File()->guessExtension());
+        }
+    }
+
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUploadAllegato2()
+    {
+        if (null !== $this->getAllegato2File()) {
+            // a file was uploaded
+            // generate a unique filename
+            $oggi = new \DateTime();
+            $filename = str_replace(
+                '"',
+                '',
+                str_replace("''", "", str_replace(" ", "-", $this->getTitolo())."-".$oggi->format("U"))
+            );
+            $this->setAllegato2($filename.'.'.$this->getAllegato2File()->guessExtension());
+        }
+    }
+
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUploadAllegato3()
+    {
+        if (null !== $this->getAllegato3File()) {
+            // a file was uploaded
+            // generate a unique filename
+            $oggi = new \DateTime();
+            $filename = str_replace(
+                '"',
+                '',
+                str_replace("''", "", str_replace(" ", "-", $this->getTitolo())."-".$oggi->format("U"))
+            );
+            $this->setAllegato3($filename.'.'.$this->getAllegato3File()->guessExtension());
+        }
+    }
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUploadAllegato4()
+    {
+        if (null !== $this->getAllegato4File()) {
+            // a file was uploaded
+            // generate a unique filename
+            $oggi = new \DateTime();
+            $filename = str_replace(
+                '"',
+                '',
+                str_replace("''", "", str_replace(" ", "-", $this->getTitolo())."-".$oggi->format("U"))
+            );
+            $this->setAllegato4($filename.'.'.$this->getAllegato4File()->guessExtension());
+        }
+    }
+
+    /**
      * Generates a 32 char long random filename
      *
      * @return string
@@ -546,6 +662,127 @@ class Articolo implements ItemInterface
             $this->tempimmagine = null;
         }
         $this->immagineCorrelata = null;
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     *
+     * Upload the profile picture
+     *
+     * @return mixed
+     */
+    public function uploadAllegato1()
+    {
+        // check there is a profile pic to upload
+        if ($this->getAllegato1File() === null) {
+            return;
+        }
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->getAllegato1File()->move($this->getUploadRootDir(), $this->getAllegato1());
+
+        // check if we have an old image
+        if (isset($this->tempimmagine) && file_exists($this->getUploadRootDir().'/'.$this->tempimmagine)) {
+            // delete the old image
+            unlink($this->getUploadRootDir().'/'.$this->tempimmagine);
+            // clear the temp image path
+            $this->tempimmagine = null;
+        }
+        $this->allegato1File = null;
+    }
+
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     *
+     * Upload the profile picture
+     *
+     * @return mixed
+     */
+    public function uploadAllegato2()
+    {
+        // check there is a profile pic to upload
+        if ($this->getAllegato2File() === null) {
+            return;
+        }
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->getAllegato2File()->move($this->getUploadRootDir(), $this->getAllegato2());
+
+        // check if we have an old image
+        if (isset($this->tempimmagine) && file_exists($this->getUploadRootDir().'/'.$this->tempimmagine)) {
+            // delete the old image
+            unlink($this->getUploadRootDir().'/'.$this->tempimmagine);
+            // clear the temp image path
+            $this->tempimmagine = null;
+        }
+        $this->allegato2File = null;
+    }
+
+
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     *
+     * Upload the profile picture
+     *
+     * @return mixed
+     */
+    public function uploadAllegato3()
+    {
+        // check there is a profile pic to upload
+        if ($this->getAllegato3File() === null) {
+            return;
+        }
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->getAllegato3File()->move($this->getUploadRootDir(), $this->getAllegato3());
+
+        // check if we have an old image
+        if (isset($this->tempimmagine) && file_exists($this->getUploadRootDir().'/'.$this->tempimmagine)) {
+            // delete the old image
+            unlink($this->getUploadRootDir().'/'.$this->tempimmagine);
+            // clear the temp image path
+            $this->tempimmagine = null;
+        }
+        $this->allegato3File = null;
+    }
+
+
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     *
+     * Upload the profile picture
+     *
+     * @return mixed
+     */
+    public function uploadAllegato4()
+    {
+        // check there is a profile pic to upload
+        if ($this->getAllegato4File() === null) {
+            return;
+        }
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->getAllegato4File()->move($this->getUploadRootDir(), $this->getAllegato4());
+
+        // check if we have an old image
+        if (isset($this->tempimmagine) && file_exists($this->getUploadRootDir().'/'.$this->tempimmagine)) {
+            // delete the old image
+            unlink($this->getUploadRootDir().'/'.$this->tempimmagine);
+            // clear the temp image path
+            $this->tempimmagine = null;
+        }
+        $this->allegato4File = null;
     }
 
 
@@ -715,6 +952,134 @@ class Articolo implements ItemInterface
             return "http://www.velaforfun.com/".$this->getCategoria()->getPermalink()."/".$this->getPermalink();
 
         }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllegato1()
+    {
+        return $this->allegato1;
+    }
+
+    /**
+     * @param mixed $allegato1
+     */
+    public function setAllegato1($allegato1)
+    {
+        $this->allegato1 = $allegato1;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllegato2()
+    {
+        return $this->allegato2;
+    }
+
+    /**
+     * @param mixed $allegato2
+     */
+    public function setAllegato2($allegato2)
+    {
+        $this->allegato2 = $allegato2;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllegato3()
+    {
+        return $this->allegato3;
+    }
+
+    /**
+     * @param mixed $allegato3
+     */
+    public function setAllegato3($allegato3)
+    {
+        $this->allegato3 = $allegato3;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllegato4()
+    {
+        return $this->allegato4;
+    }
+
+    /**
+     * @param mixed $allegato4
+     */
+    public function setAllegato4($allegato4)
+    {
+        $this->allegato4 = $allegato4;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllegato1File()
+    {
+        return $this->allegato1File;
+    }
+
+    /**
+     * @param mixed $allegato1File
+     */
+    public function setAllegato1File($allegato1File)
+    {
+        $this->allegato1File = $allegato1File;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllegato2File()
+    {
+        return $this->allegato2File;
+    }
+
+    /**
+     * @param mixed $allegato2File
+     */
+    public function setAllegato2File($allegato2File)
+    {
+        $this->allegato2File = $allegato2File;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllegato3File()
+    {
+        return $this->allegato3File;
+    }
+
+    /**
+     * @param mixed $allegato3File
+     */
+    public function setAllegato3File($allegato3File)
+    {
+        $this->allegato3File = $allegato3File;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllegato4File()
+    {
+        return $this->allegato4File;
+    }
+
+    /**
+     * @param mixed $allegato4File
+     */
+    public function setAllegato4File($allegato4File)
+    {
+        $this->allegato4File = $allegato4File;
     }
 
 
