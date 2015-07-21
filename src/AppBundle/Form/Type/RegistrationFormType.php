@@ -12,7 +12,7 @@ class RegistrationFormType extends AbstractType
 		// add your custom field
 		$builder->add('nome');
 		$builder->add('cognome');
-		$builder->add('dataNascita','date',array('attr'=> array('class'=>'datetimepicker')));
+		$builder->add('dataNascita','birthday',array(  'format' => 'd-M-y','attr'=> array('class'=>'datetimepicker')));
         $builder->add('profilePictureFile',null, array('label' => 'Avatar'));
         $builder->add('firma',null, array('label' => 'La tua firma'));
 	}
