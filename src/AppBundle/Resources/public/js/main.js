@@ -67,7 +67,10 @@ function getUrlParameter(sParam)
 
 jQuery(document).ready(function ($) {
 
-    $('.smarticker6').smarticker();
+
+    if($('.smarticker6').length>0){
+        $('.smarticker6').smarticker();
+    }
 
     if($("#fos_user_registration_form_profilePictureFile").length>0 && $(".hwi_oauth_registration_register").length==0){
         var html='<div class="form-group"> <label class="control-label required" for="blogbundle_articolo_profilePictureFile">Carica un Avatar</label> <span class="input-group-btn"> <span class="btn btn-primary btn-file">Sfoglia… <input type="file" name="fos_user_registration_form[profilePictureFile]" id="fos_user_registration_form_profilePictureFile"> </span> </span> <input type="text" readonly="" class="form-control"> </div>';

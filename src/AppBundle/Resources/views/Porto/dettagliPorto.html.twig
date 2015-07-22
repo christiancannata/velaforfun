@@ -364,26 +364,29 @@
                         </div>
                     </div>
 
-                    <div class="row clearfix">
 
+
+
+                    <div class="row clearfix">
+                        <div class="row clearfix">
                         <div class="col-md-4 column">
-                            <i class="wi {{ meteo(meteo.weather[0].icon) }}" id="meteo-icon"> </i>
+                            <i class="wi {{ meteo(mainMeteo.weather[0].icon) }}" id="meteo-icon"> </i>
                         </div>
 
                         <div class="col-md-8 column">
                             <div class="row clearfix">
                                 <div class="col-md-6 column">
-                                    <h4 id="porto-temperatura">{{ meteo.main.temp|number_format }}  <i
+                                    <h4 id="porto-temperatura">{{ mainMeteo.main.temp_max|number_format }}  <i
                                                 class="wi wi-celsius"> </i></h4>
                                 </div>
                                 <div class="col-md-6 column">
                                     <p style="margin:0"><i class="wi wi-strong-wind"></i></p>
 
-                                    <div id="porto-vento" style="margin-bottom: 10px;font-size:22px">{{ meteo.wind.speed }} km/h</div>
+                                    <div id="porto-vento" style="margin-bottom: 10px;font-size:22px">{{ mainMeteo.wind.speed }} km/h</div>
                                     <p style="margin:0"><i style="font-size:40px" class="fa fa-tint"></i>
                                        </p>
 
-                                    <div id="porto-umidita" style="margin-bottom: 10px;font-size:22px">{{ meteo.main.humidity }} %
+                                    <div id="porto-umidita" style="margin-bottom: 10px;font-size:22px">{{ mainMeteo.main.humidity }} %
                                     </div>
                                 </div>
                             </div>
@@ -391,7 +394,104 @@
 
                         </div>
 
+</div>
+
+
                     </div>
+
+                    <div class="row clearfix">
+                        <div class="divisore-big background-white"></div>
+                    </div>
+
+
+                    <div class="row clearfix">
+                        <div class="col-md-3 column">
+
+                            <div class="row clearfix meteo-futuro">
+                                <div class="col-md-12 column">
+                                    <i class="wi {{ meteo(meteo[0].weather[0].icon) }} margined-bottom" > </i>
+                                </div>
+
+                                <div class="col-md-12 column">
+                                    <h4 >{{ meteo[0].main.temp_max|number_format }}  <i
+                                                class="wi wi-celsius"> </i></h4>
+                                </div>
+
+                                <div class="col-md-12 column">
+                                    <h4>{{ meteo[0].dt|date("H:i") }}</h4>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-3 column">
+
+                            <div class="row clearfix meteo-futuro">
+                                <div class="col-md-12 column">
+                                    <i class="wi {{ meteo(meteo[1].weather[0].icon) }} margined-bottom" > </i>
+                                </div>
+
+                                <div class="col-md-12 column">
+                                    <h4 >{{ meteo[1].main.temp_max|number_format }}  <i
+                                                class="wi wi-celsius"> </i></h4>
+                                </div>
+
+                                <div class="col-md-12 column">
+                                    <h4>{{ meteo[1].dt|date("H:i") }}</h4>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-3 column">
+
+                            <div class="row clearfix meteo-futuro">
+                                <div class="col-md-12 column">
+                                    <i class="wi {{ meteo(meteo[2].weather[0].icon) }} margined-bottom" > </i>
+                                </div>
+
+                                <div class="col-md-12 column">
+                                    <h4 >{{ meteo[2].main.temp_max|number_format }}  <i
+                                                class="wi wi-celsius"> </i></h4>
+                                </div>
+
+                                <div class="col-md-12 column">
+                                    <h4>{{ meteo[2].dt|date("H:i") }}</h4>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-3 column">
+
+                            <div class="row clearfix meteo-futuro">
+                                <div class="col-md-12 column">
+                                    <i class="wi {{ meteo(meteo[3].weather[0].icon) }} margined-bottom" > </i>
+                                </div>
+
+                                <div class="col-md-12 column">
+                                    <h4 >{{ meteo[3].main.temp_max|number_format }}  <i
+                                                class="wi wi-celsius"> </i></h4>
+                                </div>
+
+                                <div class="col-md-12 column">
+                                    <h4>{{ meteo[3].dt|date("H:i") }}</h4>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="row clearfix">
+                        <div class="divisore-big background-white"></div>
+                        </div>
                     <div class="row clearfix">
                         <div class="col-md-12 column" style="text-align: left">
                             <strong>Informazioni utili</strong>

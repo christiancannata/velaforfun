@@ -2291,3 +2291,16 @@ input[readonly] {
     width:auto !important;
     float:left;
 }
+
+.meteo-futuro h4,.meteo-futuro .wi-celsius{
+    text-align:center;
+font-size:22px !important;
+}
+
+.meteo-futuro{
+    margin-bottom: 10px;
+    
+}
+.margined-bottom{
+    margin-bottom: 10px;
+}

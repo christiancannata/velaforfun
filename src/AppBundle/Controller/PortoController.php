@@ -263,15 +263,18 @@ class PortoController extends BaseController
             ->setParameters(array('porto' => $porto, 'dal' => $dal, 'al' => $al));
 
         $meteo = $qb->getQuery()->getArrayResult();
-
+        $dal = new \DateTime();
+        $al = new \DateTime();
+        $al->add(new \DateInterval("P2D"));
 
         if (empty($meteo)) {
 
-
             $request = $client->get(
-                '/data/2.5/weather?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine(
-                ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&units=metric'
+                '/data/2.5/forecast?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine(
+                ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&type=day&units=metric'
             );
+
+
             $response = $client->send($request);
 
             $entityMeteo = new Meteo();
@@ -292,9 +295,33 @@ class PortoController extends BaseController
 
         $postform = $this->createForm(new CommentoPortoType());
 
+
+        $mainMeteo=new \StdClass;
+
+        $trovato=false;
+        $now=new \DateTime();
+        $meteoAfter=[];
+
+        foreach($weather->list as $key=>$meteo){
+            $orario=new \DateTime();
+            $orario->setTimestamp($meteo->dt);
+            if($orario->getTimestamp() >= $now->getTimestamp()   && !$trovato){
+                $trovato=true;
+                $mainMeteo=$meteo;
+            }
+            if($trovato && $mainMeteo->dt!=$meteo->dt){
+                $meteoAfter[]=$meteo;
+            }
+
+        }
+
+
+        $now=new \DateTime();
+        $now->setTimestamp($mainMeteo->dt);
+
         return $this->render(
             'AppBundle:Porto:dettagliPorto.html.twig',
-            array("porto" => $porto, "titolo" => $titolo, "meteo" => $weather, "form" => $postform->createView())
+            array("porto" => $porto, "titolo" => $titolo,"mainMeteo"=>$mainMeteo, "meteo" => $meteoAfter, "form" => $postform->createView())
         );
     }
 
