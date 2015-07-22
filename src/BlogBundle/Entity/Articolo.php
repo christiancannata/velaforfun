@@ -170,19 +170,19 @@ class Articolo implements ItemInterface
 
 
     /**
-     * @Assert\File(maxSize="6000000")
+     * @Assert\File()
      */
     protected $allegato1File;
     /**
-     * @Assert\File(maxSize="6000000")
+     * @Assert\File()
      */
     protected $allegato2File;
     /**
-     * @Assert\File(maxSize="6000000")
+     * @Assert\File()
      */
     protected $allegato3File;
     /**
-     * @Assert\File(maxSize="6000000")
+     * @Assert\File()
      */
     protected $allegato4File;
 
@@ -523,7 +523,7 @@ class Articolo implements ItemInterface
             $filename = str_replace(
                 '"',
                 '',
-                str_replace("''", "", str_replace(" ", "-", $this->getTitolo())."-".$oggi->format("U"))
+                str_replace("''", "", str_replace(" ", "-", $this->getAllegato1File()->getClientOriginalName())."-".$oggi->format("U"))
             );
             $this->setAllegato1($filename.'.'.$this->getAllegato1File()->guessExtension());
         }
@@ -543,7 +543,7 @@ class Articolo implements ItemInterface
             $filename = str_replace(
                 '"',
                 '',
-                str_replace("''", "", str_replace(" ", "-", $this->getTitolo())."-".$oggi->format("U"))
+                str_replace("''", "", str_replace(" ", "-", $this->getAllegato2File()->getClientOriginalName())."-".$oggi->format("U"))
             );
             $this->setAllegato2($filename.'.'.$this->getAllegato2File()->guessExtension());
         }
@@ -563,7 +563,7 @@ class Articolo implements ItemInterface
             $filename = str_replace(
                 '"',
                 '',
-                str_replace("''", "", str_replace(" ", "-", $this->getTitolo())."-".$oggi->format("U"))
+                str_replace("''", "", str_replace(" ", "-", $this->getAllegato3File()->getClientOriginalName())."-".$oggi->format("U"))
             );
             $this->setAllegato3($filename.'.'.$this->getAllegato3File()->guessExtension());
         }
@@ -581,7 +581,7 @@ class Articolo implements ItemInterface
             $filename = str_replace(
                 '"',
                 '',
-                str_replace("''", "", str_replace(" ", "-", $this->getTitolo())."-".$oggi->format("U"))
+                str_replace("''", "", str_replace(" ", "-", $this->getAllegato4File()->getClientOriginalName())."-".$oggi->format("U"))
             );
             $this->setAllegato4($filename.'.'.$this->getAllegato4File()->guessExtension());
         }
@@ -681,7 +681,9 @@ class Articolo implements ItemInterface
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
-        $this->getAllegato1File()->move($this->getUploadRootDir(), $this->getAllegato1());
+        if(!$this->getAllegato1File()->move($this->getUploadRootDir(), $this->getAllegato1())){
+
+        }
 
         // check if we have an old image
         if (isset($this->tempimmagine) && file_exists($this->getUploadRootDir().'/'.$this->tempimmagine)) {
