@@ -906,7 +906,7 @@ input:-moz-placeholder {
 }
 
 #menu-login .dropdown-menu {
-    left: -50px;
+    left: -130px;
     padding: 17px;
     color: rgb(66, 156, 188);
 }
@@ -1069,7 +1069,7 @@ input:-moz-placeholder {
 }
 
 #profileMenu .dropdown-menu {
-    margin-top: 40px;
+    margin-top: 50px;
 
 }
 
