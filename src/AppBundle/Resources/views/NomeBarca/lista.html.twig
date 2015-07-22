@@ -7,19 +7,13 @@
 
     <script language="javascript">
         $(document).ready(function () {
-            $('table').dataTable({
+            $('table').DataTable({
                 "order": [[ 1, 'desc' ]],
-                "bFilter": false, "bLengthChange": false, "language": {
+                "bLengthChange": false, "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.7/i18n/Italian.json"
                 },
                 "sDom": '<lf<t>ip>'
             });
-
-            if(getUrlParameter("lettera")){
-                var lettera=getUrlParameter("lettera");
-                $("#"+lettera).click();
-                goToByScroll(lettera);
-            }
 
         });
     </script>
