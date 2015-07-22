@@ -26,7 +26,13 @@ class DefaultController extends BaseController
         $articoli = $repository->findByStato("ATTIVO", array('id' => 'desc'), 4);
 
 
-        return $this->render('default/index.html.twig', array("articoli" => $articoli));
+        $repository = $this->getDoctrine()
+            ->getRepository('CCDNForumForumBundle:Topic');
+
+        $post = $repository->findBy(array(), array('id' => 'desc'), 20);
+
+
+        return $this->render('default/index.html.twig', array("articoli" => $articoli, "ultimiPost" => $post));
     }
 
 
