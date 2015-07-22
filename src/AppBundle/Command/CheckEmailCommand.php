@@ -11,6 +11,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use PhpImap\Mailbox as MailBox;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOException;
+
 
 class CheckEmailCommand extends ContainerAwareCommand
 {
@@ -35,9 +38,12 @@ class CheckEmailCommand extends ContainerAwareCommand
             '{imap.gmail.com:993/imap/ssl}INBOX',
             'comunicati@velaforfun.com ',
             'comunicati01 ',
-            '/var/www/web/images/articoli'
+            '/tmp'
         );
         $mails = array();
+
+        $fs = new Filesystem();
+
 
         $mailsIds = $mailbox->searchMailBox('UNSEEN');
         $repositoryArticolo = $this->getContainer()->get('doctrine')
@@ -45,8 +51,8 @@ class CheckEmailCommand extends ContainerAwareCommand
         if (!$mailsIds) {
             die('Mailbox is empty');
         } else {
-          //  $mailsIds = $mailbox->sortMails();
-          //  $mailsIds = array_slice($mailsIds, 0, 20);
+            //  $mailsIds = $mailbox->sortMails();
+            //  $mailsIds = array_slice($mailsIds, 0, 20);
             $comunicati = array();
             foreach ($mailsIds as $mailId) {
                 $output->writeln('<info>Leggo email ID:'.$mailId.'</info>');
@@ -92,10 +98,34 @@ class CheckEmailCommand extends ContainerAwareCommand
 
                     }
                     $articolo->setAutore($user);
-                    $allegati=$mail->getAttachments();
+                    $allegati = $mail->getAttachments();
+                    $allegatiValidi=[];
+                    foreach ($allegati as $allegato) {
+                        $path_parts = pathinfo($allegato->filePath);
+                        if ($path_parts['extension'] == "doc" || $path_parts['extension'] == "pdf" || $path_parts['extension'] == "docx") {
+                            $allegatiValidi[]=$allegato;
+                        }
+                    }
+                    $output->writeln('<info>Trovati allegati validi:'.count($allegatiValidi).'</info>');
+
+                    $allegatiValidi=array_slice($allegatiValidi,0,4);
+                    foreach ($allegatiValidi as $key=>$allegato) {
+                        try {
+                            $path_parts = pathinfo($allegato->filePath);
+                            $numeroAllegato = "setAllegato".($key+1);
+                            $output->writeln('<info>setto allegato:'.$numeroAllegato.' - '.$allegato->filePath.'</info>');
+
+                            $fs->copy($allegato->filePath, '/var/www/web/uploads/allegati-articoli/'.$path_parts['filename'].".".$path_parts['extension']);
+                            $articolo->$numeroAllegato($path_parts['filename'].".".$path_parts['extension']);
+
+                        } catch (IOException $e) {
+                            echo "Errore durante la copia del file";
+                        }
+
+
+                    }
 
                     $this->em->persist($articolo);
-                    $mail->markMailAsRead($mail->id);
                     $output->writeln('<info>Email ID:'.$mailId.' importata!</info>');
                     $comunicati[] = $articolo;
                     $mailbox->markMailAsRead($mailId);
