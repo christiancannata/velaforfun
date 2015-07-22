@@ -128,10 +128,11 @@ class CheckEmailCommand extends ContainerAwareCommand
                     $this->em->persist($articolo);
                     $output->writeln('<info>Email ID:'.$mailId.' importata!</info>');
                     $comunicati[] = $articolo;
+                    $this->em->flush();
                     $mailbox->markMailAsRead($mailId);
                 }
             }
-            $this->em->flush();
+
 
             if (count($comunicati) > 0) {
                 $mailer = $this->getContainer()->get('mailer');
