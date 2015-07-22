@@ -39,14 +39,14 @@ class CheckEmailCommand extends ContainerAwareCommand
         );
         $mails = array();
 
-        $mailsIds = $mailbox->searchMailBox('ALL');
+        $mailsIds = $mailbox->searchMailBox('UNSEEN');
         $repositoryArticolo = $this->getContainer()->get('doctrine')
             ->getRepository('BlogBundle:Articolo');
         if (!$mailsIds) {
             die('Mailbox is empty');
         } else {
-            $mailsIds = $mailbox->sortMails();
-            $mailsIds = array_slice($mailsIds, 0, 20);
+          //  $mailsIds = $mailbox->sortMails();
+          //  $mailsIds = array_slice($mailsIds, 0, 20);
             $comunicati = array();
             foreach ($mailsIds as $mailId) {
                 $output->writeln('<info>Leggo email ID:'.$mailId.'</info>');
@@ -92,10 +92,13 @@ class CheckEmailCommand extends ContainerAwareCommand
 
                     }
                     $articolo->setAutore($user);
+                    $allegati=$mail->getAttachments();
+
                     $this->em->persist($articolo);
                     $mail->markMailAsRead($mail->id);
                     $output->writeln('<info>Email ID:'.$mailId.' importata!</info>');
                     $comunicati[] = $articolo;
+                    $mailbox->markMailAsRead($mailId);
                 }
             }
             $this->em->flush();
