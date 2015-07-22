@@ -4,6 +4,15 @@
         <a href="/archivio/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}">
             <div class="box-sub hvr-underline-from-left">
                 <div class="foto">
+
+                    <div class="category">
+                        <a href="/archivio/{{ articolo.categoria.permalink }}"><span
+                                    style="background:{{ articolo.categoria.getColore() }}">{{ articolo.categoria.nome|capitalize }}</span>
+                            <span style="background:{{ articolo.categoria.getColore() }};   padding-left: 11px;
+                                    padding-right: 11px;font-weight: bold;">+</span>
+                        </a>
+                    </div>
+
                     <div class="center-cropped"
                          style="background-image: url('/images/articoli/{{ articolo.immagine }}');">
                     </div>
