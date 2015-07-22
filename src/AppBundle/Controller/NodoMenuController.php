@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\MenuType;
 use AppBundle\Form\NodoMenuType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Controller\BaseController;
@@ -30,7 +31,44 @@ class NodoMenuController extends BaseController
      */
     public function patchAction(Request $request,$id)
     {
-        return $this->patchForm($request,new NodoMenuType(),$id,$this->entity);
+
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository("AppBundle:".$this->entity)->find($id);
+
+        $postform = $this->createForm(new MenuType(), $entity);
+
+        $nodi = $em->getRepository("AppBundle:NodoMenu")->findByMenu($entity);
+
+
+        if ($request->isMethod('POST')) {
+
+            $params = $request->request->all();
+
+
+
+            $alberoNodi=json_decode($params['nodiJson'],true);
+            die(var_dump($alberoNodi));
+            /*
+             * $data['title']
+             * $data['body']
+             */
+                $em = $this->getDoctrine()->getManager();
+
+                $em->flush();
+
+
+                $response['success'] = true;
+
+
+
+            return new JsonResponse($response);
+        }
+
+        return $this->render(
+            'AppBundle:Crud:create-menu.html.twig',
+            array('menu'=>$entity, 'form' => $postform->createView(), "nodi"=>$nodi, "titolo" => "Modifica ".$this->entity." - ".$id)
+        );
     }
 
 

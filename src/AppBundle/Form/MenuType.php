@@ -17,19 +17,8 @@ class MenuType extends AbstractType
     {
         $builder
             ->add('nome')
-            ->add(
-                'nodi',
-                'entity',
-                array(
-                    'class' => 'AppBundle:NodoMenu',
-                    'query_builder' => function (EntityRepository $er) {
-                        return $er->createQueryBuilder('u')
-                            ->orderBy('u.ordering', 'ASC');
-                    },
-                    'multiple' => true,
-                    'expanded' => true
-                )
-            );
+
+            ;
     }
 
     /**

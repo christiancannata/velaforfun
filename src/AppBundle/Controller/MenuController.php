@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Form\MenuType;
+use AppBundle\Form\NodoMenuType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,7 +18,7 @@ use Ivory\GoogleMap\Helper\MapHelper;
 class MenuController extends BaseController
 {
 
-    protected $entity="Menu";
+    protected $entity = "Menu";
 
     /**
      * @Route( "crea", name="create_menu" )
@@ -32,9 +33,91 @@ class MenuController extends BaseController
      * @Route( "modifica/{id}", name="modifica_menu" )
      * @Template()
      */
-    public function patchAction(Request $request,$id)
+    public function patchAction(Request $request, $id)
     {
-        return $this->patchForm($request,new MenuType(),$id,$this->entity);
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository("AppBundle:".$this->entity)->find($id);
+
+        $postform = $this->createForm(new MenuType(), $entity);
+        $postform->add(
+            'callback',
+            'hidden',
+            array(
+                'data' => 'reload',
+                'mapped' => false,
+                'attr' => array("class" => "callback")
+            )
+        );
+        $nodi = $em->getRepository("AppBundle:NodoMenu")->findByMenu($entity);
+
+        if ($request->isMethod('POST')) {
+
+            $params = $request->request->all();
+            $em = $this->getDoctrine()->getManager();
+
+            $alberoNodi = json_decode($params['menuJson'], true);
+            $entity->setNome($params['appbundle_menu']['nome']);
+            $em->persist($entity);
+            foreach ($alberoNodi as $key => $nodoAlbero) {
+
+
+                $nodo = $em->getRepository("AppBundle:NodoMenu")->find($nodoAlbero['id']);
+
+                $nodo->setOrdering($key + 1);
+
+
+                $figliAttuali = $nodo->getChildren();
+                foreach ($figliAttuali as $figlioAttuale) {
+                    $figlioAttuale->setParent(null);
+                    $em->persist($figlioAttuale);
+                }
+
+                if (isset($nodoAlbero['children'])) {
+
+
+                    foreach ($nodoAlbero['children'] as $keyChildren => $figlio) {
+                        $figlioObj = $em->getRepository("AppBundle:NodoMenu")->find($figlio['id']);
+
+                        $figlioObj->setOrdering($keyChildren + 1);
+                        $nodo->addChildren($figlioObj);
+                    }
+                }
+
+                $em->persist($nodo);
+            }
+
+
+            /*
+             * $data['title']
+             * $data['body']
+             */
+
+
+            $em->flush();
+
+
+            $response['success'] = true;
+
+
+            return new JsonResponse($response);
+        }
+
+        $formNodo = $this->createForm(new NodoMenuType(),null,array(
+            'action' => "/nodomenu/crea",
+            'method' => 'POST',
+        ));
+
+        return $this->render(
+            'AppBundle:Crud:create-menu.html.twig',
+            array(
+                'menu' => $entity,
+                'form' => $postform->createView(),
+                "nodi" => $nodi,
+                "titolo" => "Modifica ".$this->entity." - ".$id,
+                "formNodo" => $formNodo->createView()
+            )
+        );
     }
 
 
@@ -48,16 +131,14 @@ class MenuController extends BaseController
     }
 
 
-
     /**
      * @Route( "elimina/{id}", name="delete_menu" )
      * @Template()
      */
-    public function eliminaAction(Request $request,$id)
+    public function eliminaAction(Request $request, $id)
     {
         return $this->delete($id);
     }
-
 
 
 }

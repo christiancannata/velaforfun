@@ -367,6 +367,10 @@ function redirectScambioPosto(response) {
     if(typeof response.response!="undefined")
     location.href = '/forum/velaforfun/topic/' + response.response;
 }
+
+function reload(response) {
+   location.href='';
+}
 function redirectImbarco(response) {
      if(typeof response.response!="undefined")
      location.href = '/forum/velaforfun/topic/' + response.response;

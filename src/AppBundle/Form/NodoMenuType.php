@@ -26,6 +26,15 @@ class NodoMenuType extends AbstractType
             ->add('isActive')
             ->add('ordering')
             ->add('menu')
+            ->add(
+                'callback',
+                'hidden',
+                array(
+                    'data' => 'reload',
+                    'mapped' => false,
+                    'attr' => array("class" => "callback")
+                )
+            )
         ;
     }
     

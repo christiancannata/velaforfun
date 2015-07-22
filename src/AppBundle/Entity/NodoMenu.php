@@ -47,6 +47,20 @@ class NodoMenu {
     private $link;
 
 
+    /**
+     * @ORM\OneToMany(targetEntity="NodoMenu", mappedBy="parent")
+     **/
+    private $children;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="NodoMenu", inversedBy="children")
+     * @ORM\JoinColumn(name="id_nodo", referencedColumnName="id")
+     **/
+    private $parent;
+
+
+
 
     /**
      * @var string
@@ -95,6 +109,10 @@ class NodoMenu {
      * @Serializer\Type("DateTime")
      */
     protected $lastUpdateTimestamp;
+
+    public function __construct() {
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
     /**
@@ -262,5 +280,41 @@ class NodoMenu {
         $this->colore = $colore;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param mixed $parent
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * @param mixed $children
+     */
+    public function setChildren( $children)
+    {
+        $this->children = $children;
+    }
+
+    public function addChildren($children){
+        $children->setParent($this);
+        $this->children[]=$children;
+    }
 
 }
