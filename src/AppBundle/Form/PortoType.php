@@ -22,7 +22,7 @@ class PortoType extends AbstractType
             ->add('datiOver')
             ->add('postiTotale')
             ->add('postiTransito')
-            ->add('email', 'text')
+            ->add('email')
         ;
     }
     

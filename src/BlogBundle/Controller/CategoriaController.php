@@ -72,6 +72,16 @@ class CategoriaController extends BaseController
 
         $categorie = $em->getRepository('BlogBundle:Categoria')->findAll();
 
+        $exclude = array(2,11,12,13,14,15);
+        foreach ($categorie as $key => $entity) {
+            if ($entity != null && in_array($entity->getId(), $exclude)) {
+                unset($categorie[$key]);
+            }
+        }
+
+
+
+
         return $this->render(
             'BlogBundle:Categoria:categoria.html.twig',
             array(

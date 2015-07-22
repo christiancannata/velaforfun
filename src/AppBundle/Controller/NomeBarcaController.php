@@ -125,7 +125,8 @@ class NomeBarcaController extends BaseController
 
         $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:NomeBarca');
         $query = $repository->createQueryBuilder('p')
-            ->orderBy("p.punti", "DESC");
+            ->orderBy("p.punti", "DESC")
+            ->setMaxResults( 500 );
 
         $barche = $query->getQuery()->getResult();
 
