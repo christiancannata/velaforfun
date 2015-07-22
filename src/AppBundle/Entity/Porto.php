@@ -88,7 +88,7 @@ class Porto
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="simple_array", nullable=true)
+     * @ORM\Column(name="email", type="text", nullable=true)
      */
     private $email;
 

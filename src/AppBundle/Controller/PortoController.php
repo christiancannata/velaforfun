@@ -108,7 +108,45 @@ class PortoController extends BaseController
      */
     public function createAction(Request $request)
     {
-        return $this->postForm($request, new PortoType());
+        $postform = $this->createForm(new PortoType());
+
+        if ($request->isMethod('POST')) {
+
+            $postform->handleRequest($request);
+
+            if ($postform->isValid()) {
+
+
+                /*
+                 * $data['title']
+                 * $data['body']
+                 */
+                $data = $postform->getData();
+                $em = $this->getDoctrine()->getManager();
+
+                $em->persist($data);
+                $em->flush();
+
+
+                $response['success'] = true;
+                $response['response'] = $data->getId();
+
+
+            } else {
+                $response['success'] = false;
+
+
+                $response['response'] = $this->getErrorsAsArray($postform);
+
+            }
+
+            return new JsonResponse($response);
+        }
+
+        return $this->render(
+            'AppBundle:Crud:create-porto.html.twig',
+            array('form' => $postform->createView(), "titolo" => "Crea ".$this->entity)
+        );
     }
 
     /**
