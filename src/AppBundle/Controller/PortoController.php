@@ -362,8 +362,8 @@ class PortoController extends BaseController
 
 
             $request = $client->get(
-                '/data/2.5/weather?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine(
-                ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&units=metric'
+                '/data/2.5/forecast?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine(
+                ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&type=day&units=metric'
             );
             $response = $client->send($request);
 
@@ -397,21 +397,54 @@ class PortoController extends BaseController
         $utils = new MenuVelaExtension();
         $client = $this->container->get('weather.client');
 
-
         $request = $client->get(
-            '/data/2.5/weather?lat='.$request->get("lat").'&lon='.$request->get(
+            '/data/2.5/forecast?lat='.$request->get("lat").'&lon='.$request->get(
                 "long"
-            ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&units=metric'
+            ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&type=day&units=metric'
         );
 
         $response = $client->send($request);
 
+        $weather = json_decode($response->getBody(true));
 
-        $meteo = json_decode($response->getBody(true));
+        $mainMeteo=new \StdClass;
 
-        $icon = $utils->getMeteo($meteo->weather[0]->icon);
-        $meteo->weather[0]->icon = $icon;
-        $data = array("geoposition" => $meteo);
+        $trovato=false;
+        $now=new \DateTime();
+        $meteoAfter=[];
+
+        foreach($weather->list as $key=>$meteo){
+            $orario=new \DateTime();
+            $orario->setTimestamp($meteo->dt);
+            if($orario->getTimestamp() >= $now->getTimestamp()   && !$trovato){
+                $trovato=true;
+                $time=new \DateTime();
+                $time->setTimestamp($meteo->dt);
+                $meteo->time = $time->format("H:i");
+                $mainMeteo=$meteo;
+            }
+            if($trovato && $mainMeteo->dt!=$meteo->dt){
+
+                $time=new \DateTime();
+                $time->setTimestamp($meteo->dt);
+                $meteo->time = $time->format("H:i");
+
+                $icon = $utils->getMeteo($meteo->weather[0]->icon);
+                $meteo->weather[0]->icon = $icon;
+                $meteoAfter[]=$meteo;
+            }
+
+        }
+
+
+        $now=new \DateTime();
+        $now->setTimestamp($mainMeteo->dt);
+
+
+
+        $icon = $utils->getMeteo($mainMeteo->weather[0]->icon);
+        $mainMeteo->weather[0]->icon = $icon;
+        $data = array("geoposition" => $mainMeteo,"altroMeteo"=>$meteoAfter);
 
         return new JsonResponse($data);
     }

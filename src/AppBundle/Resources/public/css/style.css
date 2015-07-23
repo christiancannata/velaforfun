@@ -2293,7 +2293,7 @@ input[readonly] {
 }
 
 .meteo-futuro h4,.meteo-futuro .wi-celsius{
-    text-align:center;
+    text-align:center !important;
 font-size:22px !important;
 }
 
@@ -2303,4 +2303,13 @@ font-size:22px !important;
 }
 .margined-bottom{
     margin-bottom: 10px;
+}
+
+.meteo-box-icon{
+    text-align: center;
+    font-size:46px;
+}
+
+.text-center{
+    text-align: center !important;
 }

@@ -520,10 +520,19 @@ function showPosition(position) {
 
         $("#meteo-localized-nome-2").html(meteo.geoposition.name);
 
-        $("#meteo-localized-temperatura-2").html(parseInt(meteo.geoposition.main.temp) + "°");
+    //    $("#meteo-localized-temperatura-2").html(parseInt(meteo.geoposition.main.temp) + "°");
         $("#meteo-localized-vento-2").html(meteo.geoposition.wind.speed + " km/h");
         $("#meteo-localized-umidita-2").html(meteo.geoposition.main.humidity + " %");
         $("#meteo-localized-icon-2").addClass(meteo.geoposition.weather[0].icon);
+
+
+        for(var i=0;i<4;i++){
+            console.log("#meteo-localized-icon-"+(i+3));
+            $("#meteo-localized-icon-"+(i+3)).addClass(meteo.altroMeteo[i].weather[0].icon);
+            $("#meteo-localized-time-"+(i+3)).html(meteo.altroMeteo[i].time);
+
+        }
+
 
         $("#meteoModal #loading").addClass("hide");
         $("#meteoModal #contenuto").removeClass("hide");
