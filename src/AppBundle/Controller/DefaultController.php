@@ -19,7 +19,7 @@ class DefaultController extends BaseController
      */
     public function indexAction()
     {
-
+        var_dump($this->get('kernel')->getEnvironment());
         $repository = $this->getDoctrine()
             ->getRepository('BlogBundle:Articolo');
 
