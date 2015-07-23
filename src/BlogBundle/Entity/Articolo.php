@@ -487,6 +487,15 @@ class Articolo implements ItemInterface
                 '',
                 str_replace("''", "", str_replace(" ", "-", $this->getTitolo())."-".$oggi->format("U"))
             );
+
+            $filename = strtolower($filename);
+            $filename = preg_replace("/[^0-9A-Za-z ]/", "", $filename);
+            $filename = str_replace(" ", "-", $filename);
+            while (strstr($filename, "--")) {
+                $filename = preg_replace("/--/", "-", $filename);
+            }
+
+
             $this->setimmagine($filename.'.'.$this->getProfilePictureFile()->guessExtension());
         }
     }

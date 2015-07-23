@@ -2,6 +2,235 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/101_0360.JPG-1437588846.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/182964_10201159458250563_1251480527_n.jpg-1437588846.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/384_1152660681934585819_c.s._25_le_star_brillano_per_Negri_e_Voltolini.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/384_1358929972109346435_DSC_1571.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/386_1272101349605039944_ITA_14532576.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/386_2809698491809478115_PREMIAZIONE_ITA_14534435.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/386_620457349199655171_ITA_14533363.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/387_10919170191634592116_Classe_Finn_comunicato_2011_4_Coppa_Italia_Caldaro.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/387_1158045149135061114_CoppaItaliaFinn_Caldaro_16042011_SIMONE_MANCINI_foto_Paola_Zarattini.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/387_1186639331688654374_Classifica_Caldaro_Dr_Schaer2011.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/387_13381701622116033793_CoppaItaliaFinn_Caldaro_16042011_MANCINI_MITTERER_POPPA_foto_Paola_Zarattini.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/387_20994663221906767974_adesivo_coppaitalia_2011.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/387_2251735182122938_CoppaItaliaFinn_Caldaro_16042011_MARTIN_MITTERER_foto_Paola_Zarattini.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/389_345570453205492232_Foto_di_Gruppo_Per_Web.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/389_720515758534690005_I_Vincitori.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/389_9659081191451411704_Partenza_di_Gruppo.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/390_14774563921650467816_Partenza_di_Gruppo.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/390_1726404787780632528_I_Vincitori.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/390_2119477028379496984_Foto_di_Gruppo_Per_Web.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/391_5D5FC345-B9B3-4B2D-8A70-F89CB5AD31F2_PastedGraphic2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/391_7D9E3933-C64E-40CF-A282-6EACA0635A86_PastedGraphic3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/391_A8D31045-8513-48A2-9D43-162F2D91F981_LogoFraglia_firma.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/391_A90FF214-72B6-4A4E-944C-E3A0E3F3B9AA_PastedGraphic1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/392_79A0B47D-3DF5-48F3-83AD-DA30BD7CFF24_GDS_3006_copia.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/392_A682D410-6EBB-42BD-9121-9009D0A87EE5_GDS_0578_copia.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/392_A8D31045-8513-48A2-9D43-162F2D91F981_LogoFraglia_firma.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/392_B8CD610F-0A68-492C-868C-CB4E9BAE9F8E_GDS_2529_copia.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/392_C9E90E23-5F30-4478-BFBB-F187F35B9CFE_GDS_0387_copia.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/393_1013201011281695645_49er_Dongo_20113.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/393_12866908291506526018_49er_Dongo_2011.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/393_2122448118212492023_49er_Dongo_20112.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/393_5232638971255433717_49er_Nazionale_Skiffsailing_Dongo_1617_marzo_2011_Classifica_definitiva.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/393_663658497595805592_49er_Nazionale_Skiffsailing_Dongo_1617_marzo_2011_Classifica_definitiva.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/394_1868693413394315771_49er_Dongo_2011.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/394_1999998943315229893_49er_Dongo_20112.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/394_20865011571285880544_49er_Comunicato_Nazionale_Skiffsailing_Dongo_16_17_aprile_2011.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/394_649180191603630361_49er_Nazionale_Skiffsailing_Dongo_1617_aprile_2011_Classifica_definitiva.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/394_7891965592103222940_49er_Dongo_20113.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/395_1640168581559850590_Romapertutti201106_foto_di_Massimo_Pavan_della_Pavan_Associati_di_Portogruaro_VE.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/395_18647783442027251557_COM_6_OIKOS_open40_e_il_Fishbone_Team_primo_bilancio.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/395_314791107234192104_Romapertutti201111_foto_di_Massimo_Pavan_della_Pavan_Associati_di_Portogruaro_VE.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/396_4820241091041773939_articolo_vittoria_italiano_gaeta_2011.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/396_538923517998887281_gaeta_2011_bolina_jp_match.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/396_9874747132044056838_gaeta_2011_premiazione.jpg_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/397_15018433221982266402_gaeta_2011_premiazione.jpg_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/397_21116941202063496781_gaeta_2011_bolina_jp_match.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/397_845777824761304568_articolo_vittoria_italiano_gaeta_2011.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/398_14057776801242391478_TAN_2011_J24_Foto_Marco_Trainotti.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/398_263412003469979026_TAN_J24_foto_Franco_MURDUANO_SVMM.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/398_9000801181395000378_COM_STAMPA_15_J24_al_28_Trofeo_Accademia_Navale_Citt_di_Livorno.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/399_13895477831432401257_BOSSBlack_2011EyewearColl_ita.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/399_14116324261016666415_02012011hugoboss03_low.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/399_9254248741849922507_boss0393_s_urgon.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/404_00ADFE40-A912-4F1D-9C8B-3BC4D32817B7@fraglia.local_IMG_3709.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/404_404BA242-8D6E-466B-93E6-C7345F230460@fraglia.local_IMG_3609.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/404_8078B155-6DF7-4F51-AA59-1DD98D3CE99F@fraglia.local_IMG_3681.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/404_A8D31045-8513-48A2-9D43-162F2D91F981_LogoFraglia_firma.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/404_D4E9BF72-3014-4AD7-BCD4-300A8756E3AF@fraglia.local_IMG_3721.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/405_7178338261007594330_Fabei_8842547457.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/405_9118050552055577846_Gnecchi_Ruscone_45385.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/406_0CA3AAB0-A0EE-40FC-A94F-D4E1207DAF27@fraglia.local_IMG_4036.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/406_327584E5-4F29-4B80-9806-C7E3C103CCF5@fraglia.local_PICT0314.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/406_38B8352E-5056-4C3C-B297-3B3958064058@fraglia.local_IMG_3996.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/406_4F59771C-2E1A-405C-9F87-CE234CD28A39@fraglia.local_IMG_3994.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/406_8595C500-676D-4602-AC61-BA8389740354@fraglia.local_IMG_3958.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/406_8BE88ED3-1CFF-4914-B83B-2B8FADB063EE@fraglia.local_IMG_4020.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/406_A8D31045-8513-48A2-9D43-162F2D91F981_LogoFraglia_firma.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/406_C1B3A41F-59AE-439D-A9E6-6B9FD51FD937@fraglia.local_IMG_3960.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/406_EB0449DA-A989-4171-B9B1-53555677DB18@fraglia.local_IMG_4038.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/409_48CA378A-3317-4282-96B3-04F4B28383AA@fraglia.local_074_GDS_8136.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/409_535B90EB-E6AF-45E5-8A7A-7F415EF9214D@fraglia.local_072_GD3_2996.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/409_6208335E-428A-49EB-8B57-08AB3E48C7E3@fraglia.local_061_GDS_8093.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/409_A8D31045-8513-48A2-9D43-162F2D91F981_LogoFraglia_firma.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/409_AA48C825-DB5C-4846-BCC8-EC51B3DB47F1@fraglia.local_112_GDS_8492.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/409_DF3C10AE-958E-423D-B552-5E100D755184@fraglia.local_108_GDS_8382.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/410_1150395157829335502_classifica_secondo_giorno_regata_nazionale_420_230411.HTM" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/410_205239872947560710_PRIMI_DUE_GIORNI_PER_LA_NAZIONALE_420.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/411_041067B6-F488-4929-BD9E-0B2D83E72818_IMG_4334.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/411_76B9A850-5D67-4800-9E82-D0D2861312B4_IMG_4358.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/411_868FE632-EE88-4163-A019-04EDF155CCA5_IMG_4190.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/411_A8D31045-8513-48A2-9D43-162F2D91F981_LogoFraglia_firma.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/411_D1FCC78A-B75B-4F9D-AA02-01951B0A2BC6_IMG_4035.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/412_041067B6-F488-4929-BD9E-0B2D83E72818_IMG_4334.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/412_76B9A850-5D67-4800-9E82-D0D2861312B4_IMG_4358.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/412_A8D31045-8513-48A2-9D43-162F2D91F981_LogoFraglia_firma.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/413_1019849652903082985_IMG_3793.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/413_1663635119974695377_142_GDS_9048.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/413_1939312314976648828_IMG_4001.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/413_20608733251785259198_IMG_4162.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/413_2206602141973976401_IMG_3872.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/413_84732728168890747_IMG_4033.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/413_8841188131247943608_LogoFraglia_firma.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/413_9989938241482755485_133_GDS_8803.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/414_13795269001287098679_DOMENICA_TRE_REGATE_PER_IL_NAZIONALE_420.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/414_6019312731680925379_REGATA_NAZIONALE_420_TERZO_GIORNO_017_mod.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/414_945183795273661027_classifica_terzo_giorno_regata_nazionale_cannigione_240411.HTM" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/415_167646191888808716_CONCLUSA_LA_REGATA_NAZIONALE_420_A_CANNIGIONE.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/415_20493109701025812324_CUNIAL_INCHIOSTRI_ALLA_REGATA_NAZIONALE_420.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/415_2874565831720938851_REGATA_NAZIONALE_420_TERZO_GIORNO_040_mod.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/415_903065453662919965_classificafinale_regata_nazionale_Cannigione_250411.HTM" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/416_D5288FEA-AC39-4ADC-B390-ABA41B750353_FIV_mail.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/418_1187424045524291341_velascuola_2010.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/418_196751463379770445_cnsmheader.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/418_5715719241233615019_C.S._07.11_velascuola.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/420_1512271876972182314_Borin_8842543442.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/421_1284590341779453321_c.s._Pirelli_Team_K9_27.04.11.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/422_12230990061486845719_Pasquavela_Avoltore_Foto_di_Antonio_Costantino.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/422_1444993374536955691_Pasquavela_Bruschetta_Foto_di_Antonio_Costantino.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/422_16206639571248355177_COM_STAMPA_16_Classe_J24_a_Pasquavela.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/422_871907188194212999_Equipaggio_di_Avoltore.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/423_770404233313903755_Comunicato_II_27.04.11.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/424_1216718642130985286_foto_due.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/424_6248891377551207_Com.Stampa_LNI_Brescia_Desenzano_La_Vela_ci_Lega.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/424_79468143093759294_tappe_della_LNI_Brescia_Desenzano_La_Vela_ci_Lega.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/427_D5288FEA-AC39-4ADC-B390-ABA41B750353_FIV_mail.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/428_14976201602114668043_locadina_TFM_2011.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/428_176461209096903132_Tridente_16_al_28_Tan.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/428_19657563811718607067_locadina_TFM_2011.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/428_236466290202283539_Com_5_Trofeo_Francesco_Morosini_Campionato_Nazionale_Classe_Tridente_2011.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/429_1269149261634608615_HugoBossBWR510_copia.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/429_1320975234610665044_boss0393_s_urgon.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/429_18085440881178277949_ITA_HBEComBWR4.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/429_886007123547383557_062910RPVN9300low.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/431_D5288FEA-AC39-4ADC-B390-ABA41B750353_FIV_mail.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/432_11691918331409594170_Sibello_49er.jpg.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/432_658081928812447996_FIV_mail.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/434_1689968903415712640_SaphiraNews_n.3_II_serie.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/439_844223716919925921_Protagonist_Luca.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/440_1405638311143013198_110501_BMW_Trofeo_Pirelli.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/440_16718987511095780055_BMW_ACADEMY_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/440_4474406751570212464_BMW_ACADEMY_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/440_52188404983668734_BMW_ACADEMY_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/440_6048676331722181845_BMW_ACADEMY_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/441_19722452361911491987_kipling_8842548034.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/441_2306229421139789532_Renna_8842548539.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/442_12372013941648290932_comunicato_conclusivo_02.05.11.docx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/443_6031155401379051345_FIV_mail.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/443_6162116171373303264_ICS_FIV_110502.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/446_21439259492023412142_Liberty_Servo_Kinnear_Rutland_090610_168.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/447_1170517025159990364_COM_STAMPA_17_Novit_Classe_J24.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/447_18844674491940560568_J24_P1000145.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/447_2743481681604982619_J24_New_mould_3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/447_367439481482414177_J24_P1000150.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/447_5290341651751777967_J24_Hull_plug_spryied_completed_2.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/449_510589158707436013_COM_STAMPA_4_Ferrari_Engineering_Sailing_Team_Citt_di_Punta_Marina_Terme.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/449_5798824501574653346_David_Sebastian_Casadio_timoniere_del_Ferrari_Engineering_Sailing_Team.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/450_11581501641501457395_Lago_per_tutti.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/450_1680018941598488097_Com.Stampa_LNI_Brescia_Desenzano_Il_Lago_per_Tutti.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/450_4783135721570144814_LNI_Desenzano_il_Lago_per_tutti.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/451_19434188711863578425_Bando_Terra_Vento_CUP_2011.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/452_7200840891320078359_151_0_web.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/453_28C072511258431082751917B8E3F0FD@mixer_castellarquato2011.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/453_58B5E056CB134D4F8D39B06577D5F2F9@mixer_meja.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/453_C27BF64FC3BF408B963BE0CF45B30C0A@mixer_madeira_2_small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/453_D4B35FD730CE43C386B1B9E31C3AA0A7@mixer_cilento.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/454_13483007681873483107_Melges_24_Rewind.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/454_1544606525513350673_CS_Rewind_Volvo_Cup_Numana.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/455_1024061602619034490_Com_6_Circuito_Nazionale_Classe_Tridente_2011.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/455_2036573588449218719_20731.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/455_35382373303267270_20798.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/456_036010814@05052011-2DC8_att8a184.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/456_12727711981267969828_C.S.dc_03.11_tutto_pronto_per_la_200.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/456_15323682531329597940_start_2.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/456_319301139068306_banner5002010.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/456_835060710@13052010-1666_att78836.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/456_835060710@13052010-166D_att651ba.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/456_835060710@13052010-1674_att651ca.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/457_8053709552127891925_Invito_Conf_Stampa.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/459_1318953171343894333_c.s._28_VERONICA_FERRARO_STELLA_AL_MEMORIAL_BRUZZONE.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/459_13649127272020103985_maretti_franza_ferraro.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/459_192894422275791401_veronica_ferraro.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/460_1225591318956701557_Renna_8842548539.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/461_1343381662530445147_littardi_stampa_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/461_17542722072036690488_vela_e_sapori.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/461_5172858782127975612_c.s._26_divertimento_in_regata_con_la_vela_e_sapori.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/462_20005253651938693699_c.s._29_I_MINI_6.50_A_SANREMO_PER_230_MIGLIA_IN_SOLITARIA.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/576218_288392967934264_1082150179_n.jpg-1437594479.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Articolo-di-prova!-1432658333.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Cercasi-skipper-catamarano-a-vela-–-Lagoon-421-1432805942.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Come-fare-il-pane-e-le-piadine-in-barca-(senza-usare-il-forno)-1432805746.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Curriculum-Vitae-Cannata-Christian-Milano.doc-1437594479.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Ferretti-Yachts-acquistata-dai-Cinesi-1432805810.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Giraglia-Rolex-Cup,-242-barche-iscritte:-domani-parte-la-Sanremo-Saint-Tropez-1434638814.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Giraglia-Rolex-Cup-da-record:-245-barche-iscritte-alla-classicissima,-partenza-alle-12-del-17-giugno-1434638734.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/I-Seascape-27-alla-Duecento:-il-resoconto-di-Andrea-Caracci-e-Massimo-Farina-1434638473.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Immagine.png_BUNNY_ID contratto 360046.png-0aa6e222e77a0e0100a388bc8c5f1caa.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Immagine.png_BUNNY_ID contratto 360046.png-c28574ab923cbd91a060f0ce4c169aa1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Immagine.png_BUNNY_ID contratto 360046.png-e9bd4ea1ce8d3e8d1b9594d4205ff4e2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Immagine.png_BUNNY_ID contratto360047.png-2187f5331492fbc58d10bd82d97448aa.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Immagine.png_BUNNY_ID contratto360047.png-31e67996f8c573628138951aebcce75f.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Immagine.png_BUNNY_ID contratto360047.png-b41108eec6fe629e917d3b9c85c71685.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Immagine.png_BUNNY_ID contratto360047.png-c524f360039859cc13ae87b943a3dd56.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Immagine.png_ID contratto 360046 luce-1.png-08e8d3e737ea54b400da645fbd1cf49a.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Immagine.png_ID contratto 360046 luce.png-2e6df82d1760d02428ce189d040d4353.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Immagine.png_ID contratto 360046 luce.png-566d4a2c1874c156c8f2a19d220db34f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Immagine.png_ID contratto 360046 luce.png-ea7cbecf09a46154752f62a1af8aeddb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/La-Duecento:-un-vecchio-IOR-del-1972-vince-nella-x2,-a-Selene-Alifax-la-overall-1434638624.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/La-barca-a-vela-più-veloce-del-mondo-è-un-razzo-1432805667.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/La-barca-a-vela-più-veloce-del-mondo-è-un-razzo-1432805667.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Navigar-mè-dolce---Il-reportage-di-una-lettrice-1432805990.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Navigar-mè-dolce---Il-reportage-di-una-lettrice-1432805990.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Nuovo-articolo-1433245795.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Nuovo-articolo-1433245845.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Nuovo-articolo-1433245904.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Perini-Navi-accusata-di-evasione-fiscale-per-112-milioni-1432805549.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Prova-articolo-1437588744.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Prova-articolo-1437588744.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Prova-articolo-1437588744.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Prova-articolo-1437588846.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Schermata-2015-05-19-a-12.11.31.jpg-6bb4abbd02934989f145091bda82ba24.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Schermata-2015-05-19-a-12.11.31.jpg-e13fcdecf4188911c86745f224bf63c8.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/Una-ricetta-buona-buona-e-facile-1435832656.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/convert-jpg-to-pdf.net_2015-02-28_14-45-22.pdf-1437594479.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/curriculum-christian-cannata-milano.pdf-1437588846.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/no-stemma.png-1437588846.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/nuova-ricetta-1434447670.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/nuova-ricetta-1434447691.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/nuova-ricetta-1434447852.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/php8NiOUk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/phpGPuJYM-ccf69412cf63863e28d59e92ff30dbb5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/phpdSkMOO" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/phpi0IgwW" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/prova-1434026855.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/sostegno-fede.png-1437593850.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/sostegno-fede.png-1437594444.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/sostegno-fede.png-1437594479.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/titolo-correlato-1433245795.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/titolo-correlato-1433245845.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/images/articoli/titolo-correlato-1433245904.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BlogBundle/Entity/Articolo.php" afterPath="$PROJECT_DIR$/src/BlogBundle/Entity/Articolo.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -51,11 +280,10 @@
       <file leaf-file-name="Articolo.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BlogBundle/Entity/Articolo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20967741">
-              <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.6330645">
+              <caret line="494" column="63" selection-start-line="494" selection-start-column="63" selection-end-line="494" selection-end-column="63" />
               <folding>
                 <element signature="e#79#111#0#PHP" expanded="true" />
-                <element signature="e#183#219#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1047,11 +1275,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BlogBundle/Entity/Articolo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20967741">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.6330645">
+          <caret line="494" column="63" selection-start-line="494" selection-start-column="63" selection-end-line="494" selection-end-column="63" />
           <folding>
             <element signature="e#79#111#0#PHP" expanded="true" />
-            <element signature="e#183#219#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
