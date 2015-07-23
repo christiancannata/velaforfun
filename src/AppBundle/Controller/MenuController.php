@@ -49,7 +49,7 @@ class MenuController extends BaseController
                 'attr' => array("class" => "callback")
             )
         );
-        $nodi = $em->getRepository("AppBundle:NodoMenu")->findByMenu($entity);
+        $nodi = $em->getRepository("AppBundle:NodoMenu")->findByMenu($entity,array("ordering"=>"asc"));
 
         if ($request->isMethod('POST')) {
 
