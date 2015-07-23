@@ -7,19 +7,18 @@
 
 
 {% block stylesheets %}
-<style>
-    .scroll-pane-horizontal
-    {
-        width: 100%;
-        height: 200px;
-        overflow: auto;
-    }
-    .horizontal-only
-    {
-        height: auto;
-        max-height: 200px;
-    }
-</style>
+    <style>
+        .scroll-pane-horizontal {
+            width: 100%;
+            height: 200px;
+            overflow: auto;
+        }
+
+        .horizontal-only {
+            height: auto;
+            max-height: 200px;
+        }
+    </style>
 {% endblock %}
 
 
@@ -44,257 +43,314 @@
 
 {% block body %}
 
-    <!-- contenuto -->
+<!-- contenuto -->
 <div class="row clearfix hidden-lg hidden-md hidden-xs visible-print">
-                <div class="col-md-4 column ">
+    <div class="col-md-4 column ">
 
-                </div>
-                <div class="col-md-4 column">
+    </div>
+    <div class="col-md-4 column">
 
-                    <div class="row clearfix">
-                        <div class="col-md-12 column">
-                            <div id="logo">
-                                <div class="flip-container">
-                                    <div class="flipper">
-                                        <div class="front">
-                                           <img width="250" src="/bundles/app/images/logotipo-01.png">
-                                        </div>
-
-                                    </div>
-                                </div>
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div id="logo">
+                    <div class="flip-container">
+                        <div class="flipper">
+                            <div class="front">
+                                <img width="250" src="/bundles/app/images/logotipo-01.png">
                             </div>
 
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 column ">
 
-
-
-
-                </div>
             </div>
-
-
-
-    <div class="row clearfix stickem-container" id="content-articolo" >
-        <div class="col-md-8 column">
-
-
-
-
- <div class="row clearfix hidden-print">
-        <div class="col-md-6 col-xs-12 column">
-             <div class="category">
-             <a href="#" id="back-link" class="back-link" style="background: rgb(153, 153, 153) none repeat scroll 0 0;"> <span class="glyphicon glyphicon-menu-left" style="padding:0;" aria-hidden="true"></span>  </a>            <a id="category-link" href="/archivio/{{ articolo.categoria.permalink }}" style="margin-left: 12px;"><span style="float: left;font-size:18px;background:{{ articolo.categoria.getColore() }};" >{{ articolo.categoria.nome|capitalize }}</span> </a>
-              </div>
-
-        </div>
-
-        <div class="col-md-6 col-xs-6 column text-right hidden-xs">
-          <ul class="share-buttons">
-                    <li><a href="#" onclick="window.print();"><i class="fa fa-print fa-2x"></i></a></li>
-  <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&t={{ articolo.titolo }}" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-2x"></i></a></li>
-  <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&text={{ articolo.titolo }}:%20http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-2x"></i></a></li>
-  <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-google-plus-square fa-2x"></i></a></li>
-  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&title={{ articolo.titolo }}&summary=&source=http%3A%2F%2Fwww.google.it" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
-  <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}" target="_blank" title="Email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-2x"></i></a></li>
-</ul>
-
-        </div>
-         </div>
-
-
-
-
-
-
-
-
-         <div class="row clearfix">
-        <div class="col-md-12 column">
-            <h1>{{ articolo.titolo }}</h1>
-
-        </div>
-         </div>
-
-
- <div class="row clearfix">
-        <div class="col-md-12 column sottotitolo">
-            {{ articolo.sottotitolo|striptags|raw }}
-        <div class="divisore-big"></div>
-        </div>
-         </div>
-
-
-
-
- <div class="row clearfix">
-        <div class="col-md-12 column" >
-        <div id="body-content">
-        {% if articolo.immagine!="" %}
-    <a class="image-link" href="/images/articoli/{{ articolo.immagine }}"><img class="immagine-articolo" style=""
-                                                                               src="/images/articoli/{{ articolo.immagine }}"></a>
-
-{% endif %}
-
-           {{ articolo.testo|raw }}
-
-           {% if articolo.gallery is defined and articolo.gallery|length > 0 %}
-    <div class="row clearfix hidden-print">
-        <div class="col-md-12 column">
-            <div class="divisore-big"></div>
-            <h3>Visualizza la fotogallery</h3>
-
-            <div class="scroll-pane-horizontal horizontal-only" >
-                <p style="width: {{ articolo.gallery.foto|length*160 }}px;">
-            {% for foto in articolo.gallery.foto %}
-                  <a class='gallery' style="display:inline" rel="g1" href='/uploads/galleria_foto/{{ foto.immagine }}'><img style="display:inline" width="150" height="150"
-                                                                                                   src="/uploads/galleria_foto/{{ foto.immagine }}"></a>
-           {% endfor %}
-
-                       </p>
-            </div>
-
-
-            <div class="divisore-big"></div>
         </div>
     </div>
-{% endif %}
- <div class="row clearfix hidden-print">
-        <div class="col-md-6 column">
-        </div>
+    <div class="col-md-4 column ">
 
-        <div class="col-md-6 column text-right">
-               <ul class="share-buttons">
-                    <li><a href="#" onclick="window.print();"><i class="fa fa-print fa-2x"></i></a></li>
-  <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&t={{ articolo.titolo }}" target="_blank" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook-square fa-2x"></i></a></li>
-  <li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&text={{ articolo.titolo }}:%20http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter-square fa-2x"></i></a></li>
-  <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-google-plus-square fa-2x"></i></a></li>
-  <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&title={{ articolo.titolo }}&summary=&source=http%3A%2F%2Fwww.google.it" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
-  <li><a href="mailto:?subject=&body=:%20http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}" target="_blank" title="Email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i class="fa fa-envelope-square fa-2x"></i></a></li>
-</ul>
 
-        </div>
-         </div>
-
-        </div>
+    </div>
 </div>
 
-        </div>
+
+<div class="row clearfix stickem-container" id="content-articolo">
+    <div class="col-md-8 column">
 
 
-
-
-
-
-
-
-
-        </div>
-
-
-           <div class="col-md-4 column hidden-print">
-
-
-               {% if articoli|length > 0 %}
-    <div class="title" style="border-top:1px solid rgb(153, 153, 153);">
-        {% if articolo.categoria.permalink == "ricette-antipasti" or  articolo.categoria.permalink == "ricette-primi" or articolo.categoria.permalink == "ricette-secondi" or articolo.categoria.permalink == "ricette-dolci" or articolo.categoria.permalink == "ricette-frutta" %}
-            Altre ricette
-        {% else %}
-            Altri articoli
-        {% endif %}
-    </div>
-    <div class="content">
-
-
-        {% for articoloRel in articoli %}
-            <a href="/archivio/{{ articoloRel.categoria.permalink }}/{{ articoloRel.permalink }}">
-                <div class="latest-news  hvr-underline-from-left">
-                    <div class="content">
-                        <h4>{{ articoloRel.titolo }}</h4>
-
-                        <p>{{ articoloRel.sottotitolo|slice(0, 70)|raw|striptags }}...</p>
-                    </div>
-                    <div class="arrow">
-                        <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-                    </div>
+        <div class="row clearfix hidden-print">
+            <div class="col-md-6 col-xs-12 column">
+                <div class="category">
+                    <a href="#" id="back-link" class="back-link"
+                       style="background: rgb(153, 153, 153) none repeat scroll 0 0;"> <span
+                                class="glyphicon glyphicon-menu-left" style="padding:0;" aria-hidden="true"></span> </a>
+                    <a id="category-link" href="/archivio/{{ articolo.categoria.permalink }}"
+                       style="margin-left: 12px;"><span
+                                style="float: left;font-size:18px;background:{{ articolo.categoria.getColore() }};">{{ articolo.categoria.nome|capitalize }}</span>
+                    </a>
                 </div>
-            </a>
-        {% endfor %}
 
-    </div>
-{% endif %}
-
-            {% if articolo.linkCorrelato is defined and articolo.linkCorrelato!="" %}
-
-    <a href="{{ articolo.linkCorrelato }}">
-        <div class="arrow_box aside stickem">
-            {% if articolo.immagineCorrelataArticolo is defined %}
-                <div class="foto">
-                    <div class="center-cropped"
-                         style="height: 230px;background-image: url('/images/articoli/{{ articolo.immagineCorrelataArticolo }}');">
-                    </div>
-                </div>
-            {% endif %}
-            <div class="content">
-                <h4>{{ articolo.titoloCorrelato }}</h4>
-
-                {{ articolo.testoCorrelato|raw }}
             </div>
 
+            <div class="col-md-6 col-xs-6 column text-right hidden-xs">
+                <ul class="share-buttons">
+                    <li><a href="#" onclick="window.print();"><i class="fa fa-print fa-2x"></i></a></li>
+                    <li>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&t={{ articolo.titolo }}"
+                           target="_blank" title="Share on Facebook"
+                           onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i
+                                    class="fa fa-facebook-square fa-2x"></i></a></li>
+                    <li>
+                        <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&text={{ articolo.titolo }}:%20http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}"
+                           target="_blank" title="Tweet"
+                           onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i
+                                    class="fa fa-twitter-square fa-2x"></i></a></li>
+                    <li>
+                        <a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}"
+                           target="_blank" title="Share on Google+"
+                           onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><i
+                                    class="fa fa-google-plus-square fa-2x"></i></a></li>
+                    <li>
+                        <a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&title={{ articolo.titolo }}&summary=&source=http%3A%2F%2Fwww.google.it"
+                           target="_blank" title="Share on LinkedIn"
+                           onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i
+                                    class="fa fa-linkedin-square fa-2x"></i></a></li>
+                    <li>
+                        <a href="mailto:?subject=&body=:%20http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}"
+                           target="_blank" title="Email"
+                           onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i
+                                    class="fa fa-envelope-square fa-2x"></i></a></li>
+                </ul>
+
+            </div>
         </div>
 
-    </a>
 
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <h1>{{ articolo.titolo }}</h1>
 
-{% endif %}
-
-
-
+            </div>
         </div>
 
 
-            <!-- fine contenuto -->
-        </div>
-
-
-        <div class="row clearfix"  >
-            <div class="col-md-12 column" >
+        <div class="row clearfix">
+            <div class="col-md-12 column sottotitolo">
+                {{ articolo.sottotitolo|striptags|raw }}
                 <div class="divisore-big"></div>
             </div>
         </div>
 
 
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div id="body-content">
+                    {% if articolo.immagine!="" %}
+                        <a class="image-link" href="/images/articoli/{{ articolo.immagine }}"><img
+                                    class="immagine-articolo" style=""
+                                    src="/images/articoli/{{ articolo.immagine }}"></a>
 
-<div class="row clearfix" >
+                    {% endif %}
 
- <div class="col-md-12 column hidden-print">
-        {% for categoriaRel in categorie %}
+                    {{ articolo.testo|raw }}
 
 
-    <div class="category" style="margin:15px;width:auto;">
-        <a href="/archivio/{{ categoriaRel.permalink }}"><span
-                    style="background:{{ categoriaRel.getColore() }}">{{ categoriaRel.nome|capitalize }}</span> <span
-                    style="background:{{ categoriaRel.getColore() }};     padding-left: 11px;
-                            padding-right: 11px;font-weight: bold;">+</span></a>
+                    {% if articolo.allegato1 is defined %}
+                    <div class="row clearfix hidden-print">
+                        <div class="col-md-12 column">
+                            <div class="divisore-big"></div>
+                            <h3>Allegati dell'articolo</h3>
+
+                               <a target="_blank"
+                                   style="margin-top:10px;width:100%;float:left" href='/images/articoli/{{ articolo.allegato1 }}'>{{ articolo.allegato1 }}</a>
+
+                            {% if articolo.allegato2 is defined %}
+                                <a target="_blank"
+                                     style="margin-top:10px;width:100%;float:left"href='/images/articoli/{{ articolo.allegato2 }}'>{{ articolo.allegato2 }}</a>
+
+                            {% endif %}
+
+                            {% if articolo.allegato3 is defined %}
+                               <a target="_blank"
+                                    style="margin-top:10px;width:100%;float:left" href='/images/articoli/{{ articolo.allegato3 }}'>{{ articolo.allegato3 }}</a>
+
+                            {% endif %}
+
+                            {% if articolo.allegato4 is defined %}
+                                <a target="_blank"
+                                     style="margin-top:10px;width:100%;float:left"href='/images/articoli/{{ articolo.allegato4 }}'>{{ articolo.allegato4 }}</a>
+
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if articolo.gallery is defined and articolo.gallery|length > 0 %}
+                        <div class="row clearfix hidden-print">
+                            <div class="col-md-12 column">
+                                <div class="divisore-big"></div>
+                                <h3>Visualizza la fotogallery</h3>
+
+                                <div class="scroll-pane-horizontal horizontal-only">
+                                    <p style="width: {{ articolo.gallery.foto|length*160 }}px;">
+                                        {% for foto in articolo.gallery.foto %}
+                                            <a class='gallery' style="display:inline" rel="g1"
+                                               href='/uploads/galleria_foto/{{ foto.immagine }}'><img
+                                                        style="display:inline" width="150" height="150"
+                                                        src="/uploads/galleria_foto/{{ foto.immagine }}"></a>
+                                        {% endfor %}
+
+                                    </p>
+                                </div>
+
+
+                                <div class="divisore-big"></div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="row clearfix hidden-print">
+                        <div class="col-md-6 column">
+                        </div>
+
+                        <div class="col-md-6 column text-right">
+                            <ul class="share-buttons">
+                                <li><a href="#" onclick="window.print();"><i class="fa fa-print fa-2x"></i></a></li>
+                                <li>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&t={{ articolo.titolo }}"
+                                       target="_blank" title="Share on Facebook"
+                                       onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i
+                                                class="fa fa-facebook-square fa-2x"></i></a></li>
+                                <li>
+                                    <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&text={{ articolo.titolo }}:%20http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}"
+                                       target="_blank" title="Tweet"
+                                       onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i
+                                                class="fa fa-twitter-square fa-2x"></i></a></li>
+                                <li>
+                                    <a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}"
+                                       target="_blank" title="Share on Google+"
+                                       onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><i
+                                                class="fa fa-google-plus-square fa-2x"></i></a></li>
+                                <li>
+                                    <a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&title={{ articolo.titolo }}&summary=&source=http%3A%2F%2Fwww.google.it"
+                                       target="_blank" title="Share on LinkedIn"
+                                       onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><i
+                                                class="fa fa-linkedin-square fa-2x"></i></a></li>
+                                <li>
+                                    <a href="mailto:?subject=&body=:%20http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}"
+                                       target="_blank" title="Email"
+                                       onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i
+                                                class="fa fa-envelope-square fa-2x"></i></a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
     </div>
 
 
-{% endfor %}
- </div>
+    <div class="col-md-4 column hidden-print">
 
 
-        </div>
+        {% if articoli|length > 0 %}
+            <div class="title" style="border-top:1px solid rgb(153, 153, 153);">
+                {% if articolo.categoria.permalink == "ricette-antipasti" or  articolo.categoria.permalink == "ricette-primi" or articolo.categoria.permalink == "ricette-secondi" or articolo.categoria.permalink == "ricette-dolci" or articolo.categoria.permalink == "ricette-frutta" %}
+                    Altre ricette
+                {% else %}
+                    Altri articoli
+                {% endif %}
+            </div>
+            <div class="content">
+
+
+                {% for articoloRel in articoli %}
+                    <a href="/archivio/{{ articoloRel.categoria.permalink }}/{{ articoloRel.permalink }}">
+                        <div class="latest-news  hvr-underline-from-left">
+                            <div class="content">
+                                <h4>{{ articoloRel.titolo }}</h4>
+
+                                <p>{{ articoloRel.sottotitolo|slice(0, 70)|raw|striptags }}...</p>
+                            </div>
+                            <div class="arrow">
+                                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+
+            </div>
+        {% endif %}
+
+        {% if articolo.linkCorrelato is defined and articolo.linkCorrelato!="" %}
+
+            <a href="{{ articolo.linkCorrelato }}">
+                <div class="arrow_box aside stickem">
+                    {% if articolo.immagineCorrelataArticolo is defined %}
+                        <div class="foto">
+                            <div class="center-cropped"
+                                 style="height: 230px;background-image: url('/images/articoli/{{ articolo.immagineCorrelataArticolo }}');">
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="content">
+                        <h4>{{ articolo.titoloCorrelato }}</h4>
+
+                        {{ articolo.testoCorrelato|raw }}
+                    </div>
+
+                </div>
+
+            </a>
+
+
+        {% endif %}
+
+
+    </div>
+
+
+    <!-- fine contenuto -->
+</div>
 
 
 <div class="row clearfix">
-            <div class="col-md-12 column">
-                <div class="divisore-big"></div>
-            </div>
-        </div>
-
+    <div class="col-md-12 column">
+        <div class="divisore-big"></div>
     </div>
+</div>
+
+
+<div class="row clearfix">
+
+    <div class="col-md-12 column hidden-print">
+        {% for categoriaRel in categorie %}
+
+
+            <div class="category" style="margin:15px;width:auto;">
+                <a href="/archivio/{{ categoriaRel.permalink }}"><span
+                            style="background:{{ categoriaRel.getColore() }}">{{ categoriaRel.nome|capitalize }}</span> <span
+                            style="background:{{ categoriaRel.getColore() }};     padding-left: 11px;
+                                    padding-right: 11px;font-weight: bold;">+</span></a>
+            </div>
+
+
+        {% endfor %}
+    </div>
+
+
+</div>
+
+
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <div class="divisore-big"></div>
+    </div>
+</div>
+
+</div>
 
 
 {% endblock %}
