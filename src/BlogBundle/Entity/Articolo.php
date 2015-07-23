@@ -50,7 +50,7 @@ class Articolo implements ItemInterface
 
 
     /**
-     * @ManyToOne(targetEntity="AppBundle\Entity\GalleriaFoto")
+     * @OneToOne(targetEntity="AppBundle\Entity\GalleriaFoto")
      * @JoinColumn(name="id_galleria", referencedColumnName="id", nullable=true,  onDelete="SET NULL")
      **/
     protected $gallery;

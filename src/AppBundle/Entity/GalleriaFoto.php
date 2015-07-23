@@ -76,11 +76,6 @@ class GalleriaFoto
      */
     protected $inGallery;
 
-    /**
-     * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Articolo")
-     * @ORM\JoinColumn(name="id_articolo", referencedColumnName="id", nullable=true)
-     **/
-    private $articolo;
 
     public function __construct()
     {
