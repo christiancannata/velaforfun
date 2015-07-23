@@ -259,7 +259,7 @@
 
                                 {% for nodo in subMenu %}
 
-                                    <li class="dropdown-submenu"><a {% if nodo.colore !="" %}class="bordered "
+                                    <li class="dropdown {% if nodo.children|length > 0 %}-submenu{% endif %}"><a {% if nodo.colore !="" %}class="bordered "
                                                                     style="border-color:{{ nodo.colore }};"{% endif %}
                                                                     tabindex="-1" href="
                                                                 {% if nodo.link !="" %}{{ nodo.link }}{% else %}#{% endif %}">{{ nodo.nome }}</a>
