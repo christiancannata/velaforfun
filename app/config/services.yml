@@ -47,6 +47,7 @@ services:
           class: AppBundle\EventListener\VelaForumListener
           tags:
               - { name: kernel.event_subscriber }
+          arguments: [  @service_container ]
 
   app.handler.logout_success_handler:
           class:  AppBundle\Services\LogoutSuccessHandlerService
