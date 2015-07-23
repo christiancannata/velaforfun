@@ -82,4 +82,6 @@ DirectoryIndex app.php
     AddOutputFilterByType DEFLATE application/json
 </IfModule>
 
+
+
 ErrorDocument 404 /
