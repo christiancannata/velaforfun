@@ -148,7 +148,7 @@ form label {
 
 .content-title {
     background: rgba(66, 156, 188, 0.8) none repeat scroll 0 0;
-    bottom: 10px;
+    bottom: -14px;
     color: white;
     height: 200px;
     left: 50%;
