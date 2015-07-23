@@ -55,7 +55,8 @@ class CheckEmailCommand extends ContainerAwareCommand
             //  $mailsIds = array_slice($mailsIds, 0, 20);
             $comunicati = array();
             foreach ($mailsIds as $mailId) {
-                $output->writeln('<info>Leggo email ID:'.$mailId.'</info>');
+                $ora=new \DateTime();
+                $output->writeln('<info>'.$ora->format("d-m-Y H:i").' - Leggo email ID:'.$mailId.'</info>');
                 $mail = $mailbox->getMail($mailId);
 
                 $emailComunicato = $repositoryArticolo->findOneBy(array("idComunicato" => $mail->id));
@@ -126,10 +127,11 @@ class CheckEmailCommand extends ContainerAwareCommand
                     }
 
                     $this->em->persist($articolo);
-                    $output->writeln('<info>Email ID:'.$mailId.' importata!</info>');
+                    $ora=new \DateTime();
                     $comunicati[] = $articolo;
                     $this->em->flush();
                     $mailbox->markMailAsRead($mailId);
+                    $output->writeln('<info>'.$ora->format("d-m-Y H:i").' - Email ID:'.$mailId.' importata!</info>');
                 }
             }
 
