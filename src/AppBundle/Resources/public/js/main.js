@@ -111,7 +111,7 @@ jQuery(document).ready(function ($) {
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 
-        if(localStorage.getItem("geolocation")){
+       if(localStorage.getItem("geolocation")){
             var meteo = JSON.parse(localStorage.getItem("geolocation"));
 
             $("#loadingMeteoMobile").hide();
@@ -488,7 +488,6 @@ function showPosition(position) {
 
 
 
-
         // Provide your access token
         L.mapbox.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFuMTQ4OCIsImEiOiJZaldjZlM0In0.hXiRMyyCDLdQZUrqXF2eNw';
         // Create a map in the div #map
@@ -527,7 +526,6 @@ function showPosition(position) {
 
 
         for(var i=0;i<4;i++){
-            console.log("#meteo-localized-icon-"+(i+3));
             $("#meteo-localized-icon-"+(i+3)).addClass(meteo.altroMeteo[i].weather[0].icon);
             $("#meteo-localized-time-"+(i+3)).html(meteo.altroMeteo[i].time);
 
@@ -544,6 +542,7 @@ function showPosition(position) {
 
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             $("#loadingMeteoMobile").hide();
+
             $("#mobile-localized-city").html(meteo.geoposition.name);
             $("#mobile-localized-city").fadeIn();
             $("#mobile-localized-arrow").fadeIn();

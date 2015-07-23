@@ -421,6 +421,7 @@ class PortoController extends BaseController
                 $time=new \DateTime();
                 $time->setTimestamp($meteo->dt);
                 $meteo->time = $time->format("H:i");
+                $meteo->name=$weather->city->name;
                 $mainMeteo=$meteo;
             }
             if($trovato && $mainMeteo->dt!=$meteo->dt){
