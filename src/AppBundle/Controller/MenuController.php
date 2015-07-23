@@ -56,6 +56,13 @@ class MenuController extends BaseController
             $params = $request->request->all();
             $em = $this->getDoctrine()->getManager();
 
+            foreach($nodi as $nodoMenu){
+                $nodoMenu->setMenu(null);
+                $em->persist($nodoMenu);
+            }
+
+            $em->flush();
+
             $alberoNodi = json_decode($params['menuJson'], true);
             $entity->setNome($params['appbundle_menu']['nome']);
             $em->persist($entity);
@@ -66,6 +73,7 @@ class MenuController extends BaseController
 
                 $nodo->setOrdering($key + 1);
 
+                $nodo->setMenu($entity);
 
                 $figliAttuali = $nodo->getChildren();
                 foreach ($figliAttuali as $figlioAttuale) {
@@ -81,6 +89,7 @@ class MenuController extends BaseController
 
                         $figlioObj->setOrdering($keyChildren + 1);
                         $nodo->addChildren($figlioObj);
+                        $figlioObj->setMenu($entity);
                     }
                 }
 

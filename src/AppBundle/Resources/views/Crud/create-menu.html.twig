@@ -13,9 +13,10 @@
     <script>
         $(document).ready(function () {
             $('.dd').nestable({maxDepth:2});
+            $('.dd').nestable({maxDepth:2});
 
-            $('.dd').on('change', function () {
-                var menu = $('.dd').nestable('serialize');
+            $('.menu').on('change', function () {
+                var menu = $('.menu').nestable('serialize');
                 $("#menujson").val(JSON.stringify(menu));
             });
 
@@ -357,24 +358,24 @@
        <input type="hidden" id="menujson" value="" name="menuJson">
 
 <input type="hidden" value="{{ menu.id }}" name="menu">
-<div class="dd">
+<div class="dd menu">
     <ol class="dd-list">
         {% for nodo in nodi %}
             {% if nodo.parent is null or nodo.parent is not defined %}
                 <li class="dd-item" data-id="{{ nodo.id }}">
-                    <div class="dd-handle">{{ nodo.nome }}</div>
+                    <div class="dd-handle">{{ nodo.nome }} <button class="elimina" data-id="{{ nodo.id }}">X</button></div>
                     {% if nodo.children|length > 0 %}
                         <ol class="dd-list">
                         {% for child in nodo.children %}
 
                                 <li class="dd-item" data-id="{{ child.id }}">
-                                    <div class="dd-handle">{{ child.nome }}</div>
+                                    <div class="dd-handle">{{ child.nome }} <button class="elimina" data-id="{{ nodo.id }}">X</button></div>
                                     {% if child.children|length > 0 %}
                         <ol class="dd-list">
                         {% for child2 in child.children %}
 
                                 <li class="dd-item" data-id="{{ child2.id }}">
-                                    <div class="dd-handle">{{ child2.nome }}</div>
+                                    <div class="dd-handle">{{ child2.nome }} <button class="elimina" data-id="{{ nodo.id }}">X</button></div>
                                 </li>
 
                         {% endfor %}
@@ -392,7 +393,14 @@
 
     </ol>
 </div>
-
+ELIMINA NODI
+<div class="dd elimina">
+    <ol class="dd-list">
+     <li class="dd-item" data-id="0">
+     TRASCINA QUI UN ELEMENTO PER ELIMINARLO
+     </li>
+    </ol>
+    </div>
                     <button type="submit" class="btn btn-default login hvr-sweep-to-right"> <i class="fa fa-spinner fa-2x fa-spin hide"></i><span class="show">Inserisci</span></button>
     </div>
         </form>

@@ -46,7 +46,7 @@ class MenuVelaExtension extends \Twig_Extension
         $vociMenu = [];
         if ($menu) {
             $vociMenu = $em->getRepository('AppBundle:NodoMenu')->findBy(
-                array("menu" => $menu),
+                array("menu" => $menu, "parent" => null),
                 array('ordering' => 'ASC')
             );
 
@@ -84,7 +84,7 @@ class MenuVelaExtension extends \Twig_Extension
                 $ruolo = "Capitano";
                 break;
             default:
-                $ruolo="Velista in porto";
+                $ruolo = "Velista in porto";
                 break;
         }
 

@@ -86,6 +86,27 @@
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
+
+                    {% set subMenu= menu("main_menu") %}
+                    {% for nodo in subMenu %}
+                        <li class="dropdown-submenu"><a {% if nodo.colore !="" %}class="bordered "
+                                                        style="border-color:{{ nodo.colore }};"{% endif %}
+                                                        tabindex="-1" href="
+                                                                {% if nodo.link !="" %}{{ nodo.link }}{% else %}#{% endif %}">{{ nodo.nome }}</a>
+                            {% if nodo.children|length > 0 %}
+                                <ul class="dropdown-menu">
+                                    {% for figlio in nodo.children %}
+                                        <li><a {% if nodo.colore !="" %}class="bordered "
+                                               style="border-color:{{ nodo.colore }};"{% endif %} href="
+                                                                {% if nodo.link !="" %}{{ nodo.link }}{% else %}#{% endif %}">{{ nodo.nome }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mondo della vela<i
                                     class="fa fa-arrow-right pull-right"></i>
@@ -230,12 +251,26 @@
                                aria-expanded="false"> <i class="fa fa-bars fa-lg"></i> <strong>Tutte le sezioni</strong></a>
                             <ul class="dropdown-menu" role="menu">
 
-                                {#   {% for nodo in subMenu %}
-                                       <li><a {% if nodo.colore !="" %}class="bordered "
-                                              style="border-color:{{ nodo.colore }};"{% endif %} href="{{ nodo.link }}"
-                                              target="{{ nodo.action }}">{{ nodo.nome }}</a></li>
 
-                                   {% endfor %}#}
+                                {% for nodo in subMenu %}
+
+                                    <li class="dropdown-submenu"><a {% if nodo.colore !="" %}class="bordered "
+                                                                    style="border-color:{{ nodo.colore }};"{% endif %}
+                                                                    tabindex="-1" href="
+                                                                {% if nodo.link !="" %}{{ nodo.link }}{% else %}#{% endif %}">{{ nodo.nome }}</a>
+                                        {% if nodo.children|length > 0 %}
+                                            <ul class="dropdown-menu">
+                                                {% for figlio in nodo.children %}
+                                                    <li><a {% if figlio.colore !="" %}class="bordered "
+                                                           style="border-color:{{ figlio.colore }};"{% endif %} href="
+                                                                {% if nodo.link !="" %}{{ figlio.link }}{% else %}#{% endif %}">{{ figlio.nome }}</a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+
                                 <li class="dropdown-submenu"><a tabindex="-1" href="#">Mondo della vela</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="/archivio/news-vela">News di vela</a></li>
@@ -446,7 +481,7 @@
                                             <li><a href="/video/list">VideoGallery</a></li>
                                             <li><a href="/cms/list">Pagine CMS</a></li>
                                             <li><a href="/menu/list">Menù</a></li>
-                                            <li><a href="/nodomenu/list">Nodi Menù</a></li>
+
                                             <li><a href="/newsletter/">Newsletter</a></li>
                                         {% endif %}
 
