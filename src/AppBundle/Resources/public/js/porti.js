@@ -6,7 +6,7 @@ $(document).ready(function () {
 
 
     // Provide your access token
-    L.mapbox.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFuMTQ4OCIsImEiOiJZaldjZlM0In0.hXiRMyyCDLdQZUrqXF2eNw';
+    L.mapbox.accessToken = 'pk.eyJ1Ijoid2FrYXJldmEiLCJhIjoiMzhjZGQ4M2VlZThhNjZlYWZmODg1OTE2MWUyNjlkNjYifQ.jBl7tEajPnDGJzYqxMGMag';
     // Create a map in the div #map
     var map = L.mapbox.map('map', 'mapbox.streets');
     var myLayer = L.mapbox.featureLayer()

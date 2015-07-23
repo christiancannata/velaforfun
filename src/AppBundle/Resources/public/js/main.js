@@ -489,7 +489,7 @@ function showPosition(position) {
 
 
         // Provide your access token
-        L.mapbox.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFuMTQ4OCIsImEiOiJZaldjZlM0In0.hXiRMyyCDLdQZUrqXF2eNw';
+        L.mapbox.accessToken = 'pk.eyJ1Ijoid2FrYXJldmEiLCJhIjoiMzhjZGQ4M2VlZThhNjZlYWZmODg1OTE2MWUyNjlkNjYifQ.jBl7tEajPnDGJzYqxMGMag';
         // Create a map in the div #map
 
         var arrayPorto2 = {
@@ -508,7 +508,7 @@ function showPosition(position) {
                 "marker-symbol": "harbor"
             }
         };
-        var map = L.mapbox.map('mappaMeteo', 'christian1488.m5b7ic2b');
+        var map = L.mapbox.map('mappaMeteo', 'wakareva.e12b38a9');
 
         myLayer = L.mapbox.featureLayer(arrayPorto2).addTo(map);
 
