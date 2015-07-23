@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="velaforfun.iws" />
@@ -30,14 +31,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37284896">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding>
-                <marker date="1437670040000" expanded="true" signature="2425:2475" placeholder="SELECT * FRO..cc_forum_post..." />
-              </folding>
+            <state vertical-scroll-proportion="0.5265082">
+              <caret line="108" column="15" selection-start-line="108" selection-start-column="15" selection-end-line="108" selection-end-column="15" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,13 +101,13 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Porto/porti.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Command/CheckEmailCommand.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/GalleriaFoto.php" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Entity/Articolo.php" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/web/.htaccess" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
       </list>
     </option>
   </component>
@@ -150,7 +149,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -305,6 +303,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -313,7 +312,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../adsl2" />
-    <property name="SearchEverywhereHistoryKey" value="base&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/base.html.twig&#10;articolo&#9;FILE&#9;file:///private/var/www/velaforfun/src/BlogBundle/Resources/views/Articolo/articolo.html.twig&#10;style&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/public/css/style.css&#10;index&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/default/index.html.twig&#10;por&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;form&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/public/js/form.js&#10;form.js&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/public/js/form.js&#10;main&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;dettagliPor&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;list&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Crud/list.html.twig&#10;lettera&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/NomeBarca/lettera.html.twig&#10;Categoria&#9;null&#9;null&#10;ba&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/base.html.twig&#10;AnnuncioSca&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Entity/AnnuncioScambioPosto.php&#10;Nome&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Controller/NomeBarcaController.php&#10;main.&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;index.&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/default/index.html.twig&#10;selectList.html.twig&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Porto/selectList.html.twig&#10;cerca.html.twig&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/AnnuncioImbarco/cerca.html.twig&#10;richiesta_contatto.html.twig&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/Emails/richiesta_contatto.html.twig&#10;dettagli&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;porti&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Porto/porti.html.twig&#10;connession&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Security/connessione-effettuata.html.twig&#10;User&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Entity/User.php&#10;profilo&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;AnnuncioImb&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/AnnuncioImbarco.php&#10;mai&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;Subscriber&#9;null&#9;null&#10;AnnuncioIm&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/AnnuncioImbarco.php&#10;profilo-utente&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;contatt&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/contatti.html.twig&#10;rice&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/ricette.html.twig&#10;chi-siamo.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/chi-siamo.html.twig&#10;post-forum-partial.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/post-forum-partial.html.twig&#10;redirect&#9;null&#9;null&#10;dettag&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;bas&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/base.html.twig&#10;h&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/hover-min.css&#10;hover&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/hover-min.css&#10;annuncio&#9;null&#9;null&#10;main.js&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;item&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_head.html.twig&#10;body_co&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/body_content.html.twig&#10;item_&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_body.html.twig&#10;annu&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/AnnuncioController.php&#10;video&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/VideoController.php&#10;dettagliGa&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig&#10;jquery.morse.js&#9;FILE&#9;file:///var/www/velaforfun/web/bundles/app/js/jquery.morse.js&#10;profi&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;reda&#9;FILE&#9;file:///var/www/velaforfun/web/redactor/redactor.js" />
+    <property name="SearchEverywhereHistoryKey" value="style&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/public/css/style.css&#10;base&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/base.html.twig&#10;articolo&#9;FILE&#9;file:///private/var/www/velaforfun/src/BlogBundle/Resources/views/Articolo/articolo.html.twig&#10;index&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/default/index.html.twig&#10;por&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;form&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/public/js/form.js&#10;form.js&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/public/js/form.js&#10;main&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;dettagliPor&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;list&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Crud/list.html.twig&#10;lettera&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/NomeBarca/lettera.html.twig&#10;Categoria&#9;null&#9;null&#10;ba&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/base.html.twig&#10;AnnuncioSca&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Entity/AnnuncioScambioPosto.php&#10;Nome&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Controller/NomeBarcaController.php&#10;main.&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;index.&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/default/index.html.twig&#10;selectList.html.twig&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Porto/selectList.html.twig&#10;cerca.html.twig&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/AnnuncioImbarco/cerca.html.twig&#10;richiesta_contatto.html.twig&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/Emails/richiesta_contatto.html.twig&#10;dettagli&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;porti&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Porto/porti.html.twig&#10;connession&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Resources/views/Security/connessione-effettuata.html.twig&#10;User&#9;FILE&#9;file:///private/var/www/velaforfun/src/AppBundle/Entity/User.php&#10;profilo&#9;FILE&#9;file:///private/var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;AnnuncioImb&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/AnnuncioImbarco.php&#10;mai&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;Subscriber&#9;null&#9;null&#10;AnnuncioIm&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Entity/AnnuncioImbarco.php&#10;profilo-utente&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;contatt&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/contatti.html.twig&#10;rice&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/ricette.html.twig&#10;chi-siamo.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/chi-siamo.html.twig&#10;post-forum-partial.html.twig&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/post-forum-partial.html.twig&#10;redirect&#9;null&#9;null&#10;dettag&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Porto/dettagliPorto.html.twig&#10;bas&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/base.html.twig&#10;h&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/hover-min.css&#10;hover&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/css/hover-min.css&#10;annuncio&#9;null&#9;null&#10;main.js&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/public/js/main.js&#10;item&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_head.html.twig&#10;body_co&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/body_content.html.twig&#10;item_&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/CCDNForumForumBundle/views/User/Post/Partial/item_post_body.html.twig&#10;annu&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/AnnuncioController.php&#10;video&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Controller/VideoController.php&#10;dettagliGa&#9;FILE&#9;file:///var/www/velaforfun/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig&#10;jquery.morse.js&#9;FILE&#9;file:///var/www/velaforfun/web/bundles/app/js/jquery.morse.js&#10;profi&#9;FILE&#9;file:///var/www/velaforfun/app/Resources/views/default/profilo-utente.html.twig&#10;reda&#9;FILE&#9;file:///var/www/velaforfun/web/redactor/redactor.js" />
     <property name="FullScreen" value="true" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -487,26 +486,26 @@
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30722892" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15662651" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26037195" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21445782" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15662651" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -637,7 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.875">
           <caret line="28" column="0" selection-start-line="27" selection-start-column="12" selection-end-line="28" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -645,9 +643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36902484">
           <caret line="65" column="9" selection-start-line="43" selection-start-column="8" selection-end-line="65" selection-end-column="9" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -669,7 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="58" column="20" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -677,7 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="13" selection-start-line="28" selection-start-column="12" selection-end-line="36" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -685,7 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.375">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -693,9 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.75">
           <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -703,9 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.666667">
           <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding>
-            <element signature="e#128#160#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -713,7 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.541667">
           <caret line="89" column="60" selection-start-line="89" selection-start-column="48" selection-end-line="89" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -721,7 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.0416667">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -729,15 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.791667">
           <caret line="414" column="0" selection-start-line="414" selection-start-column="0" selection-end-line="414" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#5;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#1;n#li#0;n#ul#0;n#div#2;n#div#0;n#div#0;n#div#3;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <marker date="1437646183000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1437646183000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -745,7 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.647059">
           <caret line="422" column="36" selection-start-line="422" selection-start-column="36" selection-end-line="422" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -753,9 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.4074073">
           <caret line="528" column="0" selection-start-line="528" selection-start-column="0" selection-end-line="528" selection-end-column="0" />
-          <folding>
-            <marker date="1437654964000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -763,7 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.541667">
           <caret line="68" column="35" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -771,7 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.625">
           <caret line="33" column="109" selection-start-line="33" selection-start-column="109" selection-end-line="33" selection-end-column="109" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -779,7 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.916666">
           <caret line="247" column="0" selection-start-line="247" selection-start-column="0" selection-end-line="247" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -787,7 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="49" column="42" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -795,7 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19195612">
           <caret line="7" column="31" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -803,7 +769,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -811,7 +776,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27422303">
           <caret line="10" column="21" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -819,7 +783,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.4074073">
           <caret line="27" column="8" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -827,7 +790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.543021">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -835,7 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2468008">
           <caret line="49" column="23" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -843,7 +804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -851,7 +811,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -859,7 +818,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -867,9 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2581262">
           <caret line="123" column="16" selection-start-line="123" selection-start-column="16" selection-end-line="123" selection-end-column="16" />
-          <folding>
-            <element signature="e#36#59#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -877,14 +832,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.2916665">
           <caret line="201" column="67" selection-start-line="201" selection-start-column="67" selection-end-line="201" selection-end-column="67" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#4;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#4;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -900,7 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.4705882">
           <caret line="470" column="0" selection-start-line="470" selection-start-column="0" selection-end-line="470" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -908,15 +854,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6309751">
           <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44424132">
-          <caret line="671" column="16" selection-start-line="671" selection-start-column="16" selection-end-line="671" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -924,15 +861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40152964">
           <caret line="162" column="49" selection-start-line="162" selection-start-column="49" selection-end-line="162" selection-end-column="49" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#a#0;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -950,17 +878,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.95978063">
           <caret line="52" column="24" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37284896">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
           <folding>
-            <marker date="1437670040000" expanded="true" signature="2425:2475" placeholder="SELECT * FRO..cc_forum_post..." />
+            <marker date="1437670040000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..cc_forum_post..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5265082">
+          <caret line="108" column="15" selection-start-line="108" selection-start-column="15" selection-end-line="108" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
