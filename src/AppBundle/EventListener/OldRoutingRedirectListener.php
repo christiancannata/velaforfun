@@ -285,4 +285,21 @@ class OldRoutingRedirectListener extends ContainerAware
             $event->setResponse($response);
         }
     }
+
+
+    public function onKernelException(\Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent $event)
+    {
+        $exception =  $event->getException();
+        if ($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
+            //create response, set status code etc.
+
+
+            $url = $this->container->get('router')->generate("homepage");
+            $response = new RedirectResponse($url);
+
+            $event->setResponse($response); //event will stop propagating here. Will not call other listeners.
+        }
+    }
+
+
 }
