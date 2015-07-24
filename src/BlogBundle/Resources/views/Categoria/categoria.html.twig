@@ -151,7 +151,7 @@
 
         {% for articolo in articoli|slice(4,3) %}
     <div class="col-md-4 column">
-        <a href="/archivio/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}">
+
             <div class="box-sub hvr-underline-from-left">
                 <div class="foto">
                 <div class="category">
@@ -165,11 +165,11 @@
                          style="background-image: url('/images/articoli/{{ articolo.immagine }}');">
                     </div>
                 </div>
-                <h4>{{ articolo.titolo }}</h4>
+                <a href="/archivio/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}">  <h4>{{ articolo.titolo }}</h4>
 
-                <p> {{ articolo.sottotitolo|slice(0, 140)|raw|striptags }}...</p>
+                <p> {{ articolo.sottotitolo|slice(0, 140)|raw|striptags }}...</p> </a>
             </div>
-        </a>
+
 
     </div>
 
