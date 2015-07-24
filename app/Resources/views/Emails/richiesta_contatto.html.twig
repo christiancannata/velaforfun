@@ -4,10 +4,10 @@
 
 {% block body %}
 
-
-    <div class='movableContent'>
-        <table width="580" border="0" cellspacing="0" cellpadding="0" align="center">
-            <tr><td height='40'></td></tr>
+    <font face="arial">
+        <div class='movableContent'>
+            <table width="580" border="0" cellspacing="0" cellpadding="0" align="center">
+                <tr><td height='40'></td></tr>
                 <tr>
                     <td width='410'>
                         <table width="580" cellpadding="0" cellspacing="0" align="center">
@@ -16,9 +16,8 @@
                                 <td>
                                     <div class='contentEditableContainer contentTextEditable'>
                                         <div class='contentEditable' style='text-align: left;'>
-                                            <h2 style='font-size:16px;'>Nuova richiesta di contatto</h2>
                                             <br>
-                                           <strong>Oggetto:</strong> {{ contatto['oggetto'] }}<br>
+                                            <strong>Oggetto:</strong> {{ contatto['oggetto'] }}<br>
                                             <strong>Email:</strong> {{ contatto['email'] }}<br>
                                             <strong>Testo:</strong> {{ contatto['testo'] }}<br>
                                             <p></p>
@@ -30,8 +29,9 @@
                         </table>
                     </td>
                 </tr>
-        </table>
-    </div>
+            </table>
+        </div>
+    </font>
 
 {% endblock %}
 
