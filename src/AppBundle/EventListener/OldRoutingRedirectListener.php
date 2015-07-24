@@ -237,7 +237,7 @@ class OldRoutingRedirectListener extends ContainerAware
 
         if (strstr($path, "scambio_posto.asp")) {
             $redirect = true;
-            $route = "annunci_scambio_posto";
+            $route = "annunci_cambio_posto";
         }
 
         if (strstr($path, "comunicati/index.asp")) {
