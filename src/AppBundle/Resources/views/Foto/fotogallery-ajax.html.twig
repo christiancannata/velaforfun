@@ -1,4 +1,5 @@
 
+{% if fotos| length > 0 %}
 <div class="row nodi">
                 {% for foto in fotos %}
                     <div class="col-md-4 column  video-box ">
@@ -33,3 +34,4 @@
 </div>
 
 
+{% endif %}
