@@ -44,7 +44,8 @@ class OldRoutingRedirectListener extends ContainerAware
         $params = array();
 
         if (strstr($path, "comprovendo.asp")) {
-            die("jjj");
+            $redirect = true;
+            $route = "annunci_home";
         }
 
         if (strstr($path, "portolano/index.asp")) {
@@ -233,7 +234,15 @@ class OldRoutingRedirectListener extends ContainerAware
 
         }
 
+        if (strstr($path, "public/forum/editprofilo.asp")) {
+            $redirect = true;
+            $route = "modifica_dati";
+        }
 
+        if (strstr($path, "public/forum/faq.asp")) {
+            $redirect = true;
+            $route = "faq";
+        }
 
         if (strstr($path, "scambio_posto.asp")) {
             $redirect = true;
