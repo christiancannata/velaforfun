@@ -2051,28 +2051,6 @@ h3.panel-title {
 label[for=remember_me],label[for=remember_me2]{
     display: inline;
 }
-@media (max-width: 1000px) {
-    .back .list-inline > li {
-        display: inline-block;
-        font-size: 12px;
-    }
-
-    .dropdown-header {
-        background: #e3e3e3 none repeat scroll 0 0;
-    }
-    .btn-social.btn-lg {
-        margin: 0 auto !important;
-
-        text-align: center !important;
-        width: 100% !important;
-    }
-    #attracca{
-        margin-top:5px;
-    }
-    .box{
-        float:inherit;
-    }
-}
 
 
 
@@ -2318,4 +2296,27 @@ font-size:22px !important;
 
 .text-center{
     text-align: center !important;
+}
+
+
+@media (max-width: 1000px) {
+    .back .list-inline > li {
+        font-size: 12px !important;
+    }
+
+    .dropdown-header {
+        background: #e3e3e3 none repeat scroll 0 0;
+    }
+    .btn-social.btn-lg {
+        margin: 0 auto !important;
+
+        text-align: center !important;
+        width: 100% !important;
+    }
+    #attracca{
+        margin-top:5px;
+    }
+    .box{
+        float:inherit;
+    }
 }
