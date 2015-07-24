@@ -183,7 +183,8 @@ class OldRoutingRedirectListener extends ContainerAware
 
 
         if (strstr($path, "imbarco_i.asp")) {
-            die("jjj");
+            $redirect = true;
+            $route = "annunci_imbarco";
         }
 
         if (strstr($path, "public/forum/visual.asp")) {
@@ -235,7 +236,8 @@ class OldRoutingRedirectListener extends ContainerAware
 
 
         if (strstr($path, "scambio_posto.asp")) {
-            die("jjj");
+            $redirect = true;
+            $route = "annunci_scambio_posto";
         }
 
         if (strstr($path, "comunicati/index.asp")) {
