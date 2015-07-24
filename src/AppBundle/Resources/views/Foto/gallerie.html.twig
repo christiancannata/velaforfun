@@ -106,7 +106,7 @@
 
 
                 <a href="/foto/{{ gallery.permalink }}">   <div class="box-home" style="height: 330px;">
-                        <div style="opacity: 1;background-image: url(/uploads/galleria_foto/{{ copertina|escape('url') }});"
+                        <div style="opacity: 1;background-image: url(/uploads/galleria_foto/{{ copertina|url_encode }});"
                              class="divBackgroundImage" >
                         </div>
                         <div class="content">
