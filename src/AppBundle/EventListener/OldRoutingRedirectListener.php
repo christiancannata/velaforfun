@@ -143,7 +143,7 @@ class OldRoutingRedirectListener extends ContainerAware
                     ->getRepository('AppBundle:CategoriaVideo')->find($request->get("cat"));
                 if($post) {
                     $redirect = true;
-                    $route = "galleria_video";
+                    $route = "dettaglio_video";
                     $params["permalink"] = $post->getPermalink();
                 }else{
                     $redirect = true;
