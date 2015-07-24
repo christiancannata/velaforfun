@@ -154,7 +154,7 @@
                     {{ articolo.testo|raw }}
 
 
-                    {% if articolo.allegato1 is defined %}
+                    {% if articolo.allegato1 is defined and articolo.allegato1!="" %}
                     <div class="row clearfix hidden-print">
                         <div class="col-md-12 column">
                             <div class="divisore-big"></div>
