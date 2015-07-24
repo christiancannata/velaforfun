@@ -18,7 +18,45 @@ class ArticoloController extends BaseController
      */
     public function createAction(Request $request)
     {
-        return $this->postForm($request, new ArticoloType());
+        $postform = $this->createForm(new ArticoloType());
+
+        if ($request->isMethod('POST')) {
+
+            $postform->handleRequest($request);
+
+            if ($postform->isValid()) {
+
+
+                /*
+                 * $data['title']
+                 * $data['body']
+                 */
+                $data = $postform->getData();
+                $em = $this->getDoctrine()->getManager();
+
+                $em->persist($data);
+                $em->flush();
+
+
+                $response['success'] = true;
+                $response['response'] = $data->getId();
+
+
+            } else {
+                $response['success'] = false;
+
+
+                $response['response'] = $this->getErrorsAsArray($postform);
+
+            }
+
+            return new JsonResponse($response);
+        }
+
+        return $this->render(
+            'AppBundle:Crud:create-articolo.html.twig',
+            array('form' => $postform->createView(), "titolo" => "Crea")
+        );
     }
 
 
@@ -214,6 +252,9 @@ class ArticoloController extends BaseController
             )
         );
     }
+
+
+
 
 
 }

@@ -156,28 +156,23 @@ jQuery(document).ready(function ($) {
         {title: "Seleziona un elemento"}
     );
 
-/*
-    if($('#fos_user_registration_form_dataNascita').length>0){
-
-    var html='<div id="datetimepicker" class="input-append date">';
-        html+='<input data-format="dd/MM/yyyy hh:mm:ss" type="text"  id="fos_user_registration_form_dataNascita" required="required" name="fos_user_registration_form[dataNascita]"></input>';
-        html+='  <span class="add-on">';
-        html+='  <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>';
-        html+= ' </span>';
-        html+= ' </div>';
-
-        $("#fos_user_registration_form_dataNascita").replaceWith(html);
-
-        $('#fos_user_registration_form_dataNascita').datetimepicker({
-            format: 'dd/MM/yyyy'
-        });
-    }
-
- */
-
 
     $(".marker-description button").click(function () {
         location.href = $(this).attr("id");
+    });
+
+
+    $(".settaArticoloCrud").click(function(){
+
+       var articoloCorrelato=$("#selectArticolo").typeahead("getActive").permalink;
+
+
+        var res = articoloCorrelato.split("|");
+
+        $("#blogbundle_articolo_titoloCorrelato").val(res[0]);
+        $("#blogbundle_articolo_testoCorrelato").val(res[3]);
+        $("#blogbundle_articolo_immagineCorrelata").attr("value",res[2]);
+        $("#blogbundle_articolo_linkCorrelato").val(res[1]);
     });
 
 
@@ -259,6 +254,14 @@ jQuery(document).ready(function ($) {
             $("#selectPorto").typeahead({source: data});
         }, 'json');
     }
+
+
+    if ($("#selectArticolo").length > 0) {
+        $.get('/archivio/json-all', function (data) {
+            $("#selectArticolo").typeahead({source: data});
+        }, 'json');
+    }
+
 
 
     if ($("#selectPorto3").length > 0) {
