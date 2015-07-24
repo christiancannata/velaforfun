@@ -1,3 +1,4 @@
+{% if gallerie| length > 0 %}
 <div class="row nodi">
     {% for gallery in gallerie %}
         {% if gallery.foto|length > 0 %}
@@ -50,3 +51,4 @@
         <center><i class="fa fa-spinner fa-2x fa-spin "></i></center>
     </div>
 </div>
+{% endif %}
