@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/ajax.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/ajax.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php" afterPath="$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="velaforfun.iws" />
@@ -41,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OldRoutingRedirectListener.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OldRoutingRedirectListener.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.4117646">
-              <caret line="121" column="31" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.7883065">
+              <caret line="154" column="33" selection-start-line="154" selection-start-column="33" selection-end-line="154" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -97,10 +97,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajax.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ajax.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/ajax.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8565965">
+            <state vertical-scroll-proportion="-18.666666">
               <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
               <folding>
                 <element signature="e#593#685#0#HTML" expanded="true" />
@@ -172,7 +172,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/NomeBarcaController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/NomeBarca/lettera.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/NomeBarca/lista.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig" />
@@ -210,6 +209,7 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/fotogallery-ajax.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/ajax.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php" />
       </list>
     </option>
   </component>
@@ -332,36 +332,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="views">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="velaforfun">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="AppBundle">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Resources">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="views">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Foto">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -636,9 +606,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30722892" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30722892" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1015,14 +985,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4117646">
-          <caret line="121" column="31" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportFotoCommand.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.375">
@@ -1071,11 +1033,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/ajax.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8565965">
+        <state vertical-scroll-proportion="-18.666666">
           <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
           <folding>
             <element signature="e#593#685#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7883065">
+          <caret line="154" column="33" selection-start-line="154" selection-start-column="33" selection-end-line="154" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
