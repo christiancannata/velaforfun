@@ -295,6 +295,17 @@ class OldRoutingRedirectListener extends ContainerAware
 
 
             $url = $this->container->get('router')->generate("homepage");
+
+            $request=$event->getRequest();
+
+            $path=explode("/",$request->getPathInfo());
+            array_pop($path);
+
+            $path=implode("/",$path);
+
+            $url=$path;
+
+
             $response = new RedirectResponse($url);
 
             $event->setResponse($response); //event will stop propagating here. Will not call other listeners.

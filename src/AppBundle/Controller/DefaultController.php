@@ -33,7 +33,19 @@ class DefaultController extends BaseController
 
         return $this->render('default/index.html.twig', array("articoli" => $articoli, "ultimiPost" => $post));
     }
+    /**
+     * @Route("/archivio", name="homepage_archivio")
+     */
+    public function archivioAction()
+    {
+        $categorie = $this->getDoctrine()
+            ->getRepository('BlogBundle:Categoria')->findAll();
 
+        $ultimiArticoli = $this->getDoctrine()
+            ->getRepository('BlogBundle:Articolo')->findAll(array("id"=>"desc"), 10);
+
+        return $this->render('BlogBundle:Default:index.html.twig', array('categorie' => $categorie,'articoli'=>$ultimiArticoli));
+    }
 
     /**
      * @Route("/chi-siamo", name="chi_siamo")
