@@ -2299,7 +2299,7 @@ font-size:22px !important;
 }
 
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
     .back .list-inline > li {
         font-size: 12px !important;
     }
