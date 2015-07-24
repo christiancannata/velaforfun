@@ -100,7 +100,7 @@
 // on it, and add a single marker.
             map.on('locationfound', function (e) {
                 $("#geolocate").html('<i style="" class="fa fa-crosshairs "></i>Localizzami');
-               
+
 
                 if(marker!=""){
                     map.removeLayer(marker);
@@ -112,11 +112,12 @@
                     'marker-symbol': 'star',
                     'marker-size': 'medium'
                 }));
-                $("#latitudine").val(e.latlng.lat);
-                $("#longitudine").val(e.latlng.lng);
+
+
+                map.setView([ e.latlng.lat,  e.latlng.lng ], 8);
+
+
                 marker.addTo(map);
-
-
 
 
 
