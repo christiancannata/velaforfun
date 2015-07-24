@@ -108,6 +108,7 @@ form label {
     background-repeat: no-repeat;
     height: 450px;
     padding: 10px;
+    background-size: cover;
 }
 
 .category a {
