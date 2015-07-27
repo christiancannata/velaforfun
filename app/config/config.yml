@@ -156,10 +156,10 @@ eko_feed:
     feeds:
         article:
             title:       'Feed RSS'
-            description: 'Latests articles'
-            link:        'http://vincent.composieux.fr'
+            description: 'Articoli del blog'
+            link:        'http://www.velaforfun.com'
             encoding:    'utf-8'
-            author:      'Vincent Composieux' # Only required for Atom feeds
+            author:      'VelaForFun' # Only required for Atom feeds
 
 sonata_intl:
     timezone:
