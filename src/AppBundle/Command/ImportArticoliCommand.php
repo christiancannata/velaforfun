@@ -91,7 +91,7 @@ class ImportArticoliCommand extends ContainerAwareCommand
         foreach ($res as $data) {
 
             $utente = $this->getContainer()->get('doctrine')
-                ->getRepository('BlogBundle:Articolo')->findOneByIdOriginale($data['titolo']);
+                ->getRepository('BlogBundle:Articolo')->findOneByIdOriginale($data['ID']);
 
             if ($utente) {
                 $this->output->writeln("<comment>Gia presente: ".$data['titolo']." </comment>");

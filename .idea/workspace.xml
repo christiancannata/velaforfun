@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Command/ImportArticoliCommand.php" afterPath="$PROJECT_DIR$/src/AppBundle/Command/ImportArticoliCommand.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="velaforfun.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,12 +71,12 @@
       <file leaf-file-name="ImportArticoliCommand.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportArticoliCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7131931">
-              <caret line="127" column="16" selection-start-line="127" selection-start-column="16" selection-end-line="127" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.36902484">
+              <caret line="93" column="86" selection-start-line="93" selection-start-column="86" selection-end-line="93" selection-end-column="86" />
               <folding>
-                <marker date="1438011395000" expanded="true" signature="1017:1031" placeholder="select * fro..articoli..." />
-                <marker date="1438011395000" expanded="true" signature="1017:1041" placeholder="select * fro..comunicati..." />
-                <marker date="1438011395000" expanded="true" signature="2708:2729" placeholder="select * fro..ricette..." />
+                <marker date="1438011477000" expanded="true" signature="1017:1031" placeholder="select * fro..articoli..." />
+                <marker date="1438011477000" expanded="true" signature="1017:1041" placeholder="select * fro..comunicati..." />
+                <marker date="1438011477000" expanded="true" signature="2708:2729" placeholder="select * fro..ricette..." />
               </folding>
             </state>
           </provider>
@@ -1372,12 +1373,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportArticoliCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7131931">
-          <caret line="127" column="16" selection-start-line="127" selection-start-column="16" selection-end-line="127" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.36902484">
+          <caret line="93" column="86" selection-start-line="93" selection-start-column="86" selection-end-line="93" selection-end-column="86" />
           <folding>
-            <marker date="1438011395000" expanded="true" signature="1017:1031" placeholder="select * fro..articoli..." />
-            <marker date="1438011395000" expanded="true" signature="1017:1041" placeholder="select * fro..comunicati..." />
-            <marker date="1438011395000" expanded="true" signature="2708:2729" placeholder="select * fro..ricette..." />
+            <marker date="1438011477000" expanded="true" signature="1017:1031" placeholder="select * fro..articoli..." />
+            <marker date="1438011477000" expanded="true" signature="1017:1041" placeholder="select * fro..comunicati..." />
+            <marker date="1438011477000" expanded="true" signature="2708:2729" placeholder="select * fro..ricette..." />
           </folding>
         </state>
       </provider>
