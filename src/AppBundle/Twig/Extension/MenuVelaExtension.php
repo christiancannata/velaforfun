@@ -22,6 +22,7 @@ class MenuVelaExtension extends \Twig_Extension
         return array(
             'menu' => new \Twig_Function_Method($this, 'getMenu'),
             'meteo' => new \Twig_Function_Method($this, 'getMeteo'),
+            'getCopertina' => new \Twig_Function_Method($this, 'getCopertina'),
             'getRuolo' => new \Twig_Function_Method($this, 'getRuolo'),
         );
     }
@@ -53,6 +54,34 @@ class MenuVelaExtension extends \Twig_Extension
         }
 
         return $vociMenu;
+    }
+
+
+    /**
+     * @param string $string
+     * @return int
+     */
+    public function getCopertina($articolo)
+    {
+
+        if ($articolo->getImmagine() != "") {
+            return "/images/articoli/".$articolo->getImmagine();
+        } else {
+            switch ($articolo->getCategoria()->getId()) {
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                    return "/images/articoli/img_marcaposto.jpg";
+                    break;
+                default:
+                    return "/images/articoli/img_marcaposto.jpg";
+                    break;
+            }
+
+        }
+
     }
 
 
