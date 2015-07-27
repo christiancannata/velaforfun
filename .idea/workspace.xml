@@ -71,12 +71,12 @@
       <file leaf-file-name="ImportArticoliCommand.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportArticoliCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5162524">
-              <caret line="53" column="52" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.5449331">
+              <caret line="62" column="67" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
               <folding>
-                <marker date="1438010330000" expanded="true" signature="1017:1031" placeholder="select * fro..articoli..." />
-                <marker date="1438010330000" expanded="true" signature="1017:1041" placeholder="select * fro..comunicati..." />
-                <marker date="1438010330000" expanded="true" signature="2707:2728" placeholder="select * fro..ricette..." />
+                <marker date="1438010858000" expanded="true" signature="1017:1031" placeholder="select * fro..articoli..." />
+                <marker date="1438010858000" expanded="true" signature="1017:1041" placeholder="select * fro..comunicati..." />
+                <marker date="1438010858000" expanded="true" signature="2708:2729" placeholder="select * fro..ricette..." />
               </folding>
             </state>
           </provider>
@@ -295,28 +295,6 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="uploads">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="velaforfun">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="web">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="immagini">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="articoli">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -1375,12 +1353,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportArticoliCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5162524">
-          <caret line="53" column="52" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.5449331">
+          <caret line="62" column="67" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
           <folding>
-            <marker date="1438010330000" expanded="true" signature="1017:1031" placeholder="select * fro..articoli..." />
-            <marker date="1438010330000" expanded="true" signature="1017:1041" placeholder="select * fro..comunicati..." />
-            <marker date="1438010330000" expanded="true" signature="2707:2728" placeholder="select * fro..ricette..." />
+            <marker date="1438010858000" expanded="true" signature="1017:1031" placeholder="select * fro..articoli..." />
+            <marker date="1438010858000" expanded="true" signature="1017:1041" placeholder="select * fro..comunicati..." />
+            <marker date="1438010858000" expanded="true" signature="2708:2729" placeholder="select * fro..ricette..." />
           </folding>
         </state>
       </provider>

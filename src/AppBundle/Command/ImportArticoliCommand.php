@@ -41,7 +41,7 @@ class ImportArticoliCommand extends ContainerAwareCommand
         foreach ($res as $data) {
 
             $utente = $this->getContainer()->get('doctrine')
-                ->getRepository('BlogBundle:Articolo')->findOneByIdOriginale($data['id']);
+                ->getRepository('BlogBundle:Articolo')->findOneByIdOriginale($data['ID']);
 
             if ($utente) {
                 $this->output->writeln("<comment>Gia presente: ".$data['titolo']." </comment>");
@@ -60,7 +60,7 @@ class ImportArticoliCommand extends ContainerAwareCommand
                         ->getRepository('AppBundle:User')->findOneByUsername("ToroSeduto")
                 );
                 $categoria = $this->getContainer()->get('doctrine')
-                    ->getRepository('BlogBundle:Categoria')->find();
+                    ->getRepository('BlogBundle:Categoria')->find(2);
                 if ($categoria) {
                     $utente->setCategoria($categoria);
                     $this->em->persist($utente);
