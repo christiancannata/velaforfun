@@ -67,7 +67,7 @@ class CategoriaController extends BaseController
 
         $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(
             array('categoria' => $categoria, 'stato' => "ATTIVO"),
-            array('lastUpdateTimestamp' => 'desc')
+            array('timestamp' => 'desc')
         );
 
         $categorie = $em->getRepository('BlogBundle:Categoria')->findAll();
@@ -107,7 +107,7 @@ class CategoriaController extends BaseController
 
         $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(
             array('categoria' => $categoria, 'stato' => "ATTIVO"),
-            array('lastUpdateTimestamp' => 'desc'),
+            array('timestamp' => 'desc'),
             3,
             $r->get('offset')
         );
