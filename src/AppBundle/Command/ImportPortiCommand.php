@@ -57,7 +57,7 @@ class ImportPortiCommand extends ContainerAwareCommand
                 $attracco->setDatiOver($data['datiover']);
                 $attracco->setPostiTotale($data['posti_totale']);
                 $attracco->setPostiTransito($data['posti_transito']);
-                $attracco->setEmail(array_map('trim', explode(";", $data['mail'])));
+                $attracco->setEmail($data['mail']);
                 $attracco->setIdOriginale($data['ID']);
 
                 $this->em->persist($attracco);
