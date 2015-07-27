@@ -53,11 +53,13 @@
                         <div class="content-title">
                             <a href="/archivio/{{ articoli[0].categoria.permalink }}/{{ articoli[0].permalink }}">
                                 <h3>{{ articoli[0].titolo }}</h3>
-
+                                {%  if articoli[0].sottotitolo!="" %}
                                 <div class="divisore hidden-xs"></div>
                                 <div class="subtitle hidden-xs" style="color:white">
+
                                     {{ articoli[0].sottotitolo|slice(0,250)|striptags }}...
                                 </div>
+                                {% endif %}
                             </a>
                         </div>
 
