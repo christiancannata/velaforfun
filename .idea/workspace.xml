@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/web/images/img marcaposto.jpg" afterPath="$PROJECT_DIR$/web/images/img_marcaposto.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Twig/Extension/MenuVelaExtension.php" afterPath="$PROJECT_DIR$/src/AppBundle/Twig/Extension/MenuVelaExtension.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig" afterPath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig" afterPath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
@@ -49,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-6.25">
-              <caret line="44" column="96" selection-start-line="44" selection-start-column="96" selection-end-line="44" selection-end-column="96" />
+              <caret line="44" column="82" selection-start-line="44" selection-start-column="82" selection-end-line="44" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -68,11 +66,10 @@
       <file leaf-file-name="articoli-ajax.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.125">
-              <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+            <state vertical-scroll-proportion="-8.666667">
+              <caret line="15" column="79" selection-start-line="15" selection-start-column="79" selection-end-line="15" selection-end-column="79" />
               <folding>
                 <element signature="e#324#379#0#HTML" expanded="true" />
-                <element signature="e#755#825#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,12 +78,12 @@
       <file leaf-file-name="categoria.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.71701723">
-              <caret line="164" column="89" selection-start-line="164" selection-start-column="89" selection-end-line="164" selection-end-column="89" />
+            <state vertical-scroll-proportion="0.37284896">
+              <caret line="65" column="66" selection-start-line="65" selection-start-column="66" selection-end-line="65" selection-end-column="66" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#1;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -95,7 +92,7 @@
       <file leaf-file-name="MenuVelaExtension.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Twig/Extension/MenuVelaExtension.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.791667">
+            <state vertical-scroll-proportion="8.75">
               <caret line="24" column="25" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="25" />
               <folding>
                 <element signature="e#6#96#0#PHP" expanded="true" />
@@ -218,8 +215,8 @@
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Twig/Extension/MenuVelaExtension.php" />
-        <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig" />
       </list>
     </option>
@@ -1294,10 +1291,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Twig/Extension/MenuVelaExtension.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.791667">
+        <state vertical-scroll-proportion="8.75">
           <caret line="24" column="25" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="25" />
           <folding>
             <element signature="e#6#96#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.25">
+          <caret line="44" column="82" selection-start-line="44" selection-start-column="82" selection-end-line="44" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.666667">
+          <caret line="15" column="79" selection-start-line="15" selection-start-column="79" selection-end-line="15" selection-end-column="79" />
+          <folding>
+            <element signature="e#324#379#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1310,33 +1325,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25">
-          <caret line="44" column="96" selection-start-line="44" selection-start-column="96" selection-end-line="44" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.125">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-          <folding>
-            <element signature="e#324#379#0#HTML" expanded="true" />
-            <element signature="e#755#825#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71701723">
-          <caret line="164" column="89" selection-start-line="164" selection-start-column="89" selection-end-line="164" selection-end-column="89" />
+        <state vertical-scroll-proportion="0.37284896">
+          <caret line="65" column="66" selection-start-line="65" selection-start-column="66" selection-end-line="65" selection-end-column="66" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#1;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

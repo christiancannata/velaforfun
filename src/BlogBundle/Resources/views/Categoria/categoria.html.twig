@@ -63,7 +63,7 @@
             {% if articoli|length > 0 and articoli[0] is defined %}
 
     <div class="content"
-         style="background-image: url('{{ getCopertina(articoli[0].immagine) }}')">
+         style="background-image: url('{{ getCopertina(articoli[0]) }}')">
 
         <div class="content-title">
             <a href="/archivio/{{ categoria.permalink }}/{{ articoli[0].permalink }}"><h3>{{ articoli[0].titolo }}</h3>
@@ -162,7 +162,7 @@
                         </a>
                     </div>
                     <div class="center-cropped"
-                         style="background-image: url('{{ getCopertina(articolo.immagine) }}');">
+                         style="background-image: url('{{ getCopertina(articolo) }}');">
                     </div>
                 </div>
                 <a href="/archivio/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}">  <h4>{{ articolo.titolo }}</h4>
