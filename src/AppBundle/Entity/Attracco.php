@@ -29,14 +29,14 @@ class Attracco {
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="attracchi")
-     * @ORM\JoinColumn(name="id_utente", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="id_utente", referencedColumnName="id", nullable=true, onDelete="CASCADE")
      **/
     private $utente;
 
 
     /**
      * @ORM\ManyToOne(targetEntity="Porto", inversedBy="attracchi")
-     * @ORM\JoinColumn(name="id_porto", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="id_porto", referencedColumnName="id", nullable=true, onDelete="CASCADE")
      **/
     private $porto;
 

@@ -54,7 +54,7 @@ class CommentoArticolo
 
     /**
      * @ManyToOne(targetEntity="Articolo")
-     * @JoinColumn(name="id_articolo", referencedColumnName="id", onDelete="CASCADE)
+     * @JoinColumn(name="id_articolo", referencedColumnName="id", onDelete="CASCADE")
      **/
     protected $articolo;
 
