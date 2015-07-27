@@ -107,11 +107,11 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+    transport: smtp
+    username:  velaforfun@velaforfun.com
+    password:  NBJhq8XO5FmL_FFYTXBqag
+    host:  smtp.mandrillapp.com
+    port:  587
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'

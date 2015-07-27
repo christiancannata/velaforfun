@@ -45,7 +45,8 @@ assetic:
     use_controller: true
 
 swiftmailer:
-    transport: gmail
-    username:  christiancannata@gmail.com
-    password:  Zipzap91
-
+    transport: smtp
+    username:  velaforfun@velaforfun.com
+    password:  NBJhq8XO5FmL_FFYTXBqag
+    host:  smtp.mandrillapp.com
+    port:  587

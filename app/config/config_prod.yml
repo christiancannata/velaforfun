@@ -23,3 +23,10 @@ monolog:
             path: "php://stderr"
         console:
             type:  console
+
+swiftmailer:
+    transport: smtp
+    username:  velaforfun@velaforfun.com
+    password:  NBJhq8XO5FmL_FFYTXBqag
+    host:  smtp.mandrillapp.com
+    port:  587
