@@ -22,7 +22,7 @@
                         $('div#loadmoreajaxloader').show();
                         loading = true;
                         $.ajax({
-                            url: "json?offset=" + offset,
+                            url: "/archivio/json?offset=" + offset,
                             success: function (html) {
                                 if (html) {
                                     $('div#loadmoreajaxloader').remove();
