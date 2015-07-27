@@ -1,9 +1,13 @@
 {% for nodo in nodi %}
     <div class="col-md-4 column">
-
+        {% set link = gallery.video[0].link|split('v=') %}
+        {% set immagineNodo="http://img.youtube.com/vi/"~link[1]~"0.jpg" %}
+        {% if nodo.immagineCorrelataArticolo!="" %}
+            {% set immagineNodo='/images/nodi/'~nodo.immagineCorrelataArticolo %}
+        {% endif %}
         <a href="/nodi/{{ nodo.permalink }}">
             <div class="box-home">
-                <div style="background-image: url(/images/nodi/{{ nodo.immagineCorrelataArticolo }});"
+                <div style="background-image: url({{ immagineNodo }});"
                      class="divBackgroundImage">
                 </div>
                 <div class="content">
