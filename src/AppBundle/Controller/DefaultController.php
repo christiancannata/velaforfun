@@ -22,13 +22,13 @@ class DefaultController extends BaseController
         $repository = $this->getDoctrine()
             ->getRepository('BlogBundle:Articolo');
 
-        $articoli = $repository->findByStato("ATTIVO", array('id' => 'desc'), 4);
+        $articoli = $repository->findByStato("ATTIVO", array('timestamp' => 'desc'), 4);
 
 
         $repository = $this->getDoctrine()
             ->getRepository('CCDNForumForumBundle:Topic');
 
-        $post = $repository->findBy(array(), array('timestamp' => 'desc'), 20);
+        $post = $repository->findBy(array(), array('id' => 'desc'), 20);
 
 
         return $this->render('default/index.html.twig', array("articoli" => $articoli, "ultimiPost" => $post));
