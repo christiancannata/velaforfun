@@ -1,7 +1,7 @@
 {% for nodo in nodi %}
     <div class="col-md-4 column">
-        {% set link = gallery.video[0].link|split('v=') %}
-        {% set immagineNodo="http://img.youtube.com/vi/"~link[1]~"0.jpg" %}
+        {% set link = nodo.video|split('v=') %}
+        {% set immagineNodo="http://img.youtube.com/vi/"~link[1]~"/0.jpg" %}
         {% if nodo.immagineCorrelataArticolo!="" %}
             {% set immagineNodo='/images/nodi/'~nodo.immagineCorrelataArticolo %}
         {% endif %}

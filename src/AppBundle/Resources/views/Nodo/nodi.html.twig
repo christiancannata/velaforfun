@@ -80,8 +80,8 @@ Saper fare (e disfare) correttamente un nodo è forse una delle basi per poter n
 
         <a href="/nodi/{{ nodo.permalink }}">
             <div class="box-home">
-            {% set link = gallery.video[0].link|split('v=') %}
-            {% set immagineNodo="http://img.youtube.com/vi/"~link[1]~"0.jpg" %}
+            {% set link = nodo.video|split('v=') %}
+            {% set immagineNodo="http://img.youtube.com/vi/"~link[1]~"/0.jpg" %}
             {% if nodo.immagineCorrelataArticolo!="" %}
                         {% set immagineNodo='/images/nodi/'~nodo.immagineCorrelataArticolo %}
                 {% endif %}
