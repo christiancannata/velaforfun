@@ -26,6 +26,9 @@
 
 
 {% block javascripts %}
+
+
+
     {% if articolo.gallery is defined and articolo.gallery|length > 0 %}
         <script src="{{ asset('bundles/app/js/jquery.colorbox-min.js') }}"></script>
         <script language="javascript">
@@ -35,6 +38,10 @@
         </script>
     {% endif %}
     <script language="javascript">
+        var winWidth=520;
+        var winHeight=350;
+        var winTop = (screen.height / 2) - (winHeight / 2);
+        var winLeft = (screen.width / 2) - (winWidth / 2);
         $(document).ready(function () {
             $('.image-link').magnificPopup({type: 'image'});
         });
@@ -97,17 +104,17 @@
                     <li>
                         <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&t={{ articolo.titolo }}"
                            target="_blank" title="Share on Facebook"
-                           onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i
+                           onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL), 'Condividi su Facebook', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight); return false;"><i
                                     class="fa fa-facebook-square fa-2x"></i></a></li>
                     <li>
                         <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&text={{ articolo.titolo }}:%20http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}"
                            target="_blank" title="Tweet"
-                           onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL)); return false;"><i
+                           onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL), 'Condividi su Twitter', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight); return false;"><i
                                     class="fa fa-twitter-square fa-2x"></i></a></li>
                     <li>
                         <a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}"
                            target="_blank" title="Share on Google+"
-                           onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><i
+                           onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL), 'Condividi su Google+', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight); return false;"><i
                                     class="fa fa-google-plus-square fa-2x"></i></a></li>
                     <li>
                         <a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fwww.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}&title={{ articolo.titolo }}&summary=&source=http%3A%2F%2Fwww.google.it"
