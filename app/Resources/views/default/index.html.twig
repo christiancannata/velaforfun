@@ -78,8 +78,9 @@
                             <div class="latest-news hvr-underline-from-left">
                                 <div class="content">
                                     <h4>{{ articoli[1].titolo }}</h4>
-
+                                    {% if articoli[1].sottotitolo!="" %}
                                     <p class="hidden-xs">  {{ articoli[1].sottotitolo|slice(0,80)|striptags }}...</p>
+                                    {% endif %}
                                 </div>
                                 <div class="arrow">
                                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -92,8 +93,10 @@
                             <div class="latest-news hvr-underline-from-left">
                                 <div class="content">
                                     <h4>{{ articoli[2].titolo }}</h4>
-
+                                    {% if articoli[2].sottotitolo!="" %}
                                     <p class="hidden-xs">    {{ articoli[2].sottotitolo|slice(0,80)|striptags }}...</p>
+                                    {% endif %}
+
                                 </div>
                                 <div class="arrow">
                                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
@@ -106,8 +109,10 @@
                             <div class="latest-news hvr-underline-from-left">
                                 <div class="content">
                                     <h4>{{ articoli[3].titolo }}</h4>
+                                    {% if articoli[3].sottotitolo!="" %}
 
                                     <p class="hidden-xs">{{ articoli[3].sottotitolo|slice(0,80)|striptags }}...</p>
+                                    {% endif %}
                                 </div>
                                 <div class="arrow">
                                     <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
