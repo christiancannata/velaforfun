@@ -567,7 +567,7 @@ class DefaultController extends BaseController
 
         $repository = $this->getDoctrine()
             ->getRepository('AppBundle:PaginaStatica');
-        $articoli = $repository->findOneByPermalink($permalink);
+        $articoli = $repository->findOneBy(array("permalink"=>$permalink,"isActive"=>true));
 
         if (!$articoli) {
 

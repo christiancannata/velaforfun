@@ -18,6 +18,7 @@ class PaginaStaticaType extends AbstractType
             ->add('nome')
             ->add('permalink')
             ->add('titolo')
+            ->add('isActive')
             ->add('descrizione')
             ->add('content')
             ->add('immagineCorrelata')
