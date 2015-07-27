@@ -27,7 +27,7 @@ class ImportArticoliCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
+/*
         $this->output = $output;
         $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $this->connection = $this->getContainer()->get('database_connection');
@@ -76,8 +76,11 @@ class ImportArticoliCommand extends ContainerAwareCommand
 
 
 
+ */
 
-
+        $this->output = $output;
+        $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
+        $this->connection = $this->getContainer()->get('database_connection');
 
         //IMPORT DELLE RICETTE
 
@@ -91,7 +94,7 @@ class ImportArticoliCommand extends ContainerAwareCommand
         foreach ($res as $data) {
 
             $utente = $this->getContainer()->get('doctrine')
-                ->getRepository('BlogBundle:Articolo')->findOneByIdOriginale($data['ID']);
+                ->getRepository('BlogBundle:Articolo')->findOneByTitolo($data['titolo']);
 
             if ($utente) {
                 $this->output->writeln("<comment>Gia presente: ".$data['titolo']." </comment>");
