@@ -6,6 +6,7 @@ use AppBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use BlogBundle\Form\ArticoloType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class ArticoloController extends BaseController
 {
