@@ -123,8 +123,9 @@ class ImportArticoliCommand extends ContainerAwareCommand
                     ->getRepository('AppBundle:User')->findOneByUsername($data['Autore']);
                 if(!$user){
                     $user=$this->getContainer()->get('doctrine')
-                        ->getRepository('AppBundle:User')->findOneByUsername($data['Autore']);
+                        ->getRepository('AppBundle:User')->find(3);
                 }
+
                 $utente->setAutore(
                     $user
                 );
