@@ -116,7 +116,7 @@
             {% if articolo.immagineCorrelataArticolo is defined %}
                 <div class="foto">
                     <div class="center-cropped"
-                         style="height: 230px;background-image: url('/images/articoli/{{ articolo.immagineCorrelataArticolo }}');">
+                         style="height: 230px;background-image: url('{{ getCopertina(articolo) }}');">
                     </div>
                 </div>
             {% endif %}
@@ -160,7 +160,7 @@
                             </a>
                         </div>
                     <div class="center-cropped"
-                         style="background-image: url('/images/articoli/{{ articolo.immagine }}');">
+                         style="background-image: url('{{ getCopertina(articolo) }}');">
                     </div>
                 </div>
                 <h4>{{ articolo.titolo }}</h4>

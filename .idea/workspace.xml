@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BlogBundle/Controller/ArticoloController.php" afterPath="$PROJECT_DIR$/src/BlogBundle/Controller/ArticoloController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig" afterPath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Default/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="velaforfun.iws" />
@@ -35,8 +36,31 @@
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-6.25">
-              <caret line="44" column="82" selection-start-line="44" selection-start-column="82" selection-end-line="44" selection-end-column="82" />
+              <caret line="44" column="86" selection-start-line="44" selection-start-column="55" selection-end-line="44" selection-end-column="86" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="categoria.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.875">
+              <caret line="65" column="70" selection-start-line="65" selection-start-column="70" selection-end-line="65" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Default/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.48757172">
+              <caret line="118" column="93" selection-start-line="118" selection-start-column="93" selection-end-line="118" selection-end-column="93" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -44,21 +68,9 @@
       <file leaf-file-name="articolo.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="75.0">
+            <state vertical-scroll-proportion="96.875">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="articoli-ajax.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.666667">
-              <caret line="15" column="79" selection-start-line="15" selection-start-column="79" selection-end-line="15" selection-end-column="79" />
-              <folding>
-                <element signature="e#324#379#0#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -76,31 +88,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArticoloController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ArticoloController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BlogBundle/Controller/ArticoloController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2294455">
-              <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImportForumCommand.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.7058825">
-              <caret line="148" column="17" selection-start-line="148" selection-start-column="17" selection-end-line="148" selection-end-column="17" />
+            <state vertical-scroll-proportion="-5.625">
+              <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
               <folding>
-                <marker date="1438001239000" expanded="true" signature="1136:1269" placeholder="select f.* f..forum1..." />
-                <marker date="1438001239000" expanded="true" signature="1204:1251" placeholder="select disti..compatibilita_forum..." />
-                <marker date="1438001239000" expanded="true" signature="3785:3796" placeholder="..." />
-                <marker date="1438001239000" expanded="true" signature="3888:3897" placeholder="..." />
-                <marker date="1438001239000" expanded="true" signature="3990:4000" placeholder="..." />
-                <marker date="1438001239000" expanded="true" signature="4405:4448" placeholder="select * fro..forum1..." />
-                <marker date="1438001239000" expanded="true" signature="6032:6043" placeholder="..." />
-                <marker date="1438001239000" expanded="true" signature="6147:6156" placeholder="..." />
-                <marker date="1438001239000" expanded="true" signature="6261:6271" placeholder="..." />
+                <element signature="e#41#81#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -164,7 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/smarticker.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/smarticker.css" />
         <option value="$PROJECT_DIR$/web/bundles/app/js/main.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/NodoMenuController.php" />
@@ -210,11 +203,12 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig" />
-        <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Twig/Extension/MenuVelaExtension.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Attracco.php" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Entity/CommentoArticolo.php" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Controller/ArticoloController.php" />
+        <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig" />
+        <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Default/index.html.twig" />
       </list>
     </option>
   </component>
@@ -1206,34 +1200,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.122371">
-          <caret line="118" column="112" selection-start-line="118" selection-start-column="112" selection-end-line="118" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.407408">
           <caret line="1886" column="32" selection-start-line="1886" selection-start-column="32" selection-end-line="1886" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.25">
-          <caret line="44" column="82" selection-start-line="44" selection-start-column="82" selection-end-line="44" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="75.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1243,15 +1213,15 @@
         <state vertical-scroll-proportion="-4.7058825">
           <caret line="148" column="17" selection-start-line="148" selection-start-column="17" selection-end-line="148" selection-end-column="17" />
           <folding>
-            <marker date="1438001239000" expanded="true" signature="1136:1269" placeholder="select f.* f..forum1..." />
-            <marker date="1438001239000" expanded="true" signature="1204:1251" placeholder="select disti..compatibilita_forum..." />
-            <marker date="1438001239000" expanded="true" signature="3785:3796" placeholder="..." />
-            <marker date="1438001239000" expanded="true" signature="3888:3897" placeholder="..." />
-            <marker date="1438001239000" expanded="true" signature="3990:4000" placeholder="..." />
-            <marker date="1438001239000" expanded="true" signature="4405:4448" placeholder="select * fro..forum1..." />
-            <marker date="1438001239000" expanded="true" signature="6032:6043" placeholder="..." />
-            <marker date="1438001239000" expanded="true" signature="6147:6156" placeholder="..." />
-            <marker date="1438001239000" expanded="true" signature="6261:6271" placeholder="..." />
+            <marker date="1438001239000" expanded="true" signature="-1:-1" placeholder="select f.* f..forum1..." />
+            <marker date="1438001239000" expanded="true" signature="-1:-1" placeholder="select disti..compatibilita_forum..." />
+            <marker date="1438001239000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1438001239000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1438001239000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1438001239000" expanded="true" signature="-1:-1" placeholder="select * fro..forum1..." />
+            <marker date="1438001239000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1438001239000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1438001239000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1262,18 +1232,6 @@
           <caret line="78" column="36" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
           <folding>
             <element signature="e#6#96#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5162524">
-          <caret line="65" column="66" selection-start-line="65" selection-start-column="66" selection-end-line="65" selection-end-column="66" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1335,9 +1293,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BlogBundle/Controller/ArticoloController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2294455">
-          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+        <state vertical-scroll-proportion="-5.625">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+          <folding>
+            <element signature="e#41#81#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="96.875">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.25">
+          <caret line="44" column="86" selection-start-line="44" selection-start-column="55" selection-end-line="44" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.875">
+          <caret line="65" column="70" selection-start-line="65" selection-start-column="70" selection-end-line="65" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48757172">
+          <caret line="118" column="93" selection-start-line="118" selection-start-column="93" selection-end-line="118" selection-end-column="93" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
