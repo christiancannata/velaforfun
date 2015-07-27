@@ -71,12 +71,12 @@
       <file leaf-file-name="ImportArticoliCommand.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportArticoliCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36902484">
-              <caret line="93" column="86" selection-start-line="93" selection-start-column="86" selection-end-line="93" selection-end-column="86" />
+            <state vertical-scroll-proportion="-1.0898662">
+              <caret line="48" column="75" selection-start-line="48" selection-start-column="75" selection-end-line="48" selection-end-column="75" />
               <folding>
-                <marker date="1438011477000" expanded="true" signature="1017:1031" placeholder="select * fro..articoli..." />
-                <marker date="1438011477000" expanded="true" signature="1017:1041" placeholder="select * fro..comunicati..." />
-                <marker date="1438011477000" expanded="true" signature="2708:2729" placeholder="select * fro..ricette..." />
+                <marker date="1438011521000" expanded="true" signature="1017:1031" placeholder="select * fro..articoli..." />
+                <marker date="1438011521000" expanded="true" signature="1017:1041" placeholder="select * fro..comunicati..." />
+                <marker date="1438011521000" expanded="true" signature="2708:2729" placeholder="select * fro..ricette..." />
               </folding>
             </state>
           </provider>
@@ -1373,12 +1373,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportArticoliCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36902484">
-          <caret line="93" column="86" selection-start-line="93" selection-start-column="86" selection-end-line="93" selection-end-column="86" />
+        <state vertical-scroll-proportion="-1.0898662">
+          <caret line="48" column="75" selection-start-line="48" selection-start-column="75" selection-end-line="48" selection-end-column="75" />
           <folding>
-            <marker date="1438011477000" expanded="true" signature="1017:1031" placeholder="select * fro..articoli..." />
-            <marker date="1438011477000" expanded="true" signature="1017:1041" placeholder="select * fro..comunicati..." />
-            <marker date="1438011477000" expanded="true" signature="2708:2729" placeholder="select * fro..ricette..." />
+            <marker date="1438011521000" expanded="true" signature="1017:1031" placeholder="select * fro..articoli..." />
+            <marker date="1438011521000" expanded="true" signature="1017:1041" placeholder="select * fro..comunicati..." />
+            <marker date="1438011521000" expanded="true" signature="2708:2729" placeholder="select * fro..ricette..." />
           </folding>
         </state>
       </provider>

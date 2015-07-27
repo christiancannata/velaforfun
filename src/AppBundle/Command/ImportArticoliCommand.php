@@ -44,9 +44,9 @@ class ImportArticoliCommand extends ContainerAwareCommand
                 ->getRepository('BlogBundle:Articolo')->findOneByIdOriginale($data['ID']);
 
             if ($utente) {
-                $this->output->writeln("<comment>Gia presente: ".$data['titolo']." </comment>");
+                $this->output->writeln("<comment>Gia presente: ".$data['Titolo']." </comment>");
             } else {
-                $this->output->writeln("<comment>Importing: ".$data['titolo']." </comment>");
+                $this->output->writeln("<comment>Importing: ".$data['Titolo']." </comment>");
 
                 $utente = new Articolo();
                 $utente->setIdOriginale($data['ID']);
