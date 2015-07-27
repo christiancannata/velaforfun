@@ -44,7 +44,7 @@ function vota(voto){
 
                 $("#voto-"+voto).html(parseInt($("#voto-"+voto).html())+1);
                 setTimeout(function(){
-                    $("#modalVoto").close();
+                    $("#modalVoto").modal("hide");
                 }, 2000);
 
             } else {
