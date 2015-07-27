@@ -64,7 +64,13 @@
 
     <div class="content"
          style="background-image: url({{ getCopertina(articoli[0]) }})">
-
+  <div class="category">
+                            <a href="/archivio/{{ articoli[0].categoria.permalink }}"><span
+                                        style="background:{{ articoli[0].categoria.getColore() }}">{{ articoli[0].categoria.nome|capitalize }}</span>
+                            <span style="background:{{ articoli[0].categoria.getColore() }};   padding-left: 11px;
+                                    padding-right: 11px;font-weight: bold;">+</span>
+                            </a>
+                        </div>
         <div class="content-title">
             <a href="/archivio/{{ articoli[0].categoria.permalink }}/{{ articoli[0].permalink }}"><h3>{{ articoli[0].titolo }}</h3>
             </a>
