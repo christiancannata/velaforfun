@@ -54,7 +54,7 @@ class ImportPortiCommand extends ContainerAwareCommand
                 $attracco->setNome($data['Nome']);
                 $attracco->setLatitudine($data['lat']);
                 $attracco->setLongitudine($data['long']);
-                $attracco->setDatiOver($data['datiover']);
+                $attracco->setDatiOver(nl2br($data['datiover']));
                 $attracco->setPostiTotale($data['posti_totale']);
                 $attracco->setPostiTransito($data['posti_transito']);
                 $attracco->setEmail($data['mail']);
