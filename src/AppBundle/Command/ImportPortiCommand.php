@@ -41,11 +41,24 @@ class ImportPortiCommand extends ContainerAwareCommand
 
         foreach ($res as $data) {
 
-            $utente = $this->getContainer()->get('doctrine')
-                ->getRepository('AppBundle:Porto')->findOneByIdOriginale($data['ID']);
+            $attracco = $this->getContainer()->get('doctrine')
+                ->getRepository('AppBundle:Porto')->findOneByNome($data['Nome']);
 
-            if ($utente) {
-                $this->output->writeln("<comment>Gia presente: ".$data['Nome']." </comment>");
+            if ($attracco) {
+                $this->output->writeln("<comment>Gia presente AGGIORNO: ".$data['Nome']." </comment>");
+                $attracco->setRegione($data['Regione']);
+                $attracco->setNome($data['Nome']);
+                $attracco->setLatitudine($data['lat']);
+                $attracco->setLongitudine($data['long']);
+                $attracco->setDatiOver(nl2br($data['datiover']));
+                $attracco->setPostiTotale($data['posti_totale']);
+                $attracco->setPostiTransito($data['posti_transito']);
+                $attracco->setEmail($data['mail']);
+                $attracco->setIdOriginale($data['ID']);
+
+                $this->em->merge($attracco);
+                $this->em->flush();
+
             } else {
                 $attracco = new Porto();
                 $this->output->writeln("<comment>Importing: ".$data['Nome']." </comment>");
