@@ -126,8 +126,17 @@ class ImportForumCommand extends ContainerAwareCommand
                     $risposta['testo']=str_replace("[/B]","</strong>",$risposta['testo']);
                     $risposta['testo']=str_replace("[I]","<i>",$risposta['testo']);
                     $risposta['testo']=str_replace("[/I]","</i>",$risposta['testo']);
+                    $risposta['testo']=str_replace("[SIZE=1]","<i>",$risposta['testo']);
+                    $risposta['testo']=str_replace("[/SIZE]","</i>",$risposta['testo']);
+                    $risposta['testo']=str_replace("[SIZE=2]","<i>",$risposta['testo']);
+                    $risposta['testo']=str_replace("[SIZE=3]","<i>",$risposta['testo']);
 
-                    $post->setBody($risposta['testo']);
+                    $risposta['testo']=str_replace("[/COLOR]","</font>",$risposta['testo']);
+                    $risposta['testo']=str_replace("[COLOR=green]","<font style='color:green'>",$risposta['testo']);
+                    $risposta['testo']=str_replace("[COLOR=red]","<font style='color:red'>",$risposta['testo']);
+                    $risposta['testo']=str_replace("[COLOR=blue]","<font style='color:blue'>",$risposta['testo']);
+
+                    $post->setBody(nl2br($risposta['testo']));
 
                     $this->em->persist($post);
                     $this->em->flush();

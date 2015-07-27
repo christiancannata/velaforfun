@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php" afterPath="$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="velaforfun.iws" />
@@ -51,12 +51,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57459676">
-              <caret line="596" column="43" selection-start-line="596" selection-start-column="43" selection-end-line="596" selection-end-column="43" />
+            <state vertical-scroll-proportion="-4.7058825">
+              <caret line="628" column="54" selection-start-line="628" selection-start-column="43" selection-end-line="628" selection-end-column="54" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImportForumCommand.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8030593">
+              <caret line="136" column="103" selection-start-line="136" selection-start-column="103" selection-end-line="136" selection-end-column="103" />
+              <folding>
+                <marker date="1438001239000" expanded="true" signature="1136:1269" placeholder="select f.* f..forum1..." />
+                <marker date="1438001239000" expanded="true" signature="1204:1251" placeholder="select disti..compatibilita_forum..." />
+                <marker date="1438001239000" expanded="true" signature="3785:3796" placeholder="..." />
+                <marker date="1438001239000" expanded="true" signature="3888:3897" placeholder="..." />
+                <marker date="1438001239000" expanded="true" signature="3990:4000" placeholder="..." />
+                <marker date="1438001239000" expanded="true" signature="4405:4448" placeholder="select * fro..forum1..." />
+                <marker date="1438001239000" expanded="true" signature="6032:6043" placeholder="..." />
+                <marker date="1438001239000" expanded="true" signature="6147:6156" placeholder="..." />
+                <marker date="1438001239000" expanded="true" signature="6261:6271" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -164,7 +184,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/fotogallery-ajax.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/dettagliGalleria.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/ajax.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php" />
         <option value="$PROJECT_DIR$/web/.htaccess" />
         <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/EventListener/OldRoutingRedirectListener.php" />
@@ -188,6 +207,7 @@
         <option value="$PROJECT_DIR$/app/config/config_prod.yml" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php" />
       </list>
     </option>
   </component>
@@ -897,13 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65583175">
-          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AnnuncioScambioPostoController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6596558">
@@ -1180,9 +1193,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57459676">
-          <caret line="596" column="43" selection-start-line="596" selection-start-column="43" selection-end-line="596" selection-end-column="43" />
+        <state vertical-scroll-proportion="-4.7058825">
+          <caret line="628" column="54" selection-start-line="628" selection-start-column="43" selection-end-line="628" selection-end-column="54" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8030593">
+          <caret line="136" column="103" selection-start-line="136" selection-start-column="103" selection-end-line="136" selection-end-column="103" />
+          <folding>
+            <marker date="1438001239000" expanded="true" signature="1136:1269" placeholder="select f.* f..forum1..." />
+            <marker date="1438001239000" expanded="true" signature="1204:1251" placeholder="select disti..compatibilita_forum..." />
+            <marker date="1438001239000" expanded="true" signature="3785:3796" placeholder="..." />
+            <marker date="1438001239000" expanded="true" signature="3888:3897" placeholder="..." />
+            <marker date="1438001239000" expanded="true" signature="3990:4000" placeholder="..." />
+            <marker date="1438001239000" expanded="true" signature="4405:4448" placeholder="select * fro..forum1..." />
+            <marker date="1438001239000" expanded="true" signature="6032:6043" placeholder="..." />
+            <marker date="1438001239000" expanded="true" signature="6147:6156" placeholder="..." />
+            <marker date="1438001239000" expanded="true" signature="6261:6271" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
