@@ -1876,7 +1876,6 @@ th.left {
 }
 
 .modal-body {
-    min-height: 420px;
     padding: 15px;
     position: relative;
 }
