@@ -32,7 +32,7 @@ class ImportArticoliCommand extends ContainerAwareCommand
         $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $this->connection = $this->getContainer()->get('database_connection');
 
-        $query = "select * from articoli";
+        $query = "select * from comunicati";
 
         $res = $this->connection->executeQuery($query)->fetchAll();
 
@@ -49,17 +49,18 @@ class ImportArticoliCommand extends ContainerAwareCommand
                 $this->output->writeln("<comment>Importing: ".$data['titolo']." </comment>");
 
                 $utente = new Articolo();
-                $utente->setIdOriginale($data['id']);
-                $utente->setTitolo($data['titolo']);
-                $utente->setTesto($data['nomefile']);
+                $utente->setIdOriginale($data['ID']);
+                $utente->setTitolo($data['Titolo']);
+                $utente->setTags(str_replace("$",", ",$data['ricerche']));
+                $utente->setTesto(nl2br($data['testo'])."<br><br>Inviato da: ".$data['stampa']);
                 $utente->setStato("ATTIVO");
-
+                $utente->setTimestamp(new \DateTime($data['Data']));
                 $utente->setAutore(
                     $this->getContainer()->get('doctrine')
                         ->getRepository('AppBundle:User')->findOneByUsername("ToroSeduto")
                 );
                 $categoria = $this->getContainer()->get('doctrine')
-                    ->getRepository('BlogBundle:Categoria')->findOneByNome(ucfirst($data['categoria']));
+                    ->getRepository('BlogBundle:Categoria')->find();
                 if ($categoria) {
                     $utente->setCategoria($categoria);
                     $this->em->persist($utente);
