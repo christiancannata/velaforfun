@@ -73,10 +73,10 @@ class MenuVelaExtension extends \Twig_Extension
                 case 13:
                 case 14:
                 case 15:
-                    return "/images/articoli/img_marcaposto.jpg";
+                    return "/images/img_marcaposto.jpg";
                     break;
                 default:
-                    return "/images/articoli/img_marcaposto.jpg";
+                    return "/images/img_marcaposto.jpg";
                     break;
             }
 
