@@ -99,20 +99,34 @@ class ImportArticoliCommand extends ContainerAwareCommand
                 $this->output->writeln("<comment>Importing: ".$data['titolo']." </comment>");
 
                 $utente = new Articolo();
+
+                $ingredienti = explode(",", $data['ingredienti']);
+                $strIngredienti = "<ul class='ingrendienti'>";
+                foreach ($ingredienti as $ingrediente) {
+                    $strIngredienti .= "<li>".trim($ingrediente)."</li>";
+                }
+                $strIngredienti .= "</ul>";
+
+
                 $utente->setIdOriginale($data['ID']);
                 $utente->setTitolo($data['titolo']);
                 $utente->setStato("ATTIVO");
                 $testo="Tempo: ".$data['tempo'];
                 $testo.="<br><br>Persone: ".$data['persone'];
-                $testo.="<br><br>".$data['ingredienti'];
-                $testo.="<br><br>".$data['ricetta'];
+                $testo.="<br><br>".$strIngredienti;
+                $testo.="<br><br>".nl2br($data['ricetta']);
+                $testo.="<br><br>Scritta da: ".$data['Autore'];
 
                 $utente->setTesto($testo);
 
-
+                $user=$this->getContainer()->get('doctrine')
+                    ->getRepository('AppBundle:User')->findOneByUsername($data['Autore']);
+                if(!$user){
+                    $user=$this->getContainer()->get('doctrine')
+                        ->getRepository('AppBundle:User')->findOneByUsername($data['Autore']);
+                }
                 $utente->setAutore(
-                    $this->getContainer()->get('doctrine')
-                        ->getRepository('AppBundle:User')->findOneByUsername($data['Autore'])
+                    $user
                 );
 
 
