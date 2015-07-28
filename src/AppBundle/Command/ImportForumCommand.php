@@ -117,7 +117,7 @@ class ImportForumCommand extends ContainerAwareCommand
                     $subscription->setSubscribed(true);
                     $subscription->setRead(false);
 
-                    $forum = $this->container->get('doctrine')
+                    $forum = $this->getContainer()->get('doctrine')
                         ->getRepository('CCDNForumForumBundle:Forum')->find(1);
 
                     $subscription->setForum($forum);
