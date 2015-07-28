@@ -89,7 +89,7 @@ class ImportUtentiCommand extends ContainerAwareCommand
                     $iscrizione->setCompanyname("");
                     $iscrizione->setTitle("");
                     $iscrizione->addGroup(
-                        $this->getDoctrine()
+                        $this->getContainer()->getDoctrine()
                             ->getRepository('AppBundle\Entity\Newsletter\Group')->find(1)
                     );
 
@@ -134,7 +134,7 @@ class ImportUtentiCommand extends ContainerAwareCommand
 
 
 
-                    $repository = $this->getDoctrine()
+                    $repository = $this->getContainer()->getDoctrine()
                         ->getRepository('AppBundle\Entity\Newsletter\Subscriber');
                     $iscritto = $repository->findOneByEmail($data['mail']);
 
