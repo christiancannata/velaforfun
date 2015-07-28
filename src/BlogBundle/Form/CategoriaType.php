@@ -16,6 +16,8 @@ class CategoriaType extends AbstractType
     {
         $builder
             ->add('nome')
+            ->add('colore')
+            ->add('permalink')
         ;
     }
     
