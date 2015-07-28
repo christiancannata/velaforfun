@@ -1,0 +1,39 @@
+<font size=5 color=steelblue>I FILETTI</font>
+<br>
+I filetti sono delle sottili strisce di un materiale leggero quale può essere la plastica. Nelle derive o piccoli cabinati vengono anche fatti con un pezzo di nastro di musicassetta. Essi sono generalmente applicati sulla vela ed in particolare dove entra ed esce il vento e da entrambe le superfici della vela (spesso i filetti sono di colori differenti per differenziare quelli di dritta da quelli di sinistra). In prossimità dei filetti spesso la vela presenta una parte trasparente che permette di vedere anche il filetto sotto vento. Essi, data la loro leggerezza, sono influenzati anche dalle più piccole variazioni di vento permettendo una regolazione di fino delle vele. <br>
+Si chiamano filetti (segna vento) anche delle analoghe leggere strisce applicate sulle sartie o sul patarazzo che hanno la sola funzione di indicare la direzione del vento apparente.<br>
+<br>
+<br>
+<IMG SRC="articoli/filetti.jpg"><BR>
+Note img: Fig.1 sulla balumina sono rappresentati i filetti che indicano l’uscita del vento dalla vela, in mezzo alla randa sono collocati i filetti simili a quelli del fiocco.<br>
+Fig.2 sono disegnati arbitrariamente in rosso i filetti di sotto vento e in blu quelli sopra vento. In entranbe le immagini il numero di filetti è casuale, usualmente sono 3: uno basso uno medio e uno alto. Potrebbero essere di più come non esserci.<br>
+<br>
+<span class="titoli">I FILETTI DELLA VELA DI PRUA<br></span>
+Stando all'entrata del vento sulla vela mostrano come esso si disponga sulla vela (sia sotto vento che sopra vento). Quando entrambi i filetti, sia quello sopra vento che quello sotto vento, sono paralleli e ben distesi significa che il vento fluisce libero e disteso sulla vela fornendo il massimo della sua potenza. <br>
+·	Nel caso in cui, invece, il filetto sopra vento non sia ben disteso e tenda a scappare della sua posizione ottimale significa che il vento non entra più sulla vela con un angolo ottimale; esso è dovuto ad un'andatura troppo orzata che presto farà sbattere le vele, è opportuno quindi poggiare fin tanto che il filetto non si ristabilizza nella pozione di equilibrio. <br>
+·	Nel caso in cui sia il filetto sotto vento a "scappare" significa che la nostra andatura è troppo poggiata o che le nostre vele sono troppo cazzate per la rotta che stiamo seguendo; è necessario quindi orzare o lascare le vele per far tornare il filetto sotto vento parallelo a quello sopra vento. <br>
+<br>
+Un ragionamento analogo è valido per i filetti sulla randa anche se quest’ultimi sono meno precisi, più lenti a percepire le variazioni e spesso influenzati dal vento di scarto della vela di prua. Per questi motivi, se possibile, è meglio guadare quelli del fiocco e regolare poi di conseguenza la randa.<br>
+
+<br>
+<span class="titoli">I FILETTI ALL’USCITA DELLA RANDA<br></span>
+Esistono anche altri filetti messi sulla balumina della randa. Essi mostrano il vento che esce dalla randa. Se i filetti si dispongono in modo tale da essere la prosecuzione della vela significa che il vento fluisce in modo laminare sulla vela rendendo il massimo, è necessaria invece una regolazione della superficie della vela nel caso il cui i filetti si pieghino sopra vento o sotto vento. <br>
+Mentre per il fiocco ogni filetto è doppio (sopra e sotto vento), sulla balumina della randa è unico perché visibile in entrambi i bordi.<br>
+<br>
+<span class="titoli">L'IMPORTANZA DEI FILETTI<br></span>
+I filetti sono un elemento fondamentale per portare al meglio la nostra imbarcazione perché ci preannunciano i fattori che compromettono il nostro stato ideale prima che essi avvengano, difatti i filetti avvertono con breve anticipo se la barca sta per rallentare o se le vele stanno per sbattere senza che niente di ciò sia ancora intervenuto a turbare significativamente la nostra navigazione.<br>
+Il filetto sotto vento è fondamentale perché ci fornisce delle informazioni che la vela da sola non ci darebbe mai. Difatti se la nostra andatura è troppo orzata dopo poco tempo la vela inizierà a sbattere e la barca a rallentare, ma se la nostra andatura fosse troppo poggiata per la regolazione delle vele o le vele troppo cazzate per le direzione da tenere non ci verrebbe comunicato da nessun elemento delle vele ma solo dal filetto sotto vento.<br>
+<br>
+<span class="titoli">QUANDO USARE I FILETTI<br></span>
+Nonostante la loro importanza non è sempre possibile utilizzarli, difatti il loro campo di validità è ristretto alle andature non portanti (bolina, traverso). Infatti nelle andature portanti il vento non entra più sulla vela ma la spinge direttamente nella stessa direzione del vento. Così facendo il filetto sopra vento sarà schiacciato sulla vela dal vento portante e il filetto sotto vento influenzato dalle perturbazioni classiche che si creano sotto la vela nelle andature portanti. Si è visto quindi che nessuno dei due filetti adempie al suo ruolo diventando inutile oltre che forviante.<br>
+<br>
+<br>
+<br>
+<br>
+<div align="right">
+Testo redatto da Tomaso Piantini<br>
+Articolo del sito: http://www.velaforfun.com<br>
+25 luglio 2002<br>
+Per qualsiasi informazione o suggerimento scrivete: velaforfun<br>
+</div>
+$FINE

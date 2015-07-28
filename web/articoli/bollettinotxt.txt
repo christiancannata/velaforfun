@@ -1,0 +1,209 @@
+<font size=5 color=steelblue>LETTURA LE BOLLETTINO METEOMAR</font><br>
+<br>
+Anche se di facilissima lettura è utile spiegare cos’è, dove trovarlo e come leggerlo correttamente.<br>
+Il bollettino del mare è la situazione dettagliata per il mediterraneo diffuso dall’aeronautica militare e diramato della stazioni radio telecom su tutto il bacino (o dove riescono a “tirare” le onde di diffusione in rapporto anche con le condizioni meteo).<br>
+Esso rappresenta l’unica fonte attendibile in mare per la situazione e le previsioni del tempo.<br>
+La trasmissione ufficiale del bollettino viene emessa ogni 6 ore e precisamente alle 00.00 – 06.00 – 12.00 – 18.00 UTC (dove UTC sta per Coordinated Universal Time ovvero "tempo universale coordinato", è la misura ufficiale del tempo valida in tutto il mondo ed indipendente dai fusi orari. Tale misura viene calcolata statisticamente su una media di parecchie decine di orologi atomici al cesio sparsi in tutto il mondo (Tempo Atomico Internazionale) aggiornata periodicamente tramite l'aggiunta o la sottrazione del "secondo intercalare" in modo da mantenere la differenza fra il tempo UTC e quello di rotazione terrestre inferiore a 0.9 secondi. Dal punto di vista pratico il tempo UTC corrisponde al Tempo Medio di Greenwich (GMT), cioè il tempo solare medio del meridiano zero che passa appunto dalla cittadina di Greenwich in Gran Bretagna. L'orario locale in Italia è un'ora in avanti rispetto a quello UTC (due ore nei periodi in cui è in vigore l'ora legale), fonte www.eurometeo.com).<br>
+Tutte le trasmissioni del bollettino meteo vengono annunciate con una chiamate generale sul canale 16 seguita dal nome dell’emittente radio che la trasmette (palermo radio, cagliari radio, etc) e dai canali sui quali verrà letto da una voce automatica il testo del bollettino meteo.<br>
+Passando su uno dei canali elencati (non è detto che si riesca a sentire il bollettino letto su tutti i canali elencati poiché questo dipende dalla potenza dell’emittente radio) si sentirà il testo letto come segue prima in italiano e poi in inglese (se disponibile).<br>
+Qualora ci siamo state importanti variazioni metereologiche o problemi connessi e possibile che alcune letture vengano saltate, al posto del bollettino verrà letta la frase “non disponibile”.<br>
+<br>
+<br>
+<dir>
+METEOMAR 20 APR 03 18.00 GMT <br>
+C.N.M.C.A.-METEOMAR <br>
+BOLLETTINO DEL TEMPO SUL MEDITERRANEO <br>
+EMESSO ALLE ORE 18 UTC DEL GIORNO 20/04/2003 E VALIDO <br>
+FINO ALLE ORE 06 UTC DI DOMANI <br>
+</dir>
+<br>
+In questa prima parte vengono elencati dati fondamentali per sapere il reale aggiornamento dei dati emessi e la loro validità (in questo caso il bollettino delle ore 18.00 UCT del giorno 20/4/2003). Ogni bollettino e valido in genere 12 ore e quindi i questo caso fino alle 06.00 UTC del giorno successivo.<br>
+<br>
+
+<dir>
+1. AVVISI: <br>
+TEMPORALI IN CORSO:SU MAR DI CORSICA-MAR LIGURE-TIRRENO <br>
+SETTENTRIONALE-TIRRENO CENTRALE, SETTORE EST-TIRRENO MERIDIONALE, <br>
+SETTORE OVEST-MEDITERRANEO OCCIDENTALE, SETTORE BALEARI <br>
+TEMPORALI PREVISTI:SU CANALE DI SARDEGNA-MAR LIGURE-MAR <br>
+TIRRENO-STRETTO DI SICILIA-MAR ADRIATICO-MEDITERRANEO OCCIDENTALE, <br>
+SETTORE BALEARI-MEDITERRANEO ORIENTALE, SETTORE EGEO E SUD DI CRETA <br>
+BURRASCHE IN CORSO: DA NW FORZA 7 SU MEDITERRANEO ORIENTALE, SETTORE <br>
+EGEO E SUD DI CRETA <br>
+BURRASCHE PREVISTE: DA NW FORZA 7 SU MEDITERRANEO ORIENTALE, SETTORE <br>
+EGEO E SUD DI CRETA <br>
+<br>
+</dir>
+La parte successiva è divisa in 4 parti la prima delle quali è quella sopra elencata. In essa sono evidenziati eventuali temporali e/o burrasche in corso o previste con tutti i dati necessari per sapere il loro stato, il loro luogo e la loro intensità oltre alla loro direzione di cammino (ad esempio in questo giorno sul mediterraneo orientale e sul settore Egeo (e sud di creta) era prevista nelle 12 ore successive (cioè quelle di validità del bollettino) una burrasca forza 7 da NW). Qualora non sia presente una o tutte di queste voci verrà letta per ognuna di esse la parola NIL:<br>
+<br>
+<dir>
+TEMPORALI IN CORSO:NIL <br>
+TEMPORALI PREVISTI:NIL <br>
+BURRASCHE IN CORSO:NIL <br>
+BURRASCHE PREVISTE:NIL<br>
+<br>
+</dir>
+
+<dir>
+2. SITUAZIONE: <br>
+LA PRESSIONE SU MARI INTORNO ALL'ITALIA E' IN DIMINUZIONE <br>
+AREA DI INSTABILITA' SU MARI INTORNO ALL'ITALIA <br>
+SISTEMA FRONTALE SU MARI INTORNO ALL'ITALIA SI MUOVE LENTAMENTE <br>
+VERSO E/SE <br>
+</dir>
+<br>
+Nella seconda parte viene fornita una visione d’insieme che permette di farsi un’idea generale di quali sono i fronti caldi e freddi e di qual’è la pressione generale sul mediterraneo. Questa parte varia senza regole sia in lunghezza che in codici di parole fino a fornire una istantanea della situazione. Per maggiore chiarezza forniamo qui di seguito alcuni esempi presi da altri bollettini diversi da quello preso in analisi:<br>
+<br>
+<dir>
+FLUSSO DI ARIA FREDDA ED INSTABILE SU MARI INTORNO ALL'ITALIA <br>
+SISTEMA FRONTALE SU MARI MERIDIONALI ITALIANI SI MUOVE LENTAMENTE <br>
+VERSO E/SE<br>
+<br>
+SISTEMA FRONTALE SU BALCANI SI MUOVE VERSO E <br>
+AREA DI INSTABILITA' SU ADRIATICO CENTRO-MERIDIONALE E' IN <br>
+ATTENUAZIONE <br>
+LA PRESSIONE SU MEDITERRANEO OCCIDENTALE E' IN AUMENTO<br>
+<br>
+SISTEMA FRONTALE SU MEDITERRANEO ORIENTALE SI MUOVE LENTAMENTE VERSO <br>
+E/SE <br>
+LINEA DI INSTABILITA' SU MAR IONIO E' IN ATTENUAZIONE E SI MUOVE <br>
+VELOCEMENTE VERSO SE <br>
+LA PRESSIONE SU MEDITERRANEO CENTRALE E' IN AUMENTO <br>
+FLUSSO DI ARIA INSTABILE SU MEDITERRANEO OCCIDENTALE E' IN <br>
+INTENSIFICAZIONE<br>
+<br>
+</dir>
+
+<dir>
+3. PREVISIONE VALIDA FINO ALLE 06 UTC DI DOMANI E TENDENZA NELLE 12 <br>
+ORE SUCCESSIVE. <br>
+-MAR DI CORSICA-MAR DI SARDEGNA:VENTO DA S FORZA 5 IN <br>
+ATTENUAZIONE-LOCALI PIOGGE-VISIBILITA' DISCRETA LOCALMENTE <br>
+SCARSA-MARE MOSSO,LOCALMENTE MOLTO MOSSO/TENDENZA:VENTO DA SW FORZA <br>
+4-NUVOLOSITA' VARIABILE <br>
+-CANALE DI SARDEGNA:VENTO DA SW FORZA 4-ISOLATI <br>
+TEMPORALI-VISIBILITA' DISCRETA LOCALMENTE SCARSA-MARE <br>
+MOSSO/TENDENZA:VENTO DA SW FORZA 3-NUVOLOSITA' VARIABILE <br>
+-MAR LIGURE:VENTO DA SE FORZA 5 TENDENTE A PROVENIRE DA S E AD <br>
+ATTENUARSI-TEMPORALI-VISIBILITA' DISCRETA LOCALMENTE SCARSA-MARE <br>
+MOSSO,LOCALMENTE MOLTO MOSSO/TENDENZA:VENTO DA W FORZA 3-NUVOLOSITA' <br>
+VARIABILE CON ISOLATI ROVESCI <br>
+-TIRRENO SETTENTRIONALE:VENTO DA SE FORZA 5 TENDENTE A PROVENIRE DA <br>
+SW E AD ATTENUARSI-ISOLATI TEMPORALI-VISIBILITA' DISCRETA LOCALMENTE <br>
+SCARSA-MARE MOSSO/TENDENZA:VENTO DA SW FORZA 3-LOCALI PIOGGE <br>
+-TIRRENO CENTRO MERIDIONALE,SETTORE OVEST:VENTO DA S FORZA 4 CON <br>
+LOCALI RINFORZI-ISOLATI TEMPORALI-VISIBILITA' DISCRETA LOCALMENTE <br>
+SCARSA-MARE MOSSO/TENDENZA:VENTO DA SW FORZA 3-NUVOLOSITA' VARIABILE <br>
+-TIRRENO CENTRALE,SETTORE EST:VENTO DA SE FORZA 5 IN <br>
+ATTENUAZIONE-ISOLATI TEMPORALI-VISIBILITA' DISCRETA LOCALMENTE <br>
+SCARSA-MARE MOSSO/TENDENZA:VENTO DA SW FORZA 4-NUVOLOSITA' VARIABILE <br>
+-TIRRENO MERIDIONALE,SETTORE EST:VENTO DA SE FORZA 3 CON LOCALI <br>
+RINFORZI-LOCALI PIOGGE CON NUVOLOSITA' IN AUMENTO ASSOCIATA A <br>
+ISOLATI TEMPORALI-VISIBILITA' DISCRETA LOCALMENTE SCARSA-MARE POCO <br>
+MOSSO,LOCALMENTE MOSSO CON MOTO ONDOSO IN AUMENTO/TENDENZA:VENTO DA <br>
+S FORZA 4-NUVOLOSITA' VARIABILE CON ISOLATI ROVESCI <br>
+-STRETTO DI SICILIA:VENTO DA SE FORZA 5 CON LOCALI RINFORZI-LOCALI <br>
+PIOGGE CON NUVOLOSITA' IN AUMENTO ASSOCIATA A ISOLATI <br>
+TEMPORALI-VISIBILITA' DISCRETA LOCALMENTE SCARSA-MARE MOSSO CON MOTO <br>
+ONDOSO IN AUMENTO/TENDENZA:VENTO DA SE FORZA 5-NUVOLOSITA' VARIABILE <br>
+CON ISOLATI ROVESCI <br>
+-IONIO MERIDIONALE:VENTO DI DIREZIONE VARIABILE FORZA 3 TENDENTE A <br>
+PROVENIRE DA SE-PARZIALMENTE NUVOLOSO CON NUVOLOSITA' IN AUMENTO <br>
+ASSOCIATA A LOCALI PIOGGE-VISIBILITA' DISCRETA LOCALMENTE <br>
+SCARSA-MARE MOSSO/TENDENZA:VENTO DA SE FORZA 4-NUVOLOSITA' VARIABILE <br>
+CON ISOLATI ROVESCI <br>
+-IONIO SETTENTRIONALE:VENTO DI DIREZIONE VARIABILE FORZA 3 TENDENTE <br>
+A PROVENIRE DA S E A RINFORZARE-SERENO O POCO NUVOLOSO CON <br>
+NUVOLOSITA' IN AUMENTO ASSOCIATA A LOCALI PIOGGE-VISIBILITA' <br>
+DISCRETA LOCALMENTE SCARSA-MARE POCO MOSSO,LOCALMENTE <br>
+MOSSO/TENDENZA:VENTO DA S FORZA 5-LOCALI PIOGGE <br>
+-ADRIATICO MERIDIONALE:VENTO DA SE FORZA 4 IN <br>
+INTENSIFICAZIONE-SERENO O POCO NUVOLOSO CON NUVOLOSITA' IN <br>
+AUMENTO-VISIBILITA' DISCRETA LOCALMENTE SCARSA-MARE POCO <br>
+MOSSO,LOCALMENTE MOSSO/TENDENZA:VENTO DA S FORZA 5-ISOLATI TEMPORALI <br>
+-ADRIATICO CENTRALE:VENTO DA SE FORZA 5-PARZIALMENTE NUVOLOSO CON <br>
+NUVOLOSITA' IN AUMENTO ASSOCIATA A LOCALI PIOGGE-VISIBILITA' <br>
+DISCRETA LOCALMENTE SCARSA-MARE POCO MOSSO,LOCALMENTE <br>
+MOSSO/TENDENZA:VENTO DA SE FORZA 3-ISOLATI TEMPORALI <br>
+-ADRIATICO SETTENTRIONALE:VENTO DA SE FORZA 5-NUVOLOSITA' VARIABILE <br>
+CON NUVOLOSITA' IN AUMENTO ASSOCIATA A ISOLATI TEMPORALI-VISIBILITA' <br>
+DISCRETA LOCALMENTE SCARSA-MARE POCO MOSSO/TENDENZA:VENTO DA E FORZA <br>
+3-ISOLATI TEMPORALI <br>
+-MEDITERRANEO OCCIDENTALE,SETTORE ALBORAN:VENTO DA W FORZA 4 IN <br>
+ATTENUAZIONE-NUVOLOSITA' VARIABILE-VISIBILITA' DISCRETA LOCALMENTE <br>
+SCARSA-MARE MOSSO/TENDENZA:VENTO DA E FORZA 4-NUVOLOSITA' VARIABILE <br>
+-MEDITERRANEO OCCIDENTALE,SETTORE BALEARI:VENTO DA SW FORZA 5 IN <br>
+ATTENUAZIONE-PARZIALMENTE NUVOLOSO CON TEMPORALI SUL GOLFO DEL LEONE <br>
+IN MIGLIORAMENTO-VISIBILITA' DISCRETA LOCALMENTE SCARSA-MARE <br>
+MOSSO/TENDENZA:VENTO DA SW FORZA 4-NUVOLOSITA' VARIABILE <br>
+-MAR LIBICO:VENTO DA SE FORZA 3 CON RINFORZI SUL GOLFO DI <br>
+GABES-PARZIALMENTE NUVOLOSO CON LOCALI ADDENSAMENTI-VISIBILITA' <br>
+DISCRETA-MARE MOSSO,LOCALMENTE MOLTO MOSSO/TENDENZA:VENTO DA SE <br>
+FORZA 4-PARZIALMENTE NUVOLOSO <br>
+-MEDITERRANEO ORIENTALE,SETTORE EGEO E SUD DI CRETA:VENTO DA NW <br>
+FORZA 7-PARZIALMENTE NUVOLOSO CON NUVOLOSITA' IN AUMENTO ASSOCIATA A <br>
+ISOLATI TEMPORALI-VISIBILITA' DISCRETA LOCALMENTE SCARSA-MARE MOLTO <br>
+MOSSO,LOCALMENTE AGITATO/TENDENZA:VENTO DA NW FORZA 6-NUVOLOSITA' <br>
+VARIABILE CON ISOLATI ROVESCI <br>
+-MEDITERRANEO ORIENTALE,SETTORE MAR DI LEVANTE:VENTO DA SW FORZA 6 <br>
+IN ATTENUAZIONE-NUVOLOSITA' VARIABILE CON ISOLATI <br>
+ROVESCI-VISIBILITA' DISCRETA LOCALMENTE SCARSA-MARE MOLTO <br>
+MOSSO,LOCALMENTE AGITATO/TENDENZA:VENTO DA SW FORZA 5-NUVOLOSITA' <br>
+VARIABILE CON ISOLATI ROVESCI <br>
+</dir>
+<br>
+Nella terza parte si passano i rassegna tutte le zone del mediterraneo descrivendone per ognuna il vendo (direzionee intensità), stato del cielo (nuvoloso, parzialmente nuvoloso, rovesci, temporali, etc), visibilità (scarsa, buona, localmente scarsa, etc), stato del mare (mosso, molto mosso, agitato, etc), tendenza entro le 12 ore previste di tutti i parametri elencati. Tutte le voci vengono lette per ogni zone sempre con la stessa sequenza per una più rapida chiosa delle informazioni in tabelle pre-compilate.<br>
+<br>
+
+<dir>
+4. TENDENZE DEL VENTO, PER I MARI CIRCOSTANTI L'ITALIA, SU <br>
+INTERVALLI DI 12 ORE DALLE 18 UTC DI DOMANI ALLE 18 UTC DEL GIORNO 23 <br>
+-MAR DI CORSICA:SE 2/E 2/N 3/N 3 <br>
+-MAR DI SARDEGNA:SW 2/E 2/E 3/E 2 <br>
+-CANALE DI SARDEGNA:SE 1/E 3/E 5/E 5 <br>
+-MAR LIGURE:NE 2/N 1/NE 3/NE 4 <br>
+-TIRRENO SETTENTRIONALE:S 1/NW 2/NE 3/NE 1 <br>
+-TIRRENO CENTRALE, SETTORE OVEST:E 2/NW 1/NE 2/NE 1 <br>
+-TIRRENO CENTRALE, SETTORE EST:NE 2/NW 2/NE 2/NE 2 <br>
+-TIRRENO MERIDIONALE, SETTORE OVEST:S 1/NE 2/NE 4/E 4 <br>
+-TIRRENO MERIDIONALE, SETTORE EST:SW 1/N 2/NE 3/E 4 <br>
+-STRETTO DI SICILIA:E 4/NE 3/E 4/E 4 <br>
+-IONIO MERIDIONALE:S 4/S 3/E 4/E 4 <br>
+-IONIO SETTENTRIONALE:SW 3/SW 3/W 2/E 1 <br>
+-ADRIATICO MERIDIONALE:SE 1/SE 2/E 1/NE 1 <br>
+-ADRIATICO CENTRALE:N 1/W 1/NW 2/W 1 <br>
+-ADRIATICO SETTENTRIONALE:SE 1/NW 2/NW 2/W 1 <br>
+FINE METEOMAR.<br>
+</dir>
+<br>
+Nella quarta ed ultima parte vengono riletti tutti i settori con lo stesso ordine: per ognuno vengono elencati i venti e le direzioni degli stessi da dopo 12 ore dopo la scadenza del bollettino a distanza di 12 ore. Prendendo un esempio esplicativo: <br>
+<br>
+-TIRRENO MERIDIONALE, SETTORE OVEST:S 1/NE 2/NE 4/E 4<br>
+<br>
+Per il tirreno meridionale e settore ovest:<br>
+6.00 UTC del 22/4/2003 (24 ore dopo la scandenza del bollettino (prevista per le 06.00 UTC): vento da S forza 1<br>
+18.00 UTC del 22/4/2003 vento da N/E forza 2<br>
+06.00 UTC del 23/4/2003 vento N/E forza 4<br>
+18.00 UTC del 23/4/2003 vento da E forza 4<br>
+<br>
+questi dati ci permetteranno, anche se a grandi linee, di avere una probabile prospettiva delle prossime giornate così da poter pianificare al meglio i nostri spostamenti in base alle condizioni atmosferiche. Queste previsioni a lungo termine vanno prese con le pinze poiché spesso e volentieri il tempo cambia diversamente da come è stato previsto specialmente quando le previsioni vanno oltre le 24 ore dal momento dell’emissione (dati statistici).<br>
+Una uguale lettura in inglese ugualmente strutturata segue alle lettura in italiano.<br>
+Qualora non si riesca a sentire il bollettino emesso al momento è possibile ascoltare l’ultimo o il penultimo bollettino (secondo l’aggiornamento) che viene emesso di continuo sul canale 68 VHF 24 su 24 da tutte le stazioni radio).<br>
+<br>
+In particolari posizioni o possibile sentire più di una radio o anche radio lontane che trasmettono su diversi canali i bollettini radio, allo stesso modo esistono punti nei quali si prendono malamente tutte le radio ed è quindi difficile ascoltare il meteomar.<br>
+<br>
+Una lettura già interpretata del bollettino più aggiornato è sempre possibile trovarla nelle capitanerie di porto dalle quali è possibile farsene fare una copia (se non è già a disposizione). Alcuni porti offrono anche una loro personale interpretazione delle mappa metereologica circa i fronti e le isobare (=linee che congiungono punti di uguale pressione) ottenuta dall’interpretazione del bollettino e da eventuali altre fonti aggiuntive.
+<br>
+Anche se considerata fonte aggiuntiva e non sostitutiva è possibile accedere ad un archivio degli ultimi bollettini (compreso l’ultimo) all’indirizzo:<br>
+<a href="http://www.meteoam.it/modules.php?name=bollettinodelmare">http://www.meteoam.it/modules.php?name=bollettinodelmare</a><br>
+<br>
+<br>
+<br>
+<br>
+<div align="right">
+Testo redatto da Tomaso Piantini<br>
+Articolo del sito: http://www.velaforfun.com<br>
+25 luglio 2002<br>
+Per qualsiasi informazione o suggerimento scrivete: velaforfun<br>
+</div>
+$FINE

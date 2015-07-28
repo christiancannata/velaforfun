@@ -1,0 +1,63 @@
+<font size=5 color=steelblue>- Manovre a vela -</font><br>Virata & strambata
+
+<BR>
+<span class="titoli">La virata</span><BR>
+<BR>
+<br><a href="/articoli/virata.jpg">>>IMMAGINE VIRATA<<</a><br><br>
+Le 3 fasi delle virata: <BR>
+1. l'imbarcazione si trova di bolina con mure a dritta e assetto ottimale. Ora si può iniziare a orzare fino a passare il letto del vento (.2).<BR>
+2. l'imbarcazione si trova a metà della sua manovra con la prua al vento e le vele che sbattono.<BR>
+3. l'imbarcazione riprende a navigare di bolina sulle nuove mura.<BR>
+La manovra è ovviamente la stessa per la sequenza .3.2.1 I tre momenti sono stati rappresentati sulla stessa linea d'acqua, ad essi andrebbe aggiunto un movimento in avanti dato dalla velocità della barca.<BR>
+N.B. perché la manovra sia eseguita al meglio la rotta di partenza e quella di arrivo devono essere perpendicolari.<BR>
+<BR>
+La virata è una manovra che permette alla barca di cambiare direzione (cambiare mura) e posizionarsi su una rotta perpendicolare alla rotta che si stava percorrendo prima della virata passando con la prua nel vento. <BR>
+La virata è una manovra fondamentale per raggiungere un oggetto che è controvento a noi, difatti permette alla nostra imbarcazione di risalire il vento.<BR>
+<BR>
+<i>Come fare:</i><BR>
+Per effettuare una virata devo semplicemente portare la barra del timone verso le vele (o meglio indirizzare la prua verso la direzione del vento: orzare fino ad attraversare l'angolo morto), aspettare che il boma e le vele passino dall'altro lato della barca, riposizionare la barra dal timone al centro e regolare le vele per la nuova andatura sulle nuove mura.<BR>
+Solitamente la virata si compie da bolina a bolina e non dal lasco o dalla poppa quindi, prima di effettuare la virata, bisogna portarsi in andatura di bolina o la massimo di traverso, quindi, se ci si trova in un'andatura differente da queste è necessario iniziare ad orzare e a cazzare le vele. Una volta arrivato di bolina è possibile iniziare la manovra virando con delicatezza e costanza.<BR>
+<BR>
+<i>Consigli e avvertimenti: </i><BR>
+state attenti alla testa che il boma tende a passare velocemente!<BR>
+In caso di poco vento prima di compiere la virata è bene essere in assetto perfetto ma soprattutto avere una certa velocità altrimenti la barca si fermerà prua al vento.<BR>
+In caso di vento forte evitate di effettuare la virata con le vele cazzatissime rischiate una brutta scuffia: è bene quindi lasciare le vele un po’ lasche ed evitate di strozzarle nello strozza-scotte.<BR>
+Appena terminata la virata, prima di rimettere in assetto la barca, radrizzate subito il timone.<BR>
+Sulle barche che hanno il timone a ruota, al posto di mettere la barra del timone verso le vele, bisogna girare la ruota verso la direzione opposta delle vele (o meglio indirizzate sempre la prua dell'imbarcazione verso la direzione del vento: orazare).<BR>
+<BR>
+
+<BR>
+<span class="titoli">La strambata </span><BR>
+
+La strambata è una poggiata prolungata che fa cambiare di mura alla barca passando con la poppa al vento senza alterare di molto la direzione.<BR>
+È la manovra opposta alla virata (=virata in poppa o abbattuta). <BR>
+<BR>
+<IMG SRC="articoli/strambata.jpg"><BR>
+Qui sopra sono rappresentate in sequenza le tre fasi principali della stranbata.<BR>
+1. La barca si trova a navigare in fil di ruota al vento (vento pieno ed andatura di poppa piena).<BR>
+2. Il timoniere fa passare la vela e il boma, come si vede le vele non perdono mai portanza e quindi il barca rimane sempre sotto l'azione del vento.<BR>
+3. Il timoniere accompagna il boma fino ad alla posizione di massima apertura (speculare a quella di partenza).<BR>
+Come si vede la direzione della rotta è rimasta costante per tutta la manovra e le vele non hanno mai sbattuto. <BR>
+Dopo la manovra l'imbarcazione si trova con le mura opposte a quelle prima delle manovra (come nella virata).<BR>
+<i>Come fare:</i><BR>
+Si effettua rigorosamente e solamente nell’andatura di poppa con il vento a fil di ruota: una volta posizionati in poppa piena il timoniere si posiziona con la barra in mezzo alle gambe, prende il paranco della scotta della randa e tira verso di se il boma accompagnandolo dall’altro lato. Facendo la manovra con la dovuta velocità la nostra rotta non dovrebbe subire modifiche. Si può facilitare il passaggio del boma con una lieve poggiata.<BR>
+Questa sequenza può essere differente per tipo di imbarcazione e condizioni meteo ma pur sempre riconducibile a questa.<BR>
+<BR>
+<i>Consigli e avvertimenti: </i><br>
+in caso di vento forte è bene prestare la massima attenzione poiché nella strambata le vele non perdono mai pressione e la barca sarà sempre sotto l'azione del vento.<BR>
+Durante la manovra è facile perdere la stabilita della barca andando in straorza!<BR>
+In manovra è molto più veloce della virata in prua e quindi anche più pericolosa e difficile. E' buona norma accompagnare il boma nel suo tragitto per evitare che questo colpisca qualche membro dell'equipaggio o che esso, sbattendo contro le sartie, le rovini o le rompa (il che comporterebbe il disalbero).<BR>
+<BR>
+NB:<BR>
+Le manovre sopra descritte sono le uniche per permettono alla nostra imbarcazione di cambiare direzione.<BR>
+<BR>
+<BR>
+<BR>
+<DIV ALIGN=RIGHT>
+Testo redatto da Francesco Geraci<BR>
+Articolo del sito: http://www.velaforfun.com<BR>
+17 aprile 2002<BR>
+Per qualsiasi informazione o suggerimento scrivete: velaforfun@velaforfun.com<BR>
+</DIV>
+
+$FINE
