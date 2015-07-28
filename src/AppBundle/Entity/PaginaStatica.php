@@ -47,7 +47,7 @@ class PaginaStatica
     /**
      * @var string
      *
-     * @ORM\Column(name="descrizione", type="string", nullable=false)
+     * @ORM\Column(name="descrizione", type="string", nullable=true)
      */
     private $descrizione;
 
