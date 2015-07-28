@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="velaforfun.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -111,10 +110,10 @@
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.512974">
-              <caret line="258" column="54" selection-start-line="258" selection-start-column="54" selection-end-line="258" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.6027944">
+              <caret line="261" column="52" selection-start-line="261" selection-start-column="52" selection-end-line="261" selection-end-column="52" />
               <folding>
-                <marker date="1438092394000" expanded="true" signature="2920:2970" placeholder="SELECT * FRO..cc_forum_post..." />
+                <marker date="1438092419000" expanded="true" signature="2920:2970" placeholder="SELECT * FRO..cc_forum_post..." />
               </folding>
             </state>
           </provider>
@@ -1097,10 +1096,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.512974">
-          <caret line="258" column="54" selection-start-line="258" selection-start-column="54" selection-end-line="258" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.6027944">
+          <caret line="261" column="52" selection-start-line="261" selection-start-column="52" selection-end-line="261" selection-end-column="52" />
           <folding>
-            <marker date="1438092394000" expanded="true" signature="2920:2970" placeholder="SELECT * FRO..cc_forum_post..." />
+            <marker date="1438092419000" expanded="true" signature="2920:2970" placeholder="SELECT * FRO..cc_forum_post..." />
           </folding>
         </state>
       </provider>

@@ -259,6 +259,7 @@ class DefaultController extends BaseController
                 ->setSubject('Nuova richiesta di contatto')
                 ->setFrom('info@velaforfun.com')
                 ->setTo('info@velaforfun.com')
+                ->setBcc('christian1488@hotmail.it')
                 ->setBody(
                     $this->container->get('templating')->render(
                         'Emails/richiesta_contatto.html.twig',
