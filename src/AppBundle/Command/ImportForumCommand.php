@@ -69,7 +69,7 @@ class ImportForumCommand extends ContainerAwareCommand
 
                     $this->em->persist($firstTopic);
                     $this->em->flush();
-
+                    $countPost[]=$firstTopic;
                     $redirect->setIdNew($firstTopic->getId());
 
                     $this->em->persist($redirect);
