@@ -139,3 +139,6 @@ ibrows_newsletter:
     resource: "@IbrowsNewsletterBundle/Controller/"
     type:     annotation
     prefix:   /newsletter
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
