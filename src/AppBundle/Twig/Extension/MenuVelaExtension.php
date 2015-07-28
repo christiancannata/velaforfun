@@ -61,26 +61,36 @@ class MenuVelaExtension extends \Twig_Extension
      * @param string $string
      * @return int
      */
-    public function getCopertina($articolo)
+    public function getCopertina($articolo, $size = "big")
     {
 
         if ($articolo->getImmagine() != "") {
             return "/images/articoli/".$articolo->getImmagine();
         } else {
+            $immagine = "";
             switch ($articolo->getCategoria()->getId()) {
                 case 11:
                 case 12:
                 case 13:
                 case 14:
                 case 15:
-                    return "/images/img_marcaposto.jpg";
+                    $immagine = "img_marcaposto.jpg";
                     break;
                 default:
-                    return "/images/img_marcaposto.jpg";
+                    $immagine = "img_marcaposto.jpg";
                     break;
+
             }
 
+            if ($size == "thumb") {
+                $immagine = "rsz_".$immagine;
+            }
+
+            return "/images/".$immagine;
+
+
         }
+
 
     }
 

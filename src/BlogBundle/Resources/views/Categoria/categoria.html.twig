@@ -164,12 +164,21 @@
                         </a>
                     </div>
                     <div class="center-cropped"
-                         style="background-image: url('{{ getCopertina(articolo) }}');">
+                         style="background-image: url('{{ getCopertina(articolo,'thumb') }}');">
                     </div>
                 </div>
                 <a href="/archivio/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}">  <h4>{{ articolo.titolo }}</h4>
 
-                <p> {{ articolo.sottotitolo|slice(0, 140)|raw|striptags }}...</p> </a>
+                <p>
+                 {% if articolo.sottotitolo!="" %}
+                {{ articolo.sottotitolo|slice(0, 140)|raw|striptags }}...
+                    {% else %}
+                    &nbsp;
+                    {% endif %}
+                </p>
+
+
+                </a>
             </div>
 
 
