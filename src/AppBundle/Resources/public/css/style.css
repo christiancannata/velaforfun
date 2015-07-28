@@ -901,6 +901,7 @@ input:-moz-placeholder {
 
 .social-menu p {
     color: rgba(66, 156, 188, 1);
+    font-size: 15px;
 }
 
 .padded {
