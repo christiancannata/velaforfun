@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\Type\RegistrationFormType;
 use AppBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends BaseController
 {
@@ -33,6 +34,70 @@ class DefaultController extends BaseController
 
         return $this->render('default/index.html.twig', array("articoli" => $articoli, "ultimiPost" => $post));
     }
+
+
+
+    /**
+     * @Route("/sitemap.{_format}", name="sample_sitemaps_sitemap", Requirements={"_format" = "xml"})
+     */
+    public function sitemapAction()
+    {
+
+        $repository = $this->getDoctrine()
+            ->getRepository('BlogBundle:Articolo');
+
+        $articoli = $repository->findByStato("ATTIVO");
+
+        $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:Porto');
+
+        $porti = $repository->findAll();
+
+
+        $repository = $this->getDoctrine()
+            ->getRepository('CCDNForumForumBundle:Topic');
+
+        $post = $repository->findAll();
+
+
+
+        $urls = array();
+        $hostname = $this->getRequest()->getHost();
+
+        // add some urls homepage
+        $urls[] = array('loc' => $this->get('router')->generate('homepage'), 'changefreq' => 'weekly', 'priority' => '1.0');
+        $urls[] = array('loc' => $this->get('router')->generate('homepage_archivio'), 'changefreq' => 'weekly', 'priority' => '1.0');
+        $urls[] = array('loc' => $this->get('router')->generate('chi_siamo'), 'changefreq' => 'weekly', 'priority' => '1.0');
+        $urls[] = array('loc' => $this->get('router')->generate('ricette'), 'changefreq' => 'weekly', 'priority' => '1.0');
+        $urls[] = array('loc' => $this->get('router')->generate('crea_ricetta'), 'changefreq' => 'weekly', 'priority' => '1.0');
+        $urls[] = array('loc' => $this->get('router')->generate('contatti'), 'changefreq' => 'weekly', 'priority' => '1.0');
+
+
+        foreach ($articoli as $product) {
+            $urls[] = array('loc' =>  "/".$product->getCategoria()->getPermalink()."/".$product->getPermalink(), 'priority' => '0.5');
+        }
+
+
+        foreach ($porti as $product) {
+            $urls[] = array('loc' =>  "/porti/".$product->getPermalink(), 'priority' => '0.5');
+        }
+
+        foreach ($post as $product) {
+            $urls[] = array('loc' =>  "/forum/velaforfun/topic/".$product->getId(), 'priority' => '0.5');
+        }
+
+
+
+        return $this->render(
+            'default/sitemap.xml.twig',
+            array('urls' => $urls, 'hostname' => $hostname)
+        );
+
+
+    }
+
+
+
     /**
      * @Route("/archivio", name="homepage_archivio")
      */
