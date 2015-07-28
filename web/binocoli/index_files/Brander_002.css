@@ -1,0 +1,841 @@
+
+body {
+  padding-top: 0px; margin-top: 0px;
+  background-color: white;
+  direction: ltr;
+}
+body.app, table.app, td.app, p.app, ul.app, ol.app, input.app, select.app, a.app, option.app {
+  font-family: Arial,sans-serif; font-size: 13px;
+}
+table.ff, td.ff, p.ff, body.ff, ul.ff, ol.ff, input.ff, select.ff, a.ff, option.ff {
+  font-family: Arial,sans-serif;
+}
+table.fs, td.fs, p.fs, body.fs, ul.fs, ol.fs, input.fs, select.fs, a.fs, option.fs {
+  font-size: 13px;
+}
+
+
+
+a.app:link, a.app:visited {
+  color: #112ABB; font-family: Arial,Sans-serif; font-size: 13px;
+}
+a.smalllink:link, a.smalllink:visited {
+  color: #112ABB; font-family: Arial,Sans-serif; font-size: 11px !important;
+}
+.smalltext {
+  font-family: Arial,Sans-serif; font-size: 11px !important;
+}
+a.tinylink:link, a.tinylink:visited {
+  color: #112ABB; font-family: Arial,Sans-serif; font-size: 9px !important;
+}
+a.titleLink {
+  text-decoration: none; color: black;
+}
+a.titleLink:hover {
+  background-color: #FFFFD6;
+}
+a.nounderline {
+  color: #112ABB; font-family: Arial,Sans-serif; font-size: 13px; text-decoration: none;
+}
+a.nounderline:hover {
+  text-decoration: underline;
+}
+a.nolink {
+  color: black; font-family: Arial,Sans-serif; font-size: 13px; text-decoration: none;
+}
+a.newfeatures:link, a.newfeatures:visited {
+  color: #C00000; font-family: Arial,Sans-serif; font-size: 13px;
+}
+a.IEmenu_cell { font-family: Arial, Sans-Serif; font-size: 13px; color: #112ABB;
+  text-decoration: none; padding-top: 3px; width: 100%; height: 100%;
+}
+a.maindisabled:link, a.maindisabled:visited {
+  color: #b7bfea; font-family: Arial,Sans-serif; font-size: 13px;
+  cursor: default;
+}
+
+
+@media print {
+  body { background-color: white; }
+  a { text-decoration : underline; color : #00f; }
+  #navigation, #advertising, #other { display : none; }
+  #tab_contents, .tab_contents { border: 0; }
+  #encloser { width: 100%; }
+}
+
+
+.listButtonBar {
+  background-color: #C3D9FF; padding: 0;
+}
+.listButtonBarAlt {
+  background-color: #74dd82; padding: 0;
+}
+.listButtonBarTrash {
+  background-color: #CCC; padding: 0;
+}
+.listLine {
+  border-bottom: 1px solid #EBE8D7;
+  font-family: Arial,Sans-serif; font-size: 13px;
+  overflow: hidden;
+}
+
+.listLineMore { padding-top: 6px; padding-bottom: 6px; }
+
+.listLineFront { padding-top: 3px; padding-bottom: 3px; }
+
+.listHdrFtr {
+  font-weight: bold; background-color: #E8EEF7; font-family: Arial,Sans-serif; padding: 4px;
+}
+.listHdrFtrAlt {
+  font-weight: bold; background-color: #B5EDBC; font-family: Arial,Sans-serif; padding: 4px;
+}
+.listHdrFtrTrash {
+  font-weight: bold; background-color: #EEE; font-family: Arial,Sans-serif; padding: 4px;
+}
+.altFilterList {
+  font-weight: bold; background-color: #B5EDBC; font-family: Arial,Sans-serif; padding: 4px;
+}
+.listHdrFtrTxt {
+  font-family: Arial,Sans-serif; font-weight: bold; font-size: 13px;
+}
+a.listHdrFtrLink {
+  font-family: Arial,Sans-serif; font-weight: bold; font-size: 13px;
+  color: #112ABB; text-decoration: none;
+}
+a.listHdrFtrLink:hover {
+  text-decoration: underline;
+}
+.tagLink {
+  color: #008000; font-family: Arial,Sans-serif; font-size: 10px;
+}
+.aclLink {
+  color: #77C; font-family: Arial,Sans-serif; font-size: 11px;
+}
+.filterLink {
+  color: #008000; font-family: Arial,Sans-serif; font-size: 13px;
+}
+.st1 {
+  height: 15px; width: 15px;
+  background-image: url('/images/fav1.gif');
+  padding-bottom: 0; font-size: 12px; margin-right: 3px; margin-left: 2px;
+}
+.st2 {
+  height: 15px; width: 15px;
+  background-image: url('/images/fav2.gif');
+  padding-bottom: 0; font-size: 12px; margin-right: 3px; margin-left: 2px;
+}
+.graytext {
+  color: #676767;
+}
+table.fc {
+  width: 100%; table-layout: fixed;
+}
+table.fc td.fc {
+  overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+.sharetab-bg {
+  background-color: #79B;
+}
+.edittab-bg {
+  background-color: #C3D9FF;
+}
+table.fc {
+  width: 100%;
+  table-layout: fixed;
+}
+
+table.fc td.fc {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+a.cornerBookmarks {
+  font-family: Arial,Sans-serif; font-size: 11px !important; color: #112ABB;
+}
+td.cornerBookmarks {
+  font-family: Arial,Sans-serif; font-size: 11px !important; background-color: #DFECF5;
+}
+.miscTopTitle {
+  font-family: Arial,Sans-serif; font-size: 12pt !important; font-weight: bold;
+  border-bottom: 1px solid rgb(204, 204, 204); color: #676767;
+}
+.miscBottomFtr {
+  font-family: Arial,Sans-serif; font-size: 12px !important;
+  border-top: 1px solid rgb(204, 204, 204); color: #676767; padding-top: 4px;
+}
+.miscBottomFtrNoLine {
+  font-family: Arial,Sans-serif; font-size: 12px !important; color: #676767;
+}
+.pageFtrText {
+  font-family: Arial,Sans-serif; font-size: 12px !important;
+}
+a.pageFtrText {
+  color: #112ABB;
+}
+
+
+.tabNotice td {
+  background-color: #fad163;
+}
+td.tabNoticeText {
+  background-color: #fad163; font-size: 12px; font-weight: bold; padding: 3px 10px;
+}
+.BoxContainer {
+  background-color: #B5EDBC; padding: 4px; padding-top: 2px;
+}
+.BoxTitle {
+  background-color: #B5EDBC; padding: 4px; font-family: Arial,Sans-serif; font-size: 12pt;
+  font-weight: bold;
+}
+.BoxBody {
+  background-color: #E8EEF7; padding: 4px; font-family: Arial,Sans-serif; font-size: 13px;
+}
+.BoxBodyAttn {
+  padding: 8px; border: 2px solid #B5EDBC; font-size: 14px;
+  background-color: white; font-family: Arial,Sans-serif;
+}
+.BigCaption {
+  font-family: Arial,Sans-serif; font-size: 12pt; font-weight: bold;
+}
+.HugeCaption {
+  font-family: Arial,Sans-serif; font-size: 14pt; font-weight: bold; color: #112ABB;
+}
+
+
+.tl {
+  background: url('/images/corner_tl.gif') top left no-repeat;
+}
+.tr {
+  background: url('/images/corner_tr.gif') top right no-repeat;
+}
+.bl {
+  background: url('/images/corner_bl.gif') bottom left no-repeat;
+}
+.br {
+  background: url('/images/corner_br.gif') bottom right no-repeat;
+}
+.bubble {
+  background-color: #C3D9FF;
+}
+.bubbleAlt {
+  background-color: #B5EDBC;
+}
+.bubbleLight {
+  background-color: #E8EEF7;
+}
+.sl {
+  background: url('/images/side_alt_left.gif') top left no-repeat;
+}
+.sr {
+  background: url('/images/side_alt_right.gif') top right no-repeat;
+}
+.sm {
+  background: url('/images/side_alt_middle.gif') top repeat-x;
+}
+
+
+table.tab {
+  height: 24px;
+}
+table.light td {
+  background-color: #e0edfe;
+}
+td.main {
+  font-size: 13px;
+}
+table.light td.main {
+  border-right: 1px solid #c3d9ff;
+}
+a.tabmain {
+  color: #112ABB;
+}
+table.atab td {
+  background-color: #c3d9ff;
+}
+table.dark td {
+  background-color: #79b;
+}
+td.dark {
+  background-color: #79b;
+}
+table.dark td.main {
+  border-right: 1px solid #486c91;
+}
+table.maindisabled td {
+  background-color: #f6faff;
+}
+td.maindisabled {
+  background-color: #f6faff;
+}
+table.maindisabled td.main {
+  border-right: 1px solid #edf4ff;
+}
+table.collabdisabled td {
+  background-color: #d6e0ea;
+}
+td.collabdisabled {
+  background-color: #d6e0ea;
+}
+table.collabdisabled td.main {
+  border-right: 1px solid #c8ded3;
+}
+table.tab td.tabtop {
+  background-image: url('/images/corner_tr.gif');
+  background-position: top right; background-repeat: no-repeat;
+}
+table.tab td.main {
+  vertical-align: middle; font-family: Arial,Sans-serif; font-size: 13px;
+}
+table.tab td.main a {
+  text-decoration: none;
+}
+table.dark td.main a {
+  color: #fff;
+}
+table.maindisabled td.main a {
+  color: #b7c9f5;
+  cursor: default;
+}
+table.collabdisabled td.main a {
+  color: #fff;
+  cursor: default;
+}
+table.tab td.main div{
+  padding: 3px 10px 5px 8px; font-family: Arial,Sans-serif; font-size: 13px;
+}
+table.atab td.main div {
+  padding-top: 3px; padding-bottom: 5px; font-family: Arial,Sans-serif;
+}
+.atab a {
+  cursor: default;
+}
+
+
+table.bar {
+  height: 34px;
+}
+td.tabdesc {
+  color: white; font-family: Arial,Sans-serif; font-size: 16px;
+  padding-left: 10px !important;  padding-right: 10px !important;
+}
+td.closebox {
+  padding-right: 10px; padding-left: 10px;
+}
+div.tabcontent {
+  background-color: #F2F4F7; padding: 16px !important;
+}
+
+div.revisiontabcontent {
+  background-color: #FFF;
+}
+
+td.tabbackground {
+  background-color: #F2F4F7; padding: 16px !important;
+}
+td.tabcontent {
+  font-family: Arial,Sans serif; font-size: 12px !important;
+}
+td.tabcontentBig {
+  font-family: Arial,Sans serif; font-size: 15px !important;
+}
+a.tabcontent:link, a.tabcontent:visited {
+  color: #112ABB; font-family: Arial,Sans-serif; font-size: 12px !important;
+}
+div.tabborder {
+  background-color: #79b;
+  padding: 0px 4px 4px 4px;
+}
+
+div.revisiontabborder {
+  background-color: #fff;
+  padding: 0px 4px 4px 4px;
+}
+
+table.tabborder {
+  border: 4px solid #79b; border-top: 0;
+}
+span.pubWhen {
+  font-family: Arial,Sans serif; font-size: 12px; color: #666;
+}
+td.hint {
+  font-family: Arial,Sans serif; font-size: 11px; color: #666; padding-top: 2px;
+}
+div.hint {
+  font-family: Arial,Sans serif; font-size: 11px; color: #666; padding-top: 2px;
+}
+a.hint {
+  font-family: Arial,Sans serif; font-size: 11px; color: #112ABB; padding-top: 2px;
+}
+textarea.add {
+  width: 280px; border: 1px solid #809EBA;
+  font-family: Arial,Sans serif; font-size: 12px !important;
+}
+select.add {
+  width: 280px; border: 1px solid #809EBA; margin-top: 1px;
+  font-family: Arial,Sans serif; font-size: 12px !important;
+}
+
+a.insertMenuDropdown {
+
+  background: url('/images/icon-dropdn.gif') no-repeat right center;
+  padding-right: 15px; margin-right: 10px;
+
+  color: #112ABB; font-family: Arial,Sans-serif; font-size: 13px; text-decoration: none;
+}
+a.paddedInsertMenu {
+
+  padding-right: 15px; margin-right: 10px;
+
+  color: #112ABB; font-family: Arial,Sans-serif; font-size: 13px; text-decoration: none;
+}
+
+a.insertMenuDropdown:hover {
+  text-decoration: underline;
+}
+a.paddedInsertMenu:hover {
+  text-decoration: underline;
+}
+
+td.tabbar {
+  background-color: #c3d9ff;
+}
+.tabsubbar {
+  background-color: #EFEFEF;
+}
+
+
+td.uploadhdr {
+  font-family: Arial,Sans-serif; font-size: 16px; background-color: #C3D9FF; padding: 5px;
+}
+td.uploadbg {
+  background-color: #C3D9FF;
+}
+div.uploadcontent {
+  background-color: white; padding: 12px;
+}
+td.uploadcontent {
+  font-family: Arial,Sans serif; font-size: 12px;
+}
+td.uploadcontentBig {
+  font-family: Arial,Sans serif; font-size: 14px;
+}
+div.uploadborder {
+  background-color: #C3D9FF; padding: 0px 4px 4px 4px;
+}
+
+
+td.settingshdr {
+  font-family: Arial,Sans-serif; font-size: 16px; background-color: #FAD162; padding: 5px;
+}
+td.settingsbg {
+  background-color: #FAD162;
+}
+td.settingstabactive {
+  background-color: #FFF7D7;
+}
+td.settingstab {
+  padding: 4px 8px; font-weight: bold; font-family: Arial,Sans serif; font-size: 13px;
+}
+div.settingscontent {
+  background-color: #FFF7D7;
+}
+td.settingscontent {
+  font-family: Arial,Sans serif; font-size: 12px;
+}
+td.settingscontentBig {
+  font-family: Arial,Sans serif; font-size: 14px;
+}
+div.settingsborder {
+  background-color: #FAD162; padding: 0 3px 3px 3px;
+}
+td.settingsspacer {
+  background-color: #FAD162; height: 2px;
+}
+
+
+.menu_div {
+  border: 1px solid black; background-color: white;
+}
+table.menu_table {
+  background-color: #fff; border-left: 1px solid #ccc; border-top: 1px solid #ccc;
+  border-right: 1px solid #676767; border-bottom: 1px solid #676767;
+  border-collapse: collapse; padding: 0; margin: 0;
+}
+.menu_label {
+  font-family: Arial, Sans-Serif; font-size: 13px; color: black; padding: 6px 2px 2px 2px;
+}
+.menu_row_unsel {
+  background-color: white;
+}
+.menu_row_sel {
+  background-color: #E8EEF7;
+}
+.menu_cell {
+  font-family: Arial, Sans-Serif; font-size: 13px; color: #112ABB; padding: 0;
+  cursor: pointer;
+}
+.menu_link {
+  padding: 4px 8px; white-space: nowrap;
+}
+.menu_accel {
+  font-family: Arial, Sans-Serif; font-size: 11px !important;
+  padding: 4px 8px; color: #676767; text-align: right; cursor: pointer;
+}
+.menu_sep_cell {
+  padding: 0; background-color: white;
+}
+.menu_sep_div {
+  height: 1px; background-color: #ddd;
+}
+.menu_cb {
+  padding-right: 0px; width: 7px; height: 7px;
+}
+
+
+.hiddenStatus {
+  display: none;
+}
+.visibleStatus {
+  display: block; left: 1px; top: 1px; line-height: 1.2em; position: absolute;
+  z-index: 10000; background-color: #c44; padding: 2px; color: white;
+  font-family: Arial,Sans-serif; font-size: 13px;
+}
+.editBorder {
+  border-left: 1px solid #c3d9ff; border-right: 1px solid #c3d9ff;
+  width: 100%; height: 100%;
+}
+.editWarning {
+  background: #ff8a00;
+  font-family: Arial,Sans serif; font-size: 12px !important;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  padding: 4px;
+}
+.spellCheck {
+  color: #112ABB; font-family: Arial,Sans-serif; font-size: 13px;
+}
+.spellCheckDisabled {
+  color: #b7bfea; font-family: Arial,Sans-serif; font-size: 13px;
+  cursor: default;
+}
+.spellCheckNone {
+  color: #008048; font-family: Arial,Sans-serif; font-size: 13px;
+}
+
+.editNoWarning {
+    font-family: Arial,Sans serif; font-size: 12px;  color: #ACA899;
+  background: #EFEFEF;
+  padding: 4px;
+}
+
+.insertImageDisabled {
+  filter:alpha(opacity=30);
+  -moz-opacity:.3;
+  opacity:.3;
+}
+
+
+#appDlgBgSep {
+  position: absolute; z-index: 200; top: 0px; left: 0px;
+  opacity: .3; background-color: #999; width: 100%; height: 100%;
+  filter: alpha(opacity=30);
+}
+#appDlgDiv {
+  background-color: rgb(193, 217, 255); padding: 8px;
+  z-index: 1000; position: absolute; left: 0px; top: 0px;
+  border: 1px solid rgb(58, 87, 116);
+}
+#appDlgDivContainer {
+  background-color: white;
+}
+#appDlgTitle {
+  height: 36px; background-color: #e0edfe; font-family: Arial,Sans-serif;
+}
+.appDlgTitleText {
+  font-size: 12pt !important; font-weight: bold; color: #000;
+  background-color: #e0edfe; padding: 8px;
+}
+#appDlgFrame {
+  width: 0; height: 0; background-color: white;
+}
+
+
+
+.ac-renderer  {
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+  border: 1px solid #666;
+  background: #E0ECFF;
+  color: #00C;
+  margin: 0;
+  padding: 0 0 1px 0;
+  z-index: 1000;
+  position: absolute;
+}
+
+.ac-renderer div {
+  margin: 2px;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.ac-renderer div b {
+  color: #00F;
+}
+
+.ac-renderer div.active {
+  background: #C3D9FF;
+}
+
+
+.modal-dialog-bg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #999;
+  opacity: 0.3;
+}
+
+.modal-dialog {
+  top: 0px;
+  left: 0px;
+  background-color: #C1D9FF;
+  border: 1px solid #3A5774;
+  padding: 8px;
+  
+  
+  position: fixed;
+  
+}
+
+.modal-dialog-title {
+  position: relative;
+  background-color: #E0EDFE;
+  padding: 8px;
+  font: bold 12pt Arial,Sans-serif;
+  cursor: default;
+}
+
+.modal-dialog-content {
+  background-color: #FFF;
+  padding: 0px 1px;
+}
+
+.modal-dialog-content,
+    .modal-dialog-content td,
+    .modal-dialog-content p,
+    .modal-dialog-content body,
+    .modal-dialog-content ul,
+    .modal-dialog-content ol,
+    .modal-dialog-content input,
+    .modal-dialog-content select,
+    .modal-dialog-content a,
+    .modal-dialog-content option,
+    .modal-dialog-content legend,
+    .modal-dialog-content fieldset,
+    .modal-dialog-content textarea {
+  font: normal 12px Arial,Sans-serif;
+}
+
+.modal-dialog-buttons {
+  background-color: #FFF;
+  padding: 4px;
+  font: normal 12px Arial,Sans-serif;
+
+  text-align: right;
+
+}
+
+.modal-dialog-buttons button {
+  margin: 5px;
+  font: normal 12px Arial,Sans-serif;
+  overflow: visible;
+  padding: 0 0.4em;
+}
+
+.modal-dialog-title-close {
+  cursor: pointer;
+  position: absolute;
+
+  right: 8px;
+
+}
+
+.modal-dialog-content form {
+  margin: 0;
+}
+
+.modal-dialog-content form.print-form {
+  position: relative; 
+  min-width: 0;
+  padding: 0;
+  margin: 0em 0.5em;
+  width: 30em;
+  text-indent: -0.5em;
+  overflow: visible;
+  clear: both;
+}
+
+.modal-dialog-content form.print-form p {
+  line-height: 2em; 
+  padding: 0.5em;
+  margin: 0;
+  overflow: visible;
+}
+
+.modal-dialog-content form.print-form .right {
+  float: right;  
+  width: 15em;
+  display: inline;
+  position: relative; 
+  min-width: 0;
+}
+
+.modal-dialog-content form.print-form .left {
+  width: 15em;
+  float: left;
+}
+
+.modal-dialog-content form.print-form .label {
+  font-weight: bold;
+}
+
+.modal-dialog-content form.print-form .icon {
+  float: right;  
+  margin-top: 3.0em;
+  width: 6em;
+}
+
+.goog-popupcolorpicker {
+  position: absolute;
+  -moz-outline: 0;
+  outline: 0;
+  visibility: hidden;
+}
+
+.goog-palette {
+  outline: none;
+  -moz-outline: none;
+  -moz-user-select: none;
+  cursor: default;
+}
+
+.goog-palette-table {
+  border: 1px solid #666;
+  border-collapse: collapse;
+}
+
+.goog-palette-cell {
+  height: 13px;
+  width: 15px;
+  margin: 0;
+  border: 0;
+  text-align: center;
+  vertical-align: middle;
+  border-right: 1px solid #666;
+  font-size: 1px;
+}
+
+.goog-palette-colorswatch {
+  position: relative;
+  height: 12px;
+  width: 14px;
+  border: 1px solid #666;
+}
+
+.goog-palette-cell-hover .goog-palette-colorswatch {
+  border: 1px solid #FFF;
+}
+
+.goog-palette-cell-selected .goog-palette-colorswatch {
+  border: 1px solid #000;
+  color: #fff;
+}
+
+.swatch {
+  border-style: outset;
+  border-width: 1px;
+  cursor: default;
+  height: 18px;
+  padding-left: 1px;
+  width: 52px;
+}
+
+.dialog-input {
+  overflow: auto;
+  position: relative;
+}
+
+.insertchar-grid {
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid #ACA899;
+}
+
+.insertchar-sc {
+  Cursor: pointer;
+  font-size: 14px !important;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid #EBE8D7;
+  width: 28px;
+}
+
+.insertchar-ac {
+  Cursor: pointer; font-size: 14px !important;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid #EBE8D7;
+  width: 28px;
+}
+
+.insertchar-adp {
+  font-size: 14px !important;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid #EBE8D7;
+  width: 28px;
+}
+
+.insertchar-wd {
+  Cursor: pointer;
+  font-size: 12px;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid #EBE8D7;
+  width: 28px;
+  font-family: Wingdings !important;
+}
+
+.insertchar-nd {
+  font-family: Arial,Sans-serif;
+  font-size: 12px;
+}
+
+.insertchar-bb {
+  overflow: visible;
+  padding: 0 0.01em;
+}
+
+.modal-dialog-content .example {
+  font-size: 11px;
+}
+
+.modal-dialog-content legend {
+  font-weight: bold;
+  color: black;
+}
+
+.modal-dialog-content .subtitle {
+  background-color: #EFEFEF;
+  padding: 8px;
+}
+
+.modal-dialog-content fieldset {
+  border: 1px solid white;
+  padding-bottom: 10px;
+}
+
+

@@ -1,0 +1,79 @@
+.btn {
+  
+    float:left;
+  
+  margin:0 0 5px 0;
+  font:12px Arial,Sans-serif;
+  text-decoration:none;
+  color:#222;
+  outline:none;
+}
+.onbtn {
+  
+    margin-right:3px;
+  
+}
+.btn b {
+  display:block;
+  float:left; /* Reversing this in RTL seems to break stuff. */
+  position:relative;
+  margin:0 1px;
+  padding:1px 0;
+  font-weight:normal;
+}
+.btn b b {
+  background:none;
+  display:block;
+  position:relative;
+  margin:0 -1px;
+  padding:0 1px;
+}
+.btn b b b {
+  margin:0;
+  padding:1px 5px 2px;
+}
+
+.btn:hover {
+  cursor:default;
+}
+.pointer .btn:hover, .pointer {
+  cursor:pointer;
+}
+.onbtn b, .btn:hover b {
+  background:#ddd url("/images/bg-btn.gif") repeat-x 0 0;
+  padding:0;
+  border:solid #aaa;
+  border-width:1px 0;
+}
+.onbtn b b, .btn:hover b b {
+  padding:0;
+  border-width:0 1px;
+}
+.onbtn b b b, .btn:hover b b b {
+  padding:1px 5px 2px;
+  border-width:0;
+}
+.onbtn:hover b {
+  border-color:#9cf #69e #69e #7af;
+}
+
+.btn:active {
+  color:#111;
+}
+.btn:active b {
+  background-image:none;
+  background-color:#ccc;
+}
+.btn:active b b {
+  background-color:transparent;
+}
+
+.dropdn b b b, a.dropdn:hover b b b, .dropdn:active b b b {
+  background:url("/images/icon-dropdn.gif") no-repeat 100% 50%;
+  padding-right:15px;
+}
+.btn img {
+  display:block;
+  border-width:0;
+  padding:1px;
+}

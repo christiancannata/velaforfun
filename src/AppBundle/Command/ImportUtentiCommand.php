@@ -43,7 +43,7 @@ class ImportUtentiCommand extends ContainerAwareCommand
                 ->getRepository('AppBundle:User')->findOneByEmail($data['mail']);
 
             if ($utente) {
-                $this->output->writeln("<comment>Gia presente aggiorno: ".$data['username']." </comment>");
+             /*   $this->output->writeln("<comment>Gia presente aggiorno: ".$data['username']." </comment>");
 
                 $utente->setIdOriginale($data['ID']);
                 $utente->setNome("");
@@ -99,7 +99,7 @@ class ImportUtentiCommand extends ContainerAwareCommand
 
                 }
                 $this->em->flush();
-
+ */
             } else {
 
                 $utente = $this->getContainer()->get('doctrine')

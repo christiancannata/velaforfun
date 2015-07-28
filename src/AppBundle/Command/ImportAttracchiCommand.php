@@ -33,7 +33,7 @@ class ImportAttracchiCommand extends ContainerAwareCommand
         $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $this->connection = $this->getContainer()->get('database_connection');
 
-        $query = "select * from barche";
+        $query = "select p.nome as 'nome_porto',u.mail,b.* from barche b,utenti u,porti p where p.ID=b.IDp and u.ID=IDu";
 
         $res = $this->connection->executeQuery($query)->fetchAll();
 
@@ -46,10 +46,10 @@ class ImportAttracchiCommand extends ContainerAwareCommand
             $this->output->writeln("<comment>Importing: ".$data['ID']." </comment>");
 
             $attracco->setPorto($this->getContainer()->get('doctrine')
-                ->getRepository('AppBundle:Porto')->findOneByIdOriginale($data['IDp']));
+                ->getRepository('AppBundle:Porto')->findOneByNome($data['nome_porto']));
 
             $attracco->setUtente($this->getContainer()->get('doctrine')
-                ->getRepository('AppBundle:User')->findOneByIdOriginale($data['IDu']));
+                ->getRepository('AppBundle:User')->findOneByEmail($data['mail']));
 
             $this->em->persist($attracco);
             $this->em->flush();
