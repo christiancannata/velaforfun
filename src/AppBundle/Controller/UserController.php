@@ -40,7 +40,12 @@ class UserController extends BaseController
      */
     public function listAction(Request $request)
     {
-        return $this->cGet();
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entities = $em->getRepository("AppBundle:".$this->entity)->findAll();
+
+
+        return $this->render('AppBundle:Crud:list-user.html.twig', array('entities' => $entities));
     }
 
 

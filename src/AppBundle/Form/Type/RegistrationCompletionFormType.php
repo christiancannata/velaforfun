@@ -13,6 +13,7 @@ class RegistrationCompletionFormType extends AbstractType
 		$builder->add('nome');
 		$builder->add('cognome');
         $builder->add('username');
+        $builder->add('email');
         $builder->add('dataNascita','birthday');
         $builder->add('roles', 'choice', array(
             'choices' => array(
