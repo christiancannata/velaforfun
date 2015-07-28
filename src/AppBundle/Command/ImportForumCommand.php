@@ -48,75 +48,81 @@ class ImportForumCommand extends ContainerAwareCommand
                 ->getRepository('AppBundle:CompatibilitaForum')->findOneByIdOld($data['ID']);
             if (!$inserito && $data['titolo'] != "") {
                 $this->output->writeln("<comment>Importing: ".$data['titolo']." </comment>");
+
                 $user = $this->getContainer()->get('doctrine')
                     ->getRepository('AppBundle:User')->findOneBy(array("username"=>$data['autore']));
 
                 if (!$user) {
 
-                    $queryU = "select * from utenti where username=".$data['autore'];
+                    $queryU = "select * from utenti where username='".$data['autore']."'";
 
                     $utenti = $this->connection->executeQuery($queryU)->fetchAll();
-                    $data=$utenti[0];
+                    if(count($utenti)>0){
+                        $data=$utenti[0];
 
-                    $this->output->writeln("<comment>Importing: ".$data['username']." </comment>");
+                        $this->output->writeln("<comment>Importing: ".$data['username']." </comment>");
 
-                    $utente = new User();
-                    $utente->setIdOriginale($data['ID']);
-                    $utente->setNome("");
-                    $utente->setEmail($data['mail']);
-                    $utente->setTimestamp(new \DateTime($data['data']));
-                    $utente->setCognome("");
+                        $utente = new User();
+                        $utente->setIdOriginale($data['ID']);
+                        $utente->setNome("");
+                        $utente->setEmail($data['mail']);
+                        $utente->setTimestamp(new \DateTime($data['data']));
+                        $utente->setCognome("");
 
-                    $data['firma'] = str_replace("[B]", "<strong>", $data['firma']);
-                    $data['firma'] = str_replace("[/B]", "</strong>", $data['firma']);
-                    $data['firma'] = str_replace("[I]", "<i>", $data['firma']);
-                    $data['firma'] = str_replace("[/I]", "</i>", $data['firma']);
-
-
-                    $utente->setFirma($data['firma']);
-                    $utente->setUsername($data['username']);
-                    $utente->setPlainPassword($data['password']);
-                    $utente->setPrivacy($data['privacy']);
-                    $utente->setProfilePicturePath($data['avart']);
-                    $utente->setEnabled(1);
-
-                    $this->em->persist($utente);
+                        $data['firma'] = str_replace("[B]", "<strong>", $data['firma']);
+                        $data['firma'] = str_replace("[/B]", "</strong>", $data['firma']);
+                        $data['firma'] = str_replace("[I]", "<i>", $data['firma']);
+                        $data['firma'] = str_replace("[/I]", "</i>", $data['firma']);
 
 
-                    $repository = $this->getContainer()->get('doctrine')
-                        ->getRepository('AppBundle\Entity\Newsletter\Subscriber');
-                    $iscritto = $repository->findOneByEmail($data['mail']);
+                        $utente->setFirma($data['firma']);
+                        $utente->setUsername($data['username']);
+                        $utente->setPlainPassword($data['password']);
+                        $utente->setPrivacy($data['privacy']);
+                        $utente->setProfilePicturePath($data['avart']);
+                        $utente->setEnabled(1);
+
+                        $this->em->persist($utente);
 
 
-                    if (!$iscritto) {
                         $repository = $this->getContainer()->get('doctrine')
-                            ->getRepository('AppBundle\Entity\Newsletter\Mandant');
-                        $mandant = $repository->find(1);
-
-                        $iscrizione = new \AppBundle\Entity\Newsletter\Subscriber();
-                        $iscrizione->setMandant($mandant);
-                        $iscrizione->setLocale("it");
-                        $iscrizione->setEmail($data['mail']);
-                        $iscrizione->setFirstName($data['username']);
-                        $iscrizione->setLastName("");
-                        $iscrizione->setGender("MALE");
-                        $iscrizione->setCompanyname("");
-                        $iscrizione->setTitle("");
-                        $iscrizione->addGroup(
-                            $this->getContainer()->get('doctrine')
-                                ->getRepository('AppBundle\Entity\Newsletter\Group')->find(1)
-                        );
+                            ->getRepository('AppBundle\Entity\Newsletter\Subscriber');
+                        $iscritto = $repository->findOneByEmail($data['mail']);
 
 
-                        $em = $this->getContainer()->get('doctrine')->getManager();
+                        if (!$iscritto) {
+                            $repository = $this->getContainer()->get('doctrine')
+                                ->getRepository('AppBundle\Entity\Newsletter\Mandant');
+                            $mandant = $repository->find(1);
 
-                        $em->persist($iscrizione);
+                            $iscrizione = new \AppBundle\Entity\Newsletter\Subscriber();
+                            $iscrizione->setMandant($mandant);
+                            $iscrizione->setLocale("it");
+                            $iscrizione->setEmail($data['mail']);
+                            $iscrizione->setFirstName($data['username']);
+                            $iscrizione->setLastName("");
+                            $iscrizione->setGender("MALE");
+                            $iscrizione->setCompanyname("");
+                            $iscrizione->setTitle("");
+                            $iscrizione->addGroup(
+                                $this->getContainer()->get('doctrine')
+                                    ->getRepository('AppBundle\Entity\Newsletter\Group')->find(1)
+                            );
+
+
+                            $em = $this->getContainer()->get('doctrine')->getManager();
+
+                            $em->persist($iscrizione);
+
+                        }
+
+
+                        $this->em->flush();
+                        $user = $iscrizione;
+
 
                     }
 
-
-                    $this->em->flush();
-                    $user = $iscrizione;
                 }
 
 
