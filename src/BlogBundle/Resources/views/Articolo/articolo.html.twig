@@ -296,7 +296,7 @@
 
             <a href="{{ articolo.linkCorrelato }}">
                 <div class="arrow_box aside stickem">
-                    {% if articolo.immagineCorrelataArticolo is defined %}
+                    {% if articolo.immagineCorrelataArticolo is defined and articolo.immagineCorrelataArticolo!="" %}
                         <div class="foto">
                             <div class="center-cropped"
                                  style="height: 230px;background-image: url('/images/articoli/{{ articolo.immagineCorrelataArticolo }}');">
