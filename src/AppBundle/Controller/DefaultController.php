@@ -210,7 +210,7 @@ class DefaultController extends BaseController
      */
     public function privacyAction()
     {
-        return $this->render('default/privacy.html.twig', array());
+        return $this->redirect("https://www.iubenda.com/privacy-policy/885486", 301);
     }
 
     /**
