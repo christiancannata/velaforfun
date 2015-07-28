@@ -109,7 +109,7 @@ class ImportForumCommand extends ContainerAwareCommand
                     $this->em->merge($firstTopic);
 
 
-                    $subscription=new \CCDNForum\ForumBundle\Subscription;
+                    $subscription=new \CCDNForum\ForumBundle\Entity\Subscription;
                     $subscription->setTopic($firstTopic);
                     $subscription->setOwnedBy( $this->getContainer()->get('doctrine')
                         ->getRepository('AppBundle:User')->findOneByUsername($data['autore']));
@@ -142,7 +142,7 @@ class ImportForumCommand extends ContainerAwareCommand
                                 ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore'])
                         );
 
-                        $subscription=new \CCDNForum\ForumBundle\Subscription;
+                        $subscription=new \CCDNForum\ForumBundle\Entity\Subscription;
                         $subscription->setTopic($firstTopic);
                         $subscription->setOwnedBy(  $this->getContainer()->get('doctrine')
                             ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore']));
