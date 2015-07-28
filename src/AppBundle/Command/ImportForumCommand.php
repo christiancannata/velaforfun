@@ -4,7 +4,6 @@ namespace AppBundle\Command;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\DBAL\Connection;
-use BlogBundle\Entity\Articolo;
 use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
@@ -43,18 +42,87 @@ class ImportForumCommand extends ContainerAwareCommand
         $this->output->writeln("<comment>Importing ".count($res)." </comment>");
 
 
-
         foreach ($res as $data) {
 
-                $inserito=$this->getContainer()->get('doctrine')
-                    ->getRepository('AppBundle:CompatibilitaForum')->findOneByIdOld($data['ID']);
-            if(!$inserito && $data['titolo']!=""){
+            $inserito = $this->getContainer()->get('doctrine')
+                ->getRepository('AppBundle:CompatibilitaForum')->findOneByIdOld($data['ID']);
+            if (!$inserito && $data['titolo'] != "") {
                 $this->output->writeln("<comment>Importing: ".$data['titolo']." </comment>");
-                $user=$this->getContainer()->get('doctrine')
+                $user = $this->getContainer()->get('doctrine')
                     ->getRepository('AppBundle:User')->findOneByUsername($data['autore']);
-                if($user){
 
-                    $redirect=new CompatibilitaForum();
+                if (!$user) {
+
+                    $queryU = "select * from utenti where username=".$data['autore'];
+
+                    $utenti = $this->connection->executeQuery($queryU)->fetchAll();
+                    $data=$utenti[0];
+
+                    $this->output->writeln("<comment>Importing: ".$data['username']." </comment>");
+
+                    $utente = new User();
+                    $utente->setIdOriginale($data['ID']);
+                    $utente->setNome("");
+                    $utente->setEmail($data['mail']);
+                    $utente->setTimestamp(new \DateTime($data['data']));
+                    $utente->setCognome("");
+
+                    $data['firma'] = str_replace("[B]", "<strong>", $data['firma']);
+                    $data['firma'] = str_replace("[/B]", "</strong>", $data['firma']);
+                    $data['firma'] = str_replace("[I]", "<i>", $data['firma']);
+                    $data['firma'] = str_replace("[/I]", "</i>", $data['firma']);
+
+
+                    $utente->setFirma($data['firma']);
+                    $utente->setUsername($data['username']);
+                    $utente->setPlainPassword($data['password']);
+                    $utente->setPrivacy($data['privacy']);
+                    $utente->setProfilePicturePath($data['avart']);
+                    $utente->setEnabled(1);
+
+                    $this->em->persist($utente);
+
+
+                    $repository = $this->getContainer()->get('doctrine')
+                        ->getRepository('AppBundle\Entity\Newsletter\Subscriber');
+                    $iscritto = $repository->findOneByEmail($data['mail']);
+
+
+                    if (!$iscritto) {
+                        $repository = $this->getContainer()->get('doctrine')
+                            ->getRepository('AppBundle\Entity\Newsletter\Mandant');
+                        $mandant = $repository->find(1);
+
+                        $iscrizione = new \AppBundle\Entity\Newsletter\Subscriber();
+                        $iscrizione->setMandant($mandant);
+                        $iscrizione->setLocale("it");
+                        $iscrizione->setEmail($data['mail']);
+                        $iscrizione->setFirstName($data['username']);
+                        $iscrizione->setLastName("");
+                        $iscrizione->setGender("MALE");
+                        $iscrizione->setCompanyname("");
+                        $iscrizione->setTitle("");
+                        $iscrizione->addGroup(
+                            $this->getContainer()->get('doctrine')
+                                ->getRepository('AppBundle\Entity\Newsletter\Group')->find(1)
+                        );
+
+
+                        $em = $this->getContainer()->get('doctrine')->getManager();
+
+                        $em->persist($iscrizione);
+
+                    }
+
+
+                    $this->em->flush();
+                    $user = $iscrizione;
+                }
+
+
+                if ($user) {
+
+                    $redirect = new CompatibilitaForum();
                     $redirect->setIdOld($data['ID']);
 
                     $countPost = array();
@@ -69,7 +137,7 @@ class ImportForumCommand extends ContainerAwareCommand
 
                     $this->em->persist($firstTopic);
                     $this->em->flush();
-                    $countPost[]=$firstTopic;
+                    $countPost[] = $firstTopic;
                     $redirect->setIdNew($firstTopic->getId());
 
                     $this->em->persist($redirect);
@@ -84,20 +152,20 @@ class ImportForumCommand extends ContainerAwareCommand
                     );
 
 
-                    $data['testo']=str_replace("[B]","<strong>",$data['testo']);
-                    $data['testo']=str_replace("[/B]","</strong>",$data['testo']);
-                    $data['testo']=str_replace("[I]","<i>",$data['testo']);
+                    $data['testo'] = str_replace("[B]", "<strong>", $data['testo']);
+                    $data['testo'] = str_replace("[/B]", "</strong>", $data['testo']);
+                    $data['testo'] = str_replace("[I]", "<i>", $data['testo']);
 
-                    $data['testo']=str_replace("[/I]","</i>",$data['testo']);
-                    $data['testo']=str_replace("[SIZE=1]","<i>",$data['testo']);
-                    $data['testo']=str_replace("[/SIZE]","</i>",$data['testo']);
-                    $data['testo']=str_replace("[SIZE=2]","<i>",$data['testo']);
-                    $data['testo']=str_replace("[SIZE=3]","<i>",$data['testo']);
+                    $data['testo'] = str_replace("[/I]", "</i>", $data['testo']);
+                    $data['testo'] = str_replace("[SIZE=1]", "<i>", $data['testo']);
+                    $data['testo'] = str_replace("[/SIZE]", "</i>", $data['testo']);
+                    $data['testo'] = str_replace("[SIZE=2]", "<i>", $data['testo']);
+                    $data['testo'] = str_replace("[SIZE=3]", "<i>", $data['testo']);
 
-                    $data['testo']=str_replace("[/COLOR]","</font>",$data['testo']);
-                    $data['testo']=str_replace("[COLOR=green]","<font style='color:green'>",$data['testo']);
-                    $data['testo']=str_replace("[COLOR=red]","<font style='color:red'>",$data['testo']);
-                    $data['testo']=str_replace("[COLOR=blue]","<font style='color:blue'>",$data['testo']);
+                    $data['testo'] = str_replace("[/COLOR]", "</font>", $data['testo']);
+                    $data['testo'] = str_replace("[COLOR=green]", "<font style='color:green'>", $data['testo']);
+                    $data['testo'] = str_replace("[COLOR=red]", "<font style='color:red'>", $data['testo']);
+                    $data['testo'] = str_replace("[COLOR=blue]", "<font style='color:blue'>", $data['testo']);
 
                     $post->setBody(nl2br($data['testo']));
 
@@ -110,10 +178,12 @@ class ImportForumCommand extends ContainerAwareCommand
                     $this->em->merge($firstTopic);
 
 
-                    $subscription=new Subscription();
+                    $subscription = new Subscription();
                     $subscription->setTopic($firstTopic);
-                    $subscription->setOwnedBy( $this->getContainer()->get('doctrine')
-                        ->getRepository('AppBundle:User')->findOneByUsername($data['autore']));
+                    $subscription->setOwnedBy(
+                        $this->getContainer()->get('doctrine')
+                            ->getRepository('AppBundle:User')->findOneByUsername($data['autore'])
+                    );
                     $subscription->setSubscribed(true);
                     $subscription->setRead(false);
 
@@ -143,27 +213,37 @@ class ImportForumCommand extends ContainerAwareCommand
                                 ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore'])
                         );
 
-                        $subscription=new Subscription();
+                        $subscription = new Subscription();
                         $subscription->setTopic($firstTopic);
-                        $subscription->setOwnedBy(  $this->getContainer()->get('doctrine')
-                            ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore']));
+                        $subscription->setOwnedBy(
+                            $this->getContainer()->get('doctrine')
+                                ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore'])
+                        );
                         $subscription->setSubscribed(true);
                         $subscription->setRead(true);
                         $this->em->persist($subscription);
 
-                        $risposta['testo']=str_replace("[B]","<strong>",$risposta['testo']);
-                        $risposta['testo']=str_replace("[/B]","</strong>",$risposta['testo']);
-                        $risposta['testo']=str_replace("[I]","<i>",$risposta['testo']);
-                        $risposta['testo']=str_replace("[/I]","</i>",$risposta['testo']);
-                        $risposta['testo']=str_replace("[SIZE=1]","<i>",$risposta['testo']);
-                        $risposta['testo']=str_replace("[/SIZE]","</i>",$risposta['testo']);
-                        $risposta['testo']=str_replace("[SIZE=2]","<i>",$risposta['testo']);
-                        $risposta['testo']=str_replace("[SIZE=3]","<i>",$risposta['testo']);
+                        $risposta['testo'] = str_replace("[B]", "<strong>", $risposta['testo']);
+                        $risposta['testo'] = str_replace("[/B]", "</strong>", $risposta['testo']);
+                        $risposta['testo'] = str_replace("[I]", "<i>", $risposta['testo']);
+                        $risposta['testo'] = str_replace("[/I]", "</i>", $risposta['testo']);
+                        $risposta['testo'] = str_replace("[SIZE=1]", "<i>", $risposta['testo']);
+                        $risposta['testo'] = str_replace("[/SIZE]", "</i>", $risposta['testo']);
+                        $risposta['testo'] = str_replace("[SIZE=2]", "<i>", $risposta['testo']);
+                        $risposta['testo'] = str_replace("[SIZE=3]", "<i>", $risposta['testo']);
 
-                        $risposta['testo']=str_replace("[/COLOR]","</font>",$risposta['testo']);
-                        $risposta['testo']=str_replace("[COLOR=green]","<font style='color:green'>",$risposta['testo']);
-                        $risposta['testo']=str_replace("[COLOR=red]","<font style='color:red'>",$risposta['testo']);
-                        $risposta['testo']=str_replace("[COLOR=blue]","<font style='color:blue'>",$risposta['testo']);
+                        $risposta['testo'] = str_replace("[/COLOR]", "</font>", $risposta['testo']);
+                        $risposta['testo'] = str_replace(
+                            "[COLOR=green]",
+                            "<font style='color:green'>",
+                            $risposta['testo']
+                        );
+                        $risposta['testo'] = str_replace("[COLOR=red]", "<font style='color:red'>", $risposta['testo']);
+                        $risposta['testo'] = str_replace(
+                            "[COLOR=blue]",
+                            "<font style='color:blue'>",
+                            $risposta['testo']
+                        );
 
                         $post->setBody(nl2br($risposta['testo']));
 
@@ -174,11 +254,7 @@ class ImportForumCommand extends ContainerAwareCommand
                         $firstTopic->setLastPost($post);
 
 
-
-
-
                         $this->em->merge($firstTopic);
-
 
 
                         $this->em->flush();
@@ -209,15 +285,10 @@ class ImportForumCommand extends ContainerAwareCommand
                     }
 
 
-
                 }
 
 
             }
-
-
-
-
 
 
         }
@@ -225,13 +296,17 @@ class ImportForumCommand extends ContainerAwareCommand
 
     }
 
-    private function get_string_between($string, $start, $end){
+    private function get_string_between($string, $start, $end)
+    {
         $string = " ".$string;
-        $ini = strpos($string,$start);
-        if ($ini == 0) return "";
+        $ini = strpos($string, $start);
+        if ($ini == 0) {
+            return "";
+        }
         $ini += strlen($start);
-        $len = strpos($string,$end,$ini) - $ini;
-        return substr($string,$ini,$len);
+        $len = strpos($string, $end, $ini) - $ini;
+
+        return substr($string, $ini, $len);
     }
 
 }
