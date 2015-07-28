@@ -57,7 +57,7 @@ class ImportForumCommand extends ContainerAwareCommand
                 $countRisposte = array();
                 $firstTopic = new Topic();
                 $firstTopic->setTitle($data['titolo']);
-                $firstTopic->setCachedViewCount(1);
+                $firstTopic->setCachedViewCount($data['visite']);
                 $firstTopic->setBoard(
                     $this->getContainer()->get('doctrine')
                         ->getRepository('CCDNForumForumBundle:Board')->find($data['forum'])
@@ -105,6 +105,21 @@ class ImportForumCommand extends ContainerAwareCommand
                 $firstTopic->setLastPost($post);
 
                 $this->em->merge($firstTopic);
+
+
+                $subscription=new \CCDNForum\ForumBundle\Subscription;
+                $subscription->setTopic($firstTopic);
+                $subscription->setOwnedBy( $this->getContainer()->get('doctrine')
+                    ->getRepository('AppBundle:User')->findOneByUsername($data['autore']));
+
+                $forum = $this->container->get('doctrine')
+                    ->getRepository('CCDNForumForumBundle:Forum')->find(1);
+
+                $subscription->setForum($forum);
+
+                $this->em->persist($subscription);
+
+
                 $this->em->flush();
 
                 $query = "select * from forum1 where stato=0 and idr=".$data['ID']." ";
@@ -144,7 +159,14 @@ class ImportForumCommand extends ContainerAwareCommand
 
                     $firstTopic->setLastPost($post);
 
+
+
+
+
                     $this->em->merge($firstTopic);
+
+
+
                     $this->em->flush();
                 }
 

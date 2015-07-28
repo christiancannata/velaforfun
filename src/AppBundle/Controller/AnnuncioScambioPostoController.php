@@ -100,7 +100,7 @@ class AnnuncioScambioPostoController extends BaseController
                 $em->flush();
 
 
-                $subscription = new Subscription();
+                $subscription=new \CCDNForum\ForumBundle\Subscription;
                 $subscription->setTopic($firstTopic);
                 $subscription->setOwnedBy($this->getUser());
 
