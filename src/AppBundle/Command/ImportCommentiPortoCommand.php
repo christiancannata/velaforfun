@@ -34,7 +34,8 @@ class ImportCommentiPortoCommand extends ContainerAwareCommand
         $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $this->connection = $this->getContainer()->get('database_connection');
 
-        $query = "select * from commenti_porti";
+        $query = "select p.nome as 'nome_porto',u.mail,b.* from commenti_porti b,utenti u,porti p where p.ID=b.ID_porto and u.ID=ID_ut";
+
 
         $res = $this->connection->executeQuery($query)->fetchAll();
 
@@ -56,11 +57,14 @@ class ImportCommentiPortoCommand extends ContainerAwareCommand
             if($data['voto']==1){
                 $attracco->setTipoCommento("POSITIVO");
             }
+
             $attracco->setPorto($this->getContainer()->get('doctrine')
-                ->getRepository('AppBundle:Porto')->findOneByIdOriginale($data['ID_porto']));
+                ->getRepository('AppBundle:Porto')->findOneByNome($data['nome_porto']));
 
             $attracco->setUtente($this->getContainer()->get('doctrine')
-                ->getRepository('AppBundle:User')->findOneByIdOriginale($data['ID_ut']));
+                ->getRepository('AppBundle:User')->findOneByEmail($data['mail']));
+
+
 
             $this->em->persist($attracco);
             $this->em->flush();
