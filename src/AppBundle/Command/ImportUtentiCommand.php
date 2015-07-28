@@ -4,7 +4,6 @@ namespace AppBundle\Command;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\DBAL\Connection;
-use BlogBundle\Entity\Articolo;
 use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
@@ -79,7 +78,7 @@ class ImportUtentiCommand extends ContainerAwareCommand
                         ->getRepository('AppBundle\Entity\Newsletter\Mandant');
                     $mandant = $repository->find(1);
 
-                    $iscrizione = new Subscriber();
+                    $iscrizione = new \AppBundle\Entity\Newsletter\Subscriber();
                     $iscrizione->setMandant($mandant);
                     $iscrizione->setLocale("it");
                     $iscrizione->setEmail($data['mail']);
@@ -144,7 +143,7 @@ class ImportUtentiCommand extends ContainerAwareCommand
                             ->getRepository('AppBundle\Entity\Newsletter\Mandant');
                         $mandant = $repository->find(1);
 
-                        $iscrizione = new Subscriber();
+                        $iscrizione = new \AppBundle\Entity\Newsletter\Subscriber();
                         $iscrizione->setMandant($mandant);
                         $iscrizione->setLocale("it");
                         $iscrizione->setEmail($data['mail']);
