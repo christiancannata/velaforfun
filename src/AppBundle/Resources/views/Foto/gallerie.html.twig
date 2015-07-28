@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 
 {% block title %}Archivio Fotografico
 {% endblock %}
@@ -20,7 +20,7 @@
             var offset = 3;
             var loading = false;
             $(window).scroll(function () {
-                if ($(window).scrollTop() >= ($("#loadmoreajaxloader").height() - $(window).height()) ) {
+                if ($(window).scrollTop() >= ($("#loadmoreajaxloader").height() - $(window).height())) {
                     if (loading == false) {
                         $('div#loadmoreajaxloader').show();
                         loading = true;
@@ -85,6 +85,32 @@
                 sito.</p>
 
             <div class="divisore-big"></div>
+
+
+
+<form enctype="multipart/form-data" action="" class="form-inline" role="form" method="post" name="appbundle_foto">
+
+   {{ form_row(form.profilePictureFile) }}
+   {{ form_row(form.nome) }}
+  {{ form_row(form.galleria) }}
+
+<button class="btn btn-default login hvr-sweep-to-right" style=" background: #429cbc none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 0;
+    color: white;
+    font-size: 20px;
+    margin-top: 17px;
+    text-transform: uppercase;
+    width: 20%;" type="submit">Invia la tua foto
+                        </button>
+</form>
+
+
+
+
+
+
+
         </div>
 
     </div>

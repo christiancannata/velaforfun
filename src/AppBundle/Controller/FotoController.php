@@ -52,7 +52,7 @@ class FotoController extends BaseController
             foreach ($files as $uploadedFile) {
                 $fileUpload = new Foto();
                 $fileUpload->setProfilePictureFile($uploadedFile);
-                $fileUpload->setNome(preg_replace('/\\.[^.\\s]{3,4}$/', '',$uploadedFile->getClientOriginalName()));
+                $fileUpload->setNome(preg_replace('/\\.[^.\\s]{3,4}$/', '', $uploadedFile->getClientOriginalName()));
                 $fileUpload->setGalleria($gallery);
                 $fileUpload->setInEvidenza(true);
                 $em->persist($fileUpload);
@@ -106,8 +106,13 @@ class FotoController extends BaseController
     /**
      * @Route("/", name="foto")
      */
-    public function fotoAction()
+    public function fotoAction(Request $request)
     {
+
+        if ($request->isMethod('POST')) {
+
+            return $this->postForm($request, new FotoType());
+        }
 
         $categorie = $this->getDoctrine()
             ->getRepository('AppBundle:GalleriaFoto')->findBy(array('inGallery' => true), array('id' => 'desc'));
@@ -118,7 +123,12 @@ class FotoController extends BaseController
             }
         }
 
-        return $this->render('AppBundle:Foto:gallerie.html.twig', array("gallerie" => $categorie));
+        $postform = $this->createForm(new FotoType());
+
+        return $this->render(
+            'AppBundle:Foto:gallerie.html.twig',
+            array("gallerie" => $categorie, "form" => $postform->createView())
+        );
     }
 
 
