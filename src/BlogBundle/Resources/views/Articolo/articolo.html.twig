@@ -144,6 +144,7 @@
             <div class="col-md-12 column sottotitolo">
                 {{ articolo.sottotitolo|striptags|raw }}
                 <div class="divisore-big"></div>
+                Pubblicato il: {{ articolo.timestamp|date("d-m-Y") }}
             </div>
         </div>
 
