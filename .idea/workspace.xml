@@ -78,9 +78,9 @@
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportUtentiCommand.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.48295453">
-              <caret line="91" column="47" selection-start-line="91" selection-start-column="47" selection-end-line="91" selection-end-column="47" />
+              <caret line="156" column="66" selection-start-line="156" selection-start-column="66" selection-end-line="156" selection-end-column="66" />
               <folding>
-                <marker date="1438088480000" expanded="true" signature="1011:1048" placeholder="select * fro..utenti..." />
+                <marker date="1438088591000" expanded="true" signature="1011:1048" placeholder="select * fro..utenti..." />
               </folding>
             </state>
           </provider>
@@ -998,9 +998,9 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportUtentiCommand.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48295453">
-          <caret line="91" column="47" selection-start-line="91" selection-start-column="47" selection-end-line="91" selection-end-column="47" />
+          <caret line="156" column="66" selection-start-line="156" selection-start-column="66" selection-end-line="156" selection-end-column="66" />
           <folding>
-            <marker date="1438088480000" expanded="true" signature="1011:1048" placeholder="select * fro..utenti..." />
+            <marker date="1438088591000" expanded="true" signature="1011:1048" placeholder="select * fro..utenti..." />
           </folding>
         </state>
       </provider>
