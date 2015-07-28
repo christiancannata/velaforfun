@@ -140,7 +140,7 @@ class ImportUtentiCommand extends ContainerAwareCommand
 
 
                     if (!$iscritto) {
-                        $repository = $this->getDoctrine()
+                        $repository = $this->getContainer()->get('doctrine')
                             ->getRepository('AppBundle\Entity\Newsletter\Mandant');
                         $mandant = $repository->find(1);
 

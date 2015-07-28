@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Command/ImportUtentiCommand.php" afterPath="$PROJECT_DIR$/src/AppBundle/Command/ImportUtentiCommand.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="velaforfun.iws" />
@@ -77,10 +76,11 @@
       <file leaf-file-name="ImportUtentiCommand.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportUtentiCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48295453">
-              <caret line="156" column="66" selection-start-line="156" selection-start-column="66" selection-end-line="156" selection-end-column="66" />
+            <state vertical-scroll-proportion="0.33333334">
+              <caret line="142" column="76" selection-start-line="142" selection-start-column="76" selection-end-line="142" selection-end-column="76" />
               <folding>
-                <marker date="1438088591000" expanded="true" signature="1011:1048" placeholder="select * fro..utenti..." />
+                <element signature="e#36#59#0#PHP" expanded="true" />
+                <marker date="1438088618000" expanded="true" signature="1011:1048" placeholder="select * fro..utenti..." />
               </folding>
             </state>
           </provider>
@@ -997,10 +997,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportUtentiCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48295453">
-          <caret line="156" column="66" selection-start-line="156" selection-start-column="66" selection-end-line="156" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="142" column="76" selection-start-line="142" selection-start-column="76" selection-end-line="142" selection-end-column="76" />
           <folding>
-            <marker date="1438088591000" expanded="true" signature="1011:1048" placeholder="select * fro..utenti..." />
+            <element signature="e#36#59#0#PHP" expanded="true" />
+            <marker date="1438088618000" expanded="true" signature="1011:1048" placeholder="select * fro..utenti..." />
           </folding>
         </state>
       </provider>
