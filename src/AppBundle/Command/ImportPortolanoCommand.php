@@ -14,7 +14,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use PhpImap\Mailbox as MailBox;
 
-class ImportAttracchiCommand extends ContainerAwareCommand
+class ImportPortolanoCommand extends ContainerAwareCommand
 {
     protected $output;
     protected $em;
