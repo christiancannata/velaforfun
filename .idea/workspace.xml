@@ -2,6 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/Cassetta.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/Cassettatxt.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/bandiere.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/bandieretxt.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/bandieretxt.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/bollettino.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/bollettinotxt.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/bollettinotxt.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/cambusatxt.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/cambusatxt.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/cassettatxt.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/catvsmono.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/catvsmonotxt.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/catvsmonotxt.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/derive.doc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/derivetxt.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/articoli/derivetxt.zip" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="velaforfun.iws" />
@@ -267,6 +284,24 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="web">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="velaforfun">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="web">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="articoli">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
