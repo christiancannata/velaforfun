@@ -463,11 +463,11 @@
                                     </a>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 
-                                        <li class="dropdown-header">Profilo</li>
-                                        <li><a href="/tuo-profilo/">Modifica dati</a></li>
-                                        {% if not is_granted('ROLE_SUPER_ADMIN') %}
 
+                                        {% if not is_granted('ROLE_SUPER_ADMIN') %}
+                                            <li class="dropdown-header">Profilo</li>
                                         {% else %}
+                                            <li><a href="/tuo-profilo/">Modifica dati</a></li>
                                             <li><a href="/utenti/list">Lista Utenti</a></li>
                                             <li><a href="/forum/admin">Gestione Forum</a></li>
                                             <li><a href="/archivio/list/articoli">Lista Articoli</a></li>
@@ -476,6 +476,8 @@
                                             <li><a href="/segnalazione-portolano/list">Gestione Portolano Online</a>
                                             </li>
                                             <li><a href="/porti/list">Gestione Porti</a></li>
+                                            <li><a href="/commento-porto/list">Gestione Commenti porto</a></li>
+                                            <li><a href="/attracco/list">Gestione Attracchi</a></li>
                                             <li><a href="/nodi/list">Gestione Nodi</a></li>
 
                                             <li><a href="/galleria-foto/list">FotoGallery</a></li>

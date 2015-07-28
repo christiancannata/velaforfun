@@ -40,7 +40,7 @@
             // Provide your access token
             L.mapbox.accessToken = 'pk.eyJ1Ijoid2FrYXJldmEiLCJhIjoiMzhjZGQ4M2VlZThhNjZlYWZmODg1OTE2MWUyNjlkNjYifQ.jBl7tEajPnDGJzYqxMGMag';
             // Create a map in the div #map
-            var map = L.mapbox.map('map', 'wakareva.e12b38a9');
+            var map = L.mapbox.map('map', 'wakareva.e12b38a9').setView([42.908160, 12.348633], 6);
             var myLayer = null;
             // Build a marker from a simple GeoJSON object:
             var arrayPorti = new Array();
@@ -76,6 +76,11 @@
 
             myLayer = L.mapbox.featureLayer(arrayPorti).addTo(map);
 
+            myLayer.on('ready', function() {
+                // featureLayer.getBounds() returns the corners of the furthest-out markers,
+                // and map.fitBounds() makes sure that the map contains these.
+                map.fitBounds(myLayer.getBounds());
+            });
 
 // This uses the HTML5 geolocation API, which is available on
 // most mobile browsers and modern browsers, but not in Internet Explorer
