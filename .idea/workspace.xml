@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig" afterPath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="" />
     <ignored path="velaforfun.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -87,10 +84,9 @@
         <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.5113636">
-              <caret line="307" column="40" selection-start-line="307" selection-start-column="40" selection-end-line="307" selection-end-column="40" />
+              <caret line="307" column="87" selection-start-line="307" selection-start-column="87" selection-end-line="307" selection-end-column="87" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#0;n#div#1;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1198,10 +1194,9 @@
     <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5113636">
-          <caret line="307" column="40" selection-start-line="307" selection-start-column="40" selection-end-line="307" selection-end-column="40" />
+          <caret line="307" column="87" selection-start-line="307" selection-start-column="87" selection-end-line="307" selection-end-column="87" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#a#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#0;n#div#1;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
