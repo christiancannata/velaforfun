@@ -86,14 +86,20 @@
 
             <div class="divisore-big"></div>
 
-
+</div>
 
 <form enctype="multipart/form-data" action="" class="form-inline" role="form" method="post" name="appbundle_foto">
-
+<div class="col-md-3 column">
    {{ form_row(form.profilePictureFile) }}
+   </div>
+   <div class="col-md-3 column">
    {{ form_row(form.nome) }}
+    </div>
+     <div class="col-md-3 column">
   {{ form_row(form.galleria) }}
+ </div>
 
+  <div class="col-md-3 column">
 <button class="btn btn-default login hvr-sweep-to-right" style=" background: #429cbc none repeat scroll 0 0;
     border: medium none;
     border-radius: 0;
@@ -101,8 +107,11 @@
     font-size: 20px;
     margin-top: 17px;
     text-transform: uppercase;
-    width: 20%;" type="submit">Invia la tua foto
+    width: auto !important;" type="submit" s>Invia la tua foto
                         </button>
+
+               </div>
+  <div class="divisore-big"></div>
 </form>
 
 
