@@ -49,86 +49,29 @@ class ImportForumCommand extends ContainerAwareCommand
                     ->getRepository('AppBundle:CompatibilitaForum')->findOneByIdOld($data['ID']);
             if(!$inserito && $data['titolo']!=""){
                 $this->output->writeln("<comment>Importing: ".$data['titolo']." </comment>");
+                $user=$this->getContainer()->get('doctrine')
+                    ->getRepository('AppBundle:User')->findOneByUsername($data['autore']);
+                if($user){
 
-                $redirect=new CompatibilitaForum();
-                $redirect->setIdOld($data['ID']);
+                    $redirect=new CompatibilitaForum();
+                    $redirect->setIdOld($data['ID']);
 
-                $countPost = array();
-                $countRisposte = array();
-                $firstTopic = new Topic();
-                $firstTopic->setTitle($data['titolo']);
-                $firstTopic->setCachedViewCount($data['visite']);
-                $firstTopic->setBoard(
-                    $this->getContainer()->get('doctrine')
-                        ->getRepository('CCDNForumForumBundle:Board')->find($data['forum'])
-                );
+                    $countPost = array();
+                    $countRisposte = array();
+                    $firstTopic = new Topic();
+                    $firstTopic->setTitle($data['titolo']);
+                    $firstTopic->setCachedViewCount($data['visite']);
+                    $firstTopic->setBoard(
+                        $this->getContainer()->get('doctrine')
+                            ->getRepository('CCDNForumForumBundle:Board')->find($data['forum'])
+                    );
 
-                $this->em->persist($firstTopic);
-                $this->em->flush();
+                    $this->em->persist($firstTopic);
+                    $this->em->flush();
 
-                $redirect->setIdNew($firstTopic->getId());
+                    $redirect->setIdNew($firstTopic->getId());
 
-                $this->em->persist($redirect);
-
-                $post = new Post();
-                $post->setTopic($firstTopic);
-                $dataPost = new \DateTime($data['data']);
-                $ora = new \DateTime($data['ora']);
-                $post->setCreatedDate(new \DateTime($dataPost->format("Y-m-d")." ".$ora->format("H:i:m")));
-                $post->setCreatedBy(
-                    $this->getContainer()->get('doctrine')
-                        ->getRepository('AppBundle:User')->findOneByUsername($data['autore'])
-                );
-
-
-                $data['testo']=str_replace("[B]","<strong>",$data['testo']);
-                $data['testo']=str_replace("[/B]","</strong>",$data['testo']);
-                $data['testo']=str_replace("[I]","<i>",$data['testo']);
-
-                $data['testo']=str_replace("[/I]","</i>",$data['testo']);
-                $data['testo']=str_replace("[SIZE=1]","<i>",$data['testo']);
-                $data['testo']=str_replace("[/SIZE]","</i>",$data['testo']);
-                $data['testo']=str_replace("[SIZE=2]","<i>",$data['testo']);
-                $data['testo']=str_replace("[SIZE=3]","<i>",$data['testo']);
-
-                $data['testo']=str_replace("[/COLOR]","</font>",$data['testo']);
-                $data['testo']=str_replace("[COLOR=green]","<font style='color:green'>",$data['testo']);
-                $data['testo']=str_replace("[COLOR=red]","<font style='color:red'>",$data['testo']);
-                $data['testo']=str_replace("[COLOR=blue]","<font style='color:blue'>",$data['testo']);
-
-                $post->setBody(nl2br($data['testo']));
-
-                $this->em->persist($post);
-                $this->em->flush();
-                $countPost[] = $post;
-                $firstTopic->setFirstPost($post);
-                $firstTopic->setLastPost($post);
-
-                $this->em->merge($firstTopic);
-
-
-                $subscription=new \CCDNForum\ForumBundle\Subscription;
-                $subscription->setTopic($firstTopic);
-                $subscription->setOwnedBy( $this->getContainer()->get('doctrine')
-                    ->getRepository('AppBundle:User')->findOneByUsername($data['autore']));
-                $subscription->setSubscribed(true);
-                $subscription->setRead(false);
-
-                $forum = $this->container->get('doctrine')
-                    ->getRepository('CCDNForumForumBundle:Forum')->find(1);
-
-                $subscription->setForum($forum);
-
-                $this->em->persist($subscription);
-
-
-                $this->em->flush();
-
-                $query = "select * from forum1 where stato=0 and idr=".$data['ID']." ";
-
-                $risposte = $this->connection->executeQuery($query)->fetchAll();
-
-                foreach ($risposte as $risposta) {
+                    $this->em->persist($redirect);
 
                     $post = new Post();
                     $post->setTopic($firstTopic);
@@ -136,74 +79,138 @@ class ImportForumCommand extends ContainerAwareCommand
                     $ora = new \DateTime($data['ora']);
                     $post->setCreatedDate(new \DateTime($dataPost->format("Y-m-d")." ".$ora->format("H:i:m")));
                     $post->setCreatedBy(
-                        $this->getContainer()->get('doctrine')
-                            ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore'])
+                        $user
                     );
 
-                    $subscription=new \CCDNForum\ForumBundle\Subscription;
-                    $subscription->setTopic($firstTopic);
-                    $subscription->setOwnedBy(  $this->getContainer()->get('doctrine')
-                        ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore']));
-                    $subscription->setSubscribed(true);
-                    $subscription->setRead(true);
-                    $this->em->persist($subscription);
 
-                    $risposta['testo']=str_replace("[B]","<strong>",$risposta['testo']);
-                    $risposta['testo']=str_replace("[/B]","</strong>",$risposta['testo']);
-                    $risposta['testo']=str_replace("[I]","<i>",$risposta['testo']);
-                    $risposta['testo']=str_replace("[/I]","</i>",$risposta['testo']);
-                    $risposta['testo']=str_replace("[SIZE=1]","<i>",$risposta['testo']);
-                    $risposta['testo']=str_replace("[/SIZE]","</i>",$risposta['testo']);
-                    $risposta['testo']=str_replace("[SIZE=2]","<i>",$risposta['testo']);
-                    $risposta['testo']=str_replace("[SIZE=3]","<i>",$risposta['testo']);
+                    $data['testo']=str_replace("[B]","<strong>",$data['testo']);
+                    $data['testo']=str_replace("[/B]","</strong>",$data['testo']);
+                    $data['testo']=str_replace("[I]","<i>",$data['testo']);
 
-                    $risposta['testo']=str_replace("[/COLOR]","</font>",$risposta['testo']);
-                    $risposta['testo']=str_replace("[COLOR=green]","<font style='color:green'>",$risposta['testo']);
-                    $risposta['testo']=str_replace("[COLOR=red]","<font style='color:red'>",$risposta['testo']);
-                    $risposta['testo']=str_replace("[COLOR=blue]","<font style='color:blue'>",$risposta['testo']);
+                    $data['testo']=str_replace("[/I]","</i>",$data['testo']);
+                    $data['testo']=str_replace("[SIZE=1]","<i>",$data['testo']);
+                    $data['testo']=str_replace("[/SIZE]","</i>",$data['testo']);
+                    $data['testo']=str_replace("[SIZE=2]","<i>",$data['testo']);
+                    $data['testo']=str_replace("[SIZE=3]","<i>",$data['testo']);
 
-                    $post->setBody(nl2br($risposta['testo']));
+                    $data['testo']=str_replace("[/COLOR]","</font>",$data['testo']);
+                    $data['testo']=str_replace("[COLOR=green]","<font style='color:green'>",$data['testo']);
+                    $data['testo']=str_replace("[COLOR=red]","<font style='color:red'>",$data['testo']);
+                    $data['testo']=str_replace("[COLOR=blue]","<font style='color:blue'>",$data['testo']);
+
+                    $post->setBody(nl2br($data['testo']));
 
                     $this->em->persist($post);
                     $this->em->flush();
-                    $countRisposte[] = $post;
-
+                    $countPost[] = $post;
+                    $firstTopic->setFirstPost($post);
                     $firstTopic->setLastPost($post);
 
-
-
-
-
                     $this->em->merge($firstTopic);
 
 
+                    $subscription=new \CCDNForum\ForumBundle\Subscription;
+                    $subscription->setTopic($firstTopic);
+                    $subscription->setOwnedBy( $this->getContainer()->get('doctrine')
+                        ->getRepository('AppBundle:User')->findOneByUsername($data['autore']));
+                    $subscription->setSubscribed(true);
+                    $subscription->setRead(false);
+
+                    $forum = $this->container->get('doctrine')
+                        ->getRepository('CCDNForumForumBundle:Forum')->find(1);
+
+                    $subscription->setForum($forum);
+
+                    $this->em->persist($subscription);
+
 
                     $this->em->flush();
-                }
 
+                    $query = "select * from forum1 where stato=0 and idr=".$data['ID']." ";
 
-                if ($firstTopic) {
-                    $firstTopic->setCachedReplyCount(count($countRisposte));
-                    $this->em->merge($firstTopic);
-                    $this->em->flush();
-                }
+                    $risposte = $this->connection->executeQuery($query)->fetchAll();
 
+                    foreach ($risposte as $risposta) {
 
-                $board = $firstTopic->getBoard();
-                if ($board) {
-                    $board->setLastPost(end($countPost));
-                    $board->setCachedTopicCount(
-                        count(
+                        $post = new Post();
+                        $post->setTopic($firstTopic);
+                        $dataPost = new \DateTime($data['data']);
+                        $ora = new \DateTime($data['ora']);
+                        $post->setCreatedDate(new \DateTime($dataPost->format("Y-m-d")." ".$ora->format("H:i:m")));
+                        $post->setCreatedBy(
                             $this->getContainer()->get('doctrine')
-                                ->getRepository('CCDNForumForumBundle:Topic')->findByBoard($board)
-                        )
-                    );
-                    $board->setCachedPostCount(count($countPost));
-                    $this->em->merge($board);
-                    $this->em->flush();
+                                ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore'])
+                        );
 
-                    $this->output->writeln("<info>Importing: ".$data['titolo']." </info>");
+                        $subscription=new \CCDNForum\ForumBundle\Subscription;
+                        $subscription->setTopic($firstTopic);
+                        $subscription->setOwnedBy(  $this->getContainer()->get('doctrine')
+                            ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore']));
+                        $subscription->setSubscribed(true);
+                        $subscription->setRead(true);
+                        $this->em->persist($subscription);
+
+                        $risposta['testo']=str_replace("[B]","<strong>",$risposta['testo']);
+                        $risposta['testo']=str_replace("[/B]","</strong>",$risposta['testo']);
+                        $risposta['testo']=str_replace("[I]","<i>",$risposta['testo']);
+                        $risposta['testo']=str_replace("[/I]","</i>",$risposta['testo']);
+                        $risposta['testo']=str_replace("[SIZE=1]","<i>",$risposta['testo']);
+                        $risposta['testo']=str_replace("[/SIZE]","</i>",$risposta['testo']);
+                        $risposta['testo']=str_replace("[SIZE=2]","<i>",$risposta['testo']);
+                        $risposta['testo']=str_replace("[SIZE=3]","<i>",$risposta['testo']);
+
+                        $risposta['testo']=str_replace("[/COLOR]","</font>",$risposta['testo']);
+                        $risposta['testo']=str_replace("[COLOR=green]","<font style='color:green'>",$risposta['testo']);
+                        $risposta['testo']=str_replace("[COLOR=red]","<font style='color:red'>",$risposta['testo']);
+                        $risposta['testo']=str_replace("[COLOR=blue]","<font style='color:blue'>",$risposta['testo']);
+
+                        $post->setBody(nl2br($risposta['testo']));
+
+                        $this->em->persist($post);
+                        $this->em->flush();
+                        $countRisposte[] = $post;
+
+                        $firstTopic->setLastPost($post);
+
+
+
+
+
+                        $this->em->merge($firstTopic);
+
+
+
+                        $this->em->flush();
+                    }
+
+
+                    if ($firstTopic) {
+                        $firstTopic->setCachedReplyCount(count($countRisposte));
+                        $this->em->merge($firstTopic);
+                        $this->em->flush();
+                    }
+
+
+                    $board = $firstTopic->getBoard();
+                    if ($board) {
+                        $board->setLastPost(end($countPost));
+                        $board->setCachedTopicCount(
+                            count(
+                                $this->getContainer()->get('doctrine')
+                                    ->getRepository('CCDNForumForumBundle:Topic')->findByBoard($board)
+                            )
+                        );
+                        $board->setCachedPostCount(count($countPost));
+                        $this->em->merge($board);
+                        $this->em->flush();
+
+                        $this->output->writeln("<info>Importing: ".$data['titolo']." </info>");
+                    }
+
+
+
                 }
+
 
             }
 
