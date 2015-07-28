@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
 
 {% block title %}Archivio Fotografico
 {% endblock %}
@@ -20,7 +20,7 @@
             var offset = 3;
             var loading = false;
             $(window).scroll(function () {
-                if ($(window).scrollTop() >= ($("#loadmoreajaxloader").height() - $(window).height())) {
+                if ($(window).scrollTop() >= ($("#loadmoreajaxloader").height() - $(window).height()) ) {
                     if (loading == false) {
                         $('div#loadmoreajaxloader').show();
                         loading = true;
@@ -86,7 +86,7 @@
 
             <div class="divisore-big"></div>
 
-</div>
+
 
 <form enctype="multipart/form-data" action="" class="form-inline" role="form" method="post" name="appbundle_foto">
 <div class="col-md-3 column">
@@ -111,9 +111,8 @@
                         </button>
 
                </div>
-  <div class="divisore-big"></div>
-</form>
 
+</form>
 
 
         </div>
@@ -137,7 +136,7 @@
 
 
                 <a href="/foto/{{ gallery.permalink }}">   <div class="box-home" style="height: 330px;">
-                        <div style="opacity: 1;background-image: url(/uploads/galleria_foto/{{ copertina|url_encode }});"
+                        <div style="opacity: 1;background-image: url(/uploads/galleria_foto/{{ copertina|escape('url') }});"
                              class="divBackgroundImage" >
                         </div>
                         <div class="content">
