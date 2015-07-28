@@ -93,7 +93,7 @@ class ImportUtentiCommand extends ContainerAwareCommand
                     );
 
 
-                    $em = $this->container->get('doctrine')->getManager();
+                    $em = $this->getContainer()->get('doctrine')->getManager();
 
                     $em->persist($iscrizione);
 
@@ -158,7 +158,7 @@ class ImportUtentiCommand extends ContainerAwareCommand
                         );
 
 
-                        $em = $this->container->get('doctrine')->getManager();
+                        $em = $this->getContainer()->get('doctrine')->get('doctrine')->getManager();
 
                         $em->persist($iscrizione);
 
