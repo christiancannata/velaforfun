@@ -234,7 +234,7 @@ class ArticoloController extends BaseController
         }
         $categorie = $em->getRepository('BlogBundle:Categoria')->findAll();
 
-        $exclude = array(2,11,12,13,14,15);
+        $exclude = array(11,12,13,14,15);
         foreach ($categorie as $key => $entity) {
             if ($entity != null && in_array($entity->getId(), $exclude)) {
                 unset($categorie[$key]);
