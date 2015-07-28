@@ -36,7 +36,7 @@ class ImportForumCommand extends ContainerAwareCommand
         $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $this->connection = $this->getContainer()->get('database_connection');
 
-        $query = "select f.* from forum1 f where f.stato=0 and f.idr=0 and ID not in (select distinct id_old from compatibilita_forum) order by ID desc limit 0,10";
+        $query = "select f.* from forum1 f where f.stato=0 and f.idr=0 and ID not in (select distinct id_old from compatibilita_forum) order by ID";
 
         $res = $this->connection->executeQuery($query)->fetchAll();
 
