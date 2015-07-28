@@ -66,22 +66,24 @@
       <file leaf-file-name="ImportForumCommand.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.375">
-              <caret line="101" column="65" selection-start-line="101" selection-start-column="65" selection-end-line="101" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.48863637">
+              <caret line="56" column="69" selection-start-line="56" selection-start-column="69" selection-end-line="56" selection-end-column="69" />
               <folding>
                 <element signature="e#36#59#0#PHP" expanded="true" />
-                <marker date="1438102297000" expanded="true" signature="1151:1279" placeholder="select f.* f..forum1..." />
-                <marker date="1438102297000" expanded="true" signature="1219:1266" placeholder="select disti..compatibilita_forum..." />
-                <marker date="1438102297000" expanded="true" signature="2005:2041" placeholder="select * fro..utenti..." />
-                <marker date="1438102297000" expanded="true" signature="2005:2042" placeholder="select * fro..utenti..." />
-                <marker date="1438102297000" expanded="true" signature="2005:2062" placeholder="select * fro..utenti..." />
-                <marker date="1438102297000" expanded="true" signature="7401:7412" placeholder="..." />
-                <marker date="1438102297000" expanded="true" signature="7512:7521" placeholder="..." />
-                <marker date="1438102297000" expanded="true" signature="7622:7632" placeholder="..." />
-                <marker date="1438102297000" expanded="true" signature="8789:8832" placeholder="select * fro..forum1..." />
-                <marker date="1438102297000" expanded="true" signature="11144:11155" placeholder="..." />
-                <marker date="1438102297000" expanded="true" signature="11320:11329" placeholder="..." />
-                <marker date="1438102297000" expanded="true" signature="11499:11509" placeholder="..." />
+                <marker date="1438102454000" expanded="true" signature="1151:1279" placeholder="select f.* f..forum1..." />
+                <marker date="1438102454000" expanded="true" signature="1219:1266" placeholder="select disti..compatibilita_forum..." />
+                <marker date="1438102454000" expanded="true" signature="2005:2041" placeholder="select * fro..utenti..." />
+                <marker date="1438102454000" expanded="true" signature="2005:2042" placeholder="select * fro..utenti..." />
+                <marker date="1438102454000" expanded="true" signature="2005:2050" placeholder="select * fro..utenti..." />
+                <marker date="1438102454000" expanded="true" signature="2005:2061" placeholder="select * fro..utenti..." />
+                <marker date="1438102454000" expanded="true" signature="2005:2062" placeholder="select * fro..utenti..." />
+                <marker date="1438102454000" expanded="true" signature="7401:7412" placeholder="..." />
+                <marker date="1438102454000" expanded="true" signature="7512:7521" placeholder="..." />
+                <marker date="1438102454000" expanded="true" signature="7622:7632" placeholder="..." />
+                <marker date="1438102454000" expanded="true" signature="8789:8832" placeholder="select * fro..forum1..." />
+                <marker date="1438102454000" expanded="true" signature="11144:11155" placeholder="..." />
+                <marker date="1438102454000" expanded="true" signature="11320:11329" placeholder="..." />
+                <marker date="1438102454000" expanded="true" signature="11499:11509" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -1087,22 +1089,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.375">
-          <caret line="101" column="65" selection-start-line="101" selection-start-column="65" selection-end-line="101" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.48863637">
+          <caret line="56" column="69" selection-start-line="56" selection-start-column="69" selection-end-line="56" selection-end-column="69" />
           <folding>
             <element signature="e#36#59#0#PHP" expanded="true" />
-            <marker date="1438102297000" expanded="true" signature="1151:1279" placeholder="select f.* f..forum1..." />
-            <marker date="1438102297000" expanded="true" signature="1219:1266" placeholder="select disti..compatibilita_forum..." />
-            <marker date="1438102297000" expanded="true" signature="2005:2041" placeholder="select * fro..utenti..." />
-            <marker date="1438102297000" expanded="true" signature="2005:2042" placeholder="select * fro..utenti..." />
-            <marker date="1438102297000" expanded="true" signature="2005:2062" placeholder="select * fro..utenti..." />
-            <marker date="1438102297000" expanded="true" signature="7401:7412" placeholder="..." />
-            <marker date="1438102297000" expanded="true" signature="7512:7521" placeholder="..." />
-            <marker date="1438102297000" expanded="true" signature="7622:7632" placeholder="..." />
-            <marker date="1438102297000" expanded="true" signature="8789:8832" placeholder="select * fro..forum1..." />
-            <marker date="1438102297000" expanded="true" signature="11144:11155" placeholder="..." />
-            <marker date="1438102297000" expanded="true" signature="11320:11329" placeholder="..." />
-            <marker date="1438102297000" expanded="true" signature="11499:11509" placeholder="..." />
+            <marker date="1438102454000" expanded="true" signature="1151:1279" placeholder="select f.* f..forum1..." />
+            <marker date="1438102454000" expanded="true" signature="1219:1266" placeholder="select disti..compatibilita_forum..." />
+            <marker date="1438102454000" expanded="true" signature="2005:2041" placeholder="select * fro..utenti..." />
+            <marker date="1438102454000" expanded="true" signature="2005:2042" placeholder="select * fro..utenti..." />
+            <marker date="1438102454000" expanded="true" signature="2005:2050" placeholder="select * fro..utenti..." />
+            <marker date="1438102454000" expanded="true" signature="2005:2061" placeholder="select * fro..utenti..." />
+            <marker date="1438102454000" expanded="true" signature="2005:2062" placeholder="select * fro..utenti..." />
+            <marker date="1438102454000" expanded="true" signature="7401:7412" placeholder="..." />
+            <marker date="1438102454000" expanded="true" signature="7512:7521" placeholder="..." />
+            <marker date="1438102454000" expanded="true" signature="7622:7632" placeholder="..." />
+            <marker date="1438102454000" expanded="true" signature="8789:8832" placeholder="select * fro..forum1..." />
+            <marker date="1438102454000" expanded="true" signature="11144:11155" placeholder="..." />
+            <marker date="1438102454000" expanded="true" signature="11320:11329" placeholder="..." />
+            <marker date="1438102454000" expanded="true" signature="11499:11509" placeholder="..." />
           </folding>
         </state>
       </provider>

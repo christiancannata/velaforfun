@@ -54,7 +54,7 @@ class ImportForumCommand extends ContainerAwareCommand
 
                 if (!$user) {
 
-                    $queryU = "select * from utenti where username='".$data['autore']."'";
+                    $queryU = 'select * from utenti where username="'.$data['autore'].'"';
 
                     $utenti = $this->connection->executeQuery($queryU)->fetchAll();
                     if(count($utenti)>0){
