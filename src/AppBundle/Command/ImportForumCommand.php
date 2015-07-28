@@ -49,7 +49,7 @@ class ImportForumCommand extends ContainerAwareCommand
             if (!$inserito && $data['titolo'] != "") {
                 $this->output->writeln("<comment>Importing: ".$data['titolo']." </comment>");
                 $user = $this->getContainer()->get('doctrine')
-                    ->getRepository('AppBundle:User')->findOneByUsername($data['autore']);
+                    ->getRepository('AppBundle:User')->findOneBy(array("username"=>$data['autore']));
 
                 if (!$user) {
 
