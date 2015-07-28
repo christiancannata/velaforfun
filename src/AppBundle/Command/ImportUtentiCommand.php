@@ -44,7 +44,63 @@ class ImportUtentiCommand extends ContainerAwareCommand
                 ->getRepository('AppBundle:User')->findOneByEmail($data['mail']);
 
             if ($utente) {
-                $this->output->writeln("<comment>Gia presente: ".$data['username']." </comment>");
+                $this->output->writeln("<comment>Gia presente aggiorno: ".$data['username']." </comment>");
+
+                $utente->setIdOriginale($data['ID']);
+                $utente->setNome("");
+                $utente->setEmail($data['mail']);
+                $utente->setTimestamp(new \DateTime($data['data']));
+                $utente->setCognome("");
+
+                $data['firma'] = str_replace("[B]", "<strong>", $data['firma']);
+                $data['firma'] = str_replace("[/B]", "</strong>", $data['firma']);
+                $data['firma'] = str_replace("[I]", "<i>", $data['firma']);
+                $data['firma'] = str_replace("[/I]", "</i>", $data['firma']);
+
+
+                $utente->setFirma($data['firma']);
+                $utente->setUsername($data['username']);
+                $utente->setPlainPassword($data['password']);
+                $utente->setPrivacy($data['privacy']);
+                $utente->setProfilePicturePath($data['avart']);
+                $utente->setEnabled(1);
+
+                $this->em->merge($utente);
+
+
+
+                $repository = $this->getDoctrine()
+                    ->getRepository('AppBundle\Entity\Newsletter\Subscriber');
+                $iscritto = $repository->findOneByEmail($data['mail']);
+
+
+                if (!$iscritto) {
+                    $repository = $this->getDoctrine()
+                        ->getRepository('AppBundle\Entity\Newsletter\Mandant');
+                    $mandant = $repository->find(1);
+
+                    $iscrizione = new Subscriber();
+                    $iscrizione->setMandant($mandant);
+                    $iscrizione->setLocale("it");
+                    $iscrizione->setEmail($data['mail']);
+                    $iscrizione->setFirstName($data['username']);
+                    $iscrizione->setLastName("");
+                    $iscrizione->setGender("MALE");
+                    $iscrizione->setCompanyname("");
+                    $iscrizione->setTitle("");
+                    $iscrizione->addGroup(
+                        $this->getDoctrine()
+                            ->getRepository('AppBundle\Entity\Newsletter\Group')->find(1)
+                    );
+
+
+                    $em = $this->container->get('doctrine')->getManager();
+
+                    $em->persist($iscrizione);
+
+                }
+                $this->em->flush();
+
             } else {
 
                 $utente = $this->getContainer()->get('doctrine')
