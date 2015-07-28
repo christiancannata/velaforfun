@@ -58,28 +58,28 @@ class ImportForumCommand extends ContainerAwareCommand
 
                     $utenti = $this->connection->executeQuery($queryU)->fetchAll();
                     if(count($utenti)>0){
-                        $data=$utenti[0];
+                        $dataUtente=$utenti[0];
 
-                        $this->output->writeln("<comment>Importing: ".$data['username']." </comment>");
+                        $this->output->writeln("<comment>Importing: ".$dataUtente['username']." </comment>");
 
                         $utente = new User();
-                        $utente->setIdOriginale($data['ID']);
+                        $utente->setIdOriginale($dataUtente['ID']);
                         $utente->setNome("");
-                        $utente->setEmail($data['mail']);
-                        $utente->setTimestamp(new \DateTime($data['data']));
+                        $utente->setEmail($dataUtente['mail']);
+                        $utente->setTimestamp(new \DateTime($dataUtente['data']));
                         $utente->setCognome("");
 
-                        $data['firma'] = str_replace("[B]", "<strong>", $data['firma']);
-                        $data['firma'] = str_replace("[/B]", "</strong>", $data['firma']);
-                        $data['firma'] = str_replace("[I]", "<i>", $data['firma']);
-                        $data['firma'] = str_replace("[/I]", "</i>", $data['firma']);
+                        $dataUtente['firma'] = str_replace("[B]", "<strong>", $dataUtente['firma']);
+                        $dataUtente['firma'] = str_replace("[/B]", "</strong>", $dataUtente['firma']);
+                        $dataUtente['firma'] = str_replace("[I]", "<i>", $dataUtente['firma']);
+                        $dataUtente['firma'] = str_replace("[/I]", "</i>", $dataUtente['firma']);
 
 
-                        $utente->setFirma($data['firma']);
-                        $utente->setUsername($data['username']);
-                        $utente->setPlainPassword($data['password']);
-                        $utente->setPrivacy($data['privacy']);
-                        $utente->setProfilePicturePath($data['avart']);
+                        $utente->setFirma($dataUtente['firma']);
+                        $utente->setUsername($dataUtente['username']);
+                        $utente->setPlainPassword($dataUtente['password']);
+                        $utente->setPrivacy($dataUtente['privacy']);
+                        $utente->setProfilePicturePath($dataUtente['avart']);
                         $utente->setEnabled(1);
 
                         $this->em->persist($utente);
@@ -87,7 +87,7 @@ class ImportForumCommand extends ContainerAwareCommand
 
                         $repository = $this->getContainer()->get('doctrine')
                             ->getRepository('AppBundle\Entity\Newsletter\Subscriber');
-                        $iscritto = $repository->findOneByEmail($data['mail']);
+                        $iscritto = $repository->findOneByEmail($dataUtente['mail']);
 
 
                         if (!$iscritto) {
@@ -98,8 +98,8 @@ class ImportForumCommand extends ContainerAwareCommand
                             $iscrizione = new \AppBundle\Entity\Newsletter\Subscriber();
                             $iscrizione->setMandant($mandant);
                             $iscrizione->setLocale("it");
-                            $iscrizione->setEmail($data['mail']);
-                            $iscrizione->setFirstName($data['username']);
+                            $iscrizione->setEmail($dataUtente['mail']);
+                            $iscrizione->setFirstName($dataUtente['username']);
                             $iscrizione->setLastName("");
                             $iscrizione->setGender("MALE");
                             $iscrizione->setCompanyname("");
