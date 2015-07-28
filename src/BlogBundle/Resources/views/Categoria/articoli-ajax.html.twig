@@ -1,30 +1,32 @@
-
 {% for articolo in articoli %}
     <div class="col-md-4 column">
-            <div class="box-sub hvr-underline-from-left">
-                <div class="foto">
+        <div class="box-sub hvr-underline-from-left">
+            <div class="foto">
 
-                    <div class="category">
-                        <a href="/archivio/{{ articolo.categoria.permalink }}"><span
-                                    style="background:{{ articolo.categoria.getColore() }}">{{ articolo.categoria.nome|capitalize }}</span>
+                <div class="category">
+                    <a href="/archivio/{{ articolo.categoria.permalink }}"><span
+                                style="background:{{ articolo.categoria.getColore() }}">{{ articolo.categoria.nome|capitalize }}</span>
                             <span style="background:{{ articolo.categoria.getColore() }};   padding-left: 11px;
                                     padding-right: 11px;font-weight: bold;">+</span>
-                        </a>
-                    </div>
-
-                    <div class="center-cropped"
-                         style="background-image: url('{{ getCopertina(articolo,'thumb') }}')">
-                    </div>
+                    </a>
                 </div>
-                <a href="/archivio/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}">  <h4>{{ articolo.titolo }}</h4>
+
+                <div class="center-cropped"
+                     style="background-image: url('{{ getCopertina(articolo,'thumb') }}')">
+                </div>
+            </div>
+            <a href="/archivio/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}">
+                <h4>{{ articolo.titolo }}</h4>
+
+                <p>
                     {% if articolo.sottotitolo!="" %}
                         {{ articolo.sottotitolo|slice(0, 140)|raw|striptags }}...
                     {% else %}
                         &nbsp;
                     {% endif %}
-
-                </a>
-            </div>
+                </p>
+            </a>
+        </div>
 
     </div>
 
