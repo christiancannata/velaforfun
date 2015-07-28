@@ -13,6 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use CCDNForum\ForumBundle\Entity\Post;
 use CCDNForum\ForumBundle\Entity\Topic;
 use CCDNForum\ForumBundle\Entity\Board;
+use CCDNForum\ForumBundle\Entity\Subscription;
 use AppBundle\Entity\CompatibilitaForum;
 
 class ImportForumCommand extends ContainerAwareCommand
@@ -109,7 +110,7 @@ class ImportForumCommand extends ContainerAwareCommand
                     $this->em->merge($firstTopic);
 
 
-                    $subscription=new \CCDNForum\ForumBundle\Entity\Subscription;
+                    $subscription=new Subscription();
                     $subscription->setTopic($firstTopic);
                     $subscription->setOwnedBy( $this->getContainer()->get('doctrine')
                         ->getRepository('AppBundle:User')->findOneByUsername($data['autore']));
@@ -142,7 +143,7 @@ class ImportForumCommand extends ContainerAwareCommand
                                 ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore'])
                         );
 
-                        $subscription=new \CCDNForum\ForumBundle\Entity\Subscription;
+                        $subscription=new Subscription();
                         $subscription->setTopic($firstTopic);
                         $subscription->setOwnedBy(  $this->getContainer()->get('doctrine')
                             ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore']));
