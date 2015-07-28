@@ -164,6 +164,16 @@ class PaginaStatica
     }
 
     /**
+     * @ORM\PrePersist
+     */
+    public function generatePermalink()
+    {
+        $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $this->titolo."-".rand(1, 99));
+        $this->permalink = strtolower($slug);
+    }
+
+
+    /**
      * @return string
      */
     public function getTitolo()

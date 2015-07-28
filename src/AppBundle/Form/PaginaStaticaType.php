@@ -16,7 +16,7 @@ class PaginaStaticaType extends AbstractType
     {
         $builder
             ->add('nome')
-            ->add('permalink')
+            ->add('permalink','hidden')
             ->add('titolo')
             ->add('isActive')
             ->add('descrizione')
