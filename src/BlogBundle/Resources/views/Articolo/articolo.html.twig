@@ -302,6 +302,12 @@
                                  style="height: 230px;background-image: url('/images/articoli/{{ articolo.immagineCorrelataArticolo }}');">
                             </div>
                         </div>
+                    {% else %}
+                        <div class="foto">
+                            <div class="center-cropped"
+                                 style="height: 230px;background-image: url('/images/rsz_img_marcaposto.jpg');">
+                            </div>
+                        </div>
                     {% endif %}
                     <div class="content">
                         <h4>{{ articolo.titoloCorrelato }}</h4>
