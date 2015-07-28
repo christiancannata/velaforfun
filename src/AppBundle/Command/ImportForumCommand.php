@@ -111,6 +111,8 @@ class ImportForumCommand extends ContainerAwareCommand
                 $subscription->setTopic($firstTopic);
                 $subscription->setOwnedBy( $this->getContainer()->get('doctrine')
                     ->getRepository('AppBundle:User')->findOneByUsername($data['autore']));
+                $subscription->setSubscribed(true);
+                $subscription->setRead(false);
 
                 $forum = $this->container->get('doctrine')
                     ->getRepository('CCDNForumForumBundle:Forum')->find(1);
@@ -137,6 +139,15 @@ class ImportForumCommand extends ContainerAwareCommand
                         $this->getContainer()->get('doctrine')
                             ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore'])
                     );
+
+                    $subscription=new \CCDNForum\ForumBundle\Subscription;
+                    $subscription->setTopic($firstTopic);
+                    $subscription->setOwnedBy(  $this->getContainer()->get('doctrine')
+                        ->getRepository('AppBundle:User')->findOneByUsername($risposta['autore']));
+                    $subscription->setSubscribed(true);
+                    $subscription->setRead(true);
+                    $this->em->persist($subscription);
+
                     $risposta['testo']=str_replace("[B]","<strong>",$risposta['testo']);
                     $risposta['testo']=str_replace("[/B]","</strong>",$risposta['testo']);
                     $risposta['testo']=str_replace("[I]","<i>",$risposta['testo']);
