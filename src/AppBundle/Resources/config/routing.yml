@@ -76,6 +76,11 @@ annuncio:
     type:     annotation
     prefix:   /annuncio
 
+attracco:
+    resource: "@AppBundle/Controller/AttraccoController.php"
+    type:     annotation
+    prefix:   /attracco
+
 annuncio_scambio_posto:
     resource: "@AppBundle/Controller/AnnuncioScambioPostoController.php"
     type:     annotation
