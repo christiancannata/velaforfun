@@ -258,10 +258,9 @@ class DefaultController extends BaseController
             $messaggio = $mailer->createMessage()
                 ->setSubject('Nuova richiesta di contatto')
                 ->setFrom('info@velaforfun.com')
-                ->setTo('christian1488@hotmail.it')
+                ->setTo('info@velaforfun.com')
                 ->setBody(
                     $this->container->get('templating')->render(
-                    // app/Resources/views/Emails/registrazione.html.twig
                         'Emails/richiesta_contatto.html.twig',
                         array('contatto' => $params['contatto'])
                     ),
