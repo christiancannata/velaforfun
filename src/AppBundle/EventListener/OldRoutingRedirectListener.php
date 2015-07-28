@@ -84,15 +84,13 @@ class OldRoutingRedirectListener extends ContainerAware
             $redirect = true;
             $route = "nome_barca_home";
 
-            if($request->get("lettera")){
+            if ($request->get("lettera")) {
                 $route = "nome_barca_singolo";
                 $params["lettera"] = $request->get("lettera");
             }
 
 
-
         }
-
 
 
         if (strstr($path, "nodi.asp")) {
@@ -101,8 +99,19 @@ class OldRoutingRedirectListener extends ContainerAware
         }
 
         if (strstr($path, "bandiere.asp")) {
-            $redirect = true;
-            $route = "codice-internazionale";
+
+            if ($request->get("frase")) {
+
+                $redirect = true;
+                $route = "segnali";
+                $params["frase"] = $request->get("frase");
+
+
+            } else {
+                $redirect = true;
+                $route = "segnali";
+            }
+
         }
 
 
@@ -118,19 +127,19 @@ class OldRoutingRedirectListener extends ContainerAware
 
         if (strstr($path, "img_visual.asp")) {
 
-            if($request->get("cat")){
+            if ($request->get("cat")) {
                 $post = $this->container->get('doctrine')
                     ->getRepository('AppBundle:GalleriaFoto')->find($request->get("cat"));
-                if($post) {
+                if ($post) {
                     $redirect = true;
                     $route = "galleria_foto";
                     $params["permalink"] = $post->getPermalink();
-                }else{
+                } else {
                     $redirect = true;
                     $route = "foto";
                 }
 
-            }else{
+            } else {
                 $redirect = true;
                 $route = "foto";
             }
@@ -139,19 +148,19 @@ class OldRoutingRedirectListener extends ContainerAware
 
         if (strstr($path, "video_visual.asp")) {
 
-            if($request->get("cat")){
+            if ($request->get("cat")) {
                 $post = $this->container->get('doctrine')
                     ->getRepository('AppBundle:CategoriaVideo')->find($request->get("cat"));
-                if($post) {
+                if ($post) {
                     $redirect = true;
                     $route = "dettaglio_video";
                     $params["permalink"] = $post->getPermalink();
-                }else{
+                } else {
                     $redirect = true;
                     $route = "video";
                 }
 
-            }else{
+            } else {
                 $redirect = true;
                 $route = "video";
             }
@@ -161,26 +170,25 @@ class OldRoutingRedirectListener extends ContainerAware
 
         if (strstr($path, "cucina_v.asp")) {
 
-            if($request->get("ricetta")){
+            if ($request->get("ricetta")) {
                 $post = $this->container->get('doctrine')
                     ->getRepository('BlogBundle:Articolo')->findOneByIdOriginale($request->get("ricetta"));
-                if($post) {
+                if ($post) {
                     $redirect = true;
                     $route = "articolo";
                     $params["categoria"] = $post->getCategoria()->getPermalink();
                     $params["permalink"] = $post->getPermalink();
-                }else{
+                } else {
                     $redirect = true;
                     $route = "ricette";
                 }
 
-            }else{
+            } else {
                 $redirect = true;
                 $route = "ricette";
             }
 
         }
-
 
 
         if (strstr($path, "imbarco_i.asp")) {
@@ -189,21 +197,21 @@ class OldRoutingRedirectListener extends ContainerAware
         }
 
         if (strstr($path, "public/forum/visual.asp")) {
-            if($request->get("post")){
+            if ($request->get("post")) {
                 $post = $this->container->get('doctrine')
                     ->getRepository('AppBundle:CompatibilitaForum')->findOneByIdOld($request->get("post"));
-                if($post) {
+                if ($post) {
                     $redirect = true;
                     $route = "ccdn_forum_user_topic_show";
                     $params["forumName"] = "velaforfun";
                     $params["topicId"] = $post->getIdNew();
-                }else{
+                } else {
                     $redirect = true;
                     $route = "ccdn_forum_user_topic_show";
                     $params["forumName"] = "velaforfun";
                 }
 
-            }else{
+            } else {
                 $redirect = true;
                 $route = "ccdn_forum_user_topic_show";
                 $params["forumName"] = "velaforfun";
@@ -212,21 +220,21 @@ class OldRoutingRedirectListener extends ContainerAware
         }
 
         if (strstr($path, "forumdir.asp")) {
-            if($request->get("forum")){
+            if ($request->get("forum")) {
                 $post = $this->container->get('doctrine')
                     ->getRepository('AppBundle:CompatibilitaForum')->findOneByIdOld($request->get("forum"));
-                if($post){
+                if ($post) {
                     $redirect = true;
                     $route = "ccdn_forum_user_category_index";
                     $params["forumName"] = "velaforfun";
                     $params["topicId"] = $post->getIdNew();
-                }else{
+                } else {
                     $redirect = true;
                     $route = "ccdn_forum_user_category_index";
                     $params["forumName"] = "velaforfun";
                 }
 
-            }else{
+            } else {
                 $redirect = true;
                 $route = "ccdn_forum_user_category_index";
                 $params["forumName"] = "velaforfun";
@@ -260,19 +268,19 @@ class OldRoutingRedirectListener extends ContainerAware
         }
 
         if (strstr($path, "porti/dettaglio.asp")) {
-            if($request->get("id")){
+            if ($request->get("id")) {
                 $post = $this->container->get('doctrine')
                     ->getRepository('AppBundle:Porto')->findOneByIdOriginale($request->get("id"));
-                if($post) {
+                if ($post) {
                     $redirect = true;
                     $route = "dettaglio_porto";
                     $params["permalink"] = $post->getPermalink();
-                }else{
+                } else {
                     $redirect = true;
                     $route = "porti_italia";
                 }
 
-            }else{
+            } else {
                 $redirect = true;
                 $route = "porti_italia";
             }
@@ -289,21 +297,21 @@ class OldRoutingRedirectListener extends ContainerAware
 
     public function onKernelException(\Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent $event)
     {
-        $exception =  $event->getException();
+        $exception = $event->getException();
         if ($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
             //create response, set status code etc.
 
 
             $url = $this->container->get('router')->generate("homepage");
 
-            $request=$event->getRequest();
+            $request = $event->getRequest();
 
-            $path=explode("/",$request->getPathInfo());
+            $path = explode("/", $request->getPathInfo());
             array_pop($path);
 
-            $path=implode("/",$path);
+            $path = implode("/", $path);
 
-            $url=$path;
+            $url = $path;
 
 
             $response = new RedirectResponse($url);
