@@ -118,7 +118,7 @@ class ImportForumCommand extends ContainerAwareCommand
 
 
                         $this->em->flush();
-                        $user = $iscrizione;
+                        $user = $utente;
 
 
                     }
