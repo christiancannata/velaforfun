@@ -40,7 +40,12 @@ class CommentoPortoController extends BaseController
      */
     public function listAction(Request $request)
     {
-        return $this->cGet();
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entities = $em->getRepository("AppBundle:".$this->entity)->findAll();
+
+
+        return $this->render('AppBundle:Crud:list-commenti-porto.html.twig', array('entities' => $entities));
     }
 
 
