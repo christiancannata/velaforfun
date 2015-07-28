@@ -23,7 +23,7 @@ class ArticoloType extends AbstractType
             )))
             ->add('profilePictureFile',null,array("label"=>"Immagine articolo"))
             ->add('tags')
-            ->add('idComunicato')
+            ->add('idComunicato','hidden')
             ->add('autore')
             ->add('categoria')
             ->add('permalink','hidden')

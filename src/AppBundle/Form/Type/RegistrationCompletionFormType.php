@@ -14,7 +14,9 @@ class RegistrationCompletionFormType extends AbstractType
 		$builder->add('cognome');
         $builder->add('username');
         $builder->add('email');
+        $builder->add('password');
         $builder->add('firma');
+        $builder->add('profilePictureFile',null, array('label' => 'Avatar'));
         $builder->add('dataNascita','birthday');
         $builder->add('roles', 'choice', array(
             'choices' => array(
