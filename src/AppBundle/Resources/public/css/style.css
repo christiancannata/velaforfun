@@ -689,6 +689,7 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
     background: rgb(61, 144, 173) none repeat scroll 0 0;
     padding-top: 5px;
     padding-bottom: 5px;
+    width: 255px;
 }
 
 .dropdown-menu li a.bordered {
