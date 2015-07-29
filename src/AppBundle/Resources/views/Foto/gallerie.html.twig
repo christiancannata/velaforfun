@@ -125,10 +125,10 @@
         <div id="postswrapper">
     {% for gallery in gallerie|slice(0,3) %}
         {% if gallery.foto|length > 0%}
-        {% set copertina = '/uploads/galleria_foto/'~gallery.foto[0].immagine|replace({' ': "%20"}) %}
+        {% set copertina = '/uploads/galleria_foto/'~gallery.foto[0].immagine %}
         {% for foto in gallery.foto %}
             {% if foto.inEvidenza == 1 %}
-                {% set copertina = '/uploads/galleria_foto/'~foto.immagine|replace({' ': "%20"}) %}
+                {% set copertina = '/uploads/galleria_foto/'~foto.immagine %}
             {% endif %}
         {% endfor %}
 
