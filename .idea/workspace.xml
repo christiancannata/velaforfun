@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26c5c8a9-b3dd-4c61-8a1f-06dd6018a33f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig" afterPath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig" afterPath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig" afterPath="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="velaforfun.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,32 +32,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ImportForumCommand.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Command/ImportForumCommand.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
-              <folding>
-                <element signature="e#36#59#0#PHP" expanded="true" />
-                <marker date="1438102454000" expanded="true" signature="1151:1279" placeholder="select f.* f..forum1..." />
-                <marker date="1438102454000" expanded="true" signature="1219:1266" placeholder="select disti..compatibilita_forum..." />
-                <marker date="1438102454000" expanded="true" signature="2005:2041" placeholder="select * fro..utenti..." />
-                <marker date="1438102454000" expanded="true" signature="2005:2042" placeholder="select * fro..utenti..." />
-                <marker date="1438102454000" expanded="true" signature="2005:2050" placeholder="select * fro..utenti..." />
-                <marker date="1438102454000" expanded="true" signature="2005:2061" placeholder="select * fro..utenti..." />
-                <marker date="1438102454000" expanded="true" signature="2005:2062" placeholder="select * fro..utenti..." />
-                <marker date="1438102454000" expanded="true" signature="7401:7412" placeholder="..." />
-                <marker date="1438102454000" expanded="true" signature="7512:7521" placeholder="..." />
-                <marker date="1438102454000" expanded="true" signature="7622:7632" placeholder="..." />
-                <marker date="1438102454000" expanded="true" signature="8789:8832" placeholder="select * fro..forum1..." />
-                <marker date="1438102454000" expanded="true" signature="11144:11155" placeholder="..." />
-                <marker date="1438102454000" expanded="true" signature="11320:11329" placeholder="..." />
-                <marker date="1438102454000" expanded="true" signature="11499:11509" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -69,8 +45,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.259259">
-              <caret line="724" column="13" selection-start-line="724" selection-start-column="13" selection-end-line="724" selection-end-column="13" />
+            <state vertical-scroll-proportion="-13.888889">
+              <caret line="2332" column="1" selection-start-line="2332" selection-start-column="1" selection-end-line="2332" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -89,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="articolo.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="articolo.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9321357">
-              <caret line="251" column="46" selection-start-line="251" selection-start-column="46" selection-end-line="251" selection-end-column="46" />
+            <state vertical-scroll-proportion="19.666666">
+              <caret line="229" column="56" selection-start-line="229" selection-start-column="56" selection-end-line="229" selection-end-column="56" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
               </folding>
@@ -101,22 +77,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArticoloType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BlogBundle/Form/ArticoloType.php">
+      <file leaf-file-name="gallerie.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/gallerie.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+            <state vertical-scroll-proportion="-12.5">
+              <caret line="113" column="26" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gallerie.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/gallerie.html.twig">
+      <file leaf-file-name="categoria.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="86" column="36" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="36" />
-              <folding />
+            <state vertical-scroll-proportion="-12.625">
+              <caret line="167" column="30" selection-start-line="167" selection-start-column="30" selection-end-line="167" selection-end-column="30" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="articoli-ajax.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.42613637">
+              <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+              <folding>
+                <element signature="e#801#870#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,8 +114,8 @@
       <file leaf-file-name="RegistrationCompletionFormType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/Type/RegistrationCompletionFormType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state vertical-scroll-proportion="-6.375">
+              <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -185,8 +175,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Crud/list-comunicati.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Crud/list-ricette.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Twig/Extension/MenuVelaExtension.php" />
-        <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig" />
-        <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/GalleriaFoto.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/FotoType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Crud/create.html.twig" />
@@ -218,6 +206,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig" />
+        <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig" />
+        <option value="$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig" />
       </list>
     </option>
   </component>
@@ -300,6 +290,84 @@
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
             <PATH_ELEMENT USER_OBJECT="BlogBundle">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="velaforfun">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="BlogBundle">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Resources">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="velaforfun">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="BlogBundle">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Resources">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="views">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Categoria">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="velaforfun">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="BlogBundle">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Resources">
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
@@ -814,13 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30871212">
-          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Crud/list-comunicati.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3693182">
@@ -902,13 +963,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.625">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="96.75">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1060,20 +1114,20 @@
           <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
           <folding>
             <element signature="e#36#59#0#PHP" expanded="true" />
-            <marker date="1438102454000" expanded="true" signature="1151:1279" placeholder="select f.* f..forum1..." />
-            <marker date="1438102454000" expanded="true" signature="1219:1266" placeholder="select disti..compatibilita_forum..." />
-            <marker date="1438102454000" expanded="true" signature="2005:2041" placeholder="select * fro..utenti..." />
-            <marker date="1438102454000" expanded="true" signature="2005:2042" placeholder="select * fro..utenti..." />
-            <marker date="1438102454000" expanded="true" signature="2005:2050" placeholder="select * fro..utenti..." />
-            <marker date="1438102454000" expanded="true" signature="2005:2061" placeholder="select * fro..utenti..." />
-            <marker date="1438102454000" expanded="true" signature="2005:2062" placeholder="select * fro..utenti..." />
-            <marker date="1438102454000" expanded="true" signature="7401:7412" placeholder="..." />
-            <marker date="1438102454000" expanded="true" signature="7512:7521" placeholder="..." />
-            <marker date="1438102454000" expanded="true" signature="7622:7632" placeholder="..." />
-            <marker date="1438102454000" expanded="true" signature="8789:8832" placeholder="select * fro..forum1..." />
-            <marker date="1438102454000" expanded="true" signature="11144:11155" placeholder="..." />
-            <marker date="1438102454000" expanded="true" signature="11320:11329" placeholder="..." />
-            <marker date="1438102454000" expanded="true" signature="11499:11509" placeholder="..." />
+            <marker date="1438102454000" expanded="true" signature="-1:-1" placeholder="select f.* f..forum1..." />
+            <marker date="1438102454000" expanded="true" signature="-1:-1" placeholder="select disti..compatibilita_forum..." />
+            <marker date="1438102454000" expanded="true" signature="-1:-1" placeholder="select * fro..utenti..." />
+            <marker date="1438102454000" expanded="true" signature="-1:-1" placeholder="select * fro..utenti..." />
+            <marker date="1438102454000" expanded="true" signature="-1:-1" placeholder="select * fro..utenti..." />
+            <marker date="1438102454000" expanded="true" signature="-1:-1" placeholder="select * fro..utenti..." />
+            <marker date="1438102454000" expanded="true" signature="-1:-1" placeholder="select * fro..utenti..." />
+            <marker date="1438102454000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1438102454000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1438102454000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1438102454000" expanded="true" signature="-1:-1" placeholder="select * fro..forum1..." />
+            <marker date="1438102454000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1438102454000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1438102454000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1086,26 +1140,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/gallerie.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="36" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/Type/RegistrationFormType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="28" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/Type/RegistrationCompletionFormType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1126,14 +1164,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.259259">
-          <caret line="724" column="13" selection-start-line="724" selection-start-column="13" selection-end-line="724" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.5686274">
@@ -1145,12 +1175,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.888889">
+          <caret line="2332" column="1" selection-start-line="2332" selection-start-column="1" selection-end-line="2332" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/Type/RegistrationCompletionFormType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.375">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Articolo/articolo.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9321357">
-          <caret line="251" column="46" selection-start-line="251" selection-start-column="46" selection-end-line="251" selection-end-column="46" />
+        <state vertical-scroll-proportion="19.666666">
+          <caret line="229" column="56" selection-start-line="229" selection-start-column="56" selection-end-line="229" selection-end-column="56" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Foto/gallerie.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.5">
+          <caret line="113" column="26" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/categoria.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.625">
+          <caret line="167" column="30" selection-start-line="167" selection-start-column="30" selection-end-line="167" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BlogBundle/Resources/views/Categoria/articoli-ajax.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42613637">
+          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+          <folding>
+            <element signature="e#801#870#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
