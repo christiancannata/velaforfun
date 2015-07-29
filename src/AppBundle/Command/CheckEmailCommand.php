@@ -6,6 +6,9 @@ use Doctrine\ORM\QueryBuilder;
 use Doctrine\DBAL\Connection;
 use BlogBundle\Entity\Articolo;
 use AppBundle\Entity\User;
+use AppBundle\Entity\Foto;
+use AppBundle\Entity\GalleriaFoto;
+
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -111,12 +114,37 @@ class CheckEmailCommand extends ContainerAwareCommand
                     $articolo->setAutore($user);
                     $allegati = $mail->getAttachments();
                     $allegatiValidi=[];
+                    $immagini=[];
                     foreach ($allegati as $allegato) {
                         $path_parts = pathinfo($allegato->filePath);
                         if ($path_parts['extension'] == "doc" || $path_parts['extension'] == "pdf" || $path_parts['extension'] == "docx") {
                             $allegatiValidi[]=$allegato;
+                        }else{
+                            $immagini[]=$allegato;
                         }
+
+
                     }
+
+
+
+                    if(!empty($immagini)){
+                        $gallery = new GalleriaFoto();
+
+
+                        $gallery->setNome($mail->subject);
+                        $gallery->setDescrizione("");
+                        $gallery->setInGallery(false);
+                        $this->em->persist($gallery);
+                        $this->em->flush();
+
+                        $this->creaGalleria($gallery,$immagini);
+
+                        $articolo->setGallery($gallery);
+
+                    }
+
+
                     $output->writeln('<info>Trovati allegati validi:'.count($allegatiValidi).'</info>');
 
                     $allegatiValidi=array_slice($allegatiValidi,0,4);
@@ -168,5 +196,41 @@ class CheckEmailCommand extends ContainerAwareCommand
 
         }
 
+    }
+
+    private function creaGalleria($gallery,$files){
+
+        $foto = array();
+
+        $fs = new Filesystem();
+        $this->output->writeln('<info>Trovate immagini valide:'.count($files).'</info>');
+        // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
+        foreach ($files as $uploadedFile) {
+
+            try {
+                $path_parts = pathinfo($uploadedFile->filePath);
+                $this->output->writeln('<info>Copio:'.$path_parts['filename'].'</info>');
+
+                $fs->copy($uploadedFile->filePath, '/var/www/web/uploads/galleria_foto/'.$path_parts['filename'].".".$path_parts['extension']);
+
+
+
+                $fileUpload = new Foto();
+                $fileUpload->setImmagine($path_parts['filename'].".".$path_parts['extension']);
+                $fileUpload->setNome($path_parts['filename']);
+                $fileUpload->setGalleria($gallery);
+                $fileUpload->setInEvidenza(true);
+                $this->em->persist($fileUpload);
+
+                $foto[] = $fileUpload;
+            } catch (IOException $e) {
+                echo "Errore durante la copia del file";
+            }
+
+
+
+        }
+
+        $this->em->flush();
     }
 }
