@@ -2,10 +2,10 @@
 <div class="row nodi">
     {% for gallery in gallerie %}
         {% if gallery.foto|length > 0%}
-            {% set copertina = '/uploads/galleria_foto/'~gallery.foto[0].immagine|replace({' ': "%20"}) %}
+            {% set copertina = '/uploads/galleria_foto/'~gallery.foto[0].immagine %}
             {% for foto in gallery.foto %}
                 {% if foto.inEvidenza == 1 %}
-                    {% set copertina = '/uploads/galleria_foto/'~foto.immagine|replace({' ': "%20"}) %}
+                    {% set copertina = '/uploads/galleria_foto/'~foto.immagine %}
                 {% endif %}
             {% endfor %}
 
