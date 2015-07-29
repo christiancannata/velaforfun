@@ -33,6 +33,15 @@ class ArticoloController extends BaseController
                  * $data['body']
                  */
                 $data = $postform->getData();
+
+                $params = $request->request->all();
+                die(var_dump($params['blogbundle_articolo']['textFileImage']));
+                if($params['blogbundle_articolo']['textFileImage']!=""){
+
+
+                }
+
+
                 $em = $this->getDoctrine()->getManager();
 
                 $em->persist($data);
@@ -79,13 +88,26 @@ class ArticoloController extends BaseController
             if ($postform->isValid()) {
 
 
+
+
+                $data = $postform->getData();
+
+                $params = $request->request->all();
+
+                if($params['blogbundle_articolo']['textFileImage']!=""){
+                    $data->setImmagineCorrelata(null);
+                    $data->setImmagineCorrelataArticolo($params['blogbundle_articolo']['textFileImage']);
+                }
+
                 /*
                  * $data['title']
                  * $data['body']
                  */
                 $em = $this->getDoctrine()->getManager();
 
+                $em->merge($data);
                 $em->flush();
+
 
 
                 $response['success'] = true;

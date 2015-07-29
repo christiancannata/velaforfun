@@ -176,8 +176,11 @@ jQuery(document).ready(function ($) {
 
         $("#blogbundle_articolo_titoloCorrelato").val(res[0]);
         $("#blogbundle_articolo_testoCorrelato").val(res[3]);
-        $("#blogbundle_articolo_immagineCorrelata").attr("value",res[2]);
+        $("#blogbundle_articolo_textFileImage").attr("value",res[2]);
         $("#blogbundle_articolo_linkCorrelato").val(res[1]);
+
+        $("#blogbundle_articolo_textFileImage").show();
+        $("#blogbundle_articolo_immagineCorrelata").parent().hide();
     });
 
 

@@ -56,7 +56,7 @@ class DefaultController extends BaseController
         $array=[];
         foreach($articoli as $articolo){
             $array[]=array(
-            "permalink"=>$articolo->getTitolo()."|/archivio/".$articolo->getCategoria()->getPermalink()."/".$articolo->getPermalink()."|/var/www/immagini/articoli/".$articolo->getImmagine()."|".strip_tags($articolo->getSottotitolo()),
+            "permalink"=>$articolo->getTitolo()."|/archivio/".$articolo->getCategoria()->getPermalink()."/".$articolo->getPermalink()."|$articolo->getImmagine()."|".strip_tags($articolo->getSottotitolo()),
                 "name"=>$articolo->getId()." - ". $articolo->getTitolo()." - ".$articolo->getTimestamp()->format("d-m-Y H:i")
             );
         }

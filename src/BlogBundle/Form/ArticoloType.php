@@ -22,6 +22,7 @@ class ArticoloType extends AbstractType
                 'style' => 'height:400px'
             )))
             ->add('profilePictureFile',null,array("label"=>"Immagine articolo"))
+
             ->add('tags')
             ->add('idComunicato','hidden')
             ->add('autore')
@@ -31,11 +32,21 @@ class ArticoloType extends AbstractType
             ->add('testoCorrelato')
             ->add('linkCorrelato')
             ->add('immagineCorrelata')
+            ->add(
+                'textFileImage',
+                'text',
+                array(
+                    'label'=>'Immagine correlata',
+                    'mapped' => false,
+                    'attr' => array("style" => "display:none")
+                )
+            )
             ->add('gallery')
             ->add('allegato1File')
             ->add('allegato2File')
             ->add('allegato3File')
             ->add('allegato4File')
+
         ;
     }
     
