@@ -165,3 +165,15 @@ sonata_intl:
     timezone:
         locales:
             it:    Europe/Rome
+
+iip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+
+    filter_sets:
+        cache: ~
+        my_thumb:
+            quality: 75
+            filters:
+                thumbnail: { size: [420, 420], mode: outbound }
