@@ -2,10 +2,10 @@
 <div class="row nodi">
     {% for gallery in gallerie %}
         {% if gallery.foto|length > 0%}
-            {% set copertina = '/uploads/galleria_foto/'~gallery.foto[0].immagine|escape('url') %}
+            {% set copertina = '/uploads/galleria_foto/'~gallery.foto[0].immagine|url_encode %}
             {% for foto in gallery.foto %}
                 {% if foto.inEvidenza == 1 %}
-                    {% set copertina = '/uploads/galleria_foto/'~foto.immagine|escape('url') %}
+                    {% set copertina = '/uploads/galleria_foto/'~foto.immagine|url_encode %}
                 {% endif %}
             {% endfor %}
 
