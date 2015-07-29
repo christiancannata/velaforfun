@@ -18,8 +18,9 @@ class ArticoloType extends AbstractType
             ->add('titolo')
             ->add('stato','choice',array('choices'=>array('ATTIVO'=>'ATTIVO','BOZZA'=>'BOZZA','DISATTIVO'=>'DISATTIVO')))
             ->add('sottotitolo')
-            ->add('testo',null, array('attr' => array(
-                'style' => 'height:400px'
+            ->add('testo',null, array(  'attr' => array(
+                'style' => 'height:400px',
+                'class'=>'editor',
             )))
             ->add('profilePictureFile',null,array("label"=>"Immagine articolo"))
 

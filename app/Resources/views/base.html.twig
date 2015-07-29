@@ -1022,14 +1022,14 @@
 
                 }
 
-                if ($("#Post textarea,#blogbundle_articolo textarea,textarea#Post_body").length > 0) {
+                if ($("#Post .editor,#blogbundle_articolo .editor,textarea#Post_body").length > 0) {
                     if (typeof getUrlParameter("quota") != "undefined") {
 
                         var idQuota = getUrlParameter("quota");
 
                         $.get('/forum-post/' + idQuota, function (data) {
 
-                            $('#Post textarea,#blogbundle_articolo textarea,textarea#Post_body').append(data);
+                            $('#Post .editor,#blogbundle_articolo .editor,textarea#Post_body').append(data);
 
 
                             $('textarea').redactor({
@@ -1042,7 +1042,7 @@
 
                     } else {
 
-                        $('textarea').redactor({
+                        $('textarea.editor').redactor({
                             imageUpload: '/images/upload',
                             fileUpload: '/images/upload',
                             imageGetJson: '/images/list'
