@@ -1,11 +1,11 @@
 {% if gallerie| length > 0 %}
 <div class="row nodi">
     {% for gallery in gallerie %}
-        {% if gallery.foto|length > 0%}
-            {% set copertina = '/uploads/galleria_foto/'~gallery.foto[0].immagine %}
+        {% if gallery.foto|length > 0 %}
+            {% set copertina = gallery.foto[0].immagine %}
             {% for foto in gallery.foto %}
                 {% if foto.inEvidenza == 1 %}
-                    {% set copertina = '/uploads/galleria_foto/'~foto.immagine %}
+                    {% set copertina = foto.immagine %}
                 {% endif %}
             {% endfor %}
 
@@ -15,7 +15,7 @@
 
                 <a href="/foto/{{ gallery.permalink }}">
                     <div class="box-home" style="height: 330px;">
-                        <div style="opacity: 1;background-image: url({{ copertina | imagine_filter('my_thumb') }});"
+                        <div style="opacity: 1;background-image: url(/uploads/galleria_foto/{{ copertina|url_encode }});"
                              class="divBackgroundImage">
                         </div>
                         <div class="content">

@@ -103,13 +103,11 @@
      <div id="postswrapper">
             <div class="row nodi">
                 {% for foto in galleria.foto|reverse|slice(0,3) %}
-
-                {% set copertina='/uploads/galleria_foto/'~foto.immagine %}
     <div class="col-md-4 column  video-box ">
 
 <a class="image-link" href="/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
         <div class="box-home link-video" style="height: 330px;" data-foto="/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
-            <div style="opacity: 1;background-image: url({{ copertina | imagine_filter('my_thumb') }});"
+            <div style="opacity: 1;background-image: url(/uploads/galleria_foto/{{ foto.immagine|url_encode }});"
                  class="divBackgroundImage">
             </div>
             <div class="content">
