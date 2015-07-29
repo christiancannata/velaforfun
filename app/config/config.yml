@@ -167,12 +167,7 @@ sonata_intl:
             it:    Europe/Rome
 
 liip_imagine:
-    resolvers:
-       default:
-          web_path: ~
-
     filter_sets:
-        cache: ~
         my_thumb:
             quality: 75
             filters:
