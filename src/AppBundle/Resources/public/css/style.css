@@ -722,10 +722,11 @@ a:hover, #menu-login2 a:hover, #menu-login2 a:active {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
+    left: 4%;
     opacity: 0.5;
     position: absolute;
     right: 0;
-    width: 100%;
+    width: 92%;
     z-index: -1;
 }
 
