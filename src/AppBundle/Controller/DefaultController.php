@@ -242,14 +242,14 @@ class DefaultController extends BaseController
             $strIngredienti .= "</ul>";
             $testo = "Tempo: ".$params['blogbundle_articolo']['tempo'];
             $testo .= "<br><br>Ricetta per ".$params['blogbundle_articolo']['persone']." persone";
-            $testo .= "<br><br>Ingredienti:<br> ".$strIngredienti;
+            $testo .= "<br><br><strong>Ingredienti:</strong><br> ".$strIngredienti;
 
             $articolo->setSottotitolo("");
 
-            $testo .= "<br><br>Ricetta: ".$params['blogbundle_articolo']['ricetta'];
+            $testo .= "<br><br><strong>Ricetta:</strong> ".$params['blogbundle_articolo']['ricetta'];
 
 
-            $testo .= "<br><br>Scritta da: ".$params['blogbundle_articolo']['autore'];
+            $testo .= "<br><br><strong>Scritta da:</strong> ".$params['blogbundle_articolo']['autore'];
 
 
             $articolo->setTesto($testo);
