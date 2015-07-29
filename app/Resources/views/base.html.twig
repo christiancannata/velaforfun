@@ -1225,8 +1225,8 @@
     {% endif %}
 
     <script type="text/javascript">
-        if(!localStorage.get('iubenda')){
-            localStorage.set('iubenda',1);
+        if(!localStorage.getItem('iubenda')){
+            localStorage.setItem('iubenda',1);
             var _iub = _iub || [];
             _iub.csConfiguration = {
                 cookiePolicyId: 885486,

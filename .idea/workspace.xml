@@ -34,8 +34,8 @@
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4528302">
-              <caret line="1227" column="41" selection-start-line="1227" selection-start-column="41" selection-end-line="1227" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.4811321">
+              <caret line="1228" column="32" selection-start-line="1228" selection-start-column="32" selection-end-line="1228" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -1392,8 +1392,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4528302">
-          <caret line="1227" column="41" selection-start-line="1227" selection-start-column="41" selection-end-line="1227" selection-end-column="41" />
+        <state vertical-scroll-proportion="0.4811321">
+          <caret line="1228" column="32" selection-start-line="1228" selection-start-column="32" selection-end-line="1228" selection-end-column="32" />
           <folding />
         </state>
       </provider>
