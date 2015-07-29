@@ -1046,7 +1046,8 @@ input:-moz-placeholder {
 .avatar-small {
     float: left;
     position: relative;
-    width: 35px;
+    width: 37px;
+    height:37px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
