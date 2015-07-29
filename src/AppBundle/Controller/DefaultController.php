@@ -13,6 +13,11 @@ use AppBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\BufferedOutput;
+
+
 class DefaultController extends BaseController
 {
     /**
@@ -112,11 +117,39 @@ class DefaultController extends BaseController
         return $this->render('BlogBundle:Default:index.html.twig', array('categorie' => $categorie,'articoli'=>$ultimiArticoli));
     }
 
+
+    /**
+     * @Route("/recupera-comunicati/{limit}", name="recupera_comunicati")
+     */
+    public function recuperaComunicatiAction($limit=20)
+    {
+
+        $kernel = $this->get('kernel');
+        $application = new Application($kernel);
+        $application->setAutoExit(false);
+
+        $input = new ArrayInput(array(
+            'command' => 'app:check-email',
+            '--limit' => $limit
+        ));
+        // You can use NullOutput() if you don't need the output
+        $output = new BufferedOutput();
+        $application->run($input, $output);
+
+        // return the output, don't use if you used NullOutput()
+        $content = $output->fetch();
+
+        // return new Response(""), if you used NullOutput()
+        return new Response($content);
+    }
+
+
     /**
      * @Route("/chi-siamo", name="chi_siamo")
      */
     public function chiSiamoAction()
     {
+
         $repository = $this->getDoctrine()
             ->getRepository('BlogBundle:Articolo');
 
@@ -125,8 +158,14 @@ class DefaultController extends BaseController
 
         $repository = $this->getDoctrine()
             ->getRepository('AppBundle:PaginaStatica');
-        $paginaStatica = $repository->findOneByPermalink("chi-siamo");
 
+
+
+
+
+
+
+        $paginaStatica = null;
 
         return $this->render(
             'default/chi-siamo.html.twig',

@@ -25,6 +25,12 @@ class CheckEmailCommand extends ContainerAwareCommand
     {
         $this
             ->setName('app:check-email')
+            ->addOption(
+                'limit',
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'Numero di comunicati da scaricare'
+            )
             ->setDescription('Controlla email comunicati');
     }
 
@@ -52,7 +58,11 @@ class CheckEmailCommand extends ContainerAwareCommand
             die('Mailbox is empty');
         } else {
             //  $mailsIds = $mailbox->sortMails();
-            //  $mailsIds = array_slice($mailsIds, 0, 20);
+
+            if($input->getOption('limit')){
+                $mailsIds = array_slice($mailsIds, 0, $input->getOption('limit'));
+            }
+
             $comunicati = array();
             foreach ($mailsIds as $mailId) {
                 $ora=new \DateTime();
