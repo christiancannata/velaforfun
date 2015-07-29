@@ -35,10 +35,10 @@ class ArticoloController extends BaseController
                 $data = $postform->getData();
 
                 $params = $request->request->all();
-                die(var_dump($params['blogbundle_articolo']['textFileImage']));
+
                 if($params['blogbundle_articolo']['textFileImage']!=""){
-
-
+                    $data->setImmagineCorrelata(null);
+                    $data->setImmagineCorrelataArticolo($params['blogbundle_articolo']['textFileImage']);
                 }
 
 
