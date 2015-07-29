@@ -2321,3 +2321,16 @@ font-size:22px !important;
         float:inherit;
     }
 }
+
+.theme1 .smarticker-cats .left {
+
+    width: 7% !important;
+}
+
+.catlist > ul {
+    min-width: 330px;
+}
+
+.active-ag a,.catlist ul a{
+    font-weight: bold !important;
+}
