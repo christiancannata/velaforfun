@@ -650,6 +650,39 @@
 </div>
 
 
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalBeta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Benvenuto su VelaForFun.com</h4>
+
+            </div>
+            <div class="modal-body">
+               <p style="font-size: 18px;">
+                Benvenuto nella nuova versione di VelaForFun.com, abbiamo dato un completo restyling moderno al nostro portale,
+                siamo in versione BETA.<br><br>Se vuoi darci suggerimenti o segnalarci qualche bug ci sarai veramente di aiuto!
+               </p>
+
+                <button class="btn btn-primary login hvr-sweep-to-right" onClick="$('#modalBeta').modal('hide');" style="font-size: 24px;text-align:center;width:100%">Prosegui la navigazione!</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+
+
 <!-- Modal -->
 <div class="modal fade" id="loginFacebookModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
@@ -1011,6 +1044,9 @@
         <script language="javascript">
 
             $(document).ready(function () {
+
+
+
 
                 if ($('[ name="{{ form.vars.full_name }}"]').length > 0) {
 
