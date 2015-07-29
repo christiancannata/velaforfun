@@ -166,7 +166,7 @@ sonata_intl:
         locales:
             it:    Europe/Rome
 
-iip_imagine:
+liip_imagine:
     resolvers:
        default:
           web_path: ~
