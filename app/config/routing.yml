@@ -142,7 +142,3 @@ ibrows_newsletter:
 
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"
-
-_imagine:
-    resource: .
-    type: imagine
