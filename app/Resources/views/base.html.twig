@@ -455,6 +455,13 @@
                                             <li style="margin-top:0px"><a style="font-size:14px"  href="/cms/list">Pagine CMS</a></li>
                                             <li style="margin-top:0px"><a style="font-size:14px"  href="/menu/list">Menù</a></li>
                                             <li style="margin-top:0px"><a style="font-size:14px"  href="/newsletter/">Newsletter</a></li>
+
+                                            <li>
+                                                <form method="POST" action="/recupera-comunicati" target="_blank">
+                                                    <input type="text" name="limit" placeholder="numero di comunicati">
+                                                    <br><button class="btn btn-primary" type="submit">Recupera comunicati</button>
+                                                </form>
+                                            </li>
                                         {% endif %}
 
                                     </ul>

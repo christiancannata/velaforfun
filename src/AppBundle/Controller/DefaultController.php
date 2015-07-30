@@ -42,7 +42,6 @@ class DefaultController extends BaseController
     }
 
 
-
     /**
      * @Route("/sitemap.{_format}", name="sample_sitemaps_sitemap", Requirements={"_format" = "xml"})
      */
@@ -66,32 +65,57 @@ class DefaultController extends BaseController
         $post = $repository->findAll();
 
 
-
         $urls = array();
         $hostname = $this->getRequest()->getHost();
 
         // add some urls homepage
-        $urls[] = array('loc' => $this->get('router')->generate('homepage'), 'changefreq' => 'weekly', 'priority' => '1.0');
-        $urls[] = array('loc' => $this->get('router')->generate('homepage_archivio'), 'changefreq' => 'weekly', 'priority' => '1.0');
-        $urls[] = array('loc' => $this->get('router')->generate('chi_siamo'), 'changefreq' => 'weekly', 'priority' => '1.0');
-        $urls[] = array('loc' => $this->get('router')->generate('ricette'), 'changefreq' => 'weekly', 'priority' => '1.0');
-        $urls[] = array('loc' => $this->get('router')->generate('crea_ricetta'), 'changefreq' => 'weekly', 'priority' => '1.0');
-        $urls[] = array('loc' => $this->get('router')->generate('contatti'), 'changefreq' => 'weekly', 'priority' => '1.0');
+        $urls[] = array(
+            'loc' => $this->get('router')->generate('homepage'),
+            'changefreq' => 'weekly',
+            'priority' => '1.0'
+        );
+        $urls[] = array(
+            'loc' => $this->get('router')->generate('homepage_archivio'),
+            'changefreq' => 'weekly',
+            'priority' => '1.0'
+        );
+        $urls[] = array(
+            'loc' => $this->get('router')->generate('chi_siamo'),
+            'changefreq' => 'weekly',
+            'priority' => '1.0'
+        );
+        $urls[] = array(
+            'loc' => $this->get('router')->generate('ricette'),
+            'changefreq' => 'weekly',
+            'priority' => '1.0'
+        );
+        $urls[] = array(
+            'loc' => $this->get('router')->generate('crea_ricetta'),
+            'changefreq' => 'weekly',
+            'priority' => '1.0'
+        );
+        $urls[] = array(
+            'loc' => $this->get('router')->generate('contatti'),
+            'changefreq' => 'weekly',
+            'priority' => '1.0'
+        );
 
 
         foreach ($articoli as $product) {
-            $urls[] = array('loc' =>  "/".$product->getCategoria()->getPermalink()."/".$product->getPermalink(), 'priority' => '0.5');
+            $urls[] = array(
+                'loc' => "/".$product->getCategoria()->getPermalink()."/".$product->getPermalink(),
+                'priority' => '0.5'
+            );
         }
 
 
         foreach ($porti as $product) {
-            $urls[] = array('loc' =>  "/porti/".$product->getPermalink(), 'priority' => '0.5');
+            $urls[] = array('loc' => "/porti/".$product->getPermalink(), 'priority' => '0.5');
         }
 
         foreach ($post as $product) {
-            $urls[] = array('loc' =>  "/forum/velaforfun/topic/".$product->getId(), 'priority' => '0.5');
+            $urls[] = array('loc' => "/forum/velaforfun/topic/".$product->getId(), 'priority' => '0.5');
         }
-
 
 
         return $this->render(
@@ -103,7 +127,6 @@ class DefaultController extends BaseController
     }
 
 
-
     /**
      * @Route("/archivio", name="homepage_archivio")
      */
@@ -113,26 +136,33 @@ class DefaultController extends BaseController
             ->getRepository('BlogBundle:Categoria')->findAll();
 
         $ultimiArticoli = $this->getDoctrine()
-            ->getRepository('BlogBundle:Articolo')->findAll(array("id"=>"desc"), 10);
+            ->getRepository('BlogBundle:Articolo')->findAll(array("id" => "desc"), 10);
 
-        return $this->render('BlogBundle:Default:index.html.twig', array('categorie' => $categorie,'articoli'=>$ultimiArticoli));
+        return $this->render(
+            'BlogBundle:Default:index.html.twig',
+            array('categorie' => $categorie, 'articoli' => $ultimiArticoli)
+        );
     }
 
 
     /**
-     * @Route("/recupera-comunicati/{limit}", name="recupera_comunicati")
+     * @Route("/recupera-comunicati", name="recupera_comunicati")
      */
-    public function recuperaComunicatiAction($limit=20)
+    public function recuperaComunicatiAction(Request $request)
     {
 
         $kernel = $this->get('kernel');
         $application = new Application($kernel);
         $application->setAutoExit(false);
-
-        $input = new ArrayInput(array(
-            'command' => 'app:check-email',
-            '--limit' => $limit
-        ));
+        if ($request->request->get("limit")) {
+            $limit = $request->request->get("limit");
+        }
+        $input = new ArrayInput(
+            array(
+                'command' => 'app:check-email',
+                '--limit' => $limit
+            )
+        );
         // You can use NullOutput() if you don't need the output
         $output = new BufferedOutput();
         $application->run($input, $output);
@@ -159,11 +189,6 @@ class DefaultController extends BaseController
 
         $repository = $this->getDoctrine()
             ->getRepository('AppBundle:PaginaStatica');
-
-
-
-
-
 
 
         $paginaStatica = null;
@@ -672,7 +697,7 @@ class DefaultController extends BaseController
 
         $repository = $this->getDoctrine()
             ->getRepository('AppBundle:PaginaStatica');
-        $articoli = $repository->findOneBy(array("permalink"=>$permalink,"isActive"=>true));
+        $articoli = $repository->findOneBy(array("permalink" => $permalink, "isActive" => true));
 
         if (!$articoli) {
 
