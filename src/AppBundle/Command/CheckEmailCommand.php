@@ -16,6 +16,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 use PhpImap\Mailbox as MailBox;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOException;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
+
 
 
 class CheckEmailCommand extends ContainerAwareCommand
@@ -195,6 +198,19 @@ class CheckEmailCommand extends ContainerAwareCommand
 
 
         }
+
+
+        $process = new Process('rm -rf /tmp/*');
+
+        try {
+            $process->mustRun();
+
+            echo $process->getOutput();
+        } catch (ProcessFailedException $e) {
+            echo $e->getMessage();
+        }
+
+
 
     }
 
