@@ -35,7 +35,7 @@ class ImportForumCommand extends ContainerAwareCommand
         $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
         $this->connection = $this->getContainer()->get('database_connection');
 
-        $query = "select f.* from forum1 f where f.stato=0 and f.idr=0 and ID not in (select distinct id_old from compatibilita_forum) order by ID";
+        $query = "select f.* from forum1 f where f.stato=0 and f.idr=0 and ID not in (select distinct id_old from compatibilita_forum) order by ID desc ";
 
         $res = $this->connection->executeQuery($query)->fetchAll();
 
@@ -54,9 +54,19 @@ class ImportForumCommand extends ContainerAwareCommand
 
                 if (!$user) {
 
+
+
+
                     $queryU = 'select * from utenti where username="'.$data['autore'].'"';
 
                     $utenti = $this->connection->executeQuery($queryU)->fetchAll();
+
+                    if(count($utenti)==0){
+                        if (strpos($data['autore'],'Guest') !== false) {
+
+                        }
+
+                    }
                     if(count($utenti)>0){
                         $dataUtente=$utenti[0];
 
