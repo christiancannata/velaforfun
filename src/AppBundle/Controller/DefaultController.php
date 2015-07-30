@@ -154,6 +154,7 @@ class DefaultController extends BaseController
         $kernel = $this->get('kernel');
         $application = new Application($kernel);
         $application->setAutoExit(false);
+        $limit=0;
         if ($request->request->get("limit")) {
             $limit = $request->request->get("limit");
         }
