@@ -29,7 +29,9 @@
       "name": "{{ articolo.titolo }}",
       "author":"VelaForFun",
       "datePublished":"{{ articolo.timestamp|date("Y-m-dTh:i:s") }}",
-      "articleBody":"{{ articolo.testo|striptags }}"
+      "articleBody":"{{ articolo.testo|striptags }}",
+      "headline":"{% if articolo.sottotitolo!="" %}{{ articolo.sottotitolo|slice(0,250)|striptags }}{% else %}{{ articolo.testo|slice(0,250)|striptags }}{% endif %}",
+      "image":"http://www.velaforfun.com{% if articolo.immagine!="" %}/images/articoli/{{ articolo.immagine }}{% else %}/images/rsz_img_marcaposto.jpg{% endif %}"
       }
 
     </script>
