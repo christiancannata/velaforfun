@@ -8,6 +8,7 @@ use BlogBundle\Entity\Articolo;
 use BlogBundle\Form\ArticoloType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Form\Type\RegistrationFormType;
 use AppBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
