@@ -46,10 +46,7 @@ class AnnuncioScambioPostoController extends BaseController
 
                 $annuncio = $postform->getData();
 
-
-                $repository = $this->container->get('doctrine')
-                    ->getRepository('AppBundle:User');
-
+                $annuncio->setUtente($this->getUser());
 
                 $board = $this->container->get('doctrine')
                     ->getRepository('CCDNForumForumBundle:Board')->find(11);
@@ -79,7 +76,48 @@ class AnnuncioScambioPostoController extends BaseController
                 );
 
 
-                $post->setBody($annuncio->getDescrizione());
+                $testoAnnuncio = "<u>DATI RICHIEDENTE</u>
+        <br>
+        <br>
+        <i>
+            <strong>RICHIESTA AVANZATA DA</strong>: ".$annuncio->getUtente()->getNome()."
+            <br>
+            <strong>E.MAIL</strong>: ".$annuncio->getUtente()->getEmail()."
+            <br>
+            <strong>RECAPITO TELEFONICO</strong>: ".$annuncio->getTelefono()."
+            <br>
+            <br>
+        </i>
+        <u>SPECIFICHE</u>
+        <br>
+        <br>
+        <i>
+            <strong>OFFRO IL MIO POSTO BARCA A</strong>: ".$annuncio->getLuogoAttuale()->getNome()."
+            <br>
+            <strong>E CERCO UN POSTO BARCA IN ZONA</strong>: ".$luogoCercato."
+            <br>
+            <strong>TIPOLOGIA DI BARCA</strong>: ".$annuncio->getTipo()."
+            <br>
+            <strong>POSTO LUNGHEZZA CIRCA</strong>: ".$annuncio->getLunghezza()."
+            <br>
+            <br>
+        </i>
+        <strong>
+            <font style=\"color:green\">DATE E PERIODO</font>
+        </strong>
+        <font style=\"color:green\">: ".$annuncio->getTempo()."
+            <br>
+            <br>
+        </font>
+        <u>NOTE VARIE</u>
+        <br>
+        <br>
+        <i>
+            <i>".$annuncio->getDescrizione()."</i>
+        </i>";
+
+
+                $post->setBody($testoAnnuncio);
 
                 $em->persist($post);
                 $em->flush();
@@ -100,7 +138,7 @@ class AnnuncioScambioPostoController extends BaseController
                 $em->flush();
 
 
-                $subscription=new \CCDNForum\ForumBundle\Subscription;
+                $subscription = new \CCDNForum\ForumBundle\Entity\Subscription();
                 $subscription->setTopic($firstTopic);
                 $subscription->setOwnedBy($this->getUser());
 
@@ -112,8 +150,8 @@ class AnnuncioScambioPostoController extends BaseController
                 $em->persist($subscription);
                 $em->flush();
 
-                $board->setCachedPostCount($board->getCachedPostCount()+1);
-                $board->setCachedTopicCount($board->getCachedTopicCount()+1);
+                $board->setCachedPostCount($board->getCachedPostCount() + 1);
+                $board->setCachedTopicCount($board->getCachedTopicCount() + 1);
 
                 $em->persist($board);
                 $em->flush();

@@ -178,7 +178,7 @@ class AnnuncioImbarcoController extends BaseController
 
 
 
-                $subscription=new \CCDNForum\ForumBundle\Subscription;
+                $subscription = new \CCDNForum\ForumBundle\Entity\Subscription();
                 $subscription->setTopic($firstTopic);
                 $subscription->setOwnedBy($user);
 
