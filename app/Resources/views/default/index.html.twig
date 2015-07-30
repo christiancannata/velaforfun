@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Il portale italiano sulla vela{% endblock %}
-
+{% block description %}Il portale italiano sulla vela da oltre 10 offre servizi di news, annunci imbarco, meteo, portolano online e tutti gli aggiornamenti sui porti italiani{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('bundles/app/css/smarticker.css') }}">
@@ -53,12 +53,12 @@
                         <div class="content-title">
                             <a href="/archivio/{{ articoli[0].categoria.permalink }}/{{ articoli[0].permalink }}">
                                 <h3>{{ articoli[0].titolo }}</h3>
-                                {%  if articoli[0].sottotitolo!="" %}
-                                <div class="divisore hidden-xs"></div>
-                                <div class="subtitle hidden-xs" style="color:white">
+                                {% if articoli[0].sottotitolo!="" %}
+                                    <div class="divisore hidden-xs"></div>
+                                    <div class="subtitle hidden-xs" style="color:white">
 
-                                    {{ articoli[0].sottotitolo|slice(0,250)|striptags }}...
-                                </div>
+                                        {{ articoli[0].sottotitolo|slice(0,250)|striptags }}...
+                                    </div>
                                 {% endif %}
                             </a>
                         </div>
@@ -79,7 +79,8 @@
                                 <div class="content">
                                     <h4>{{ articoli[1].titolo }}</h4>
                                     {% if articoli[1].sottotitolo!="" %}
-                                    <p class="hidden-xs">  {{ articoli[1].sottotitolo|slice(0,80)|striptags }}...</p>
+                                        <p class="hidden-xs">  {{ articoli[1].sottotitolo|slice(0,80)|striptags }}
+                                            ...</p>
                                     {% endif %}
                                 </div>
                                 <div class="arrow">
@@ -94,7 +95,8 @@
                                 <div class="content">
                                     <h4>{{ articoli[2].titolo }}</h4>
                                     {% if articoli[2].sottotitolo!="" %}
-                                    <p class="hidden-xs">    {{ articoli[2].sottotitolo|slice(0,80)|striptags }}...</p>
+                                        <p class="hidden-xs">    {{ articoli[2].sottotitolo|slice(0,80)|striptags }}
+                                            ...</p>
                                     {% endif %}
 
                                 </div>
@@ -111,7 +113,7 @@
                                     <h4>{{ articoli[3].titolo }}</h4>
                                     {% if articoli[3].sottotitolo!="" %}
 
-                                    <p class="hidden-xs">{{ articoli[3].sottotitolo|slice(0,80)|striptags }}...</p>
+                                        <p class="hidden-xs">{{ articoli[3].sottotitolo|slice(0,80)|striptags }}...</p>
                                     {% endif %}
                                 </div>
                                 <div class="arrow">
@@ -128,16 +130,18 @@
 
         <div class="row clearfix hidden-xs" style="margin-top:20px">
             <div class="col-md-12 column">
-        <div class="smarticker6">
-            <ul>
-                {% for post in ultimiPost %}
-                <li data-category="ULTIME DAL FORUM" data-subcategory="{{ post.board.name }}"  data-color="58A7C3"><a href="/forum/velaforfun/topic/{{ post.id }}">{{ post.title }}</a></li>
+                <div class="smarticker6">
+                    <ul>
+                        {% for post in ultimiPost %}
+                            <li data-category="ULTIME DAL FORUM" data-subcategory="{{ post.board.name }}"
+                                data-color="58A7C3"><a href="/forum/velaforfun/topic/{{ post.id }}">{{ post.title }}</a>
+                            </li>
 
-                {% endfor %}
-                </ul>
-        </div>
+                        {% endfor %}
+                    </ul>
                 </div>
-</div>
+            </div>
+        </div>
 
         <div class="row clearfix" style="margin-top:20px">
             <div class="col-md-4 column">
@@ -301,7 +305,7 @@
 
                         <div class="box-action">
                             <a href="/codice-internazionale"><h2>CODICE INTERNAZIONALE
-                            </h2></a>
+                                </h2></a>
 
                             <div class="over-box">
                                 <form method="GET" id="formTraduci" action="/codice-internazionale/{permalink}"

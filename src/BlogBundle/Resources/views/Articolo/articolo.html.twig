@@ -19,6 +19,24 @@
             max-height: 200px;
         }
     </style>
+
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "BlogPosting",
+      "name": "{{ articolo.titolo }}",
+      "author":"VelaForFun",
+      "datePublished":"{{ articolo.timestamp|date("Y-m-dTh:i:s") }}",
+      "articleBody":"{{ articolo.testo|striptags }}",
+      "headline":"{% if articolo.sottotitolo!="" %}{{ articolo.sottotitolo|slice(0,250)|striptags }}{% else %}{{ articolo.testo|slice(0,250)|striptags }}{% endif %}",
+      "image":"http://www.velaforfun.com{% if articolo.immagine!="" %}/images/articoli/{{ articolo.immagine }}{% else %}/images/rsz_img_marcaposto.jpg{% endif %}"
+      }
+
+    </script>
+
+
 {% endblock %}
 
 
@@ -38,8 +56,8 @@
         </script>
     {% endif %}
     <script language="javascript">
-        var winWidth=520;
-        var winHeight=350;
+        var winWidth = 520;
+        var winHeight = 350;
         var winTop = (screen.height / 2) - (winHeight / 2);
         var winLeft = (screen.width / 2) - (winWidth / 2);
         $(document).ready(function () {
@@ -283,8 +301,10 @@
                         <div class="latest-news  hvr-underline-from-left">
                             <div class="content">
                                 <h4>{{ articoloRel.titolo }}</h4>
-
+                                {% if articoloRel.sottotitolo!="" %}
                                 <p>{{ articoloRel.sottotitolo|slice(0, 70)|raw|striptags }}...</p>
+                                {% endif %}
+
                             </div>
                             <div class="arrow">
                                 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>

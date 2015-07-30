@@ -145,11 +145,11 @@ class AnnuncioImbarcoController extends BaseController
                     $user
                 );
 
-                $testo="Ruolo richiesto: ".$annuncio->getRuoloRichiesto();
-                $testo.="Luogo: ".$annuncio->getLuogo();
-                $testo.="Prezzo: ".$annuncio->getCosto();
-                $testo.="Tempo: ".$annuncio->getTempo();
-                $testo.="Tipo: ".$annuncio->getTipo();
+                $testo="<strong>Ruolo richiesto:</strong> ".$annuncio->getRuoloRichiesto();
+                $testo.="<br><br><strong>Luogo:</strong> ".$annuncio->getLuogo();
+                $testo.="<br><br><strong>Prezzo:</strong> ".$annuncio->getCosto();
+                $testo.="<br><br><strong>Tempo:</strong> ".$annuncio->getTempo();
+                $testo.="<br><br><strong>Tipo:</strong> ".$annuncio->getTipo()."<br><br>";
 
 
                 $testo.= nl2br($annuncio->getDescrizione());
@@ -178,7 +178,7 @@ class AnnuncioImbarcoController extends BaseController
 
 
 
-                $subscription=new \CCDNForum\ForumBundle\Subscription;
+                $subscription = new \CCDNForum\ForumBundle\Entity\Subscription();
                 $subscription->setTopic($firstTopic);
                 $subscription->setOwnedBy($user);
 
