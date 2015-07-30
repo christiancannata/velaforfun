@@ -141,7 +141,7 @@ class AnnuncioImbarco
 
     /**
      * @ORM\ManyToOne(targetEntity="CCDNForum\ForumBundle\Entity\Topic")
-     * @ORM\JoinColumn(name="id_topic", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="id_topic", referencedColumnName="id", nullable=true, onDelete="CASCADE")
      **/
     private $topic;
 
