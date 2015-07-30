@@ -281,47 +281,6 @@
                                     </li>
                                 {% endfor %}
 
-                                <!-- <li class="dropdown-submenu"><a tabindex="-1" href="#">Mondo della vela</a>
-                                     <ul class="dropdown-menu">
-                                         <li><a href="/archivio/news-vela">News di vela</a></li>
-                                         <li><a href="/archivio/notizie-lampo">Notizie lampo</a></li>
-                                     </ul>
-                                 </li>
-
-
-                                 <li class="dropdown-submenu"><a tabindex="-1" href="#">Community</a>
-                                     <ul class="dropdown-menu">
-                                         <li><a href="/forum/velaforfun">Forum</a></li>
-                                         <li><a href="/annuncio">Compro Vendo</a></li>
-                                         <li><a href="/annuncio-imbarco">Imbarco Offro/Cerco</a></li>
-                                         <li><a href="/annuncio-scambio-posto">Scambio posto Barca</a></li>
-                                     </ul>
-                                 </li>
-
-                                 <li class="dropdown-submenu"><a tabindex="-1" href="#">Andare per Mare</a>
-                                     <ul class="dropdown-menu">
-                                         <li><a href="/porti">I porti Italiani</a></li>
-                                         <li><a href="/segnalazione-portolano">Portolano Online</a></li>
-                                     </ul>
-                                 </li>
-
-                                 <li class="dropdown-submenu"><a tabindex="-1" href="#">Archivi</a>
-                                     <ul class="dropdown-menu">
-                                         <li><a href="/nomi-barca">Nomi barca</a></li>
-                                         <li><a href="/nodi">I nodi</a></li>
-                                         <li><a href="/ricette">Ricette da cambusa</a></li>
-                                         <li><a href="/codice-internazionale">Codice internazionale</a></li>
-                                         <li><a href="/video">Dizionario Velico</a></li>
-                                     </ul>
-                                 </li>
-
-                                 <li class="dropdown-submenu"><a tabindex="-1" href="#">Multimedia</a>
-                                     <ul class="dropdown-menu">
-                                         <li><a href="/foto">Archivio Fotografico</a></li>
-                                         <li><a href="/video">Galleria Video</a></li>
-                                     </ul>
-                                 </li> -->
-
 
                                 <li class="divider"></li>
                                 <li class="form">
@@ -475,25 +434,27 @@
                                         {% if not is_granted('ROLE_SUPER_ADMIN') %}
                                             <li class="dropdown-header">Profilo</li>
                                         {% else %}
-                                            <li><a href="/tuo-profilo/">Modifica dati</a></li>
-                                            <li><a href="/utenti/list">Lista Utenti</a></li>
-                                            <li><a href="/forum/admin">Gestione Forum</a></li>
-                                            <li><a href="/archivio/list/articoli">Lista Articoli</a></li>
-                                            <li><a href="/archivio/list/ricette">Lista Ricette</a></li>
-                                            <li><a href="/archivio/list/comunicati">Lista Comunicati</a></li>
-                                            <li><a href="/segnalazione-portolano/list">Gestione Portolano Online</a>
-                                            </li>
-                                            <li><a href="/porti/list">Gestione Porti</a></li>
-                                            <li><a href="/commento-porto/list">Gestione Commenti porto</a></li>
-                                            <li><a href="/attracco/list">Gestione Attracchi</a></li>
-                                            <li><a href="/nodi/list">Gestione Nodi</a></li>
 
-                                            <li><a href="/galleria-foto/list">FotoGallery</a></li>
-                                            <li><a href="/foto/list">Gestione foto</a></li>
-                                            <li><a href="/video/list">VideoGallery</a></li>
-                                            <li><a href="/cms/list">Pagine CMS</a></li>
-                                            <li><a href="/menu/list">Menù</a></li>
-                                            <li><a href="/newsletter/">Newsletter</a></li>
+
+
+                                            <li style="margin-top:0px"><a style="font-size:14px" href="/tuo-profilo/">Modifica dati</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px" href="/utenti/list">Lista Utenti</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px" href="/forum/admin">Gestione Forum</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px" href="/archivio/list/articoli">Lista Articoli</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px" href="/archivio/list/ricette">Lista Ricette</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px" href="/archivio/list/comunicati">Lista Comunicati</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px" href="/segnalazione-portolano/list">Gestione Portolano Online</a>
+                                            </li>
+                                            <li style="margin-top:0px"><a style="font-size:14px" href="/porti/list">Gestione Porti</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px" href="/commento-porto/list">Gestione Commenti porto</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px"  href="/attracco/list">Gestione Attracchi</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px"  href="/nodi/list">Gestione Nodi</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px"  href="/galleria-foto/list">FotoGallery</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px"  href="/foto/list">Gestione foto</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px"  href="/video/list">VideoGallery</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px"  href="/cms/list">Pagine CMS</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px"  href="/menu/list">Menù</a></li>
+                                            <li style="margin-top:0px"><a style="font-size:14px"  href="/newsletter/">Newsletter</a></li>
                                         {% endif %}
 
                                     </ul>
