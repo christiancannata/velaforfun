@@ -301,8 +301,10 @@
                         <div class="latest-news  hvr-underline-from-left">
                             <div class="content">
                                 <h4>{{ articoloRel.titolo }}</h4>
-
+                                {% if articoloRel.sottotitolo!="" %}
                                 <p>{{ articoloRel.sottotitolo|slice(0, 70)|raw|striptags }}...</p>
+                                {% endif %}
+
                             </div>
                             <div class="arrow">
                                 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
