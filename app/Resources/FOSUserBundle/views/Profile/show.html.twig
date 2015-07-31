@@ -134,7 +134,7 @@
                                     {% if app.user.profilePicturePath == "" and app.user.getFacebookId() !="" %}
                                         <div class="row clearfix">
                                             <div class="col-md-6 column">
-                                                <img class="avatar-small" style="width: 100px;margin:0"
+                                                <img class="avatar-small" style="width: 100px;height:100px;margin:0"
                                                      src="http://graph.facebook.com/{{ app.user.getFacebookId() }}/picture?type=large"
                                                      alt="avatar"/>
                                             </div>
@@ -146,11 +146,11 @@
                                         <div class="row clearfix">
                                             <div class="col-md-6 column">
                                                 {% if app.user.profilePicturePath != "" %}
-                                                    <img class="avatar-small" style="width: 100px;margin:0"
+                                                    <img class="avatar-small" style="width: 100px;height:100px;margin:0"
                                                          src="/uploads/utenti/profilo/{{ app.user.profilePicturePath }}"
                                                          alt="avatar"/>
                                                 {% else %}
-                                                    <img class="avatar-small" style="width: 100px;margin:0"
+                                                    <img class="avatar-small" style="width: 100px;height:100px;margin:0"
                                                          src="/uploads/utenti/profilo/default_avatar.png"
                                                          alt="avatar"/>
                                                 {% endif %}
