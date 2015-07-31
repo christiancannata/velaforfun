@@ -146,6 +146,7 @@ class BaseController extends Controller
         foreach($ids as $id){
             $entity = $em->getRepository($this->getNameSpace().":".$this->entity)->find(intval($id));
 
+
             if ($entity) {
                 $em->remove($entity);
             }
