@@ -243,6 +243,11 @@ class AnnuncioScambioPostoController extends BaseController
             $params = $request->request->all();
             if (isset($params['appbundle_annuncioscambioposto']['notifica']) && $params['appbundle_annuncioscambioposto']['notifica'] == 1) {
                 unset($params['appbundle_annuncioscambioposto']['notifica']);
+
+                if(!isset($params['appbundle_annuncioscambioposto']['luogoRicercato'])){
+                    $params['appbundle_annuncioscambioposto']['luogoRicercato']="TUTTO";
+                }
+
                 $request->request->set('appbundle_annuncioscambioposto', $params['appbundle_annuncioscambioposto']);
                 $postform->handleRequest($request);
                 if ($postform->isValid()) {
