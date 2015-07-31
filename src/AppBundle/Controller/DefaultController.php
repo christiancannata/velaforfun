@@ -142,13 +142,18 @@ class DefaultController extends BaseController
         $articolo = $this->getDoctrine()
             ->getRepository('BlogBundle:Articolo')->find($id);
 
+        if($articolo){
+            $em= $this->getDoctrine()->getManager();
 
-        $em= $this->getDoctrine()->getManager();
+            $em->remove($articolo);
+            $em->flush();
 
-        $em->remove($articolo);
-        $em->flush();
+            return new Response("Articolo eliminato con successo!");
+        }else{
+            return new Response("Nessun comunicato trovato!");
 
-        return new Response("Articolo eliminato con successo!");
+        }
+
     }
 
 
