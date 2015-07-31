@@ -53,7 +53,7 @@ class ImageController extends BaseController
         $array=array();
 
         foreach ($files as $uploadedFile) {
-            $filename = $uploadedFile->getClientOriginalName()."-".md5(date('YmdHis')).".".$uploadedFile->guessExtension();
+            $filename = date('YmdHis')."_".$uploadedFile->getClientOriginalName();
 
 
             if($uploadedFile->move($dir, $filename)){
