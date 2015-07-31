@@ -10,7 +10,12 @@
 <script language="javascript">
     $(document).ready(function(){
 
-        {% if entity.id is defined %}
+        {% if entity.immagineCorrelataArticolo is defined %}
+        $("#blogbundle_articolo_immagineCorrelata").parent().append(
+          "<img src='/images/articoli/{{ entity.immagineCorrelataArticolo }}' width='150'>"
+        );
+
+
 
         {% endif %}
     });
@@ -45,6 +50,7 @@
 
     {{ form_start(form) }}
     {{ form_widget(form) }}
+
 
        <div>
 
