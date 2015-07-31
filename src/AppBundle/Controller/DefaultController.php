@@ -33,12 +33,18 @@ class DefaultController extends BaseController
 
 
         $repository = $this->getDoctrine()
-            ->getRepository('CCDNForumForumBundle:Topic');
+            ->getRepository('CCDNForumForumBundle:Post');
 
-        $post = $repository->findBy(array(), array('createdDate' => 'desc'), 20);
+        $post = $repository->findBy(array(), array('createdDate' => 'desc'), 50);
+        $topic=[];
 
+        foreach($post as $sPost){
+            if (!array_key_exists($sPost->getTopic()->getId(), $topic)) {
+                $topic[$sPost->getTopic()->getId()] = $sPost->getTopic();
+            }
+        }
 
-        return $this->render('default/index.html.twig', array("articoli" => $articoli, "ultimiPost" => $post));
+        return $this->render('default/index.html.twig', array("articoli" => $articoli, "ultimiPost" => $topic));
     }
 
 
