@@ -61,8 +61,6 @@ class ImageController extends BaseController
                 $array[]= array(
                     'filelink' => '/images/articoli/'.$filename
                 );
-            }else{
-                die(var_dump("errore nel salvare il file"));
             }
 
         }
