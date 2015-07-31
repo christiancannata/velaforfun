@@ -563,7 +563,7 @@
                                 <div class="scroll-pane" style="margin-top:15px">
                                     <ul class="media-list" id="attracchiPorto">
 
-                                        {% for attracco in porto.getAttracchi() %}
+                                        {% for attracco in porto.getAttracchi()|reverse %}
 
                                             <li class="media">
                                                 <div class="media-left">
@@ -628,7 +628,7 @@
                             <div class="scroll-pane">
                                 <ul class="media-list" id="commentiPorto">
 
-                                    {% for commento in porto.getCommenti() %}
+                                    {% for commento in porto.getCommenti()|reverse %}
 
                                         <li class="media">
                                             <div class="media-left">
