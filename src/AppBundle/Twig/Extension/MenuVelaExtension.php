@@ -154,7 +154,7 @@ class MenuVelaExtension extends \Twig_Extension
 
 
         $re = "/\\[LINK=([^\\[]+)\\]([^\\[]+)\\[\\/LINK\\]/i";
-        $subst = "<a href=\"$1\">$2</a>";
+        $subst = "<a target="_blank" href=\"$1\">$2</a>";
 
         $string = preg_replace($re, $subst, $string, 1);
 
