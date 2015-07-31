@@ -185,7 +185,7 @@ jQuery(document).ready(function ($) {
         $("#blogbundle_articolo_textFileImage").attr("value",res[2]);
         $("#blogbundle_articolo_linkCorrelato").val(res[1]);
 
-        $("#blogbundle_articolo_textFileImage").show();
+        $("#blogbundle_articolo_textFileImage").parent().show();
         $("#blogbundle_articolo_immagineCorrelata").parent().hide();
     });
 
