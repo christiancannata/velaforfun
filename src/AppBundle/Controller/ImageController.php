@@ -41,7 +41,6 @@ class ImageController extends BaseController
 
     /**
      * @Route( "upload", name="upload_images" )
-     * @Template()
      */
     public function uploadAction(Request $request)
     {
@@ -56,12 +55,13 @@ class ImageController extends BaseController
             $filename = $uploadedFile->getClientOriginalName()."-".md5(date('YmdHis')).".".$uploadedFile->guessExtension();
 
 
-            $uploadedFile->move($dir, $filename);
+            if($uploadedFile->move($dir, $filename)){
+                // displaying file
+                $array[]= array(
+                    'filelink' => '/images/articoli/'.$filename
+                );
+            }
 
-            // displaying file
-            $array = array(
-                'filelink' => '/images/articoli/'.$filename
-            );
         }
 
         return new JsonResponse($array);
