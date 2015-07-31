@@ -29,7 +29,7 @@ class AnnuncioScambioPosto
     /**
      * @var string
      *
-     * @ORM\Column(name="telefono", type="string", nullable=false)
+     * @ORM\Column(name="telefono", type="string", nullable=true)
      */
     private $telefono;
 
@@ -58,14 +58,14 @@ class AnnuncioScambioPosto
     /**
      * @var string
      *
-     * @ORM\Column(name="tempo", type="string", nullable=false)
+     * @ORM\Column(name="tempo", type="string", nullable=true)
      */
     private $tempo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lunghezza", type="string", nullable=false)
+     * @ORM\Column(name="lunghezza", type="string", nullable=true)
      */
     private $lunghezza;
 
