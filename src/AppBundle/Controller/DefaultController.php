@@ -134,6 +134,27 @@ class DefaultController extends BaseController
 
 
     /**
+     * @Route("/elimina-comunicato/{id}", name="elimina_comunicato")
+     */
+    public function eliminaComunicatoAction($id)
+    {
+
+        $articolo = $this->getDoctrine()
+            ->getRepository('BlogBundle:Articolo')->find($id);
+
+
+        $em= $this->getDoctrine()->getManager();
+
+        $em->remove($articolo);
+        $em->flush();
+
+        return new Response("Articolo eliminato con successo!");
+    }
+
+
+
+
+    /**
      * @Route("/archivio", name="homepage_archivio")
      */
     public function archivioAction()

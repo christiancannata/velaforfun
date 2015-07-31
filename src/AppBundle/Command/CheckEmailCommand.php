@@ -37,6 +37,12 @@ class CheckEmailCommand extends ContainerAwareCommand
                 InputOption::VALUE_OPTIONAL,
                 'Numero di comunicati da scaricare'
             )
+            ->addOption(
+                'dryrun',
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'Numero di comunicati da scaricare'
+            )
             ->setDescription('Controlla email comunicati');
     }
 
@@ -48,7 +54,7 @@ class CheckEmailCommand extends ContainerAwareCommand
 
         $mailbox = new Mailbox(
             '{imap.gmail.com:993/imap/ssl}INBOX',
-            'comunicati@velaforfun.com ',
+            'comunicati@velaforfun.com',
             'comunicati01 ',
             '/tmp'
         );
@@ -63,117 +69,128 @@ class CheckEmailCommand extends ContainerAwareCommand
         if (!$mailsIds) {
             die('Mailbox is empty');
         } else {
+
             //  $mailsIds = $mailbox->sortMails();
+            $output->writeln('<info> - Trovate email da leggere:'.count($mailsIds).'</info>');
+
 
             if($input->getOption('limit')){
                 $mailsIds = array_slice($mailsIds, 0, $input->getOption('limit'));
             }
-
             $comunicati = array();
-            foreach ($mailsIds as $mailId) {
-                $ora=new \DateTime();
-                $output->writeln('<info>'.$ora->format("d-m-Y H:i").' - Leggo email ID:'.$mailId.'</info>');
-                $mail = $mailbox->getMail($mailId);
-
-                $emailComunicato = $repositoryArticolo->findOneBy(array("idComunicato" => $mail->id));
-                if (!$emailComunicato) {
-
-                    $articolo = new Articolo();
-                    $output->writeln('<comment>'.$mail->subject.' from '.$mail->fromAddress.' </comment>');
-                    $articolo->setIdComunicato($mail->id);
-                    $articolo->setTitolo($mail->subject);
-                    $articolo->setStato("BOZZA");
-                    $articolo->setTesto(addslashes($mail->textHtml));
-                    $articolo->generatePermalink($mail->subject);
-                    $articolo->setCategoria(
-                        $this->getContainer()->get('doctrine')
-                            ->getRepository('BlogBundle:Categoria')->find(2)
-                    );
-                    $repository = $this->getContainer()->get('doctrine')
-                        ->getRepository('AppBundle:User');
-                    $user = $repository->findOneBy(array("email" => $mail->fromAddress));
-                    if (!$user) {
-
-                        $username = strtolower(str_replace(" ", "", $mail->fromName));
-
-                        $user2 = $repository->findOneBy(array("username" => $username));
-
-                        if (!$user2) {
-
-                            $userManager = $this->getContainer()->get('fos_user.user_manager');
-                            $user = $userManager->createUser();
-                            $user->setEmail($mail->fromAddress);
-                            $user->setNome($mail->fromName);
-                            $user->setUsername($username);
-                            $user->setPlainPassword($username."1");
-                            $this->em->persist($user);
-                            $this->em->flush();
-                        } else {
-                            $user = $user2;
-                        }
 
 
-                    }
-                    $articolo->setAutore($user);
-                    $allegati = $mail->getAttachments();
-                    $allegatiValidi=[];
-                    $immagini=[];
-                    foreach ($allegati as $allegato) {
-                        $path_parts = pathinfo($allegato->filePath);
-                        if ($path_parts['extension'] == "doc" || $path_parts['extension'] == "pdf" || $path_parts['extension'] == "docx") {
-                            $allegatiValidi[]=$allegato;
-                        }else{
-                            $immagini[]=$allegato;
-                        }
+            if(!$input->getOption('dryrun')){
 
 
-                    }
-
-
-
-                    if(!empty($immagini)){
-                        $gallery = new GalleriaFoto();
-
-
-                        $gallery->setNome($mail->subject);
-                        $gallery->setDescrizione("");
-                        $gallery->setInGallery(false);
-                        $this->em->persist($gallery);
-                        $this->em->flush();
-
-                        $this->creaGalleria($gallery,$immagini);
-
-                        $articolo->setGallery($gallery);
-
-                    }
-
-
-                    $output->writeln('<info>Trovati allegati validi:'.count($allegatiValidi).'</info>');
-
-                    $allegatiValidi=array_slice($allegatiValidi,0,4);
-                    foreach ($allegatiValidi as $key=>$allegato) {
-                        try {
-                            $path_parts = pathinfo($allegato->filePath);
-                            $numeroAllegato = "setAllegato".($key+1);
-                            $output->writeln('<info>setto allegato:'.$numeroAllegato.' - '.$allegato->filePath.'</info>');
-
-                            $fs->copy($allegato->filePath, '/var/www/web/uploads/allegati-articoli/'.$path_parts['filename'].".".$path_parts['extension']);
-                            $articolo->$numeroAllegato($path_parts['filename'].".".$path_parts['extension']);
-
-                        } catch (IOException $e) {
-                            echo "Errore durante la copia del file";
-                        }
-
-
-                    }
-
-                    $this->em->persist($articolo);
+                foreach ($mailsIds as $mailId) {
                     $ora=new \DateTime();
-                    $comunicati[] = $articolo;
-                    $this->em->flush();
-                    $mailbox->markMailAsRead($mailId);
-                    $output->writeln('<info>'.$ora->format("d-m-Y H:i").' - Email ID:'.$mailId.' importata!</info>');
-                }
+                    $output->writeln('<info>'.$ora->format("d-m-Y H:i").' - Leggo email ID:'.$mailId.'</info>');
+                    $mail = $mailbox->getMail($mailId);
+
+                    $emailComunicato = $repositoryArticolo->findOneBy(array("idComunicato" => $mail->id));
+                    if (!$emailComunicato) {
+
+                        $articolo = new Articolo();
+                        $output->writeln('<comment>'.$mail->subject.' from '.$mail->fromAddress.' </comment>');
+                        $articolo->setIdComunicato($mail->id);
+                        $articolo->setTitolo($mail->subject);
+                        $articolo->setStato("BOZZA");
+                        $articolo->setTesto(addslashes($mail->textHtml));
+                        $articolo->generatePermalink($mail->subject);
+                        $articolo->setCategoria(
+                            $this->getContainer()->get('doctrine')
+                                ->getRepository('BlogBundle:Categoria')->find(2)
+                        );
+                        $repository = $this->getContainer()->get('doctrine')
+                            ->getRepository('AppBundle:User');
+                        $user = $repository->findOneBy(array("email" => $mail->fromAddress));
+                        if (!$user) {
+
+                            $username = strtolower(str_replace(" ", "", $mail->fromName));
+
+                            $user2 = $repository->findOneBy(array("username" => $username));
+
+                            if (!$user2) {
+
+                                $userManager = $this->getContainer()->get('fos_user.user_manager');
+                                $user = $userManager->createUser();
+                                $user->setEmail($mail->fromAddress);
+                                $user->setNome($mail->fromName);
+                                $user->setUsername($username);
+                                $user->setPlainPassword($username."1");
+                                $this->em->persist($user);
+                                $this->em->flush();
+                            } else {
+                                $user = $user2;
+                            }
+
+
+                        }
+                        $articolo->setAutore($user);
+                        $allegati = $mail->getAttachments();
+                        $allegatiValidi=[];
+                        $immagini=[];
+                        foreach ($allegati as $allegato) {
+                            $path_parts = pathinfo($allegato->filePath);
+                            if ($path_parts['extension'] == "doc" || $path_parts['extension'] == "pdf" || $path_parts['extension'] == "docx") {
+                                $allegatiValidi[]=$allegato;
+                            }else{
+                                $immagini[]=$allegato;
+                            }
+
+
+                        }
+
+
+
+                        if(!empty($immagini)){
+                            $gallery = new GalleriaFoto();
+
+
+                            $gallery->setNome($mail->subject);
+                            $gallery->setDescrizione("");
+                            $gallery->setInGallery(false);
+                            $this->em->persist($gallery);
+                            $this->em->flush();
+
+                            $this->creaGalleria($gallery,$immagini);
+
+                            $articolo->setGallery($gallery);
+
+                        }
+
+
+                        $output->writeln('<info>Trovati allegati validi:'.count($allegatiValidi).'</info>');
+
+                        $allegatiValidi=array_slice($allegatiValidi,0,4);
+                        foreach ($allegatiValidi as $key=>$allegato) {
+                            try {
+                                $path_parts = pathinfo($allegato->filePath);
+                                $numeroAllegato = "setAllegato".($key+1);
+                                $output->writeln('<info>setto allegato:'.$numeroAllegato.' - '.$allegato->filePath.'</info>');
+
+                                $fs->copy($allegato->filePath, '/var/www/web/uploads/allegati-articoli/'.$path_parts['filename'].".".$path_parts['extension']);
+                                $articolo->$numeroAllegato($path_parts['filename'].".".$path_parts['extension']);
+
+                            } catch (IOException $e) {
+                                echo "Errore durante la copia del file";
+                            }
+
+
+                        }
+
+                        $this->em->persist($articolo);
+                        $ora=new \DateTime();
+                        $comunicati[] = $articolo;
+                        $this->em->flush();
+                        $mailbox->markMailAsRead($mailId);
+                        $output->writeln('<info>'.$ora->format("d-m-Y H:i").' - Email ID:'.$mailId.' importata!</info>');
+                    }
+            }
+
+            }else{
+
             }
 
 
