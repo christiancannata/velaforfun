@@ -267,6 +267,25 @@ jQuery(document).ready(function ($) {
         });
     });
 
+    $(".delete-single-entity").click(function () {
+        var button = $(this);
+        $("button").attr("disabled", "disabled");
+        $.ajax({
+            type: "POST",
+            url: $(this).attr('data-route'),
+            success: function (response) {
+                if (response.success == true) {
+                    showalert($("#response-div"), "Eliminato con successo!", "success");
+
+                } else {
+                    showalert($("#response-div"), "Errore nell'eliminazione", "error");
+                }
+
+
+            }
+        });
+    });
+
 
     $(".dropdown-toggle").click(function () {
         if ($(this).find("i").hasClass("fa-bars")) {

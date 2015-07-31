@@ -137,7 +137,7 @@ class BaseController extends Controller
 
         $ids=null;
         if(is_numeric($id)){
-            $ids=$id;
+            $ids[]=$id;
         }else{
             $ids=explode(",",$id);
         }
