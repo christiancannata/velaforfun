@@ -133,7 +133,7 @@ class CheckEmailCommand extends ContainerAwareCommand
                         $immagini=[];
                         foreach ($allegati as $allegato) {
                             $path_parts = pathinfo($allegato->filePath);
-                            if ($path_parts['extension'] == "doc" || $path_parts['extension'] == "pdf" || $path_parts['extension'] == "docx") {
+                            if ($path_parts['extension'] == "doc" || $path_parts['extension'] == "pdf" || $path_parts['extension'] == "txt" || $path_parts['extension'] == "docx") {
                                 $allegatiValidi[]=$allegato;
                             }else{
                                 $immagini[]=$allegato;
@@ -153,6 +153,13 @@ class CheckEmailCommand extends ContainerAwareCommand
                             $gallery->setInGallery(false);
                             $this->em->persist($gallery);
                             $this->em->flush();
+                            if(isset($immagini[0])){
+                                $fs = new Filesystem();
+                                $path_parts = pathinfo($immagini[0]);
+                                $fs->copy($immagini[0]->filePath, '/var/www/web/images/articoli/'.$path_parts['filename'].".".$path_parts['extension']);
+
+                                $articolo->setImmagine($path_parts['filename'].".".$path_parts['extension']);
+                            }
 
                             $this->creaGalleria($gallery,$immagini);
 
