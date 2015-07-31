@@ -79,6 +79,7 @@ class ArticoloController extends BaseController
 
         $entity = $em->getRepository("BlogBundle:".$this->entity)->find($id);
 
+
         $postform = $this->createForm(new ArticoloType(), $entity);
 
         if ($request->isMethod('POST')) {

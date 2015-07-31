@@ -6,7 +6,17 @@
     {{ titolo }}
 {% endblock %}
 
+{% block javascripts %}
+<script language="javascript">
+    $(document).ready(function(){
 
+        {% if entity.id is defined %}
+
+        {% endif %}
+    });
+
+</script>
+{% endblock %}
 
 {% block body %}
 
@@ -42,6 +52,61 @@
 
     </div>
         </form>
+        
+        {% if entity.allegato1 is defined and entity.allegato1!="" %}
+                    <div class="row clearfix hidden-print">
+                        <div class="col-md-12 column">
+                            <div class="divisore-big"></div>
+                            <h3>Allegati dell'articolo</h3>
+
+                               <a target="_blank"
+                                   style="margin-top:10px;width:100%;float:left" href='/uploads/allegati-articoli/{{ entity.allegato1 }}'>{{ entity.allegato1 }}</a>
+
+                            {% if entity.allegato2 is defined %}
+                                <a target="_blank"
+                                     style="margin-top:10px;width:100%;float:left"href='/uploads/allegati-articoli/{{ entity.allegato2 }}'>{{ entity.allegato2 }}</a>
+
+                            {% endif %}
+
+                            {% if entity.allegato3 is defined %}
+                               <a target="_blank"
+                                    style="margin-top:10px;width:100%;float:left" href='/uploads/allegati-articoli/{{ entity.allegato3 }}'>{{ entity.allegato3 }}</a>
+
+                            {% endif %}
+
+                            {% if entity.allegato4 is defined %}
+                                <a target="_blank"
+                                     style="margin-top:10px;width:100%;float:left"href='/uploads/allegati-articoli/{{ entity.allegato4 }}'>{{ entity.allegato4 }}</a>
+
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if entity.gallery is defined and entity.gallery|length > 0 %}
+                        <div class="row clearfix hidden-print">
+                            <div class="col-md-12 column">
+                                <div class="divisore-big"></div>
+                                <h3>Visualizza la fotogallery</h3>
+
+                                <div class="scroll-pane-horizontal horizontal-only">
+                                    <p style="width: {{ entity.gallery.foto|length*160 }}px;">
+                                        {% for foto in entity.gallery.foto %}
+                                            <a class='gallery' style="display:inline" rel="g1"
+                                               href='/uploads/galleria_foto/{{ foto.immagine }}'><img
+                                                        style="display:inline" width="150" height="150"
+                                                        src="/uploads/galleria_foto/{{ foto.immagine }}"></a>
+                                        {% endfor %}
+
+                                    </p>
+                                </div>
+
+
+                                <div class="divisore-big"></div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    
+                    
    <a href="/archivio/{{ entity.categoria.permalink }}/{{ entity.permalink }}" target="_blank"><button style="margin-top:10px" class="btn btn-danger">VEDI ARTICOLO</button></a>
 
         </div>
@@ -51,7 +116,7 @@
                             <div class="form-group" >
                                 <div class="inner-addon left-addon">
 
-                                    <input type="search" placeholder="cerca un articolo..." class="form-control"
+                                    <input type="search" placeholder="cerca un entity..." class="form-control"
                                            id="selectArticolo" autocomplete="off">
 
                                            <button class="btn btn-primary settaArticoloCrud">Collega articolo</button>
