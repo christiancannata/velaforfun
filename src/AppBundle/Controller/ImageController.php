@@ -58,7 +58,7 @@ class ImageController extends BaseController
 
             if($uploadedFile->move($dir, $filename)){
                 // displaying file
-                $array[]= array(
+                $array= array(
                     'filelink' => '/images/articoli/'.$filename
                 );
             }
