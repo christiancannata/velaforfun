@@ -283,6 +283,8 @@ class AnnuncioImbarcoController extends BaseController
                     $annuncio->setTitolo( "Cerco ".$annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo(
                         )." a ".$annuncio->getLuogo());
 
+
+                    $annuncio->setTelefono("");
                   /*  $post->setBody($annuncio->getDescrizione());
 
                     $em->persist($post);
