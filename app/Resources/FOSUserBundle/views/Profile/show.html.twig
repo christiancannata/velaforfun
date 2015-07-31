@@ -387,7 +387,7 @@
 
                             </p>
 
-                            <button class="btn btn-danger eliminaImbarco">ELIMINA L'ANNUNCIO</button>
+                            <button class="btn btn-danger eliminaImbarco" data-id="{{ annuncioImbarco.id }}" style="width:100%">ELIMINA L'ANNUNCIO</button>
 
                     {% endif %}
 
@@ -446,7 +446,7 @@
 
                             </form>
                             <div class="response-form" style="display: none"></div></p>
-                             <button class="btn btn-danger eliminaScambioPosto">ELIMINA L'ANNUNCIO</button>
+                             <button class="btn btn-danger eliminaScambioPosto" data-id="{{ user.annuncioScambioPosto.id }}" style="width:100%">ELIMINA L'ANNUNCIO</button>
                     {% endif %}
 
                 </div>
