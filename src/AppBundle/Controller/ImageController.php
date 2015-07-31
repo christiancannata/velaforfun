@@ -25,6 +25,7 @@ class ImageController extends BaseController
         $finder->files()->in('../web/images/articoli');
 
         foreach ($finder as $file) {
+
             $attributes = [
                 "thumb" => "/images/articoli/".$file->getFilename(),
                 "image" => "/images/articoli/".$file->getFilename(),
@@ -60,6 +61,8 @@ class ImageController extends BaseController
                 $array[]= array(
                     'filelink' => '/images/articoli/'.$filename
                 );
+            }else{
+                die(var_dump("errore nel salvare il file"));
             }
 
         }
