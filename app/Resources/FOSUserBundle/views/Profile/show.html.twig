@@ -386,9 +386,9 @@
 
 
                             </p>
-
+                            {% if annuncioImbarco.id is defined %}
                             <button class="btn btn-danger eliminaImbarco" data-id="{{ annuncioImbarco.id }}" style="width:100%">ELIMINA L'ANNUNCIO</button>
-
+                            {% endif %}
                     {% endif %}
 
 
