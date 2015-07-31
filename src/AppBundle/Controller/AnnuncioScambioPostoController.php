@@ -268,6 +268,10 @@ class AnnuncioScambioPostoController extends BaseController
 
                     $luogoCercato = ucwords(str_replace("_", " ", strtolower($annuncio->getLuogoRicercato())));
 
+
+                    if(!$annuncio->getLuogoRicercato()){
+                        $annuncio->setLuogoRicercato("TUTTO");
+                    }
                     $annuncio->setUtente($user);
                     $annuncio->setDescrizione(
                         "Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$luogoCercato
