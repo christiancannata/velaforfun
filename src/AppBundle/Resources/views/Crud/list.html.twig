@@ -60,6 +60,7 @@
                 <thead>
 
                 <tr>
+                    <th></th>
                     <th>ID</th>
 
                     <th>NOME</th>
@@ -74,6 +75,7 @@
                 <tbody>
                 {% for entity in entities %}
                     <tr data-id="{{ entity.id }}">
+                        <td><input class="eliminaCheckbox" type="checkbox" value="{{ entity.id }}" /></td>
                         <td>{{ entity.id }}</td>
                         <td>{{ entity.__toString()|raw }} </td>
                         <td>{{ entity.timestamp|date('d-m-Y H:i') }}</td>
@@ -90,6 +92,8 @@
                 </tbody>
 
             </table>
+
+            <button class="btn btn-danger eliminaSelezionati" data-route="{{ base_path }}/elimina/">Elimina selezionati</button>
 
         </div>
     </div>

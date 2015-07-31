@@ -190,6 +190,36 @@ jQuery(document).ready(function ($) {
     });
 
 
+    $(".eliminaSelezionati").click(function(){
+        var button = $(this);
+        $("button").attr("disabled", "disabled");
+
+        var val = [];
+        $(':checkbox:checked').each(function(i){
+            val[i] = $(this).val();
+        });
+
+        console.log(val);
+        $.ajax({
+            type: "POST",
+            url: $(this).attr('data-route')+val.join(),
+            success: function (response) {
+                if (response.success == true) {
+                    $(":checkbox:checked").closest("tr").fadeOut();
+                    showalert($("#response-div"), "Eliminato con successo!", "success");
+
+                } else {
+                    showalert($("#response-div"), "Errore nell'eliminazione", "error");
+                }
+                $("button").removeAttr("disabled");
+
+            }
+        });
+
+
+    });
+
+
     $(".back-link").click(function () {
         window.history.back();
         return false;

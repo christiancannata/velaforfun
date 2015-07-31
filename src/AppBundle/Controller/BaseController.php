@@ -135,16 +135,25 @@ class BaseController extends Controller
 
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository($this->getNameSpace().":".$this->entity)->find($id);
-        if (!$entity) {
-            $response['success'] = false;
-            $response['cause'] = "oggetto da eliminare non trovato!";
-        } else {
-            $em->remove($entity);
-            $em->flush();
-            $response['success'] = true;
+        $ids=null;
+        if(is_numeric($id)){
+            $ids=$id;
+        }else{
+            $ids=explode(",",$id);
         }
 
+        $response=[];
+        foreach($ids as $id){
+            $entity = $em->getRepository($this->getNameSpace().":".$this->entity)->find(intval($id));
+
+            if ($entity) {
+                $em->remove($entity);
+            }
+        }
+
+        $em->flush();
+
+        $response['success'] = true;
 
         return new JsonResponse($response);
     }
