@@ -17,7 +17,7 @@ class AttraccoType extends AbstractType
         $builder
             ->add('timestamp')
             ->add('lastUpdateTimestamp')
-            ->add('utente')
+            ->add('utente',null,array("attr"=>array("data-live-search"=>"true")))
             ->add('porto')
         ;
     }

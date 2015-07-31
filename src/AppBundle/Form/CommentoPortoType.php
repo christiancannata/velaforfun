@@ -16,7 +16,7 @@ class CommentoPortoType extends AbstractType
     {
         $builder
             ->add('testo')
-            ->add('utente')
+            ->add('utente',null,array("attr"=>array("data-live-search"=>"true")))
             ->add('porto')
             ->add('tipoCommento')
         ;
