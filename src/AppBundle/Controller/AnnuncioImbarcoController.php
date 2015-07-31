@@ -285,6 +285,8 @@ class AnnuncioImbarcoController extends BaseController
 
 
                     $annuncio->setTelefono("");
+                    $annuncio->setLocalita("");
+                    $annuncio->setTempo("");
                   /*  $post->setBody($annuncio->getDescrizione());
 
                     $em->persist($post);
