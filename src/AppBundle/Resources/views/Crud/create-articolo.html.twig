@@ -10,7 +10,7 @@
 <script language="javascript">
     $(document).ready(function(){
         {% if entity.immagine is defined %}
-        $("#blogbundle_articolo_immagine").parent().append(
+        $("#blogbundle_articolo_profilePictureFile").parent().append(
                 "<img src='/images/articoli/{{ entity.immagine }}' width='150'>"
         );
 
