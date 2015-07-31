@@ -155,7 +155,7 @@ class CheckEmailCommand extends ContainerAwareCommand
                             $this->em->flush();
                             if(isset($immagini[0])){
                                 $fs = new Filesystem();
-                                $path_parts = pathinfo($immagini[0]);
+                                $path_parts = pathinfo($immagini[0]->filePath);
                                 $fs->copy($immagini[0]->filePath, '/var/www/web/images/articoli/'.$path_parts['filename'].".".$path_parts['extension']);
 
                                 $articolo->setImmagine($path_parts['filename'].".".$path_parts['extension']);
