@@ -9,6 +9,10 @@
 {% block javascripts %}
 <script language="javascript">
     $(document).ready(function(){
+        {% if entity.immagine is defined %}
+        $("#blogbundle_articolo_immagine").parent().append(
+                "<img src='/images/articoli/{{ entity.immagine }}' width='150'>"
+        );
 
         {% if entity.immagineCorrelataArticolo is defined %}
         $("#blogbundle_articolo_immagineCorrelata").parent().append(
