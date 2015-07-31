@@ -150,7 +150,18 @@ class MenuVelaExtension extends \Twig_Extension
         $replacement = Array();
         $replacement[0] = '<img src="${1}" />';
 
-        return preg_replace($pattern, $replacement, $string);
+        $string= preg_replace($pattern, $replacement, $string);
+
+
+        $re = "/\\[LINK=([^\\[]+)\\]([^\\[]+)\\[\\/LINK\\]/i";
+        $subst = "<a href=\"$1\">$2</a>";
+
+        $string = preg_replace($re, $subst, $string, 1);
+
+
+
+        return $string;
+
     }
 
     public function getMeteo($string)
