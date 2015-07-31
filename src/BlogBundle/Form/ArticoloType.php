@@ -26,7 +26,7 @@ class ArticoloType extends AbstractType
 
             ->add('tags')
             ->add('idComunicato','hidden')
-            ->add('autore')
+            ->add('autore',null,array("attr"=>array("data-live-search"=>"true")))
             ->add('categoria')
             ->add('permalink','hidden')
             ->add('titoloCorrelato')
