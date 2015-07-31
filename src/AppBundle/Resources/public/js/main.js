@@ -205,7 +205,7 @@ jQuery(document).ready(function ($) {
             url: $(this).attr('data-route')+val.join(),
             success: function (response) {
                 if (response.success == true) {
-                    $(":checkbox:checked").closest("tr").fadeOut();
+                    $(":checkbox:checked").closest("tr").remove();
                     showalert($("#response-div"), "Eliminato con successo!", "success");
 
                 } else {
