@@ -607,7 +607,8 @@ function showPosition(position) {
         myLayer = L.mapbox.featureLayer(arrayPorto2).addTo(map);
 
 
-
+        map.interaction.auto();
+        map.center({lat: position.coords.latitude, lon: position.coords.longitude}).zoom(8);
 
 $("#meteo-localized-box").removeClass("hide");
         $("#div-localized").fadeOut();
