@@ -145,7 +145,7 @@
                             <div class="form-group"><label for="appbundle_annuncio_referente"
                                                            class="control-label required">Nome e Cognome</label><input
                                         type="text" class="form-control" required="required"
-                                        {% if app.user is defined and is_granted("ROLE_USER") %}
+                                        {% if app.user is defined and app.user.nome is defined %}
                                             value="{{ app.user.nome }} {{ app.user.cognome }}"
                                         {% endif %}
                                         name="appbundle_annuncio[referente]" id="appbundle_annuncio_referente"></div>
