@@ -1,4 +1,3 @@
-
 var meteoIcon = [];
 meteoIcon["01d"] = "wi-day-sunny";
 
@@ -20,30 +19,70 @@ meteoIcon["11n"] = "wi-thunderstorm";
 meteoIcon["13n"] = "wi-snow";
 meteoIcon["50n"] = "wi-fog";
 
-function goToByScroll(id){
+function goToByScroll(id) {
     // Remove "link" from the ID
     id = id.replace("link", "");
     // Scroll
     $('html,body').animate({
-            scrollTop: $("#"+id).offset().top},
+            scrollTop: $("#" + id).offset().top
+        },
         'slow');
 }
 
 
-function vota(voto){
+$(".eliminaImbarco").click(function () {
     var button = $(this);
     $("button").attr("disabled", "disabled");
     $.ajax({
         type: "POST",
-        url: "vota/"+voto,
+        url: "/annuncio-imbarco/elimina/" + button.attr("data-id"),
         success: function (response) {
             if (response.success == true) {
-             //   $(".vota-"+voto).html("Voto inserito!");
+                //   $(".vota-"+voto).html("Voto inserito!");
+                location.href='';
+            } else {
+            }
+            $("button").removeAttr("disabled");
+
+        }
+    });
+
+});
+
+$(".eliminaScambioPosto").click(function () {
+    var button = $(this);
+    $("button").attr("disabled", "disabled");
+    $.ajax({
+        type: "POST",
+        url: "/annuncio-scambio-posto/elimina/" + button.attr("data-id"),
+        success: function (response) {
+            if (response.success == true) {
+                //   $(".vota-"+voto).html("Voto inserito!");
+                location.href='';
+            } else {
+            }
+            $("button").removeAttr("disabled");
+
+        }
+    });
+
+});
+
+
+function vota(voto) {
+    var button = $(this);
+    $("button").attr("disabled", "disabled");
+    $.ajax({
+        type: "POST",
+        url: "vota/" + voto,
+        success: function (response) {
+            if (response.success == true) {
+                //   $(".vota-"+voto).html("Voto inserito!");
 
                 $("#modalVoto").modal();
 
-                $("#voto-"+voto).html(parseInt($("#voto-"+voto).html())+1);
-                setTimeout(function(){
+                $("#voto-" + voto).html(parseInt($("#voto-" + voto).html()) + 1);
+                setTimeout(function () {
                     $("#modalVoto").modal("hide");
                 }, 2000);
 
@@ -54,75 +93,70 @@ function vota(voto){
         }
     });
 }
-function getUrlParameter(sParam)
-{
+
+
+function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++)
-    {
+    for (var i = 0; i < sURLVariables.length; i++) {
         var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam)
-        {
+        if (sParameterName[0] == sParam) {
             return sParameterName[1];
         }
     }
 }
 
 
-
 jQuery(document).ready(function ($) {
 
 
-    if(!localStorage.getItem("visualizzatoBenvenuto")){
+    if (!localStorage.getItem("visualizzatoBenvenuto")) {
         $("#modalBeta").modal();
-        localStorage.setItem("visualizzatoBenvenuto",1);
+        localStorage.setItem("visualizzatoBenvenuto", 1);
     }
 
 
-    if($('.smarticker6').length>0){
+    if ($('.smarticker6').length > 0) {
         $('.smarticker6').smarticker();
     }
 
-    if($("#fos_user_registration_form_profilePictureFile").length>0 && $(".hwi_oauth_registration_register").length==0){
-        var html='<div class="form-group"> <label class="control-label required" for="blogbundle_articolo_profilePictureFile">Carica un Avatar</label> <span class="input-group-btn"> <span class="btn btn-primary btn-file">Sfoglia… <input type="file" name="fos_user_registration_form[profilePictureFile]" id="fos_user_registration_form_profilePictureFile"> </span> </span> <input type="text" readonly="" class="form-control"> </div>';
+    if ($("#fos_user_registration_form_profilePictureFile").length > 0 && $(".hwi_oauth_registration_register").length == 0) {
+        var html = '<div class="form-group"> <label class="control-label required" for="blogbundle_articolo_profilePictureFile">Carica un Avatar</label> <span class="input-group-btn"> <span class="btn btn-primary btn-file">Sfoglia… <input type="file" name="fos_user_registration_form[profilePictureFile]" id="fos_user_registration_form_profilePictureFile"> </span> </span> <input type="text" readonly="" class="form-control"> </div>';
         $("#fos_user_registration_form_profilePictureFile").parent().html(html);
     }
 
-    if($("#app_user_registration_profilePictureFile").length>0 && $(".hwi_oauth_registration_register").length==0){
-        var html='<div class="form-group"> <label class="control-label required" for="blogbundle_articolo_profilePictureFile">Carica un Avatar</label> <span class="input-group-btn"> <span class="btn btn-primary btn-file">Sfoglia… <input type="file" name="app_user_registration[profilePictureFile]" id="app_user_registration_profilePictureFile"> </span> </span> <input type="text" readonly="" class="form-control"> </div>';
+    if ($("#app_user_registration_profilePictureFile").length > 0 && $(".hwi_oauth_registration_register").length == 0) {
+        var html = '<div class="form-group"> <label class="control-label required" for="blogbundle_articolo_profilePictureFile">Carica un Avatar</label> <span class="input-group-btn"> <span class="btn btn-primary btn-file">Sfoglia… <input type="file" name="app_user_registration[profilePictureFile]" id="app_user_registration_profilePictureFile"> </span> </span> <input type="text" readonly="" class="form-control"> </div>';
         $("#app_user_registration_profilePictureFile").parent().html(html);
     }
 
 
-
-
-    $(document).on('change', '.btn-file :file', function() {
+    $(document).on('change', '.btn-file :file', function () {
         var input = $(this),
             numFiles = input.get(0).files ? input.get(0).files.length : 1,
             label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
         input.trigger('fileselect', [numFiles, label]);
     });
 
-    $(document).ready( function() {
-        $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+    $(document).ready(function () {
+        $('.btn-file :file').on('fileselect', function (event, numFiles, label) {
 
             var input = $(this).parents('.form-group').find(':text'),
                 log = numFiles > 1 ? numFiles + ' files selected' : label;
 
-            if( input.length ) {
+            if (input.length) {
                 input.val(log);
             } else {
-                if( log ) alert(log);
+                if (log) alert(log);
             }
 
         });
     });
 
 
-
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 
-       if(localStorage.getItem("geolocation")){
+        if (localStorage.getItem("geolocation")) {
             var meteo = JSON.parse(localStorage.getItem("geolocation"));
 
             $("#loadingMeteoMobile").hide();
@@ -146,12 +180,7 @@ jQuery(document).ready(function ($) {
     }
 
 
-
-
-
-
-
-    if($(".datetimepicker").length>0){
+    if ($(".datetimepicker").length > 0) {
         $('select[id*=day]').selectpicker(
             {title: "Giorno"}
         );
@@ -173,16 +202,16 @@ jQuery(document).ready(function ($) {
     });
 
 
-    $(".settaArticoloCrud").click(function(){
+    $(".settaArticoloCrud").click(function () {
 
-       var articoloCorrelato=$("#selectArticolo").typeahead("getActive").permalink;
+        var articoloCorrelato = $("#selectArticolo").typeahead("getActive").permalink;
 
 
         var res = articoloCorrelato.split("|");
 
         $("#blogbundle_articolo_titoloCorrelato").val(res[0]);
         $("#blogbundle_articolo_testoCorrelato").val(res[3]);
-        $("#blogbundle_articolo_textFileImage").attr("value",res[2]);
+        $("#blogbundle_articolo_textFileImage").attr("value", res[2]);
         $("#blogbundle_articolo_linkCorrelato").val(res[1]);
 
         $("#blogbundle_articolo_textFileImage").parent().show();
@@ -190,19 +219,19 @@ jQuery(document).ready(function ($) {
     });
 
 
-    $(".eliminaSelezionati").click(function(){
+    $(".eliminaSelezionati").click(function () {
         var button = $(this);
         $("button").attr("disabled", "disabled");
 
         var val = [];
-        $(':checkbox:checked').each(function(i){
+        $(':checkbox:checked').each(function (i) {
             val[i] = $(this).val();
         });
 
         console.log(val);
         $.ajax({
             type: "POST",
-            url: $(this).attr('data-route')+val.join(),
+            url: $(this).attr('data-route') + val.join(),
             success: function (response) {
                 if (response.success == true) {
                     $(":checkbox:checked").closest("tr").remove();
@@ -326,7 +355,6 @@ jQuery(document).ready(function ($) {
     }
 
 
-
     if ($("#selectPorto3").length > 0) {
         $.get('/porti/jsondata', function (data) {
             $("#selectPorto3").typeahead({source: data});
@@ -403,13 +431,13 @@ jQuery(document).ready(function ($) {
 
     });
 
-    if($('.scroll-pane').length>0){
-        $('.scroll-pane').jScrollPane({autoReinitialise:true});
+    if ($('.scroll-pane').length > 0) {
+        $('.scroll-pane').jScrollPane({autoReinitialise: true});
     }
 
 
-    if($('.scroll-pane-horizontal').length>0){
-        $('.scroll-pane-horizontal').jScrollPane({autoReinitialise:true});
+    if ($('.scroll-pane-horizontal').length > 0) {
+        $('.scroll-pane-horizontal').jScrollPane({autoReinitialise: true});
     }
 
 
@@ -430,16 +458,16 @@ jQuery(document).ready(function ($) {
 
 });
 function redirectScambioPosto(response) {
-    if(typeof response.response!="undefined")
-    location.href = '/forum/velaforfun/topic/' + response.response;
+    if (typeof response.response != "undefined")
+        location.href = '/forum/velaforfun/topic/' + response.response;
 }
 
 function reload(response) {
-   location.href='';
+    location.href = '';
 }
 function redirectImbarco(response) {
-     if(typeof response.response!="undefined")
-     location.href = '/forum/velaforfun/topic/' + response.response;
+    if (typeof response.response != "undefined")
+        location.href = '/forum/velaforfun/topic/' + response.response;
 }
 
 
@@ -449,8 +477,8 @@ function redirectRicetta(response) {
     location.href = '/archivio/' + response.response;
 }
 
-function checkNomeBarca(response){
-        console.log(response);
+function checkNomeBarca(response) {
+    console.log(response);
 }
 
 function setRisultatiAnnunciImbarco(response) {
@@ -545,7 +573,7 @@ function showPosition(position) {
 
     if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         $('#meteoModal').modal();
-    }else{
+    } else {
 
 
     }
@@ -585,22 +613,21 @@ function showPosition(position) {
 
         $("#meteo-localized-nome-2").html(meteo.geoposition.name);
 
-    //    $("#meteo-localized-temperatura-2").html(parseInt(meteo.geoposition.main.temp) + "°");
+        //    $("#meteo-localized-temperatura-2").html(parseInt(meteo.geoposition.main.temp) + "°");
         $("#meteo-localized-vento-2").html(meteo.geoposition.wind.speed + " km/h");
         $("#meteo-localized-umidita-2").html(meteo.geoposition.main.humidity + " %");
         $("#meteo-localized-icon-2").addClass(meteo.geoposition.weather[0].icon);
 
 
-        for(var i=0;i<4;i++){
-            $("#meteo-localized-icon-"+(i+3)).addClass(meteo.altroMeteo[i].weather[0].icon);
-            $("#meteo-localized-time-"+(i+3)).html(meteo.altroMeteo[i].time);
+        for (var i = 0; i < 4; i++) {
+            $("#meteo-localized-icon-" + (i + 3)).addClass(meteo.altroMeteo[i].weather[0].icon);
+            $("#meteo-localized-time-" + (i + 3)).html(meteo.altroMeteo[i].time);
 
         }
 
 
         $("#meteoModal #loading").addClass("hide");
         $("#meteoModal #contenuto").removeClass("hide");
-
 
 
         map.setView([position.coords.latitude, position.coords.longitude], 9);
@@ -617,7 +644,6 @@ function showPosition(position) {
         localStorage.setItem("geolocation", JSON.stringify(meteo));
 
     });
-
 
 
 }

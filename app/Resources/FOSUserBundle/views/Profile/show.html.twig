@@ -283,8 +283,16 @@
 
                 <div class="colonna-destra" style="margin-bottom: 20px">
 
+                    {% for annunciImbarcoA in user.annuncioImbarco %}
 
-                    {% if annuncioImbarco is defined %}
+                        {% if annunciImbarcoA.tipoAnnuncio=="CERCO" %}
+                            {% set annuncioImbarco=annunciImbarcoA %}
+                        {% endif %}
+                    {% endfor %}
+
+
+
+                    {% if annuncioImbarco is not defined %}
                     <h2 class="foreground-verde">Cerchi un imbarco?</h2>
 
                     <p>Se sei alla ricerca di un posto, ricevi una mail per gli annunci compatibili con le tue
@@ -293,7 +301,6 @@
                         LE NOTIFICHE
                     </button>
                     {% else %}
-
                         <h2 class="foreground-celeste">Cerchi un imbarco?</h2>
                         <p>
 
@@ -446,7 +453,7 @@
 
                             </form>
                             <div class="response-form" style="display: none"></div></p>
-                             <button class="btn btn-danger eliminaScambioPosto" data-id="{{ user.annuncioScambioPosto.id }}" style="width:100%">ELIMINA L'ANNUNCIO</button>
+                             <button class="btn btn-danger eliminaScambioPosto" data-id="{{ user.annuncioScambioPosto[0].id }}" style="width:100%">ELIMINA L'ANNUNCIO</button>
                     {% endif %}
 
                 </div>
@@ -557,7 +564,9 @@
 
                         <div class="response-form" style="display: none"></div>
 
-
+                        {% if annuncioImbarco.id is defined %}
+                            <button class="btn btn-danger eliminaImbarco" style="margin-top:10px" data-id="{{ annuncioImbarco.id }}" style="width:100%">ELIMINA L'ANNUNCIO</button>
+                        {% endif %}
                     </div>
                 </div>
             </div>
