@@ -602,12 +602,14 @@ function showPosition(position) {
                 "marker-symbol": "harbor"
             }
         };
-        var map = L.mapbox.map('mappaMeteo', 'wakareva.e12b38a9');
+        var map = L.mapbox.map('mappaMeteo', 'wakareva.e12b38a9').setView([position.coords.latitude, position.coords.longitude], 17);
 
         myLayer = L.mapbox.featureLayer(arrayPorto2).addTo(map);
 
 
-        $("#meteo-localized-box").removeClass("hide");
+
+
+$("#meteo-localized-box").removeClass("hide");
         $("#div-localized").fadeOut();
 
 
