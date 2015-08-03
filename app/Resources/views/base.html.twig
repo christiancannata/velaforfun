@@ -94,8 +94,7 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" {% if nodo.colore !="" %}class="bordered "
                                style="border-color:{{ nodo.colore }};"{% endif %}
-                               tabindex="-1" href="
-                                                                {% if nodo.link !="" %}{{ nodo.link }}{% else %}#{% endif %}">{{ nodo.nome }}
+                               tabindex="-1" href="{% if nodo.link !="" %}{{ nodo.link }}{% else %}#{% endif %}">{{ nodo.nome }}
                                 {% if nodo.children|length > 0 %}
                                     <i class="fa fa-arrow-right pull-right"></i>
                                 {% endif %}
@@ -104,8 +103,7 @@
                                 <ul class="dropdown-menu">
                                     {% for figlio in nodo.children %}
                                         <li><a {% if nodo.colore !="" %}class="bordered "
-                                               style="border-color:{{ nodo.colore }};"{% endif %} href="
-                                                                {% if nodo.link !="" %}{{ nodo.link }}{% else %}#{% endif %}">{{ nodo.nome }}</a>
+                                               style="border-color:{{ nodo.colore }};"{% endif %} href="{% if nodo.link !="" %}{{ nodo.link }}{% else %}#{% endif %}">{{ nodo.nome }}</a>
                                         </li>
                                     {% endfor %}
                                 </ul>
