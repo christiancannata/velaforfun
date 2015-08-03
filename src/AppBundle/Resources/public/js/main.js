@@ -109,7 +109,6 @@ function getUrlParameter(sParam) {
 
 jQuery(document).ready(function ($) {
 
-
     if (!localStorage.getItem("visualizzatoBenvenuto")) {
         $("#modalBeta").modal();
         localStorage.setItem("visualizzatoBenvenuto", 1);
@@ -585,6 +584,8 @@ function showPosition(position) {
         // Provide your access token
         L.mapbox.accessToken = 'pk.eyJ1Ijoid2FrYXJldmEiLCJhIjoiMzhjZGQ4M2VlZThhNjZlYWZmODg1OTE2MWUyNjlkNjYifQ.jBl7tEajPnDGJzYqxMGMag';
         // Create a map in the div #map
+        var mapMeteo = L.mapbox.map('mappaMeteo', 'wakareva.e12b38a9');
+
 
         var arrayPorto2 = {
             "type": "Feature",
@@ -602,12 +603,7 @@ function showPosition(position) {
                 "marker-symbol": "harbor"
             }
         };
-        var map = L.mapbox.map('mappaMeteo', 'wakareva.e12b38a9').setView([position.coords.latitude, position.coords.longitude], 17);
 
-        myLayer = L.mapbox.featureLayer(arrayPorto2).addTo(map);
-
-
-        map.center({lat: position.coords.latitude, lon: position.coords.longitude}).zoom(8);
 
 $("#meteo-localized-box").removeClass("hide");
         $("#div-localized").fadeOut();
@@ -632,8 +628,6 @@ $("#meteo-localized-box").removeClass("hide");
         $("#meteoModal #contenuto").removeClass("hide");
 
 
-        map.setView([position.coords.latitude, position.coords.longitude], 9);
-
 
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             $("#loadingMeteoMobile").hide();
@@ -644,6 +638,11 @@ $("#meteo-localized-box").removeClass("hide");
         }
 
         localStorage.setItem("geolocation", JSON.stringify(meteo));
+
+        mapMeteo.setView([position.coords.latitude, position.coords.longitude],10);
+
+        myLayer = L.mapbox.featureLayer(arrayPorto2).addTo(mapMeteo);
+
 
     });
 
