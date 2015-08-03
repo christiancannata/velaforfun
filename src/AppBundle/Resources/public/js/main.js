@@ -644,6 +644,15 @@ $("#meteo-localized-box").removeClass("hide");
         myLayer = L.mapbox.featureLayer(arrayPorto2).addTo(mapMeteo);
 
 
+
+        myLayer.on('ready', function() {
+            // featureLayer.getBounds() returns the corners of the furthest-out markers,
+            // and map.fitBounds() makes sure that the map contains these.
+            mapMeteo.fitBounds(myLayer.getBounds());
+        });
+
+
+
     });
 
 
