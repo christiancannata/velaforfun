@@ -16,6 +16,9 @@
     <script language="javascript">
         $(document).ready(function () {
 
+            $(".divBackgroundImage").lazyload({
+                effect : "fadeIn"
+            });
 
             var offset = 3;
             var loading = false;
@@ -138,7 +141,7 @@
 
                 <a href="/foto/{{ gallery.permalink }}">   <div class="box-home" style="height: 330px;">
                         <div style="opacity: 1;background-image: url(/uploads/galleria_foto/{{ copertina|escape('url') }});"
-                             class="divBackgroundImage" >
+                             class="divBackgroundImage" data-original="/uploads/galleria_foto/{{ copertina|escape('url') }}">
                         </div>
                         <div class="content">
 
