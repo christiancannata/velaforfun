@@ -109,7 +109,7 @@ class DefaultController extends BaseController
 
         foreach ($articoli as $product) {
             $urls[] = array(
-                'loc' => "/".$product->getCategoria()->getPermalink()."/".$product->getPermalink(),
+                'loc' => "/archivio/".$product->getCategoria()->getPermalink()."/".$product->getPermalink(),
                 'priority' => '0.5'
             );
         }
