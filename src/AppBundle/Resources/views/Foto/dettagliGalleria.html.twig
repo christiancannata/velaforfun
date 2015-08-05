@@ -8,18 +8,17 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.min.js"></script>
     <script language="javascript">
         $(document).ready(function () {
-            $('.image-link').magnificPopup({type: 'image'});
+
         });
 
         $(document).ready(function () {
 
+            $('.image-link').magnificPopup({type: 'image'});
 
-               /* $(document).on("click", '.link-video', function (event) {
-                    var src = $(this).attr("data-foto");
-                    $("#immaginePopup").attr('src', src);
 
-                    $('#modalVideo').modal('show');
-                }); */
+            $(".divBackgroundImage").lazyload({
+                effect : "fadeIn"
+            });
 
 
             var offset = 3;
