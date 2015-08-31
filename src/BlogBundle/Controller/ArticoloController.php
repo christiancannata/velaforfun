@@ -160,7 +160,7 @@ class ArticoloController extends BaseController
         $entities = $em->getRepository("BlogBundle:".$this->entity)->findByCategoria($categoria);
 
 
-        return $this->render('AppBundle:Crud:list-comunicati.html.twig', array('entities' => $entities));
+        return $this->render('AppBundle:Crud:list-comunicati.html.twig', array('entities' => array_reverse($entities)));
     }
 
     /**
