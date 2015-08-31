@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\GalleriaFoto;
+use AppBundle\Entity\Foto;
 use AppBundle\Form\GalleriaFotoType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Controller\BaseController;
