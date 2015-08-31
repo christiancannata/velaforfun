@@ -21,7 +21,7 @@ class GalleriaFotoType extends AbstractType
             ->add('foto','file',array('multiple'=>true, 'attr' => array('class' => ' with-preview')))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

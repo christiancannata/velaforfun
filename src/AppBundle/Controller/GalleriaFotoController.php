@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\GalleriaFoto;
 use AppBundle\Form\GalleriaFotoType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Controller\BaseController;
@@ -76,7 +77,48 @@ class GalleriaFotoController extends BaseController
      */
     public function patchAction(Request $request,$id)
     {
-        return $this->patchForm($request,new GalleriaFotoType(),$id,$this->entity);
+
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository("AppBundle:".$this->entity)->find($id);
+
+        $postform = $this->createForm(new GalleriaFotoType(), $entity);
+
+
+        if ($request->isMethod('POST')) {
+
+            $postform->handleRequest($request);
+
+            if ($postform->isValid()) {
+
+
+                /*
+                 * $data['title']
+                 * $data['body']
+                 */
+                $em = $this->getDoctrine()->getManager();
+
+                $em->flush();
+
+
+                $response['success'] = true;
+
+            } else {
+
+                $response['success'] = false;
+                $response['cause'] = $postform->getErrors();
+
+            }
+
+            return new JsonResponse($response);
+        }
+
+
+
+        return $this->render(
+            'AppBundle:Foto:create.html.twig',
+            array('form' => $postform->createView(), "titolo" => "Modifica ".$this->entity)
+        );
     }
 
 
