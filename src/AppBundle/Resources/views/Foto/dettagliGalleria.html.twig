@@ -17,44 +17,44 @@
 
 
             $(".divBackgroundImage").lazyload({
-                effect : "fadeIn"
+                effect: "fadeIn"
             });
 
 
             var offset = 3;
             var loading = false;
-          /*  $(window).scroll(function () {
-                if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-                    */
+            /*  $(window).scroll(function () {
+             if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+             */
 
 
-            $(document).on('click', ".load-more", function() {
-                    if (loading == false) {
-                        $('div#loadmoreajaxloader').show();
-                        loading = true;
-                        $.ajax({
-                            url: "{{ galleria.permalink }}/json?offset=" + offset,
-                            success: function (html) {
-                                if (html) {
-                                    $('div#loadmoreajaxloader').remove();
-                                    $('.load-more').remove();
-                                    $("#postswrapper").append(html);
-                                    $('.image-link').magnificPopup({type: 'image'});
-                                } else {
-                                    $('div#loadmoreajaxloader').html('<center>Non ci sono più elementi da visualizzare.</center>');
-                                }
-                                offset += 3;
-                                loading = false;
+            $(document).on('click', ".load-more", function () {
+                if (loading == false) {
+                    $('div#loadmoreajaxloader').show();
+                    loading = true;
+                    $.ajax({
+                        url: "{{ galleria.permalink }}/json?offset=" + offset,
+                        success: function (html) {
+                            if (html) {
+                                $('div#loadmoreajaxloader').remove();
+                                $('.load-more').remove();
+                                $("#postswrapper").append(html);
+                                $('.image-link').magnificPopup({type: 'image'});
+                            } else {
+                                $('div#loadmoreajaxloader').html('<center>Non ci sono più elementi da visualizzare.</center>');
                             }
-                        });
-                    }
-                })  ;
-
-
-                    /*
-
+                            offset += 3;
+                            loading = false;
+                        }
+                    });
                 }
-            });*/
+            });
+
+
+            /*
+
+             }
+             });*/
 
 
             if (getUrlParameter("foto")) {
@@ -122,10 +122,11 @@
 
                 <div class="box-action">
                     <h2>{{ foto.nome }}
-                    </h2>
                     {% if foto.autore!="" %}
                     <p>di {{ foto.autore }}</p>
                     {% endif %}
+                    </h2>
+
                     <div class="over-box">
 
                         <button class="btn btn-default dettagli-nodo hvr-sweep-to-right " type="submit" id="guarda-{{ foto.id }}">
