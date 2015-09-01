@@ -79,11 +79,14 @@ class GalleriaFotoController extends BaseController
     public function patchAction(Request $request,$id)
     {
 
+
         $em = $this->getDoctrine()->getEntityManager();
 
         $entity = $em->getRepository("AppBundle:".$this->entity)->find($id);
 
-        $postform = $this->createForm(new GalleriaFotoType(), $entity);
+        $postform = $this->createForm(new GalleriaFotoType());
+
+        $fotos=$em->getRepository("AppBundle:Foto")->findByGalleria($entity);
 
 
         if ($request->isMethod('POST')) {
@@ -118,7 +121,7 @@ class GalleriaFotoController extends BaseController
 
         return $this->render(
             'AppBundle:Foto:create.html.twig',
-            array('form' => $postform->createView(), "titolo" => "Modifica ".$this->entity)
+            array('form' => $postform->createView(), "titolo" => "Modifica ".$this->entity,"gallery"=>$entity,"fotos"=>$fotos)
         );
     }
 
