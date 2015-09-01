@@ -107,6 +107,9 @@
                     {% if entity.gallery is defined and entity.gallery|length > 0 %}
                         <div class="row clearfix hidden-print">
                             <div class="col-md-12 column">
+                            <table><tr><td>
+
+
                                 <div class="divisore-big"></div>
                                 <h3>Visualizza la fotogallery</h3>
 
@@ -121,8 +124,9 @@
 
                                     </p>
                                 </div>
-
-
+     <button class="btn btn-danger delete-entity" style="width:100%" data-route="/archivio/articoli/elimina-gallery/{{ entity.id }}" type="button">Elimina fotogallery
+        </button>
+                            </td></tr></table>
                                 <div class="divisore-big"></div>
                             </div>
                         </div>

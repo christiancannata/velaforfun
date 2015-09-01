@@ -214,6 +214,7 @@ jQuery(document).ready(function ($) {
         $("#blogbundle_articolo_linkCorrelato").val(res[1]);
 
         $("#blogbundle_articolo_textFileImage").parent().show();
+        $("#blogbundle_articolo_textFileImage").after("<button class='btn btn-primary' onclick='$(\"#blogbundle_articolo_textFileImage\").parent().hide();$(\"#blogbundle_articolo_immagineCorrelata\").parent().show();'>Carica file</button>");
         $("#blogbundle_articolo_immagineCorrelata").parent().hide();
     });
 

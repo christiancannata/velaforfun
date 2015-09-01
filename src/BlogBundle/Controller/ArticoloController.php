@@ -281,6 +281,38 @@ class ArticoloController extends BaseController
 
 
     /**
+     * @Route( "articoli/elimina-gallery/{id}", name="delete_gallery_articolo" )
+     */
+    public function eliminaGalleryAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository("BlogBundle:".$this->entity)->find($id);
+
+
+        if ($request->isMethod('POST')) {
+
+
+            $entity->setGallery(null);
+            /*
+             * $data['title']
+             * $data['body']
+             */
+            $em = $this->getDoctrine()->getManager();
+            $em->merge($entity);
+
+            $em->flush();
+
+            $response['success'] = true;
+
+            return new JsonResponse($response);
+        }
+
+    }
+
+
+
+    /**
      * @Route("/{categoria}/{permalink}", name="articolo")
      */
     public function showAction($categoria, $permalink)
