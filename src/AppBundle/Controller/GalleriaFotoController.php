@@ -109,7 +109,7 @@ class GalleriaFotoController extends BaseController
             $foto = array();
 
             $files = $files['foto'];
-
+            die(var_dump($files));
             // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
             foreach ($files as $uploadedFile) {
                 $fileUpload = new Foto();
