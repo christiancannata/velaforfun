@@ -49,17 +49,26 @@ class GalleriaFotoController extends BaseController
 
             $files = $files['foto'];
 
-            // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
             foreach ($files as $uploadedFile) {
+
+                $uploadedFile->move(
+                    '/var/www/web/uploads/galleria_foto/',
+                    $uploadedFile->getClientOriginalName()
+                );
+
                 $fileUpload = new Foto();
-                $fileUpload->setProfilePictureFile($uploadedFile);
-                $fileUpload->setNome(preg_replace('/\\.[^.\\s]{3,4}$/', '',$uploadedFile->getClientOriginalName()));
+                $fileUpload->setImmagine( $uploadedFile->getClientOriginalName());
+                $fileUpload->setNome($uploadedFile->getClientOriginalName());
                 $fileUpload->setGalleria($gallery);
                 $fileUpload->setInEvidenza(true);
                 $em->persist($fileUpload);
-                $em->flush();
+
                 $foto[] = $fileUpload;
+                // clean up the file property as you won't need it anymore
+                $uploadedFile = null;
+
             }
+            $em->flush();
 
 
             $response['success'] = true;
@@ -115,7 +124,6 @@ class GalleriaFotoController extends BaseController
 
 
 
-            $fs = new Filesystem();
             // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
             foreach ($files as $uploadedFile) {
 
