@@ -14,6 +14,11 @@
 
                                 <div class="box-action">
                                     <h2>{{ foto.nome }}
+                                        {% if foto.autore!="" %}
+                                            <p style="font-size: 14px;">di {{ foto.autore }}</p>
+                                        {% else %}
+                                            <p style="font-size: 14px;">di VelaForFun</p>
+                                        {% endif %}
                                     </h2>
 
                                     <div class="over-box">
