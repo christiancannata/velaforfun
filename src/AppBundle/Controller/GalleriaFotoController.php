@@ -121,7 +121,6 @@ class GalleriaFotoController extends BaseController
 
                 try {
                     $path_parts = pathinfo($uploadedFile->filePath);
-                    $this->output->writeln('<info>Copio:'.$path_parts['filename'].'</info>');
 
                     $fs->copy($uploadedFile->filePath, '/var/www/web/uploads/galleria_foto/'.$path_parts['filename'].".".$path_parts['extension']);
 
