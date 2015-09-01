@@ -2336,3 +2336,7 @@ font-size:22px !important;
 .active-ag a,.catlist ul a{
     font-weight: bold !important;
 }
+
+.load-more{
+    z-index:999999999999999;
+}
