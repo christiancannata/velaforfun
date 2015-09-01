@@ -38,7 +38,8 @@ class ArticoloType extends AbstractType
                 'text',
                 array(
                     'label'=>'Immagine correlata',
-                    'mapped' => false
+                    'mapped' => false,
+                    'required'    => false,
                 )
             )
             ->add('gallery')
