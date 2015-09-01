@@ -120,20 +120,21 @@ class GalleriaFotoController extends BaseController
             foreach ($files as $uploadedFile) {
 
 
-                    $path_parts = pathinfo($uploadedFile->filePath);
-                    die(var_dump($path_parts));
-                    $fs->copy($uploadedFile->filePath, '/var/www/web/uploads/galleria_foto/'.$path_parts['filename'].".".$path_parts['extension']);
-
-
+                $uploadedFile->move(
+                    '/var/www/web/uploads/galleria_foto/',
+                    $uploadedFile->getClientOriginalName()
+                );
 
                     $fileUpload = new Foto();
-                    $fileUpload->setImmagine($path_parts['filename'].".".$path_parts['extension']);
-                    $fileUpload->setNome($path_parts['filename']);
+                    $fileUpload->setImmagine( $uploadedFile->getClientOriginalName());
+                    $fileUpload->setNome($uploadedFile->getClientOriginalName());
                     $fileUpload->setGalleria($entity);
                     $fileUpload->setInEvidenza(true);
                     $em->persist($fileUpload);
 
                     $foto[] = $fileUpload;
+                // clean up the file property as you won't need it anymore
+                $uploadedFile = null;
 
             }
             $em->flush();
