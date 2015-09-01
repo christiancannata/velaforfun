@@ -177,8 +177,8 @@ class CheckEmailCommand extends ContainerAwareCommand
                                 $numeroAllegato = "setAllegato".($key+1);
                                 $output->writeln('<info>setto allegato:'.$numeroAllegato.' - '.$allegato->filePath.'</info>');
 
-                                $fs->copy($allegato->filePath, '/var/www/web/uploads/allegati-articoli/'.$path_parts['filename'].".".$path_parts['extension']);
-                                $articolo->$numeroAllegato($path_parts['filename'].".".$path_parts['extension']);
+                                $fs->copy($allegato->filePath, '/var/www/web/uploads/allegati-articoli/'.substr($path_parts['filename'],0,30).".".$path_parts['extension']);
+                                $articolo->$numeroAllegato(substr($path_parts['filename'],0,30).".".$path_parts['extension']);
 
                             } catch (IOException $e) {
                                 echo "Errore durante la copia del file";
