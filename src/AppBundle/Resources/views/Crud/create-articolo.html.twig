@@ -21,7 +21,11 @@
         $("#blogbundle_articolo_textFileImage").parent().hide();
         {% endif %}
     });
-
+    function eliminaFoto(id){
+        $("#idFoto").val(id);
+        $(".delete-entity").attr('data-route','/foto/elimina/'+id);
+        $("#modalFoto").modal();
+    }
 </script>
 {% endblock %}
 
@@ -116,8 +120,8 @@
                                 <div class="scroll-pane-horizontal horizontal-only">
                                     <p style="width: {{ entity.gallery.foto|length*160 }}px;">
                                         {% for foto in entity.gallery.foto %}
-                                            <a class='gallery' id="id-{{ foto.id }}" style="display:inline" rel="g1"
-                                               href='/uploads/galleria_foto/{{ foto.immagine }}'><img
+                                              <a class='gallery' style="display:inline" rel="g1"
+                                               onclick="eliminaFoto({{ foto.id }})"><img
                                                         style="display:inline" width="150" height="150"
                                                         src="/uploads/galleria_foto/{{ foto.immagine }}"></a>
                                         {% endfor %}
@@ -126,6 +130,7 @@
                                 </div>
      <button class="btn btn-danger delete-entity" style="width:100%" data-route="/archivio/articoli/elimina-gallery/{{ entity.id }}" type="button">Elimina fotogallery
         </button>
+
                             </td></tr></table>
                                 <div class="divisore-big"></div>
                             </div>
@@ -159,4 +164,46 @@
 
 </div>
 
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalFoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Elimina Foto</h4>
+
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 18px;">
+                 Confermi di voler eliminare la foto dalla gallery?
+                </p>
+
+        <input type="hidden" id="idFoto" value="">
+
+
+        <button class="btn btn-danger delete-entity" style="width:100%" data-route="/foto/elimina/" type="button">Elimina
+        </button>
+
+
+        <button class="btn btn-primary immagine-articolo" style="width:100%" data-route="/archivio/articoli/immagine-articolo/{{ entity.id }}" type="button">Imposta immagine articolo
+        </button>
+
+
+                <button class="btn btn-primary  hvr-sweep-to-right" onClick="$('#modalFoto').modal('hide');"
+                        style="font-size: 24px;text-align:center;width:100%;margin-top:20px">Annulla
+                </button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 {% endblock %}
