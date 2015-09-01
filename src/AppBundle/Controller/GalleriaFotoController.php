@@ -91,28 +91,41 @@ class GalleriaFotoController extends BaseController
 
         if ($request->isMethod('POST')) {
 
-            $postform->handleRequest($request);
+            $em = $this->getDoctrine()->getManager();
+            $params = $request->request->all();
 
-            if ($postform->isValid()) {
+
+            $files = $request->files->get('appbundle_galleriafoto');
 
 
-                /*
-                 * $data['title']
-                 * $data['body']
-                 */
-                $em = $this->getDoctrine()->getManager();
 
+
+            $entity->setNome($params['appbundle_galleriafoto']['nome']);
+            $entity->setDescrizione(trim($params['appbundle_galleriafoto']['descrizione']));
+            $entity->setInGallery(true);
+            $em->merge($entity);
+            $em->flush();
+
+            $foto = array();
+
+            $files = $files['foto'];
+
+            // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
+            foreach ($files as $uploadedFile) {
+                $fileUpload = new Foto();
+                $fileUpload->setProfilePictureFile($uploadedFile);
+                $fileUpload->setNome(preg_replace('/\\.[^.\\s]{3,4}$/', '',$uploadedFile->getClientOriginalName()));
+                $fileUpload->setGalleria($entity);
+                $fileUpload->setInEvidenza(true);
+                $em->persist($fileUpload);
                 $em->flush();
-
-
-                $response['success'] = true;
-
-            } else {
-
-                $response['success'] = false;
-                $response['cause'] = $postform->getErrors();
-
+                $foto[] = $fileUpload;
             }
+
+
+            $response['success'] = true;
+            $response['response'] = $entity->getId();
+
 
             return new JsonResponse($response);
         }
