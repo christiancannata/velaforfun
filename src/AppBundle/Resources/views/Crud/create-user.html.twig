@@ -43,9 +43,14 @@
                                         {% else %}
 
                                             {% if userInformation.profilePicturePath != "" %}
-                                                <img
+                                               <table><tr><td>
+                                                  <img width="250"
                                                      src="/uploads/utenti/profilo/{{ userInformation.profilePicturePath }}"
                                                      alt="avatar"/>
+                                                       <button class="btn btn-danger delete-entity" style="width:100%" data-route="/utenti/elimina-avatar/{{ userInformation.id }}" type="button">Elimina Avatar
+        </button>
+</td></tr></table>
+
                                             {% else %}
                                                 <img
                                                      src="/uploads/utenti/profilo/default_avatar.png"

@@ -75,6 +75,35 @@ class UserController extends BaseController
     }
 
 
+
+    /**
+     * @Route( "elimina-avatar/{id}", name="elimina_avatar_user" )
+     */
+    public function eliminaAvatarAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository("AppBundle:".$this->entity)->find($id);
+
+
+        if ($request->isMethod('POST')) {
+
+
+                $entity->setProfilePicturePath(null);
+
+                $em = $this->getDoctrine()->getManager();
+
+                $em->flush();
+
+
+                $response['success'] = true;
+
+            return new JsonResponse($response);
+        }
+
+    }
+
+
     /**
      * @Route( "list", name="list_user" )
      * @Template()
