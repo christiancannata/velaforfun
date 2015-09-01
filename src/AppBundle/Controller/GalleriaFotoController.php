@@ -131,7 +131,7 @@ class GalleriaFotoController extends BaseController
                     $fileUpload->setNome($path_parts['filename']);
                     $fileUpload->setGalleria($entity);
                     $fileUpload->setInEvidenza(true);
-                    $this->em->persist($fileUpload);
+                    $em->persist($fileUpload);
 
                     $foto[] = $fileUpload;
                 } catch (IOException $e) {
@@ -139,7 +139,7 @@ class GalleriaFotoController extends BaseController
                 }
 
             }
-
+            $em->flush();
 
             $response['success'] = true;
             $response['response'] = $entity->getId();
