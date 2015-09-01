@@ -109,17 +109,33 @@ class GalleriaFotoController extends BaseController
             $foto = array();
 
             $files = $files['foto'];
-            die(var_dump($files));
+
+
+
+            $fs = new Filesystem();
             // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
             foreach ($files as $uploadedFile) {
-                $fileUpload = new Foto();
-                $fileUpload->setProfilePictureFile($uploadedFile);
-                $fileUpload->setNome(preg_replace('/\\.[^.\\s]{3,4}$/', '',$uploadedFile->getClientOriginalName()));
-                $fileUpload->setGalleria($entity);
-                $fileUpload->setInEvidenza(true);
-                $em->persist($fileUpload);
-                $em->flush();
-                $foto[] = $fileUpload;
+
+                try {
+                    $path_parts = pathinfo($uploadedFile->filePath);
+                    $this->output->writeln('<info>Copio:'.$path_parts['filename'].'</info>');
+
+                    $fs->copy($uploadedFile->filePath, '/var/www/web/uploads/galleria_foto/'.$path_parts['filename'].".".$path_parts['extension']);
+
+
+
+                    $fileUpload = new Foto();
+                    $fileUpload->setImmagine($path_parts['filename'].".".$path_parts['extension']);
+                    $fileUpload->setNome($path_parts['filename']);
+                    $fileUpload->setGalleria($entity);
+                    $fileUpload->setInEvidenza(true);
+                    $this->em->persist($fileUpload);
+
+                    $foto[] = $fileUpload;
+                } catch (IOException $e) {
+                    echo "Errore durante la copia del file";
+                }
+
             }
 
 
