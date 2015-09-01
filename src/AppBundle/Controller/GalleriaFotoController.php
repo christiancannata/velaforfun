@@ -119,7 +119,7 @@ class GalleriaFotoController extends BaseController
             // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
             foreach ($files as $uploadedFile) {
 
-                try {
+
                     $path_parts = pathinfo($uploadedFile->filePath);
 
                     $fs->copy($uploadedFile->filePath, '/var/www/web/uploads/galleria_foto/'.$path_parts['filename'].".".$path_parts['extension']);
@@ -134,9 +134,6 @@ class GalleriaFotoController extends BaseController
                     $em->persist($fileUpload);
 
                     $foto[] = $fileUpload;
-                } catch (IOException $e) {
-                    echo "Errore durante la copia del file";
-                }
 
             }
             $em->flush();
