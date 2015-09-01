@@ -51,9 +51,15 @@ class ImportFotoCommand extends ContainerAwareCommand
                     $this->em->flush();
                 }
                 if ($categoria) {
-                    $video = new Foto();
+
+                    $video = $this->getContainer()->get('doctrine')
+                        ->getRepository('AppBundle:Foto')->findOneByNome(ucfirst($data['Titolo']));
+                    if(!$video){
+                        $video = new Foto();
+                    }
                     $video->setInEvidenza(true);
                     $video->setNome($data['Titolo']);
+                    $video->setAutore($data['autore']);
                     $video->setImmagine($data['nomefile']);
                     $video->setGalleria(
                         $categoria

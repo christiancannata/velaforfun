@@ -42,6 +42,15 @@ class Foto
      */
     private $nome;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="autore", type="string", nullable=true)
+     */
+    private $autore;
+
+
     /**
      * @var string
      *
@@ -386,6 +395,22 @@ class Foto
     public function __toString()
     {
         return $this->nome;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAutore()
+    {
+        return $this->autore;
+    }
+
+    /**
+     * @param string $autore
+     */
+    public function setAutore($autore)
+    {
+        $this->autore = $autore;
     }
 
 }
