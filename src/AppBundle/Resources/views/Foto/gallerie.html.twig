@@ -32,7 +32,7 @@
                     $('div#loadmoreajaxloader').show();
                     loading = true;
                     $.ajax({
-                        url: "{{ galleria.permalink }}/json?offset=" + offset,
+                        url: "foto/json?offset=" + offset,
                         success: function (html) {
                             if (html) {
                                 $('div#loadmoreajaxloader').remove();
