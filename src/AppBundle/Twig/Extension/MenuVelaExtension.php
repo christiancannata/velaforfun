@@ -134,13 +134,11 @@ class MenuVelaExtension extends \Twig_Extension
     public function auto_link_text($string)
     {
 
-      /*  return preg_replace(
+        return preg_replace(
             '/\s((http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.\/]+\.[a-zA-Z\/]{2,3}(\/\S*)?)/',
             '<a target="_blank" href="${1}">${1}</a>',
             $string
-        );*/
-
-        return $string;
+        );
 
     }
 
