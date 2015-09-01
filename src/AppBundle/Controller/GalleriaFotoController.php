@@ -48,7 +48,7 @@ class GalleriaFotoController extends BaseController
             $foto = array();
 
             $files = $files['foto'];
-
+            ini_set('upload_max_filesize', '20M');
             foreach ($files as $uploadedFile) {
 
                 $uploadedFile->move(
@@ -123,7 +123,7 @@ class GalleriaFotoController extends BaseController
             $files = $files['foto'];
 
 
-
+            ini_set('upload_max_filesize', '20M');
             // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
             foreach ($files as $uploadedFile) {
 
