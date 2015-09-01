@@ -2339,4 +2339,5 @@ font-size:22px !important;
 
 .load-more{
     z-index:999999999999999;
+    position:relative
 }
