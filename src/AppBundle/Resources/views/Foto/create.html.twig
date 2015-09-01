@@ -268,13 +268,15 @@
                         </label>
                     </div>
                 </div>
-             <!--   <div class="form-group">
+
+        {% if gallery is not defined %}
+              <div class="form-group">
                     <label for="appbundle_galleriafoto_foto" class="control-label required">Foto</label>
                     <input type="file" multiple="multiple" class=" with-preview" required="required" name="appbundle_galleriafoto[foto][]" id="appbundle_galleriafoto_foto">
                     </div>
-                </div> -->
+                </div>
 
-
+{% endif %}
                 {% if fotos is defined %}
                  <div class="row clearfix hidden-print">
                             <div class="col-md-12 column">
