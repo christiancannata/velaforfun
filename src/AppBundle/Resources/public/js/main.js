@@ -274,8 +274,7 @@ jQuery(document).ready(function ($) {
         }
     });
 
-
-    $(".delete-entity").click(function () {
+    $(document).on('click', ".delete-entity", function() {
         var button = $(this);
         $("button").attr("disabled", "disabled");
         $.ajax({

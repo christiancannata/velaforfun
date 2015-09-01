@@ -9,12 +9,12 @@
 {% block javascripts %}
 <script language="javascript">
     $(document).ready(function(){
-        {% if entity.immagine is defined %}
+        {% if entity.immagine is defined and entity.immagine!="" %}
         $("#blogbundle_articolo_profilePictureFile").parent().append(
-                "<img src='/images/articoli/{{ entity.immagine }}' width='150'>"
+                "<table><tr><td><img src='/images/articoli/{{ entity.immagine }}' width='150'> <button class='btn btn-danger delete-entity'  data-route='/archivio/articoli/elimina-immagine/{{ entity.id }}' type='button'>Elimina </button></td> </tr></table>"
         );
         {% endif %}
-        {% if entity.immagineCorrelataArticolo is defined %}
+        {% if entity.immagineCorrelataArticolo is defined and entity.immagineCorrelataArticolo!="" %}
         $("#blogbundle_articolo_immagineCorrelata").parent().append(
           "<img src='/images/articoli/{{ entity.immagineCorrelataArticolo }}' width='150'>"
         );

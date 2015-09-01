@@ -248,6 +248,37 @@ class ArticoloController extends BaseController
     }
 
 
+    /**
+     * @Route( "articoli/elimina-immagine/{id}", name="delete_immagine_articolo" )
+     */
+    public function eliminaImmagineAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository("BlogBundle:".$this->entity)->find($id);
+
+
+        if ($request->isMethod('POST')) {
+
+
+            $entity->setImmagine(null);
+            /*
+             * $data['title']
+             * $data['body']
+             */
+            $em = $this->getDoctrine()->getManager();
+            $em->merge($entity);
+
+            $em->flush();
+
+            $response['success'] = true;
+
+            return new JsonResponse($response);
+        }
+
+    }
+
+
 
     /**
      * @Route("/{categoria}/{permalink}", name="articolo")
