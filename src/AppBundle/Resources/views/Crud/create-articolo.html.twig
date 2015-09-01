@@ -61,32 +61,43 @@
     </div>
         </form>
         
-        {% if entity.allegato1 is defined and entity.allegato1!="" %}
+
                     <div class="row clearfix hidden-print">
                         <div class="col-md-12 column">
                             <div class="divisore-big"></div>
                             <h3>Allegati dell'articolo</h3>
 
+                            {% if entity.allegato1 is defined and entity.allegato1!="" %}
+                            <tr>
                                <a target="_blank"
                                    style="margin-top:10px;width:100%;float:left" href='/uploads/allegati-articoli/{{ entity.allegato1 }}'>{{ entity.allegato1 }}</a>
-
-                            {% if entity.allegato2 is defined %}
-                                <a target="_blank"
+ <button class="btn btn-danger delete-entity" style="width:100%" data-route="/archivio/articoli/elimina-allegato/{{ entity.id }},1" type="button">Elimina
+        </button>
+</tr>
+                            {% endif %}
+                            {% if entity.allegato2 is defined and entity.allegato2!="" %}
+                            <tr>    <a target="_blank"
                                      style="margin-top:10px;width:100%;float:left"href='/uploads/allegati-articoli/{{ entity.allegato2 }}'>{{ entity.allegato2 }}</a>
-
+                                      <button class="btn btn-danger delete-entity" style="width:100%" data-route="/archivio/articoli/elimina-allegato/{{ entity.id }},2" type="button">Elimina
+        </button>
+</tr>
                             {% endif %}
 
-                            {% if entity.allegato3 is defined %}
-                               <a target="_blank"
+                            {% if entity.allegato3 is defined and entity.allegato3!="" %}
+                           <tr>    <a target="_blank"
                                     style="margin-top:10px;width:100%;float:left" href='/uploads/allegati-articoli/{{ entity.allegato3 }}'>{{ entity.allegato3 }}</a>
-
+                                     <button class="btn btn-danger delete-entity" style="width:100%" data-route="/archivio/articoli/elimina-allegato/{{ entity.id }},3" type="button">Elimina
+        </button>
+</tr>
                             {% endif %}
 
-                            {% if entity.allegato4 is defined %}
-                                <a target="_blank"
+                            {% if entity.allegato4 is defined and entity.allegato4!="" %}
+                           <tr>     <a target="_blank"
                                      style="margin-top:10px;width:100%;float:left"href='/uploads/allegati-articoli/{{ entity.allegato4 }}'>{{ entity.allegato4 }}</a>
-
-                            {% endif %}
+                                      <button class="btn btn-danger delete-entity" style="width:100%" data-route="/archivio/articoli/elimina-allegato/{{ entity.id }},4" type="button">Elimina
+        </button>
+</tr>
+                        <div id="response-div"></div>
                         </div>
                     </div>
                     {% endif %}

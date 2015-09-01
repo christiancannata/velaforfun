@@ -213,6 +213,42 @@ class ArticoloController extends BaseController
         return $this->delete($id);
     }
 
+
+    /**
+     * @Route( "articoli/elimina-allegato/{id}", name="delete_allegato_articolo" )
+     */
+    public function eliminaAllegatoAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+
+        $id=explode(",",$id);
+
+        $entity = $em->getRepository("BlogBundle:".$this->entity)->find($id[0]);
+
+
+        if ($request->isMethod('POST')) {
+
+            $numeroAllegato = "setAllegato".$id[1];
+            $entity->$numeroAllegato("");
+            /*
+             * $data['title']
+             * $data['body']
+             */
+            $em = $this->getDoctrine()->getManager();
+            $em->merge($entity);
+
+            $em->flush();
+
+            $response['success'] = true;
+
+            return new JsonResponse($response);
+        }
+
+    }
+
+
+
     /**
      * @Route("/{categoria}/{permalink}", name="articolo")
      */

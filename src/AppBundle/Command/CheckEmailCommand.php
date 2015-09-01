@@ -96,7 +96,7 @@ class CheckEmailCommand extends ContainerAwareCommand
                         $articolo->setIdComunicato($mail->id);
                         $articolo->setTitolo($mail->subject);
                         $articolo->setStato("BOZZA");
-                        $articolo->setTesto(addslashes(str_replace('href="%5C%22http','href="http',$mail->textHtml)));
+                        $articolo->setTesto(str_replace(array('href="%5C%22http','href="\&quot;','\&quot;">'),array('href="http','href="http','">'),addslashes($mail->textHtml)));
                         $articolo->generatePermalink($mail->subject);
                         $articolo->setCategoria(
                             $this->getContainer()->get('doctrine')
