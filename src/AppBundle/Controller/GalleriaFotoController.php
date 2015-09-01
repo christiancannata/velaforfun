@@ -10,6 +10,9 @@ use AppBundle\Controller\BaseController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Exception\IOException;
+
 
 class GalleriaFotoController extends BaseController
 {
