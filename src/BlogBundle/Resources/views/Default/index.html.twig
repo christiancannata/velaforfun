@@ -27,6 +27,7 @@
                             success: function (html) {
                                 if (html) {
                                     $('div#loadmoreajaxloader').remove();
+                                    $('.load-more').remove();
                                     $("#postswrapper").append(html);
                                 } else {
                                     $('div#loadmoreajaxloader').html('<center>No more posts to show.</center>');

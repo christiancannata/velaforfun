@@ -24,6 +24,9 @@
                             url: "{{ categoria.permalink }}/json?offset=" + offset,
                             success: function (html) {
                                 if (html) {
+
+
+                                    $('.load-more').remove();
                                     $('div#loadmoreajaxloader').remove();
                                     $("#postswrapper").append(html);
                                 } else {
