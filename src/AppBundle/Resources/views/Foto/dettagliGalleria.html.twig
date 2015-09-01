@@ -123,7 +123,9 @@
                 <div class="box-action">
                     <h2>{{ foto.nome }}
                     </h2>
-
+                    {% if foto.autore!="" %}
+                    <p>di {{ foto.autore }}</p>
+                    {% endif %}
                     <div class="over-box">
 
                         <button class="btn btn-default dettagli-nodo hvr-sweep-to-right " type="submit" id="guarda-{{ foto.id }}">
