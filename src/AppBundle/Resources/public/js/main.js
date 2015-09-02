@@ -106,7 +106,7 @@ function getUrlParameter(sParam) {
     }
 }
 
-$(".smarticker6").ready(function(){
+$(".sec1-2 ul li a").ready(function(){
     $(".sec1-2 ul li a").attr("href","/forum/velaforfun");
 })
 
