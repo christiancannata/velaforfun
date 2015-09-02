@@ -29,7 +29,7 @@ class DefaultController extends BaseController
         $repository = $this->getDoctrine()
             ->getRepository('BlogBundle:Articolo');
 
-        $articoli = $repository->findByStato("ATTIVO", array('timestamp' => 'desc'), 4);
+        $articoli = $repository->findByStato("ATTIVO", array('lastUpdateTimestamp' => 'desc'), 4);
 
 
         $repository = $this->getDoctrine()
