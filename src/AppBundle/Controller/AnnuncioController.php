@@ -41,14 +41,27 @@ class AnnuncioController extends BaseController
                     ->getRepository('AppBundle:User');
 
 
-                $board = $this->container->get('doctrine')
-                    ->getRepository('CCDNForumForumBundle:Board')->find(6);
+
+
+                if($annuncio->getTipo()=="VENDO"){
+                    $board = $this->container->get('doctrine')
+                        ->getRepository('CCDNForumForumBundle:Board')->find(18);
+                }else{
+                    $board = $this->container->get('doctrine')
+                        ->getRepository('CCDNForumForumBundle:Board')->find(17);
+
+                }
+
+
+
+
+
 
                 $firstTopic = new Topic();
 
 
                 $firstTopic->setTitle(
-                    $annuncio->getTipo()." - ".$annuncio->getTitolo()
+                    $annuncio->getTitolo()
                 );
                 $firstTopic->setCachedViewCount(1);
 
