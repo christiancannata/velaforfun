@@ -2344,5 +2344,5 @@ font-size:22px !important;
     margin-left: 40%;
     position: relative;
     width: 20%;
-    z-index: 2147483647;
+    z-index: 999;
 }
