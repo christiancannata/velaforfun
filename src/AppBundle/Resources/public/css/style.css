@@ -2338,11 +2338,10 @@ font-size:22px !important;
 }
 
 .load-more{
-    z-index:999999999999999;
     font-size: 20px;
-    margin: 0 auto;
     margin-left: 40%;
     position: relative;
     width: 20%;
     z-index: 999;
+    margin-top:20px
 }
