@@ -168,7 +168,7 @@ class DefaultController extends BaseController
             ->getRepository('BlogBundle:Categoria')->findAll();
 
         $ultimiArticoli = $this->getDoctrine()
-            ->getRepository('BlogBundle:Articolo')->findAll(array("lastUpdateTimestamp" => "desc","stato"=>"ATTIVO"), 10);
+            ->getRepository('BlogBundle:Articolo')->findBy(array("stato"=>"ATTIVO"),array("lastUpdateTimestamp" => "desc"), 10);
 
         return $this->render(
             'BlogBundle:Default:index.html.twig',
