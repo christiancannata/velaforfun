@@ -11,5 +11,5 @@ parameters:
     mailer_user: null
     mailer_password: null
     locale: it
-    secret: ThisTokenIsNotSoSecretChangeIt
+    secret: 0t4t1OeqhnWnZF5sIE66HvIRNyFXzxHY
     webservice_weather_url: http://api.openweathermap.org
