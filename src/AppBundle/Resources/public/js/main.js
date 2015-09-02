@@ -306,7 +306,7 @@ jQuery(document).ready(function ($) {
                 if (response.success == true) {
 
                     showalert($("#response-div"), "Immagine impostata con successo!", "success");
-
+                    location.href='';
                 } else {
                     showalert($("#response-div"), "Errore nell'eliminazione", "error");
                 }
