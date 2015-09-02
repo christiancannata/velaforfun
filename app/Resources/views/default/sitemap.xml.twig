@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    {% for url in urls %}
+{% for url in urls %}
         <url>{# check if hostname is not alreay in url#}
             <loc>{%if url.loc|replace({hostname:''}) == url.loc%}{{hostname}}{{url.loc}}{%else%}{{url.loc}}{%endif%}</loc>
             {% if url.lastmod is defined %}
@@ -11,7 +11,7 @@
             {% endif %}
             {% if url.priority is defined %}
                 <priority>{{url.priority}}</priority>
-            {% endif %}
+            {% endif %} 
         </url>
     {% endfor %}
 </urlset>

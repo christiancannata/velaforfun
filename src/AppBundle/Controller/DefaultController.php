@@ -126,7 +126,7 @@ class DefaultController extends BaseController
 
         return $this->render(
             'default/sitemap.xml.twig',
-            array('urls' => $urls, 'hostname' => $hostname)
+            array('urls' => $urls, 'hostname' => "http://".$hostname)
         );
 
 
