@@ -108,6 +108,7 @@ function getUrlParameter(sParam) {
 
 $(".smarticker6").ready(function(){
     alert("jjj");
+
     if($(".sec1-2").length>0){
 
         $(".sec1-2 ul li a").attr("href","/forum/velaforfun");
