@@ -198,9 +198,41 @@
             </div>
 
 
+             <button class="btn btn-primary load-more">Carica altro</button>
 
 </div>
 </div>
+
+
+
+
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <div class="divisore-big"></div>
+    </div>
+</div>
+
+
+<div class="row clearfix">
+
+    <div class="col-md-12 column hidden-print">
+        {% for categoriaRel in categorie %}
+
+
+            <div class="category" style="margin:15px;width:auto;">
+                <a href="/archivio/{{ categoriaRel.permalink }}"><span
+                            style="background:{{ categoriaRel.getColore() }}">{{ categoriaRel.nome|capitalize }}</span> <span
+                            style="background:{{ categoriaRel.getColore() }};     padding-left: 11px;
+                                    padding-right: 11px;font-weight: bold;">+</span></a>
+            </div>
+
+
+        {% endfor %}
+    </div>
+
+
+</div>
+
 
 
 {% if articoli[1] is defined %}
