@@ -13,51 +13,20 @@
     <form action="{{ path('ibrows_newsletter_subscriber') }}" method="post" {{ form_enctype(form) }}>
         {{ form_errors(form) }}
         {{ form_rest(form) }}
-        <div class="col-xs-2">
-            <button type="button" id="undo_redo_undo" class="btn btn-primary btn-block">undo</button>
-            <button type="button" id="undo_redo_rightAll" class="btn btn-default btn-block"><i class="glyphicon glyphicon-forward"></i></button>
-            <button type="button" id="undo_redo_rightSelected" class="btn btn-default btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
-            <button type="button" id="undo_redo_leftSelected" class="btn btn-default btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
-            <button type="button" id="undo_redo_leftAll" class="btn btn-default btn-block"><i class="glyphicon glyphicon-backward"></i></button>
-            <button type="button" id="undo_redo_redo" class="btn btn-warning btn-block">redo</button>
-        </div>
-
-        <div class="col-xs-5">
-            <select name="to" id="undo_redo_to" class="form-control" size="13" multiple="multiple"></select>
-        </div>
-
         <div class="form-actions">
-
+            <a href='#' id='select-all'>Seleziona tutta la lista </a>
+            <a href='#' id='deselect-all'>Deselezione la lista</a>
 
             <input type="submit" class="btn btn-primary" name="send" value="{{ 'form.save'|trans }}">
         </div>
     </form>
 
 	<script type="text/javascript">
-
-        jQuery(document).ready(function($) {
-            $('select').multiselect();
-        });
-
-
 		jQuery(document).ready(function() {
-
-
-			/*jQuery('select').multiSelect({
+			jQuery('select').multiSelect({
 				selectableHeader: "{{ 'subscriber.multiselect.selectable'|trans }}",
 				selectedHeader:  "{{ 'subscriber.multiselect.selected'|trans }}"
 			});
-
-            $('#select-all').click(function(){
-                $('select').multiSelect('select_all');
-                return false;
-            });
-            $('#deselect-all').click(function(){
-                $('select').multiSelect('deselect_all');
-                return false;
-            });
-*/
-
 		});
 	</script>
 {% endblock %}
