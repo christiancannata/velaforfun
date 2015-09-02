@@ -109,6 +109,11 @@ function getUrlParameter(sParam) {
 
 jQuery(document).ready(function ($) {
 
+
+    if($(".sec1-2").length>0){
+        $(".sec1-2 a").attr("href","/forum/velaforfun");
+    }
+
     if (!localStorage.getItem("visualizzatoBenvenuto")) {
         $("#modalBeta").modal();
         localStorage.setItem("visualizzatoBenvenuto", 1);
