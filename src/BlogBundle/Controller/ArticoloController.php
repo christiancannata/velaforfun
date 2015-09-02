@@ -272,7 +272,7 @@ class ArticoloController extends BaseController
 
             $fs = new Filesystem();
 
-            $fs->copy('/var/www/web/uploads/galleria_foto/'.$foto->getImmagine(), '/var/www/web/uploads/images/articoli/'.$foto->getImmagine());
+            $fs->copy('/var/www/web/uploads/galleria_foto/'.$foto->getImmagine(), '/var/www/web/images/articoli/'.$foto->getImmagine());
 
             $entity->setImmagine($foto->getImmagine());
             /*
