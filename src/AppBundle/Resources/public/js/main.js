@@ -105,12 +105,6 @@ function getUrlParameter(sParam) {
         }
     }
 }
-
-$(".sec1-2 ul li a").ready(function(){
-    $(".sec1-2 ul li a").attr("href","/forum/velaforfun");
-})
-
-
 jQuery(document).ready(function ($) {
 
 
