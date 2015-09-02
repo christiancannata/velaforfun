@@ -27,4 +27,18 @@
             <iframe data-iframe-auto-height="true" src="{{ url('ibrows_newsletter_render_overview', {mandantHash: mandantHash, newsletterHash: newsletter.hash, subscriberHash: subscriber.hash, context: 'preview'}) }}" />
         </div>
     </div>
+
+
+    <script src="/bundles/app/js/bootstrap-select.js"></script>
+
+    <script language="javascript">
+
+
+        $(document).ready(function(){
+            $('#ibrows_newsletterbundle_testmail_subscriber').attr("data-live-search","true");
+            $('#ibrows_newsletterbundle_testmail_subscriber').selectpicker(
+                    {title: "Seleziona un elemento"}
+            );
+        });
+    </script>
 {% endblock newsletter_content %}
