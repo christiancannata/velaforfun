@@ -1,3 +1,4 @@
+{% if nodi|length > 0 %}
 {% for nodo in nodi %}
     <div class="col-md-4 column">
         {% set link = nodo.video|split('v=') %}
@@ -38,3 +39,4 @@
         <center><i class="fa fa-spinner fa-2x fa-spin "></i></center>
     </div>
 <button class="btn btn-primary load-more">Carica altro</button>
+{% endif %}
