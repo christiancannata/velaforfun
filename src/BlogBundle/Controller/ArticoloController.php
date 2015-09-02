@@ -7,6 +7,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use BlogBundle\Form\ArticoloType;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Filesystem\Filesystem;
+
 
 class ArticoloController extends BaseController
 {
@@ -246,6 +248,49 @@ class ArticoloController extends BaseController
         }
 
     }
+
+
+
+    /**
+     * @Route( "articoli/immagine-articolo/{id}", name="immagine_articolo" )
+     */
+    public function immagineArticoloAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+
+        $id=explode(",",$id);
+
+        $entity = $em->getRepository("BlogBundle:".$this->entity)->find($id[0]);
+
+
+        if ($request->isMethod('POST')) {
+
+
+            $foto = $em->getRepository("AppBundle:Foto")->find( $id[1]);
+
+
+            $fs = new Filesystem();
+
+            $fs->copy('/var/www/web/uploads/galleria_foto/'.$foto->getImmagine(), '/var/www/web/uploads/images/articoli/'.$foto->getImmagine());
+
+            $entity->setImmagine($foto->getImmagine());
+            /*
+             * $data['title']
+             * $data['body']
+             */
+            $em = $this->getDoctrine()->getManager();
+            $em->merge($entity);
+
+            $em->flush();
+
+            $response['success'] = true;
+
+            return new JsonResponse($response);
+        }
+
+    }
+
 
 
     /**

@@ -295,6 +295,28 @@ jQuery(document).ready(function ($) {
         });
     });
 
+
+    $(document).on('click', ".immagine-articolo", function() {
+        var button = $(this);
+        $("button").attr("disabled", "disabled");
+        $.ajax({
+            type: "POST",
+            url: $(this).attr('data-route')+","+$("#idFoto").val(),
+            success: function (response) {
+                if (response.success == true) {
+
+                    showalert($("#response-div"), "Immagine impostata con successo!", "success");
+
+                } else {
+                    showalert($("#response-div"), "Errore nell'eliminazione", "error");
+                }
+                $("button").removeAttr("disabled");
+
+            }
+        });
+    });
+
+
     $(".delete-single-entity").click(function () {
         var button = $(this);
         $("button").attr("disabled", "disabled");
