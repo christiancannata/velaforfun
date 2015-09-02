@@ -129,7 +129,7 @@ class AnnuncioImbarcoController extends BaseController
                 $board = null;
 
                 $board = $this->container->get('doctrine')
-                    ->getRepository('CCDNForumForumBundle:Board')->find(20);
+                    ->getRepository('CCDNForumForumBundle:Board')->find(10);
                 $firstTopic->setBoard(
                     $board
                 );
