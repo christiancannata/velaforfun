@@ -106,13 +106,17 @@ function getUrlParameter(sParam) {
     }
 }
 
+$(".smarticker").ready(function(){
+    if($(".sec1-2").length>0){
+        $(".sec1-2 ul li a").attr("href","/forum/velaforfun");
+    }
+})
+
 
 jQuery(document).ready(function ($) {
 
 
-    if($(".sec1-2").length>0){
-        $(".sec1-2 ul li a").attr("href","/forum/velaforfun");
-    }
+
 
     if (!localStorage.getItem("visualizzatoBenvenuto")) {
         $("#modalBeta").modal();
