@@ -341,19 +341,19 @@
         {% for nodo in nodi %}
             {% if nodo.parent is null or nodo.parent is not defined %}
                 <li class="dd-item" data-id="{{ nodo.id }}">
-                    <div class="dd-handle">{{ nodo.nome }} <button class="elimina" data-id="{{ nodo.id }}">X</button></div>
+                    <div class="dd-handle">{{ nodo.nome }} - {{ nodo.link }}<button class="elimina" data-id="{{ nodo.id }}">X</button></div>
                     {% if nodo.children|length > 0 %}
                         <ol class="dd-list">
                         {% for child in nodo.children %}
 
                                 <li class="dd-item" data-id="{{ child.id }}">
-                                    <div class="dd-handle">{{ child.nome }} <button class="elimina" data-id="{{ nodo.id }}">X</button></div>
+                                    <div class="dd-handle">{{ child.nome }} - {{ child.link }}<button class="elimina" data-id="{{ nodo.id }}">X</button></div>
                                     {% if child.children|length > 0 %}
                         <ol class="dd-list">
                         {% for child2 in child.children %}
 
                                 <li class="dd-item" data-id="{{ child2.id }}">
-                                    <div class="dd-handle">{{ child2.nome }} <button class="elimina" data-id="{{ nodo.id }}">X</button></div>
+                                    <div class="dd-handle">{{ child2.nome }} - {{ child2.link }}<button class="elimina" data-id="{{ nodo.id }}">X</button></div>
                                 </li>
 
                         {% endfor %}
