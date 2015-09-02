@@ -67,7 +67,7 @@ class CategoriaController extends BaseController
 
         $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(
             array('categoria' => $categoria, 'stato' => "ATTIVO"),
-            array('timestamp' => 'desc')
+            array('lastUpdateTimestamp' => 'desc')
         );
 
         $categorie = $em->getRepository('BlogBundle:Categoria')->findAll();
