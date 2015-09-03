@@ -19,7 +19,6 @@
                 var menu = $('.menu').nestable('serialize');
                 $("#menujson").val(JSON.stringify(menu));
             });
-
         });
 
     </script>
@@ -401,8 +400,52 @@ ELIMINA NODI
     {{ form_widget(formNodo) }}
 
                     <button type="submit" class="btn btn-default login hvr-sweep-to-right"> <i class="fa fa-spinner fa-2x fa-spin hide"></i><span class="show">Inserisci Nodo</span></button>
+   </form>
     </div>
- </form>
+<div class="row clearfix">
+        <div class="col-md-12 column crud">
+
+            <div id="response-div"></div>
+            <table class="table table-striped">
+
+                <thead>
+
+                <tr>
+                    <th></th>
+                    <th>ID</th>
+
+                    <th>NOME</th>
+
+                    <th>TIMESTAMP</th>
+
+                    <th></th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for entity in nodi %}
+                    <tr data-id="{{ entity.id }}">
+                        <td><input class="eliminaCheckbox" type="checkbox" value="{{ entity.id }}" /></td>
+                        <td>{{ entity.id }}</td>
+                        <td>{{ entity.__toString()|raw }} </td>
+                        <td>{{ entity.timestamp|date('d-m-Y H:i') }}</td>
+                        <td>
+                            <button type="button" onclick="window.open('/nodomenu/modifica/{{ entity.id }}','_blank');"
+                                    class="btn btn-success">Modifica
+                            </button>
+
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+
+            <button class="btn btn-danger eliminaSelezionati" data-route="{{ base_path }}/elimina/">Elimina selezionati</button>
+
+        </div>
+    </div>
 
 
  </div>

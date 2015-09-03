@@ -36,9 +36,7 @@ class NodoMenuController extends BaseController
 
         $entity = $em->getRepository("AppBundle:".$this->entity)->find($id);
 
-        $postform = $this->createForm(new MenuType(), $entity);
-
-        $nodi = $em->getRepository("AppBundle:NodoMenu")->findByMenu($entity);
+        $postform = $this->createForm(new NodoMenuType(), $entity);
 
 
         if ($request->isMethod('POST')) {
@@ -66,8 +64,8 @@ class NodoMenuController extends BaseController
         }
 
         return $this->render(
-            'AppBundle:Crud:create-menu.html.twig',
-            array('menu'=>$entity, 'form' => $postform->createView(), "nodi"=>$nodi, "titolo" => "Modifica ".$this->entity." - ".$id)
+            'AppBundle:Crud:create.html.twig',
+            array('menu'=>$entity, 'form' => $postform->createView(), "titolo" => "Modifica ".$this->entity." - ".$id)
         );
     }
 
