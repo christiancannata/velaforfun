@@ -81,7 +81,7 @@
                         <td>{{ entity.stato }}</td>
                         <td>{{ entity.timestamp|date('d-m-Y H:i') }}</td>
                         <td>
-                            <button type="button" onclick="location.href='/archivio/articoli/modifica/{{ entity.id }}'"
+                            <button type="button"  onclick="window.open('/archivio/articoli/modifica/{{ entity.id }}','_blank');"
                                     class="btn btn-success">Modifica
                             </button>
                             <button type="button" data-route="/archivio/articoli/elimina/{{ entity.id }}"

@@ -79,7 +79,7 @@
                         <td>{{ entity.email }}</td>
                         <td>{{ entity.timestamp|date('d-m-Y H:i') }}</td>
                         <td>
-                            <button type="button" onclick="location.href='{{ base_path }}/modifica/{{ entity.id }}'"
+                            <button type="button" onclick="window.open('{{ base_path }}/modifica/{{ entity.id }}','_blank');"
                                     class="btn btn-success">Modifica
                             </button>
                             <button type="button" data-route="{{ base_path }}/elimina/{{ entity.id }}"
