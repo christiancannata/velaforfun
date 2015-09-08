@@ -164,6 +164,10 @@ class CategoriaVideo
     }
 
 
+    public function __toString()
+    {
+        return $this->nome;
+    }
 
 
 }
