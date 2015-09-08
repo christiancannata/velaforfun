@@ -26,8 +26,7 @@
 
             var offset = 3;
             var loading = false;
-            $(window).scroll(function () {
-                if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+            $(document).on('click', ".load-more", function() {
                     if (loading == false) {
                         $('div#loadmoreajaxloader').show();
                         loading = true;
@@ -36,6 +35,7 @@
                             success: function (html) {
                                 if (html) {
                                     $('div#loadmoreajaxloader').remove();
+                                    $('.load-more').remove();
                                     $("#postswrapper").append(html);
                                 } else {
                                     $('div#loadmoreajaxloader').html('<center>Non ci sono più elementi da visualizzare.</center>');
@@ -46,7 +46,6 @@
                         });
                     }
 
-                }
             });
 
 
