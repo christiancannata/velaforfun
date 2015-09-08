@@ -135,6 +135,7 @@ class GalleriaFotoController extends BaseController
                     $fileUpload->setImmagine( $uploadedFile->getClientOriginalName());
                     $fileUpload->setNome($uploadedFile->getClientOriginalName());
                     $fileUpload->setGalleria($entity);
+                    $fileUpload->setAutore($params['appbundle_galleriafoto']['nome']);
                     $fileUpload->setInEvidenza(true);
                     $em->persist($fileUpload);
 
