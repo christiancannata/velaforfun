@@ -149,7 +149,7 @@ class VideoController extends BaseController
     {
 
         $categorie = $this->getDoctrine()
-            ->getRepository('AppBundle:CategoriaVideo')->findBy(array(),array("id"=>"desc"), 3, 0);
+            ->getRepository('AppBundle:CategoriaVideo')->findBy(array(),array("id"=>"desc"));
 
 
         return $this->render('AppBundle:Video:gallerie.html.twig', array("gallerie" => $categorie));
