@@ -16,7 +16,7 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOException;
 
 
-class GalleriaFotoController extends BaseController
+class CategoriaVideoController extends BaseController
 {
 
     protected $entity="CategoriaVideo";
