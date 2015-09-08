@@ -300,8 +300,8 @@ class DefaultController extends BaseController
             }
             $strIngredienti .= "</ul>";
             $testo = "Tempo: ".$params['blogbundle_articolo']['tempo'];
-            $testo .= "<br><br>Ricetta per ".$params['blogbundle_articolo']['persone']." persone";
-            $testo .= "<br><br><strong>Ingredienti:</strong><br> ".$strIngredienti;
+            $testo .= "<br><br>Persone: ".$params['blogbundle_articolo']['persone'];
+            $testo .= "<br><br>Ingredienti:<br> ".$strIngredienti;
 
             $articolo->setSottotitolo("");
 
