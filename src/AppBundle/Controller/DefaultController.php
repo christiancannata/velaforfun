@@ -35,7 +35,7 @@ class DefaultController extends BaseController
         $repository = $this->getDoctrine()
             ->getRepository('CCDNForumForumBundle:Post');
 
-        $post = $repository->findBy(array(), array('createdDate' => 'desc'), 50);
+        $post = $repository->findBy(array(), array('createdDate' => 'desc'), 20);
         $topic=[];
 
         foreach($post as $sPost){
