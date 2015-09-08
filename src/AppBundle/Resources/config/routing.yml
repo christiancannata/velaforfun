@@ -51,6 +51,13 @@ galleria_foto:
     type:     annotation
     prefix:   /galleria-foto
 
+
+galleria_video:
+    resource: "@AppBundle/Controller/CategoriaVideoController.php"
+    type:     annotation
+    prefix:   /categoria-video
+
+
 nodomenu:
     resource: "@AppBundle/Controller/NodoMenuController.php"
     type:     annotation
