@@ -16,7 +16,7 @@ class CategoriaVideoType extends AbstractType
     {
         $builder
             ->add('nome')
-            ->add('video',null,array('multiple'=>true, 'attr' => array('class' => ' with-preview')))
+           // ->add('video',null,array('multiple'=>true, 'attr' => array('class' => ' with-preview')))
         ;
     }
 
