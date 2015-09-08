@@ -22,6 +22,7 @@
                         success: function (html) {
                             if (html) {
                                 $('div#loadmoreajaxloader').remove();
+                                $('.load-more').remove();
                                 $("#postswrapper").append(html);
                             } else {
                                 $('div#loadmoreajaxloader').html('<center>Non ci sono più elementi da visualizzare.</center>');
