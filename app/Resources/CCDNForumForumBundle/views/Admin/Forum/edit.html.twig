@@ -17,7 +17,6 @@
     {%- spaceless -%}
 
 	<section class="clearfix">
-	    {%- form_theme form ccdn_forum_forum.forum.admin.edit.form_theme -%}
 	    <form action="{{- path('ccdn_forum_admin_forum_edit_process', {'forumId': forum.id}) -}}"
 		 method="post" {{ form_enctype(form) }} class="form-horizontal" novalidate>
 	        <fieldset>
