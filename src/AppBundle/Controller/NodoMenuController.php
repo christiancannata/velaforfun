@@ -41,16 +41,15 @@ class NodoMenuController extends BaseController
 
         if ($request->isMethod('POST')) {
 
-            $params = $request->request->all();
+            $postform->handleRequest($request);
+
+            if ($postform->isValid()) {
 
 
-
-            $alberoNodi=json_decode($params['nodiJson'],true);
-            die(var_dump($alberoNodi));
-            /*
-             * $data['title']
-             * $data['body']
-             */
+                /*
+                 * $data['title']
+                 * $data['body']
+                 */
                 $em = $this->getDoctrine()->getManager();
 
                 $em->flush();
@@ -58,7 +57,12 @@ class NodoMenuController extends BaseController
 
                 $response['success'] = true;
 
+            } else {
 
+                $response['success'] = false;
+                $response['cause'] = $postform->getErrors();
+
+            }
 
             return new JsonResponse($response);
         }
