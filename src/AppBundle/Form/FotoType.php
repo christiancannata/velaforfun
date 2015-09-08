@@ -18,6 +18,7 @@ class FotoType extends AbstractType
             ->add('profilePictureFile',null,array("label"=>"Carica una foto","attr"=>array("required"=>"required")))
             ->add('nome',null,array("attr"=>array("required"=>"required")))
             ->add('inEvidenza')
+            ->add('autore')
             ->add('galleria',null,array("label"=>"Categoria"),array("attr"=>array("required"=>"required")))
         ;
     }
