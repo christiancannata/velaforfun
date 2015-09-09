@@ -151,7 +151,7 @@ form label {
     background: rgba(66, 156, 188, 0.8) none repeat scroll 0 0;
     bottom: -14px;
     color: white;
-    height: 200px;
+    height: auto;
     left: 50%;
     margin-left: -47%;
     padding: 8px;
