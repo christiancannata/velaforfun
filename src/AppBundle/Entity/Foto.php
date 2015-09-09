@@ -79,7 +79,7 @@ class Foto
 
     /**
      * @ORM\ManyToOne(targetEntity="GalleriaFoto", inversedBy="foto",cascade={"remove"})
-     * @ORM\JoinColumn(name="id_galleria", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="id_galleria", referencedColumnName="id", nullable=true,onDelete="CASCADE")
      **/
     private $galleria;
 
