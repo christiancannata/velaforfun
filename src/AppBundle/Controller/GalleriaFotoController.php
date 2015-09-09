@@ -195,7 +195,7 @@ class GalleriaFotoController extends BaseController
 
             if ($entity) {
 
-                $children = $em->getRepository("AppBundle:Foto")->findBy(array("gallery"=>$entity));
+                $children = $em->getRepository("AppBundle:Foto")->findBy(array("galleria"=>$entity));
                 foreach($children as $child){
                     $em->remove($child);
                 }
