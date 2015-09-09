@@ -22,7 +22,7 @@ class FotoType extends AbstractType
             ->add('galleria',null,array("label"=>"Categoria"),array("attr"=>array("required"=>"required")))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
