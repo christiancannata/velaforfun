@@ -179,7 +179,36 @@ class GalleriaFotoController extends BaseController
      */
     public function eliminaAction(Request $request,$id)
     {
-        return $this->delete($id);
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $ids=null;
+        if(is_numeric($id)){
+            $ids[]=$id;
+        }else{
+            $ids=explode(",",$id);
+        }
+
+        $response=[];
+        foreach($ids as $id){
+            $entity = $em->getRepository("AppBundle:".$this->entity)->find(intval($id));
+
+
+            if ($entity) {
+
+                $children = $em->getRepository("AppBundle:Foto")->findBy(array("gallery"=>$entity));
+                foreach($children as $child){
+                    $em->remove($child);
+                }
+
+                $em->remove($entity);
+            }
+        }
+
+        $em->flush();
+
+        $response['success'] = true;
+
+        return new JsonResponse($response);
     }
 
 
