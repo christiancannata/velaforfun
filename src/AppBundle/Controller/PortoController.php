@@ -286,6 +286,7 @@ class PortoController extends BaseController
             $this->getDoctrine()->getManager()->flush();
 
             $weather = json_decode($response->getBody(true));
+
         } else {
             $meteo = $meteo[0]['data'];
             $weather = json_decode($meteo);
@@ -314,6 +315,7 @@ class PortoController extends BaseController
             }
 
         }
+
 
 
         $now=new \DateTime();
