@@ -207,13 +207,13 @@ class OldRoutingRedirectListener extends ContainerAware
                     $params["topicId"] = $post->getIdNew();
                 } else {
                     $redirect = true;
-                    $route = "ccdn_forum_user_topic_show";
+                    $route = "ccdn_forum_user_category_index";
                     $params["forumName"] = "velaforfun";
                 }
 
             } else {
                 $redirect = true;
-                $route = "ccdn_forum_user_topic_show";
+                $route = "ccdn_forum_user_category_index";
                 $params["forumName"] = "velaforfun";
             }
 
