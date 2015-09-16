@@ -120,7 +120,9 @@ class DefaultController extends BaseController
         }
 
         foreach ($post as $product) {
-            $urls[] = array('loc' => "/forum/velaforfun/topic/".$product->getId(), 'priority' => '0.5');
+            if($product->getBoard()!=null){
+                $urls[] = array('loc' => "/forum/velaforfun/topic/".$product->getId(), 'priority' => '0.5');
+            }
         }
 
 
