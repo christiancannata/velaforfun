@@ -48,24 +48,26 @@ class GalleriaFotoController extends BaseController
             $foto = array();
 
             $files = $files['foto'];
-            foreach ($files as $uploadedFile) {
+            if (count($files) > 0) {
+                foreach ($files as $uploadedFile) {
 
-                $uploadedFile->move(
-                    '/var/www/web/uploads/galleria_foto/',
-                    $uploadedFile->getClientOriginalName()
-                );
+                    $uploadedFile->move(
+                        '/var/www/web/uploads/galleria_foto/',
+                        $uploadedFile->getClientOriginalName()
+                    );
 
-                $fileUpload = new Foto();
-                $fileUpload->setImmagine($uploadedFile->getClientOriginalName());
-                $fileUpload->setNome($uploadedFile->getClientOriginalName());
-                $fileUpload->setGalleria($gallery);
-                $fileUpload->setInEvidenza(true);
-                $em->persist($fileUpload);
+                    $fileUpload = new Foto();
+                    $fileUpload->setImmagine($uploadedFile->getClientOriginalName());
+                    $fileUpload->setNome($uploadedFile->getClientOriginalName());
+                    $fileUpload->setGalleria($gallery);
+                    $fileUpload->setInEvidenza(true);
+                    $em->persist($fileUpload);
 
-                $foto[] = $fileUpload;
-                // clean up the file property as you won't need it anymore
-                $uploadedFile = null;
+                    $foto[] = $fileUpload;
+                    // clean up the file property as you won't need it anymore
+                    $uploadedFile = null;
 
+                }
             }
             $em->flush();
 
