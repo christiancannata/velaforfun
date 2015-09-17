@@ -23,7 +23,7 @@
     });
     function eliminaFoto(id){
         $("#idFoto").val(id);
-        $(".delete-entity").attr('data-route','/foto/elimina/'+id);
+        $("#modalFoto .delete-entity").attr('data-route','/foto/elimina/'+id);
         $("#modalFoto").modal();
     }
 </script>
