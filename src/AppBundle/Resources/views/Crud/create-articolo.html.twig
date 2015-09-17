@@ -24,6 +24,9 @@
 
         });
 
+
+
+
         {% if entity.immagine is defined and entity.immagine!="" %}
         $("#blogbundle_articolo_profilePictureFile").parent().append(
                 "<table><tr><td><img src='/images/articoli/{{ entity.immagine }}' width='150'> <button class='btn btn-danger delete-entity'  data-route='/archivio/articoli/elimina-immagine/{{ entity.id }}' type='button'>Elimina </button></td> </tr></table>"
@@ -35,6 +38,13 @@
         );
         $("#blogbundle_articolo_textFileImage").parent().hide();
         {% endif %}
+
+
+        {% if entity.titolo is defined %}
+        $("#blogbundle_articolo_titolo").after("<p id='controllo'>{{ entity.titolo|length }}" + ' / ' + 80 +"</p>");
+        {% endif %}
+
+
     });
     function eliminaFoto(id){
         $("#idFoto").val(id);
