@@ -20,7 +20,7 @@
         $("#blogbundle_articolo_titolo").keyup(function(){
             $("#controllo").remove();
 
-            $("#blogbundle_articolo_titolo").after("<p id='controllo'>"+$("#blogbundle_articolo_titolo").val().length + ' / ' + 80 +"</p>");
+            $("#blogbundle_articolo_titolo").after("<p id='controllo'>"+$("#blogbundle_articolo_titolo").val().length + ' / ' + 65 +"</p>");
 
         });
 
@@ -41,7 +41,7 @@
 
 
         {% if entity.titolo is defined %}
-        $("#blogbundle_articolo_titolo").after("<p id='controllo'>{{ entity.titolo|length }}" + ' / ' + 80 +"</p>");
+        $("#blogbundle_articolo_titolo").after("<p id='controllo'>{{ entity.titolo|length }}" + ' / ' + 65 +"</p>");
         {% endif %}
 
 
