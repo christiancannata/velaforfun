@@ -8,7 +8,24 @@
 
 {% block javascripts %}
 <script language="javascript">
+
+    function ismaxlength(objTxtCtrl, nLength) {
+
+
+    }
+
+
     $(document).ready(function(){
+
+        $("#blogbundle_articolo_titolo").keyup(function(){
+            $("#controllo").remove();
+            if ($("#blogbundle_articolo_titolo").val().length > 80)
+                objTxtCtrl.value = objTxtCtrl.value.substring(0, 80)
+
+            $("#blogbundle_articolo_titolo").after("<p id='controllo'>"+$("#blogbundle_articolo_titolo").val() + ' fuori di ' + 80 +"</p>");
+
+        });
+
         {% if entity.immagine is defined and entity.immagine!="" %}
         $("#blogbundle_articolo_profilePictureFile").parent().append(
                 "<table><tr><td><img src='/images/articoli/{{ entity.immagine }}' width='150'> <button class='btn btn-danger delete-entity'  data-route='/archivio/articoli/elimina-immagine/{{ entity.id }}' type='button'>Elimina </button></td> </tr></table>"
