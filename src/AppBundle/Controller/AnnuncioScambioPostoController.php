@@ -217,6 +217,11 @@ class AnnuncioScambioPostoController extends BaseController
 
         $form['vars'] = array("full_name" => "appbundle_annuncioscambioposto");
 
+        foreach($annunci as $key=>$annuncio) {
+            if ($annuncio->getTopic()->isDeleted() || $annuncio->getTopic()->isClosed()) {
+                unset($annunci[$key]);
+            }
+        }
 
         return $this->render(
             'AppBundle:AnnuncioScambioPosto:lista.html.twig',
@@ -411,6 +416,11 @@ class AnnuncioScambioPostoController extends BaseController
                 $annunci = $repository->findBy(array(), array("id" => "desc"));
             }
 
+            foreach($annunci as $key=>$annuncio) {
+                if ($annuncio->getTopic()->isDeleted() || $annuncio->getTopic()->isClosed()) {
+                    unset($annunci[$key]);
+                }
+            }
 
             return $this->render(
                 'AppBundle:AnnuncioScambioPosto:cercaAjax.html.twig',

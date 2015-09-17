@@ -50,6 +50,11 @@ class AnnuncioImbarcoController extends BaseController
 
         $form['vars'] = array("full_name" => "appbundle_annuncioimbarco");
 
+        foreach($annunci as $key=>$annuncio) {
+            if ($annuncio->getTopic()->isDeleted() || $annuncio->getTopic()->isClosed()) {
+                unset($annunci[$key]);
+            }
+        }
 
         return $this->render(
             'AppBundle:AnnuncioImbarco:lista.html.twig',
@@ -349,6 +354,12 @@ class AnnuncioImbarcoController extends BaseController
             $query->orderBy("p.id","DESC");
 
             $annunci = $query->getQuery()->getResult();
+
+            foreach($annunci as $key=>$annuncio) {
+                if ($annuncio->getTopic()->isDeleted() || $annuncio->getTopic()->isClosed()) {
+                    unset($annunci[$key]);
+                }
+            }
 
             return $this->render(
                 'AppBundle:AnnuncioScambioPosto:cercaAjax.html.twig',
