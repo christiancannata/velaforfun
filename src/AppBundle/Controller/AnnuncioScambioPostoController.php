@@ -450,7 +450,7 @@ class AnnuncioScambioPostoController extends BaseController
                 ->setSubject("Annuncio scambio posto")
                 ->setFrom('info@velaforfun.com')
                 ->setTo($destinatario->getEmail())
-                ->setBcc('christian1488@hotmail.it')
+                ->setBcc('info@velaforfun.com')
                 ->setBody(
                     $this->container->get('templating')->render(
                     // app/Resources/views/Emails/registrazione.html.twig
