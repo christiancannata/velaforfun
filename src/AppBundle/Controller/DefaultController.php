@@ -35,7 +35,7 @@ class DefaultController extends BaseController
         $repository = $this->getDoctrine()
             ->getRepository('CCDNForumForumBundle:Topic');
 
-        $post = $repository->findBy(array("isDeleted"=>false), array('id' => 'desc'), 20);
+        $post = $repository->findBy(array("isDeleted"=>false,"isClosed"=>false), array('id' => 'desc'), 20);
         $topic=$post;
 
 
@@ -64,7 +64,7 @@ class DefaultController extends BaseController
         $repository = $this->getDoctrine()
             ->getRepository('CCDNForumForumBundle:Topic');
 
-        $post = $repository->findAll();
+        $post = $repository->findBy(array("isDeleted"=>false,"isClosed"=>false), array('id' => 'desc'));
 
 
         $urls = array();

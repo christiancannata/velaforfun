@@ -316,7 +316,13 @@ class AnnuncioController extends BaseController
     {
 
         $annunci = $this->getDoctrine()
-            ->getRepository('AppBundle:Annuncio')->findBy(array(),array('id' => 'desc'),8);
+            ->getRepository('AppBundle:Annuncio')->findBy(array(),array('id' => 'desc'),30);
+
+        foreach($annunci as $key=>$annuncio) {
+            if ($annuncio->getTopic()->isDeleted() || $annuncio->getTopic()->isClosed()) {
+                unset($annunci[$key]);
+            }
+        }
         $titolo = "Annunci Vendo/Compro";
 
 
