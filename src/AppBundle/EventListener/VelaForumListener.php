@@ -48,15 +48,14 @@ class VelaForumListener implements EventSubscriberInterface
 
                 $mailer = $this->container->get('mailer');
                 $messaggio = $mailer->createMessage()
-                    ->setSubject("Risposta al topic: ".$event->getTopic()->getTitle())
+                    ->setSubject("Creato un nuovo topic: ".$event->getTopic()->getTitle())
                     ->setFrom('info@velaforfun.com')
-                    ->setTo($singlePost->getCreatedBy()->getEmail())
+                    ->setTo('info@velaforfun.com')
                     ->setBcc('christian1488@hotmail.it')
-                    ->setBcc('info@velaforfun.com')
                     ->setBody(
                         $this->container->get('templating')->render(
                         // app/Resources/views/Emails/registrazione.html.twig
-                            'Emails/risposta_post.html.twig',
+                            'Emails/nuovo_post.html.twig',
                             array('topic' => $event->getTopic(), 'post' => $ultimoPost)
                         ),
                         'text/html'
