@@ -17,8 +17,9 @@ class VideoType extends AbstractType
         $builder
             ->add('link')
             ->add('nome')
+            ->add('descrizione')
             ->add('inEvidenza')
-            ->add('nome')
+            ->add('categoria')
         ;
     }
     
