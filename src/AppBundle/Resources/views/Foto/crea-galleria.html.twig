@@ -245,7 +245,7 @@
     <div id="appbundle_galleriafoto">
         <div class="form-group">
             <label for="appbundle_galleriafoto_nome" class="control-label">Nome</label>
-            <input type="text" class="form-control" name="appbundle_galleriafoto[nome]" id="appbundle_galleriafoto_nome"
+            <input type="text" class="form-control" name="appbundle_galleriafoto[nome]" required="required" id="appbundle_galleriafoto_nome"
             {% if gallery is defined %}
                     value="{{ gallery.nome }}"
                     {% endif %}
@@ -254,7 +254,7 @@
 
               <div class="form-group">
             <label for="appbundle_galleriafoto_nome" class="control-label">Autore</label>
-            <input type="text" class="form-control" name="appbundle_galleriafoto[autore]" id="appbundle_galleriafoto_autore" >
+            <input type="text" class="form-control" required="required"  name="appbundle_galleriafoto[autore]" id="appbundle_galleriafoto_autore" >
             </div>
 
 
