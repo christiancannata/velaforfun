@@ -78,7 +78,7 @@ class GalleriaFotoController extends BaseController
         }
 
         return $this->render(
-            'AppBundle:Foto:create.html.twig',
+            'AppBundle:Foto:crea-galleria.html.twig',
             array('form' => $postform->createView(), "titolo" => "Crea ".$this->entity)
         );
     }
@@ -156,7 +156,7 @@ class GalleriaFotoController extends BaseController
 
 
         return $this->render(
-            'AppBundle:Foto:create.html.twig',
+            'AppBundle:Foto:crea-galleria.html.twig',
             array('form' => $postform->createView(), "titolo" => "Modifica ".$this->entity,"gallery"=>$entity,"fotos"=>$fotos)
         );
     }

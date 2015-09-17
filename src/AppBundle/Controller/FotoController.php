@@ -24,54 +24,7 @@ class FotoController extends BaseController
      */
     public function createAction(Request $request)
     {
-        $postform = $this->createForm(new FotoType());
-
-        if ($request->isMethod('POST')) {
-
-            $em = $this->getDoctrine()->getManager();
-            $params = $request->request->all();
-
-
-            $files = $request->files->get('appbundle_galleriafoto');
-
-            $gallery = new GalleriaFoto();
-
-
-            $gallery->setNome($params['appbundle_galleriafoto']['nome']);
-            $gallery->setDescrizione($params['appbundle_galleriafoto']['descrizione']);
-            $gallery->setInGallery(true);
-            $em->persist($gallery);
-            $em->flush();
-
-
-            $foto = array();
-
-            $files = $files['foto'];
-
-            // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
-            foreach ($files as $uploadedFile) {
-                $fileUpload = new Foto();
-                $fileUpload->setProfilePictureFile($uploadedFile);
-                $fileUpload->setNome(preg_replace('/\\.[^.\\s]{3,4}$/', '', $uploadedFile->getClientOriginalName()));
-                $fileUpload->setGalleria($gallery);
-                $fileUpload->setInEvidenza(true);
-                $em->persist($fileUpload);
-                $em->flush();
-                $foto[] = $fileUpload;
-            }
-
-
-            $response['success'] = true;
-            $response['response'] = $gallery->getId();
-
-
-            return new JsonResponse($response);
-        }
-
-        return $this->render(
-            'AppBundle:Foto:create.html.twig',
-            array('form' => $postform->createView(), "titolo" => "Crea ".$this->entity)
-        );
+        return $this->postForm($request,new FotoType());
     }
 
     /**
