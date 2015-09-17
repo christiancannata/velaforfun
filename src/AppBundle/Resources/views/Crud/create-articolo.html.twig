@@ -19,10 +19,8 @@
 
         $("#blogbundle_articolo_titolo").keyup(function(){
             $("#controllo").remove();
-            if ($("#blogbundle_articolo_titolo").val().length > 80)
-                objTxtCtrl.value = objTxtCtrl.value.substring(0, 80)
 
-            $("#blogbundle_articolo_titolo").after("<p id='controllo'>"+$("#blogbundle_articolo_titolo").val() + ' fuori di ' + 80 +"</p>");
+            $("#blogbundle_articolo_titolo").after("<p id='controllo'>"+$("#blogbundle_articolo_titolo").val().length + ' / ' + 80 +"</p>");
 
         });
 
