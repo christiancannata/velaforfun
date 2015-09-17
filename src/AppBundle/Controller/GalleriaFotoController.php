@@ -17,7 +17,7 @@ use Symfony\Component\Filesystem\Exception\IOException;
 class GalleriaFotoController extends BaseController
 {
 
-    protected $entity="GalleriaFoto";
+    protected $entity = "GalleriaFoto";
 
     /**
      * @Route( "crea", name="create_galleria_foto" )
@@ -56,7 +56,7 @@ class GalleriaFotoController extends BaseController
                 );
 
                 $fileUpload = new Foto();
-                $fileUpload->setImmagine( $uploadedFile->getClientOriginalName());
+                $fileUpload->setImmagine($uploadedFile->getClientOriginalName());
                 $fileUpload->setNome($uploadedFile->getClientOriginalName());
                 $fileUpload->setGalleria($gallery);
                 $fileUpload->setInEvidenza(true);
@@ -87,7 +87,7 @@ class GalleriaFotoController extends BaseController
      * @Route( "modifica/{id}", name="modifica_galleria_foto" )
      * @Template()
      */
-    public function patchAction(Request $request,$id)
+    public function patchAction(Request $request, $id)
     {
 
 
@@ -97,7 +97,7 @@ class GalleriaFotoController extends BaseController
 
         $postform = $this->createForm(new GalleriaFotoType());
 
-        $fotos=$em->getRepository("AppBundle:Foto")->findByGalleria($entity);
+        $fotos = $em->getRepository("AppBundle:Foto")->findByGalleria($entity);
 
 
         if ($request->isMethod('POST')) {
@@ -107,8 +107,6 @@ class GalleriaFotoController extends BaseController
 
 
             $files = $request->files->get('appbundle_galleriafoto');
-
-
 
 
             $entity->setNome($params['appbundle_galleriafoto']['nome']);
@@ -121,18 +119,18 @@ class GalleriaFotoController extends BaseController
 
             $files = $files['foto'];
 
+            if (count($files) > 0) {
+                // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
+                foreach ($files as $uploadedFile) {
 
-            // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
-            foreach ($files as $uploadedFile) {
 
-
-                $uploadedFile->move(
-                    '/var/www/web/uploads/galleria_foto/',
-                    $uploadedFile->getClientOriginalName()
-                );
+                    $uploadedFile->move(
+                        '/var/www/web/uploads/galleria_foto/',
+                        $uploadedFile->getClientOriginalName()
+                    );
 
                     $fileUpload = new Foto();
-                    $fileUpload->setImmagine( $uploadedFile->getClientOriginalName());
+                    $fileUpload->setImmagine($uploadedFile->getClientOriginalName());
                     $fileUpload->setNome($uploadedFile->getClientOriginalName());
                     $fileUpload->setGalleria($entity);
                     $fileUpload->setAutore($params['appbundle_galleriafoto']['nome']);
@@ -140,10 +138,13 @@ class GalleriaFotoController extends BaseController
                     $em->persist($fileUpload);
 
                     $foto[] = $fileUpload;
-                // clean up the file property as you won't need it anymore
-                $uploadedFile = null;
+                    // clean up the file property as you won't need it anymore
+                    $uploadedFile = null;
+
+                }
 
             }
+
             $em->flush();
 
             $response['success'] = true;
@@ -154,10 +155,14 @@ class GalleriaFotoController extends BaseController
         }
 
 
-
         return $this->render(
             'AppBundle:Foto:crea-galleria.html.twig',
-            array('form' => $postform->createView(), "titolo" => "Modifica ".$this->entity,"gallery"=>$entity,"fotos"=>$fotos)
+            array(
+                'form' => $postform->createView(),
+                "titolo" => "Modifica ".$this->entity,
+                "gallery" => $entity,
+                "fotos" => $fotos
+            )
         );
     }
 
@@ -172,31 +177,30 @@ class GalleriaFotoController extends BaseController
     }
 
 
-
     /**
      * @Route( "elimina/{id}", name="delete_galleria_foto" )
      * @Template()
      */
-    public function eliminaAction(Request $request,$id)
+    public function eliminaAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $ids=null;
-        if(is_numeric($id)){
-            $ids[]=$id;
-        }else{
-            $ids=explode(",",$id);
+        $ids = null;
+        if (is_numeric($id)) {
+            $ids[] = $id;
+        } else {
+            $ids = explode(",", $id);
         }
 
-        $response=[];
-        foreach($ids as $id){
+        $response = [];
+        foreach ($ids as $id) {
             $entity = $em->getRepository("AppBundle:".$this->entity)->find(intval($id));
 
 
             if ($entity) {
 
-                $children = $em->getRepository("AppBundle:Foto")->findBy(array("galleria"=>$entity));
-                foreach($children as $child){
+                $children = $em->getRepository("AppBundle:Foto")->findBy(array("galleria" => $entity));
+                foreach ($children as $child) {
                     $em->remove($child);
                 }
 
@@ -212,7 +216,6 @@ class GalleriaFotoController extends BaseController
     }
 
 
-
     /**
      * @Route("/{permalink}", name="galleria_foto")
      */
@@ -225,7 +228,10 @@ class GalleriaFotoController extends BaseController
             throw $this->createNotFoundException('Unable to find Categoria.');
         }
 
-        $articoli = $em->getRepository('AppBundle:Articolo')->findBy(array('galleria' => $categoria, 'stato' => "ATTIVO"),array('id' => 'desc'));
+        $articoli = $em->getRepository('AppBundle:Articolo')->findBy(
+            array('galleria' => $categoria, 'stato' => "ATTIVO"),
+            array('id' => 'desc')
+        );
 
         return $this->render(
             'AppBundle:GalleriaFoto:galleria.html.twig',
