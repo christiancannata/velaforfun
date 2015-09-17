@@ -14,7 +14,7 @@ function postForm($form, callback) {
     var error = false;
     $.each($form.serializeArray(), function (i, field) {
 
-        if (field.name.includes("email")) {
+        if (field.name.includes("email") && $form.attr("name")!="appbundle_porto") {
 
             if (!validateEmail(field.value)) {
                 $form.find("input[type=email]").attr("style", "width:100%;border-color:red !important;");
