@@ -33,7 +33,7 @@
         <div class="row clearfix">
             <div class="col-md-12 column">
 
-           <!--     <p  style="padding:10px;background: white">Benvenuto nel forum di VelaForFun.com</p> -->
+                <!--     <p  style="padding:10px;background: white">Benvenuto nel forum di VelaForFun.com</p> -->
 
             </div>
 
@@ -42,7 +42,9 @@
             <div class="col-md-12 column">
 
                 {%- for category in categories -%}
-                    {%- include "CCDNForumForumBundle:User:Category/Partial/item_category.html.twig" -%}
+                    {% if category.id != 16 %}
+                        {%- include "CCDNForumForumBundle:User:Category/Partial/item_category.html.twig" -%}
+                    {% endif %}
                 {%- else -%}
                     <section class="row clearfix">
                         <div class="well text-center">
