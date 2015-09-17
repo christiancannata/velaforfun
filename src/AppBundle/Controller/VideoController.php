@@ -29,6 +29,7 @@ class VideoController extends BaseController
      */
     public function patchAction(Request $request, $id)
     {
+
         return $this->patchForm($request, new VideoType(), $id, "Video");
     }
 

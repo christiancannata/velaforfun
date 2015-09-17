@@ -74,7 +74,6 @@ class BaseController extends Controller
 
         $postform = $this->createForm($type, $entity);
 
-
         if ($request->isMethod('POST')) {
 
             $postform->handleRequest($request);
@@ -94,7 +93,6 @@ class BaseController extends Controller
                 $response['success'] = true;
 
             } else {
-
                 $response['success'] = false;
                 $response['cause'] = $postform->getErrors();
 

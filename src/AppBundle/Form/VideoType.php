@@ -18,6 +18,7 @@ class VideoType extends AbstractType
             ->add('link')
             ->add('nome')
             ->add('inEvidenza')
+            ->add('nome')
         ;
     }
     
