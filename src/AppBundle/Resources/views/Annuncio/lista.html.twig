@@ -13,6 +13,25 @@
             $('.vendo').click(function () {
                 $('#modalVideo').modal('show');
             });
+
+            if(getUrlParameter("type")){
+                var type=getUrlParameter("type");
+
+                if(type=="vendo"){
+                    $('#appbundle_annuncioscambioposto_luogoRicercato').val("VENDO");
+                }
+
+                if(type=="compro"){
+                    $('#appbundle_annuncioscambioposto_luogoRicercato').val("COMPRO");
+                }
+
+                $('#appbundle_annuncioscambioposto_luogoRicercato').selectpicker('refresh');
+
+                $('#modalVideo').modal('show');
+
+            }
+
+
         });
     </script>
 {% endblock %}
