@@ -215,7 +215,7 @@
                                 <h3>Visualizza la fotogallery</h3>
 
                                 <div class="scroll-pane-horizontal horizontal-only">
-                                    <p style="width: {{ articolo.gallery.foto|length*360 }}px;">
+                                    <p>
                                         {% for foto in articolo.gallery.foto %}
                                             <a class='gallery' style="display:inline" rel="g1"
                                                href='/uploads/galleria_foto/{{ foto.immagine }}'><img
