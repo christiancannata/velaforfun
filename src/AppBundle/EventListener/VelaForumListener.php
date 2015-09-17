@@ -40,6 +40,32 @@ class VelaForumListener implements EventSubscriberInterface
     {
         if ($event->getTopic()) {
 
+            $post = $this->container->get('doctrine')
+                ->getRepository('CCDNForumForumBundle:Post')->findByTopic($event->getTopic());
+
+            $ultimoPost = array_pop($post);
+            foreach ($post as $singlePost) {
+
+                $mailer = $this->container->get('mailer');
+                $messaggio = $mailer->createMessage()
+                    ->setSubject("Risposta al topic: ".$event->getTopic()->getTitle())
+                    ->setFrom('info@velaforfun.com')
+                    ->setTo($singlePost->getCreatedBy()->getEmail())
+                    ->setBcc('christian1488@hotmail.it')
+                    ->setBcc('info@velaforfun.com')
+                    ->setBody(
+                        $this->container->get('templating')->render(
+                        // app/Resources/views/Emails/registrazione.html.twig
+                            'Emails/risposta_post.html.twig',
+                            array('topic' => $event->getTopic(), 'post' => $ultimoPost)
+                        ),
+                        'text/html'
+                    );
+                $mailer->send($messaggio);
+
+            }
+
+
         }
     }
 
@@ -64,6 +90,7 @@ class VelaForumListener implements EventSubscriberInterface
                     ->setFrom('info@velaforfun.com')
                     ->setTo($singlePost->getCreatedBy()->getEmail())
                     ->setBcc('christian1488@hotmail.it')
+                    ->setBcc('info@velaforfun.com')
                     ->setBody(
                         $this->container->get('templating')->render(
                         // app/Resources/views/Emails/registrazione.html.twig
