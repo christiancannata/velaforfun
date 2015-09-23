@@ -85,14 +85,14 @@ class AnnuncioImbarco
     /**
      * @var string
      *
-     * @ORM\Column(name="localita", type="string", nullable=false)
+     * @ORM\Column(name="localita", type="string", nullable=true)
      */
     private $localita;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="tempo", type="string", nullable=false)
+     * @ORM\Column(name="tempo", type="string", nullable=true)
      */
     private $tempo;
 
