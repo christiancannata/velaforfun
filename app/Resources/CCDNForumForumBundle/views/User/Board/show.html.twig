@@ -80,7 +80,7 @@
                 </a>
 
 
-                {% if board.isAuthorisedToCreateTopic(app.security) is false %}
+                {% if board.isAuthorisedToCreateTopic(app.security) == false %}
                     <p>Effettua l'<a href="/login">accesso</a> per poter creare un nuovo topic oppure <a href="/register">registrati</a> al nostro sito!</p>
                 {% endif %}
 
