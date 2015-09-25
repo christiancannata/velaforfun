@@ -270,13 +270,20 @@ class PortoController extends BaseController
 
         if (empty($meteo)) {
 
-            $request = $client->get(
-                '/data/2.5/forecast?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine(
-                ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&type=day&units=metric'
-            );
+
+            $risposta=array();
+
+            while($risposta['cod']=="200") {
+                $request = $client->get(
+                    '/data/2.5/forecast?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine(
+                    ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&type=day&units=metric'
+                );
+                $response = $client->send($request);
 
 
-            $response = $client->send($request);
+                $risposta=json_decode($response->getBody(true),true);
+
+            }
 
             $entityMeteo = new Meteo();
             $entityMeteo->setData($response->getBody(true));
