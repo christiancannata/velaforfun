@@ -270,30 +270,49 @@ class PortoController extends BaseController
 
         if (empty($meteo)) {
 
+            $request = $client->get(
+                '/data/2.5/forecast?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine(
+                ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&type=day&units=metric'
+            );
 
-            $risposta=array();
 
-            while($risposta['cod']=="200") {
+            $response = $client->send($request);
+
+            $body=json_decode($response->getBody(true),true);
+
+            if(isset($body['cod']) && $body['cod']=="200"){
+                $entityMeteo = new Meteo();
+                $entityMeteo->setData($response->getBody(true));
+                $entityMeteo->setPorto($porto);
+
+
+                $this->getDoctrine()->getManager()->persist($entityMeteo);
+                $this->getDoctrine()->getManager()->flush();
+
+                $weather = json_decode($response->getBody(true));
+
+            }else{
                 $request = $client->get(
                     '/data/2.5/forecast?lat='.$porto->getLatitudine().'&lon='.$porto->getLongitudine(
                     ).'&APPID=8704a88837e9eabcf7b50de51728a0c0&type=day&units=metric'
                 );
+
+
                 $response = $client->send($request);
 
+                $body=json_decode($response->getBody(true),true);
 
-                $risposta=json_decode($response->getBody(true),true);
+                $entityMeteo = new Meteo();
+                $entityMeteo->setData($response->getBody(true));
+                $entityMeteo->setPorto($porto);
 
+
+                $this->getDoctrine()->getManager()->persist($entityMeteo);
+                $this->getDoctrine()->getManager()->flush();
+
+                $weather = json_decode($response->getBody(true));
             }
 
-            $entityMeteo = new Meteo();
-            $entityMeteo->setData(json_encode($risposta));
-            $entityMeteo->setPorto($porto);
-
-
-            $this->getDoctrine()->getManager()->persist($entityMeteo);
-            $this->getDoctrine()->getManager()->flush();
-
-            $weather = $risposta;
 
         } else {
             $meteo = $meteo[0]['data'];
