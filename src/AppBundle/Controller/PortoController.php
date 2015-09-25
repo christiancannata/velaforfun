@@ -286,7 +286,7 @@ class PortoController extends BaseController
             }
 
             $entityMeteo = new Meteo();
-            $entityMeteo->setData($response->getBody(true));
+            $entityMeteo->setData(json_encode($risposta));
             $entityMeteo->setPorto($porto);
 
 
