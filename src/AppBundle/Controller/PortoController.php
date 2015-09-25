@@ -260,6 +260,7 @@ class PortoController extends BaseController
             ->from('AppBundle:Meteo', 'm')
             ->where('m.porto = :porto')
             ->andWhere('m.timestamp between :dal and :al')
+            ->andWhere("m.data like '%\"cod\":\"200\"%'")
             ->setParameters(array('porto' => $porto, 'dal' => $dal, 'al' => $al));
 
         $meteo = $qb->getQuery()->getArrayResult();
