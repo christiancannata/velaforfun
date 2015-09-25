@@ -293,7 +293,7 @@ class PortoController extends BaseController
             $this->getDoctrine()->getManager()->persist($entityMeteo);
             $this->getDoctrine()->getManager()->flush();
 
-            $weather = json_decode($response->getBody(true));
+            $weather = $risposta;
 
         } else {
             $meteo = $meteo[0]['data'];
