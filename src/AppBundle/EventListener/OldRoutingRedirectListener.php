@@ -146,7 +146,7 @@ class OldRoutingRedirectListener extends ContainerAware
 
         }
 
-        if (strstr($path, "video_visual.asp")) {
+        if (strstr($path, "video_visual.asp") || strstr($path, "video.asp")) {
 
             if ($request->get("cat")) {
                 $post = $this->container->get('doctrine')
