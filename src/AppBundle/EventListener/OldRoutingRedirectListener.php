@@ -264,7 +264,23 @@ class OldRoutingRedirectListener extends ContainerAware
         }
 
         if (strstr($path, "comunicati/comunicato_leggi.asp")) {
-            die("jjj");
+            if ($request->get("art")) {
+                $post = $this->container->get('doctrine')
+                    ->getRepository('BlogBundle:Articolo')->findOneByIdOriginale($request->get("art"));
+                if ($post) {
+                    $redirect = true;
+                    $route = "articolo";
+                    $params["categoria"] = $post->getCategoria()->getPermalink();
+                    $params["permalink"] = $post->getPermalink();
+                } else {
+                    $redirect = true;
+                    $route = "homepage_archivio";
+                }
+
+            } else {
+                $redirect = true;
+                $route = "homepage_archivio";
+            }
         }
 
         if (strstr($path, "porti/dettaglio.asp")) {
