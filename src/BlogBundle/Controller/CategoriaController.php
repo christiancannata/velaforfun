@@ -74,7 +74,7 @@ class CategoriaController extends BaseController
         $articoliRandom = $em->getRepository('BlogBundle:Articolo')->findBy(
             array('stato' => "ATTIVO"),
             array('lastUpdateTimestamp' => 'desc'),
-            35
+            70
         );
 
 
