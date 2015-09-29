@@ -70,6 +70,17 @@ class CategoriaController extends BaseController
             array('lastUpdateTimestamp' => 'desc')
         );
 
+
+        $articoliRandom = $em->getRepository('BlogBundle:Articolo')->findBy(
+            array('stato' => "ATTIVO"),
+            array('lastUpdateTimestamp' => 'desc'),
+            35
+        );
+
+
+        shuffle($articoliRandom);
+
+
         $categorie = $em->getRepository('BlogBundle:Categoria')->findAll();
 
         $exclude = array(2,11,12,13,14,15);
@@ -80,6 +91,12 @@ class CategoriaController extends BaseController
         }
 
 
+        foreach ($articoliRandom as $key => $entity) {
+            if ($entity != null && in_array($articoliRandom->getCategoria()->getId(), $exclude)) {
+                unset($articoliRandom[$key]);
+            }
+        }
+
 
 
         return $this->render(
@@ -87,7 +104,8 @@ class CategoriaController extends BaseController
             array(
                 'articoli' => $articoli,
                 'categoria' => $categoria,
-                'categorie' => $categorie
+                'categorie' => $categorie,
+                'articoliRel' => $articoliRandom
             )
         );
     }
