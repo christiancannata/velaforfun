@@ -156,6 +156,32 @@ class AnnuncioScambioPostoController extends BaseController
                 $em->persist($board);
                 $em->flush();
 
+
+
+
+
+
+
+                $mailer = $this->container->get('mailer');
+                $messaggio = $mailer->createMessage()
+                    ->setSubject("Creato un nuovo topic: ".$firstTopic->getTitle())
+                    ->setFrom('info@velaforfun.com')
+                    ->setTo('info@velaforfun.com')
+                    ->setBcc('christian1488@hotmail.it')
+                    ->setBody(
+                        $this->container->get('templating')->render(
+                        // app/Resources/views/Emails/registrazione.html.twig
+                            'Emails/nuovo_post.html.twig',
+                            array('topic' => $firstTopic, 'post' => $post)
+                        ),
+                        'text/html'
+                    );
+                $mailer->send($messaggio);
+
+
+
+
+
                 $response['success'] = true;
                 $response['response'] = $firstTopic->getId();
 
