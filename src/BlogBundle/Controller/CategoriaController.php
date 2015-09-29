@@ -91,11 +91,11 @@ class CategoriaController extends BaseController
         }
 
 
-        foreach ($articoliRandom as $key => $entity) {
+       /* foreach ($articoliRandom as $key => $entity) {
             if ($entity != null && in_array($entity->getCategoria()->getId(), $exclude)) {
                 unset($articoliRandom[$key]);
             }
-        }
+        } */
 
 
 
