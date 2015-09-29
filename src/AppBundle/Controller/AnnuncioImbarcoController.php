@@ -160,7 +160,7 @@ class AnnuncioImbarcoController extends BaseController
                 }
 
                 if(trim($annuncio->getTempo())!=""){
-                    $testo.="<br><br><strong>Prezzo:</strong> ".$annuncio->getTempo();
+                    $testo.="<br><br><strong>Periodo:</strong> ".$annuncio->getTempo();
 
                 }
 
