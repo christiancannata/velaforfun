@@ -71,6 +71,11 @@
  <button type="button" data-route="../elimina/{{ entity.id }}"
                                     class="btn btn-danger delete-entity">Elimina
                             </button>
+
+                             <button type="button" data-route="../condividi/{{ entity.id }}"
+                                    class="btn btn-primary "><span class="fa fa-facebook"></span>Condividi
+                            </button>
+
 {% endif %}
 
     {{ form_start(form) }}
