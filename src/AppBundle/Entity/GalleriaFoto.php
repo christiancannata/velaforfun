@@ -66,6 +66,11 @@ class GalleriaFoto
     protected $descrizione;
 
     /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $autore;
+
+    /**
      * @ORM\OneToMany(targetEntity="Foto", mappedBy="galleria")
      **/
     private $foto;
@@ -249,6 +254,22 @@ class GalleriaFoto
     public function setInGallery($inGallery)
     {
         $this->inGallery = $inGallery;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAutore()
+    {
+        return $this->autore;
+    }
+
+    /**
+     * @param mixed $autore
+     */
+    public function setAutore($autore)
+    {
+        $this->autore = $autore;
     }
 
 

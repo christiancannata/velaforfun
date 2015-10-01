@@ -100,27 +100,20 @@
             <div class="divisore-big"></div>
 
 
-<form name="appbundle_galleriafoto" method="post" action="" enctype="multipart/form-data">
-    <div id="appbundle_galleriafoto">
+<form name="appbundle_foto" method="post" action="" enctype="multipart/form-data">
+    <div id="appbundle_foto">
         <div class="col-md-2 column">
-            <label class="control-label" for="appbundle_galleriafoto_nome">Nome Gallery</label>
-            <input type="text" id="appbundle_galleriafoto_nome" name="appbundle_galleriafoto[nome]" class="form-control">
+           {{ form_row(form.nome) }}
+           {{ form_row(form.profilePictureFIle) }}
             </div>
 
              <div class="col-md-2 column">
-            <label class="control-label" for="appbundle_galleriafoto_nome">Autore</label>
-            <input type="text" id="appbundle_galleriafoto_autore" name="appbundle_galleriafoto[autore]" class="form-control">
+           {{ form_row(form.autore) }}
           </div>
 
 
-                        <input type="hidden" id="appbundle_galleriafoto_inGallery" name="appbundle_galleriafoto[inGallery]" value="1">
-
-
 <div class="col-md-2 column">
-              <div class="form-group">
-                                   <label class="control-label required" for="appbundle_galleriafoto_foto">Foto</label>
-                                              <input type="file" id="appbundle_galleriafoto_foto" name="appbundle_galleriafoto[foto][]" required="required" class=" with-preview" multiple="multiple">
-                    </div>
+             {{ form_row(form.categoria) }}
                 </div>
 </div>
 
