@@ -13,16 +13,26 @@ imports:
 
 monolog:
     handlers:
-        main:
+        mail:
             type:         fingers_crossed
-            action_level: error
-            handler:      nested
-        nested:
-            type:  stream
-            level: debug
-            path: "php://stderr"
-        console:
-            type:  console
+            # 500 errors are logged at the critical level
+            action_level: critical
+            # to also log 400 level errors (but not 404's):
+            # action_level: error
+            # excluded_404s:
+            #     - ^/
+            handler:      buffered
+        buffered:
+            type:    buffer
+            handler: swift
+        swift:
+            type:       swift_mailer
+            from_email: info@velaforfun.com
+            to_email:   christian1488@hotmail.it
+            # or list of recipients
+            # to_email:   [dev1@example.com, dev2@example.com, ...]
+            subject:    Errore velaforfun
+            level:      debug
 
 swiftmailer:
     transport: smtp
