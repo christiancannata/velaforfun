@@ -24,46 +24,9 @@ class FotoController extends BaseController
      */
     public function createAction(Request $request)
     {
-        return $this->postForm($request,new FotoType());
-    }
-
-    /**
-     * @Route( "modifica/{id}", name="modifica_foto" )
-     * @Template()
-     */
-    public function patchAction(Request $request, $id)
-    {
-        return $this->patchForm($request, new FotoType(), $id, "Foto");
-    }
-
-
-    /**
-     * @Route( "list", name="list_foto" )
-     * @Template()
-     */
-    public function listAction(Request $request)
-    {
-        return $this->cGet();
-    }
-
-
-    /**
-     * @Route( "elimina/{id}", name="delete_foto" )
-     * @Template()
-     */
-    public function eliminaAction(Request $request, $id)
-    {
-        return $this->delete($id);
-    }
-
-    /**
-     * @Route("/", name="foto")
-     */
-    public function fotoAction(Request $request)
-    {
+        $postform = $this->createForm(new FotoType());
 
         if ($request->isMethod('POST')) {
-
 
             $em = $this->getDoctrine()->getManager();
             $params = $request->request->all();
@@ -103,11 +66,52 @@ class FotoController extends BaseController
 
 
             return new JsonResponse($response);
+        }
+
+        return $this->render(
+            'AppBundle:Foto:create.html.twig',
+            array('form' => $postform->createView(), "titolo" => "Crea ".$this->entity)
+        );
+    }
+
+    /**
+     * @Route( "modifica/{id}", name="modifica_foto" )
+     * @Template()
+     */
+    public function patchAction(Request $request, $id)
+    {
+        return $this->patchForm($request, new FotoType(), $id, "Foto");
+    }
 
 
+    /**
+     * @Route( "list", name="list_foto" )
+     * @Template()
+     */
+    public function listAction(Request $request)
+    {
+        return $this->cGet();
+    }
 
 
+    /**
+     * @Route( "elimina/{id}", name="delete_foto" )
+     * @Template()
+     */
+    public function eliminaAction(Request $request, $id)
+    {
+        return $this->delete($id);
+    }
 
+    /**
+     * @Route("/", name="foto")
+     */
+    public function fotoAction(Request $request)
+    {
+
+        if ($request->isMethod('POST')) {
+
+            return $this->postForm($request, new FotoType());
         }
 
         $categorie = $this->getDoctrine()
