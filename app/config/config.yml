@@ -127,7 +127,7 @@ fos_user:
 hwi_oauth:
     # name of the firewall in which this bundle is active, this setting MUST be set
     firewall_names: [secure_area]
-    firewall_name: [secure_area]
+    firewall_name: secure_area
     connect:
         confirmation: true
         #account_connector: hwi_oauth.user.provider.fosub_bridge
