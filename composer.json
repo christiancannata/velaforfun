@@ -41,7 +41,8 @@
     "sonata-project/seo-bundle": "~2.0",
     "sonata-project/intl-bundle": "~2.2",
     "sensio/generator-bundle": "~2.3",
-    "liip/imagine-bundle": "dev-master"
+    "liip/imagine-bundle": "dev-master",
+    "dario_swain/wall-poster-bundle": "dev-master"
   },
   "require-dev": {
     "andres-montanez/magallanes": "~1.0.1"
