@@ -72,3 +72,4 @@ services:
 
   hwi_oauth.resource_ownermap.secured_area:
               class:  HWI\Bundle\OAuthBundle\Security\Http\ResourceOwnerMap
+              arguments:  [@hwi_oauth.resource_ownermap.main]
