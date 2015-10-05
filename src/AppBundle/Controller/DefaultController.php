@@ -18,7 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 
-
+use WallPosterBundle\Post\Post;
 class DefaultController extends BaseController
 {
     /**
@@ -26,6 +26,10 @@ class DefaultController extends BaseController
      */
     public function indexAction()
     {
+
+
+
+
         $repository = $this->getDoctrine()
             ->getRepository('BlogBundle:Articolo');
 
@@ -40,8 +44,77 @@ class DefaultController extends BaseController
 
 
 
+
+
+
         return $this->render('default/index.html.twig', array("articoli" => $articoli, "ultimiPost" => $topic));
     }
+
+
+
+
+    /**
+     * @Route("/share/articolo/{id}", name="condividi_articolo")
+     */
+    public function condividiArticoloAction($id)
+    {
+
+        $articolo = $this->getDoctrine()
+            ->getRepository('BlogBundle:Articolo')->find($id);
+
+        if($articolo){
+
+
+            /** Create you Post instance **/
+            $fbPost = new Post();
+
+            /** Add image to post, you can provide absolute path for your local file and browser url to file **/
+
+            $immagineArticolo="";
+            if($articolo->getImmagine()!=""){
+                $immagineArticolo= 'articoli/'.$articolo->getImmagine();
+            }else{
+                $immagineArticolo= 'rsz_img_marcaposto.jpg';
+
+            }
+            $fbPost->createImage("/var/www/images/".$immagineArticolo,'http://www.velaforfun.com/images/'.$immagineArticolo)
+                /** Add link to post **/
+                ->createLink('http://www.velaforfun.com/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink())
+                /** Add social tags **/
+                ->addTag($articolo->getTitolo())
+                ->addTag('VelaForFun')
+                ->addTag('follow_me')
+                /** Add message to your post **/
+                ->setMessage($articolo->getSottotitolo());
+
+
+            $provider = $this->container->get('wall_poster.facebook');
+
+            try
+            {
+                $fbPost = $provider->publish($fbPost);
+            }
+            catch(Exception $ex)
+            {
+
+                //Handle errors
+            }
+
+            if($fbPost){
+                return new JsonResponse(array("success"=>true));
+            }else{
+                return new JsonResponse(array("success"=>false,"error"=>"(#200) The user hasn't authorized the application to perform this action"));
+            }
+
+        }else{
+            return new Response("Nessun comunicato trovato!");
+
+        }
+
+    }
+
+
+
 
 
     /**
@@ -153,6 +226,7 @@ class DefaultController extends BaseController
         }
 
     }
+
 
 
 

@@ -7,45 +7,65 @@
 {% endblock %}
 
 {% block javascripts %}
-<script language="javascript">
+    <script language="javascript">
 
-    $(document).ready(function(){
+        $(document).ready(function () {
 
-        $("#blogbundle_articolo_titolo").keyup(function(){
-            $("#controllo").remove();
+            $("#blogbundle_articolo_titolo").keyup(function () {
+                $("#controllo").remove();
 
-            $("#blogbundle_articolo_titolo").after("<p id='controllo'>"+$("#blogbundle_articolo_titolo").val().length + ' / ' + 65 +"</p>");
+                $("#blogbundle_articolo_titolo").after("<p id='controllo'>" + $("#blogbundle_articolo_titolo").val().length + ' / ' + 65 + "</p>");
+
+            });
+
+
+            {% if entity.immagine is defined and entity.immagine!="" %}
+            $("#blogbundle_articolo_profilePictureFile").parent().append(
+                    "<table><tr><td><img src='/images/articoli/{{ entity.immagine }}' width='150'> <button class='btn btn-danger delete-entity'  data-route='/archivio/articoli/elimina-immagine/{{ entity.id }}' type='button'>Elimina </button></td> </tr></table>"
+            );
+            {% endif %}
+            {% if entity.immagineCorrelataArticolo is defined and entity.immagineCorrelataArticolo!="" %}
+            $("#blogbundle_articolo_immagineCorrelata").parent().append(
+                    "<img src='/images/articoli/{{ entity.immagineCorrelataArticolo }}' width='150'>"
+            );
+            $("#blogbundle_articolo_textFileImage").parent().hide();
+            {% endif %}
+
+
+            {% if entity.titolo is defined %}
+            $("#blogbundle_articolo_titolo").after("<p id='controllo'>{{ entity.titolo|length }}" + ' / ' + 65 + "</p>");
+            {% endif %}
+
 
         });
+        function eliminaFoto(id) {
+            $("#idFoto").val(id);
+            $("#modalFoto .delete-entity").attr('data-route', '/foto/elimina/' + id);
+            $("#modalFoto").modal();
+        }
+        {% if entity.id is defined %}
+        $(".facebook-share").click(function () {
+            var button = $(this);
+            $("button").attr("disabled", "disabled");
+            $.ajax({
+                type: "POST",
+                url: "/share/articolo/" + {{ entity.id }},
+                success: function (response) {
+                    if (response.success == true) {
 
+                        $(".facebook-share").after('<div class="alert alert-success" role="alert"> <span class="sr-only">Error:</span>Articolo condiviso correttamente!</div>');
 
+                    } else {
+                        $(".facebook-share").after('<div class="alert alert-danger" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <span class="sr-only">Error:</span>'+response.error+' </div>');
 
+                    }
+                    $("button").removeAttr("disabled");
 
-        {% if entity.immagine is defined and entity.immagine!="" %}
-        $("#blogbundle_articolo_profilePictureFile").parent().append(
-                "<table><tr><td><img src='/images/articoli/{{ entity.immagine }}' width='150'> <button class='btn btn-danger delete-entity'  data-route='/archivio/articoli/elimina-immagine/{{ entity.id }}' type='button'>Elimina </button></td> </tr></table>"
-        );
+                }
+            });
+        });
         {% endif %}
-        {% if entity.immagineCorrelataArticolo is defined and entity.immagineCorrelataArticolo!="" %}
-        $("#blogbundle_articolo_immagineCorrelata").parent().append(
-          "<img src='/images/articoli/{{ entity.immagineCorrelataArticolo }}' width='150'>"
-        );
-        $("#blogbundle_articolo_textFileImage").parent().hide();
-        {% endif %}
-
-
-        {% if entity.titolo is defined %}
-        $("#blogbundle_articolo_titolo").after("<p id='controllo'>{{ entity.titolo|length }}" + ' / ' + 65 +"</p>");
-        {% endif %}
-
-
-    });
-    function eliminaFoto(id){
-        $("#idFoto").val(id);
-        $("#modalFoto .delete-entity").attr('data-route','/foto/elimina/'+id);
-        $("#modalFoto").modal();
-    }
-</script>
+    </script>
 {% endblock %}
 
 {% block body %}
@@ -72,8 +92,8 @@
                                     class="btn btn-danger delete-entity">Elimina
                             </button>
 
-                             <button type="button" data-route="../condividi/{{ entity.id }}"
-                                    class="btn btn-primary "><span class="fa fa-facebook"></span>Condividi
+                             <button type="button"
+                                    class="btn btn-primary facebook-share"><span class="fa fa-facebook"></span>Condividi
                             </button>
 
 {% endif %}
