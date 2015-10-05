@@ -3,7 +3,7 @@
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     {% for articolo in articoli %}
     <url>
-        <loc>http://www.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}</loc>
+        <loc>http://www.velaforfun.com/archivio/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}</loc>
         <news:news>
             <news:publication>
                 <news:name>{{ articolo.titolo }}</news:name>
