@@ -116,6 +116,26 @@ class DefaultController extends BaseController
 
 
 
+    /**
+     * @Route("/sitemap_news.{_format}", name="sample_sitemaps_sitemap_news", Requirements={"_format" = "xml"})
+     */
+    public function sitemapNewsAction()
+    {
+
+        $repository = $this->getDoctrine()
+            ->getRepository('BlogBundle:Articolo');
+
+        $articoli = $repository->findByStato("ATTIVO");
+
+
+        return $this->render(
+            'default/sitemap_news.xml.twig',
+            array('articoli' => $articoli)
+        );
+
+
+    }
+
 
     /**
      * @Route("/sitemap.{_format}", name="sample_sitemaps_sitemap", Requirements={"_format" = "xml"})

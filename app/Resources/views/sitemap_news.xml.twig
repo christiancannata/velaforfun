@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    {% for articolo in articoli %}
+    <url>
+        <loc>http://www.velaforfun.com/{{ articolo.categoria.permalink }}/{{ articolo.permalink }}</loc>
+        <news:news>
+            <news:publication>
+                <news:name>{{ articolo.titolo }}</news:name>
+                <news:language>it</news:language>
+            </news:publication>
+            <news:genres>PressRelease, Blog</news:genres>
+            <news:publication_date>{{ articolo.timestamp }}</news:publication_date>
+            <news:title>{{ articolo.titolo }}</news:title>
+        </news:news>
+    </url>
+    {% endfor %}
+</urlset>
