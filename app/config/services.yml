@@ -69,7 +69,3 @@ services:
   mynewsletter.mailservice:
               class:  NewsletterBundle\Service\MyMailerService
               arguments:  [@mynewsletter.encryption.adapter.mcrypt]
-
-  hwi_oauth.resource_ownermap.secured_area:
-              class:  HWI\Bundle\OAuthBundle\Security\Http\ResourceOwnerMap
-              arguments:  [@hwi_oauth.resource_ownermap.main]
