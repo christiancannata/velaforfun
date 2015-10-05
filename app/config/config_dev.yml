@@ -50,3 +50,15 @@ swiftmailer:
     password:  NBJhq8XO5FmL_FFYTXBqag
     host:  smtp.mandrillapp.com
     port:  587
+
+wall_poster:
+    facebook:
+        access_token: ''
+        app_id: 934348009960166
+        app_secret: 84c4e12ab4042dd303245a991bf2fb20
+        page: 508027799222045
+   # twitter:
+    #    api_key: TWITTER_APP_KEY
+   #     api_secret: TWITTER_APP_SECRET
+   #     access_token: TWITTER_ACCESS_TOKEN
+   #     access_secret:  TWITTER_ACCESS_TOKEN_SECRET
