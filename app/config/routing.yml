@@ -143,6 +143,6 @@ ibrows_newsletter:
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"
 
-WallPosterBundle:
-    resource: "@WallPosterBundle/Resources/routing/routing.yml"
+#WallPosterBundle:
+#    resource: "@WallPosterBundle/Resources/routing/routing.yml"
 
