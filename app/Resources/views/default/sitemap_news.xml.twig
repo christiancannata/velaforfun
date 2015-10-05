@@ -10,7 +10,7 @@
                 <news:language>it</news:language>
             </news:publication>
             <news:genres>PressRelease, Blog</news:genres>
-            <news:publication_date>{{ articolo.timestamp }}</news:publication_date>
+            <news:publication_date>{{ articolo.timestamp|date("Y-m-d", false) }}</news:publication_date>
             <news:title>{{ articolo.titolo }}</news:title>
         </news:news>
     </url>
