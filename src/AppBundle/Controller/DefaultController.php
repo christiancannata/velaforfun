@@ -91,13 +91,13 @@ class DefaultController extends BaseController
                 $fbPost = $provider->publish($fbPost);
             } catch (Exception $ex) {
                 $error = $ex->getMessage();
-                //Handle errors
+                return new JsonResponse(array("success" => false, "error" => $error));
             }
 
             if ($fbPost) {
                 return new JsonResponse(array("success" => true));
             } else {
-                return new JsonResponse(array("success" => false, "error" => $error));
+
             }
 
         } else {
