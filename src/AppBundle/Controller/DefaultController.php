@@ -92,7 +92,7 @@ class DefaultController extends BaseController
             } catch (Exception $ex) {
                 $error = $ex->getMessage();
                 //Handle errors
-            }g
+            }
 
             if ($fbPost) {
                 return new JsonResponse(array("success" => true));
