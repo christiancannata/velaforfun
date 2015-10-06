@@ -19,7 +19,6 @@ use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 
 use WallPosterBundle\Post\Post;
-
 class DefaultController extends BaseController
 {
     /**
@@ -27,6 +26,8 @@ class DefaultController extends BaseController
      */
     public function indexAction()
     {
+
+
 
 
         $repository = $this->getDoctrine()
@@ -38,12 +39,18 @@ class DefaultController extends BaseController
         $repository = $this->getDoctrine()
             ->getRepository('CCDNForumForumBundle:Topic');
 
-        $post = $repository->findBy(array("isDeleted" => false, "isClosed" => false), array('id' => 'desc'), 20);
-        $topic = $post;
+        $post = $repository->findBy(array("isDeleted"=>false,"isClosed"=>false), array('id' => 'desc'), 20);
+        $topic=$post;
+
+
+
+
 
 
         return $this->render('default/index.html.twig', array("articoli" => $articoli, "ultimiPost" => $topic));
     }
+
+
 
 
     /**
@@ -55,28 +62,23 @@ class DefaultController extends BaseController
         $articolo = $this->getDoctrine()
             ->getRepository('BlogBundle:Articolo')->find($id);
 
-        if ($articolo) {
+        if($articolo){
 
             /** Create you Post instance **/
             $fbPost = new Post();
 
             /** Add image to post, you can provide absolute path for your local file and browser url to file **/
 
-            $immagineArticolo = "";
-            if ($articolo->getImmagine() != "") {
-                $immagineArticolo = 'articoli/'.$articolo->getImmagine();
-            } else {
-                $immagineArticolo = 'rsz_img_marcaposto.jpg';
+            $immagineArticolo="";
+            if($articolo->getImmagine()!=""){
+                $immagineArticolo= 'articoli/'.$articolo->getImmagine();
+            }else{
+                $immagineArticolo= 'rsz_img_marcaposto.jpg';
 
             }
-            $fbPost->createImage(
-                "/var/www/images/".$immagineArticolo,
-                'http://www.velaforfun.com/images/'.$immagineArticolo
-            )
+            $fbPost->createImage("/var/www/images/".$immagineArticolo,'http://www.velaforfun.com/images/'.$immagineArticolo)
                 /** Add link to post **/
-                ->createLink(
-                    'http://www.velaforfun.com/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink()
-                )
+                ->createLink('http://www.velaforfun.com/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink())
                 /** Add social tags **/
                 ->addTag($articolo->getTitolo())
                 ->addTag('VelaForFun')
@@ -86,26 +88,31 @@ class DefaultController extends BaseController
 
 
             $provider = $this->container->get('wall_poster.facebook');
-            $error = "";
-            try {
+            $error="";
+            try
+            {
                 $fbPost = $provider->publish($fbPost);
-            } catch (Exception $ex) {
-                $error = $ex->getMessage();
-                return new JsonResponse(array("success" => false, "error" => $error));
+            }
+            catch(Exception $ex)
+            {
+
+                //Handle errors
             }
 
-            if ($fbPost) {
-                return new JsonResponse(array("success" => true));
-            } else {
-
+            if($fbPost){
+                return new JsonResponse(array("success"=>true));
+            }else{
+                return new JsonResponse(array("success"=>false,"error"=>"(#200) The user hasn't authorized the application to perform this action"));
             }
 
-        } else {
+        }else{
             return new Response("Nessun comunicato trovato!");
 
         }
 
     }
+
+
 
 
     /**
@@ -149,7 +156,7 @@ class DefaultController extends BaseController
         $repository = $this->getDoctrine()
             ->getRepository('CCDNForumForumBundle:Topic');
 
-        $post = $repository->findBy(array("isDeleted" => false, "isClosed" => false), array('id' => 'desc'));
+        $post = $repository->findBy(array("isDeleted"=>false,"isClosed"=>false), array('id' => 'desc'));
 
 
         $urls = array();
@@ -201,7 +208,7 @@ class DefaultController extends BaseController
         }
 
         foreach ($post as $product) {
-            if ($product->getBoard() != null) {
+            if($product->getBoard()!=null){
                 $urls[] = array('loc' => "/forum/velaforfun/topic/".$product->getId(), 'priority' => '0.5');
             }
         }
@@ -225,19 +232,22 @@ class DefaultController extends BaseController
         $articolo = $this->getDoctrine()
             ->getRepository('BlogBundle:Articolo')->find($id);
 
-        if ($articolo) {
-            $em = $this->getDoctrine()->getManager();
+        if($articolo){
+            $em= $this->getDoctrine()->getManager();
 
             $em->remove($articolo);
             $em->flush();
 
             return new Response("Articolo eliminato con successo!");
-        } else {
+        }else{
             return new Response("Nessun comunicato trovato!");
 
         }
 
     }
+
+
+
 
 
     /**
@@ -249,11 +259,7 @@ class DefaultController extends BaseController
             ->getRepository('BlogBundle:Categoria')->findAll();
 
         $ultimiArticoli = $this->getDoctrine()
-            ->getRepository('BlogBundle:Articolo')->findBy(
-                array("stato" => "ATTIVO"),
-                array("lastUpdateTimestamp" => "desc"),
-                10
-            );
+            ->getRepository('BlogBundle:Articolo')->findBy(array("stato"=>"ATTIVO"),array("lastUpdateTimestamp" => "desc"), 10);
 
         return $this->render(
             'BlogBundle:Default:index.html.twig',
@@ -271,7 +277,7 @@ class DefaultController extends BaseController
         $kernel = $this->get('kernel');
         $application = new Application($kernel);
         $application->setAutoExit(false);
-        $limit = 0;
+        $limit=0;
         if ($request->request->get("limit")) {
             $limit = $request->request->get("limit");
         }
