@@ -146,3 +146,5 @@ _liip_imagine:
 WallPosterBundle:
     resource: "@WallPosterBundle/Resources/routing/routing.yml"
 
+
+
