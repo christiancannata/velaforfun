@@ -122,7 +122,7 @@ class DefaultController extends BaseController
 
                 $post=array(
                     "message"=>$articolo->getTitolo(),
-                    "link"=>'http://www.velaforfun.com/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink(),
+                    "link"=>'http://www.velaforfun.com/archivio/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink(),
                     "picture"=>'http://www.velaforfun.com/images/'.$immagineArticolo,
                 );
                 //TODO: Handle errors
