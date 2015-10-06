@@ -132,7 +132,7 @@ class DefaultController extends BaseController
                 {
 
                     $graphObject = $facebookRequest->execute()->getGraphObject();
-                    die(var_dump($graphObject->getProperty('id')));
+                    $fbPost=$graphObject->getProperty('id');
                 }
                 catch(\Exception $ex)
                 {
