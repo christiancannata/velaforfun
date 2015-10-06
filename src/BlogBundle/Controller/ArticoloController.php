@@ -376,16 +376,7 @@ class ArticoloController extends BaseController
 
         $seoPage
             ->setTitle($articolo->getTitolo())
-            ->addMeta('name', 'description', strip_tags($articolo->getSottotitolo()))
-            ->addMeta('property', 'og:title', $articolo->getTitolo())
-            ->addMeta('property', 'og:type', 'blog')
-            ->addMeta('property', 'og:url', $routeName)
-            ->addMeta(
-                'property',
-                'og:image',
-                "http://www.velaforfun.com/images/articoli/".$articolo->getProfilePictureFile()
-            )
-            ->addMeta('property', 'og:description', strip_tags($articolo->getSottotitolo()));
+            ->addMeta('name', 'description', strip_tags($articolo->getSottotitolo()));
 
         $articoli = $em->getRepository('BlogBundle:Articolo')->findBy(
             array('categoria' => $articolo->getCategoria(), 'stato' => "ATTIVO"),
