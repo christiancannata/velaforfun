@@ -64,7 +64,6 @@ class DefaultController extends BaseController
 
         if($articolo){
 
-
             /** Create you Post instance **/
             $fbPost = new Post();
 

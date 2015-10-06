@@ -34,7 +34,7 @@ class AppKernel extends Kernel
             new Sonata\IntlBundle\SonataIntlBundle(),
             new NewsletterBundle\NewsletterBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
-       //     new WallPosterBundle\WallPosterBundle()
+            new WallPosterBundle\WallPosterBundle()
 
         );
 

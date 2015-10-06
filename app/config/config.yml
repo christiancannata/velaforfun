@@ -178,12 +178,12 @@ liip_imagine:
             filters:
                 thumbnail: { size: [420, 420], mode: outbound }
 
-#wall_poster:
-#    facebook:
-#        access_token: ''
-#        app_id: 934348009960166
-#        app_secret: 84c4e12ab4042dd303245a991bf2fb20
-#        page: 508027799222045
+wall_poster:
+    facebook:
+        access_token: ''
+        app_id: 934348009960166
+        app_secret: 84c4e12ab4042dd303245a991bf2fb20
+        page: 508027799222045
    # twitter:
     #    api_key: TWITTER_APP_KEY
    #     api_secret: TWITTER_APP_SECRET
