@@ -18,6 +18,13 @@ use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 
+
+use Facebook\FacebookSession;
+use Facebook\FacebookRequest;
+use Facebook\GraphUser;
+use Facebook\FacebookRequestException;
+
+
 use WallPosterBundle\Post\Post;
 class DefaultController extends BaseController
 {
@@ -59,6 +66,9 @@ class DefaultController extends BaseController
     public function condividiArticoloAction($id)
     {
 
+
+
+
         $articolo = $this->getDoctrine()
             ->getRepository('BlogBundle:Articolo')->find($id);
 
@@ -81,23 +91,63 @@ class DefaultController extends BaseController
                 ->createLink('http://www.velaforfun.com/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink())
                 /** Add social tags **/
                 ->addTag($articolo->getTitolo())
-                ->addTag('VelaForFun')
-                ->addTag('follow_me')
                 /** Add message to your post **/
-                ->setMessage($articolo->getSottotitolo());
+                ->setMessage("provaaa");
 
 
-            $provider = $this->container->get('wall_poster.facebook');
-            $error="";
-            try
-            {
-                $fbPost = $provider->publish($fbPost);
+
+
+            FacebookSession::setDefaultApplication('934348009960166','84c4e12ab4042dd303245a991bf2fb20');
+
+// Use one of the helper classes to get a FacebookSession object.
+//   FacebookRedirectLoginHelper
+//   FacebookCanvasLoginHelper
+//   FacebookJavaScriptLoginHelper
+// or create a FacebookSession with a valid access token:
+            $session = new FacebookSession($this->container->get('security.context')->getToken()->getAccessToken());
+
+// Get the GraphUser object for the current user:
+
+            try {
+                $me = (new FacebookRequest(
+                    $session, 'GET', '/508027799222045?fields=access_token'
+                ))->execute();
+
+                $pageToken=$me->getResponse()->access_token;
+
+
+
+                $session = new FacebookSession($pageToken);
+
+
+                $post=array(
+                    "message"=>$articolo->getTitolo(),
+                    "link"=>'http://www.velaforfun.com/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink(),
+                    "picture"=>'http://www.velaforfun.com/images/'.$immagineArticolo,
+                );
+                //TODO: Handle errors
+                $facebookRequest = new FacebookRequest($session,'POST','/508027799222045/feed',$post);
+                /** @var GraphObject $graphObject */
+                try
+                {
+
+                    $graphObject = $facebookRequest->execute()->getGraphObject();
+                    die(var_dump($graphObject->getProperty('id')));
+                }
+                catch(\Exception $ex)
+                {
+                    die(var_dump($ex->getMessage()));
+                }
+
+
+            } catch (FacebookRequestException $e) {
+                var_dump($e->getMessage());
+                // The Graph API returned an error
+            } catch (\Exception $e) {
+                var_dump($e->getMessage());
+                // Some other error occurred
             }
-            catch(Exception $ex)
-            {
 
-                //Handle errors
-            }
 
             if($fbPost){
                 return new JsonResponse(array("success"=>true));
@@ -113,7 +163,22 @@ class DefaultController extends BaseController
     }
 
 
-
+    private function prepareAttachments(Post $post)
+    {
+        $attachments = array();
+        $attachments['message'] = $post->getMessage();
+        if($post->getLink())
+        {
+            $attachments['link'] = $post->getLink();
+        }
+        //TODO: Image web path required
+        if($post->getImages())
+        {
+            $images = $post->getImages();
+            $attachments['picture'] = array_shift($images);
+        }
+        return $attachments;
+    }
 
     /**
      * @Route("/sitemap_news.{_format}", name="sample_sitemaps_sitemap_news", Requirements={"_format" = "xml"})
