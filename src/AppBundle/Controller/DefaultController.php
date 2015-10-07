@@ -149,13 +149,13 @@ class DefaultController extends BaseController
                 try {
 
                     $graphObject = $facebookRequest->execute()->getGraphObject();
-                    $fbPost = $graphObject->getProperty('id');
+                    $idFacebook = $graphObject->getProperty('id');
 
 
                     $condivisioneSocial->setSocial("facebook");
                     $condivisioneSocial->setAutore($this->get('security.token_storage')->getToken()->getUser());
                     $condivisioneSocial->setArticolo($articolo);
-                    $condivisioneSocial->setIdSocial($fbPost);
+                    $condivisioneSocial->setIdSocial($idFacebook);
 
                     $em->persist($condivisioneSocial);
 
@@ -173,8 +173,43 @@ class DefaultController extends BaseController
             }
 
 
+            $fbPost = new Post();
+
+            $fbPost
+                /** Add link to post **/
+                ->createLink(
+                    'http://www.velaforfun.com/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink()
+                )
+                /** Add social tags **/
+                ->addTag($articolo->getTitolo())
+                /** Add message to your post **/
+                ->setMessage("provaaa");
+
+            $provider = $this->get('wall_poster.twitter');
+
+            try
+            {
+                $post = $provider->publish($fbPost);
 
 
+                $condivisioneTwitter = new CondivisioneArticolo();
+
+                $condivisioneTwitter->setSocial("twitter");
+                $condivisioneTwitter->setAutore($this->get('security.token_storage')->getToken()->getUser());
+                $condivisioneTwitter->setArticolo($articolo);
+                $condivisioneTwitter->setDataPubblicazione(new \DateTime());
+                $condivisioneTwitter->setIdSocial($idFacebook);
+
+                $em->persist($condivisioneTwitter);
+
+
+            }
+            catch(Exception $ex)
+            {
+
+                die(var_dump($ex->getMessage()));
+                //Handle errors
+            }
 
 
 
