@@ -178,7 +178,7 @@ class DefaultController extends BaseController
             $fbPost
                 /** Add link to post **/
                 ->createLink(
-                    'http://www.velaforfun.com/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink()
+                    'http://www.velaforfun.com/archivio/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink()
                 )
                 /** Add social tags **/
                 ->addTag($articolo->getTitolo())
