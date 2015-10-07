@@ -173,6 +173,13 @@ class DefaultController extends BaseController
             }
 
 
+
+
+
+
+
+
+
             if ($fbPost) {
 
                 $em->flush();
@@ -222,10 +229,9 @@ class DefaultController extends BaseController
 
         $articoli = $repository->findByStato("ATTIVO");
 
-
         return $this->render(
             'default/sitemap_news.xml.twig',
-            array('articoli' => $articoli)
+            array('articoli' => array_reverse($articoli))
         );
 
 
