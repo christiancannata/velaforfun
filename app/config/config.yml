@@ -137,8 +137,8 @@ hwi_oauth:
             type:                facebook
             client_id:           934348009960166
             client_secret:       84c4e12ab4042dd303245a991bf2fb20
-            #scope: "public_profile,publish_actions"
-            scope: "public_profile"
+            scope: "public_profile,publish_actions"
+            #scope: "public_profile"
     fosub:
         # try 30 times to check if a username is available (foo, foo1, foo2 etc)
         username_iterations: 30
@@ -187,8 +187,8 @@ wall_poster:
         page: 508027799222045
 
 
-   # twitter:
-    #    api_key: TWITTER_APP_KEY
-   #     api_secret: TWITTER_APP_SECRET
-   #     access_token: TWITTER_ACCESS_TOKEN
-   #     access_secret:  TWITTER_ACCESS_TOKEN_SECRET
+    twitter:
+        api_key: ayhD513NhUZBM5pFiY2DFHT7I
+        api_secret: m0uCrYxyOmuDOQgKYIWiEPQoUa5Mgs2wSmEyWdSk0UT2iKkhLd
+        access_token:  524304916-e5haQ5jxutLx7RVuenG61pI0vqDCpZsflGMVnCHb
+        access_secret:  KkGg1EPSJMVtQPA8SMDDSlTdCa30gxulJO8uyr26bhqdH
