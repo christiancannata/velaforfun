@@ -8,6 +8,12 @@
     Porto di {{ porto.nome }}
 {% endblock %}
 
+
+{% block description %}
+Condizioni meteo, informazioni utili e segnalazioni sul porto di {{ porto.nome }}, scambia il tuo posto barca a {{ porto.nome }} o cerca tra gli annunci disponibili!
+{% endblock %}
+
+
 {% block javascripts %}
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
     <script language="javascript"><!--
