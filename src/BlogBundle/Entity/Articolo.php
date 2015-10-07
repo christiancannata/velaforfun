@@ -49,6 +49,11 @@ class Articolo implements ItemInterface
      **/
     protected $categoria;
 
+    /**
+     * @OneToMany(targetEntity="CondivisioneArticolo", mappedBy="articolo")
+     **/
+    private $condivisioni;
+
 
     /**
      * @OneToOne(targetEntity="AppBundle\Entity\GalleriaFoto")
@@ -250,6 +255,22 @@ class Articolo implements ItemInterface
     public function setCategoria($categoria)
     {
         $this->categoria = $categoria;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCondivisioni()
+    {
+        return $this->condivisioni;
+    }
+
+    /**
+     * @param mixed $condivisioni
+     */
+    public function setCondivisioni($condivisioni)
+    {
+        $this->condivisioni = $condivisioni;
     }
 
     /**

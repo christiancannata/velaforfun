@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Newsletter\Subscriber;
 use AppBundle\Entity\User;
 use BlogBundle\Entity\Articolo;
+use BlogBundle\Entity\CondivisioneArticolo;
 use BlogBundle\Form\ArticoloType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,6 +27,7 @@ use Facebook\FacebookRequestException;
 
 
 use WallPosterBundle\Post\Post;
+
 class DefaultController extends BaseController
 {
     /**
@@ -33,8 +35,6 @@ class DefaultController extends BaseController
      */
     public function indexAction()
     {
-
-
 
 
         $repository = $this->getDoctrine()
@@ -46,58 +46,53 @@ class DefaultController extends BaseController
         $repository = $this->getDoctrine()
             ->getRepository('CCDNForumForumBundle:Topic');
 
-        $post = $repository->findBy(array("isDeleted"=>false,"isClosed"=>false), array('id' => 'desc'), 20);
-        $topic=$post;
-
-
-
-
+        $post = $repository->findBy(array("isDeleted" => false, "isClosed" => false), array('id' => 'desc'), 20);
+        $topic = $post;
 
 
         return $this->render('default/index.html.twig', array("articoli" => $articoli, "ultimiPost" => $topic));
     }
 
 
-
-
     /**
      * @Route("/share/articolo/{id}", name="condividi_articolo")
      */
-    public function condividiArticoloAction($id)
+    public function condividiArticoloAction($id, Request $request)
     {
-
-
 
 
         $articolo = $this->getDoctrine()
             ->getRepository('BlogBundle:Articolo')->find($id);
 
-        if($articolo){
+        if ($articolo) {
 
             /** Create you Post instance **/
             $fbPost = new Post();
 
             /** Add image to post, you can provide absolute path for your local file and browser url to file **/
 
-            $immagineArticolo="";
-            if($articolo->getImmagine()!=""){
-                $immagineArticolo= 'articoli/'.$articolo->getImmagine();
-            }else{
-                $immagineArticolo= 'rsz_img_marcaposto.jpg';
+            $immagineArticolo = "";
+            if ($articolo->getImmagine() != "") {
+                $immagineArticolo = 'articoli/'.$articolo->getImmagine();
+            } else {
+                $immagineArticolo = 'rsz_img_marcaposto.jpg';
 
             }
-            $fbPost->createImage("/var/www/images/".$immagineArticolo,'http://www.velaforfun.com/images/'.$immagineArticolo)
+            $fbPost->createImage(
+                "/var/www/images/".$immagineArticolo,
+                'http://www.velaforfun.com/images/'.$immagineArticolo
+            )
                 /** Add link to post **/
-                ->createLink('http://www.velaforfun.com/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink())
+                ->createLink(
+                    'http://www.velaforfun.com/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink()
+                )
                 /** Add social tags **/
                 ->addTag($articolo->getTitolo())
                 /** Add message to your post **/
                 ->setMessage("provaaa");
 
 
-
-
-            FacebookSession::setDefaultApplication('934348009960166','84c4e12ab4042dd303245a991bf2fb20');
+            FacebookSession::setDefaultApplication('934348009960166', '84c4e12ab4042dd303245a991bf2fb20');
 
 // Use one of the helper classes to get a FacebookSession object.
 //   FacebookRedirectLoginHelper
@@ -109,33 +104,62 @@ class DefaultController extends BaseController
 // Get the GraphUser object for the current user:
 
             try {
-                $me = (new FacebookRequest(
+                $me = (
+                new FacebookRequest(
                     $session, 'GET', '/508027799222045?fields=access_token'
-                ))->execute();
+                )
+                )->execute();
 
-                $pageToken=$me->getResponse()->access_token;
-
+                $pageToken = $me->getResponse()->access_token;
 
 
                 $session = new FacebookSession($pageToken);
 
 
-                $post=array(
-                    "message"=>$articolo->getTitolo(),
-                    "link"=>'http://www.velaforfun.com/archivio/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink(),
-                    "picture"=>'http://www.velaforfun.com/images/'.$immagineArticolo,
+                $data = $request->request->all();
+
+
+                $em = $this->container->get('doctrine')->getManager();
+
+
+                $post = array(
+                    "message" => $articolo->getTitolo(),
+                    "link" => 'http://www.velaforfun.com/archivio/'.$articolo->getCategoria()->getPermalink(
+                        ).'/'.$articolo->getPermalink(),
+                    "picture" => 'http://www.velaforfun.com/images/'.$immagineArticolo,
                 );
+                $condivisioneSocial = new CondivisioneArticolo();
+
+                if (isset($data['data_pubblicazione'])) {
+                    $dataPubb=new \DateTime();
+                    $dataPubb->setTimestamp($data['data_pubblicazione']);
+                    $condivisioneSocial->setDataPubblicazione($dataPubb);
+
+                    $post['scheduled_publish_time'] = $data['data_pubblicazione'];
+                    $post['published'] = false;
+
+                }
+
+
                 //TODO: Handle errors
-                $facebookRequest = new FacebookRequest($session,'POST','/508027799222045/feed',$post);
+                $facebookRequest = new FacebookRequest($session, 'POST', '/508027799222045/feed', $post);
+
+
                 /** @var GraphObject $graphObject */
-                try
-                {
+                try {
 
                     $graphObject = $facebookRequest->execute()->getGraphObject();
-                    $fbPost=$graphObject->getProperty('id');
-                }
-                catch(\Exception $ex)
-                {
+                    $fbPost = $graphObject->getProperty('id');
+
+
+                    $condivisioneSocial->setSocial("facebook");
+                    $condivisioneSocial->setAutore($this->get('security.token_storage')->getToken()->getUser());
+                    $condivisioneSocial->setArticolo($articolo);
+                    $condivisioneSocial->setIdSocial($fbPost);
+
+                    $em->persist($condivisioneSocial);
+
+                } catch (\Exception $ex) {
                     die(var_dump($ex->getMessage()));
                 }
 
@@ -149,13 +173,21 @@ class DefaultController extends BaseController
             }
 
 
-            if($fbPost){
-                return new JsonResponse(array("success"=>true));
-            }else{
-                return new JsonResponse(array("success"=>false,"error"=>"(#200) The user hasn't authorized the application to perform this action"));
+            if ($fbPost) {
+
+                $em->flush();
+
+                return new JsonResponse(array("success" => true));
+            } else {
+                return new JsonResponse(
+                    array(
+                        "success" => false,
+                        "error" => "(#200) The user hasn't authorized the application to perform this action"
+                    )
+                );
             }
 
-        }else{
+        } else {
             return new Response("Nessun comunicato trovato!");
 
         }
@@ -167,16 +199,15 @@ class DefaultController extends BaseController
     {
         $attachments = array();
         $attachments['message'] = $post->getMessage();
-        if($post->getLink())
-        {
+        if ($post->getLink()) {
             $attachments['link'] = $post->getLink();
         }
         //TODO: Image web path required
-        if($post->getImages())
-        {
+        if ($post->getImages()) {
             $images = $post->getImages();
             $attachments['picture'] = array_shift($images);
         }
+
         return $attachments;
     }
 
@@ -221,7 +252,7 @@ class DefaultController extends BaseController
         $repository = $this->getDoctrine()
             ->getRepository('CCDNForumForumBundle:Topic');
 
-        $post = $repository->findBy(array("isDeleted"=>false,"isClosed"=>false), array('id' => 'desc'));
+        $post = $repository->findBy(array("isDeleted" => false, "isClosed" => false), array('id' => 'desc'));
 
 
         $urls = array();
@@ -273,7 +304,7 @@ class DefaultController extends BaseController
         }
 
         foreach ($post as $product) {
-            if($product->getBoard()!=null){
+            if ($product->getBoard() != null) {
                 $urls[] = array('loc' => "/forum/velaforfun/topic/".$product->getId(), 'priority' => '0.5');
             }
         }
@@ -297,22 +328,19 @@ class DefaultController extends BaseController
         $articolo = $this->getDoctrine()
             ->getRepository('BlogBundle:Articolo')->find($id);
 
-        if($articolo){
-            $em= $this->getDoctrine()->getManager();
+        if ($articolo) {
+            $em = $this->getDoctrine()->getManager();
 
             $em->remove($articolo);
             $em->flush();
 
             return new Response("Articolo eliminato con successo!");
-        }else{
+        } else {
             return new Response("Nessun comunicato trovato!");
 
         }
 
     }
-
-
-
 
 
     /**
@@ -324,7 +352,11 @@ class DefaultController extends BaseController
             ->getRepository('BlogBundle:Categoria')->findAll();
 
         $ultimiArticoli = $this->getDoctrine()
-            ->getRepository('BlogBundle:Articolo')->findBy(array("stato"=>"ATTIVO"),array("lastUpdateTimestamp" => "desc"), 10);
+            ->getRepository('BlogBundle:Articolo')->findBy(
+                array("stato" => "ATTIVO"),
+                array("lastUpdateTimestamp" => "desc"),
+                10
+            );
 
         return $this->render(
             'BlogBundle:Default:index.html.twig',
@@ -342,7 +374,7 @@ class DefaultController extends BaseController
         $kernel = $this->get('kernel');
         $application = new Application($kernel);
         $application->setAutoExit(false);
-        $limit=0;
+        $limit = 0;
         if ($request->request->get("limit")) {
             $limit = $request->request->get("limit");
         }

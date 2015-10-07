@@ -123,6 +123,8 @@ class ArticoloController extends BaseController
 
             return new JsonResponse($response);
         }
+
+
         return $this->render(
             'AppBundle:Crud:create-articolo.html.twig',
             array('form' => $postform->createView(), "titolo" => "Modifica ".$this->entity." - ".$id,"entity"=>$entity)

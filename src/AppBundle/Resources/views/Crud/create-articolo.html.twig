@@ -11,6 +11,9 @@
 
         $(document).ready(function () {
 
+            $('#datetimepicker1').datetimepicker({locale: "it"});
+
+
             $("#blogbundle_articolo_titolo").keyup(function () {
                 $("#controllo").remove();
 
@@ -47,16 +50,29 @@
         $(".facebook-share").click(function () {
             var button = $(this);
             $("button").attr("disabled", "disabled");
+
+            var data = $("#datetimepicker1").data("DateTimePicker").date();
+
+            var dataPubblicazione;
+
+            if(typeof data != "undefined"){
+                if (data.unix() != "" && data.unix() > 0) {
+                    dataPubblicazione = data.unix();
+                }
+            }
+
+
             $.ajax({
                 type: "POST",
                 url: "/share/articolo/" + {{ entity.id }},
+                data: {data_pubblicazione: dataPubblicazione},
                 success: function (response) {
                     if (response.success == true) {
 
                         $(".facebook-share").after('<div class="alert alert-success" role="alert"> <span class="sr-only">Error:</span>Articolo condiviso correttamente!</div>');
-
+                        location.href = '';
                     } else {
-                        $(".facebook-share").after('<div class="alert alert-danger" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <span class="sr-only">Error:</span>'+response.error+' </div>');
+                        $(".facebook-share").after('<div class="alert alert-danger" role="alert"> <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> <span class="sr-only">Error:</span>' + response.error + ' </div>');
 
                     }
                     $("button").removeAttr("disabled");
@@ -89,12 +105,10 @@
 
 {% if entity.id is defined %}
  <button type="button" data-route="../elimina/{{ entity.id }}"
-                                    class="btn btn-danger delete-entity">Elimina
+                                    class="btn btn-danger delete-entity">Elimina Articolo
                             </button>
 
-                             <button type="button"
-                                    class="btn btn-primary facebook-share"><span class="fa fa-facebook"></span>Condividi
-                            </button>
+
 
 {% endif %}
 
@@ -180,15 +194,69 @@
                             </div>
                         </div>
                     {% endif %}
-                    
-                    
+
+
+                    {% if entity.id is defined %}
+            <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">CONDIVISIONI SOCIAL</div>
+
+  <!-- Table -->
+   <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Inserito</th>
+            <th>Schedulato</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        {% for condivisione in entity.condivisioni %}
+          <tr>
+            <th scope="row">{{ condivisione.social }}</th>
+            <td>{{ condivisione.timestamp|date("d-m-Y H:i") }}</td>
+            <td>{{ condivisione.dataPubblicazione|date("d-m-Y H:i") }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+
+                             <div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1' class="datetimepicker">
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+                             <button type="button"
+                                    class="btn btn-primary facebook-share"><span class="fa fa-facebook"></span> CONDIVIDI
+                            </button>
+
+
+</div>
+
+{% endif %}
+
+
    <a href="/archivio/{{ entity.categoria.permalink }}/{{ entity.permalink }}" target="_blank"><button style="margin-top:10px" class="btn btn-danger">VEDI ARTICOLO</button></a>
 
         </div>
 
-        <div class="col-md-2 column "style="padding-top:1200px" >
+        <div class="col-md-2 column " >
 
-                            <div class="form-group" >
+
+                            <div class="form-group" style="padding-top:1200px">
                                 <div class="inner-addon left-addon">
 
                                     <input type="search" placeholder="cerca un entity..." class="form-control"
