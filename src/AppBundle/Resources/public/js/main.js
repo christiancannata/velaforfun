@@ -109,13 +109,6 @@ jQuery(document).ready(function ($) {
 
 
 
-
-    if (!localStorage.getItem("visualizzatoBenvenuto")) {
-        $("#modalBeta").modal();
-        localStorage.setItem("visualizzatoBenvenuto", 1);
-    }
-
-
     if ($('.smarticker6').length > 0) {
         $('.smarticker6').smarticker();
     }
