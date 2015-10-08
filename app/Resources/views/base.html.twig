@@ -27,15 +27,12 @@
     <link rel="stylesheet" href="{{ asset('bundles/app/css/bootstrap-datetimepicker.min.css') }}">
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet'/>
 
+    {% block canonical %}{% endblock %}
 
     {% block stylesheets %}{% endblock %}
     <link rel="icon"
           type="image/png"
           href="{{ asset('/bundles/app/images/logo.png') }}">
-    {{ sonata_seo_title() }}
-    {{ sonata_seo_metadatas() }}
-    {{ sonata_seo_link_canonical() }}
-    {{ sonata_seo_lang_alternates() }}
 
     <script>
         (function (i, s, o, g, r, a, m) {
