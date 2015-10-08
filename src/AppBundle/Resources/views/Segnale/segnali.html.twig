@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Codice Velico | {% if k is defined and k!="" %}{{ k }}{% endif %}{% endblock %}
+{% block title %}Codice Internazionale Velico{% endblock %}
+
+{% block canonical %}
+    {% if k is defined and k!="" %}<meta name="robots" content="noindex">{% endif %}
+{% endblock %}
 
 
 {% block javascripts %}
