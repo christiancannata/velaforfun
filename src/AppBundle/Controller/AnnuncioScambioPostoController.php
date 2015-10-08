@@ -166,7 +166,7 @@ class AnnuncioScambioPostoController extends BaseController
                 $messaggio = $mailer->createMessage()
                     ->setSubject("Creato un nuovo topic: ".$firstTopic->getTitle())
                     ->setFrom('info@velaforfun.com')
-                    ->setTo('info@velaforfun.com')
+                    ->setTo('wakareva@gmail.com')
                     ->setBcc('christian1488@hotmail.it')
                     ->setBody(
                         $this->container->get('templating')->render(

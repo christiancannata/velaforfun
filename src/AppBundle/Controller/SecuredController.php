@@ -161,6 +161,7 @@ class SecuredController extends ConnectController
      */
     public function connectServiceAction(Request $request, $service)
     {
+
         $connect = $this->container->getParameter('hwi_oauth.connect');
         if (!$connect) {
             throw new NotFoundHttpException();
@@ -185,8 +186,15 @@ class SecuredController extends ConnectController
 
             // save in session
             $session->set('_hwi_oauth.connect_confirmation.'.$key, $accessToken);
+            // save in session
+
+            $session->set($service.'_access_token', $accessToken);
+
+
         } else {
             $accessToken = $session->get('_hwi_oauth.connect_confirmation.'.$key);
+            $session->set($service.'_access_token', $accessToken);
+
         }
 
         $userInformation = $resourceOwner->getUserInformation($accessToken);
@@ -252,6 +260,7 @@ class SecuredController extends ConnectController
             $sessionKey = '_security.' . $providerKey . '.target_path';
 
             $param = $this->container->getParameter('hwi_oauth.target_path_parameter');
+
             if (!empty($param) && $targetUrl = $request->get($param, null, true)) {
                 $session->set($sessionKey, $targetUrl);
             }
@@ -260,7 +269,6 @@ class SecuredController extends ConnectController
                 $session->set($sessionKey, $targetUrl);
             }
         }
-
         return new RedirectResponse($authorizationUrl);
     }
 }

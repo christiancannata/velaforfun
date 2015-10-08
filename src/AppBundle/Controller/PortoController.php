@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-
 class PortoController extends BaseController
 {
 
@@ -268,6 +267,9 @@ class PortoController extends BaseController
         $al = new \DateTime();
         $al->add(new \DateInterval("P2D"));
 
+
+
+
         if (empty($meteo)) {
 
             $request = $client->get(
@@ -279,6 +281,10 @@ class PortoController extends BaseController
             $response = $client->send($request);
 
             $body=json_decode($response->getBody(true),true);
+
+
+
+
 
             if(isset($body['cod']) && $body['cod']=="200"){
                 $entityMeteo = new Meteo();
@@ -317,7 +323,14 @@ class PortoController extends BaseController
         } else {
             $meteo = $meteo[0]['data'];
             $weather = json_decode($meteo);
+
+
+
         }
+
+
+
+
 
         $titolo = "Porto di ".$porto->getNome();
 
@@ -345,8 +358,6 @@ class PortoController extends BaseController
 
 
 
-        $now=new \DateTime();
-        $now->setTimestamp($mainMeteo->dt);
 
         return $this->render(
             'AppBundle:Porto:dettagliPorto.html.twig',
