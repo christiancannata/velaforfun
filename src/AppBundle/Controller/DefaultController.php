@@ -87,9 +87,8 @@ class DefaultController extends BaseController
                     'http://www.velaforfun.com/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink()
                 )
                 /** Add social tags **/
-                ->addTag($articolo->getTitolo())
                 /** Add message to your post **/
-                ->setMessage("provaaa");
+                ->setMessage($articolo->getTitolo());
 
 
             FacebookSession::setDefaultApplication('934348009960166', '84c4e12ab4042dd303245a991bf2fb20');
