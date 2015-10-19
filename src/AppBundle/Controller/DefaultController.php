@@ -157,7 +157,7 @@ class DefaultController extends BaseController
                     $condivisioneSocial->setIdSocial($idFacebook);
 
                     $em->persist($condivisioneSocial);
-
+                    $em->flush();
                 } catch (\Exception $ex) {
                     die(var_dump($ex->getMessage()));
                 }
@@ -200,7 +200,7 @@ class DefaultController extends BaseController
                 $condivisioneTwitter->setIdSocial($idFacebook);
 
                 $em->persist($condivisioneTwitter);
-
+                $em->flush();
 
             }
             catch(Exception $ex)
@@ -216,7 +216,7 @@ class DefaultController extends BaseController
 
             if ($fbPost) {
 
-                $em->flush();
+
 
                 return new JsonResponse(array("success" => true));
             } else {
