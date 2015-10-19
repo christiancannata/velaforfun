@@ -164,20 +164,10 @@ class DefaultController extends BaseController
 
 
             } catch (FacebookRequestException $e) {
-                return new JsonResponse(
-                    array(
-                        "success" => false,
-                        "error" => $ex->getMessage()
-                    )
-                );
+                var_dump($e->getMessage());
                 // The Graph API returned an error
             } catch (\Exception $e) {
-                return new JsonResponse(
-                    array(
-                        "success" => false,
-                        "error" => $ex->getMessage()
-                    )
-                );
+                var_dump($e->getMessage());
                 // Some other error occurred
             }
 
@@ -215,12 +205,8 @@ class DefaultController extends BaseController
             }
             catch(Exception $ex)
             {
-                return new JsonResponse(
-                    array(
-                        "success" => false,
-                        "error" => $ex->getMessage()
-                    )
-                );
+
+                die(var_dump($ex->getMessage()));
                 //Handle errors
             }
 
