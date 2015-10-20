@@ -137,7 +137,7 @@ hwi_oauth:
             type:                facebook
             client_id:           934348009960166
             client_secret:       84c4e12ab4042dd303245a991bf2fb20
-            scope: "public_profile,publish_pages,manage_pages"
+            scope: "public_profile,manage_pages"
             #scope: "public_profile"
 
 
