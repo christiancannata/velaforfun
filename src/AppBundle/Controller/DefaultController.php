@@ -47,6 +47,12 @@ class DefaultController extends BaseController
             ->getRepository('CCDNForumForumBundle:Topic');
 
         $post = $repository->findBy(array("isDeleted" => false, "isClosed" => false), array('id' => 'desc'), 20);
+
+        foreach($post as $key=>$forumPost){
+            if($forumPost->getBoard()->getId()==100){
+                unset($post[$key]);
+            }
+        }
         $topic = $post;
 
 
@@ -101,7 +107,6 @@ class DefaultController extends BaseController
             $session = new FacebookSession($this->container->get('security.context')->getToken()->getAccessToken());
 
 // Get the GraphUser object for the current user:
-
             try {
                 $me = (
                 new FacebookRequest(
@@ -109,10 +114,10 @@ class DefaultController extends BaseController
                 )
                 )->execute();
 
-                $pageToken = $me->getResponse()->access_token;
 
+                $pageToken = $me->getResponse();
 
-                $session = new FacebookSession($pageToken);
+                $session = new FacebookSession($this->container->get('security.context')->getToken()->getAccessToken());
 
 
                 $data = $request->request->all();
