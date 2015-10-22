@@ -125,23 +125,25 @@ class GalleriaFotoController extends BaseController
                 // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
                 foreach ($files as $uploadedFile) {
 
+                   if($uploadedFile){
+                       $uploadedFile->move(
+                           '/var/www/web/uploads/galleria_foto/',
+                           $uploadedFile->getClientOriginalName()
+                       );
 
-                    $uploadedFile->move(
-                        '/var/www/web/uploads/galleria_foto/',
-                        $uploadedFile->getClientOriginalName()
-                    );
+                       $fileUpload = new Foto();
+                       $fileUpload->setImmagine($uploadedFile->getClientOriginalName());
+                       $fileUpload->setNome($uploadedFile->getClientOriginalName());
+                       $fileUpload->setGalleria($entity);
+                       $fileUpload->setAutore($params['appbundle_galleriafoto']['nome']);
+                       $fileUpload->setInEvidenza(true);
+                       $em->persist($fileUpload);
 
-                    $fileUpload = new Foto();
-                    $fileUpload->setImmagine($uploadedFile->getClientOriginalName());
-                    $fileUpload->setNome($uploadedFile->getClientOriginalName());
-                    $fileUpload->setGalleria($entity);
-                    $fileUpload->setAutore($params['appbundle_galleriafoto']['nome']);
-                    $fileUpload->setInEvidenza(true);
-                    $em->persist($fileUpload);
+                       $foto[] = $fileUpload;
+                       // clean up the file property as you won't need it anymore
+                       $uploadedFile = null;
+                   }
 
-                    $foto[] = $fileUpload;
-                    // clean up the file property as you won't need it anymore
-                    $uploadedFile = null;
 
                 }
 
