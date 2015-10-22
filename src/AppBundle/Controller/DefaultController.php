@@ -105,7 +105,7 @@ class DefaultController extends BaseController
 //   FacebookJavaScriptLoginHelper
 // or create a FacebookSession with a valid access token:
             $session = new FacebookSession($this->container->get('security.context')->getToken()->getAccessToken());
-
+            $idFacebook="";
 // Get the GraphUser object for the current user:
             try {
                 $me = (
@@ -117,7 +117,8 @@ class DefaultController extends BaseController
 
                 $pageToken = $me->getResponse();
 
-                $session = new FacebookSession($this->container->get('security.context')->getToken()->getAccessToken());
+
+                $session = new FacebookSession($pageToken->access_token);
 
 
                 $data = $request->request->all();
@@ -153,8 +154,10 @@ class DefaultController extends BaseController
                 try {
 
                     $graphObject = $facebookRequest->execute()->getGraphObject();
-                    $idFacebook = $graphObject->getProperty('id');
 
+
+
+                    $idFacebook = $graphObject->getProperty('id');
 
                     $condivisioneSocial->setSocial("facebook");
                     $condivisioneSocial->setAutore($this->get('security.token_storage')->getToken()->getUser());
@@ -184,10 +187,8 @@ class DefaultController extends BaseController
                 ->createLink(
                     'http://www.velaforfun.com/archivio/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink()
                 )
-                /** Add social tags **/
-                ->addTag($articolo->getTitolo())
                 /** Add message to your post **/
-                ->setMessage("provaaa");
+                ->setMessage($articolo->getTitolo());
 
             $provider = $this->get('wall_poster.twitter');
 
@@ -214,8 +215,6 @@ class DefaultController extends BaseController
                 die(var_dump($ex->getMessage()));
                 //Handle errors
             }
-
-
 
 
 
