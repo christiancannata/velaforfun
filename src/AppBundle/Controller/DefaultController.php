@@ -115,10 +115,16 @@ class DefaultController extends BaseController
                 )->execute();
 
 
+
                 $pageToken = $me->getResponse();
 
+                if($pageToken->access_token){
+                    $pageToken=$pageToken->access_token;
+                }
 
-                $session = new FacebookSession($pageToken->access_token);
+
+
+                $session = new FacebookSession($pageToken);
 
 
                 $data = $request->request->all();
