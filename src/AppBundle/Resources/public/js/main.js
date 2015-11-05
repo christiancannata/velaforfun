@@ -271,6 +271,10 @@ jQuery(document).ready(function ($) {
 
     $(document).on('click', ".delete-entity", function() {
         var button = $(this);
+        var hasReload=false;
+        if(button.attr("callback")=="reload"){
+            hasReload=true;
+        }
         $("button").attr("disabled", "disabled");
         $.ajax({
             type: "POST",
@@ -280,6 +284,9 @@ jQuery(document).ready(function ($) {
                     button.closest("tr").fadeOut();
                     showalert($("#response-div"), "Eliminato con successo!", "success");
 
+                    if(hasReload){
+                        location.href='';
+                    }
                 } else {
                     showalert($("#response-div"), "Errore nell'eliminazione", "error");
                 }

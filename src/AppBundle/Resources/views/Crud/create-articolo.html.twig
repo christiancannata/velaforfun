@@ -178,7 +178,7 @@
                                 <div class="scroll-pane-horizontal horizontal-only">
                                     <p style="width: {{ entity.gallery.foto|length*160 }}px;">
                                         {% for foto in entity.gallery.foto %}
-                                              <a class='gallery' style="display:inline" rel="g1"
+                                              <a class='gallery' id="foto-thumb-{{ foto.id }}" style="display:inline" rel="g1"
                                                onclick="eliminaFoto({{ foto.id }})"><img
                                                         style="display:inline" width="150" height="150"
                                                         src="/uploads/galleria_foto/{{ foto.immagine }}"></a>
