@@ -55,7 +55,7 @@
 
             var dataPubblicazione='';
 
-            if(typeof data !== "undefined" && data!=''){
+            if(data && typeof data !== "undefined" && data!=''){
                 if (data.unix() != "" && data.unix() > 0) {
                     dataPubblicazione = data.unix();
                 }
