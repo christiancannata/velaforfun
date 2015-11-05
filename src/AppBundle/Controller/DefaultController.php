@@ -141,7 +141,7 @@ class DefaultController extends BaseController
                 );
                 $condivisioneSocial = new CondivisioneArticolo();
 
-                if (isset($data['data_pubblicazione'])) {
+                if (isset($data['data_pubblicazione']) && $data['data_pubblicazione']!="") {
                     $dataPubb=new \DateTime();
                     $dataPubb->setTimestamp($data['data_pubblicazione']);
                     $condivisioneSocial->setDataPubblicazione($dataPubb);
