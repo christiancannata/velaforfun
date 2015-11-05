@@ -149,6 +149,9 @@ class DefaultController extends BaseController
                     $post['scheduled_publish_time'] = $data['data_pubblicazione'];
                     $post['published'] = false;
 
+                }else{
+                    $dataPubb=new \DateTime();
+                    $condivisioneSocial->setDataPubblicazione($dataPubb);
                 }
 
 
