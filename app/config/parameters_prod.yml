@@ -9,7 +9,7 @@ parameters:
     mailer_transport: smtp
     mailer_host: smtp.mandrillapp.com
     mailer_user: velaforfun@velaforfun.com
-    mailer_password: NBJhq8XO5FmL_FFYTXBqag
+    mailer_password: TGc2e7WSZHb60aeiT4yg8A
     locale: it
     secret: ThisTokenIsNotSoSecretChangeIt
     webservice_weather_url: 'http://api.openweathermap.org'
