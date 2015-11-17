@@ -26,6 +26,7 @@ use Facebook\GraphUser;
 use Facebook\FacebookRequestException;
 
 
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use WallPosterBundle\Post\Post;
 
 class DefaultController extends BaseController
@@ -104,6 +105,16 @@ class DefaultController extends BaseController
 //   FacebookCanvasLoginHelper
 //   FacebookJavaScriptLoginHelper
 // or create a FacebookSession with a valid access token:
+            if($this->container->get('security.context')->getToken() instanceof Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken){
+                return new JsonResponse(
+                    array(
+                        "success" => false,
+                        "error" => "Effettua il logout ed accedi tramite Facebook per poter condividere sui social!"
+                    )
+                );
+            }
+
+
             $session = new FacebookSession($this->container->get('security.context')->getToken()->getAccessToken());
             $idFacebook="";
 // Get the GraphUser object for the current user:
