@@ -105,7 +105,7 @@ class DefaultController extends BaseController
 //   FacebookCanvasLoginHelper
 //   FacebookJavaScriptLoginHelper
 // or create a FacebookSession with a valid access token:
-            var_dump($this->container->get('security.context')->getToken() instanceof Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken);
+            var_dump($this->container->get('security.context')->getToken() instanceof UsernamePasswordToken);
             if($this->container->get('security.context')->getToken() instanceof Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken){
                 return new JsonResponse(
                     array(
