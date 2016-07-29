@@ -670,8 +670,13 @@ class DefaultController extends BaseController
 
             $mailer = $this->container->get('mailer');
 
-            $messaggio = $mailer->createMessage()
-                ->setSubject('Nuova richiesta di contatto')
+            //Create the Transport
+            $transport = \Swift_MailTransport::newInstance();
+
+//Create the Mailer using your created Transport
+            $mailer = \Swift_Mailer::newInstance($transport);
+
+            $messaggio = \Swift_Message::newInstance('Nuova richiesta di contatto')
                 ->setFrom('info@velaforfun.com')
                 ->setTo('wakareva@gmail.com')
                 ->setBcc('christian1488@hotmail.it')
