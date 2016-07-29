@@ -667,9 +667,6 @@ class DefaultController extends BaseController
 
             $params = $request->request->all();
 
-
-            $mailer = $this->container->get('mailer');
-
             //Create the Transport
             $transport = \Swift_MailTransport::newInstance();
 

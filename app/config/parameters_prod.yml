@@ -7,9 +7,9 @@ parameters:
     database_user: root
     database_password: velaforfun2015
     mailer_transport: smtp
-    mailer_host: smtp.mandrillapp.com
-    mailer_user: velaforfun@velaforfun.com
-    mailer_password: TGc2e7WSZHb60aeiT4yg8A
+    mailer_host: smtp.sendgrid.com
+    mailer_user: velaforfun
+    mailer_password: velaforfun01
     locale: it
     secret: ThisTokenIsNotSoSecretChangeIt
     webservice_weather_url: 'http://api.openweathermap.org'
