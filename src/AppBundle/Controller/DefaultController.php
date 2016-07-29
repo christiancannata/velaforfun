@@ -687,10 +687,14 @@ class DefaultController extends BaseController
                     ),
                     'text/html'
                 );
-            $mailer->send($messaggio);
+            $response['success'] =false;
+
+            if($mailer->send($messaggio)){
+                $response['success'] = true;
+            }
 
 
-            $response['success'] = true;
+
 
 
             return new JsonResponse($response);
