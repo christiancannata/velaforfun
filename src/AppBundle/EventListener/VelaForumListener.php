@@ -46,11 +46,16 @@ class VelaForumListener implements EventSubscriberInterface
             $ultimoPost = array_pop($post);
             foreach ($post as $singlePost) {
 
-                $mailer = $this->container->get('mailer');
-                $messaggio = $mailer->createMessage()
+                //Create the Transport
+                $transport = \Swift_MailTransport::newInstance();
+
+//Create the Mailer using your created Transport
+                $mailer = \Swift_Mailer::newInstance($transport);
+
+                $messaggio = \Swift_Message::newInstance()
                     ->setSubject("Creato un nuovo topic: ".$event->getTopic()->getTitle())
                     ->setFrom('info@velaforfun.com')
-                    ->setTo('wakareva@gmail.com')
+                    ->setTo('velaforfun@velaforfun.com')
                     ->setBcc('christian1488@hotmail.it')
                     ->setBody(
                         $this->container->get('templating')->render(

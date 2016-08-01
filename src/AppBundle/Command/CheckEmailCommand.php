@@ -202,11 +202,17 @@ class CheckEmailCommand extends ContainerAwareCommand
 
 
             if (count($comunicati) > 0) {
-                $mailer = $this->getContainer()->get('mailer');
-                $messaggio = $mailer->createMessage()
+
+                //Create the Transport
+                $transport = \Swift_MailTransport::newInstance();
+
+//Create the Mailer using your created Transport
+                $mailer = \Swift_Mailer::newInstance($transport);
+
+                $messaggio = \Swift_Message::newInstance()
                     ->setSubject('Ci sono '.count($comunicati).' nuovi comunicati')
                     ->setFrom('info@velaforfun.com')
-                    ->setTo('wakareva@gmail.com')
+                    ->setTo('velaforfun@velaforfun.com')
                     ->setBcc('christian1488@hotmail.it')
                     ->setBody(
                         $this->getContainer()->get('templating')->render(
