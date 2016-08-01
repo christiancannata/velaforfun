@@ -35,10 +35,42 @@ class AnnuncioController extends BaseController
 
 
                 $annuncio = $postform->getData();
-                $em = $this->container->get('doctrine')->getManager();
+
+                $user = $this->getUser();
 
                 $repository = $this->container->get('doctrine')
                     ->getRepository('AppBundle:User');
+                $em = $this->container->get('doctrine')->getManager();
+
+                if (!$user) {
+
+                    $user = $repository->findOneBy(array("email" => $annuncio->getEmail()));
+                    if (!$user) {
+                        $userManager = $this->container->get('fos_user.user_manager');
+                        $user = $userManager->createUser();
+                        $user->setEmail($annuncio->getEmail());
+                        $user->setNome($annuncio->getReferente());
+                        $username = strtolower(str_replace(" ", "", $annuncio->getReferente().rand(0, 99)));
+                        $user->setUsername($username);
+                        $user->setPlainPassword($username."1");
+                        $user->setEnabled(true);
+                        $em->persist($user);
+                        $em->flush();
+                    }
+                }
+
+
+                $oldAnnuncio = $this->container->get('doctrine')
+                    ->getRepository('AppBundle:Annuncio')->findOneBy(array("title"=>$annuncio->getTitolo(),"user"=>$user));
+
+                if($oldAnnuncio){
+                    $response['success'] = true;
+                    $response['response'] = $oldAnnuncio->getId();
+                    return new JsonResponse($response);
+
+                }
+
+
 
 
 
@@ -75,24 +107,6 @@ class AnnuncioController extends BaseController
 
 
 
-                $user = $this->getUser();
-
-
-                if (!$user) {
-                    $user = $repository->findOneBy(array("email" => $annuncio->getEmail()));
-                    if (!$user) {
-                        $userManager = $this->container->get('fos_user.user_manager');
-                        $user = $userManager->createUser();
-                        $user->setEmail($annuncio->getEmail());
-                        $user->setNome($annuncio->getReferente());
-                        $username = strtolower(str_replace(" ", "", $annuncio->getReferente().rand(0, 99)));
-                        $user->setUsername($username);
-                        $user->setPlainPassword($username."1");
-                        $user->setEnabled(true);
-                        $em->persist($user);
-                        $em->flush();
-                    }
-                }
 
 
                 $post = new Post();
@@ -145,8 +159,7 @@ class AnnuncioController extends BaseController
 
 
 
-
-
+                die("jjj");
                 //Create the Transport
                 $transport = \Swift_MailTransport::newInstance();
 

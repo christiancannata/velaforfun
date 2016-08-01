@@ -46,13 +46,26 @@ class AnnuncioScambioPostoController extends BaseController
 
                 $annuncio = $postform->getData();
 
+                $luogoCercato = ucwords(str_replace("_", " ", strtolower($annuncio->getLuogoRicercato())));
+
+
+                $oldAnnuncio = $this->container->get('doctrine')
+                    ->getRepository('AppBundle:AnnuncioImbarco')->findOneBy(array("title"=>"Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$luogoCercato,"user"=>$this->getUser()));
+
+                if($oldAnnuncio){
+                    $response['success'] = true;
+                    $response['response'] = $oldAnnuncio->getId();
+                    return new JsonResponse($response);
+
+                }
+
+
                 $annuncio->setUtente($this->getUser());
 
                 $board = $this->container->get('doctrine')
                     ->getRepository('CCDNForumForumBundle:Board')->find(11);
 
                 $firstTopic = new Topic();
-                $luogoCercato = ucwords(str_replace("_", " ", strtolower($annuncio->getLuogoRicercato())));
 
 
                 $firstTopic->setTitle(

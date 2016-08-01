@@ -107,6 +107,7 @@ class AnnuncioImbarcoController extends BaseController
                 $user = $this->getUser();
 
 
+
                 if (!$user) {
                     $user = $repository->findOneBy(array("email" => $annuncio->getEmail()));
                     if (!$user) {
@@ -121,6 +122,19 @@ class AnnuncioImbarcoController extends BaseController
                         $em->persist($user);
                         $em->flush();
                     }
+                }
+
+
+
+
+                $oldAnnuncio = $this->container->get('doctrine')
+                    ->getRepository('AppBundle:AnnuncioImbarco')->findOneBy(array("title"=>$annuncio->getTitolo(),"user"=>$user));
+
+                if($oldAnnuncio){
+                    $response['success'] = true;
+                    $response['response'] = $oldAnnuncio->getId();
+                    return new JsonResponse($response);
+
                 }
 
 
