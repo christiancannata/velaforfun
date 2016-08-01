@@ -64,7 +64,7 @@ class AnnuncioController extends BaseController
 
                     if($oldAnnuncio){
 
-                        $response['success'] = true;
+                        $response['success'] = false;
                         $response['response'] = $oldAnnuncio->getId();
                         return new JsonResponse($response);
 

@@ -131,7 +131,7 @@ class AnnuncioImbarcoController extends BaseController
                     ->getRepository('AppBundle:AnnuncioImbarco')->findOneBy(array("titolo"=>$annuncio->getTitolo(),"utente"=>$user));
 
                 if($oldAnnuncio){
-                    $response['success'] = true;
+                    $response['success'] = false;
                     $response['response'] = $oldAnnuncio->getId();
                     return new JsonResponse($response);
 

@@ -53,7 +53,7 @@ class AnnuncioScambioPostoController extends BaseController
                     ->getRepository('AppBundle:AnnuncioImbarco')->findOneBy(array("titolo"=>"Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$luogoCercato,"utente"=>$this->getUser()));
 
                 if($oldAnnuncio){
-                    $response['success'] = true;
+                    $response['success'] = false;
                     $response['response'] = $oldAnnuncio->getId();
                     return new JsonResponse($response);
 
