@@ -676,7 +676,6 @@ class DefaultController extends BaseController
             $messaggio = \Swift_Message::newInstance('Nuova richiesta di contatto')
                 ->setFrom('info@velaforfun.com')
                 ->setTo('velaforfun@velaforfun.com')
-                ->setBcc('christian1488@hotmail.it')
                 ->setBody(
                     $this->container->get('templating')->render(
                         'Emails/richiesta_contatto.html.twig',

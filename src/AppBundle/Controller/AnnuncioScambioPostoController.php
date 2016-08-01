@@ -50,7 +50,7 @@ class AnnuncioScambioPostoController extends BaseController
 
 
                 $oldAnnuncio = $this->container->get('doctrine')
-                    ->getRepository('AppBundle:AnnuncioImbarco')->findOneBy(array("title"=>"Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$luogoCercato,"user"=>$this->getUser()));
+                    ->getRepository('AppBundle:AnnuncioImbarco')->findOneBy(array("titolo"=>"Scambio posto a ".$annuncio->getLuogoAttuale()->getNome()." con ".$luogoCercato,"utente"=>$this->getUser()));
 
                 if($oldAnnuncio){
                     $response['success'] = true;
@@ -499,8 +499,15 @@ class AnnuncioScambioPostoController extends BaseController
 
 
         foreach ($destinatari as $destinatario) {
-            $mailer = $this->container->get('mailer');
-            $messaggio = $mailer->createMessage()
+
+
+            //Create the Transport
+            $transport = \Swift_MailTransport::newInstance();
+
+//Create the Mailer using your created Transport
+            $mailer = \Swift_Mailer::newInstance($transport);
+
+            $messaggio = \Swift_Message::newInstance()
                 ->setSubject("Annuncio scambio posto")
                 ->setFrom('info@velaforfun.com')
                 ->setTo($destinatario->getEmail())
@@ -513,6 +520,7 @@ class AnnuncioScambioPostoController extends BaseController
                     ),
                     'text/html'
                 );
+
             $mailer->send($messaggio);
 
         }

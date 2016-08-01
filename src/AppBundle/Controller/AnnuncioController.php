@@ -33,7 +33,6 @@ class AnnuncioController extends BaseController
 
             if ($postform->isValid()) {
 
-
                 $annuncio = $postform->getData();
 
                 $user = $this->getUser();
@@ -59,16 +58,21 @@ class AnnuncioController extends BaseController
                     }
                 }
 
+                try{
+                    $oldAnnuncio = $this->getDoctrine()
+                        ->getRepository('AppBundle:Annuncio')->findOneBy(array("titolo"=>$annuncio->getTitolo(),"referente"=>$annuncio->getReferente()));
 
-                $oldAnnuncio = $this->container->get('doctrine')
-                    ->getRepository('AppBundle:Annuncio')->findOneBy(array("title"=>$annuncio->getTitolo(),"user"=>$user));
+                    if($oldAnnuncio){
 
-                if($oldAnnuncio){
-                    $response['success'] = true;
-                    $response['response'] = $oldAnnuncio->getId();
-                    return new JsonResponse($response);
+                        $response['success'] = true;
+                        $response['response'] = $oldAnnuncio->getId();
+                        return new JsonResponse($response);
 
+                    }
+                }catch(\Exception $e){
+                    die(var_dump($e->getTraceAsString()));
                 }
+
 
 
 
@@ -159,18 +163,15 @@ class AnnuncioController extends BaseController
 
 
 
-                die("jjj");
                 //Create the Transport
                 $transport = \Swift_MailTransport::newInstance();
 
 //Create the Mailer using your created Transport
                 $mailer = \Swift_Mailer::newInstance($transport);
 
-                $messaggio = \Swift_Message::newInstance()
-                    ->setSubject("Creato un nuovo topic: ".$firstTopic->getTitle())
+                $messaggio = \Swift_Message::newInstance("Creato un nuovo topic: ".$firstTopic->getTitle())
                     ->setFrom('info@velaforfun.com')
                     ->setTo('velaforfun@velaforfun.com')
-                    ->setBcc('christian1488@hotmail.it')
                     ->setBody(
                         $this->container->get('templating')->render(
                         // app/Resources/views/Emails/registrazione.html.twig
@@ -179,14 +180,11 @@ class AnnuncioController extends BaseController
                         ),
                         'text/html'
                     );
-                $mailer->send($messaggio);
+                $response['success'] =false;
 
-
-
-
-
-
-                $response['success'] = true;
+                if($mailer->send($messaggio)){
+                    $response['success'] = true;
+                }
                 $response['response'] = $firstTopic->getId();
 
 
@@ -295,7 +293,6 @@ class AnnuncioController extends BaseController
                     $post->setCreatedBy(
                         $user
                     );
-
 
                     $post->setBody($annuncio->getDescrizione());
 

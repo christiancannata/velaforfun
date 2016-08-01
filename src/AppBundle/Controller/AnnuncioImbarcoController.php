@@ -128,7 +128,7 @@ class AnnuncioImbarcoController extends BaseController
 
 
                 $oldAnnuncio = $this->container->get('doctrine')
-                    ->getRepository('AppBundle:AnnuncioImbarco')->findOneBy(array("title"=>$annuncio->getTitolo(),"user"=>$user));
+                    ->getRepository('AppBundle:AnnuncioImbarco')->findOneBy(array("titolo"=>$annuncio->getTitolo(),"utente"=>$user));
 
                 if($oldAnnuncio){
                     $response['success'] = true;
@@ -455,9 +455,14 @@ class AnnuncioImbarcoController extends BaseController
 
 
             foreach ($destinatari as $destinatario) {
-                $mailer = $this->container->get('mailer');
-                $messaggio = $mailer->createMessage()
-                    ->setSubject("Annuncio imbarco [".$annuncio->getLocalita()."] - ".$annuncio->getRuoloRichiesto())
+
+                //Create the Transport
+                $transport = \Swift_MailTransport::newInstance();
+
+//Create the Mailer using your created Transport
+                $mailer = \Swift_Mailer::newInstance($transport);
+
+                $messaggio = \Swift_Message::newInstance("Annuncio imbarco [".$annuncio->getLocalita()."] - ".$annuncio->getRuoloRichiesto())
                     ->setFrom('info@velaforfun.com')
                     ->setTo($destinatario->getEmail())
                     ->setBcc('info@velaforfun.com')
@@ -469,6 +474,7 @@ class AnnuncioImbarcoController extends BaseController
                         ),
                         'text/html'
                     );
+
                 $mailer->send($messaggio);
 
             }
