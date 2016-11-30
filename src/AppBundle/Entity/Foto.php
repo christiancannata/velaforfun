@@ -54,6 +54,14 @@ class Foto
     /**
      * @var string
      *
+     * @ORM\Column(name="tag", type="string", nullable=true)
+     */
+    private $tag;
+
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="in_evidenza", type="boolean", nullable=true)
      */
     private $inEvidenza;
@@ -412,5 +420,25 @@ class Foto
     {
         $this->autore = $autore;
     }
+
+    /**
+     * @return string
+     */
+    public function getTag()
+    {
+        return $this->tag;
+    }
+
+    /**
+     * @param string $tag
+     */
+    public function setTag($tag)
+    {
+        $this->tag = $tag;
+    }
+
+
+
+
 
 }

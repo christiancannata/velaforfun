@@ -1,0 +1,134 @@
+
+
+
+
+
+
+
+
+
+<div id="modalVideo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                {% if app.user %}
+
+                    <form action="cerca-annuncio" method="post" name="appbundle_annuncioscambioposto">
+                        <div id="appbundle_annuncioscambioposto">
+                            <input type="hidden"  name="appbundle_annuncioscambioposto[telefono]" />
+                            <div class="form-group">
+                                <label for="appbundle_annuncioscambioposto_luogoAttuale" class="control-label required">Dove hai la barca adesso?</label>
+                                <select data-live-search="true" class="form-control" name="appbundle_annuncioscambioposto[luogoAttuale]" id="appbundle_annuncioscambioposto_luogoAttuale">
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="appbundle_annuncioscambioposto_luogoRicercato" class="control-label required">Dove cerchi un posto?</label>
+                                <select class="form-control" name="appbundle_annuncioscambioposto[luogoRicercato]" id="appbundle_annuncioscambioposto_luogoRicercato">
+                                    <option value="TUTTO" selected>Ovunque</option>
+                                    <option value="NORD_ITALIA_TIRRENO">Nord Italia Tirreno</option>
+                                    <option value="NORD_ITALIA_ADRIATICO">Nord Italia Adriatico</option>
+                                    <option value="CENTRO_ITALIA_TIRRENO">Centro Italia Tirreno</option>
+                                    <option value="CENTRO_ITALIA_ADRIATICO">Centro Italia Adriatico</option>
+                                    <option value="SUD_ITALIA_TIRRENO">Sud Italia Tirreno</option>
+                                    <option value="SUD_ITALIA_ADRIATICO">Sud Italia Adriatico</option>
+                                    <option value="SARDEGNA">Sardegna</option>
+                                    <option value="SICILIA">Sicilia</option>
+                                    <option value="ESTERO">Estero</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="appbundle_annuncioscambioposto_tipo" class="control-label required">Cosa?</label>
+                                <select class="form-control" name="appbundle_annuncioscambioposto[tipo]" id="appbundle_annuncioscambioposto_tipo">
+                                    <option value="TUTTO" selected>Tutto</option>
+                                    <option value="VELA">Vela</option>
+                                    <option value="MOTORE">Motore</option>
+                                    <option value="ALTRO">Altro</option>
+                                </select>
+                            </div>
+                            <div class="form-group hide">                <label for="appbundle_annuncioscambioposto_tempo" class="control-label">Tempo (specifica se possibile le date e/o la durata e/o il periodo)</label><input type="text" class="form-control" name="appbundle_annuncioscambioposto[tempo]" id="appbundle_annuncioscambioposto_tempo"></div>
+                            <div class="form-group hide">                <label for="appbundle_annuncioscambioposto_lunghezza" class="control-label">Lunghezza (metri)</label><input type="text" class="form-control" name="appbundle_annuncioscambioposto[lunghezza]" id="appbundle_annuncioscambioposto_lunghezza"></div>
+                            <input type="hidden" name="appbundle_annuncioscambioposto[descrizione]" id="appbundle_annuncioscambioposto_descrizione" style="display: none;" />
+                        </div>   <label for="BoostCakeCheckbox"><input type="hidden" id="BoostCakeCheckbox" checked value="1" name="appbundle_annuncioscambioposto[notifica]"></label>
+
+                        <button type="submit" class="btn btn-default login hvr-sweep-to-right">Cerca</button>
+                        <input type="hidden" class="callback" value="riceviNotifica">
+
+                    </form>
+                    <div class="response-form" style="display: none"></div>
+                {% else %}
+
+
+                    <div class="col-md-12 column" style="">
+                        <a href="/secure_area/connect/facebook"
+                           class="btn btn-block btn-social btn-lg btn-facebook"
+                           id="loginFacebook">
+                            <i class="fa fa-facebook"></i>
+                            Accedi con Facebook
+                        </a>
+                    </div>
+                    <div class="col-md-12 column" style="text-align:center;width:100%;">
+                        <div class="divisore-big"></div>
+
+                        <span style="font-size: 20px">oppure inserisci i tuoi dati di accesso</span>
+
+                        <div class="divisore-big"></div>
+                    </div>
+
+
+
+
+                    <div class="col-md-12 column" style="">
+                        <form method="post" action="/login_check">
+
+                            <div class="form-group">                <label for="fos_user_registration_form_username" class="control-label required">Username:</label><input type="text" class="form-control" pattern=".{2,}" maxlength="255" required="required" name="_username" id="username"></div>
+                            <div class="form-group">                <label for="fos_user_registration_form_plainPassword_first" class="control-label required">Password:</label><input type="password" class="form-control" required="required" name="_password" id="password"></div>
+
+                            <div class="form-group">
+
+                                <input type="checkbox" value="on" name="_remember_me" id="remember_me">
+                                <label for="remember_me">Ricordami</label>
+                            </div>
+                            <input type="submit" value="Accedi" class="btn btn-default login hvr-sweep-to-right">
+
+                        </form>
+
+                    </div>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="annuncioCreato">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Annunci Scambio Posto Barca</h4>
+            </div>
+            <div class="modal-body" style="min-height: 10px;">
+                <p>Complimenti, il tuo annuncio è stato creato con successo!<br>
+                    Riceverai una notifica via mail ogni volta che viene inserito un annuncio di ricerca imbarco che corrisponde alla tue preferenze.<br>
+                    <a href="/tuo-profilo">Clicca qui per modificarle</a>.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+

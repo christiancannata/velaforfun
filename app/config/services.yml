@@ -26,6 +26,11 @@ services:
       calls:
         - [ setContainer,[ @service_container ] ]
 
+  twig.json_decode:
+      class: AppBundle\Twig\Extension\JsonDecode
+      tags:
+        - { name: twig.extension }
+
   app.calendar_listener:
       class: AppBundle\EventListener\CalendarEventListener
       tags:

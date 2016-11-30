@@ -24,6 +24,8 @@
 
     {%- import _self as post_panel -%}
     {%- set panel = post_panel.class(post, post.topic) -%}
+
+
     <div class="col-md-12">
         <div class="row clearfix {{ panel }} post-forum" {%- if post.id %} id="{{- post.getBody |slice(0,24) -}}"{% endif %}">
             <div class="col-md-10">

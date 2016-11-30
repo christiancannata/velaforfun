@@ -88,12 +88,6 @@ doctrine:
                         is_bundle:            true
 
 # Swiftmailer Configuration
-swiftmailer:
-    transport: smtp
-    username:  velaforfun
-    password:  velaforfun01
-    host:  smtp.sendgrid.com
-    port:  587
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'

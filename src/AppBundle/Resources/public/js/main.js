@@ -39,7 +39,7 @@ $(".eliminaImbarco").click(function () {
         success: function (response) {
             if (response.success == true) {
                 //   $(".vota-"+voto).html("Voto inserito!");
-                location.href='';
+                location.href = '';
             } else {
             }
             $("button").removeAttr("disabled");
@@ -58,7 +58,7 @@ $(".eliminaScambioPosto").click(function () {
         success: function (response) {
             if (response.success == true) {
                 //   $(".vota-"+voto).html("Voto inserito!");
-                location.href='';
+                location.href = '';
             } else {
             }
             $("button").removeAttr("disabled");
@@ -107,6 +107,10 @@ function getUrlParameter(sParam) {
 }
 jQuery(document).ready(function ($) {
 
+
+    $('.notifiche').click(function () {
+        $('#modalVideo').modal('show');
+    });
 
 
     if ($('.smarticker6').length > 0) {
@@ -269,11 +273,11 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $(document).on('click', ".delete-entity", function() {
+    $(document).on('click', ".delete-entity", function () {
         var button = $(this);
-        var hasReload=false;
-        if(button.attr("callback")=="reload"){
-            hasReload=true;
+        var hasReload = false;
+        if (button.attr("callback") == "reload") {
+            hasReload = true;
         }
         $("button").attr("disabled", "disabled");
         $.ajax({
@@ -284,8 +288,8 @@ jQuery(document).ready(function ($) {
                     button.closest("tr").fadeOut();
                     showalert($("#response-div"), "Eliminato con successo!", "success");
 
-                    if(hasReload){
-                        location.href='';
+                    if (hasReload) {
+                        location.href = '';
                     }
                 } else {
                     showalert($("#response-div"), "Errore nell'eliminazione", "error");
@@ -297,17 +301,17 @@ jQuery(document).ready(function ($) {
     });
 
 
-    $(document).on('click', ".immagine-articolo", function() {
+    $(document).on('click', ".immagine-articolo", function () {
         var button = $(this);
         $("button").attr("disabled", "disabled");
         $.ajax({
             type: "POST",
-            url: $(this).attr('data-route')+","+$("#idFoto").val(),
+            url: $(this).attr('data-route') + "," + $("#idFoto").val(),
             success: function (response) {
                 if (response.success == true) {
 
                     showalert($("#response-div"), "Immagine impostata con successo!", "success");
-                    location.href='';
+                    location.href = '';
                 } else {
                     showalert($("#response-div"), "Errore nell'eliminazione", "error");
                 }
@@ -478,6 +482,14 @@ jQuery(document).ready(function ($) {
      });
      */
 
+
+    $(".accesso").click(function () {
+
+        $(".registrati").slideToggle();
+
+    });
+
+
 });
 function redirectScambioPosto(response) {
     if (typeof response.response != "undefined")
@@ -628,7 +640,7 @@ function showPosition(position) {
         };
 
 
-$("#meteo-localized-box").removeClass("hide");
+        $("#meteo-localized-box").removeClass("hide");
         $("#div-localized").fadeOut();
 
 
@@ -651,7 +663,6 @@ $("#meteo-localized-box").removeClass("hide");
         $("#meteoModal #contenuto").removeClass("hide");
 
 
-
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             $("#loadingMeteoMobile").hide();
 
@@ -662,18 +673,16 @@ $("#meteo-localized-box").removeClass("hide");
 
         localStorage.setItem("geolocation", JSON.stringify(meteo));
 
-        mapMeteo.setView([position.coords.latitude, position.coords.longitude],10);
+        mapMeteo.setView([position.coords.latitude, position.coords.longitude], 10);
 
         myLayer = L.mapbox.featureLayer(arrayPorto2).addTo(mapMeteo);
 
 
-
-        myLayer.on('ready', function() {
+        myLayer.on('ready', function () {
             // featureLayer.getBounds() returns the corners of the furthest-out markers,
             // and map.fitBounds() makes sure that the map contains these.
             mapMeteo.fitBounds(myLayer.getBounds());
         });
-
 
 
     });

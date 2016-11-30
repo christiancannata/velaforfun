@@ -28,28 +28,6 @@
              */
 
 
-            $(document).on('click', ".load-more", function () {
-                if (loading == false) {
-                    $('div#loadmoreajaxloader').show();
-                    loading = true;
-                    $.ajax({
-                        url: "{{ galleria.permalink }}/json?offset=" + offset,
-                        success: function (html) {
-                            if (html) {
-                                $('div#loadmoreajaxloader').remove();
-                                $('.load-more').remove();
-                                $("#postswrapper").append(html);
-                                $('.image-link').magnificPopup({type: 'image'});
-                            } else {
-                                $('div#loadmoreajaxloader').html('<center>Non ci sono più elementi da visualizzare.</center>');
-                            }
-                            offset += 3;
-                            loading = false;
-                        }
-                    });
-                }
-            });
-
 
             /*
 
@@ -91,7 +69,7 @@
     </style>
 {% endblock %}
 
-{% block title %}{{ galleria.nome }}
+{% block title %}Foto
 {% endblock %}
 
 
@@ -102,7 +80,7 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
                     <div class="category">
-            <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>  <h1>{{ galleria.nome }}</h1>
+            <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>  <h1>Foto</h1>
         </div>
         </div>
     </div>
@@ -110,23 +88,26 @@
 
      <div id="postswrapper">
             <div class="row nodi">
-                {% for foto in galleria.foto|reverse|slice(0,9) %}
+                {% for foto in galleria.getFoto()|reverse %}
     <div class="col-md-4 column  video-box ">
 
 <a class="image-link" href="/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
-        <div class="box-home link-video" style="height: 330px;" data-foto="/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
+        <div class="box-home link-video" style="height: 330px;" data-foto="http://www.velaforfun.com/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
             <div style="opacity: 1;background-image: url(/uploads/galleria_foto/{{ foto.immagine|url_encode }});"
-                 class="divBackgroundImage" data-original="/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
+                 class="divBackgroundImage" data-original="http://www.velaforfun.com/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
             </div>
             <div class="content">
 
                 <div class="box-action">
+                    {% set tags = foto.getTag()|json_decode %}
+
                     <h2>{{ foto.nome }}
-                    {% if foto.autore!="" %}
-                    <p style="font-size: 14px;">di {{ foto.autore }}</p>
-                    {% else %}
-                     <p style="font-size: 14px;">di VelaForFun</p>
-                        {% endif %}
+
+                        {% for tag in tags %}
+                            <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+
+
                     </h2>
 
                     <div class="over-box">

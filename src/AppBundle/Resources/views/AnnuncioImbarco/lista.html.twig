@@ -26,9 +26,7 @@
 
             {% endif %}
 
-            $('.notifiche').click(function () {
-                $('#modalVideo').modal('show');
-            });
+
         });
     </script>
 {% endblock %}
@@ -128,41 +126,7 @@
             </div>
             <div class="col-md-4 column">
                 <div class="content">
-                    <div class="colonna-destra" style="margin-bottom: 20px">
-                        <h2>Hai una barca e sei carente di equipaggio?</h2>
-
-                        <p>Se possiedi una barca o sei in contatto per poter offrire un imbarco pagato o a pagamento</p>
-                        <button type="submit" class="btn btn-default login hvr-sweep-to-right"
-                                onclick="location.href='nuovo-annuncio'">CREA ORA IL TUO ANNUNCIO
-                        </button>
-
-                    </div>
-
-                    <div class="colonna-destra" style="margin-bottom: 20px">
-                        <h2 class="foreground-verde">Sei alla ricerca di un imbarco?</h2>
-
-                        <p>Se sei alla ricerca di un posto in un equipaggio pagato, gratis o a pagamento</p>
-                        <button type="submit" class="btn btn-default login hvr-sweep-to-right background-verde" id="cerca-posti">
-                            CERCA TRA I POSTI DISPONIBILI
-                        </button>
-
-
-                    </div>
-
-
-                    <div class="colonna-destra" style="margin-bottom: 20px">
-                        <h2 class="foreground-verde">Vuoi ricevere notifiche?</h2>
-
-                        <p>Se sei alla ricerca di un posto, ricevi una mail per gli annunci compatibili con le tue
-                            preferenze</p>
-                        <button type="submit" class="btn btn-default login hvr-sweep-to-right background-verde notifiche">RICEVI
-                            LE NOTIFICHE
-                        </button>
-
-
-                    </div>
-
-
+                    {%- include "AppBundle:Partial:right_column_annuncio_imbarco.html.twig" -%}
                 </div>
 
 
@@ -182,7 +146,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body row">
 
 
                     <div class="col-md-12 column" style="">

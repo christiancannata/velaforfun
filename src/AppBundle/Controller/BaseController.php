@@ -128,7 +128,6 @@ class BaseController extends Controller
 
         $entities = $em->getRepository($this->getNameSpace().":".$this->entity)->findAll();
 
-
         return $this->render('AppBundle:Crud:list.html.twig', array('entities' => $entities));
     }
 

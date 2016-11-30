@@ -1,0 +1,118 @@
+    <div class="content">
+        <div class="colonna-destra" style="margin-bottom: 20px">
+            <h2>Vuoi vendere qualcosa?</h2>
+
+            <p>Se possiedi una barca o sei in contatto per poter offrire un imbarco pagato o a pagamento</p>
+            <button type="submit" class="btn btn-default login hvr-sweep-to-right " onclick="location.href='/annuncio/nuovo-annuncio'"
+            >CREA ORA IL TUO ANNUNCIO
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+<div id="modalVideo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+
+
+                <form action="nuovo-annuncio" method="post" name="appbundle_annuncio">
+                    <div id="appbundle_annuncio">
+                        <div class="form-group"><label for="appbundle_annuncio_referente"
+                                                       class="control-label required">Nome e Cognome</label><input
+                                    type="text" class="form-control" required="required"
+                                    {% if app.user is defined and app.user.nome is defined %}
+                                        value="{{ app.user.nome }} {{ app.user.cognome }}"
+                                    {% endif %}
+                                    name="appbundle_annuncio[referente]" id="appbundle_annuncio_referente"></div>
+
+
+
+                        <div class="form-group">
+                            <label for="appbundle_annuncioscambioposto_luogoRicercato" class="control-label required">Tipo di annuncio</label>
+                            <select class="form-control" name="appbundle_annuncio[tipo]" id="appbundle_annuncioscambioposto_luogoRicercato">
+                                <option value="VENDO">Vendo</option>
+                                <option value="COMPRO">Compro</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group"><label for="appbundle_annuncio_titolo"
+                                                       class="control-label required">Titolo</label><input
+                                    type="text" class="form-control" required="required"
+                                    name="appbundle_annuncio[titolo]" id="appbundle_annuncio_titolo"></div>
+
+                        <div class="form-group"><label for="appbundle_annuncio_email"
+                                                       class="control-label required">Email</label><input
+                                    type="email" class="form-control" required="required"
+                                    name="appbundle_annuncio[email]" id="appbundle_annuncio_email"
+                                    {% if app.user is defined and is_granted("ROLE_USER") %}
+                                        value="{{ app.user.email }}" readonly
+                                    {% endif %}
+                            ></div>
+
+
+
+                        <div class="form-group"><label for="appbundle_annuncio_telefono"
+                                                       class="control-label required">Telefono</label><input
+                                    type="text" class="form-control" required="required"
+                                    name="appbundle_annuncio[telefono]" id="appbundle_annuncio_telefono"></div>
+
+
+
+                        <div class="form-group"><label for="appbundle_annuncio_descrizione"
+                                                       class="control-label required">Descrizione</label><textarea
+                                    class="form-control" required="required" name="appbundle_annuncio[descrizione]"
+                                    id="appbundle_annuncio_descrizione"></textarea></div>
+                    </div>
+                    <div>
+                        <input type="submit" value="Crea" class="btn btn-default login hvr-sweep-to-right">
+                    </div>
+                    <input type="hidden" value="redirectScambioPosto" class="callback">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="annuncioCreato">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Annuncio Cerco posto barco</h4>
+            </div>
+            <div class="modal-body" style="min-height: 10px;">
+                <p>Complimenti, il tuo annuncio è stato creato con successo!<br>
+                    Riceverai una mail di notifica ogni volta che viene inserito un annuncio che rispondono alle tue
+                    preferenze!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

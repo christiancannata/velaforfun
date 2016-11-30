@@ -1,0 +1,89 @@
+{% extends 'CCDNForumForumBundle:Common:Layout/base.html.twig' %}
+
+{% set LayoutTemplate = ccdn_forum_forum.topic.user.show.layout_template %}
+
+{%- block title -%}
+    {{- 'title.topic.show' | trans({'%topic_title%': topic.getTitle |capitalize}, 'CCDNForumForumBundle') -}}
+{%- endblock title -%}
+
+{%- block sidebar -%}
+    {%- spaceless -%}
+        {{- parent() -}}
+        {%- include 'CCDNForumForumBundle:Common:Layout/Sidebar/user_forum.html.twig' -%}
+    {%- endspaceless -%}
+{%- endblock sidebar -%}
+
+
+{% block canonical %}
+    <link rel="canonical" href="https://www.velaforfun.com/forum/velaforfun/topic/{{ topic.id }}"/>
+{% endblock %}
+
+
+{%- block body_content -%}
+    {%- spaceless -%}
+        {% if topic.getBoard.getId == 11 or topic.getBoard.getId == 17 or topic.getBoard.getId == 18 or topic.getBoard.getId == 10 %}
+
+
+            {%- include "CCDNForumForumBundle:User:Topic/item_no_style_forum.html.twig" -%}
+
+        {% else %}
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+
+                    <div class="category">
+                        <a href="#" id="back-link" class="back-link"> <span
+                                    class="glyphicon glyphicon-menu-left bordered"
+                                    aria-hidden="true"></span> </a>
+
+                        <h1>Forum</h1>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row clearfix">
+
+                <div class="col-md-12 column breadcrumb">
+                    <a href="/forum/velaforfun"><h3
+                                style="color:rgb(153,153,153);display: inline;float:left;padding: 7px;padding-left:0px">
+                            Boards </h3>
+                    </a>
+                    <a href="../board/{{ topic.board.id }}"><h3
+                                style="color:rgb(153,153,153);display: inline;float:left;padding: 7px;">
+                            >&nbsp;{{- topic.board.name -}}</h3>
+                    </a>
+                    <h1 style="display: inline;float:left;margin:0px;border:none;font-weight: bold">
+                        >&nbsp;{{- topic.getTitle |capitalize -}}</h1>
+
+                </div>
+            </div>
+            <div class="row clearfix btn-toolbar">
+
+                {%- include 'CCDNForumForumBundle:User:Topic/Partial/topic_actions.html.twig' -%}
+                {%- include "CCDNForumForumBundle:User:Topic/Partial/stat_vitals.html.twig" -%}
+            </div>
+
+
+            {%- if topic.isDeleted or topic.isClosed or topic.isSticky -%}
+                {%- include "CCDNForumForumBundle:User:Topic/Partial/stat_mods.html.twig" -%}
+            {%- endif -%}
+
+            {{- knp_pagination_render(pager) -}}
+
+            <div class="row clearfix" style="margin-top:20px">
+                {%- for key, post in pager.getItems() -%}
+                    {%- include "CCDNForumForumBundle:User:Post/Partial/item_post.html.twig" -%}
+                {%- endfor -%}
+
+            </div>
+            <div class="row clearfix btn-toolbar">
+
+                {%- include 'CCDNForumForumBundle:User:Topic/Partial/topic_actions.html.twig' -%}
+            </div>
+            {{- knp_pagination_render(pager) -}}
+        {% endif %}
+
+
+    {%- endspaceless -%}
+{%- endblock body_content -%}

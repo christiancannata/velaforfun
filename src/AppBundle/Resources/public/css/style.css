@@ -79,7 +79,7 @@ form label {
 
 .video-box .box-home .content h2 {
 
-    margin-top: 220px;
+    margin-top: 200px;
 }
 
 .video-box .box-home:hover .box-action h2 {
@@ -2344,4 +2344,26 @@ font-size:22px !important;
     width: 20%;
     z-index: 999;
     margin-top:20px
+}
+
+
+.tag {
+    background: rgb(66, 156, 188);
+    border-radius: 3px;
+    color: white;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 20px 0 23px;
+    position: relative;
+    margin: 0 10px 10px 0;
+    text-decoration: none;
+    font-size:12px;
+    -webkit-transition: color 0.2s;
+    margin-top:8px;
+}
+
+.btn:hover{
+    color:white !important;
+    text-decoration: none !important;
 }

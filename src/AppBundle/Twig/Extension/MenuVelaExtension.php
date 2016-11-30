@@ -57,6 +57,7 @@ class MenuVelaExtension extends \Twig_Extension
     }
 
 
+
     /**
      * @param string $string
      * @return int
@@ -204,4 +205,5 @@ class MenuVelaExtension extends \Twig_Extension
     {
         $this->container = $container;
     }
+
 }

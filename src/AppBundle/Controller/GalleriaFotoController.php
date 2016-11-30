@@ -225,6 +225,7 @@ class GalleriaFotoController extends BaseController
      */
     public function showAction($permalink)
     {
+
         $em = $this->getDoctrine()->getEntityManager();
 
         $categoria = $em->getRepository('AppBundle:GalleriaFoto')->findOneByPermalink($permalink);
