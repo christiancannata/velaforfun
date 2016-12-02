@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use CCDNForum\ForumBundle\Entity\Topic;
 use CCDNForum\ForumBundle\Entity\Post;
-
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 class AnnuncioImbarcoController extends BaseController
 {
@@ -36,21 +36,42 @@ class AnnuncioImbarcoController extends BaseController
         return $this->patchForm($request, new AnnuncioImbarcoType(), $id, "AnnuncioImbarco");
     }
 
+    private function paginate($dql, $page = 1, $limit = 10)
+    {
+        $paginator = new Paginator($dql);
+
+        $paginator->getQuery()
+            ->setFirstResult($limit * ($page - 1))// Offset
+            ->setMaxResults($limit); // Limit
+
+        return $paginator;
+    }
 
     /**
-     * @Route("/", name="annunci_imbarco")
+     * @Route("/{page}", name="annunci_imbarco", requirements={"page": "\d+"},defaults={"page": 1})
      */
-    public function annunciImbarcoAction()
+    public function annunciImbarcoAction($page)
     {
 
-        $annunci = $this->getDoctrine()
-            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array("tipoAnnuncio"=>"OFFRO"), array('id' => 'desc'), 8);
+
         $titolo = "Annunci Imbarco";
+
+// Create our query
+        $query = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioImbarco')->createQueryBuilder('p')
+            ->where("p.tipoAnnuncio='OFFRO'")
+            ->orderBy('p.id', 'DESC')
+            ->getQuery();
+
+        // No need to manually get get the result ($query->getResult())
+
+
+        $annunci = $this->paginate($query, $page);
 
 
         $form['vars'] = array("full_name" => "appbundle_annuncioimbarco");
 
-        foreach($annunci as $key=>$annuncio) {
+        foreach ($annunci as $key => $annuncio) {
             if ($annuncio->getTopic()->isDeleted() || $annuncio->getTopic()->isClosed()) {
                 unset($annunci[$key]);
             }
@@ -58,7 +79,7 @@ class AnnuncioImbarcoController extends BaseController
 
         return $this->render(
             'AppBundle:AnnuncioImbarco:lista.html.twig',
-            array("annunci" => $annunci, "titolo" => $titolo, "form" => $form)
+            array("annunci" => $annunci, "titolo" => $titolo, "form" => $form,"pagine"=>round(count($annunci)/10),"currentPage"=>$page)
         );
 
     }
@@ -107,7 +128,6 @@ class AnnuncioImbarcoController extends BaseController
                 $user = $this->getUser();
 
 
-
                 if (!$user) {
                     $user = $repository->findOneBy(array("email" => $annuncio->getEmail()));
                     if (!$user) {
@@ -115,9 +135,9 @@ class AnnuncioImbarcoController extends BaseController
                         $user = $userManager->createUser();
                         $user->setEmail($annuncio->getEmail());
                         $user->setNome($annuncio->getReferente());
-                        $username = strtolower(str_replace(" ", "", $annuncio->getReferente().rand(0, 99)));
+                        $username = strtolower(str_replace(" ", "", $annuncio->getReferente() . rand(0, 99)));
                         $user->setUsername($username);
-                        $user->setPlainPassword($username."1");
+                        $user->setPlainPassword($username . "1");
                         $user->setEnabled(true);
                         $em->persist($user);
                         $em->flush();
@@ -125,12 +145,10 @@ class AnnuncioImbarcoController extends BaseController
                 }
 
 
-
-
                 $oldAnnuncio = $this->container->get('doctrine')
-                    ->getRepository('AppBundle:AnnuncioImbarco')->findOneBy(array("titolo"=>$annuncio->getTitolo(),"utente"=>$user));
+                    ->getRepository('AppBundle:AnnuncioImbarco')->findOneBy(array("titolo" => $annuncio->getTitolo(), "utente" => $user));
 
-                if($oldAnnuncio){
+                if ($oldAnnuncio) {
                     $response['success'] = false;
                     $response['response'] = $oldAnnuncio->getId();
                     return new JsonResponse($response);
@@ -143,7 +161,7 @@ class AnnuncioImbarcoController extends BaseController
                 $titolo = str_replace("offro", "", $annuncio->getTitolo());
 
                 $firstTopic = new Topic();
-                $firstTopic->setTitle(nl2br($annuncio->getTipoAnnuncio())." ".$titolo);
+                $firstTopic->setTitle(nl2br($annuncio->getTipoAnnuncio()) . " " . $titolo);
                 $firstTopic->setCachedViewCount(1);
                 $board = null;
 
@@ -164,27 +182,27 @@ class AnnuncioImbarcoController extends BaseController
                     $user
                 );
 
-                $testo="<strong>Ruolo richiesto:</strong> ".$annuncio->getRuoloRichiesto();
-                $testo.="<br><br><strong>Luogo:</strong> ".$annuncio->getLuogo();
+                $testo = "<strong>Ruolo richiesto:</strong> " . $annuncio->getRuoloRichiesto();
+                $testo .= "<br><br><strong>Luogo:</strong> " . $annuncio->getLuogo();
 
 
-                if(trim($annuncio->getCosto())!=""){
-                    $testo.="<br><br><strong>Prezzo:</strong> ".$annuncio->getCosto();
-
-                }
-
-                if(trim($annuncio->getTempo())!=""){
-                    $testo.="<br><br><strong>Periodo:</strong> ".$annuncio->getTempo();
+                if (trim($annuncio->getCosto()) != "") {
+                    $testo .= "<br><br><strong>Prezzo:</strong> " . $annuncio->getCosto();
 
                 }
 
-                $testo.="<br><br><strong>Tipo:</strong> ".$annuncio->getTipo()."<br><br>";
+                if (trim($annuncio->getTempo()) != "") {
+                    $testo .= "<br><br><strong>Periodo:</strong> " . $annuncio->getTempo();
+
+                }
+
+                $testo .= "<br><br><strong>Tipo:</strong> " . $annuncio->getTipo() . "<br><br>";
 
 
-                $testo.= nl2br($annuncio->getDescrizione());
+                $testo .= nl2br($annuncio->getDescrizione());
 
                 $post->setBody(
-                   $testo
+                    $testo
                 );
 
                 $em->persist($post);
@@ -205,8 +223,6 @@ class AnnuncioImbarcoController extends BaseController
                 $em->flush();
 
 
-
-
                 $subscription = new \CCDNForum\ForumBundle\Entity\Subscription();
                 $subscription->setTopic($firstTopic);
                 $subscription->setOwnedBy($user);
@@ -219,16 +235,11 @@ class AnnuncioImbarcoController extends BaseController
                 $em->persist($subscription);
                 $em->flush();
 
-                $board->setCachedPostCount($board->getCachedPostCount()+1);
-                $board->setCachedTopicCount($board->getCachedTopicCount()+1);
+                $board->setCachedPostCount($board->getCachedPostCount() + 1);
+                $board->setCachedTopicCount($board->getCachedTopicCount() + 1);
 
                 $em->persist($board);
                 $em->flush();
-
-
-
-
-
 
 
                 //Create the Transport
@@ -238,7 +249,7 @@ class AnnuncioImbarcoController extends BaseController
                 $mailer = \Swift_Mailer::newInstance($transport);
 
                 $messaggio = \Swift_Message::newInstance()
-                    ->setSubject("Creato un nuovo topic: ".$firstTopic->getTitle())
+                    ->setSubject("Creato un nuovo topic: " . $firstTopic->getTitle())
                     ->setFrom('info@velaforfun.com')
                     ->setTo('velaforfun@velaforfun.com')
                     ->setBcc('christian1488@hotmail.it')
@@ -251,7 +262,6 @@ class AnnuncioImbarcoController extends BaseController
                         'text/html'
                     );
                 $mailer->send($messaggio);
-
 
 
                 $response['success'] = true;
@@ -281,7 +291,7 @@ class AnnuncioImbarcoController extends BaseController
 
 
         $annunci = $this->getDoctrine()
-            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array("tipoAnnuncio"=>"OFFRO"), array('id' => 'desc'), 8);
+            ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array("tipoAnnuncio" => "OFFRO"), array('id' => 'desc'), 8);
 
         $postform = $this->createForm(new AnnuncioImbarcoType());
 
@@ -299,72 +309,67 @@ class AnnuncioImbarcoController extends BaseController
                     $titolo = str_replace("cerco", "", $annuncio->getTitolo());
                     $titolo = str_replace("offro", "", $annuncio->getTitolo());
 
-                  /*  $firstTopic = new Topic();
-                    $firstTopic->setTitle(
-                        $annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo(
-                        )." a ".$annuncio->getLuogo()
-                    );
-                    $firstTopic->setCachedViewCount(1);*/
+                    /*  $firstTopic = new Topic();
+                      $firstTopic->setTitle(
+                          $annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo(
+                          )." a ".$annuncio->getLuogo()
+                      );
+                      $firstTopic->setCachedViewCount(1);*/
                     $board = null;
                     $board = $this->container->get('doctrine')
                         ->getRepository('CCDNForumForumBundle:Board')->find(19);
                     $user = $this->getUser();
-                    $annuncio->setReferente($user->getNome()." ".$user->getCognome()." ".$user->getUsername());
+                    $annuncio->setReferente($user->getNome() . " " . $user->getCognome() . " " . $user->getUsername());
 
-                    $annuncio->setReferente($user->getNome()." ".$user->getCognome()." ".$user->getUsername());
+                    $annuncio->setReferente($user->getNome() . " " . $user->getCognome() . " " . $user->getUsername());
 
                     $annuncio->setEmail($user->getEmail());
                     $annuncio->setUtente($user);
 
-                  /*  $firstTopic->setBoard(
-                        $board
-                    );
+                    /*  $firstTopic->setBoard(
+                          $board
+                      );
 
-                    $em->persist($firstTopic);
-                    $em->flush();
+                      $em->persist($firstTopic);
+                      $em->flush();
 
 
-                    $post = new Post();
-                    $post->setTopic($firstTopic);
-                    $post->setCreatedDate(new \DateTime());
-                    $post->setCreatedBy(
-                        $user
-                    );
-*/
+                      $post = new Post();
+                      $post->setTopic($firstTopic);
+                      $post->setCreatedDate(new \DateTime());
+                      $post->setCreatedBy(
+                          $user
+                      );
+  */
 
                     $annuncio->setDescrizione(
-                        "Cerco ".$annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo(
-                        )." a ".$annuncio->getLuogo()
+                        "Cerco " . $annuncio->getCosto() . " " . $annuncio->getRuoloRichiesto() . " in " . $annuncio->getTipo() . " a " . $annuncio->getLuogo()
                     );
 
-                    $annuncio->setTitolo( "Cerco ".$annuncio->getCosto()." ".$annuncio->getRuoloRichiesto()." in ".$annuncio->getTipo(
-                        )." a ".$annuncio->getLuogo());
+                    $annuncio->setTitolo("Cerco " . $annuncio->getCosto() . " " . $annuncio->getRuoloRichiesto() . " in " . $annuncio->getTipo() . " a " . $annuncio->getLuogo());
 
 
                     $annuncio->setTelefono("");
                     $annuncio->setLocalita("");
                     $annuncio->setTempo("");
-                  /*  $post->setBody($annuncio->getDescrizione());
+                    /*  $post->setBody($annuncio->getDescrizione());
 
-                    $em->persist($post);
-                    $em->flush();
+                      $em->persist($post);
+                      $em->flush();
 
 
-                    $annuncio->setTopic($firstTopic);*/
+                      $annuncio->setTopic($firstTopic);*/
 
 
                     $annunciUtente = $this->getDoctrine()
-                        ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array("utente"=>$user,"tipoAnnuncio"=>"CERCO"));
+                        ->getRepository('AppBundle:AnnuncioImbarco')->findBy(array("utente" => $user, "tipoAnnuncio" => "CERCO"));
 
-                    foreach($annunciUtente as $annuncioUtente){
+                    foreach ($annunciUtente as $annuncioUtente) {
                         $em->remove($annuncioUtente);
                     }
 
                     $em->persist($annuncio);
                     $em->flush();
-
-
-
 
 
                     /* $firstTopic->setFirstPost($post);
@@ -386,28 +391,28 @@ class AnnuncioImbarcoController extends BaseController
             $query = $repository->createQueryBuilder('p')
                 ->where("p.tipoAnnuncio = 'OFFRO'");
             if ($params['appbundle_annuncioimbarco']['luogo'] != "TUTTO") {
-                $query->andWhere("p.luogo = '".$params['appbundle_annuncioimbarco']['luogo']."' or p.luogo='TUTTO'");
+                $query->andWhere("p.luogo = '" . $params['appbundle_annuncioimbarco']['luogo'] . "' or p.luogo='TUTTO'");
 
             }
 
             if ($params['appbundle_annuncioimbarco']['ruoloRichiesto'] != "TUTTO") {
-                $query->andWhere("p.ruoloRichiesto = '".$params['appbundle_annuncioimbarco']['ruoloRichiesto']."' or p.ruoloRichiesto='TUTTO'");
+                $query->andWhere("p.ruoloRichiesto = '" . $params['appbundle_annuncioimbarco']['ruoloRichiesto'] . "' or p.ruoloRichiesto='TUTTO'");
 
             }
             if ($params['appbundle_annuncioimbarco']['costo'] != "TUTTO") {
-                $query->andWhere("p.costo = '".$params['appbundle_annuncioimbarco']['costo']."' or p.costo='TUTTO'");
+                $query->andWhere("p.costo = '" . $params['appbundle_annuncioimbarco']['costo'] . "' or p.costo='TUTTO'");
 
             }
 
             if ($params['appbundle_annuncioimbarco']['tipo'] != "TUTTO") {
-                $query->andWhere("p.tipo = '".$params['appbundle_annuncioimbarco']['tipo']."' or p.tipo='TUTTO'");
+                $query->andWhere("p.tipo = '" . $params['appbundle_annuncioimbarco']['tipo'] . "' or p.tipo='TUTTO'");
 
             }
-            $query->orderBy("p.id","DESC");
+            $query->orderBy("p.id", "DESC");
 
             $annunci = $query->getQuery()->getResult();
 
-            foreach($annunci as $key=>$annuncio) {
+            foreach ($annunci as $key => $annuncio) {
                 if ($annuncio->getTopic()->isDeleted() || $annuncio->getTopic()->isClosed()) {
                     unset($annunci[$key]);
                 }
@@ -435,23 +440,21 @@ class AnnuncioImbarcoController extends BaseController
             $query = $repository->createQueryBuilder('p')
                 ->where("p.tipoAnnuncio = 'CERCO'");
             if ($annuncio->getLuogo() != "TUTTO") {
-                $query->andWhere("p.luogo = '".$annuncio->getLuogo()."' or p.luogo = 'TUTTO'");
+                $query->andWhere("p.luogo = '" . $annuncio->getLuogo() . "' or p.luogo = 'TUTTO'");
 
             }
 
             if ($annuncio->getRuoloRichiesto() != "TUTTO") {
-                $query->andWhere("p.ruoloRichiesto = '".$annuncio->getRuoloRichiesto()."'  or p.ruoloRichiesto = 'TUTTO'");
+                $query->andWhere("p.ruoloRichiesto = '" . $annuncio->getRuoloRichiesto() . "'  or p.ruoloRichiesto = 'TUTTO'");
 
             }
             if ($annuncio->getCosto() != "TUTTO") {
-                $query->andWhere("p.costo = '".$annuncio->getCosto()."'  or p.costo = 'TUTTO'");
+                $query->andWhere("p.costo = '" . $annuncio->getCosto() . "'  or p.costo = 'TUTTO'");
 
             }
 
 
             $destinatari = $query->getQuery()->getResult();
-
-
 
 
             foreach ($destinatari as $destinatario) {
@@ -462,7 +465,7 @@ class AnnuncioImbarcoController extends BaseController
 //Create the Mailer using your created Transport
                 $mailer = \Swift_Mailer::newInstance($transport);
 
-                $messaggio = \Swift_Message::newInstance("Annuncio imbarco [".$annuncio->getLocalita()."] - ".$annuncio->getRuoloRichiesto())
+                $messaggio = \Swift_Message::newInstance("Annuncio imbarco [" . $annuncio->getLocalita() . "] - " . $annuncio->getRuoloRichiesto())
                     ->setFrom('info@velaforfun.com')
                     ->setTo($destinatario->getEmail())
                     ->setBcc('info@velaforfun.com')
