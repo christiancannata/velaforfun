@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\AbstractType;
@@ -11,6 +12,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class BaseController extends Controller
 {
+
+    protected function paginate($dql, $page = 1, $limit = 10)
+    {
+        $paginator = new Paginator($dql);
+
+        $paginator->getQuery()
+            ->setFirstResult($limit * ($page - 1))// Offset
+            ->setMaxResults($limit); // Limit
+
+        return $paginator;
+    }
+
 
     private function getNameSpace()
     {

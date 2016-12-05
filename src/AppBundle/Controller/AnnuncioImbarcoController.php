@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use CCDNForum\ForumBundle\Entity\Topic;
 use CCDNForum\ForumBundle\Entity\Post;
-use Doctrine\ORM\Tools\Pagination\Paginator;
+
 
 class AnnuncioImbarcoController extends BaseController
 {
@@ -36,16 +36,6 @@ class AnnuncioImbarcoController extends BaseController
         return $this->patchForm($request, new AnnuncioImbarcoType(), $id, "AnnuncioImbarco");
     }
 
-    private function paginate($dql, $page = 1, $limit = 10)
-    {
-        $paginator = new Paginator($dql);
-
-        $paginator->getQuery()
-            ->setFirstResult($limit * ($page - 1))// Offset
-            ->setMaxResults($limit); // Limit
-
-        return $paginator;
-    }
 
     /**
      * @Route("/{page}", name="annunci_imbarco", requirements={"page": "\d+"},defaults={"page": 1})
@@ -73,13 +63,13 @@ class AnnuncioImbarcoController extends BaseController
 
         foreach ($annunci as $key => $annuncio) {
             if ($annuncio->getTopic()->isDeleted() || $annuncio->getTopic()->isClosed()) {
-                unset($annunci[$key]);
+               // $annunci->removeElement($annuncio);
             }
         }
 
         return $this->render(
             'AppBundle:AnnuncioImbarco:lista.html.twig',
-            array("annunci" => $annunci, "titolo" => $titolo, "form" => $form,"pagine"=>round(count($annunci)/10),"currentPage"=>$page)
+            array("annunci" => $annunci, "titolo" => $titolo, "form" => $form,"pagine"=>ceil(count($annunci)/10),"currentPage"=>$page)
         );
 
     }

@@ -249,13 +249,20 @@ class AnnuncioScambioPostoController extends BaseController
     }
 
     /**
-     * @Route("/", name="annunci_cambio_posto")
+     * @Route("/{page}", name="annunci_cambio_posto", requirements={"page": "\d+"},defaults={"page": 1})
      */
-    public function annunciScambioPostoAction()
+    public function annunciScambioPostoAction($page)
     {
 
-        $annunci = $this->getDoctrine()
-            ->getRepository('AppBundle:AnnuncioScambioPosto')->findBy(array(), array('id' => 'desc'), 8);
+        $query = $this->getDoctrine()
+            ->getRepository('AppBundle:AnnuncioScambioPosto')->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->getQuery();
+
+        // No need to manually get get the result ($query->getResult())
+
+
+        $annunci = $this->paginate($query, $page);
         $titolo = "Annunci Scambio Posto Barca";
 
 
@@ -263,13 +270,14 @@ class AnnuncioScambioPostoController extends BaseController
 
         foreach($annunci as $key=>$annuncio) {
             if ($annuncio->getTopic()->isDeleted() || $annuncio->getTopic()->isClosed()) {
-                unset($annunci[$key]);
+               // unset($annunci[$key]);
             }
         }
 
+
         return $this->render(
             'AppBundle:AnnuncioScambioPosto:lista.html.twig',
-            array("annunci" => $annunci, "titolo" => $titolo, "form" => $form)
+            array("annunci" => $annunci, "titolo" => $titolo, "form" => $form,"pagine"=>ceil(count($annunci)/10),"currentPage"=>$page)
         );
 
     }

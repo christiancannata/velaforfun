@@ -350,19 +350,30 @@ class AnnuncioController extends BaseController
 
 
     /**
-     * @Route("/", name="annunci_home")
+     * @Route("/{page}", name="annunci_home", requirements={"page": "\d+"},defaults={"page": 1})
      */
-    public function annunciAction()
+
+    public function annunciAction($page)
     {
 
-        $annunci = $this->getDoctrine()
-            ->getRepository('AppBundle:Annuncio')->findBy(array(),array('id' => 'desc'),30);
+        $query = $this->getDoctrine()
+            ->getRepository('AppBundle:Annuncio')->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->getQuery();
+
+        // No need to manually get get the result ($query->getResult())
+
+
+        $annunci = $this->paginate($query, $page);
+
 
         foreach($annunci as $key=>$annuncio) {
             if ($annuncio->getTopic()->isDeleted() || $annuncio->getTopic()->isClosed()) {
-                unset($annunci[$key]);
+              //  $annunci->removeElement($annuncio);
+
             }
         }
+
         $titolo = "Annunci Vendo/Compro";
 
 
@@ -371,7 +382,7 @@ class AnnuncioController extends BaseController
 
         return $this->render(
             'AppBundle:Annuncio:lista.html.twig',
-            array("annunci" => $annunci, "titolo" => $titolo,"form" => $form)
+            array("annunci" => $annunci, "titolo" => $titolo,"form" => $form,"pagine"=>ceil(count($annunci)/10),"currentPage"=>$page)
         );
 
     }
