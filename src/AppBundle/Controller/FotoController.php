@@ -402,7 +402,7 @@ class FotoController extends BaseController
 
 
         if($permalink=="all"){
-            $query = $this->getDoctrine()->getManager()->createQuery("SELECT u FROM \\AppBundle\\Entity\\Foto u  order by u.id desc");
+            $query = $this->getDoctrine()->getManager()->createQuery("SELECT u FROM \\AppBundle\\Entity\\Foto u, \\AppBundle\\Entity\\GalleriaFoto g where u.galleria=g and g.inGallery=1 order by u.id desc");
 
         }else{
             $query = $this->getDoctrine()->getManager()->createQuery("SELECT u FROM \\AppBundle\\Entity\\Foto u  where u.tag like '%\"" . strtoupper($permalink) . "\"%'  order by u.id desc");
