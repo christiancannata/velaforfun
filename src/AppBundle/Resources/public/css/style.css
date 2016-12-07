@@ -2390,3 +2390,13 @@ font-size:22px !important;
 .video-box .box-home:hover .over-box{
     display:none
 }
+
+.filtro-tags .tag{
+    cursor:pointer;
+
+}
+.filtro-tags .tag:hover{
+    background: rgb(255, 255, 255) !important;
+
+    color: rgba(66, 156, 188, 1) !important;
+}

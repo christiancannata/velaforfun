@@ -43,7 +43,7 @@ class FotoController extends BaseController
 
             $files = $files['foto'];
 
-            $ore=$params['pubblicazione'];
+            $ore = $params['pubblicazione'];
 
 
             // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
@@ -58,10 +58,10 @@ class FotoController extends BaseController
 
                 $tags = array_merge($tagGenerici, $tagSpecifici);
 
-                $clear=[];
-                foreach($tags as $key=>$tag){
-                    if(!empty(trim($tag))){
-                        $clear[]=$tag;
+                $clear = [];
+                foreach ($tags as $key => $tag) {
+                    if (!empty(trim($tag))) {
+                        $clear[] = $tag;
                     }
                 }
 
@@ -83,7 +83,7 @@ class FotoController extends BaseController
                 $foto[] = $fileUpload;
 
 
-                if($ore>0){
+                if ($ore > 0) {
 
 
                     /** Create you Post instance **/
@@ -93,20 +93,19 @@ class FotoController extends BaseController
 
                     $immagineArticolo = "";
                     if ($fileUpload->getImmagine() != "") {
-                        $immagineArticolo = 'galleria_foto/'.$fileUpload->getImmagine();
+                        $immagineArticolo = 'galleria_foto/' . $fileUpload->getImmagine();
                     }
 
 
-
-                    $fbPost=$fbPost->createImage(
-                        $this->get('kernel')->getRootDir()."/../web/uploads/".$immagineArticolo,
-                        'http://www.velaforfun.com/images/'.$immagineArticolo
+                    $fbPost = $fbPost->createImage(
+                        $this->get('kernel')->getRootDir() . "/../web/uploads/" . $immagineArticolo,
+                        'http://www.velaforfun.com/images/' . $immagineArticolo
                     )
                         /** Add social tags **/
                         /** Add message to your post **/
                         ->setMessage($fileUpload->getNome());
 
-                    foreach($tags as $tag){
+                    foreach ($tags as $tag) {
                         $fbPost->addTag($tag);
                     }
 
@@ -120,12 +119,12 @@ class FotoController extends BaseController
 // or create a FacebookSession with a valid access token:
 
 
-                    if($this->container->get('security.context')->getToken() instanceof UsernamePasswordToken){
+                    if ($this->container->get('security.context')->getToken() instanceof UsernamePasswordToken) {
                         return new JsonResponse(
                             array(
                                 "success" => false,
-                                "response"=>[
-                                    "submit"=>"Effettua il logout ed accedi tramite Facebook per poter condividere sui social!"
+                                "response" => [
+                                    "submit" => "Effettua il logout ed accedi tramite Facebook per poter condividere sui social!"
                                 ]
                             )
                         );
@@ -133,7 +132,7 @@ class FotoController extends BaseController
 
 
                     $session = new FacebookSession($this->container->get('security.context')->getToken()->getAccessToken());
-                    $idFacebook="";
+                    $idFacebook = "";
 // Get the GraphUser object for the current user:
                     try {
                         $me = (
@@ -143,13 +142,11 @@ class FotoController extends BaseController
                         )->execute();
 
 
-
                         $pageToken = $me->getResponse();
 
-                        if($pageToken->access_token){
-                            $pageToken=$pageToken->access_token;
+                        if ($pageToken->access_token) {
+                            $pageToken = $pageToken->access_token;
                         }
-
 
 
                         $session = new FacebookSession($pageToken);
@@ -163,20 +160,18 @@ class FotoController extends BaseController
 
                         $post = array(
                             "message" => $fileUpload->getNome(),
-                            "picture" => 'http://www.velaforfun.com/images/'.$immagineArticolo,
+                            "picture" => 'http://www.velaforfun.com/images/' . $immagineArticolo,
                         );
 
 
-
-
-                        if (isset($data['data_pubblicazione']) && $data['data_pubblicazione']!="") {
-                            $dataPubb=new \DateTime();
+                        if (isset($data['data_pubblicazione']) && $data['data_pubblicazione'] != "") {
+                            $dataPubb = new \DateTime();
                             $dataPubb->add(new \DateInterval("PT{$ore}H"));
                             $dataPubb->setTimestamp($data['data_pubblicazione']);
 
                             $post['scheduled_publish_time'] = $data['data_pubblicazione'];
                             $post['published'] = false;
-                            $ore+=$ore;
+                            $ore += $ore;
                         }
 
 
@@ -188,7 +183,6 @@ class FotoController extends BaseController
                         try {
 
                             $graphObject = $facebookRequest->execute()->getGraphObject();
-
 
 
                             $idFacebook = $graphObject->getProperty('id');
@@ -212,30 +206,25 @@ class FotoController extends BaseController
                     $fbPost
                         /** Add link to post **/
                         ->createLink(
-                            'http://www.velaforfun.com/archivio/'.$articolo->getCategoria()->getPermalink().'/'.$articolo->getPermalink()
+                            'http://www.velaforfun.com/archivio/' . $articolo->getCategoria()->getPermalink() . '/' . $articolo->getPermalink()
                         )
                         /** Add message to your post **/
                         ->setMessage($articolo->getTitolo());
 
                     $provider = $this->get('wall_poster.twitter');
 
-                    try
-                    {
+                    try {
                         $post = $provider->publish($fbPost);
 
 
-                    }
-                    catch(Exception $ex)
-                    {
+                    } catch (Exception $ex) {
 
                         die(var_dump($ex->getMessage()));
                         //Handle errors
                     }
 
 
-
                     if ($fbPost) {
-
 
 
                         return new JsonResponse(array("success" => true));
@@ -247,7 +236,6 @@ class FotoController extends BaseController
                             )
                         );
                     }
-
 
 
                 }
@@ -324,8 +312,22 @@ class FotoController extends BaseController
         }
 
 
+        $tags = [];
+        foreach ($categorie->getFoto() as $foto) {
+            $tagsFoto = json_decode($foto->getTag(), true);
 
-        return $this->render('AppBundle:Foto:dettagliGalleria.html.twig', array("galleria" => $categorie));
+            if (is_array($tagsFoto)) {
+                foreach ($tagsFoto as $tagFoto) {
+                    if (!in_array($tagFoto, $tags)) {
+                        $tags[] = $tagFoto;
+                    }
+                }
+            }
+
+        }
+
+
+        return $this->render('AppBundle:Foto:dettagliGalleria.html.twig', array("galleria" => $categorie, "tags" => $tags));
     }
 
 
@@ -377,7 +379,7 @@ class FotoController extends BaseController
     public function dettagliFotoAction($permalink)
     {
 
-        $query = $this->getDoctrine()->getManager()->createQuery("SELECT u FROM \\AppBundle\\Entity\\Foto u  where u.tag like '%\"".strtoupper($permalink)."\"%' order by u.id desc");
+        $query = $this->getDoctrine()->getManager()->createQuery("SELECT u FROM \\AppBundle\\Entity\\Foto u  where u.tag like '%\"" . strtoupper($permalink) . "\"%' order by u.id desc");
         $categorie = $query->setFirstResult(0)->setMaxResults(9)->getResult();
 
 
@@ -388,10 +390,8 @@ class FotoController extends BaseController
         }
 
 
-        return $this->render('AppBundle:Foto:dettagliGalleria.html.twig', array("tag"=>$permalink, "galleria" => $categorie));
+        return $this->render('AppBundle:Foto:dettagliGalleria.html.twig', array("tag" => $permalink, "galleria" => $categorie));
     }
-
-
 
 
     /**
@@ -401,8 +401,15 @@ class FotoController extends BaseController
     {
 
 
-        $query = $this->getDoctrine()->getManager()->createQuery("SELECT u FROM \\AppBundle\\Entity\\Foto u  where u.tag like '%\"".strtoupper($permalink)."\"%'  order by u.id desc");
-        $video = $query->setFirstResult($r->get("offset"))->setMaxResults(3)->getResult();
+        if($permalink=="all"){
+            $query = $this->getDoctrine()->getManager()->createQuery("SELECT u FROM \\AppBundle\\Entity\\Foto u  order by u.id desc");
+
+        }else{
+            $query = $this->getDoctrine()->getManager()->createQuery("SELECT u FROM \\AppBundle\\Entity\\Foto u  where u.tag like '%\"" . strtoupper($permalink) . "\"%'  order by u.id desc");
+
+        }
+
+        $video = $query->setFirstResult($r->get("offset"))->setMaxResults(9)->getResult();
 
 
         return $this->render(
