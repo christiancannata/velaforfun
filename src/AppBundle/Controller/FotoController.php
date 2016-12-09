@@ -83,7 +83,7 @@ class FotoController extends BaseController
                 $foto[] = $fileUpload;
 
 
-                if ($ore > 0) {
+                if ($ore > 0 && !$this->container->get('security.context')->getToken() instanceof UsernamePasswordToken) {
 
 
                     /** Create you Post instance **/
@@ -175,6 +175,7 @@ class FotoController extends BaseController
                         }
 
 
+
                         //TODO: Handle errors
                         $facebookRequest = new FacebookRequest($session, 'POST', '/508027799222045/feed', $post);
 
@@ -201,14 +202,12 @@ class FotoController extends BaseController
                     }
 
 
-                    $fbPost = new Post();
+                   /* $fbPost = new Post();
 
                     $fbPost
-                        /** Add link to post **/
                         ->createLink(
                             'http://www.velaforfun.com/archivio/' . $articolo->getCategoria()->getPermalink() . '/' . $articolo->getPermalink()
                         )
-                        /** Add message to your post **/
                         ->setMessage($articolo->getTitolo());
 
                     $provider = $this->get('wall_poster.twitter');
@@ -220,11 +219,10 @@ class FotoController extends BaseController
                     } catch (Exception $ex) {
 
                         die(var_dump($ex->getMessage()));
-                        //Handle errors
-                    }
+                    } */
 
 
-                    if ($fbPost) {
+                    if ($idFacebook) {
 
 
                         return new JsonResponse(array("success" => true));
