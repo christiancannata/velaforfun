@@ -26,7 +26,14 @@
     {%- set panel = post_panel.class(post, post.topic) -%}
 
 
-
+    <style>
+        ul.share-buttons li{
+            margin-right:4px
+        }
+        ul.share-buttons li:last-child{
+            margin-right:0px
+        }
+    </style>
 
 
     {% if panel=="panel-primary" %}
@@ -34,8 +41,46 @@
 
 
             <div class="row clearfix">
-                <div class="col-md-12 column">
+                <div class="col-md-6 column">
                     <h1>{{- topic.getTitle |capitalize -}}</h1>
+
+                </div>
+
+                <div class="col-md-6 col-xs-6 column text-right hidden-xs">
+                    <ul class="share-buttons">
+                        <li><a href="#" onclick="window.print();"><i class="fa fa-print fa-2x"></i></a></li>
+                        <li>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=http://velaforfun.com{{ path(app.request.attributes.get('_route'),
+                            app.request.attributes.get('_route_params')) }}&t={{ topic.getTitle }}"
+                               target="_blank" title="Share on Facebook"
+                               onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL), 'Condividi su Facebook', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight); return false;"><i
+                                        class="fa fa-facebook-square fa-2x"></i></a></li>
+                        <li>
+                            <a href="https://twitter.com/intent/tweet?source=http://velaforfun.com{{ path(app.request.attributes.get('_route'),
+                            app.request.attributes.get('_route_params')) }}&text={{ topic.getTitle }}:%20http://velaforfun.com{{ path(app.request.attributes.get('_route'),
+                            app.request.attributes.get('_route_params')) }}"
+                               target="_blank" title="Tweet"
+                               onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20' + encodeURIComponent(document.URL), 'Condividi su Twitter', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight); return false;"><i
+                                        class="fa fa-twitter-square fa-2x"></i></a></li>
+                        <li>
+                            <a href="https://plus.google.com/share?url=http://velaforfun.com{{ path(app.request.attributes.get('_route'),
+                            app.request.attributes.get('_route_params')) }}"
+                               target="_blank" title="Share on Google+"
+                               onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL), 'Condividi su Google+', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight); return false;"><i
+                                        class="fa fa-google-plus-square fa-2x"></i></a></li>
+                        <li>
+                            <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://velaforfun.com{{ path(app.request.attributes.get('_route'),
+                            app.request.attributes.get('_route_params')) }}&title={{ topic.getTitle }}&summary=&source=http%3A%2F%2Fwww.google.it"
+                               target="_blank" title="Share on LinkedIn"
+                               onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title), 'Condividi su Linkedin', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight); return false;"><i
+                                        class="fa fa-linkedin-square fa-2x"></i></a></li>
+                        <li>
+                            <a href="mailto:?subject=&body=:%20http://velaforfun.com{{ path(app.request.attributes.get('_route'),
+                            app.request.attributes.get('_route_params')) }}"
+                               target="_blank" title="Email"
+                               onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><i
+                                        class="fa fa-envelope-square fa-2x"></i></a></li>
+                    </ul>
 
                 </div>
             </div>
