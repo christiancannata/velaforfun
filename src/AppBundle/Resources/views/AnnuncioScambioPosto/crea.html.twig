@@ -3,7 +3,13 @@
 
 
 {% block title %}
-    Crea annuncio scambio posto barca
+    {% if title is defined %}
+        {{ title }}
+    {% else %}
+        Crea annuncio scambio posto barca
+    {% endif %}
+
+
 {% endblock %}
 
 
@@ -15,7 +21,15 @@
 
      <div class="col-md-12 column">
         <div class="category">
-            <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>  <h1>Nuovo annuncio scambio posto barca</h1>
+            <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>
+
+            <h1>
+                {% if title is defined %}
+                    {{ title }}
+                {% else %}
+                    Nuovo annuncio scambio posto barca
+                {% endif %}
+                </h1>
         </div>
     </div>
 
@@ -39,6 +53,24 @@
 
         </div>
         <div class="col-md-4 column">
+
+
+
+            <div class="content">
+                <div class="colonna-destra" style="margin-bottom: 20px">
+
+
+                    <p>Compila i campi nel modo più preciso possibile, solo così potrai essere
+                        contattato.<br>Se vorrai aggiungere delle informazioni al tuo annuncio o
+                        rispondere a chi ti contatterà dovrai <a href="/register">iscriverti</a> gratuitamente alla
+                        nostra community.</p>
+
+                </div>
+
+
+            </div>
+
+
 
 
         </div>

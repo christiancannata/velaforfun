@@ -173,20 +173,20 @@ class AnnuncioImbarcoController extends BaseController
                 );
 
                 $testo = "<strong>Ruolo richiesto:</strong> " . $annuncio->getRuoloRichiesto();
-                $testo .= "<br><br><strong>Luogo:</strong> " . $annuncio->getLuogo();
+                $testo .= "<br><strong>Luogo:</strong> " . $annuncio->getLuogo();
 
 
                 if (trim($annuncio->getCosto()) != "") {
-                    $testo .= "<br><br><strong>Prezzo:</strong> " . $annuncio->getCosto();
+                    $testo .= "<br><strong>Prezzo:</strong> " . $annuncio->getCosto();
 
                 }
 
                 if (trim($annuncio->getTempo()) != "") {
-                    $testo .= "<br><br><strong>Periodo:</strong> " . $annuncio->getTempo();
+                    $testo .= "<br><strong>Periodo:</strong> " . $annuncio->getTempo();
 
                 }
 
-                $testo .= "<br><br><strong>Tipo:</strong> " . $annuncio->getTipo() . "<br><br>";
+                $testo .= "<br><strong>Tipo:</strong> " . $annuncio->getTipo() . "<br><br>";
 
 
                 $testo .= nl2br($annuncio->getDescrizione());

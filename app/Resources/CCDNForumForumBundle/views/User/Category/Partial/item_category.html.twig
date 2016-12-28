@@ -1,8 +1,10 @@
 {%- spaceless -%}
     <!--<div class="divisore-big background-celeste">
     </div>-->
+    {% if category.id != 15 %}
 
-    <span title="{{- category.name -}}" class="lead">
+
+	<span title="{{- category.name -}}" class="lead">
 		<a href="{{- path('ccdn_forum_user_category_show', {'forumName': forumName, 'categoryId': category.id }) -}}" title="{{- category.name -}}">
 			{{- category.name -}}
 		</a>
@@ -44,4 +46,5 @@
 	</section>
 
 	<br>
+    {% endif %}
 {%- endspaceless -%}

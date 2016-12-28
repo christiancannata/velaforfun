@@ -199,7 +199,7 @@ class AnnuncioController extends BaseController
             return new JsonResponse($response);
         }
 
-        return $this->render('AppBundle:AnnuncioScambioPosto:crea.html.twig', array("form" => $postform->createView()));
+        return $this->render('AppBundle:AnnuncioScambioPosto:crea.html.twig', array("form" => $postform->createView(),"title"=>"Nuovo annuncio compro/vendo"));
     }
 
 
@@ -356,23 +356,22 @@ class AnnuncioController extends BaseController
     public function annunciAction($page)
     {
 
-        $query = $this->getDoctrine()
-            ->getRepository('AppBundle:Annuncio')->createQueryBuilder('p')
-            ->orderBy('p.id', 'DESC')
-            ->getQuery();
+
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder();
+
+        $qb->select(array('a'))
+            ->from('\\AppBundle\\Entity\\Annuncio', 'a')
+            ->join('a.topic', 'c')
+        ->where("c.isDeleted=false and c.isClosed=false ");
+
+        $query = $qb->getQuery();
 
         // No need to manually get get the result ($query->getResult())
 
 
         $annunci = $this->paginate($query, $page);
 
-
-        foreach($annunci as $key=>$annuncio) {
-            if ($annuncio->getTopic()->isDeleted() || $annuncio->getTopic()->isClosed()) {
-              //  $annunci->removeElement($annuncio);
-
-            }
-        }
 
         $titolo = "Annunci Vendo/Compro";
 

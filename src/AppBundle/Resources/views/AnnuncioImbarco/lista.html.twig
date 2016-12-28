@@ -34,7 +34,24 @@
 
 
 {% block body %}
-
+    <style>
+        .tr-forum .tag{
+            padding:3px;
+            font-size:10px;
+            cursor:default;
+            margin:0px 0px 0px 0px !important;
+            height:auto;
+            line-height:10px;
+        }
+        .tr-forum .tag.CERCO{
+            background: #ff4d4d;
+            color:white !important;
+        }
+        .tr-forum .tag.OFFRO{
+            background: forestgreen;
+            color:white !important;
+        }
+    </style>
 
     <!-- contenuto -->
     <div class="row clearfix">
@@ -70,7 +87,7 @@
                         <table class="table table-striped table-hover">
                             <thead>
                             <tr>
-                                <th></th>
+
                                 <th>Titolo</th>
                                 <th align="center" class="center" style="width:60px;">Inserito il</th>
                                 <th align="center" class="center" style="width:60px;"><i class="fa fa-reply"></i></th>
@@ -81,8 +98,9 @@
                             <tbody>
                             {% for annuncio in annunci %}
                                 <tr class="tr-forum">
-                                    <td>{{ annuncio.tipoAnnuncio }}</td>
-                                    <td class="left">{{ annuncio.topic.title }}</td>
+
+                                    <td class="left"><span class="tag {{ annuncio.tipoAnnuncio }}">{{ annuncio.tipoAnnuncio }}</span>
+                                        {{ annuncio.topic.title }}</td>
                                     <td align="center" class="center"
                                         style="width: 100px;padding:10px 0px 10px 0px !important;">
                                         <div class="td-boarded">{{ annuncio.timestamp|date("d/m/Y H:i") }}</div>
