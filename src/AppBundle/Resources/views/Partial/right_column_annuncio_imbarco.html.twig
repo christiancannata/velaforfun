@@ -44,4 +44,179 @@
 
 
 
+<div id="modalVideo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                {% if app.user %}
+
+                    <form action="cerca-annuncio" method="post" name="appbundle_annuncioimbarco">
+                        <div id="appbundle_annuncioimbarco">
+                            <input type="hidden" name="appbundle_annuncioimbarco[tipoAnnuncio]" value="CERCO">
+
+                            <div class="form-group"><input type="hidden" class="form-control"
+                                                           name="appbundle_annuncioimbarco[titolo]"
+                                                           id="appbundle_annuncioimbarco_titolo"></div>
+                            <div class="form-group"><input type="hidden" class="form-control" required="required"
+                                                           name="appbundle_annuncioimbarco[referente]"
+                                                           id="appbundle_annuncioimbarco_referente"></div>
+                            <div class="form-group"><input type="hidden" class="form-control"
+                                                           name="appbundle_annuncioimbarco[telefono]"
+                                                           id="appbundle_annuncioimbarco_telefono"></div>
+                            <div class="form-group">
+                                <label for="appbundle_annuncioimbarco_luogo" class="control-label required">Dove
+                                    vuoi andare?</label>
+                                <select class="form-control" name="appbundle_annuncioimbarco[luogo]"
+                                        id="appbundle_annuncioimbarco_luogo">
+                                    <option value="TUTTO">Tutti</option>
+                                    <option value="NORD_ITALIA">Nord Italia</option>
+                                    <option value="SUD_ITALIA">Sud Italia</option>
+                                    <option value="CENTRO">Centro</option>
+                                    <option value="ESTERO">Estero</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="appbundle_annuncioimbarco_tipo" class="control-label required">Tipo di
+                                    imbarcazione</label>
+                                <select class="form-control" name="appbundle_annuncioimbarco[tipo]"
+                                        id="appbundle_annuncioimbarco_tipo">
+                                    <option value="TUTTO">Tutti</option>
+                                    <option value="CABINATO">Cabinato</option>
+                                    <option value="DERIVA">Deriva</option>
+                                    <option value="ALTRO">Altro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="appbundle_annuncioimbarco_ruoloRichiesto"
+                                       class="control-label required">Ruolo da ricoprire</label>
+                                <select class="form-control" name="appbundle_annuncioimbarco[ruoloRichiesto]"
+                                        id="appbundle_annuncioimbarco_ruoloRichiesto">
+                                    <option value="TUTTO">Tutti</option>
+                                    <option value="PRODIERE">Prodiere</option>
+                                    <option value="UOMO_ALBERO">Uomo Albero</option>
+                                    <option value="PITMAN">Pitman</option>
+                                    <option value="GRINDER">Grinder</option>
+                                    <option value="TAILER">Tailer</option>
+                                    <option value="TATTICO">Tattico</option>
+                                    <option value="SKIPPER">Skipper</option>
+                                    <option value="RANDISTA">Randista</option>
+                                    <option value="TIMONIERE">Timoniere</option>
+                                    <option value="CUOCO">Cuoco</option>
+                                    <option value="MOZZO_GENERICO">Mozzo Generico</option>
+                                    <option value="COMANDANTE">Comandante</option>
+                                    <option value="SECONDO">Secondo</option>
+                                    <option value="MOTORISTA">Motorista</option>
+                                    <option value="STEWARD">Steward</option>
+                                    <option value="HOSTESS">Hostess</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="appbundle_annuncioimbarco_costo" class="control-label required">Retribuzione</label>
+                                <select class="form-control" name="appbundle_annuncioimbarco[costo]"
+                                        id="appbundle_annuncioimbarco_costo">
+                                    <option value="TUTTO">Tutti</option>
+                                    <option value="GRATIS">Gratis</option>
+                                    <option value="A_PAGAMENTO">A pagamento</option>
+                                    <option value="PAGATO">Pagato</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input name="appbundle_annuncioimbarco[tempo]"
+                                       id="appbundle_annuncioimbarco_descrizione" type="hidden">
+                                <input name="appbundle_annuncioimbarco[descrizione]"
+                                       id="appbundle_annuncioimbarco_descrizione" type="hidden">
+                            </div>
+                            <label for="BoostCakeCheckbox"><input type="hidden" id="notificaAnnuncio" checked
+                                                                  value="1"
+                                                                  name="appbundle_annuncioimbarco[notifica]"></label>
+                        </div>
+
+                        <button type="submit" onclick='' class="btn btn-default login hvr-sweep-to-right">Ricevi notifiche
+                        </button>
+                        <input type="hidden" class="callback" value="riceviNotifica">
+                    </form>
+
+                    <div class="response-form" style="display: none"></div>
+                {% else %}
+
+
+                    <div class="col-md-12 column" style="">
+                        <a href="/secure_area/connect/facebook"
+                           class="btn btn-block btn-social btn-lg btn-facebook"
+                           id="loginFacebook">
+                            <i class="fa fa-facebook"></i>
+                            Accedi con Facebook
+                        </a>
+                    </div>
+                    <div class="col-md-12 column" style="text-align:center;width:100%;">
+                        <div class="divisore-big"></div>
+
+                        <span style="font-size: 20px">oppure inserisci i tuoi dati di accesso</span>
+
+                        <div class="divisore-big"></div>
+                    </div>
+
+
+
+
+                    <div class="col-md-12 column" style="">
+                        <form method="post" action="/login_check">
+
+                            <div class="form-group"><label for="fos_user_registration_form_username"
+                                                           class="control-label required">Username:</label><input
+                                        type="text" class="form-control" pattern=".{2,}" maxlength="255"
+                                        required="required" name="_username" id="username"></div>
+                            <div class="form-group"><label for="fos_user_registration_form_plainPassword_first"
+                                                           class="control-label required">Password:</label><input
+                                        type="password" class="form-control" required="required" name="_password"
+                                        id="password"></div>
+
+                            <div class="form-group">
+
+                                <input type="checkbox" value="on" name="_remember_me" id="remember_me">
+                                <label for="remember_me">Ricordami</label>
+                            </div>
+                            <input type="submit" value="Accedi" class="btn btn-default login hvr-sweep-to-right">
+
+                        </form>
+
+                    </div>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="annuncioCreato">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Annuncio Cerco Imbarco</h4>
+            </div>
+            <div class="modal-body" style="min-height: 10px;">
+                <p>Complimenti, il tuo annuncio è stato creato con successo!<br>
+                    Riceverai una notifica via mail ogni volta che viene inserito un annuncio di ricerca imbarco che corrisponde alla tue preferenze.<br>
+                    <a href="/tuo-profilo">Clicca qui per modificarle</a>.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 
