@@ -335,7 +335,7 @@ class Foto
             // generate a unique filename
             $oggi = new \DateTime();
             $filename = str_replace(" ", "", $this->getNome())."-".$oggi->format("U");
-            $this->setImmagine($filename.'.'.$this->getProfilePictureFile()->guessExtension());
+            $this->setImmagine($filename."-".$this->getProfilePictureFile()->getClientOriginalName());
         }
     }
 
