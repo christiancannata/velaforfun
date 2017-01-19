@@ -86,6 +86,7 @@ class FotoController extends BaseController
 
 
                 $em->persist($fileUpload);
+                $em->flush();
 
                 $foto[] = $fileUpload;
 
@@ -255,7 +256,7 @@ class FotoController extends BaseController
                 }
             }
 
-            $em->flush();
+
 
 
             $response['success'] = true;
