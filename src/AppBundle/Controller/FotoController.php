@@ -46,6 +46,14 @@ class FotoController extends BaseController
             $ore = (isset($params['pubblicazione']))?$params['pubblicazione']:0;
 
 
+            if(empty($files)){
+                return new JsonResponse(
+                    array(
+                        "success" => false,
+                        "error" => "Errore non ci sono foto da aggiungere"
+                    )
+                );
+            }
             // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
             foreach ($files as $key => $uploadedFile) {
                 $fileUpload = new Foto();
