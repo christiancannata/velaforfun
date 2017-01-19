@@ -156,11 +156,15 @@ class FotoController extends BaseController
 
 
                         $em = $this->container->get('doctrine')->getManager();
-
+                        $testo="";
+                        foreach ($tags as $tag) {
+                            $testo.="#".$tag." ";
+                        }
 
                         $post = array(
-                            "message" => $fileUpload->getNome(),
+                            "message" => $testo,
                             "picture" => 'http://www.velaforfun.com/images/' . $immagineArticolo,
+                            "link"=>'http://www.velaforfun.com/images/' . $immagineArticolo
                         );
 
 
