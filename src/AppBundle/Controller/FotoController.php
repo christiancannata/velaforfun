@@ -233,7 +233,7 @@ class FotoController extends BaseController
                     if ($idFacebook) {
 
 
-                        return new JsonResponse(array("success" => true));
+                       // return new JsonResponse(array("success" => true));
                     } else {
                         return new JsonResponse(
                             array(
