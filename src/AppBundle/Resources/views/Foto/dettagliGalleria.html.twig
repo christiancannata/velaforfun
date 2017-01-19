@@ -109,6 +109,19 @@
             -ms-transform: translate(0, 0);
             transform: translate(0, 0);
         }
+
+        .video-box .box-home .content h2,.video-box .box-home:hover .box-action h2{
+            margin-top:0px;
+            background:none
+        }
+        .video-box .box-home .box-action h2 .tag{
+            background:rgba(66, 156, 188,0.7)
+        }
+
+        .video-box .box-home:hover .box-action h2 .tag{
+        background:rgba(66, 156, 188,1)
+        }
+
     </style>
 {% endblock %}
 
@@ -153,7 +166,7 @@
                 <div class="box-action">
                     {% set tags = foto.getTag()|json_decode %}
 
-                    <h2>{{ foto.nome }}
+                    <h2>
 
                         {% for tag in tags %}
                             <span class="tag">{{ tag }}</span>
