@@ -1,10 +1,32 @@
+<div class="colonna-destra" style="margin-bottom: 20px">
+    <h2>E' ora di cambiare mare... scambia il tuo posto barca!</h2>
+    <p>Crea il tuo annuncio gratuitamente e verrai contattato da chi è interessato a scambiare il tuo posto barca in
+        base alle tue preferenze</p>
+    <button type="submit" class="btn btn-default login hvr-sweep-to-right" onclick="location.href='/annuncio-scambio-posto/nuovo-annuncio'">CREA
+        ORA IL TUO ANNUNCIO
+    </button>
+
+</div>
 
 
+<div class="colonna-destra" style="margin-bottom: 20px">
+    <h2 class="foreground-verde">Vuoi cercare chi scambierebbe il suo posto barca?</h2>
+    <p>Cerca tra gli annunci di chi vuole scambiare il suo posto barca e scegli in base alle tue preferenze</p>
+    <button type="submit" class="btn btn-default login hvr-sweep-to-right background-verde"
+            onclick="location.href='/annuncio-scambio-posto/cerca-annuncio'">CERCA TRA GLI ANNUNCI
+    </button>
 
 
+</div>
 
 
-
+<div class="colonna-destra" style="margin-bottom: 20px">
+    <h2 class="foreground-verde">Vuoi ricevere notifiche?</h2>
+    <p>Se sei alla ricerca di un posto, ricevi una mail per gli annunci compatibili con le tue preferenze</p>
+    <button type="submit" class="btn btn-default login hvr-sweep-to-right background-verde notifiche">RICEVI LE
+        NOTIFICHE
+    </button>
+</div>
 
 
 <div id="modalVideo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -18,16 +40,21 @@
 
                     <form action="cerca-annuncio" method="post" name="appbundle_annuncioscambioposto">
                         <div id="appbundle_annuncioscambioposto">
-                            <input type="hidden"  name="appbundle_annuncioscambioposto[telefono]" />
+                            <input type="hidden" name="appbundle_annuncioscambioposto[telefono]"/>
                             <div class="form-group">
-                                <label for="appbundle_annuncioscambioposto_luogoAttuale" class="control-label required">Dove hai la barca adesso?</label>
-                                <select data-live-search="true" class="form-control" name="appbundle_annuncioscambioposto[luogoAttuale]" id="appbundle_annuncioscambioposto_luogoAttuale">
+                                <label for="appbundle_annuncioscambioposto_luogoAttuale" class="control-label required">Dove
+                                    hai la barca adesso?</label>
+                                <select data-live-search="true" class="form-control"
+                                        name="appbundle_annuncioscambioposto[luogoAttuale]"
+                                        id="appbundle_annuncioscambioposto_luogoAttuale">
 
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="appbundle_annuncioscambioposto_luogoRicercato" class="control-label required">Dove cerchi un posto?</label>
-                                <select class="form-control" name="appbundle_annuncioscambioposto[luogoRicercato]" id="appbundle_annuncioscambioposto_luogoRicercato">
+                                <label for="appbundle_annuncioscambioposto_luogoRicercato"
+                                       class="control-label required">Dove cerchi un posto?</label>
+                                <select class="form-control" name="appbundle_annuncioscambioposto[luogoRicercato]"
+                                        id="appbundle_annuncioscambioposto_luogoRicercato">
                                     <option value="TUTTO" selected>Ovunque</option>
                                     <option value="NORD_ITALIA_TIRRENO">Nord Italia Tirreno</option>
                                     <option value="NORD_ITALIA_ADRIATICO">Nord Italia Adriatico</option>
@@ -41,18 +68,32 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="appbundle_annuncioscambioposto_tipo" class="control-label required">Cosa?</label>
-                                <select class="form-control" name="appbundle_annuncioscambioposto[tipo]" id="appbundle_annuncioscambioposto_tipo">
+                                <label for="appbundle_annuncioscambioposto_tipo"
+                                       class="control-label required">Cosa?</label>
+                                <select class="form-control" name="appbundle_annuncioscambioposto[tipo]"
+                                        id="appbundle_annuncioscambioposto_tipo">
                                     <option value="TUTTO" selected>Tutto</option>
                                     <option value="VELA">Vela</option>
                                     <option value="MOTORE">Motore</option>
                                     <option value="ALTRO">Altro</option>
                                 </select>
                             </div>
-                            <div class="form-group hide">                <label for="appbundle_annuncioscambioposto_tempo" class="control-label">Tempo (specifica se possibile le date e/o la durata e/o il periodo)</label><input type="text" class="form-control" name="appbundle_annuncioscambioposto[tempo]" id="appbundle_annuncioscambioposto_tempo"></div>
-                            <div class="form-group hide">                <label for="appbundle_annuncioscambioposto_lunghezza" class="control-label">Lunghezza (metri)</label><input type="text" class="form-control" name="appbundle_annuncioscambioposto[lunghezza]" id="appbundle_annuncioscambioposto_lunghezza"></div>
-                            <input type="hidden" name="appbundle_annuncioscambioposto[descrizione]" id="appbundle_annuncioscambioposto_descrizione" style="display: none;" />
-                        </div>   <label for="BoostCakeCheckbox"><input type="hidden" id="BoostCakeCheckbox" checked value="1" name="appbundle_annuncioscambioposto[notifica]"></label>
+                            <div class="form-group hide"><label for="appbundle_annuncioscambioposto_tempo"
+                                                                class="control-label">Tempo (specifica se possibile le
+                                    date e/o la durata e/o il periodo)</label><input type="text" class="form-control"
+                                                                                     name="appbundle_annuncioscambioposto[tempo]"
+                                                                                     id="appbundle_annuncioscambioposto_tempo">
+                            </div>
+                            <div class="form-group hide"><label for="appbundle_annuncioscambioposto_lunghezza"
+                                                                class="control-label">Lunghezza (metri)</label><input
+                                        type="text" class="form-control"
+                                        name="appbundle_annuncioscambioposto[lunghezza]"
+                                        id="appbundle_annuncioscambioposto_lunghezza"></div>
+                            <input type="hidden" name="appbundle_annuncioscambioposto[descrizione]"
+                                   id="appbundle_annuncioscambioposto_descrizione" style="display: none;"/>
+                        </div>
+                        <label for="BoostCakeCheckbox"><input type="hidden" id="BoostCakeCheckbox" checked value="1"
+                                                              name="appbundle_annuncioscambioposto[notifica]"></label>
 
                         <button type="submit" class="btn btn-default login hvr-sweep-to-right">Cerca</button>
                         <input type="hidden" class="callback" value="riceviNotifica">
@@ -84,8 +125,14 @@
                     <div class="col-md-12 column" style="">
                         <form method="post" action="/login_check">
 
-                            <div class="form-group">                <label for="fos_user_registration_form_username" class="control-label required">Username:</label><input type="text" class="form-control" pattern=".{2,}" maxlength="255" required="required" name="_username" id="username"></div>
-                            <div class="form-group">                <label for="fos_user_registration_form_plainPassword_first" class="control-label required">Password:</label><input type="password" class="form-control" required="required" name="_password" id="password"></div>
+                            <div class="form-group"><label for="fos_user_registration_form_username"
+                                                           class="control-label required">Username:</label><input
+                                        type="text" class="form-control" pattern=".{2,}" maxlength="255"
+                                        required="required" name="_username" id="username"></div>
+                            <div class="form-group"><label for="fos_user_registration_form_plainPassword_first"
+                                                           class="control-label required">Password:</label><input
+                                        type="password" class="form-control" required="required" name="_password"
+                                        id="password"></div>
 
                             <div class="form-group">
 
@@ -106,9 +153,6 @@
 </div>
 
 
-
-
-
 <div class="modal fade" id="annuncioCreato">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -119,7 +163,8 @@
             </div>
             <div class="modal-body" style="min-height: 10px;">
                 <p>Complimenti, il tuo annuncio è stato creato con successo!<br>
-                    Riceverai una notifica via mail ogni volta che viene inserito un annuncio di ricerca imbarco che corrisponde alla tue preferenze.<br>
+                    Riceverai una notifica via mail ogni volta che viene inserito un annuncio di ricerca imbarco che
+                    corrisponde alla tue preferenze.<br>
                     <a href="/tuo-profilo">Clicca qui per modificarle</a>.</p>
             </div>
             <div class="modal-footer">
