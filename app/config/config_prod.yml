@@ -13,28 +13,26 @@ imports:
 
 monolog:
     handlers:
-        main:
+        mail:
             type:         fingers_crossed
+            # 500 errors are logged at the critical level
             action_level: critical
-            handler:      grouped
-        grouped:
-            type:    group
-            members: [streamed, deduplicated]
-        streamed:
-            type:  stream
-            path:  '%kernel.logs_dir%/%kernel.environment%.log'
-            level: debug
-        deduplicated:
-            type:    deduplication
+            # to also log 400 level errors (but not 404's):
+            # action_level: error
+            # excluded_404s:
+            #     - ^/
+            handler:      buffered
+        buffered:
+            type:    buffer
             handler: swift
         swift:
             type:       swift_mailer
-            from_email: 'velaforfun@velaforfun.com'
-            to_email:   'christiancannata@gmail.com'
-            subject:    'An Error Occurred! %%message%%'
+            from_email: velaforfun@velaforfun.com
+            to_email:   christian1488@hotmail.it
+            # or list of recipients
+            # to_email:   [dev1@example.com, dev2@example.com, ...]
+            subject:    Errore velaforfun
             level:      debug
-            formatter:  monolog.formatter.html
-            content_type: text/html
 
 swiftmailer:
     transport: smtp
