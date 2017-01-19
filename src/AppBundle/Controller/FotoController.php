@@ -43,7 +43,7 @@ class FotoController extends BaseController
 
             $files = $files['foto'];
 
-            $ore = $params['pubblicazione'];
+            $ore = (isset($params['pubblicazione']))?$params['pubblicazione']:0;
 
 
             // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
