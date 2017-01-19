@@ -76,8 +76,17 @@ class FotoController extends BaseController
 
                 $fileUpload->setInEvidenza(true);
 
-
+            try{
                 $em->persist($fileUpload);
+
+            }catch(\Exception $e){
+                return new JsonResponse(
+                    array(
+                        "success" => false,
+                        "error" => $e->getMessage()
+                    )
+                );
+            }
 
 
                 $foto[] = $fileUpload;
@@ -228,6 +237,7 @@ class FotoController extends BaseController
 
                         die(var_dump($ex->getMessage()));
                     } */
+
 
 
                     if ($idFacebook) {
