@@ -158,7 +158,10 @@ class FotoController extends BaseController
                         $em = $this->container->get('doctrine')->getManager();
                         $testo="";
                         foreach ($tags as $tag) {
-                            $testo.="#".$tag." ";
+                            if($tag!=""){
+                                $testo.="#".$tag." ";
+
+                            }
                         }
 
                         $post = array(
