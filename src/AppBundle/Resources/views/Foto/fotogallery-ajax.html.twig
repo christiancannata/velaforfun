@@ -15,7 +15,8 @@
                                 <div class="box-action">
                                     {% set tags = foto.getTag()|json_decode %}
 
-                                    <h2>{{ foto.nome }}
+                                    <h2>
+
 
                                         {% for tag in tags %}
                                             <span class="tag">{{ tag }}</span>

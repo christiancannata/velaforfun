@@ -13,26 +13,18 @@ imports:
 
 monolog:
     handlers:
-        mail:
-            type:         fingers_crossed
-            # 500 errors are logged at the critical level
-            action_level: critical
-            # to also log 400 level errors (but not 404's):
-            # action_level: error
-            # excluded_404s:
-            #     - ^/
-            handler:      buffered
-        buffered:
-            type:    buffer
-            handler: swift
-        swift:
-            type:       swift_mailer
-            from_email: velaforfun@velaforfun.com
-            to_email:   christian1488@hotmail.it
-            # or list of recipients
-            # to_email:   [dev1@example.com, dev2@example.com, ...]
-            subject:    Errore velaforfun
-            level:      debug
+        # this "file_log" key could be anything
+        file_log:
+            type: stream
+            # log to var/logs/(environment).log
+            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            # log *all* messages (debug is lowest level)
+            level: debug
+
+        syslog_handler:
+            type: syslog
+            # log error-level messages and higher
+            level: error
 
 swiftmailer:
     transport: smtp
