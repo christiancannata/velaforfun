@@ -97,6 +97,7 @@ class FotoController extends BaseController
                     }
 
 
+
                     $fbPost = $fbPost->createImage(
                         $this->get('kernel')->getRootDir() . "/../web/uploads/" . $immagineArticolo,
                         'http://www.velaforfun.com/images/' . $immagineArticolo
