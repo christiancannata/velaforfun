@@ -13,18 +13,28 @@ imports:
 
 monolog:
     handlers:
-        # this "file_log" key could be anything
-        file_log:
-            type: stream
-            # log to var/logs/(environment).log
-            path: "%kernel.logs_dir%/%kernel.environment%.log"
-            # log *all* messages (debug is lowest level)
+        main:
+            type:         fingers_crossed
+            action_level: critical
+            handler:      grouped
+        grouped:
+            type:    group
+            members: [streamed, deduplicated]
+        streamed:
+            type:  stream
+            path:  '%kernel.logs_dir%/%kernel.environment%.log'
             level: debug
-
-        syslog_handler:
-            type: syslog
-            # log error-level messages and higher
-            level: error
+        deduplicated:
+            type:    deduplication
+            handler: swift
+        swift:
+            type:       swift_mailer
+            from_email: 'velaforfun@velaforfun.com'
+            to_email:   'christiancannata@gmail.com'
+            subject:    'An Error Occurred! %%message%%'
+            level:      debug
+            formatter:  monolog.formatter.html
+            content_type: text/html
 
 swiftmailer:
     transport: smtp
