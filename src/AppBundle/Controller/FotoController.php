@@ -43,10 +43,10 @@ class FotoController extends BaseController
 
             $files = $files['foto'];
 
-            $ore = (isset($params['pubblicazione']))?$params['pubblicazione']:0;
+            $ore = (isset($params['pubblicazione'])) ? $params['pubblicazione'] : 0;
 
 
-            if(empty($files)){
+            if (empty($files)) {
                 return new JsonResponse(
                     array(
                         "success" => false,
@@ -103,7 +103,6 @@ class FotoController extends BaseController
                     if ($fileUpload->getImmagine() != "") {
                         $immagineArticolo = 'galleria_foto/' . $fileUpload->getImmagine();
                     }
-
 
 
                     $fbPost = $fbPost->createImage(
@@ -165,10 +164,10 @@ class FotoController extends BaseController
 
 
                         $em = $this->container->get('doctrine')->getManager();
-                        $testo="";
+                        $testo = "";
                         foreach ($tags as $tag) {
-                            if($tag!=""){
-                                $testo.="#".$tag." ";
+                            if ($tag != "") {
+                                $testo .= "#" . $tag . " ";
 
                             }
                         }
@@ -176,20 +175,16 @@ class FotoController extends BaseController
                         $post = array(
                             "message" => $testo,
                             "picture" => 'http://www.velaforfun.com/uploads/' . $immagineArticolo,
-                            "link"=>'http://www.velaforfun.com/uploads/' . $immagineArticolo
+                            "link" => 'http://www.velaforfun.com/uploads/' . $immagineArticolo
                         );
 
 
-                        if (isset($data['data_pubblicazione']) && $data['data_pubblicazione'] != "") {
-                            $dataPubb = new \DateTime();
-                            $dataPubb->add(new \DateInterval("PT{$ore}H"));
-                            $dataPubb->setTimestamp($data['data_pubblicazione']);
+                        $dataPubb = new \DateTime();
+                        $dataPubb->add(new \DateInterval("PT{$ore}H"));
 
-                            $post['scheduled_publish_time'] = $data['data_pubblicazione'];
-                            $post['published'] = false;
-                            $ore += $ore;
-                        }
-
+                        $post['scheduled_publish_time'] = $dataPubb->format("U");
+                        $post['published'] = false;
+                        $ore += $ore;
 
 
                         //TODO: Handle errors
@@ -218,31 +213,30 @@ class FotoController extends BaseController
                     }
 
 
-                   /* $fbPost = new Post();
+                    /* $fbPost = new Post();
 
-                    $fbPost
-                        ->createLink(
-                            'http://www.velaforfun.com/archivio/' . $articolo->getCategoria()->getPermalink() . '/' . $articolo->getPermalink()
-                        )
-                        ->setMessage($articolo->getTitolo());
+                     $fbPost
+                         ->createLink(
+                             'http://www.velaforfun.com/archivio/' . $articolo->getCategoria()->getPermalink() . '/' . $articolo->getPermalink()
+                         )
+                         ->setMessage($articolo->getTitolo());
 
-                    $provider = $this->get('wall_poster.twitter');
+                     $provider = $this->get('wall_poster.twitter');
 
-                    try {
-                        $post = $provider->publish($fbPost);
+                     try {
+                         $post = $provider->publish($fbPost);
 
 
-                    } catch (Exception $ex) {
+                     } catch (Exception $ex) {
 
-                        die(var_dump($ex->getMessage()));
-                    } */
-
+                         die(var_dump($ex->getMessage()));
+                     } */
 
 
                     if ($idFacebook) {
 
 
-                       // return new JsonResponse(array("success" => true));
+                        // return new JsonResponse(array("success" => true));
                     } else {
                         return new JsonResponse(
                             array(
@@ -255,8 +249,6 @@ class FotoController extends BaseController
 
                 }
             }
-
-
 
 
             $response['success'] = true;
@@ -416,10 +408,10 @@ class FotoController extends BaseController
     {
 
 
-        if($permalink=="all"){
+        if ($permalink == "all") {
             $query = $this->getDoctrine()->getManager()->createQuery("SELECT u FROM \\AppBundle\\Entity\\Foto u, \\AppBundle\\Entity\\GalleriaFoto g where u.galleria=g and g.inGallery=1 order by u.id desc");
 
-        }else{
+        } else {
             $query = $this->getDoctrine()->getManager()->createQuery("SELECT u FROM \\AppBundle\\Entity\\Foto u  where u.tag like '%\"" . strtoupper($permalink) . "\"%'  order by u.id desc");
 
         }
