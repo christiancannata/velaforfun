@@ -69,7 +69,7 @@ class FotoController extends BaseController
                 $clear = [];
                 foreach ($tags as $key => $tag) {
                     if (!empty(trim($tag))) {
-                        $clear[] = $tag;
+                        $clear[] = trim($tag);
                     }
                 }
 
@@ -167,7 +167,7 @@ class FotoController extends BaseController
                         $testo = "";
                         foreach ($clear as $tag) {
                             if ($tag != "") {
-                                $testo .= "#" . $tag . " ";
+                                $testo .= "#" . trim($tag) . " ";
 
                             }
                         }
