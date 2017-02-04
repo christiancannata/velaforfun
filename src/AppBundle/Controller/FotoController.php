@@ -113,7 +113,7 @@ class FotoController extends BaseController
                         /** Add message to your post **/
                         ->setMessage($fileUpload->getNome());
 
-                    foreach ($tags as $tag) {
+                    foreach ($clear as $tag) {
                         $fbPost->addTag($tag);
                     }
 
@@ -165,7 +165,7 @@ class FotoController extends BaseController
 
                         $em = $this->container->get('doctrine')->getManager();
                         $testo = "";
-                        foreach ($tags as $tag) {
+                        foreach ($clear as $tag) {
                             if ($tag != "") {
                                 $testo .= "#" . $tag . " ";
 
