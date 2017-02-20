@@ -183,8 +183,7 @@ class ArticoloController extends BaseController
     {
 
 
-        $dql = "SELECT count(p.id) FROM BlogBundle:Articolo p JOIN p.categoria c where c.id=2 order by p.id desc";
-        $count = $this->getDoctrine()->getManager()->createQuery($dql)->getSingleScalarResult();
+
 
         $dql = "SELECT p FROM BlogBundle:Articolo p JOIN p.categoria c where c.id=2 order by p.id desc";
         $query = $this->getDoctrine()->getManager()->createQuery($dql)
@@ -193,26 +192,29 @@ class ArticoloController extends BaseController
 
         $paginator = new Paginator($query, $fetchJoinCollection = true);
 
-if($request->get("start")){
+        if($request->get("start")){
 
-    $jsonArticoli=[];
-    foreach($paginator as $articolo){
-        $jsonArticoli["data"][]=[
-            "<input class=\"eliminaCheckbox\" value=\"".$articolo->getId()."\" type=\"checkbox\">",
-            $articolo->getId(),
-            $articolo->__toString(),
-            $articolo->getStato(),
-            $articolo->getTimestamp()->format("d-m-Y H:i"),
-            "
+            $jsonArticoli=[];
+            foreach($paginator as $articolo){
+                $jsonArticoli["data"][]=[
+                    "<input class=\"eliminaCheckbox\" value=\"".$articolo->getId()."\" type=\"checkbox\">",
+                    $articolo->getId(),
+                    $articolo->__toString(),
+                    $articolo->getStato(),
+                    $articolo->getTimestamp()->format("d-m-Y H:i"),
+                    "
                             <button type=\"button\" onclick=\"window.open('/archivio/articoli/modifica/".$articolo->getId()."','_blank');\" class=\"btn btn-success\">Modifica
                             </button>
                             <button type=\"button\" data-route=\"/archivio/articoli/elimina/".$articolo->getId()."\" class=\"btn btn-danger delete-entity\">Elimina
                             </button>
                         "
-        ];
-    }
-    return new JsonResponse($jsonArticoli);
-}
+                ];
+            }
+            return new JsonResponse($jsonArticoli);
+        }
+
+        $dql = "SELECT count(p.id) FROM BlogBundle:Articolo p JOIN p.categoria c where c.id=2 order by p.id desc";
+        $count = $this->getDoctrine()->getManager()->createQuery($dql)->getSingleScalarResult();
 
 
         return $this->render('AppBundle:Crud:list-comunicati.html.twig', array('entities' => $paginator, 'total' => $count));
