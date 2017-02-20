@@ -3,6 +3,7 @@
 namespace BlogBundle\Controller;
 
 use AppBundle\Controller\BaseController;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use BlogBundle\Form\ArticoloType;
@@ -157,13 +158,16 @@ class ArticoloController extends BaseController
      */
     public function listComunicatiAction(Request $request)
     {
-        $em = $this->getDoctrine()->getEntityManager();
 
-        $categoria = $em->getRepository('BlogBundle:Categoria')->find(2);
-        $entities = $em->getRepository("BlogBundle:".$this->entity)->findByCategoria($categoria);
+        $dql = "SELECT p FROM BlogBundle:Articolo p JOIN p.categoria c where c.id=2 order by p.id desc";
+        $query = $this->getDoctrine()->getManager()->createQuery($dql)
+            ->setFirstResult(0)
+            ->setMaxResults(100);
+
+        $paginator = new Paginator($query, $fetchJoinCollection = true);
 
 
-        return $this->render('AppBundle:Crud:list-comunicati.html.twig', array('entities' => array_reverse($entities)));
+        return $this->render('AppBundle:Crud:list-comunicati.html.twig', array('entities' => $paginator));
     }
 
     /**
