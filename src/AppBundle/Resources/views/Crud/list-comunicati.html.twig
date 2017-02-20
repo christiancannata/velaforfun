@@ -17,15 +17,18 @@
 {% block title %}{{ base_path }}{% endblock %}
 
 {% block javascripts %}
-    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-    <script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/plug-ins/1.10.13/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 
     <script language="javascript">
         $(document).ready(function(){
-            $('.crud table').dataTable( {"language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.7/i18n/Italian.json",
+            $('.crud table').DataTable( {
+                "processing": true,
+                "serverSide": true,
+                "ajax": "/archivio/list/comunicati",
+                "deferLoading": {{ total }}
+            } );
 
-            }});
         });
     </script>
 {% endblock %}

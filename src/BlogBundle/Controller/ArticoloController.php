@@ -17,6 +17,32 @@ class ArticoloController extends BaseController
     protected $entity = "Articolo";
 
 
+
+    /**
+     * @Route( "list/{categoria}/ajax" )
+     */
+    public function getArticoliCategoriaJsonAction($categoria, Request $r)
+    {
+        die("jjj");
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $categoria = $em->getRepository('BlogBundle:Categoria')->findOneByPermalink($categoria);
+
+        if ($categoria) {
+
+            $dql = "SELECT p FROM BlogBundle:Articolo p JOIN p.categoria c where c.id=2 order by p.id desc";
+            $query = $this->getDoctrine()->getManager()->createQuery($dql)
+                ->setFirstResult($r->get("from"))
+                ->setMaxResults($r->get("size"));
+
+            $paginator = new Paginator($query, $fetchJoinCollection = true);
+
+        }
+
+
+    }
+
+
     /**
      * @Route( "articoli/crea", name="create_articolo" )
      */
@@ -39,7 +65,7 @@ class ArticoloController extends BaseController
 
                 $params = $request->request->all();
 
-                if($params['blogbundle_articolo']['textFileImage']!=""){
+                if ($params['blogbundle_articolo']['textFileImage'] != "") {
                     $data->setImmagineCorrelata(null);
                     $data->setImmagineCorrelataArticolo($params['blogbundle_articolo']['textFileImage']);
                 }
@@ -80,7 +106,7 @@ class ArticoloController extends BaseController
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository("BlogBundle:".$this->entity)->find($id);
+        $entity = $em->getRepository("BlogBundle:" . $this->entity)->find($id);
 
         $postform = $this->createForm(new ArticoloType(), $entity);
 
@@ -91,13 +117,11 @@ class ArticoloController extends BaseController
             if ($postform->isValid()) {
 
 
-
-
                 $data = $postform->getData();
 
                 $params = $request->request->all();
 
-                if($params['blogbundle_articolo']['textFileImage']!=""){
+                if ($params['blogbundle_articolo']['textFileImage'] != "") {
                     $data->setImmagineCorrelata(null);
                     $data->setImmagineCorrelataArticolo($params['blogbundle_articolo']['textFileImage']);
                 }
@@ -110,7 +134,6 @@ class ArticoloController extends BaseController
 
                 $em->merge($data);
                 $em->flush();
-
 
 
                 $response['success'] = true;
@@ -128,7 +151,7 @@ class ArticoloController extends BaseController
 
         return $this->render(
             'AppBundle:Crud:create-articolo.html.twig',
-            array('form' => $postform->createView(), "titolo" => "Modifica ".$this->entity." - ".$id,"entity"=>$entity)
+            array('form' => $postform->createView(), "titolo" => "Modifica " . $this->entity . " - " . $id, "entity" => $entity)
         );
     }
 
@@ -141,9 +164,9 @@ class ArticoloController extends BaseController
 
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository("BlogBundle:".$this->entity)->findAll();
+        $entities = $em->getRepository("BlogBundle:" . $this->entity)->findAll();
 
-        $exclude = array(2,11,12,13,14,15);
+        $exclude = array(2, 11, 12, 13, 14, 15);
         foreach ($entities as $key => $entity) {
             if ($entity->getCategoria() != null && in_array($entity->getCategoria()->getId(), $exclude)) {
                 unset($entities[$key]);
@@ -159,16 +182,44 @@ class ArticoloController extends BaseController
     public function listComunicatiAction(Request $request)
     {
 
+
+        $dql = "SELECT count(p.id) FROM BlogBundle:Articolo p JOIN p.categoria c where c.id=2 order by p.id desc";
+        $count = $this->getDoctrine()->getManager()->createQuery($dql)->getSingleScalarResult();
+
         $dql = "SELECT p FROM BlogBundle:Articolo p JOIN p.categoria c where c.id=2 order by p.id desc";
         $query = $this->getDoctrine()->getManager()->createQuery($dql)
-            ->setFirstResult(0)
-            ->setMaxResults(100);
+            ->setFirstResult($request->get("start",0))
+            ->setMaxResults($request->get("length",10));
 
         $paginator = new Paginator($query, $fetchJoinCollection = true);
 
+if($request->get("start")){
 
-        return $this->render('AppBundle:Crud:list-comunicati.html.twig', array('entities' => $paginator));
+    $jsonArticoli=[];
+    foreach($paginator as $articolo){
+        $jsonArticoli["data"][]=[
+            "<input class=\"eliminaCheckbox\" value=\"".$articolo->getId()."\" type=\"checkbox\">",
+            $articolo->getId(),
+            $articolo->__toString(),
+            $articolo->getStato(),
+            $articolo->getTimestamp()->format("d-m-Y H:i"),
+            "
+                            <button type=\"button\" onclick=\"window.open('/archivio/articoli/modifica/".$articolo->getId()."','_blank');\" class=\"btn btn-success\">Modifica
+                            </button>
+                            <button type=\"button\" data-route=\"/archivio/articoli/elimina/".$articolo->getId()."\" class=\"btn btn-danger delete-entity\">Elimina
+                            </button>
+                        "
+        ];
     }
+    return new JsonResponse($jsonArticoli);
+}
+
+
+        return $this->render('AppBundle:Crud:list-comunicati.html.twig', array('entities' => $paginator, 'total' => $count));
+    }
+
+
+
 
     /**
      * @Route( "list/ricette", name="list_ricette" )
@@ -179,32 +230,32 @@ class ArticoloController extends BaseController
         $entities = [];
         $categoria = $em->getRepository('BlogBundle:Categoria')->find(11);
         $entities = array_merge(
-            $em->getRepository("BlogBundle:".$this->entity)->findByCategoria($categoria),
+            $em->getRepository("BlogBundle:" . $this->entity)->findByCategoria($categoria),
             $entities
         );
 
 
         $categoria = $em->getRepository('BlogBundle:Categoria')->find(12);
         $entities = array_merge(
-            $em->getRepository("BlogBundle:".$this->entity)->findByCategoria($categoria),
+            $em->getRepository("BlogBundle:" . $this->entity)->findByCategoria($categoria),
             $entities
         );
 
         $categoria = $em->getRepository('BlogBundle:Categoria')->find(13);
         $entities = array_merge(
-            $em->getRepository("BlogBundle:".$this->entity)->findByCategoria($categoria),
+            $em->getRepository("BlogBundle:" . $this->entity)->findByCategoria($categoria),
             $entities
         );
 
         $categoria = $em->getRepository('BlogBundle:Categoria')->find(14);
         $entities = array_merge(
-            $em->getRepository("BlogBundle:".$this->entity)->findByCategoria($categoria),
+            $em->getRepository("BlogBundle:" . $this->entity)->findByCategoria($categoria),
             $entities
         );
 
         $categoria = $em->getRepository('BlogBundle:Categoria')->find(15);
         $entities = array_merge(
-            $em->getRepository("BlogBundle:".$this->entity)->findByCategoria($categoria),
+            $em->getRepository("BlogBundle:" . $this->entity)->findByCategoria($categoria),
             $entities
         );
 
@@ -229,14 +280,14 @@ class ArticoloController extends BaseController
         $em = $this->getDoctrine()->getEntityManager();
 
 
-        $id=explode(",",$id);
+        $id = explode(",", $id);
 
-        $entity = $em->getRepository("BlogBundle:".$this->entity)->find($id[0]);
+        $entity = $em->getRepository("BlogBundle:" . $this->entity)->find($id[0]);
 
 
         if ($request->isMethod('POST')) {
 
-            $numeroAllegato = "setAllegato".$id[1];
+            $numeroAllegato = "setAllegato" . $id[1];
             $entity->$numeroAllegato("");
             /*
              * $data['title']
@@ -255,7 +306,6 @@ class ArticoloController extends BaseController
     }
 
 
-
     /**
      * @Route( "articoli/immagine-articolo/{id}", name="immagine_articolo" )
      */
@@ -264,20 +314,20 @@ class ArticoloController extends BaseController
         $em = $this->getDoctrine()->getEntityManager();
 
 
-        $id=explode(",",$id);
+        $id = explode(",", $id);
 
-        $entity = $em->getRepository("BlogBundle:".$this->entity)->find($id[0]);
+        $entity = $em->getRepository("BlogBundle:" . $this->entity)->find($id[0]);
 
 
         if ($request->isMethod('POST')) {
 
 
-            $foto = $em->getRepository("AppBundle:Foto")->find( $id[1]);
+            $foto = $em->getRepository("AppBundle:Foto")->find($id[1]);
 
 
             $fs = new Filesystem();
 
-            $fs->copy('/var/www/web/uploads/galleria_foto/'.$foto->getImmagine(), '/var/www/web/images/articoli/'.$foto->getImmagine());
+            $fs->copy('/var/www/web/uploads/galleria_foto/' . $foto->getImmagine(), '/var/www/web/images/articoli/' . $foto->getImmagine());
 
             $entity->setImmagine($foto->getImmagine());
             /*
@@ -297,7 +347,6 @@ class ArticoloController extends BaseController
     }
 
 
-
     /**
      * @Route( "articoli/elimina-immagine/{id}", name="delete_immagine_articolo" )
      */
@@ -305,7 +354,7 @@ class ArticoloController extends BaseController
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository("BlogBundle:".$this->entity)->find($id);
+        $entity = $em->getRepository("BlogBundle:" . $this->entity)->find($id);
 
 
         if ($request->isMethod('POST')) {
@@ -329,7 +378,6 @@ class ArticoloController extends BaseController
     }
 
 
-
     /**
      * @Route( "articoli/elimina-gallery/{id}", name="delete_gallery_articolo" )
      */
@@ -337,7 +385,7 @@ class ArticoloController extends BaseController
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository("BlogBundle:".$this->entity)->find($id);
+        $entity = $em->getRepository("BlogBundle:" . $this->entity)->find($id);
 
 
         if ($request->isMethod('POST')) {
@@ -359,7 +407,6 @@ class ArticoloController extends BaseController
         }
 
     }
-
 
 
     /**
@@ -397,7 +444,7 @@ class ArticoloController extends BaseController
         }
         $categorie = $em->getRepository('BlogBundle:Categoria')->findAll();
 
-        $exclude = array(11,12,13,14,15);
+        $exclude = array(11, 12, 13, 14, 15);
         foreach ($categorie as $key => $entity) {
             if ($entity != null && in_array($entity->getId(), $exclude)) {
                 unset($categorie[$key]);
@@ -416,9 +463,6 @@ class ArticoloController extends BaseController
             )
         );
     }
-
-
-
 
 
 }
