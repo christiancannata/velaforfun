@@ -85,7 +85,7 @@ class FotoController extends BaseController
                 $fileUpload->setInEvidenza(true);
 
 
-                $em->persist($fileUpload);
+                $fileUpload = $em->persist($fileUpload);
                 $em->flush();
 
                 $foto[] = $fileUpload;
@@ -175,7 +175,7 @@ class FotoController extends BaseController
                         $post = array(
                             "message" => $testo,
                             "picture" => 'http://www.velaforfun.com/uploads/' . $immagineArticolo,
-                            "link" => 'http://www.velaforfun.com'
+                            "link" => 'http://www.velaforfun.com/foto?open=' . $fileUpload->getId()
                         );
 
 
@@ -333,8 +333,15 @@ class FotoController extends BaseController
 
         }
 
+        $foto = null;
+        if ($request->get("open")) {
+            $foto = $this->getDoctrine()
+                ->getRepository('AppBundle:Foto')->find(
+                    $request->get("open")
+                );
+        }
 
-        return $this->render('AppBundle:Foto:dettagliGalleria.html.twig', array("galleria" => $categorie, "tags" => $tags));
+        return $this->render('AppBundle:Foto:dettagliGalleria.html.twig', array("galleria" => $categorie, "tags" => $tags,"foto"=>$foto));
     }
 
 
@@ -383,9 +390,8 @@ class FotoController extends BaseController
     /**
      * @Route("/{permalink}", name="dettaglio_foto")
      */
-    public function dettagliFotoAction($permalink)
+    public function dettagliFotoAction($permalink, Request $request)
     {
-
         $query = $this->getDoctrine()->getManager()->createQuery("SELECT u FROM \\AppBundle\\Entity\\Foto u  where u.tag like '%\"" . strtoupper($permalink) . "\"%' order by u.id desc");
         $categorie = $query->setFirstResult(0)->setMaxResults(9)->getResult();
 
@@ -395,9 +401,16 @@ class FotoController extends BaseController
 
             throw $this->createNotFoundException('Unable to find Articolo.');
         }
+        $foto = null;
+        if ($request->get("open")) {
+            $foto = $this->getDoctrine()
+                ->getRepository('AppBundle:Foto')->find(
+                    $request->get("open")
+                );
+        }
 
 
-        return $this->render('AppBundle:Foto:dettagliGalleria.html.twig', array("tag" => $permalink, "galleria" => $categorie));
+        return $this->render('AppBundle:Foto:dettagliGalleria.html.twig', array("tag" => $permalink, "galleria" => $categorie, "foto" => $foto));
     }
 
 

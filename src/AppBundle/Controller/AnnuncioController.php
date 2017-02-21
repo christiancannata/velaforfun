@@ -363,7 +363,8 @@ class AnnuncioController extends BaseController
         $qb->select(array('a'))
             ->from('\\AppBundle\\Entity\\Annuncio', 'a')
             ->join('a.topic', 'c')
-        ->where("c.isDeleted=false and c.isClosed=false ");
+        ->where("c.isDeleted=false and c.isClosed=false ")
+        ->orderBy("c.id","desc");
 
         $query = $qb->getQuery();
 

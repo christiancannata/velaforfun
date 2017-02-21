@@ -78,10 +78,10 @@
             });
 
 
-            if (getUrlParameter("foto")) {
-                var video = getUrlParameter("foto");
+            if (getUrlParameter("open")) {
+                var foto = getUrlParameter("open");
 
-                $("#guarda-" + video).click();
+                $("#guarda-" + foto).click();
 
             }
 
@@ -195,6 +195,47 @@
 
 {% endfor %}
 
+
+                {% if foto is defined and foto is not null %}
+                    <div class="col-md-4 column  video-box ">
+
+                        <a class="image-link" href="/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
+                            <div class="box-home link-video" style="height: 330px;" data-foto="http://www.velaforfun.com/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
+                                <div style="opacity: 1;background-image: url(/uploads/galleria_foto/{{ foto.immagine|url_encode }});"
+                                     class="divBackgroundImage" data-original="http://www.velaforfun.com/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
+                                </div>
+                                <div class="content">
+
+                                    <div class="box-action">
+                                        {% set tags = foto.getTag()|json_decode %}
+
+                                        <h2>
+
+                                            {% for tag in tags %}
+                                                <span class="tag">{{ tag }}</span>
+                                            {% endfor %}
+
+
+                                        </h2>
+
+                                        <div class="over-box">
+
+                                            <button class="btn btn-default dettagli-nodo hvr-sweep-to-right " type="submit" id="guarda-{{ foto.id }}">
+                                                GUARDA FOTO
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </a>
+
+                    </div>
+
+                {% endif %}
 
             </div>
 
