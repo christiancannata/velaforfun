@@ -30,50 +30,33 @@ class ImportFotoCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        $this->output = $output;
-        $this->em = $this->getContainer()->get('doctrine.orm.entity_manager');
-        $this->connection = $this->getContainer()->get('database_connection');
-
-        $query = "select * from img";
-
-        $res = $this->connection->executeQuery($query)->fetchAll();
-
-        $this->output->writeln("<comment>Importing ".count($res)." </comment>");
-
-        foreach ($res as $data) {
-            if($data['categoria']!=null){
-                $categoria = $this->getContainer()->get('doctrine')
-                    ->getRepository('AppBundle:GalleriaFoto')->findOneByNome(ucfirst($data['categoria']));
-                if(!$categoria){
-                    $categoria=new GalleriaFoto();
-                    $categoria->setNome(ucfirst($data['categoria']));
-                    $this->em->persist($categoria);
-                    $this->em->flush();
-                }
-                if ($categoria) {
-
-                    $video = $this->getContainer()->get('doctrine')
-                        ->getRepository('AppBundle:Foto')->findOneByNome(ucfirst($data['Titolo']));
-                    if(!$video){
-                        $video = new Foto();
-                    }
-                    $video->setInEvidenza(true);
-                    $video->setNome($data['Titolo']);
-                    $video->setAutore($data['autore']);
-                    $video->setImmagine($data['nomefile']);
-                    $video->setGalleria(
-                        $categoria
-                    );
-
-                    $this->em->persist($video);
-
-                }
-            }
+        $foto = $this->getContainer()->get("doctrine")->getManager()->getRepository("\\AppBundle\\Entity\\Foto")->findBy(["tag" => null]);
 
 
+        foreach ($foto as $obj) {
+            $galleria = $obj->getGalleria();
 
+            if (!$galleria)
+                continue;
+
+            $obj->setTag(json_encode([str_replace([" ", "-"], "_", strtoupper($galleria->getNome()))]));
+            $this->getContainer()->get("doctrine")->getManager()->merge($obj);
         }
-        $this->em->flush();
+
+
+        $foto = $this->getContainer()->get("doctrine")->getManager()->getRepository("\\AppBundle\\Entity\\Foto")->findBy(["tag" => ""]);
+
+
+        foreach ($foto as $obj) {
+            $galleria = $obj->getGalleria();
+
+            if (!$galleria)
+                continue;
+
+            $obj->setTag(json_encode([str_replace([" ", "-"], "_", strtoupper($galleria->getNome()))]));
+            $this->getContainer()->get("doctrine")->getManager()->merge($obj);
+        }
+        $this->getContainer()->get("doctrine")->getManager()->flush();
 
     }
 }
