@@ -309,6 +309,11 @@ class FotoController extends BaseController
         }
 
 
+        $query = $this->getDoctrine()->getManager()->createQuery("SELECT distinct u.tag FROM \\AppBundle\\Entity\\Foto u,\\AppBundle\\Entity\\GalleriaFoto g  where u.galleria=g and g.inGallery=1");
+        $tagsProdotti = $query->getResult();
+
+
+
         $categorie = $this->getDoctrine()
             ->getRepository('AppBundle:GalleriaFoto')->find(1);
 
@@ -320,11 +325,16 @@ class FotoController extends BaseController
 
 
         $tags = [];
-        foreach ($categorie->getFoto() as $foto) {
-            $tagsFoto = json_decode($foto->getTag(), true);
+
+        foreach ($tagsProdotti as $tag) {
+
+
+            $tagsFoto = json_decode($tag['tag'],true);
 
             if (is_array($tagsFoto)) {
                 foreach ($tagsFoto as $tagFoto) {
+
+
                     if (!in_array($tagFoto, $tags)) {
                         $tags[] = $tagFoto;
                     }
