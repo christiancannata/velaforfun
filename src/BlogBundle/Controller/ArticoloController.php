@@ -184,7 +184,6 @@ class ArticoloController extends BaseController
 
 
 
-
         $dql = "SELECT p FROM BlogBundle:Articolo p JOIN p.categoria c where c.id=2 order by p.id desc";
         $query = $this->getDoctrine()->getManager()->createQuery($dql)
             ->setFirstResult($request->get("start",0))
@@ -192,7 +191,9 @@ class ArticoloController extends BaseController
 
         $paginator = new Paginator($query, $fetchJoinCollection = true);
 
-        if($request->get("start")){
+        if($request->get("length")){
+
+
 
             $jsonArticoli=[];
             foreach($paginator as $articolo){
