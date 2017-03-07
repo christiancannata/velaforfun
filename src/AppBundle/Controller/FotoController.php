@@ -88,7 +88,7 @@ class FotoController extends BaseController
                 $fileUpload->setInEvidenza(true);
 
 
-                 $em->persist($fileUpload);
+                $em->persist($fileUpload);
                 $em->flush();
                 //$em->clear();
                 $foto[] = $fileUpload;
@@ -106,7 +106,6 @@ class FotoController extends BaseController
                     if ($fileUpload->getImmagine() != "") {
                         $immagineArticolo = 'galleria_foto/' . $fileUpload->getImmagine();
                     }
-
 
 
                     $fbPost = $fbPost->createImage(
@@ -183,11 +182,9 @@ class FotoController extends BaseController
                     );
 
 
-
-
-
                     $dataPubb = new \DateTime();
-                    $dataPubb->add(new \DateInterval("PT{$ore}H"));
+                    $appo = $dataPubb;
+                    $appo->add(new \DateInterval("PT{$ore}H"));
 
                     $post['scheduled_publish_time'] = $dataPubb->format("U");
                     $post['published'] = false;
