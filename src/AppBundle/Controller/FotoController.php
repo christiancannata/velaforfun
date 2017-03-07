@@ -176,7 +176,7 @@ class FotoController extends BaseController
 
                     $post = array(
                         "message" => $testo,
-                        //"picture" => 'http://www.velaforfun.com/uploads/' . $immagineArticolo,
+                        "picture" => 'http://www.velaforfun.com/uploads/' . $immagineArticolo,
                         // "link" => 'http://www.velaforfun.com/foto?open=' . $fileUpload->getId()
                         "link" => 'http://www.velaforfun.com/uploads/' . $immagineArticolo
                     );
