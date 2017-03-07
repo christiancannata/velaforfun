@@ -147,7 +147,7 @@ class FotoController extends BaseController
 // Get the GraphUser object for the current user:
                     $me = (
                     new FacebookRequest(
-                        $session, 'GET', '/508027799222045?fields=access_token',null, "v2.8"
+                        $session, 'GET', '/508027799222045?fields=access_token', null, "v2.8"
                     )
                     )->execute();
 
@@ -176,13 +176,9 @@ class FotoController extends BaseController
 
                     $post = array(
                         "message" => $testo,
-                        //"picture" =>
-                        // "link" => 'http://www.velaforfun.com/foto?open=' . $fileUpload->getId()
-                        "link" =>'http://www.velaforfun.com/uploads/' . $immagineArticolo,
-                        "actions"=> array(
-                            "name"=>"View on Velaforfun",
-                            "link"=>"http://www.google.it"
-                        )
+                        "link" => 'http://www.velaforfun.com/foto?open=' . $fileUpload->getId(),
+                        "picture" => 'http://www.velaforfun.com/uploads/' . $immagineArticolo
+
                     );
 
 
