@@ -54,15 +54,17 @@ class FotoController extends BaseController
                     )
                 );
             }
+
             // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
             foreach ($files as $key => $uploadedFile) {
                 $fileUpload = new Foto();
                 $fileUpload->setProfilePictureFile($uploadedFile);
                 $fileUpload->setNome(preg_replace('/\\.[^.\\s]{3,4}$/', '', $uploadedFile->getClientOriginalName()));
-
                 $tags = [];
                 $tagGenerici = explode(",", $params['appbundle_galleriafoto']['tag']);
                 $tagSpecifici = explode(",", $params['tags'][$key]);
+                $fileUpload->setTimestamp(new \DateTime());
+                $fileUpload->setLastUpdateTimestamp(new \DateTime());
 
                 $tags = array_merge($tagGenerici, $tagSpecifici);
 
@@ -85,17 +87,17 @@ class FotoController extends BaseController
                 $fileUpload->setInEvidenza(true);
 
 
-                $fileUpload = $em->persist($fileUpload);
+                $fileUpload = $em->merge($fileUpload);
                 $em->flush();
 
                 $foto[] = $fileUpload;
-
 
                 if ($ore > 0 && !$this->container->get('security.context')->getToken() instanceof UsernamePasswordToken) {
 
 
                     /** Create you Post instance **/
                     $fbPost = new Post();
+
 
                     /** Add image to post, you can provide absolute path for your local file and browser url to file **/
 
@@ -142,95 +144,60 @@ class FotoController extends BaseController
                     $session = new FacebookSession($this->container->get('security.context')->getToken()->getAccessToken());
                     $idFacebook = "";
 // Get the GraphUser object for the current user:
-                    try {
-                        $me = (
-                        new FacebookRequest(
-                            $session, 'GET', '/508027799222045?fields=access_token'
-                        )
-                        )->execute();
+                    $me = (
+                    new FacebookRequest(
+                        $session, 'GET', '/508027799222045?fields=access_token'
+                    )
+                    )->execute();
 
 
-                        $pageToken = $me->getResponse();
+                    $pageToken = $me->getResponse();
 
-                        if ($pageToken->access_token) {
-                            $pageToken = $pageToken->access_token;
-                        }
-
-
-                        $session = new FacebookSession($pageToken);
-
-
-                        $data = $request->request->all();
-
-
-                        $em = $this->container->get('doctrine')->getManager();
-                        $testo = "";
-                        foreach ($clear as $tag) {
-                            if ($tag != "") {
-                                $testo .= "#" . trim($tag) . " ";
-
-                            }
-                        }
-
-                        $post = array(
-                            "message" => $testo,
-                            "picture" => 'http://www.velaforfun.com/uploads/' . $immagineArticolo,
-                            "link" => 'http://www.velaforfun.com/foto?open=' . $fileUpload->getId()
-                        );
-
-
-                        $dataPubb = new \DateTime();
-                        $dataPubb->add(new \DateInterval("PT{$ore}H"));
-
-                        $post['scheduled_publish_time'] = $dataPubb->format("U");
-                        $post['published'] = false;
-                        $ore += $ore;
-
-
-                        //TODO: Handle errors
-                        $facebookRequest = new FacebookRequest($session, 'POST', '/508027799222045/feed', $post);
-
-
-                        /** @var GraphObject $graphObject */
-                        try {
-
-                            $graphObject = $facebookRequest->execute()->getGraphObject();
-
-
-                            $idFacebook = $graphObject->getProperty('id');
-
-                        } catch (\Exception $ex) {
-                            die(var_dump($ex->getMessage()));
-                        }
-
-
-                    } catch (FacebookRequestException $e) {
-                        var_dump($e->getMessage());
-                        // The Graph API returned an error
-                    } catch (\Exception $e) {
-                        var_dump($e->getMessage());
-                        // Some other error occurred
+                    if ($pageToken->access_token) {
+                        $pageToken = $pageToken->access_token;
                     }
 
 
-                    /* $fbPost = new Post();
-
-                     $fbPost
-                         ->createLink(
-                             'http://www.velaforfun.com/archivio/' . $articolo->getCategoria()->getPermalink() . '/' . $articolo->getPermalink()
-                         )
-                         ->setMessage($articolo->getTitolo());
-
-                     $provider = $this->get('wall_poster.twitter');
-
-                     try {
-                         $post = $provider->publish($fbPost);
+                    $session = new FacebookSession($pageToken);
 
 
-                     } catch (Exception $ex) {
+                    $data = $request->request->all();
 
-                         die(var_dump($ex->getMessage()));
-                     } */
+
+                    $em = $this->container->get('doctrine')->getManager();
+                    $testo = "";
+                    foreach ($clear as $tag) {
+                        if ($tag != "") {
+                            $testo .= "#" . trim($tag) . " ";
+
+                        }
+                    }
+
+                    $post = array(
+                        "message" => $testo,
+                        "picture" => 'http://www.velaforfun.com/uploads/' . $immagineArticolo,
+                        "link" => 'http://www.velaforfun.com/foto?open=' . $fileUpload->getId()
+                    );
+
+
+                    $dataPubb = new \DateTime();
+                    $dataPubb->add(new \DateInterval("PT{$ore}H"));
+
+                    $post['scheduled_publish_time'] = $dataPubb->format("U");
+                    $post['published'] = false;
+                    $ore += $ore;
+
+
+                    //TODO: Handle errors
+                    $facebookRequest = new FacebookRequest($session, 'POST', '/508027799222045/feed', $post);
+
+
+                    /** @var GraphObject $graphObject */
+
+                    $graphObject = $facebookRequest->execute()->getGraphObject();
+
+
+                    $idFacebook = $graphObject->getProperty('id');
 
 
                     if ($idFacebook) {
@@ -313,7 +280,6 @@ class FotoController extends BaseController
         $tagsProdotti = $query->getResult();
 
 
-
         $categorie = $this->getDoctrine()
             ->getRepository('AppBundle:GalleriaFoto')->find(1);
 
@@ -329,7 +295,7 @@ class FotoController extends BaseController
         foreach ($tagsProdotti as $tag) {
 
 
-            $tagsFoto = json_decode($tag['tag'],true);
+            $tagsFoto = json_decode($tag['tag'], true);
 
             if (is_array($tagsFoto)) {
                 foreach ($tagsFoto as $tagFoto) {
@@ -351,7 +317,7 @@ class FotoController extends BaseController
                 );
         }
 
-        return $this->render('AppBundle:Foto:dettagliGalleria.html.twig', array("galleria" => $categorie, "tags" => $tags,"foto"=>$foto));
+        return $this->render('AppBundle:Foto:dettagliGalleria.html.twig', array("galleria" => $categorie, "tags" => $tags, "foto" => $foto));
     }
 
 
