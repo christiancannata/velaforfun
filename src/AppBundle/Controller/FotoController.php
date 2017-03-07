@@ -58,6 +58,7 @@ class FotoController extends BaseController
             // $file will be an instance of Symfony\Component\HttpFoundation\File\UploadedFile
             foreach ($files as $key => $uploadedFile) {
                 $fileUpload = new Foto();
+
                 $fileUpload->setProfilePictureFile($uploadedFile);
                 $fileUpload->setNome(preg_replace('/\\.[^.\\s]{3,4}$/', '', $uploadedFile->getClientOriginalName()));
                 $tags = [];
@@ -87,9 +88,9 @@ class FotoController extends BaseController
                 $fileUpload->setInEvidenza(true);
 
 
-                $fileUpload = $em->merge($fileUpload);
+                $em->persist($fileUpload);
                 $em->flush();
-
+                //$em->clear();
                 $foto[] = $fileUpload;
 
                 if ($ore > 0 && !$this->container->get('security.context')->getToken() instanceof UsernamePasswordToken) {
