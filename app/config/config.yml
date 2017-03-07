@@ -98,7 +98,9 @@ fos_user:
             enabled:    false # change to true for required email confirmation
         form:
             type: app_user_registration
-
+    from_email:
+            address: info@velaforfun.com
+            sender_name: Velaforfun
 hwi_oauth:
     # name of the firewall in which this bundle is active, this setting MUST be set
     firewall_name: secure_area
