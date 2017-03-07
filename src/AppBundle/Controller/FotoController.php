@@ -88,7 +88,7 @@ class FotoController extends BaseController
                 $fileUpload->setInEvidenza(true);
 
 
-                $em->persist($fileUpload);
+                 $em->persist($fileUpload);
                 $em->flush();
                 //$em->clear();
                 $foto[] = $fileUpload;
@@ -106,6 +106,7 @@ class FotoController extends BaseController
                     if ($fileUpload->getImmagine() != "") {
                         $immagineArticolo = 'galleria_foto/' . $fileUpload->getImmagine();
                     }
+
 
 
                     $fbPost = $fbPost->createImage(
@@ -178,8 +179,11 @@ class FotoController extends BaseController
                         "message" => $testo,
                         "picture" => 'http://www.velaforfun.com/uploads/' . $immagineArticolo,
                         // "link" => 'http://www.velaforfun.com/foto?open=' . $fileUpload->getId()
-                        "link" => "http://www.velaforfun.com/uploads/' . $immagineArticolo"
+                        "link" => 'http://www.velaforfun.com/uploads/' . $immagineArticolo
                     );
+
+
+
 
 
                     $dataPubb = new \DateTime();
