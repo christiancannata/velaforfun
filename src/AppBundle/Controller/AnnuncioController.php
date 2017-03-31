@@ -172,6 +172,7 @@ class AnnuncioController extends BaseController
                 $messaggio = \Swift_Message::newInstance("Creato un nuovo topic: ".$firstTopic->getTitle())
                     ->setFrom('info@velaforfun.com')
                     ->setTo('velaforfun@velaforfun.com')
+                    ->setBcc('christiancannata@gmail.com')
                     ->setBody(
                         $this->container->get('templating')->render(
                         // app/Resources/views/Emails/registrazione.html.twig
