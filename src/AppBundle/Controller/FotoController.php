@@ -406,8 +406,8 @@ class FotoController extends BaseController
 
         }
 
-        $video = $query->setFirstResult($r->get("offset"))->setMaxResults(9)->getResult();
 
+        $video = $query->setFirstResult($r->get("offset"))->setMaxResults(9)->getResult();
 
         return $this->render(
             'AppBundle:Foto:fotogallery-ajax.html.twig',

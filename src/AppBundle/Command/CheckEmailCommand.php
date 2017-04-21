@@ -224,6 +224,9 @@ class CheckEmailCommand extends ContainerAwareCommand
                     );
                 $mailer->send($messaggio);
 
+
+
+
             }
 
 

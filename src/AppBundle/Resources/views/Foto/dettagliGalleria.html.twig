@@ -29,7 +29,7 @@
                             if (html) {
                                $('div#loadmoreajaxloader').hide();
                               //  $('.load-more').remove();
-                                $("#postswrapper .nodi").append(html);
+                                $(".row.nodi").append(html);
                                 $('.image-link').magnificPopup({type: 'image'});
                             } else {
                                 $('div#loadmoreajaxloader').html('<center>Non ci sono più elementi da visualizzare.</center>');
@@ -194,7 +194,7 @@
 
 
 {% endfor %}
-
+            </div>
 
                 {% if foto is defined and foto is not null %}
                     <div class="col-md-4 column  video-box ">
