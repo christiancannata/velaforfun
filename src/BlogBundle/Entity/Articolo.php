@@ -556,7 +556,7 @@ class Articolo implements ItemInterface
                 '',
                 str_replace("''", "", str_replace(" ", "-", $this->getAllegato1File()->getClientOriginalName())."-".$oggi->format("U"))
             );
-            $this->setAllegato1($filename.'.'.$this->getAllegato1File()->guessExtension());
+            $this->setAllegato1(str_replace(array("(",")"),"",$filename).'.'.$this->getAllegato1File()->guessExtension());
         }
     }
 
@@ -576,7 +576,7 @@ class Articolo implements ItemInterface
                 '',
                 str_replace("''", "", str_replace(" ", "-", $this->getAllegato2File()->getClientOriginalName())."-".$oggi->format("U"))
             );
-            $this->setAllegato2($filename.'.'.$this->getAllegato2File()->guessExtension());
+            $this->setAllegato2(str_replace(array("(",")"),"",$filename).'.'.$this->getAllegato2File()->guessExtension());
         }
     }
 
@@ -596,7 +596,7 @@ class Articolo implements ItemInterface
                 '',
                 str_replace("''", "", str_replace(" ", "-", $this->getAllegato3File()->getClientOriginalName())."-".$oggi->format("U"))
             );
-            $this->setAllegato3($filename.'.'.$this->getAllegato3File()->guessExtension());
+            $this->setAllegato3(str_replace(array("(",")"),"",$filename).'.'.$this->getAllegato3File()->guessExtension());
         }
     }
     /**
@@ -614,7 +614,7 @@ class Articolo implements ItemInterface
                 '',
                 str_replace("''", "", str_replace(" ", "-", $this->getAllegato4File()->getClientOriginalName())."-".$oggi->format("U"))
             );
-            $this->setAllegato4($filename.'.'.$this->getAllegato4File()->guessExtension());
+            $this->setAllegato4(str_replace(array("(",")"),"",$filename).'.'.$this->getAllegato4File()->guessExtension());
         }
     }
 
