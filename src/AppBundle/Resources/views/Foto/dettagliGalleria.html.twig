@@ -8,7 +8,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.min.js"></script>
     <script language="javascript">
 
-        window.currentTag="all";
+        window.currentTag = "all";
 
         $(document).ready(function () {
 
@@ -19,16 +19,16 @@
              */
 
 
-            $(document).on('click', ".load-more", function() {
+            $(document).on('click', ".load-more", function () {
                 if (loading == false) {
                     $('div#loadmoreajaxloader').show();
                     loading = true;
                     $.ajax({
-                        url: "/foto/"+window.currentTag+"/json?offset=" + offset,
+                        url: "/foto/" + window.currentTag + "/json?offset=" + offset,
                         success: function (html) {
                             if (html) {
-                               $('div#loadmoreajaxloader').hide();
-                              //  $('.load-more').remove();
+                                $('div#loadmoreajaxloader').hide();
+                                //  $('.load-more').remove();
                                 $(".row.nodi").append(html);
                                 $('.image-link').magnificPopup({type: 'image'});
                             } else {
@@ -39,20 +39,20 @@
                         }
                     });
                 }
-            })  ;
+            });
 
 
-            $(".filtro-tags .tag").click(function(){
+            $(".filtro-tags .tag").click(function () {
 
-                window.currentTag=$(this).data("val");
+                window.currentTag = $(this).data("val");
 
-                offset=0;
+                offset = 0;
                 loading = false;
                 if (loading == false) {
                     $('div#loadmoreajaxloader').show();
                     loading = true;
                     $.ajax({
-                        url: "/foto/"+window.currentTag+"/json?offset=" + offset,
+                        url: "/foto/" + window.currentTag + "/json?offset=" + offset,
                         success: function (html) {
                             if (html) {
                                 $('div#loadmoreajaxloader').hide();
@@ -110,16 +110,17 @@
             transform: translate(0, 0);
         }
 
-        .video-box .box-home .content h2,.video-box .box-home:hover .box-action h2{
-            margin-top:0px;
-            background:none
-        }
-        .video-box .box-home .box-action h2 .tag{
-            background:rgba(66, 156, 188,0.7)
+        .video-box .box-home .content h2, .video-box .box-home:hover .box-action h2 {
+            margin-top: 0px;
+            background: none
         }
 
-        .video-box .box-home:hover .box-action h2 .tag{
-        background:rgba(66, 156, 188,1)
+        .video-box .box-home .box-action h2 .tag {
+            background: rgba(66, 156, 188, 0.7)
+        }
+
+        .video-box .box-home:hover .box-action h2 .tag {
+            background: rgba(66, 156, 188, 1)
         }
 
     </style>
@@ -135,129 +136,137 @@
 
     <div class="row clearfix">
         <div class="col-md-12 column">
-                    <div class="category">
-            <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered" aria-hidden="true"></span>  </a>  <h1>Foto</h1>
-        </div>
+            <div class="category">
+                <a href="#" id="back-link" class="back-link"> <span class="glyphicon glyphicon-menu-left bordered"
+                                                                    aria-hidden="true"></span> </a>
+                <h1>Foto</h1>
+            </div>
         </div>
     </div>
     <!-- contenuto -->
 
-     <div id="postswrapper">
-         <div class="row">
-             <div class="col col-sm-12 filtro-tags">
-                 <span class="tag active" data-val="all">TUTTI I TAG</span>
-                 {% for tag in tags %}
-                     <span class="tag" data-val="{{ tag }}">{{ tag }}</span>
-                 {% endfor %}
-             </div>
-         </div>
-            <div class="row nodi ">
-
-                {% for foto in galleria.getFoto()|reverse|slice(0,9) %}
-    <div class="col-md-4 column  video-box ">
-
-<a class="image-link" href="/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
-        <div class="box-home link-video" style="height: 330px;" data-foto="http://www.velaforfun.com/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
-            <div style="opacity: 1;background-image: url(/uploads/galleria_foto/{{ foto.immagine|url_encode }});"
-                 class="divBackgroundImage" data-original="http://www.velaforfun.com/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
+    <div id="postswrapper">
+        <div class="row">
+            <div class="col col-sm-12 filtro-tags">
+                <span class="tag active" data-val="all">TUTTI I TAG</span>
+                {% for tag in tags %}
+                    <span class="tag" data-val="{{ tag }}">{{ tag }}</span>
+                {% endfor %}
             </div>
-            <div class="content">
+        </div>
+        <div class="row nodi ">
 
-                <div class="box-action">
-                    {% set tags = foto.getTag()|json_decode %}
+            {% for foto in galleria.getFoto()|reverse|slice(0,9) %}
+                <div class="col-md-4 column  video-box ">
 
-                    <h2>
+                    <a class="image-link" href="/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
+                        <div class="box-home link-video" style="height: 330px;"
+                             data-foto="http://www.velaforfun.com/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
+                            <div style="opacity: 1;background-image: url(/uploads/galleria_foto/{{ foto.immagine|url_encode }});"
+                                 class="divBackgroundImage"
+                                 data-original="http://www.velaforfun.com/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
+                            </div>
+                            <div class="content">
 
-                        {% for tag in tags %}
-                            <span class="tag">{{ tag }}</span>
-                        {% endfor %}
+                                <div class="box-action">
+                                    {% set tags = foto.getTag()|json_decode %}
+
+                                    <h2>
+
+                                        {% for tag in tags %}
+                                            <span class="tag">{{ tag }}</span>
+                                        {% endfor %}
 
 
-                    </h2>
+                                    </h2>
 
-                    <div class="over-box">
+                                    <div class="over-box">
 
-                        <button class="btn btn-default dettagli-nodo hvr-sweep-to-right " type="submit" id="guarda-{{ foto.id }}">
-                            GUARDA FOTO
-                        </button>
-                    </div>
+                                        <button class="btn btn-default dettagli-nodo hvr-sweep-to-right " type="submit"
+                                                id="guarda-{{ foto.id }}">
+                                            GUARDA FOTO
+                                        </button>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </a>
 
                 </div>
 
 
-            </div>
-
+            {% endfor %}
         </div>
-</a>
 
-    </div>
+        {% if foto is defined and foto is not null %}
+            <div class="col-md-4 column  video-box ">
 
+                <a class="image-link" href="/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
+                    <div class="box-home link-video" style="height: 330px;"
+                         data-foto="http://www.velaforfun.com/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
+                        <div style="opacity: 1;background-image: url(/uploads/galleria_foto/{{ foto.immagine|url_encode }});"
+                             class="divBackgroundImage"
+                             data-original="http://www.velaforfun.com/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
+                        </div>
+                        <div class="content">
 
-{% endfor %}
-            </div>
+                            <div class="box-action">
+                                {% set tags = foto.getTag()|json_decode %}
 
-                {% if foto is defined and foto is not null %}
-                    <div class="col-md-4 column  video-box ">
+                                <h2>
 
-                        <a class="image-link" href="/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
-                            <div class="box-home link-video" style="height: 330px;" data-foto="http://www.velaforfun.com/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
-                                <div style="opacity: 1;background-image: url(/uploads/galleria_foto/{{ foto.immagine|url_encode }});"
-                                     class="divBackgroundImage" data-original="http://www.velaforfun.com/uploads/galleria_foto/{{ foto.immagine|url_encode }}">
-                                </div>
-                                <div class="content">
-
-                                    <div class="box-action">
-                                        {% set tags = foto.getTag()|json_decode %}
-
-                                        <h2>
-
-                                            {% for tag in tags %}
-                                                <span class="tag">{{ tag }}</span>
-                                            {% endfor %}
+                                    {% for tag in tags %}
+                                        <span class="tag">{{ tag }}</span>
+                                    {% endfor %}
 
 
-                                        </h2>
+                                </h2>
 
-                                        <div class="over-box">
+                                <div class="over-box">
 
-                                            <button class="btn btn-default dettagli-nodo hvr-sweep-to-right " type="submit" id="guarda-{{ foto.id }}">
-                                                GUARDA FOTO
-                                            </button>
-                                        </div>
-
-                                    </div>
-
-
+                                    <button class="btn btn-default dettagli-nodo hvr-sweep-to-right " type="submit"
+                                            id="guarda-{{ foto.id }}">
+                                        GUARDA FOTO
+                                    </button>
                                 </div>
 
                             </div>
-                        </a>
+
+
+                        </div>
 
                     </div>
-
-                {% endif %}
+                </a>
 
             </div>
 
-         <div class="row clearfix">
-             <div class="col-md-12 column">
-                 <div id="loadmoreajaxloader" style="display:none;">
-                     <center><i class="fa fa-spinner fa-2x fa-spin "></i></center>
-                 </div>
-                 <button class="btn btn-primary load-more">Carica altro</button>
-             </div>
-         </div>
+        {% endif %}
 
-</div>
-            <!-- fine contenuto -->
-        </div>
+    </div>
 
-
-        <div class="row clearfix">
-            <div class="col-md-12 column">
-                <div class="divisore-big"></div>
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div id="loadmoreajaxloader" style="display:none;">
+                <center><i class="fa fa-spinner fa-2x fa-spin "></i></center>
             </div>
+            <button class="btn btn-primary load-more">Carica altro</button>
         </div>
+    </div>
+
+    </div>
+    <!-- fine contenuto -->
+    </div>
+
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <div class="divisore-big"></div>
+        </div>
+    </div>
 
 
     </div>
@@ -266,24 +275,25 @@
 
 
 
-        <div id="modalVideo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <div id="modalVideo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <img src="" style="width:100%" id="immaginePopup">
                     </div>
-                    <div class="modal-body">
 
 
-                        <div class="embed-responsive embed-responsive-4by3">
-                            <img src="" style="width:100%" id="immaginePopup">
-                        </div>
-
-
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
 
