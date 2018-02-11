@@ -203,6 +203,8 @@ class CheckEmailCommand extends ContainerAwareCommand
 
             if (count($comunicati) > 0) {
 
+
+
                 //Create the Transport
                 $transport = \Swift_MailTransport::newInstance();
 
@@ -223,8 +225,6 @@ class CheckEmailCommand extends ContainerAwareCommand
                         'text/html'
                     );
                 $mailer->send($messaggio);
-
-
 
 
             }
